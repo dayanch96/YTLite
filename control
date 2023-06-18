@@ -1,0 +1,9 @@
+Package: com.dvntm.ytlite
+Name: YTLite
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Lightweight YouTube Enhancer
+Maintainer: dvntm
+Author: dvntm
+Section: Tweaks

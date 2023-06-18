@@ -1,0 +1,30 @@
+"General" = "Основные";
+"RemoveAds" = "Убрать рекламу";
+"RemoveAdsDesc" = "Убирает рекламу в приложении.";
+"BackgroundPlayback" = "Фоновое воспроизведение";
+"BackgroundPlaybackDesc" = "Активирует фоновое воспроизведение.";
+
+"Navbar" = "Панель навигации";
+"RemoveCast" = "Скрыть «Трансляция»";
+"RemoveCastDesc" = "Скрывает кнопку трансляции с панели навигации.";
+"RemoveNotifications" = "Скрыть «Уведомления»";
+"RemoveNotificationsDesc" = "Скрывает кнопку уведомлений с панели навигации.";
+"RemoveSearch" = "Скрыть «Поиск»";
+"RemoveSearchDesc" = "Скрвыает кнопку поиска с панели навигации.";
+
+"Tabbar" = "Панель вкладок";
+"RemoveLabels" = "Скрыть названия";
+"RemoveLabelsDesc" = "Скрывает названия вкладок.";
+"HideShortsTab" = "Скрыть «Shorts»";
+"HideShortsTabDesc" = "Скрывает вкладку «Shorts» с панели вкладок.";
+"HideSubscriptionsTab" = "Скрыть «Подписки»";
+"HideSubscriptionsTabDesc" = "Скрывает вкладку «Подписки» с панели вкладок.";
+"HideUploadButton" = "Скрыть «Создать» (+)";
+"HideUploadButtonDesc" = "Скрывает кнопку «Создать» с панели вкладок.";
+"HideLibraryTab" = "Скрыть «Библиотеку»";
+"HideLibraryTabDesc" = "Скрывает вкладку «Библиотека» с панели вкладок.";
+
+"Version" = "Версия";
+"About" = "О твике";
+"Credits" = "Авторы";
+"Developer" = "Разработчик твика";

@@ -1,0 +1,30 @@
+"General" = "General";
+"RemoveAds" = "Remove ads";
+"RemoveAdsDesc" = "Removes in-app ads.";
+"BackgroundPlayback" = "Background playback";
+"BackgroundPlaybackDesc" = "Enables background playback.";
+
+"Navbar" = "Navigation bar";
+"RemoveCast" = "Hide Cast button";
+"RemoveCastDesc" = "Hides Cast button from the Navigation bar.";
+"RemoveNotifications" = "Hide Notifications button";
+"RemoveNotificationsDesc" = "Hides Notifications button from the Navigation bar.";
+"RemoveSearch" = "Hide Search button";
+"RemoveSearchDesc" = "Hides Search button from the Navigation bar.";
+
+"Tabbar" = "Tab bar";
+"RemoveLabels" = "Remove labels";
+"RemoveLabelsDesc" = "Removes tab labels.";
+"HideShortsTab" = "Hide Shorts tab";
+"HideShortsTabDesc" = "Hides Shorts tab from the Tab bar";
+"HideSubscriptionsTab" = "Hide Subscriptions tab";
+"HideSubscriptionsTabDesc" = "Hides Subscriptions tab from the Tab bar";
+"HideUploadButton" = "Hide Upload button";
+"HideUploadButtonDesc" = "Hides Upload button from the Tab bar";
+"HideLibraryTab" = "Hide Library tab";
+"HideLibraryTabDesc" = "Hides Library tab from the Tab bar";
+
+"Version" = "Version";
+"About" = "About";
+"Credits" = "Credits";
+"Developer" = "YTLite developer";
