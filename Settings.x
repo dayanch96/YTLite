@@ -51,11 +51,26 @@ NSBundle *YTLiteBundle() {
     CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), CFSTR("com.dvntm.ytlite.prefschanged"), NULL, NULL, YES);
 }
 
+static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleDescription, NSString *key, BOOL *value, id selfObject) {
+    Class YTSettingsSectionItemClass = %c(YTSettingsSectionItem);
+    YTSettingsSectionItem *item = [YTSettingsSectionItemClass switchItemWithTitle:title
+        titleDescription:titleDescription
+        accessibilityIdentifier:nil
+        switchOn:*value
+        switchBlock:^BOOL(YTSettingsCell *cell, BOOL enabled) {
+            [selfObject updatePrefsForKey:key enabled:enabled];
+            return YES;
+        }
+        settingItemId:0];
+    return item;
+}
+
 %new(v@:@)
 - (void)updateYTLiteSectionWithEntry:(id)entry {
     NSMutableArray *sectionItems = [NSMutableArray array];
     Class YTSettingsSectionItemClass = %c(YTSettingsSectionItem);
     YTSettingsViewController *settingsViewController = [self valueForKey:@"_settingsViewControllerDelegate"];
+    id selfObject = self;
 
     YTSettingsSectionItem *general = [YTSettingsSectionItemClass itemWithTitle:LOC(@"General")
         accessibilityIdentifier:nil
@@ -64,24 +79,8 @@ NSBundle *YTLiteBundle() {
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             NSArray <YTSettingsSectionItem *> *rows = @[
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"RemoveAds")
-                titleDescription:LOC(@"RemoveAdsDesc")
-                accessibilityIdentifier:nil
-                switchOn:kNoAds
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [self updatePrefsForKey:@"noAds" enabled:enabled];
-                    return YES;
-                }
-                settingItemId:0],
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"BackgroundPlayback")
-                titleDescription:LOC(@"BackgroundPlaybackDesc")
-                accessibilityIdentifier:nil
-                switchOn:kBackgroundPlayback
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [self updatePrefsForKey:@"backgroundPlayback" enabled:enabled];
-                    return YES;
-                }
-                settingItemId:0]
+            createSwitchItem(LOC(@"RemoveAds"), LOC(@"RemoveAdsDesc"), @"noAds", &kNoAds, selfObject),
+            createSwitchItem(LOC(@"BackgroundPlayback"), LOC(@"BackgroundPlaybackDesc"), @"backgroundPlayback", &kBackgroundPlayback, selfObject)
         ];
 
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"General") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
@@ -97,33 +96,9 @@ NSBundle *YTLiteBundle() {
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             NSArray <YTSettingsSectionItem *> *rows = @[
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"RemoveCast")
-                titleDescription:LOC(@"RemoveCastDesc")
-                accessibilityIdentifier:nil
-                switchOn:kNoCast
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [self updatePrefsForKey:@"noCast" enabled:enabled];
-                    return YES;
-                }
-                settingItemId:0],
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"RemoveNotifications")
-                titleDescription:LOC(@"RemoveNotificationsDesc")
-                accessibilityIdentifier:nil
-                switchOn:kNoNotifsButton
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [self updatePrefsForKey:@"removeNotifsButton" enabled:enabled];
-                    return YES;
-                }
-                settingItemId:0],
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"RemoveSearch")
-                titleDescription:LOC(@"RemoveSearchDesc")
-                accessibilityIdentifier:nil
-                switchOn:kNoSearchButton
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [self updatePrefsForKey:@"removeSearchButton" enabled:enabled];
-                    return YES;
-                }
-                settingItemId:0]
+            createSwitchItem(LOC(@"RemoveCast"), LOC(@"RemoveCastDesc"), @"noCast", &kNoCast, selfObject),
+            createSwitchItem(LOC(@"RemoveNotifications"), LOC(@"RemoveNotificationsDesc"), @"removeNotifsButton", &kNoNotifsButton, selfObject),
+            createSwitchItem(LOC(@"RemoveSearch"), LOC(@"RemoveSearchDesc"), @"removeSearchButton", &kNoSearchButton, selfObject)
         ];
 
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"Navbar") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
@@ -139,51 +114,11 @@ NSBundle *YTLiteBundle() {
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             NSArray <YTSettingsSectionItem *> *rows = @[
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"RemoveLabels")
-                titleDescription:LOC(@"RemoveLabelsDesc")
-                accessibilityIdentifier:nil
-                switchOn:kRemoveLabels
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [self updatePrefsForKey:@"removeLabels" enabled:enabled];
-                    return YES;
-                }
-                settingItemId:0],
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HideShortsTab")
-                titleDescription:LOC(@"HideShortsTabDesc")
-                accessibilityIdentifier:nil
-                switchOn:kRemoveShorts
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [self updatePrefsForKey:@"removeShorts" enabled:enabled];
-                    return YES;
-                }
-                settingItemId:0],
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HideSubscriptionsTab")
-                titleDescription:LOC(@"HideSubscriptionsTabDesc")
-                accessibilityIdentifier:nil
-                switchOn:kRemoveSubscriptions
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [self updatePrefsForKey:@"removeSubscriptions" enabled:enabled];
-                    return YES;
-                }
-                settingItemId:0],
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HideUploadButton")
-                titleDescription:LOC(@"HideUploadButtonDesc")
-                accessibilityIdentifier:nil
-                switchOn:kRemoveUploads
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [self updatePrefsForKey:@"removeUploads" enabled:enabled];
-                    return YES;
-                }
-                settingItemId:0],
-            [YTSettingsSectionItemClass switchItemWithTitle:LOC(@"HideLibraryTab")
-                titleDescription:LOC(@"HideLibraryTabDesc")
-                accessibilityIdentifier:nil
-                switchOn:kRemoveLibrary
-                switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {
-                    [self updatePrefsForKey:@"removeLibrary" enabled:enabled];
-                    return YES;
-                }
-                settingItemId:0]
+            createSwitchItem(LOC(@"RemoveLabels"), LOC(@"RemoveLabelsDesc"), @"removeLabels", &kRemoveLabels, selfObject),
+            createSwitchItem(LOC(@"HideShortsTab"), LOC(@"HideShortsTabDesc"), @"removeShorts", &kRemoveShorts, selfObject),
+            createSwitchItem(LOC(@"HideSubscriptionsTab"), LOC(@"HideSubscriptionsTabDesc"), @"removeSubscriptions", &kRemoveSubscriptions, selfObject),
+            createSwitchItem(LOC(@"HideUploadButton"), LOC(@"HideUploadButtonDesc"), @"removeUploads", &kRemoveUploads, selfObject),
+            createSwitchItem(LOC(@"HideLibraryTab"), LOC(@"HideLibraryTabDesc"), @"removeLibrary", &kRemoveLibrary, selfObject)
         ];
 
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"Tabbar") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
