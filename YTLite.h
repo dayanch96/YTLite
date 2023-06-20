@@ -29,6 +29,12 @@ BOOL kRemoveSubscriptions;
 BOOL kRemoveUploads;
 BOOL kRemoveLibrary;
 
+@interface YTSettingsSectionItemManager (Custom)
+@property (nonatomic, strong) NSMutableDictionary *prefs;
+@property (nonatomic, strong) NSString *prefsPath;
+- (void)updatePrefsForKey:(NSString *)key enabled:(BOOL)enabled;
+@end
+
 @interface YTPivotBarView : UIView
 @end
 
