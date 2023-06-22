@@ -1,16 +1,16 @@
-"General" = "General";
-"RemoveAds" = "Remove ads";
-"RemoveAdsDesc" = "Removes in-app ads.";
-"BackgroundPlayback" = "Background playback";
-"BackgroundPlaybackDesc" = "Enables background playback.";
+"General" = "常规";
+"RemoveAds" = "移除广告";
+"RemoveAdsDesc" = "删除程序内的广告";
+"BackgroundPlayback" = "后台播放";
+"BackgroundPlaybackDesc" = "启用后台播放";
 
-"Navbar" = "Navigation bar";
-"RemoveCast" = "Hide Cast button";
-"RemoveCastDesc" = "Hides Cast button from the Navigation bar.";
-"RemoveNotifications" = "Hide Notifications button";
-"RemoveNotificationsDesc" = "Hides Notifications button from the Navigation bar.";
-"RemoveSearch" = "Hide Search button";
-"RemoveSearchDesc" = "Hides Search button from the Navigation bar.";
+"Navbar" = "导航栏";
+"RemoveCast" = "隐藏投射按钮";
+"RemoveCastDesc" = "从导航栏中隐藏投射按钮";
+"RemoveNotifications" = "隐藏通知按钮";
+"RemoveNotificationsDesc" = "从导航栏中隐藏通知按钮";
+"RemoveSearch" = "隐藏搜索按钮";
+"RemoveSearchDesc" = "从导航栏中隐藏搜索按钮";
 "StickyNavbar" = "Sticky Navigation bar";
 "StickyNavbarDesc" = "Pins the Navigation bar so that it remains visible when scrolling down.";
 "NoSubbar" = "Hide Subbar";
@@ -64,19 +64,19 @@
 "NoDoubleTap2Seek" = "Disable double tap to seek";
 "NoDoubleTap2SeekDesc" = "Disables double tap to seek gesture.";
 
-"Tabbar" = "Tab bar";
-"RemoveLabels" = "Remove labels";
-"RemoveLabelsDesc" = "Removes tab labels.";
+"Tabbar" = "选项卡栏";
+"RemoveLabels" = "移除标签";
+"RemoveLabelsDesc" = "删除选项卡标签";
 "ReExplore" = "Replace Shorts tab with Explore tab";
 "ReExploreDesc" = "Shows Explore tab instead of Shorts tab as on old YouTube versions.";
-"HideShortsTab" = "Hide Shorts tab";
-"HideShortsTabDesc" = "Hides Shorts tab from the Tab bar";
-"HideSubscriptionsTab" = "Hide Subscriptions tab";
-"HideSubscriptionsTabDesc" = "Hides Subscriptions tab from the Tab bar";
-"HideUploadButton" = "Hide Upload button";
-"HideUploadButtonDesc" = "Hides Upload button from the Tab bar";
-"HideLibraryTab" = "Hide Library tab";
-"HideLibraryTabDesc" = "Hides Library tab from the Tab bar";
+"HideShortsTab" = "隐藏短视频";
+"HideShortsTabDesc" = "从选项卡栏中隐藏短视频";
+"HideSubscriptionsTab" = "隐藏订阅内容";
+"HideSubscriptionsTabDesc" = "从选项卡栏中隐藏订阅内容";
+"HideUploadButton" = "隐藏上传按钮";
+"HideUploadButtonDesc" = "从选项卡栏中隐藏上传按钮";
+"HideLibraryTab" = "隐藏媒体库";
+"HideLibraryTabDesc" = "从选项卡栏中隐藏媒体库";
 
 "Shorts" = "Shorts";
 "HideShorts" = "Hide Shorts videos";
@@ -125,10 +125,10 @@
 "Warning" = "Warning";
 "TabIsHidden" = "Hidden tab cannot be selected as startup page";
 
-"Version" = "Version";
-"About" = "About";
-"Credits" = "Credits";
-"Developer" = "YTLite developer";
+"Version" = "版本";
+"About" = "关于";
+"Credits" = "信息";
+"Developer" = "YTLite开发者";
 "Advanced" = "Advanced mode";
 "ResetSettings" = "Reset YTLite settings";
 "ResetMessage" = "This option will reset YTLite settings to default and close YouTube.\n\nAre you sure you want to continue?";

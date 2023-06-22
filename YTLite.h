@@ -1,10 +1,17 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <rootless.h>
+#import "../YouTubeHeader/YTIGuideResponse.h"
+#import "../YouTubeHeader/YTIGuideResponseSupportedRenderers.h"
 #import "../YouTubeHeader/YTIPivotBarSupportedRenderers.h"
 #import "../YouTubeHeader/YTIPivotBarRenderer.h"
+#import "../YouTubeHeader/YTIBrowseRequest.h"
 #import "../YouTubeHeader/YTISectionListRenderer.h"
 #import "../YouTubeHeader/YTQTMButton.h"
+#import "../YouTubeHeader/YTVideoQualitySwitchOriginalController.h"
+#import "../YouTubeHeader/YTPlayerViewController.h"
+#import "../YouTubeHeader/YTPlayerOverlay.h"
+#import "../YouTubeHeader/YTPlayerOverlayProvider.h"
 #import "../YouTubeHeader/YTSettingsViewController.h"
 #import "../YouTubeHeader/YTSettingsSectionItem.h"
 #import "../YouTubeHeader/YTSettingsSectionItemManager.h"
@@ -23,16 +30,62 @@ BOOL kBackgroundPlayback;
 BOOL kNoCast;
 BOOL kNoNotifsButton;
 BOOL kNoSearchButton;
+BOOL kStickyNavbar;
+BOOL kNoSubbar;
+BOOL kNoYTLogo;
+BOOL kHideAutoplay;
+BOOL kHideSubs;
+BOOL kNoHUDMsgs;
+BOOL kHidePrevNext;
+BOOL kReplacePrevNext;
+BOOL kNoDarkBg;
+BOOL kEndScreenCards;
+BOOL kNoFullscreenActions;
+BOOL kNoRelatedVids;
+BOOL kNoPromotionCards;
+BOOL kNoWatermarks;
+BOOL kMiniplayer;
+BOOL kDisableAutoplay;
+BOOL kNoContentWarning;
+BOOL kClassicQuality;
+BOOL kDontSnapToChapter;
+BOOL kRedProgressBar;
+BOOL kNoHints;
+BOOL kNoFreeZoom;
+BOOL kExitFullscreen;
+BOOL kNoDoubleTapToSeek;
+BOOL kHideShorts;
+BOOL kShortsProgress;
+BOOL kResumeShorts;
+BOOL kHideShortsLogo;
+BOOL kHideShortsSearch;
+BOOL kHideShortsCamera;
+BOOL kHideShortsMore;
+BOOL kHideShortsSubscriptions;
+BOOL kHideShortsLike;
+BOOL kHideShortsDislike;
+BOOL kHideShortsComments;
+BOOL kHideShortsRemix;
+BOOL kHideShortsShare;
+BOOL kHideShortsAvatars;
+BOOL kHideShortsThanks;
+BOOL kHideShortsChannelName;
+BOOL kHideShortsDescription;
+BOOL kHideShortsAudioTrack;
 BOOL kRemoveLabels;
+BOOL kReExplore;
 BOOL kRemoveShorts;
 BOOL kRemoveSubscriptions;
 BOOL kRemoveUploads;
 BOOL kRemoveLibrary;
+BOOL kAdvancedMode;
+int kPivotIndex;
 
 @interface YTSettingsSectionItemManager (Custom)
 @property (nonatomic, strong) NSMutableDictionary *prefs;
 @property (nonatomic, strong) NSString *prefsPath;
 - (void)updatePrefsForKey:(NSString *)key enabled:(BOOL)enabled;
+- (void)updateIntegerPrefsForKey:(NSString *)key intValue:(NSInteger)intValue;
 @end
 
 @interface YTPivotBarView : UIView
@@ -41,7 +94,53 @@ BOOL kRemoveLibrary;
 @interface YTPivotBarItemView : UIView
 @end
 
+@interface YTPivotBarViewController : UIViewController
+- (void)selectItemWithPivotIdentifier:(id)pivotIndentifier;
+@end
+
 @interface YTRightNavigationButtons : UIView
 @property (nonatomic, strong) YTQTMButton *notificationButton;
 @property (nonatomic, strong) YTQTMButton *searchButton;
+@end
+
+@interface YTNavigationBarTitleView : UIView
+@end
+
+@interface YTSegmentableInlinePlayerBarView
+@property (nonatomic, assign, readwrite) BOOL enableSnapToChapter;
+@end
+
+@interface YTPlayabilityResolutionUserActionUIController : NSObject
+- (void)confirmAlertDidPressConfirm;
+@end
+
+@interface YTReelPlayerButton : UIButton
+@end
+
+@interface ELMCellNode
+@end
+
+@interface _ASCollectionViewCell : UICollectionViewCell
+- (id)node;
+@end
+
+@interface YTAsyncCollectionView : UICollectionView
+- (void)removeShortsCellAtIndexPath:(NSIndexPath *)indexPath;
+@end
+
+@interface YTReelWatchPlaybackOverlayView : UIView
+@end
+
+@interface YTReelTransparentStackView : UIView
+@end
+
+@interface YTReelWatchHeaderView : UIView
+@end
+
+@interface YTAlertView : UIView
+@property (nonatomic, copy, readwrite) NSString *title;
+@property (nonatomic, copy, readwrite) NSString *subtitle;
++ (instancetype)infoDialog;
++ (instancetype)confirmationDialogWithAction:(void (^)(void))action actionTitle:(NSString *)actionTitle cancelTitle:(NSString *)cancelTitle;
+- (void)show;
 @end
