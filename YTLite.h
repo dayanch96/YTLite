@@ -17,6 +17,7 @@
 #import "../YouTubeHeader/YTSettingsSectionItemManager.h"
 #import "../YouTubeHeader/YTSettingsPickerViewController.h"
 #import "../YouTubeHeader/YTUIUtils.h"
+#import "../YouTubeHeader/YTIMenuConditionalServiceItemRenderer.h"
 
 extern NSBundle *YTLiteBundle();
 
@@ -30,6 +31,7 @@ BOOL kBackgroundPlayback;
 BOOL kNoCast;
 BOOL kNoNotifsButton;
 BOOL kNoSearchButton;
+BOOL kNoVoiceSearchButton;
 BOOL kStickyNavbar;
 BOOL kNoSubbar;
 BOOL kNoYTLogo;
@@ -78,6 +80,8 @@ BOOL kRemoveShorts;
 BOOL kRemoveSubscriptions;
 BOOL kRemoveUploads;
 BOOL kRemoveLibrary;
+BOOL kRemovePlayNext;
+BOOL kNoContinueWatching;
 BOOL kAdvancedMode;
 int kPivotIndex;
 
@@ -106,6 +110,9 @@ int kPivotIndex;
 @interface YTNavigationBarTitleView : UIView
 @end
 
+@interface YTChipCloudCell : UICollectionViewCell
+@end
+
 @interface YTSegmentableInlinePlayerBarView
 @property (nonatomic, assign, readwrite) BOOL enableSnapToChapter;
 @end
@@ -125,7 +132,7 @@ int kPivotIndex;
 @end
 
 @interface YTAsyncCollectionView : UICollectionView
-- (void)removeShortsCellAtIndexPath:(NSIndexPath *)indexPath;
+- (void)removeCellsAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @interface YTReelWatchPlaybackOverlayView : UIView

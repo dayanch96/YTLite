@@ -119,7 +119,8 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
             NSArray <YTSettingsSectionItem *> *rows = @[
             createSwitchItem(LOC(@"RemoveCast"), LOC(@"RemoveCastDesc"), @"noCast", &kNoCast, selfObject),
             createSwitchItem(LOC(@"RemoveNotifications"), LOC(@"RemoveNotificationsDesc"), @"removeNotifsButton", &kNoNotifsButton, selfObject),
-            createSwitchItem(LOC(@"RemoveSearch"), LOC(@"RemoveSearchDesc"), @"removeSearchButton", &kNoSearchButton, selfObject)
+            createSwitchItem(LOC(@"RemoveSearch"), LOC(@"RemoveSearchDesc"), @"removeSearchButton", &kNoSearchButton, selfObject),
+            createSwitchItem(LOC(@"RemoveVoiceSearch"), LOC(@"RemoveVoiceSearchDesc"), @"removeVoiceSearchButton", &kNoVoiceSearchButton, selfObject)
         ];
 
         if (kAdvancedMode) {
@@ -153,7 +154,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
                 createSwitchItem(LOC(@"HidePrevNext"), LOC(@"HidePrevNextDesc"), @"hidePrevNext", &kHidePrevNext, selfObject),
                 createSwitchItem(LOC(@"ReplacePrevNext"), LOC(@"ReplacePrevNextDesc"), @"replacePrevNext", &kReplacePrevNext, selfObject),
                 createSwitchItem(LOC(@"NoDarkBg"), LOC(@"NoDarkBgDesc"), @"noDarkBg", &kNoDarkBg, selfObject),
-                createSwitchItem(LOC(@"NoEndScreenCards"), LOC(@"NoEndScreenCardsDesc"), @"noEndScreenCards", &kEndScreenCards, selfObject),
+                createSwitchItem(LOC(@"NoEndScreenCards"), LOC(@"NoEndScreenCardsDesc"), @"endScreenCards", &kEndScreenCards, selfObject),
                 createSwitchItem(LOC(@"NoFullscreenActions"), LOC(@"NoFullscreenActionsDesc"), @"noFullscreenActions", &kNoFullscreenActions, selfObject),
                 createSwitchItem(LOC(@"NoRelatedVids"), LOC(@"NoRelatedVidsDesc"), @"noRelatedVids", &kNoRelatedVids, selfObject),
                 createSwitchItem(LOC(@"NoPromotionCards"), LOC(@"NoPromotionCardsDesc"), @"noPromotionCards", &kNoPromotionCards, selfObject),
@@ -246,6 +247,23 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
     [sectionItems addObject:tabbar];
 
     if (kAdvancedMode) {
+        YTSettingsSectionItem *other = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Other")
+            accessibilityIdentifier:nil
+            detailTextBlock:^NSString *() {
+                return @"‣";
+            }
+            selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                NSArray <YTSettingsSectionItem *> *rows = @[
+                createSwitchItem(LOC(@"RemovePlayNext"), LOC(@"RemovePlayNextDesc"), @"removePlayNext", &kRemovePlayNext, selfObject),
+                createSwitchItem(LOC(@"NoContinueWatching"), LOC(@"NoContinueWatchingDesc"), @"noContinueWatching", &kNoContinueWatching, selfObject)
+            ];
+
+            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"Other") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
+            [settingsViewController pushViewController:picker];
+            return YES;
+        }];
+        [sectionItems addObject:other];
+
         [sectionItems addObject:space];
 
         YTSettingsSectionItem *startup = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Startup")

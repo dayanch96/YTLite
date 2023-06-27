@@ -11,6 +11,8 @@
 "RemoveNotificationsDesc" = "Hides Notifications button from the Navigation bar.";
 "RemoveSearch" = "Hide Search button";
 "RemoveSearchDesc" = "Hides Search button from the Navigation bar.";
+"RemoveVoiceSearch" = "Hide Voice search button";
+"RemoveVoiceSearchDesc" = "Hides Voice search button from the Navigation bar.";
 "StickyNavbar" = "Sticky Navigation bar";
 "StickyNavbarDesc" = "Pins the Navigation bar so that it remains visible when scrolling down.";
 "NoSubbar" = "Hide Subbar";
@@ -115,6 +117,12 @@
 "HideShortsDescriptionDesc" = "Hides Shorts description under channel name.";
 "HideShortsAudioTrack" = "Hide AudioTrack";
 "HideShortsAudioTrackDesc" = "Hides AudioTrack under Shorts description.";
+
+"Other" = "Other";
+"RemovePlayNext" = "Remove \"Play next in queue\"";
+"RemovePlayNextDesc" = "Removes \"Play next in queue\" option from menu.";
+"NoContinueWatching" = "Remove \"Continue watching\"";
+"NoContinueWatchingDesc" = "Removes the \"Continue watching\" section containing unfinished videos from the Home page.";
 
 "Startup" = "Startup page";
 "Home" = "Home";

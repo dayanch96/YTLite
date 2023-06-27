@@ -28,17 +28,19 @@
 - (void)decorateContext:(id)context { if (!kNoAds) %orig; }
 %end
 
-BOOL isAd(YTIElementRenderer *self) {
-    if (self == nil) return NO;
-    if (self.hasCompatibilityOptions && self.compatibilityOptions.hasAdLoggingData) return YES;
+%hook YTIElementRenderer
+- (NSData *)elementData {
+    if (self.hasCompatibilityOptions && self.compatibilityOptions.hasAdLoggingData)
+        return nil;
     NSString *description = [self description];
     if (([description containsString:@"brand_promo"]
         || [description containsString:@"product_carousel"]
         || [description containsString:@"product_engagement_panel"]
         || [description containsString:@"product_item"]) && kNoAds)
-        return YES;
-    return NO;
+        return [NSData data];
+    return %orig;
 }
+%end
 
 %hook YTSectionListViewController
 - (void)loadWithModel:(YTISectionListRenderer *)model {
@@ -47,7 +49,7 @@ BOOL isAd(YTIElementRenderer *self) {
         NSIndexSet *removeIndexes = [contentsArray indexesOfObjectsPassingTest:^BOOL(YTISectionListSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
             YTIItemSectionRenderer *sectionRenderer = renderers.itemSectionRenderer;
             YTIItemSectionSupportedRenderers *firstObject = [sectionRenderer.contentsArray firstObject];
-            return firstObject.hasPromotedVideoRenderer || firstObject.hasCompactPromotedVideoRenderer || firstObject.hasPromotedVideoInlineMutedRenderer || isAd(firstObject.elementRenderer);
+            return firstObject.hasPromotedVideoRenderer || firstObject.hasCompactPromotedVideoRenderer || firstObject.hasPromotedVideoInlineMutedRenderer;
         }];
         [contentsArray removeObjectsAtIndexes:removeIndexes];
     } %orig;
@@ -89,15 +91,6 @@ BOOL isAd(YTIElementRenderer *self) {
 - (void)showSurveyWithRenderer:(id)arg1 surveyParentResponder:(id)arg2 {}
 %end
 
-// Statement banner
-%hook YTPremiumSeasonCardCellController
-- (void)setCell:(id)arg1 { arg1 = NULL; %orig; }
-%end
-
-%hook YTPremiumSeasonCardView
-- (long long)accessibilityElementCount { return 0; }
-%end
-
 // Navbar Stuff
 // Disable Cast
 %hook MDXPlaybackRouteButtonController
@@ -117,6 +110,7 @@ BOOL isAd(YTIElementRenderer *self) {
     if (kNoCast && self.subviews.count > 1 && [self.subviews[1].accessibilityIdentifier isEqualToString:@"id.mdx.playbackroute.button"]) self.subviews[1].hidden = YES; // Hide icon immediately
     if (kNoNotifsButton) self.notificationButton.hidden = YES;
     if (kNoSearchButton) self.searchButton.hidden = YES;
+    if (kNoVoiceSearchButton && self.subviews.count >= 4 && [self.subviews[2].accessibilityIdentifier isEqualToString:@"id.settings.overflow.button"]) self.subviews[3].hidden = YES;
 }
 %end
 
@@ -131,16 +125,21 @@ BOOL isAd(YTIElementRenderer *self) {
 %end
 
 // Remove Subbar
-%hook YTMySubsFilterHeaderView 
+%hook YTMySubsFilterHeaderView
 - (void)setChipFilterView:(id)arg1 { if (!kNoSubbar) %orig; }
 %end
 
 %hook YTHeaderContentComboView
 - (void)enableSubheaderBarWithView:(id)arg1 { if (!kNoSubbar) %orig; }
+- (void)setFeedHeaderScrollMode:(int)arg1 { kNoSubbar ? %orig(0) : %orig; }
 %end
 
-%hook YTHeaderContentComboView
-- (void)setFeedHeaderScrollMode:(int)arg1 { kNoSubbar ? %orig(0) : %orig; }
+%hook YTChipCloudCell
+- (void)layoutSubviews {
+    if (self.superview && kNoSubbar) {
+        [self removeFromSuperview];
+    } %orig;
+}
 %end
 
 // Hide Autoplay Switch and Subs Button
@@ -271,27 +270,55 @@ BOOL isAd(YTIElementRenderer *self) {
 - (void)enableDoubleTapToSeek:(BOOL)arg1 { kNoDoubleTapToSeek ? %orig(NO) : %orig; }
 %end
 
-// Remove Shorts (https://github.com/MiRO92/YTNoShorts)
+// Fit 'Play All' Buttons Text For Localizations
+%hook YTQTMButton
+- (void)layoutSubviews {
+    if ([self.accessibilityIdentifier isEqualToString:@"id.playlist.playall.button"]) {
+        self.titleLabel.adjustsFontSizeToFitWidth = YES;
+    } %orig;
+}
+%end
+
+// Fix Playlist Mini-bar Height For Small Screens
+%hook YTPlaylistMiniBarView
+- (void)setFrame:(CGRect)frame {
+    if (frame.size.height < 54.0) frame.size.height = 54.0;
+    %orig(frame);
+}
+%end
+
+// Remove "Play next in queue" from the menu @PoomSmart (https://github.com/qnblackcat/uYouPlus/issues/1138#issuecomment-1606415080)
+%hook YTMenuItemVisibilityHandler
+- (BOOL)shouldShowServiceItemRenderer:(YTIMenuConditionalServiceItemRenderer *)renderer {
+    if (kRemovePlayNext && renderer.icon.iconType == 251) {
+        return NO;
+    } return %orig;
+}
+%end
+
+// Remove Premium Pop-up, Horizontal Video Carousel and Shorts (https://github.com/MiRO92/YTNoShorts)
 %hook YTAsyncCollectionView
 - (id)cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (kHideShorts) {
-        UICollectionViewCell *cell = %orig;
-        if ([cell isKindOfClass:NSClassFromString(@"_ASCollectionViewCell")]) {
-            _ASCollectionViewCell *cell = %orig;
-            if ([cell respondsToSelector:@selector(node)]) {
-                if ([[[cell node] accessibilityIdentifier] isEqualToString:@"eml.shorts-shelf"]) {
-                    [self removeShortsCellAtIndexPath:indexPath];
-                }
+    UICollectionViewCell *cell = %orig;
+
+    if ([cell isKindOfClass:objc_lookUpClass("_ASCollectionViewCell")]) {
+        _ASCollectionViewCell *cell = %orig;
+        if ([cell respondsToSelector:@selector(node)]) {
+            NSString *idToRemove = [[cell node] accessibilityIdentifier];
+            if ([idToRemove isEqualToString:@"statement_banner.view"] ||
+                (([idToRemove isEqualToString:@"eml.shorts-grid"] || [idToRemove isEqualToString:@"eml.shorts-shelf"]) && kHideShorts)) {
+                [self removeCellsAtIndexPath:indexPath];
             }
-        } else if ([cell isKindOfClass:NSClassFromString(@"YTReelShelfCell")]) {
-            [self removeShortsCellAtIndexPath:indexPath];
-        } return %orig;
+        }
+    } else if (([cell isKindOfClass:objc_lookUpClass("YTReelShelfCell")] && kHideShorts) ||
+        ([cell isKindOfClass:objc_lookUpClass("YTHorizontalCardListCell")] && kNoContinueWatching)) {
+        [self removeCellsAtIndexPath:indexPath];
     } return %orig;
 }
 
 %new
-- (void)removeShortsCellAtIndexPath:(NSIndexPath *)indexPath {
-    [self deleteItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
+- (void)removeCellsAtIndexPath:(NSIndexPath *)indexPath {
+    [self deleteItemsAtIndexPaths:@[indexPath]];
 }
 %end
 
@@ -544,6 +571,7 @@ static void reloadPrefs() {
     kNoCast = [prefs[@"noCast"] boolValue] ?: NO;
     kNoNotifsButton = [prefs[@"removeNotifsButton"] boolValue] ?: NO;
     kNoSearchButton = [prefs[@"removeSearchButton"] boolValue] ?: NO;
+    kNoVoiceSearchButton = [prefs[@"removeVoiceSearchButton"] boolValue] ?: NO;
     kStickyNavbar = [prefs[@"stickyNavbar"] boolValue] ?: NO;
     kNoSubbar = [prefs[@"noSubbar"] boolValue] ?: NO;
     kNoYTLogo = [prefs[@"noYTLogo"] boolValue] ?: NO;
@@ -592,6 +620,8 @@ static void reloadPrefs() {
     kRemoveSubscriptions = [prefs[@"removeSubscriptions"] boolValue] ?: NO;
     kRemoveUploads = (prefs[@"removeUploads"] != nil) ? [prefs[@"removeUploads"] boolValue] : YES;
     kRemoveLibrary = [prefs[@"removeLibrary"] boolValue] ?: NO;
+    kRemovePlayNext = [prefs[@"removePlayNext"] boolValue] ?: NO;
+    kNoContinueWatching = [prefs[@"noContinueWatching"] boolValue] ?: NO;
     kPivotIndex = (prefs[@"pivotIndex"] != nil) ? [prefs[@"pivotIndex"] intValue] : 0;
     kAdvancedMode = [prefs[@"advancedMode"] boolValue] ?: NO;
 
@@ -601,6 +631,7 @@ static void reloadPrefs() {
         @"noCast" : @(kNoCast),
         @"removeNotifsButton" : @(kNoNotifsButton),
         @"removeSearchButton" : @(kNoSearchButton),
+        @"removeVoiceSearchButton" : @(kNoVoiceSearchButton),
         @"stickyNavbar" : @(kStickyNavbar),
         @"noSubbar" : @(kNoSubbar),
         @"noYTLogo" : @(kNoYTLogo),
@@ -649,6 +680,8 @@ static void reloadPrefs() {
         @"removeSubscriptions" : @(kRemoveSubscriptions),
         @"removeUploads" : @(kRemoveUploads),
         @"removeLibrary" : @(kRemoveLibrary),
+        @"removePlayNext" : @(kRemovePlayNext),
+        @"noContinueWatching" : @(kNoContinueWatching),
         @"pivotIndex" : @(kPivotIndex),
         @"advancedMode" : @(kAdvancedMode)
     };
