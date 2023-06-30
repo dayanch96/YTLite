@@ -69,8 +69,8 @@
 "Tabbar" = "选项卡栏";
 "RemoveLabels" = "移除标签";
 "RemoveLabelsDesc" = "删除选项卡标签。";
-"ReExplore" = "将短视频选项卡替换为“探索”选项卡";
-"ReExploreDesc" = "显示“探索”选项卡，而不是旧版 本中的“短视频”选项卡。";
+"ReExplore" = "“短视频”替换为“探索”";
+"ReExploreDesc" = "在旧版本 YouTube 中将“短视频”选项卡替换为“探索”。";
 "HideShortsTab" = "隐藏短视频";
 "HideShortsTabDesc" = "从选项卡栏中隐藏短视频。";
 "HideSubscriptionsTab" = "隐藏订阅内容";
