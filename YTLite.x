@@ -266,8 +266,8 @@
 %end
 
 // Disable Double Tap To Seek
-%hook YTDoubleTapToSeekController
-- (void)enableDoubleTapToSeek:(BOOL)arg1 { kNoDoubleTapToSeek ? %orig(NO) : %orig; }
+%hook YTMainAppVideoPlayerOverlayViewController
+- (BOOL)allowDoubleTapToSeekGestureRecognizer { return kNoDoubleTapToSeek ? NO : %orig; }
 %end
 
 // Fit 'Play All' Buttons Text For Localizations
