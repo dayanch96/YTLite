@@ -11,6 +11,8 @@
 "RemoveNotificationsDesc" = "从导航栏中隐藏通知按钮。";
 "RemoveSearch" = "隐藏搜索按钮";
 "RemoveSearchDesc" = "从导航栏中隐藏搜索按钮。";
+"RemoveVoiceSearch" = "隐藏语音搜索按钮";
+"RemoveVoiceSearchDesc" = "从导航栏中隐藏语音搜索按钮。";
 "StickyNavbar" = "固定导航栏";
 "StickyNavbarDesc" = "固定导航栏，使其在向下滚动时保持可见。";
 "NoSubbar" = "隐藏子栏";
@@ -67,8 +69,8 @@
 "Tabbar" = "选项卡栏";
 "RemoveLabels" = "移除标签";
 "RemoveLabelsDesc" = "删除选项卡标签。";
-"ReExplore" = "将短视频选项卡替换为“探索”选项卡";
-"ReExploreDesc" = "显示“探索”选项卡，而不是旧版 本中的“短视频”选项卡。";
+"ReExplore" = "“短视频”替换为“探索”";
+"ReExploreDesc" = "在旧版本 YouTube 中将“短视频”选项卡替换为“探索”。";
 "HideShortsTab" = "隐藏短视频";
 "HideShortsTabDesc" = "从选项卡栏中隐藏短视频。";
 "HideSubscriptionsTab" = "隐藏订阅内容";
@@ -115,6 +117,12 @@
 "HideShortsDescriptionDesc" = "在频道名称下隐藏短视频描述。";
 "HideShortsAudioTrack" = "隐藏音频音轨";
 "HideShortsAudioTrackDesc" = "从短视频描述下隐藏音频音轨。";
+
+"Other" = "其他";
+"RemovePlayNext" = "删除“播放队列中的下一个”";
+"RemovePlayNextDesc" = "从菜单中删除“播放队列中的下一个”选项。";
+"NoContinueWatching" = "删除“继续观看”";
+"NoContinueWatchingDesc" = "从首页中删除包含未完成视频的“继续观看”部分。";
 
 "Startup" = "启动页";
 "Home" = "首页";
