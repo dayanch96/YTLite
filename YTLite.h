@@ -10,6 +10,7 @@
 #import "../YouTubeHeader/YTQTMButton.h"
 #import "../YouTubeHeader/YTVideoQualitySwitchOriginalController.h"
 #import "../YouTubeHeader/YTPlayerViewController.h"
+#import "../YouTubeHeader/YTWatchController.h"
 #import "../YouTubeHeader/YTPlayerOverlay.h"
 #import "../YouTubeHeader/YTPlayerOverlayProvider.h"
 #import "../YouTubeHeader/YTSettingsViewController.h"
@@ -50,10 +51,12 @@ BOOL kMiniplayer;
 BOOL kDisableAutoplay;
 BOOL kNoContentWarning;
 BOOL kClassicQuality;
+BOOL kExtraSpeedOptions;
 BOOL kDontSnapToChapter;
 BOOL kRedProgressBar;
 BOOL kNoHints;
 BOOL kNoFreeZoom;
+BOOL kAutoFullscreen;
 BOOL kExitFullscreen;
 BOOL kNoDoubleTapToSeek;
 BOOL kHideShorts;
@@ -113,6 +116,10 @@ int kPivotIndex;
 @interface YTChipCloudCell : UICollectionViewCell
 @end
 
+@interface YTPlayerViewController (YTAFS)
+- (void)autoFullscreen;
+@end
+
 @interface YTSegmentableInlinePlayerBarView
 @property (nonatomic, assign, readwrite) BOOL enableSnapToChapter;
 @end
@@ -142,6 +149,23 @@ int kPivotIndex;
 @end
 
 @interface YTReelWatchHeaderView : UIView
+@end
+
+@interface MLHAMQueuePlayer : NSObject
+@property id playerEventCenter;
+-(void)setRate:(float)rate;
+@end
+
+@interface YTVarispeedSwitchControllerOption : NSObject
+- (id)initWithTitle:(id)title rate:(float)rate;
+@end
+
+@interface HAMPlayerInternal : NSObject
+- (void)setRate:(float)rate;
+@end
+
+@interface MLPlayerEventCenter : NSObject
+- (void)broadcastRateChange:(float)rate;
 @end
 
 @interface YTAlertView : UIView

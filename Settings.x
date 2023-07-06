@@ -178,10 +178,12 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
                 createSwitchItem(LOC(@"DisableAutoplay"), LOC(@"DisableAutoplayDesc"), @"disableAutoplay", &kDisableAutoplay, selfObject),
                 createSwitchItem(LOC(@"NoContentWarning"), LOC(@"NoContentWarningDesc"), @"noContentWarning", &kNoContentWarning, selfObject),
                 createSwitchItem(LOC(@"ClassicQuality"), LOC(@"ClassicQualityDesc"), @"classicQuality", &kClassicQuality, selfObject),
+                createSwitchItem(LOC(@"ExtraSpeedOptions"), LOC(@"ExtraSpeedOptionsDesc"), @"extraSpeedOptions", &kExtraSpeedOptions, selfObject),
                 createSwitchItem(LOC(@"DontSnap2Chapter"), LOC(@"DontSnap2ChapterDesc"), @"dontSnapToChapter", &kDontSnapToChapter, selfObject),
                 createSwitchItem(LOC(@"RedProgressBar"), LOC(@"RedProgressBarDesc"), @"redProgressBar", &kRedProgressBar, selfObject),
                 createSwitchItem(LOC(@"NoHints"), LOC(@"NoHintsDesc"), @"noHints", &kNoHints, selfObject),
                 createSwitchItem(LOC(@"NoFreeZoom"), LOC(@"NoFreeZoomDesc"), @"noFreeZoom", &kNoFreeZoom, selfObject),
+                createSwitchItem(LOC(@"AutoFullscreen"), LOC(@"AutoFullscreenDesc"), @"autoFullscreen", &kAutoFullscreen, selfObject),
                 createSwitchItem(LOC(@"ExitFullscreen"), LOC(@"ExitFullscreenDesc"), @"exitFullscreen", &kExitFullscreen, selfObject),
                 createSwitchItem(LOC(@"NoDoubleTap2Seek"), LOC(@"NoDoubleTap2SeekDesc"), @"noDoubleTapToSeek", &kNoDoubleTapToSeek, selfObject)
             ];
@@ -341,12 +343,16 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
     
     [sectionItems addObject:space];
 
-    YTSettingsSectionItem *ps = [%c(YTSettingsSectionItem) itemWithTitle:@"PoomSmart" titleDescription:@"YouTube-X, YTNoPremium, YTClassicVideoQuality, YTShortsProgress, YTReExplore, SkipContentWarning, YouTubeHeaders" accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+    YTSettingsSectionItem *ps = [%c(YTSettingsSectionItem) itemWithTitle:@"PoomSmart" titleDescription:@"YouTube-X, YTNoPremium, YTClassicVideoQuality, YTShortsProgress, YTReExplore, SkipContentWarning, YTAutoFullscreen, YouTubeHeaders" accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/PoomSmart/"]];
     }];
 
     YTSettingsSectionItem *miro = [%c(YTSettingsSectionItem) itemWithTitle:@"MiRO92" titleDescription:@"YTNoShorts" accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/MiRO92/"]];
+    }];
+
+    YTSettingsSectionItem *lillie = [%c(YTSettingsSectionItem) itemWithTitle:@"Lillie" titleDescription:@"ExtraSpeedOptions" accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+        return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/LillieH1000"]];
     }];
 
     YTSettingsSectionItem *dayanch96 = [%c(YTSettingsSectionItem) itemWithTitle:@"Dayanch96" titleDescription:LOC(@"Developer") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
@@ -372,7 +378,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
             return @(OS_STRINGIFY(TWEAK_VERSION));
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-            NSArray <YTSettingsSectionItem *> *rows = @[ps, miro, dayanch96, space, createSwitchItem(LOC(@"Advanced"), nil, @"advancedMode", &kAdvancedMode, selfObject), reset];
+            NSArray <YTSettingsSectionItem *> *rows = @[ps, miro, lillie, dayanch96, space, createSwitchItem(LOC(@"Advanced"), nil, @"advancedMode", &kAdvancedMode, selfObject), reset];
 
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"About") pickerSectionTitle:LOC(@"Credits") rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];

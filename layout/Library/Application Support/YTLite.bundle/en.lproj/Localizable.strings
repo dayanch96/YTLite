@@ -53,6 +53,8 @@
 "NoContentWarningDesc" = "Skips sensitive content warning message.";
 "ClassicQuality" = "Classic video quality";
 "ClassicQualityDesc" = "Brings back classic video quality selection menu.";
+"ExtraSpeedOptions" = "Extra speed options";
+"ExtraSpeedOptionsDesc" = "Adds more video playback speed options to the player menu.";
 "DontSnap2Chapter" = "Disable snap to chapter";
 "DontSnap2ChapterDesc" = "Disables skipping to the next episode by double-tap gesture.";
 "RedProgressBar" = "Red progress bar";
@@ -61,6 +63,8 @@
 "NoHintsDesc" = "Disables hints by author which appears at the top-right corner during playback.";
 "NoFreeZoom" = "Disable free zoom gesture";
 "NoFreeZoomDesc" = "Disables new free zoom gestures.";
+"AutoFullscreen" = "Play videos in fullscreen";
+"AutoFullscreenDesc" = "Automatically plays videos in fullscreen mode.";
 "ExitFullscreen" = "Exit fullscreen mode on finish";
 "ExitFullscreenDesc" = "Exits fullscreen mode at the end of video playback.";
 "NoDoubleTap2Seek" = "Disable double tap to seek";

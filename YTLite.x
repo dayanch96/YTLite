@@ -30,7 +30,7 @@
 
 %hook YTIElementRenderer
 - (NSData *)elementData {
-    if (self.hasCompatibilityOptions && self.compatibilityOptions.hasAdLoggingData)
+    if (self.hasCompatibilityOptions && self.compatibilityOptions.hasAdLoggingData && kNoAds)
         return nil;
     NSString *description = [self description];
     if (([description containsString:@"brand_promo"]
@@ -229,9 +229,59 @@
 %hook YTVideoQualitySwitchControllerFactory
 - (id)videoQualitySwitchControllerWithParentResponder:(id)responder {
     Class originalClass = %c(YTVideoQualitySwitchOriginalController);
-    if (kClassicQuality) {
-        return originalClass ? [[originalClass alloc] initWithParentResponder:responder] : %orig;
-    } return %orig;
+    if (kClassicQuality) return originalClass ? [[originalClass alloc] initWithParentResponder:responder] : %orig;
+    return %orig;
+}
+%end
+
+// Extra Speed Options (https://github.com/LillieH1000/YouTube-Reborn/blob/v4/Tweak.xm#L853) - Same code but for .x
+%hook YTVarispeedSwitchController
+- (void *)init {
+    void *ret = (void *)%orig;
+    if (kExtraSpeedOptions) {
+        NSArray *speedOptions = @[@"0.1x", @"0.25x", @"0.5x", @"0.75x", @"1x", @"1.25x", @"1.5x", @"1.75x", @"2x", @"2.5x", @"3x", @"3.5x", @"4x", @"5x"];
+        NSMutableArray *speedOptionsCopy = [NSMutableArray new];
+
+        for (NSString *title in speedOptions) {
+            float rate = [title floatValue];
+            [speedOptionsCopy addObject:[[objc_lookUpClass("YTVarispeedSwitchControllerOption") alloc] initWithTitle:title rate:rate]];
+        }
+
+        Ivar optionsIvar = class_getInstanceVariable(object_getClass(self), "_options");
+        object_setIvar(self, optionsIvar, [speedOptionsCopy copy]);
+
+    } return ret;
+}
+%end
+
+%hook MLHAMQueuePlayer
+- (void)setRate:(float)rate {
+    if (kExtraSpeedOptions) {
+        Ivar rateIvar = class_getInstanceVariable([self class], "_rate");
+        if (rateIvar) {
+            float* ratePtr = (float *)((__bridge void *)self + ivar_getOffset(rateIvar));
+            *ratePtr = rate;
+        }
+
+        id ytPlayer = object_getIvar(self, class_getInstanceVariable([self class], "_player"));
+        if ([ytPlayer respondsToSelector:@selector(setRate:)]) {
+            [ytPlayer setRate:rate];
+        }
+
+        [self.playerEventCenter broadcastRateChange:rate];
+    } else {
+        %orig(rate);
+    }
+}
+%end
+
+// Temprorary Fix For 'Classic Video Quality' and 'Extra Speed Options'
+%hook YTVersionUtils
++ (NSString *)appVersion {
+    NSString *originalVersion = %orig;
+    NSString *fakeVersion = @"18.18.2";
+
+    return (!kClassicQuality && !kExtraSpeedOptions && [originalVersion compare:fakeVersion options:NSNumericSearch] == NSOrderedDescending) ? originalVersion : fakeVersion;
 }
 %end
 
@@ -246,7 +296,7 @@
 %end
 
 %hook YTSegmentableInlinePlayerBarView
-- (void)setBufferedProgressBarColor:(id)arg1 { if (kNoRelatedVids) %orig([UIColor colorWithRed:0.65 green:0.65 blue:0.65 alpha:0.60]); }
+- (void)setBufferedProgressBarColor:(id)arg1 { if (kRedProgressBar) %orig([UIColor colorWithRed:0.65 green:0.65 blue:0.65 alpha:0.60]); }
 %end
 
 // Disable Hints
@@ -258,6 +308,20 @@
 %hook YTUserDefaults
 - (BOOL)areHintsDisabled { return kNoHints ? YES : NO; }
 - (void)setHintsDisabled:(BOOL)arg1 { kNoHints ? %orig(YES) : %orig; }
+%end
+
+// Enter Fullscreen on Start (https://github.com/PoomSmart/YTAutoFullScreen)
+%hook YTPlayerViewController
+- (void)loadWithPlayerTransition:(id)arg1 playbackConfig:(id)arg2 {
+    %orig;
+    if (kAutoFullscreen) [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(autoFullscreen) userInfo:nil repeats:NO];
+}
+
+%new
+- (void)autoFullscreen {
+    YTWatchController *watchController = [self valueForKey:@"_UIDelegate"];
+    [watchController showFullScreen];
+}
 %end
 
 // Exit Fullscreen on Finish
@@ -306,7 +370,7 @@
         if ([cell respondsToSelector:@selector(node)]) {
             NSString *idToRemove = [[cell node] accessibilityIdentifier];
             if ([idToRemove isEqualToString:@"statement_banner.view"] ||
-                (([idToRemove isEqualToString:@"eml.shorts-grid"] || [idToRemove isEqualToString:@"eml.shorts-shelf"]) && kHideShorts)) {
+                (([idToRemove isEqualToString:@"eml.shorts-grid"] || [idToRemove isEqualToString:@"eml.shorts-shelf"] || [idToRemove isEqualToString:@"eml.inline_shorts"]) && kHideShorts)) {
                 [self removeCellsAtIndexPath:indexPath];
             }
         }
@@ -590,10 +654,12 @@ static void reloadPrefs() {
     kDisableAutoplay = [prefs[@"disableAutoplay"] boolValue] ?: NO;
     kNoContentWarning = [prefs[@"noContentWarning"] boolValue] ?: NO;
     kClassicQuality = [prefs[@"classicQuality"] boolValue] ?: NO;
+    kExtraSpeedOptions = [prefs[@"extraSpeedOptions"] boolValue] ?: NO;
     kDontSnapToChapter = [prefs[@"dontSnapToChapter"] boolValue] ?: NO;
     kRedProgressBar = [prefs[@"redProgressBar"] boolValue] ?: NO;
     kNoHints = [prefs[@"noHints"] boolValue] ?: NO;
     kNoFreeZoom = [prefs[@"noFreeZoom"] boolValue] ?: NO;
+    kAutoFullscreen = [prefs[@"autoFullscreen"] boolValue] ?: NO;
     kExitFullscreen = [prefs[@"exitFullscreen"] boolValue] ?: NO;
     kNoDoubleTapToSeek = [prefs[@"noDoubleTapToSeek"] boolValue] ?: NO;
     kHideShorts = [prefs[@"hideShorts"] boolValue] ?: NO;
@@ -650,10 +716,12 @@ static void reloadPrefs() {
         @"disableAutoplay" : @(kDisableAutoplay),
         @"noContentWarning" : @(kNoContentWarning),
         @"classicQuality" : @(kClassicQuality),
+        @"extraSpeedOptions" : @(kExtraSpeedOptions),
         @"dontSnapToChapter" : @(kDontSnapToChapter),
         @"redProgressBar" : @(kRedProgressBar),
         @"noHints" : @(kNoHints),
         @"noFreeZoom" : @(kNoFreeZoom),
+        @"autoFullscreen" : @(kAutoFullscreen),
         @"exitFullscreen" : @(kExitFullscreen),
         @"noDoubleTapToSeek" : @(kNoDoubleTapToSeek),
         @"hideShorts" : @(kHideShorts),
