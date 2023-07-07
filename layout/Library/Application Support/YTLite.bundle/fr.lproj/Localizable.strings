@@ -125,10 +125,10 @@
 "HideShortsAudioTrackDesc" = "Masque la piste audio sous la description des Shorts.";
 
 "Other" = "Autre";
-"RemovePlayNext" = "Supprimer "Placer en première position dans la file d'attente"";
-"RemovePlayNextDesc" = "Supprime l'option "Placer en première position dans la file d'attente" du menu.";
-"NoContinueWatching" = "Supprimer "Continuer à regarder"";
-"NoContinueWatchingDesc" = "Supprime la section "Continuer à regarder" contenant les vidéos inachevées de la page d'accueil.";
+"RemovePlayNext" = "Supprimer \"Placer en première position dans la file d'attente\"";
+"RemovePlayNextDesc" = "Supprime l'option \"Placer en première position dans la file d'attente\" du menu.";
+"NoContinueWatching" = "Supprimer \"Continuer à regarder\"";
+"NoContinueWatchingDesc" = "Supprime la section \"Continuer à regarder\" contenant les vidéos inachevées de la page d'accueil.";
 
 "Startup" = "Page de démarrage";
 "Home" = "Accueil";
