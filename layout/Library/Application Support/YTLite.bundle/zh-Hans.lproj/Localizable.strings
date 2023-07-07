@@ -53,8 +53,8 @@
 "NoContentWarningDesc" = "跳过敏感内容警告消息。";
 "ClassicQuality" = "经典视频质量";
 "ClassicQualityDesc" = "加回经典的视频质量选择菜单。";
-"ExtraSpeedOptions" = "Extra speed options";
-"ExtraSpeedOptionsDesc" = "Adds more video playback speed options to the player menu.";
+"ExtraSpeedOptions" = "扩展速度选项";
+"ExtraSpeedOptionsDesc" = "在播放器菜单中添加更多视频播放速度的选项。";
 "DontSnap2Chapter" = "禁用双击跳转";
 "DontSnap2ChapterDesc" = "禁用通过双击手势跳到下一集。";
 "RedProgressBar" = "红色进度条";
@@ -63,8 +63,8 @@
 "NoHintsDesc" = "禁用播放期间出现在右上角的作者提示。";
 "NoFreeZoom" = "禁用自由缩放手势";
 "NoFreeZoomDesc" = "禁用新的自由缩放手势。";
-"AutoFullscreen" = "Play videos in fullscreen";
-"AutoFullscreenDesc" = "Automatically plays videos in fullscreen mode.";
+"AutoFullscreen" = "全屏模式";
+"AutoFullscreenDesc" = "自动以全屏模式播放视频。";
 "ExitFullscreen" = "完成后退出全屏模式";
 "ExitFullscreenDesc" = "在视频播放结束时退出全屏模式。";
 "NoDoubleTap2Seek" = "禁用双击搜索";
