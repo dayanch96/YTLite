@@ -25,7 +25,7 @@
 "HideAutoplayDesc" = "隱藏播放器中的自動播放開關";
 "HideSubs" = "隱藏字幕按鈕";
 "HideSubsDesc" = "隱藏播放器中的字幕按鈕";
-"NoHUDMsgs" = "隱藏 HUD 訊息";
+"NoHUDMsgs" = "隱藏HUD訊息";
 "NoHUDMsgsDesc" = "隱藏播放器中的所有功能。例如：開啟/關閉 CC、開啟循環播放...等";
 "HidePrevNext" = "隱藏上一部和下一部按鈕";
 "HidePrevNextDesc" = "隱藏播放器中上一部和下一部影片按鈕";
@@ -54,19 +54,19 @@
 "ClassicQuality" = "舊版本影片畫質";
 "ClassicQualityDesc" = "恢復舊版本選擇影片畫質的方式";
 "ExtraSpeedOptions" = "額外的播放速度選項";
-"ExtraSpeedOptionsDesc" = "在播放器選單中添加更多的影片播放速度選項";
+"ExtraSpeedOptionsDesc" = "在播放速度選單中添加更多選項";
 "DontSnap2Chapter" = "停用跳轉到章節";
 "DontSnap2ChapterDesc" = "停用點兩下手勢跳轉到下一集";
 "RedProgressBar" = "紅色進度條";
 "RedProgressBarDesc" = "恢復紅色的進度條";
 "NoHints" = "停用提示";
-"NoHintsDesc" = "停用在播放過程中出現在右上角的作者提示";
+"NoHintsDesc" = "在播放過程中出現在右上角的作者提示";
 "NoFreeZoom" = "停用自由縮放手勢";
 "NoFreeZoomDesc" = "停用新的自由缩放手势";
 "AutoFullscreen" = "全螢幕模式";
 "AutoFullscreenDesc" = "自動以全螢幕模式播放影片";
 "ExitFullscreen" = "結束時退出全螢幕模式";
-"ExitFullscreenDesc" = "在影片播放結束時退出全螢幕模式";
+"ExitFullscreenDesc" = "影片播放結束時退出全螢幕模式";
 "NoDoubleTap2Seek" = "停用點兩下快轉功能";
 "NoDoubleTap2SeekDesc" = "停用點兩下手勢進行快轉";
 
@@ -88,17 +88,17 @@
 "HideShorts" = "隱藏Shorts影片";
 "HideShortsDesc" = "從首頁、推薦...等，隱藏Shorts影片（不適用於觀看紀錄）";
 "ShortsProgress" = "啟用時間進度條";
-"ShortsProgressDesc" = "在Shorts中顯示進度條";
+"ShortsProgressDesc" = "在Shorts底部顯示進度條";
 "ResumeShorts" = "不要從Shorts開始";
 "ResumeShortsDesc" = "防止重新開啟應用程式時從Shorts開始播放，如果在觀看Shorts時關閉，就會發生這種情況";
 "HideShortsLogo" = "隱藏Shorts圖示";
-"HideShortsLogoDesc" = "隱藏左上角Shorts圖示";
+"HideShortsLogoDesc" = "左上角Shorts圖示";
 "HideShortsSearch" = "隱藏搜尋按鈕";
 "HideShortsSearchDesc" = "從Shorts中隱藏搜尋按鈕";
 "HideShortsCamera" = "隱藏相機按鈕";
 "HideShortsCameraDesc" = "從Shorts中隱藏相機按鈕";
 "HideShortsMore" = "隱藏更多 (⋮) 按鈕";
-"HideShortsMoreDesc" = "從Shorts中隱藏更多 (⋮) 按鈕. 也可以透過長按螢幕來完成";
+"HideShortsMoreDesc" = "從Shorts中隱藏更多 (⋮) 按鈕,也可以透過長按螢幕來完成";
 "HideShortsSubscriptions" = "隱藏訂閱按鈕";
 "HideShortsSubscriptionsDesc" = "隱藏當Shorts暫停時顯示的訂閱按鈕";
 "HideShortsLike" = "隱藏喜歡按鈕";
@@ -120,7 +120,7 @@
 "HideShortsDescription" = "隱藏描述";
 "HideShortsDescriptionDesc" = "隱藏頻道名稱下的Shorts描述";
 "HideShortsAudioTrack" = "隱藏原始音效";
-"HideShortsAudioTrackDesc" = "隱藏Shorts描述下的原始音效;
+"HideShortsAudioTrackDesc" = "隱藏Shorts描述下的原始音效";
 
 "Other" = "其它";
 "RemovePlayNext" = "移除「播放下一個」";
@@ -140,7 +140,7 @@
 "Version" = "版本";
 "About" = "關於";
 "Credits" = "貢獻";
-"Developer" = "YTLite 開發人員";
+"Developer" = "YTLite開發者";
 "Advanced" = "進階模式";
 "ResetSettings" = "重置YTLite設定";
 "ResetMessage" = "這個選項會將YTLite重置為預設值，並關閉Youtube\n\n您確定要繼續嗎?";
