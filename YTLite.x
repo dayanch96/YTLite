@@ -242,6 +242,11 @@
 - (void)updateMiniBarPlayerStateFromRenderer { if (!kMiniplayer) %orig; }
 %end
 
+// Portrait Fullscreen
+%hook YTWatchViewController
+- (unsigned long long)allowedFullScreenOrientations { return kPortraitFullscreen ? UIInterfaceOrientationMaskAllButUpsideDown : %orig; }
+%end
+
 // Disable Autoplay
 %hook YTPlaybackConfig
 - (void)setStartPlayback:(BOOL)arg1 { kDisableAutoplay ? %orig(NO) : %orig; }
@@ -705,6 +710,7 @@ static void reloadPrefs() {
     kNoPromotionCards = [prefs[@"noPromotionCards"] boolValue] ?: NO;
     kNoWatermarks = [prefs[@"noWatermarks"] boolValue] ?: NO;
     kMiniplayer = [prefs[@"miniplayer"] boolValue] ?: NO;
+    kPortraitFullscreen = [prefs[@"portraitFullscreen"] boolValue] ?: NO;
     kDisableAutoplay = [prefs[@"disableAutoplay"] boolValue] ?: NO;
     kNoContentWarning = [prefs[@"noContentWarning"] boolValue] ?: NO;
     kClassicQuality = [prefs[@"classicQuality"] boolValue] ?: NO;
@@ -769,6 +775,7 @@ static void reloadPrefs() {
         @"noPromotionCards" : @(kNoPromotionCards),
         @"noWatermarks" : @(kNoWatermarks),
         @"miniplayer" : @(kMiniplayer),
+        @"portraitFullscreen" : @(kPortraitFullscreen),
         @"disableAutoplay" : @(kDisableAutoplay),
         @"noContentWarning" : @(kNoContentWarning),
         @"classicQuality" : @(kClassicQuality),

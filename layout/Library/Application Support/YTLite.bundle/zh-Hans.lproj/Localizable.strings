@@ -47,6 +47,8 @@
 "Player" = "播放器";
 "Miniplayer" = "启用迷你播放器";
 "MiniplayerDesc" = "启用迷你播放器来播放最初不是为其设计的视频，例如针对儿童的视频。";
+"PortraitFullscreen" = "Portrait fullscreen mode";
+"PortraitFullscreenDesc" = "Enables portrait fullscreen mode support.";
 "DisableAutoplay" = "禁用自动播放视频";
 "DisableAutoplayDesc" = "打开后防止视频自动播放。";
 "NoContentWarning" = "跳过内容警告";

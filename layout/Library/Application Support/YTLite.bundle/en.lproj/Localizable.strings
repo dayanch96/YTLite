@@ -47,6 +47,8 @@
 "Player" = "Player";
 "Miniplayer" = "Enable mini player";
 "MiniplayerDesc" = "Enables the mini player for videos that were not originally designed for it, such as videos targeted for children.";
+"PortraitFullscreen" = "Portrait fullscreen mode";
+"PortraitFullscreenDesc" = "Enables portrait fullscreen mode support.";
 "DisableAutoplay" = "Disable Autoplay videos";
 "DisableAutoplayDesc" = "Prevents video playback after opening.";
 "NoContentWarning" = "Skip content warning";

@@ -47,6 +47,8 @@
 "Player" = "播放器";
 "Miniplayer" = "啟用迷你播放器";
 "MiniplayerDesc" = "對於原本不支援迷你播放器的影片（例如針對兒童的影片），啟用迷你播放器";
+"PortraitFullscreen" = "Portrait fullscreen mode";
+"PortraitFullscreenDesc" = "Enables portrait fullscreen mode support.";
 "DisableAutoplay" = "停用自動播放";
 "DisableAutoplayDesc" = "在打開應用程式後防止自動播放影片";
 "NoContentWarning" = "略過內容警告";

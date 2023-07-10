@@ -48,6 +48,7 @@ BOOL kNoRelatedVids;
 BOOL kNoPromotionCards;
 BOOL kNoWatermarks;
 BOOL kMiniplayer;
+BOOL kPortraitFullscreen;
 BOOL kDisableAutoplay;
 BOOL kNoContentWarning;
 BOOL kClassicQuality;

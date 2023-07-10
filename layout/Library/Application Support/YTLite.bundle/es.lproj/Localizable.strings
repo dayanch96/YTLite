@@ -47,6 +47,8 @@
 "Player" = "Reproductor";
 "Miniplayer" = "Activar mini reproductor";
 "MiniplayerDesc" = "Activa el mini reproductor para vídeos que no fueron diseñados originalmente para ello, como los vídeos dirigidos a niños.";
+"PortraitFullscreen" = "Portrait fullscreen mode";
+"PortraitFullscreenDesc" = "Enables portrait fullscreen mode support.";
 "DisableAutoplay" = "Desactivar reproducción automática";
 "DisableAutoplayDesc" = "Evita la reproducción automática de vídeos después de abrirlos.";
 "NoContentWarning" = "Omitir advertencia de contenido";
