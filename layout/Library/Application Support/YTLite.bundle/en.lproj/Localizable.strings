@@ -141,7 +141,12 @@
 "About" = "About";
 "Credits" = "Credits";
 "Developer" = "YTLite developer";
+"ChineseSimplified" = "Chinese (Simplified) localization";
+"ChineseTraditional" = "Chinese (Traditional) localization";
+"French" = "French localization";
+"Spanish" = "Spanish localization";
 "Advanced" = "Advanced mode";
+"AdvancedModeReminder" = "Would you like to activate Advanced mode for YTLite?\n\nThis mode provides more than 50 additional options to customize and optimize your YouTube experience. You can enable/disable it later from Settings → %@ → %@ → %@.";
 "ResetSettings" = "Reset YTLite settings";
 "ResetMessage" = "This option will reset YTLite settings to default and close YouTube.\n\nAre you sure you want to continue?";
 "Yes" = "Yes";

@@ -77,6 +77,7 @@ BOOL kHideShortsThanks;
 BOOL kHideShortsChannelName;
 BOOL kHideShortsDescription;
 BOOL kHideShortsAudioTrack;
+BOOL kHideShortsPromoCards;
 BOOL kRemoveLabels;
 BOOL kReExplore;
 BOOL kRemoveShorts;
@@ -86,6 +87,7 @@ BOOL kRemoveLibrary;
 BOOL kRemovePlayNext;
 BOOL kNoContinueWatching;
 BOOL kAdvancedMode;
+BOOL kAdvancedModeReminder;
 int kPivotIndex;
 
 @interface YTSettingsSectionItemManager (Custom)
@@ -108,6 +110,12 @@ int kPivotIndex;
 @interface YTRightNavigationButtons : UIView
 @property (nonatomic, strong) YTQTMButton *notificationButton;
 @property (nonatomic, strong) YTQTMButton *searchButton;
+@end
+
+@interface YTSearchView : UIView
+@end
+
+@interface YTSearchBarView : UIView
 @end
 
 @interface YTNavigationBarTitleView : UIView
@@ -149,6 +157,9 @@ int kPivotIndex;
 @end
 
 @interface YTReelWatchHeaderView : UIView
+@end
+
+@interface YTELMView : UIView
 @end
 
 @interface MLHAMQueuePlayer : NSObject

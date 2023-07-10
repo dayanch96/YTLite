@@ -33,10 +33,11 @@
     if (self.hasCompatibilityOptions && self.compatibilityOptions.hasAdLoggingData && kNoAds)
         return nil;
     NSString *description = [self description];
-    if (([description containsString:@"brand_promo"]
+    if ((([description containsString:@"brand_promo"]
         || [description containsString:@"product_carousel"]
         || [description containsString:@"product_engagement_panel"]
         || [description containsString:@"product_item"]) && kNoAds)
+        || ([description containsString:@"inline_shorts"] && kHideShorts))
         return [NSData data];
     return %orig;
 }
@@ -111,6 +112,32 @@
     if (kNoNotifsButton) self.notificationButton.hidden = YES;
     if (kNoSearchButton) self.searchButton.hidden = YES;
     if (kNoVoiceSearchButton && self.subviews.count >= 4 && [self.subviews[2].accessibilityIdentifier isEqualToString:@"id.settings.overflow.button"]) self.subviews[3].hidden = YES;
+}
+%end
+
+%hook YTSearchView
+- (void)layoutSubviews {
+    %orig;
+
+    if (kNoVoiceSearchButton && self.subviews.count > 0) {
+        UIView *firstSubview = self.subviews.firstObject;
+        if (firstSubview.subviews.count > 1) {
+            UIView *subview1 = firstSubview.subviews[1];
+            [subview1 setValue:@(1) forKey:@"hidden"];
+        }
+    }
+}
+%end
+
+%hook YTSearchBarView
+- (void)layoutSubviews {
+    %orig;
+
+    if (kNoVoiceSearchButton && ![self.superview isKindOfClass:objc_lookUpClass("YTNavigationBarTitleView")]) {
+        CGRect frame = self.frame;
+        frame.size.width += 20;
+        self.frame = frame;
+    }
 }
 %end
 
@@ -343,6 +370,21 @@
 }
 %end
 
+// Fit Shorts Button Labels For Localizations
+%hook YTReelPlayerButton
+- (void)layoutSubviews {
+    %orig;
+
+    for (UIView *subview in self.subviews) {
+        if ([subview isKindOfClass:[UILabel class]]) {
+            UILabel *label = (UILabel *)subview;
+            label.adjustsFontSizeToFitWidth = YES;
+            break;
+        }
+    }
+}
+%end
+
 // Fix Playlist Mini-bar Height For Small Screens
 %hook YTPlaylistMiniBarView
 - (void)setFrame:(CGRect)frame {
@@ -453,9 +495,21 @@
 - (void)layoutSubviews {
     %orig;
     if (kHideShortsDescription && [self.subviews[2].accessibilityIdentifier isEqualToString:@"id.reels_smv_player_title_label"]) self.subviews[2].hidden = YES;
-    if (kHideShortsThanks && [self.subviews[self.subviews.count - 3].accessibilityIdentifier isEqualToString:@"id.elements.components.suggested_action"]) self.subviews[self.subviews.count - 3].hidden = YES;
+    if (kHideShortsThanks && [self.subviews[self.subviews.count - 3].accessibilityIdentifier isEqualToString:@"id.elements.components.suggested_action"]) self.subviews[self.subviews.count - 3].hidden = YES; // Might be useful for older versions
     if (kHideShortsChannelName) self.subviews[self.subviews.count - 2].hidden = YES;
     if (kHideShortsAudioTrack) self.subviews.lastObject.hidden = YES;
+    for (UIView *subview in self.subviews) {
+        if (kHideShortsPromoCards && [NSStringFromClass([subview class]) isEqualToString:@"YTBadge"]) {
+            subview.hidden = YES;
+        }
+    }
+}
+%end
+
+%hook YTELMView
+- (void)layoutSubviews {
+    %orig;
+    if (kHideShortsThanks && [self.subviews.firstObject.accessibilityIdentifier isEqualToString:@"id.elements.components.suggested_action"]) self.subviews.firstObject.hidden = YES;
 }
 %end
 
@@ -680,6 +734,7 @@ static void reloadPrefs() {
     kHideShortsChannelName = [prefs[@"hideShortsChannelName"] boolValue] ?: NO;
     kHideShortsDescription = [prefs[@"hideShortsDescription"] boolValue] ?: NO;
     kHideShortsAudioTrack = [prefs[@"hideShortsAudioTrack"] boolValue] ?: NO;
+    kHideShortsPromoCards = [prefs[@"hideShortsPromoCards"] boolValue] ?: NO;
     kRemoveLabels = [prefs[@"removeLabels"] boolValue] ?: NO;
     kReExplore = [prefs[@"reExplore"] boolValue] ?: NO;
     kRemoveShorts = [prefs[@"removeShorts"] boolValue] ?: NO;
@@ -690,6 +745,7 @@ static void reloadPrefs() {
     kNoContinueWatching = [prefs[@"noContinueWatching"] boolValue] ?: NO;
     kPivotIndex = (prefs[@"pivotIndex"] != nil) ? [prefs[@"pivotIndex"] intValue] : 0;
     kAdvancedMode = [prefs[@"advancedMode"] boolValue] ?: NO;
+    kAdvancedModeReminder = [prefs[@"advancedModeReminder"] boolValue] ?: NO;
 
     NSDictionary *newSettings = @{
         @"noAds" : @(kNoAds),
@@ -742,6 +798,7 @@ static void reloadPrefs() {
         @"hideShortsChannelName" : @(kHideShortsChannelName),
         @"hideShortsDescription" : @(kHideShortsDescription),
         @"hideShortsAudioTrack" : @(kHideShortsAudioTrack),
+        @"hideShortsPromoCards" : @(kHideShortsPromoCards),
         @"removeLabels" : @(kRemoveLabels),
         @"reExplore" : @(kReExplore),
         @"removeShorts" : @(kRemoveShorts),
@@ -751,7 +808,8 @@ static void reloadPrefs() {
         @"removePlayNext" : @(kRemovePlayNext),
         @"noContinueWatching" : @(kNoContinueWatching),
         @"pivotIndex" : @(kPivotIndex),
-        @"advancedMode" : @(kAdvancedMode)
+        @"advancedMode" : @(kAdvancedMode),
+        @"advancedModeReminder" : @(kAdvancedModeReminder)
     };
 
     if (![newSettings isEqualToDictionary:prefs]) [newSettings writeToFile:path atomically:NO];

@@ -8,8 +8,11 @@ static const NSInteger YTLiteSection = 789;
 
 static void resetYTLiteSettings() {
     NSString *prefsPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"YTLite.plist"];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    [fileManager removeItemAtPath:prefsPath error:nil];
+    [[NSFileManager defaultManager] removeItemAtPath:prefsPath error:nil];
+
+    [[UIApplication sharedApplication] performSelector:@selector(suspend)];
+    [NSThread sleepForTimeInterval:1.0];
+    exit(0);
 }
 
 NSBundle *YTLiteBundle() {
@@ -218,7 +221,8 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
                 createSwitchItem(LOC(@"HideShortsThanks"), LOC(@"HideShortsThanksDesc"), @"hideShortsThanks", &kHideShortsThanks, selfObject),
                 createSwitchItem(LOC(@"HideShortsChannelName"), LOC(@"HideShortsChannelNameDesc"), @"hideShortsChannelName", &kHideShortsChannelName, selfObject),
                 createSwitchItem(LOC(@"HideShortsDescription"), LOC(@"HideShortsDescriptionDesc"), @"hideShortsDescription", &kHideShortsDescription, selfObject),
-                createSwitchItem(LOC(@"HideShortsAudioTrack"), LOC(@"HideShortsAudioTrackDesc"), @"hideShortsAudioTrack", &kHideShortsAudioTrack, selfObject)
+                createSwitchItem(LOC(@"HideShortsAudioTrack"), LOC(@"HideShortsAudioTrackDesc"), @"hideShortsAudioTrack", &kHideShortsAudioTrack, selfObject),
+                createSwitchItem(LOC(@"NoPromotionCards"), LOC(@"NoPromotionCardsDesc"), @"hideShortsPromoCards", &kHideShortsPromoCards, selfObject)
             ];
             YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"Shorts") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
             [settingsViewController pushViewController:picker];
@@ -355,6 +359,22 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
         return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/LillieH1000"]];
     }];
 
+    YTSettingsSectionItem *stalker = [%c(YTSettingsSectionItem) itemWithTitle:@"Stalker" titleDescription:LOC(@"ChineseSimplified") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+        return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/xiangfeidexiaohuo"]];
+    }];
+
+    YTSettingsSectionItem *clement = [%c(YTSettingsSectionItem) itemWithTitle:@"Clement" titleDescription:LOC(@"ChineseTraditional") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+        return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://twitter.com/a100900900"]];
+    }];
+
+    YTSettingsSectionItem *balackburn = [%c(YTSettingsSectionItem) itemWithTitle:@"Balackburn" titleDescription:LOC(@"French") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+        return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/Balackburn"]];
+    }];
+
+    YTSettingsSectionItem *decibelios = [%c(YTSettingsSectionItem) itemWithTitle:@"DeciBelioS" titleDescription:LOC(@"Spanish") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+        return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/Deci8BelioS"]];
+    }];
+
     YTSettingsSectionItem *dayanch96 = [%c(YTSettingsSectionItem) itemWithTitle:@"Dayanch96" titleDescription:LOC(@"Developer") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/Dayanch96/"]];
     }];
@@ -362,7 +382,6 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
     YTSettingsSectionItem *reset = [%c(YTSettingsSectionItem) itemWithTitle:LOC(@"ResetSettings") titleDescription:nil accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         YTAlertView *alertView = [%c(YTAlertView) confirmationDialogWithAction:^{
             resetYTLiteSettings();
-            exit(0);
         }
         actionTitle:LOC(@"Yes")
         cancelTitle:LOC(@"No")];
@@ -378,7 +397,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
             return @(OS_STRINGIFY(TWEAK_VERSION));
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-            NSArray <YTSettingsSectionItem *> *rows = @[ps, miro, lillie, dayanch96, space, createSwitchItem(LOC(@"Advanced"), nil, @"advancedMode", &kAdvancedMode, selfObject), reset];
+            NSArray <YTSettingsSectionItem *> *rows = @[ps, miro, lillie, dayanch96, stalker, clement, balackburn, decibelios, space, createSwitchItem(LOC(@"Advanced"), nil, @"advancedMode", &kAdvancedMode, selfObject), reset];
 
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"About") pickerSectionTitle:LOC(@"Credits") rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];
@@ -396,3 +415,26 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
     } %orig;
 }
 %end
+
+%ctor {
+    if (!kAdvancedModeReminder && !kAdvancedMode) {
+        NSString *prefsPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"YTLite.plist"];
+        NSMutableDictionary *prefs = [NSMutableDictionary dictionaryWithContentsOfFile:prefsPath];
+        [prefs setObject:@(YES) forKey:@"advancedModeReminder"];
+        [prefs writeToFile:prefsPath atomically:NO];
+        CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), CFSTR("com.dvntm.ytlite.prefschanged"), NULL, NULL, YES);
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            YTAlertView *alertView = [%c(YTAlertView) confirmationDialogWithAction:^{
+            [prefs setObject:@(YES) forKey:@"advancedMode"];
+            [prefs writeToFile:prefsPath atomically:NO];
+            CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), CFSTR("com.dvntm.ytlite.prefschanged"), NULL, NULL, YES);
+        }
+        actionTitle:LOC(@"Yes")
+        cancelTitle:LOC(@"No")];
+        alertView.title = @"YTLite";
+        alertView.subtitle = [NSString stringWithFormat:LOC(@"AdvancedModeReminder"), @"YTLite", LOC(@"Version"), LOC(@"Advanced")];
+        [alertView show];
+        });
+    }
+}
