@@ -47,8 +47,8 @@
 "Player" = "Lecteur";
 "Miniplayer" = "Activer le mini-lecteur";
 "MiniplayerDesc" = "Active le mini-lecteur pour les vidéos qui n'étaient pas initialement conçues pour cela, comme les vidéos destinées aux enfants.";
-"PortraitFullscreen" = "Portrait fullscreen mode";
-"PortraitFullscreenDesc" = "Enables portrait fullscreen mode support.";
+"PortraitFullscreen" = "Mode plein écran en portrait";
+"PortraitFullscreenDesc" = "Active la prise en charge du mode plein écran en portrait.";
 "DisableAutoplay" = "Désactiver la lecture automatique des vidéos";
 "DisableAutoplayDesc" = "Empêche la lecture des vidéos après ouverture.";
 "NoContentWarning" = "Passer l'avertissement de contenu";
