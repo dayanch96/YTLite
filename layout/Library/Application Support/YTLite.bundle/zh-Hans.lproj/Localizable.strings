@@ -47,8 +47,8 @@
 "Player" = "播放器";
 "Miniplayer" = "启用迷你播放器";
 "MiniplayerDesc" = "启用迷你播放器来播放最初不是为其设计的视频，例如针对儿童的视频。";
-"PortraitFullscreen" = "Portrait fullscreen mode";
-"PortraitFullscreenDesc" = "Enables portrait fullscreen mode support.";
+"PortraitFullscreen" = "竖屏全屏模式";
+"PortraitFullscreenDesc" = "启用竖屏全屏模式支持。";
 "DisableAutoplay" = "禁用自动播放视频";
 "DisableAutoplayDesc" = "打开后防止视频自动播放。";
 "NoContentWarning" = "跳过内容警告";
@@ -119,10 +119,10 @@
 "HideShortsThanksDesc" = "从短视频播放器中隐藏捐赠按钮。";
 "HideShortsChannelName" = "隐藏发布者名称";
 "HideShortsChannelNameDesc" = "从短视频播放器中隐藏发布者名称和订阅按钮。";
-"HideShortsDescription" = "隐藏说明";
-"HideShortsDescriptionDesc" = "在频道名称下隐藏短视频描述。";
-"HideShortsAudioTrack" = "隐藏音频音轨";
-"HideShortsAudioTrackDesc" = "从短视频描述下隐藏音频音轨。";
+"HideShortsDescription" = "隐藏文案";
+"HideShortsDescriptionDesc" = "隐藏短视频下方的视频文案。";
+"HideShortsAudioTrack" = "隐藏音轨";
+"HideShortsAudioTrackDesc" = "隐藏短视频文案下方的音轨。";
 
 "Other" = "其他";
 "RemovePlayNext" = "删除“播放队列中的下一个”";
@@ -143,12 +143,12 @@
 "About" = "关于";
 "Credits" = "信息";
 "Developer" = "YTLite开发者";
-"ChineseSimplified" = "Chinese (Simplified) localization";
-"ChineseTraditional" = "Chinese (Traditional) localization";
-"French" = "French localization";
-"Spanish" = "Spanish localization";
+"ChineseSimplified" = "中文（简体）本地化";
+"ChineseTraditional" = "中文（繁体）本地化";
+"French" = "法语本地化";
+"Spanish" = "西班牙语本地化";
 "Advanced" = "高级模式";
-"AdvancedModeReminder" = "Would you like to activate Advanced mode for YTLite?\n\nThis mode provides more than 50 additional options to customize and optimize your YouTube experience. You can enable/disable it later from Settings → %@ → %@ → %@.";
+"AdvancedModeReminder" = "想为YTLite激活高级模式吗？\n\n此模式提供了50多个额外的选项来自定义和优化您的YouTube体验。\n可以稍后从设置中启用/禁用它 → %@ → %@ → %@。";
 "ResetSettings" = "重置YTLite设置";
 "ResetMessage" = "此选项会将YTLite设置重置为默认值并关闭YouTube。\n\n确定要继续吗？";
 "Yes" = "是";
