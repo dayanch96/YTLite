@@ -30,16 +30,13 @@
 
 %hook YTIElementRenderer
 - (NSData *)elementData {
-    if (self.hasCompatibilityOptions && self.compatibilityOptions.hasAdLoggingData && kNoAds)
-        return nil;
+    if (self.hasCompatibilityOptions && self.compatibilityOptions.hasAdLoggingData && kNoAds) return nil;
+
+    NSArray *adDescriptions = @[@"brand_promo", @"product_carousel", @"product_engagement_panel", @"product_item", @"text_search_ad", @"text_image_button_layout", @"carousel_headered_layout", @"square_image_layout", @"feed_ad_metadata"];
     NSString *description = [self description];
-    if ((([description containsString:@"brand_promo"]
-        || [description containsString:@"product_carousel"]
-        || [description containsString:@"product_engagement_panel"]
-        || [description containsString:@"product_item"]) && kNoAds)
-        || ([description containsString:@"inline_shorts"] && kHideShorts))
+    if (([adDescriptions containsObject:description] && kNoAds) || ([description containsString:@"inline_shorts"] && kHideShorts)) {
         return [NSData data];
-    return %orig;
+    } return %orig;
 }
 %end
 
@@ -104,40 +101,53 @@
 - (void)setDisableMDXDeviceDiscovery:(BOOL)arg1 { %orig(kNoCast); }
 %end
 
-// Hide Cast, Notifications and Search Buttons
+// Hide Navigation Bar Buttons
 %hook YTRightNavigationButtons
 - (void)layoutSubviews {
     %orig;
     if (kNoCast && self.subviews.count > 1 && [self.subviews[1].accessibilityIdentifier isEqualToString:@"id.mdx.playbackroute.button"]) self.subviews[1].hidden = YES; // Hide icon immediately
     if (kNoNotifsButton) self.notificationButton.hidden = YES;
     if (kNoSearchButton) self.searchButton.hidden = YES;
-    if (kNoVoiceSearchButton && self.subviews.count >= 4 && [self.subviews[2].accessibilityIdentifier isEqualToString:@"id.settings.overflow.button"]) self.subviews[3].hidden = YES;
+
+    NSInteger moreButtonIndex = -1;
+    for (NSInteger i = 0; i < self.subviews.count; i++) {
+        UIView *subview = self.subviews[i];
+        if ([subview.accessibilityIdentifier isEqualToString:@"id.settings.overflow.button"]) {
+            moreButtonIndex = i;
+            break;
+        }
+    }
+    
+    if (moreButtonIndex != -1 && moreButtonIndex < self.subviews.count - 1 && kNoVoiceSearchButton) {
+        UIView *voiceButton = self.subviews[moreButtonIndex + 1];
+        voiceButton.hidden = YES;
+    }
 }
 %end
 
 %hook YTSearchView
 - (void)layoutSubviews {
     %orig;
-
+    // Hide Search History
+    if (kNoSearchHistory && self.subviews.count > 1) self.subviews[1].hidden = YES;
+    // Hide Voice Search Button
     if (kNoVoiceSearchButton && self.subviews.count > 0) {
         UIView *firstSubview = self.subviews.firstObject;
-        if (firstSubview.subviews.count > 1) {
-            UIView *subview1 = firstSubview.subviews[1];
-            [subview1 setValue:@(1) forKey:@"hidden"];
+        for (UIView *subview in firstSubview.subviews) {
+            if ([NSStringFromClass([subview class]) isEqualToString:@"UIView"]) {
+                [subview setValue:@(1) forKey:@"hidden"];
+                break;
+            }
         }
     }
 }
 %end
 
-%hook YTSearchBarView
-- (void)layoutSubviews {
-    %orig;
-
-    if (kNoVoiceSearchButton && ![self.superview isKindOfClass:objc_lookUpClass("YTNavigationBarTitleView")]) {
-        CGRect frame = self.frame;
-        frame.size.width += 20;
-        self.frame = frame;
-    }
+// Remove Videos Section Under Player
+%hook YTWatchNextResultsViewController
+- (void)setVisibleSections:(NSInteger)arg1 {
+    arg1 = (kNoRelatedWatchNexts) ? 1 : arg1;
+    %orig(arg1);
 }
 %end
 
@@ -183,19 +193,25 @@
 
 %hook YTColdConfig
 // Hide Next & Previous buttons
-- (BOOL)removeNextPaddleForSingletonVideos { return kHidePrevNext ? YES : NO; }
-- (BOOL)removePreviousPaddleForSingletonVideos { return kHidePrevNext ? YES : NO; }
+- (BOOL)removeNextPaddleForSingletonVideos { return kHidePrevNext ? YES : %orig; }
+- (BOOL)removePreviousPaddleForSingletonVideos { return kHidePrevNext ? YES : %orig; }
 // Replace Next & Previous with Fast Forward & Rewind buttons
-- (BOOL)replaceNextPaddleWithFastForwardButtonForSingletonVods { return kReplacePrevNext ? YES : NO; }
-- (BOOL)replacePreviousPaddleWithRewindButtonForSingletonVods { return kReplacePrevNext ? YES : NO; }
+- (BOOL)replaceNextPaddleWithFastForwardButtonForSingletonVods { return kReplacePrevNext ? YES : %orig; }
+- (BOOL)replacePreviousPaddleWithRewindButtonForSingletonVods { return kReplacePrevNext ? YES : %orig; }
 // Disable Free Zoom
-- (BOOL)videoZoomFreeZoomEnabledGlobalConfig { return kNoFreeZoom ? NO : YES; }
+- (BOOL)videoZoomFreeZoomEnabledGlobalConfig { return kNoFreeZoom ? NO : %orig; }
+// Stick Sort Buttons in Comments Section
+- (BOOL)enableHideChipsInTheCommentsHeaderOnScrollIos { return kStickSortComments ? NO : %orig; }
+// Hide Sort Buttons in Comments Section
+- (BOOL)enableChipsInTheCommentsHeaderIos { return kHideSortComments ? NO : %orig; }
 // Use System Theme
 - (BOOL)shouldUseAppThemeSetting { return YES; }
 // Dismiss Panel By Swiping in Fullscreen Mode
 - (BOOL)isLandscapeEngagementPanelSwipeRightToDismissEnabled { return YES; }
 // Remove Video in Playlist By Swiping To The Right
 - (BOOL)enableSwipeToRemoveInPlaylistWatchEp { return YES; }
+// Enable Old-style Minibar For Playlist Panel
+- (BOOL)queueClientGlobalConfigEnableFloatingPlaylistMinibar { return kPlaylistOldMinibar ? NO : %orig; }
 %end
 
 // Remove Dark Background in Overlay
@@ -685,6 +701,12 @@ BOOL isTabSelected = NO;
 }
 %end
 
+// Disable Right-To-Left Formatting
+%hook NSParagraphStyle
++ (NSWritingDirection)defaultWritingDirectionForLanguage:(id)lang { return kDisableRTL ? NSWritingDirectionLeftToRight : %orig; }
++ (NSWritingDirection)_defaultWritingDirection { return kDisableRTL ? NSWritingDirectionLeftToRight : %orig; }
+%end
+
 static void reloadPrefs() {
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"YTLite.plist"];
     NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfFile:path];
@@ -749,6 +771,12 @@ static void reloadPrefs() {
     kRemoveLibrary = [prefs[@"removeLibrary"] boolValue] ?: NO;
     kRemovePlayNext = [prefs[@"removePlayNext"] boolValue] ?: NO;
     kNoContinueWatching = [prefs[@"noContinueWatching"] boolValue] ?: NO;
+    kNoSearchHistory = [prefs[@"noSearchHistory"] boolValue] ?: NO;
+    kNoRelatedWatchNexts = [prefs[@"noRelatedWatchNexts"] boolValue] ?: NO;
+    kStickSortComments = [prefs[@"stickSortComments"] boolValue] ?: NO;
+    kHideSortComments = [prefs[@"hideSortComments"] boolValue] ?: NO;
+    kPlaylistOldMinibar = [prefs[@"playlistOldMinibar"] boolValue] ?: NO;
+    kDisableRTL = [prefs[@"disableRTL"] boolValue] ?: NO;
     kPivotIndex = (prefs[@"pivotIndex"] != nil) ? [prefs[@"pivotIndex"] intValue] : 0;
     kAdvancedMode = [prefs[@"advancedMode"] boolValue] ?: NO;
     kAdvancedModeReminder = [prefs[@"advancedModeReminder"] boolValue] ?: NO;
@@ -814,6 +842,12 @@ static void reloadPrefs() {
         @"removeLibrary" : @(kRemoveLibrary),
         @"removePlayNext" : @(kRemovePlayNext),
         @"noContinueWatching" : @(kNoContinueWatching),
+        @"noSearchHistory" : @(kNoSearchHistory),
+        @"noRelatedWatchNexts" : @(kNoRelatedWatchNexts),
+        @"stickSortComments" : @(kStickSortComments),
+        @"hideSortComments" : @(kHideSortComments),
+        @"playlistOldMinibar" : @(kPlaylistOldMinibar),
+        @"disableRTL" : @(kDisableRTL),
         @"pivotIndex" : @(kPivotIndex),
         @"advancedMode" : @(kAdvancedMode),
         @"advancedModeReminder" : @(kAdvancedModeReminder)

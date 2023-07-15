@@ -18,7 +18,7 @@ static void resetYTLiteSettings() {
 NSBundle *YTLiteBundle() {
     static NSBundle *bundle = nil;
     static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
+    dispatch_once(&onceToken, ^{
         NSString *tweakBundlePath = [[NSBundle mainBundle] pathForResource:@"YTLite" ofType:@"bundle"];
         if (tweakBundlePath)
             bundle = [NSBundle bundleWithPath:tweakBundlePath];
@@ -178,6 +178,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
             selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                 NSArray <YTSettingsSectionItem *> *rows = @[
                 createSwitchItem(LOC(@"Miniplayer"), LOC(@"MiniplayerDesc"), @"miniplayer", &kMiniplayer, selfObject),
+                createSwitchItem(LOC(@"PortraitFullscreen"), LOC(@"PortraitFullscreenDesc"), @"portraitFullscreen", &kPortraitFullscreen, selfObject),
                 createSwitchItem(LOC(@"DisableAutoplay"), LOC(@"DisableAutoplayDesc"), @"disableAutoplay", &kDisableAutoplay, selfObject),
                 createSwitchItem(LOC(@"NoContentWarning"), LOC(@"NoContentWarningDesc"), @"noContentWarning", &kNoContentWarning, selfObject),
                 createSwitchItem(LOC(@"ClassicQuality"), LOC(@"ClassicQualityDesc"), @"classicQuality", &kClassicQuality, selfObject),
@@ -261,7 +262,13 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
             selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                 NSArray <YTSettingsSectionItem *> *rows = @[
                 createSwitchItem(LOC(@"RemovePlayNext"), LOC(@"RemovePlayNextDesc"), @"removePlayNext", &kRemovePlayNext, selfObject),
-                createSwitchItem(LOC(@"NoContinueWatching"), LOC(@"NoContinueWatchingDesc"), @"noContinueWatching", &kNoContinueWatching, selfObject)
+                createSwitchItem(LOC(@"NoContinueWatching"), LOC(@"NoContinueWatchingDesc"), @"noContinueWatching", &kNoContinueWatching, selfObject),
+                createSwitchItem(LOC(@"NoSearchHistory"), LOC(@"NoSearchHistoryDesc"), @"noSearchHistory", &kNoSearchHistory, selfObject),
+                createSwitchItem(LOC(@"NoRelatedWatchNexts"), LOC(@"NoRelatedWatchNextsDesc"), @"noRelatedWatchNexts", &kNoRelatedWatchNexts, selfObject),
+                createSwitchItem(LOC(@"StickSortComments"), LOC(@"StickSortCommentsDesc"), @"stickSortComments", &kStickSortComments, selfObject),
+                createSwitchItem(LOC(@"HideSortComments"), LOC(@"HideSortCommentsDesc"), @"hideSortComments", &kHideSortComments, selfObject),
+                createSwitchItem(LOC(@"PlaylistOldMinibar"), LOC(@"PlaylistOldMinibarDesc"), @"playlistOldMinibar", &kPlaylistOldMinibar, selfObject),
+                createSwitchItem(LOC(@"DisableRTL"), LOC(@"DisableRTLDesc"), @"disableRTL", &kDisableRTL, selfObject)
             ];
 
             YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"Other") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];

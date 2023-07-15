@@ -131,6 +131,18 @@
 "RemovePlayNextDesc" = "Supprime l'option \"Placer en première position dans la file d'attente\" du menu.";
 "NoContinueWatching" = "Supprimer \"Continuer à regarder\"";
 "NoContinueWatchingDesc" = "Supprime la section \"Continuer à regarder\" contenant les vidéos inachevées de la page d'accueil.";
+"NoSearchHistory" = "Hide search history";
+"NoSearchHistoryDesc" = "Visually hides search history and suggestions. Note: Your search history will still be accessible in your other YouTube clients.";
+"NoRelatedWatchNexts" = "Hide all videos under player";
+"NoRelatedWatchNextsDesc" = "Hides all videos below the player, leaving only the video info and comments section.";
+"StickSortComments" = "Stick comments header";
+"StickSortCommentsDesc" = "Pins sort comments header (Top, Newest) so that it won't disappear while scrolling.";
+"HideSortComments" = "Hide comments header";
+"HideSortCommentsDesc" = "Hides sort comments header (Top, Newest) so it will never appear.";
+"PlaylistOldMinibar" = "Old playlist minibar";
+"PlaylistOldMinibarDesc" = "Replaces the new floating playlist panel with the old one.";
+"DisableRTL" = "Disable RTL formatting";
+"DisableRTLDesc" = "Forcefully displays text in left-to-right (LTR) format for languages that are initially displayed in right-to-left (RTL).";
 
 "Startup" = "Page de démarrage";
 "Home" = "Accueil";

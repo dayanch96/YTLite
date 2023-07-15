@@ -129,6 +129,18 @@
 "RemovePlayNextDesc" = "從選單移除「播放下一個」";
 "NoContinueWatching" = "移除「繼續觀看」";
 "NoContinueWatchingDesc" = "從首頁中移除包含未完成影片的「繼續觀看」部分";
+"NoSearchHistory" = "Hide search history";
+"NoSearchHistoryDesc" = "Visually hides search history and suggestions. Note: Your search history will still be accessible in your other YouTube clients.";
+"NoRelatedWatchNexts" = "Hide all videos under player";
+"NoRelatedWatchNextsDesc" = "Hides all videos below the player, leaving only the video info and comments section.";
+"StickSortComments" = "Stick comments header";
+"StickSortCommentsDesc" = "Pins sort comments header (Top, Newest) so that it won't disappear while scrolling.";
+"HideSortComments" = "Hide comments header";
+"HideSortCommentsDesc" = "Hides sort comments header (Top, Newest) so it will never appear.";
+"PlaylistOldMinibar" = "Old playlist minibar";
+"PlaylistOldMinibarDesc" = "Replaces the new floating playlist panel with the old one.";
+"DisableRTL" = "Disable RTL formatting";
+"DisableRTLDesc" = "Forcefully displays text in left-to-right (LTR) format for languages that are initially displayed in right-to-left (RTL).";
 
 "Startup" = "啟動頁面";
 "Home" = "首頁";

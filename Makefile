@@ -5,7 +5,7 @@ endif
 DEBUG=0
 FINALPACKAGE=1
 ARCHS = arm64
-PACKAGE_VERSION = 2.2.1
+PACKAGE_VERSION = 2.3
 TARGET := iphone:clang:latest:11.0
 
 include $(THEOS)/makefiles/common.mk
