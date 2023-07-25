@@ -215,8 +215,15 @@
 %end
 
 // Remove Dark Background in Overlay
-%hook YTMainAppVideoPlayerOverlayView
-- (void)setBackgroundVisible:(BOOL)arg1 { kNoDarkBg ? %orig(NO) : %orig; }
+%hook UIView
+- (void)setBackgroundColor:(UIColor *)color {
+    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTMainAppVideoPlayerOverlayView")]) {
+        if (kNoDarkBg) {
+            color = nil;
+        }
+    }
+    %orig;
+}
 %end
 
 // No Endscreen Cards
