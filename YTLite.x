@@ -218,18 +218,6 @@
 %hook YTMainAppVideoPlayerOverlayView
 - (void)setBackgroundVisible:(BOOL)arg1 isGradientBackground:(BOOL)arg2 { kNoDarkBg ? %orig(NO, arg2) : %orig; }
 %end
-/*
-%hook UIView
-- (void)setBackgroundColor:(UIColor *)color {
-    if ([self.nextResponder isKindOfClass:NSClassFromString(@"YTMainAppVideoPlayerOverlayView")]) {
-        if (kNoDarkBg) {
-            color = nil;
-        }
-    }
-    %orig;
-}
-%end
-*/
 
 // No Endscreen Cards
 %hook YTCreatorEndscreenView
