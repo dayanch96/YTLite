@@ -216,7 +216,7 @@
 
 // Remove Dark Background in Overlay
 %hook YTMainAppVideoPlayerOverlayView
-- (void)setBackgroundVisible:(BOOL)arg1 { kNoDarkBg ? %orig(NO) : %orig; }
+- (void)setBackgroundVisible:(BOOL)arg1 isGradientBackground:(BOOL)arg2 { kNoDarkBg ? %orig(NO, arg2) : %orig; }
 %end
 
 // No Endscreen Cards
