@@ -216,7 +216,7 @@
 
 // Remove Dark Background in Overlay
 %hook YTMainAppVideoPlayerOverlayView
-- (void)setBackgroundVisible:(BOOL)arg1 { kNoDarkBg ? %orig(NO) : %orig; }
+- (void)setBackgroundVisible:(BOOL)arg1 isGradientBackground:(BOOL)arg2 { kNoDarkBg ? %orig(NO, arg2) : %orig; }
 %end
 
 // No Endscreen Cards
@@ -330,6 +330,18 @@
     NSString *fakeVersion = @"18.18.2";
 
     return (!kClassicQuality && !kExtraSpeedOptions && [originalVersion compare:fakeVersion options:NSNumericSearch] == NSOrderedDescending) ? originalVersion : fakeVersion;
+}
+%end
+
+// Show real version in YT Settings
+%hook YTSettingsCell
+- (void)setDetailText:(id)arg1 {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *appVersion = infoDictionary[@"CFBundleShortVersionString"];
+
+    if ([arg1 isEqualToString:@"18.18.2"]) {
+        arg1 = appVersion;
+    } %orig(arg1);
 }
 %end
 

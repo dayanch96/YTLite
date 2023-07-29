@@ -133,6 +133,6 @@ static NSString *accessGroupID() {
 %end
 
 %ctor {
-    NSString *embeddedMobileProvisionPath = [[NSBundle mainBundle] pathForResource:@"embedded" ofType:@"mobileprovision"];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:embeddedMobileProvisionPath]) %init(gSideloading);
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[[NSBundle mainBundle] pathForResource:@"embedded" ofType:@"mobileprovision"]])
+        %init(gSideloading);
 }

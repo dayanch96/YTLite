@@ -157,10 +157,11 @@
 "About" = "À propos";
 "Credits" = "Crédits";
 "Developer" = "Développeur YTLite";
-"ChineseSimplified" = "Traduction chinoise (simplifiée)";
-"ChineseTraditional" = "Traduction chinoise (traditionnelle)";
-"French" = "Traduction française";
-"Spanish" = "Traduction espagnole";
+"ChineseSimplified" = "Localisation chinoise (simplifiée)";
+"ChineseTraditional" = "Localisation chinoise (traditionnelle)";
+"French" = "Localisation française";
+"Spanish" = "Localisation espagnole";
+"Japanese" = "Localisation japonaise";
 "Advanced" = "Mode avancé";
 "AdvancedModeReminder" = "Voulez-vous activer le mode avancé pour YTLite ?\n\nCe mode offre plus de 50 options supplémentaires pour personnaliser et optimiser votre expérience YouTube. Vous pouvez l'activer/désactiver ultérieurement depuis Paramètres → %@ → %@ → %@.";
 "ResetSettings" = "Réinitialiser les paramètres YTLite";

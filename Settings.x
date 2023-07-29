@@ -382,6 +382,10 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
         return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/Deci8BelioS"]];
     }];
 
+    YTSettingsSectionItem *skeids = [%c(YTSettingsSectionItem) itemWithTitle:@"SKEIDs" titleDescription:LOC(@"Japanese") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+        return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/SKEIDs"]];
+    }];
+
     YTSettingsSectionItem *dayanch96 = [%c(YTSettingsSectionItem) itemWithTitle:@"Dayanch96" titleDescription:LOC(@"Developer") accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/Dayanch96/"]];
     }];
@@ -404,7 +408,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
             return @(OS_STRINGIFY(TWEAK_VERSION));
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-            NSArray <YTSettingsSectionItem *> *rows = @[ps, miro, lillie, dayanch96, stalker, clement, balackburn, decibelios, space, createSwitchItem(LOC(@"Advanced"), nil, @"advancedMode", &kAdvancedMode, selfObject), reset];
+            NSArray <YTSettingsSectionItem *> *rows = @[ps, miro, lillie, dayanch96, stalker, clement, balackburn, decibelios, skeids, space, createSwitchItem(LOC(@"Advanced"), nil, @"advancedMode", &kAdvancedMode, selfObject), reset];
 
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"About") pickerSectionTitle:LOC(@"Credits") rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];

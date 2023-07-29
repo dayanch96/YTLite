@@ -159,6 +159,7 @@
 "ChineseTraditional" = "Traducción: Chino (Tradicional)";
 "French" = "Traducción: Frances";
 "Spanish" = "Traducción: Español";
+"Japanese" = "Traducción: Japonés";
 "Advanced" = "Modo avanzado";
 "AdvancedModeReminder" = "¿Desea activar el modo Avanzado para YTLite?\n\nEste modo ofrece más de 50 opciones adicionales para personalizar y optimizar tu experiencia en YouTube. Puedes activarlo/desactivarlo más tarde desde Ajustes → %@ → %@ → %@.";
 "ResetSettings" = "Restablecer configuración de YTLite";
