@@ -4,7 +4,7 @@
 "BackgroundPlayback" = "背景播放";
 "BackgroundPlaybackDesc" = "啟用背景播放";
 
-"Navbar" = "上方導覽列";
+"Navbar" = "頂部導覽列";
 "RemoveCast" = "隱藏投放按鈕";
 "RemoveCastDesc" = "從導覽列隱藏投放按鈕";
 "RemoveNotifications" = "隱藏通知按鈕";
@@ -29,15 +29,15 @@
 "NoHUDMsgsDesc" = "隱藏播放器中的所有功能。例如：開啟/關閉 CC、開啟循環播放...等";
 "HidePrevNext" = "隱藏上一部和下一部按鈕";
 "HidePrevNextDesc" = "隱藏播放器中上一部和下一部影片按鈕";
-"ReplacePrevNext" = "替換快轉和倒轉按鈕";
-"ReplacePrevNextDesc" = "將播放器中的上一部和下一部影片按鈕替換為快轉和倒轉按鈕";
+"ReplacePrevNext" = "取代快轉和倒轉按鈕";
+"ReplacePrevNextDesc" = "將播放器中的上一部和下一部影片按鈕取代為快轉和倒轉按鈕";
 "NoDarkBg" = "移除深色背景";
 "NoDarkBgDesc" = "移除播放器中的深色背景";
 "NoEndScreenCards" = "隱藏片尾懸停影片";
 "NoEndScreenCardsDesc" = "隱藏當影片結束時的懸停影片（縮圖）";
 "NoFullscreenActions" = "停用全螢幕操作";
 "NoFullscreenActionsDesc" = "在全螢幕模式下停用操作面板";
-"NoRelatedVids" = "沒有相關影片";
+"NoRelatedVids" = "隱藏相關影片";
 "NoRelatedVidsDesc" = "移除全螢幕模式向上滑動時所出現的相關影片";
 "NoPromotionCards" = "隱藏付費推廣";
 "NoPromotionCardsDesc" = "在付費推廣的影片中隱藏「付費推廣」";
@@ -59,8 +59,8 @@
 "ExtraSpeedOptionsDesc" = "在播放速度選單中添加更多選項";
 "DontSnap2Chapter" = "停用跳轉到章節";
 "DontSnap2ChapterDesc" = "停用點兩下手勢跳轉到下一集";
-"RedProgressBar" = "紅色進度條";
-"RedProgressBarDesc" = "恢復紅色的進度條";
+"RedProgressBar" = "紅色進度欄";
+"RedProgressBarDesc" = "恢復紅色的進度欄";
 "NoHints" = "停用提示";
 "NoHintsDesc" = "在播放過程中出現在右上角的作者提示";
 "NoFreeZoom" = "停用自由縮放手勢";
@@ -75,8 +75,8 @@
 "Tabbar" = "下方標籤欄";
 "RemoveLabels" = "移除標籤文字";
 "RemoveLabelsDesc" = "移除標籤文字";
-"ReExplore" = "將Shorts替換為探索";
-"ReExploreDesc" = "在舊版YouTube上顯示「探索」而非「Shorts」";
+"ReExplore" = "用探索取代Shorts分頁";
+"ReExploreDesc" = "如同舊版YouTube一樣顯示「探索」而非「Shorts」";
 "HideShortsTab" = "隱藏Shorts";
 "HideShortsTabDesc" = "從標籤欄中隱藏Shorts標籤";
 "HideSubscriptionsTab" = "隱藏訂閱內容";
