@@ -21,8 +21,8 @@
 "NoYTLogoDesc" = "Supprime le logo YouTube dans la barre de navigation.";
 
 "Overlay" = "Overlay";
-"HideAutoplay" = "Masquer l'interrupteur de lecture automatique";
-"HideAutoplayDesc" = "Masque l'interrupteur de lecture automatique de l'overlay.";
+"HideAutoplay" = "Masquer le toggle de lecture automatique";
+"HideAutoplayDesc" = "Masque le toggle de lecture automatique de l'overlay.";
 "HideSubs" = "Masquer le bouton Sous-titres";
 "HideSubsDesc" = "Masque le bouton Sous-titres de l'overlay.";
 "NoHUDMsgs" = "Masquer les messages HUD";
@@ -109,7 +109,7 @@
 "HideShortsLikeDesc" = "Masque le bouton J'aime de l'overlay Shorts.";
 "HideShortsDislike" = "Masquer le bouton Je n'aime pas";
 "HideShortsDislikeDesc" = "Masque le bouton Je n'aime pas de l'overlay Shorts.";
-"HideShortortsComments" = "Masquer le bouton Commentaires";
+"HideShortsComments" = "Masquer le bouton Commentaires";
 "HideShortsCommentsDesc" = "Masque le bouton Commentaires de l'overlay Shorts.";
 "HideShortsRemix" = "Masquer le bouton Remix";
 "HideShortsRemixDesc" = "Masque le bouton Remix de l'overlay Shorts.";
@@ -131,18 +131,18 @@
 "RemovePlayNextDesc" = "Supprime l'option \"Placer en première position dans la file d'attente\" du menu.";
 "NoContinueWatching" = "Supprimer \"Continuer à regarder\"";
 "NoContinueWatchingDesc" = "Supprime la section \"Continuer à regarder\" contenant les vidéos inachevées de la page d'accueil.";
-"NoSearchHistory" = "Hide search history";
-"NoSearchHistoryDesc" = "Visually hides search history and suggestions. Note: Your search history will still be accessible in your other YouTube clients.";
-"NoRelatedWatchNexts" = "Hide all videos under player";
-"NoRelatedWatchNextsDesc" = "Hides all videos below the player, leaving only the video info and comments section.";
-"StickSortComments" = "Stick comments header";
-"StickSortCommentsDesc" = "Pins sort comments header (Top, Newest) so that it won't disappear while scrolling.";
-"HideSortComments" = "Hide comments header";
-"HideSortCommentsDesc" = "Hides sort comments header (Top, Newest) so it will never appear.";
-"PlaylistOldMinibar" = "Old playlist minibar";
-"PlaylistOldMinibarDesc" = "Replaces the new floating playlist panel with the old one.";
-"DisableRTL" = "Disable RTL formatting";
-"DisableRTLDesc" = "Forcefully displays text in left-to-right (LTR) format for languages that are initially displayed in right-to-left (RTL).";
+"NoSearchHistory" = "Masquer l'historique de recherche";
+"NoSearchHistoryDesc" = "Masque visuellement l'historique de recherche et les suggestions. Note : Votre historique de recherche sera toujours accessible dans vos autres clients YouTube.";
+"NoRelatedWatchNexts" = "Masquer toutes les vidéos sous le lecteur";
+"NoRelatedWatchNextsDesc" = "Masque toutes les vidéos sous le lecteur, ne laissant que les informations sur la vidéo et la section des commentaires.";
+"StickSortComments" = "Épingler l'en-tête des commentaires";\
+"StickSortCommentsDesc" = "Épingle l'en-tête de tri des commentaires (Meilleurs, Plus récents) pour qu'il ne disparaisse pas pendant le défilement.";
+"HideSortComments" = "Masquer l'en-tête des commentaires";
+"HideSortCommentsDesc" = "Masque l'en-tête de tri des commentaires (Meilleurs, Plus récents) pour qu'il n'apparaisse jamais.";
+"PlaylistOldMinibar" = "Ancienne barre latérale de lecture";
+"PlaylistOldMinibarDesc" = "Remplace le nouveau panneau de lecture flottant par l'ancien.";
+"DisableRTL" = "Désactiver le formatage de droite à gauche";
+"DisableRTLDesc" = "Affiche le texte de force en format de gauche à droite (LTR) pour les langues qui sont initialement affichées de droite à gauche (RTL).";
 
 "Startup" = "Page de démarrage";
 "Home" = "Accueil";
