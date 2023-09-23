@@ -32,7 +32,7 @@
 - (NSData *)elementData {
     if (self.hasCompatibilityOptions && self.compatibilityOptions.hasAdLoggingData && kNoAds) return nil;
 
-    NSArray *adDescriptions = @[@"brand_promo", @"product_carousel", @"product_engagement_panel", @"product_item", @"text_search_ad", @"text_image_button_layout", @"carousel_headered_layout", @"square_image_layout", @"feed_ad_metadata"];
+    NSArray *adDescriptions = @[@"brand_promo", @"product_carousel", @"product_engagement_panel", @"product_item", @"text_search_ad", @"text_image_button_layout", @"carousel_headered_layout", @"carousel_footered_layout", @"square_image_layout", @"landscape_image_wide_button_layout", @"feed_ad_metadata"];
     NSString *description = [self description];
     if (([adDescriptions containsObject:description] && kNoAds) || ([description containsString:@"inline_shorts"] && kHideShorts)) {
         return [NSData data];
@@ -143,6 +143,18 @@
 }
 %end
 
+// Remove Comment Section Under Player
+%hook _ASDisplayView
+- (void)didMoveToWindow {
+    %orig;
+    if (kNoCommentSection || [self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_teaser"] || [self.accessibilityIdentifier isEqualToString:@"id.ui.comments_entry_point_simplebox"] || [self.accessibilityIdentifier isEqualToString:@"id.ui.video_metadata_carousel"] || [self.accessibilityIdentifier isEqualToString:@"id.ui.carousel_header"]) {
+        self.hidden = YES;
+        self.opaque = YES;
+        self.userInteractionEnabled = NO;
+    }
+}
+%end
+
 // Remove Videos Section Under Player
 %hook YTWatchNextResultsViewController
 - (void)setVisibleSections:(NSInteger)arg1 {
@@ -189,7 +201,6 @@
 %hook YTHUDMessageView
 - (id)initWithMessage:(id)arg1 dismissHandler:(id)arg2 { return kNoHUDMsgs ? nil : %orig; }
 %end
-
 
 %hook YTColdConfig
 // Hide Next & Previous buttons
@@ -619,6 +630,15 @@ CGFloat pivotBarViewHeight;
 }
 %end
 
+%hook YTPivotBarIndicatorView
+- (void)didMoveToWindow {
+    if (kRemoveLabels) {
+        [self setHidden:YES];
+    }
+    %orig();
+}
+%end
+
 %hook YTPivotBarItemView
 - (void)layoutSubviews {
     %orig;
@@ -784,6 +804,7 @@ static void reloadPrefs() {
     kRemovePlayNext = [prefs[@"removePlayNext"] boolValue] ?: NO;
     kNoContinueWatching = [prefs[@"noContinueWatching"] boolValue] ?: NO;
     kNoSearchHistory = [prefs[@"noSearchHistory"] boolValue] ?: NO;
+    kNoCommentSection = [prefs[@"noCommentSection"] boolValue] ?: NO;
     kNoRelatedWatchNexts = [prefs[@"noRelatedWatchNexts"] boolValue] ?: NO;
     kStickSortComments = [prefs[@"stickSortComments"] boolValue] ?: NO;
     kHideSortComments = [prefs[@"hideSortComments"] boolValue] ?: NO;
@@ -855,6 +876,7 @@ static void reloadPrefs() {
         @"removePlayNext" : @(kRemovePlayNext),
         @"noContinueWatching" : @(kNoContinueWatching),
         @"noSearchHistory" : @(kNoSearchHistory),
+        @"noCommentSection" : @(kNoCommentSection),
         @"noRelatedWatchNexts" : @(kNoRelatedWatchNexts),
         @"stickSortComments" : @(kStickSortComments),
         @"hideSortComments" : @(kHideSortComments),

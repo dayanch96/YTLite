@@ -131,6 +131,8 @@
 "NoContinueWatchingDesc" = "从首页中删除包含未完成视频的“继续观看”部分。";
 "NoSearchHistory" = "隐藏搜索历史记录";
 "NoSearchHistoryDesc" = "直观地隐藏搜索历史记录和建议。注意：搜索历史记录仍然可以在其他YouTube客户端中访问。";
+"NoCommentSection" = "Hide Comment Section under player";
+"NoCommentSectionDesc" = "Hides the Comment Section Below the player.";
 "NoRelatedWatchNexts" = "隐藏播放器下的所有视频";
 "NoRelatedWatchNextsDesc" = "隐藏播放器下方的所有视频，仅保留视频信息和评论部分。";
 "StickSortComments" = "固定评论排序";

@@ -131,6 +131,8 @@
 "NoContinueWatchingDesc" = "Удаляет блок «Продолжить просмотр» содержащий недосмотренные видео с Главной страницы.";
 "NoSearchHistory" = "Скрыть историю поиска";
 "NoSearchHistoryDesc" = "Визуально скрывает историю поиска и подсказок. Данная опция не отменяет трекинг вашей истории поиска.";
+"NoCommentSection" = "Hide Comment Section under player";
+"NoCommentSectionDesc" = "Hides the Comment Section Below the player.";
 "NoRelatedWatchNexts" = "Скрыть все видео под плеером";
 "NoRelatedWatchNextsDesc" = "Скрывает все видео под плеером, оставляя только информацию о видео и раздел комментариев.";
 "StickSortComments" = "Закрепить панель комментариев";

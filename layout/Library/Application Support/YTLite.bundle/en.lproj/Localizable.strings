@@ -131,6 +131,8 @@
 "NoContinueWatchingDesc" = "Removes the \"Continue watching\" section containing unfinished videos from the Home page.";
 "NoSearchHistory" = "Hide search history";
 "NoSearchHistoryDesc" = "Visually hides search history and suggestions. Note: Your search history will still be accessible in your other YouTube clients.";
+"NoCommentSection" = "Hide Comment Section under player";
+"NoCommentSectionDesc" = "Hides the Comment Section Below the player.";
 "NoRelatedWatchNexts" = "Hide all videos under player";
 "NoRelatedWatchNextsDesc" = "Hides all videos below the player, leaving only the video info and comments section.";
 "StickSortComments" = "Stick comments header";

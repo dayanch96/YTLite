@@ -264,6 +264,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
                 createSwitchItem(LOC(@"RemovePlayNext"), LOC(@"RemovePlayNextDesc"), @"removePlayNext", &kRemovePlayNext, selfObject),
                 createSwitchItem(LOC(@"NoContinueWatching"), LOC(@"NoContinueWatchingDesc"), @"noContinueWatching", &kNoContinueWatching, selfObject),
                 createSwitchItem(LOC(@"NoSearchHistory"), LOC(@"NoSearchHistoryDesc"), @"noSearchHistory", &kNoSearchHistory, selfObject),
+                createSwitchItem(LOC(@"NoCommentSection"), LOC(@"NoCommentSectionDesc"), @"noCommentSection", kNoCommentSection, selfObject),
                 createSwitchItem(LOC(@"NoRelatedWatchNexts"), LOC(@"NoRelatedWatchNextsDesc"), @"noRelatedWatchNexts", &kNoRelatedWatchNexts, selfObject),
                 createSwitchItem(LOC(@"StickSortComments"), LOC(@"StickSortCommentsDesc"), @"stickSortComments", &kStickSortComments, selfObject),
                 createSwitchItem(LOC(@"HideSortComments"), LOC(@"HideSortCommentsDesc"), @"hideSortComments", &kHideSortComments, selfObject),

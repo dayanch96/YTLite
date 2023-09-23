@@ -133,6 +133,8 @@
 "NoContinueWatchingDesc" = "Supprime la section \"Continuer à regarder\" contenant les vidéos inachevées de la page d'accueil.";
 "NoSearchHistory" = "Masquer l'historique de recherche";
 "NoSearchHistoryDesc" = "Masque visuellement l'historique de recherche et les suggestions. Note : Votre historique de recherche sera toujours accessible dans vos autres clients YouTube.";
+"NoCommentSection" = "Hide Comment Section under player";
+"NoCommentSectionDesc" = "Hides the Comment Section Below the player.";
 "NoRelatedWatchNexts" = "Masquer toutes les vidéos sous le lecteur";
 "NoRelatedWatchNextsDesc" = "Masque toutes les vidéos sous le lecteur, ne laissant que les informations sur la vidéo et la section des commentaires.";
 "StickSortComments" = "Épingler l'en-tête des commentaires";\

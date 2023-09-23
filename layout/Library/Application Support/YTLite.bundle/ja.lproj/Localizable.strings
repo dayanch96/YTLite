@@ -131,6 +131,8 @@
 "NoContinueWatchingDesc" = "ホームページに未完成の動画を含む\"続きを見る\"セクションを削除します";
 "NoSearchHistory" = "検索履歴を非表示";
 "NoSearchHistoryDesc" = "検索履歴とサジェストを視覚的に非表示にします。注意:検索履歴は他のYouTubeクライアントからアクセス可能です";
+"NoCommentSection" = "Hide Comment Section under player";
+"NoCommentSectionDesc" = "Hides the Comment Section Below the player.";
 "NoRelatedWatchNexts" = "プレイヤー下のすべての動画を非表示";
 "NoRelatedWatchNextsDesc" = "プレイヤー下に表示されるすべての動画を非表示にし、ビデオ情報とコメントセクションのみにします";
 "StickSortComments" = "コメントヘッダーを固定";

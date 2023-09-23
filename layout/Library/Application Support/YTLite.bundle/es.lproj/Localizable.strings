@@ -131,6 +131,8 @@
 "NoContinueWatchingDesc" = "Elimina la sección \"Continuar viendo\" que contiene videos sin terminar de la página de inicio.";
 "NoSearchHistory" = "Ocultar el historial de búsqueda";
 "NoSearchHistoryDesc" = "Oculta visualmente el historial de búsqueda y las sugerencias. Nota: El historial de búsqueda seguirá siendo accesible en otros clientes de YouTube.";
+"NoCommentSection" = "Hide Comment Section under player";
+"NoCommentSectionDesc" = "Hides the Comment Section Below the player.";
 "NoRelatedWatchNexts" = "Ocultar todos los vídeos del reproductor";
 "NoRelatedWatchNextsDesc" = "Oculta todos los vídeos debajo del reproductor, dejando sólo la información del vídeo y la sección de comentarios.";
 "StickSortComments" = "Pegar cabecera de comentarios";
