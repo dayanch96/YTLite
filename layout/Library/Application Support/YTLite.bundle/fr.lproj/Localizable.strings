@@ -55,10 +55,8 @@
 "NoContentWarningDesc" = "Ignore le message d'avertissement de contenu sensible.";
 "ClassicQuality" = "Qualité vidéo classique";
 "ClassicQualityDesc" = "Rétablit le menu de sélection de la qualité vidéo classique.";
-"ExtraSpeedOptions"= "Options de vitesse supplémentaires";
+"ExtraSpeedOptions" = "Options de vitesse supplémentaires";
 "ExtraSpeedOptionsDesc" = "Ajoute des options de vitesse de lecture supplémentaires au menu de vitesse.";
-"DontSnap2Chapter" = "Désactiver la capture au chapitre";
-"DontSnap2ChapterDesc" = "Désactive le passage à l'épisode suivant en effectuant un geste de double-tape.";
 "DontSnap2Chapter" = "Désactiver la coupure au chapitre";
 "DontSnap2ChapterDesc" = "Désactive le passage à l'épisode suivant en double tapant.";
 "RedProgressBar" = "Barre de progression rouge";
