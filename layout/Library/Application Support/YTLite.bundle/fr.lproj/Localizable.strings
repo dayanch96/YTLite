@@ -49,6 +49,8 @@
 "MiniplayerDesc" = "Active le mini-lecteur pour les vidéos qui n'étaient pas initialement conçues pour cela, comme les vidéos destinées aux enfants.";
 "PortraitFullscreen" = "Mode plein écran en portrait";
 "PortraitFullscreenDesc" = "Active la prise en charge du mode plein écran en portrait.";
+"CopyWithTimestamp" = "Copy timestamped links";
+"CopyWithTimestampDesc" = "Allows to copy timestamped link to the clipboard by pressing pause button.";
 "DisableAutoplay" = "Désactiver la lecture automatique des vidéos";
 "DisableAutoplayDesc" = "Empêche la lecture des vidéos après ouverture.";
 "NoContentWarning" = "Passer l'avertissement de contenu";
@@ -75,6 +77,8 @@
 "Tabbar" = "Barre d'onglets";
 "RemoveLabels" = "Supprimer les sous-titres";
 "RemoveLabelsDesc" = "Supprime les sous-titres des onglets.";
+"RemoveIndicators" = "Remove indicators";
+"RemoveIndicatorsDesc" = "Removes tab indicators.";
 "ReExplore" = "Remplacer l'onglet Shorts par l'onglet Explorer";
 "ReExploreDesc" = "Affiche l'onglet Explorer à la place de l'onglet Shorts comme dans les anciennes versions de YouTube.";
 "HideShortsTab" = "Masquer l'onglet Shorts";

@@ -49,6 +49,8 @@
 "MiniplayerDesc" = "启用迷你播放器来播放最初不是为其设计的视频，例如针对儿童的视频。";
 "PortraitFullscreen" = "竖屏全屏模式";
 "PortraitFullscreenDesc" = "启用竖屏全屏模式支持。";
+"CopyWithTimestamp" = "Copy timestamped links";
+"CopyWithTimestampDesc" = "Allows to copy timestamped link to the clipboard by pressing pause button.";
 "DisableAutoplay" = "禁用自动播放视频";
 "DisableAutoplayDesc" = "打开后防止视频自动播放。";
 "NoContentWarning" = "跳过内容警告";
@@ -75,6 +77,8 @@
 "Tabbar" = "选项卡栏";
 "RemoveLabels" = "移除标签";
 "RemoveLabelsDesc" = "删除选项卡标签。";
+"RemoveIndicators" = "Remove indicators";
+"RemoveIndicatorsDesc" = "Removes tab indicators.";
 "ReExplore" = "“短视频”替换为“探索”";
 "ReExploreDesc" = "在旧版本 YouTube 中将“短视频”选项卡替换为“探索”。";
 "HideShortsTab" = "隐藏短视频";

@@ -32,7 +32,7 @@
 - (NSData *)elementData {
     if (self.hasCompatibilityOptions && self.compatibilityOptions.hasAdLoggingData && kNoAds) return nil;
 
-    NSArray *adDescriptions = @[@"brand_promo", @"product_carousel", @"product_engagement_panel", @"product_item", @"text_search_ad", @"text_image_button_layout", @"carousel_headered_layout", @"square_image_layout", @"feed_ad_metadata"];
+    NSArray *adDescriptions = @[@"brand_promo", @"product_carousel", @"product_engagement_panel", @"product_item", @"text_search_ad", @"text_image_button_layout", @"carousel_headered_layout", @"carousel_footered_layout", @"square_image_layout", @"landscape_image_wide_button_layout", @"feed_ad_metadata"];
     NSString *description = [self description];
     if (([adDescriptions containsObject:description] && kNoAds) || ([description containsString:@"inline_shorts"] && kHideShorts)) {
         return [NSData data];
@@ -389,9 +389,22 @@
 - (BOOL)shouldExitFullScreenOnFinish { return kExitFullscreen ? YES : NO; }
 %end
 
-// Disable Double Tap To Seek
 %hook YTMainAppVideoPlayerOverlayViewController
+// Disable Double Tap To Seek
 - (BOOL)allowDoubleTapToSeekGestureRecognizer { return kNoDoubleTapToSeek ? NO : %orig; }
+
+// Copy Timestamped Link by Pressing On Pause
+- (void)didPressPause:(id)arg1 {
+    %orig;
+
+    if (kCopyWithTimestamp) {
+        NSInteger mediaTimeInteger = (NSInteger)self.mediaTime;
+        NSString *currentTimeLink = [NSString stringWithFormat:@"https://www.youtube.com/watch?v=%@&t=%lds", self.videoID, mediaTimeInteger];
+
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        pasteboard.string = currentTimeLink;
+    }
+}
 %end
 
 // Fit 'Play All' Buttons Text For Localizations
@@ -528,7 +541,6 @@
 - (void)layoutSubviews {
     %orig;
     if (kHideShortsDescription && [self.subviews[2].accessibilityIdentifier isEqualToString:@"id.reels_smv_player_title_label"]) self.subviews[2].hidden = YES;
-    if (kHideShortsThanks && [self.subviews[self.subviews.count - 3].accessibilityIdentifier isEqualToString:@"id.elements.components.suggested_action"]) self.subviews[self.subviews.count - 3].hidden = YES; // Might be useful for older versions
     if (kHideShortsChannelName) self.subviews[self.subviews.count - 2].hidden = YES;
     if (kHideShortsAudioTrack) self.subviews.lastObject.hidden = YES;
     for (UIView *subview in self.subviews) {
@@ -539,10 +551,11 @@
 }
 %end
 
-%hook YTELMView
+
+%hook _ASDisplayView
 - (void)layoutSubviews {
     %orig;
-    if (kHideShortsThanks && [self.subviews.firstObject.accessibilityIdentifier isEqualToString:@"id.elements.components.suggested_action"]) self.subviews.firstObject.hidden = YES;
+    if (kHideShortsThanks && [self.accessibilityIdentifier isEqualToString:@"id.elements.components.suggested_action"]) self.hidden = YES;
 }
 %end
 
@@ -606,6 +619,12 @@ static void replaceTab(YTIGuideResponse *response) {
     if (kReExplore) replaceTab(response);
     %orig(response, error, completion);
 }
+%end
+
+// Hide Tab Bar Indicators
+%hook YTPivotBarIndicatorView
+- (void)setFillColor:(id)arg1 { %orig(kRemoveIndicators ? [UIColor clearColor] : arg1); }
+- (void)setBorderColor:(id)arg1 { %orig(kRemoveIndicators ? [UIColor clearColor] : arg1); }
 %end
 
 // Hide Tab Labels
@@ -745,6 +764,7 @@ static void reloadPrefs() {
     kNoWatermarks = [prefs[@"noWatermarks"] boolValue] ?: NO;
     kMiniplayer = [prefs[@"miniplayer"] boolValue] ?: NO;
     kPortraitFullscreen = [prefs[@"portraitFullscreen"] boolValue] ?: NO;
+    kCopyWithTimestamp = [prefs[@"copyWithTimestamp"] boolValue] ?: NO;
     kDisableAutoplay = [prefs[@"disableAutoplay"] boolValue] ?: NO;
     kNoContentWarning = [prefs[@"noContentWarning"] boolValue] ?: NO;
     kClassicQuality = [prefs[@"classicQuality"] boolValue] ?: NO;
@@ -776,6 +796,7 @@ static void reloadPrefs() {
     kHideShortsAudioTrack = [prefs[@"hideShortsAudioTrack"] boolValue] ?: NO;
     kHideShortsPromoCards = [prefs[@"hideShortsPromoCards"] boolValue] ?: NO;
     kRemoveLabels = [prefs[@"removeLabels"] boolValue] ?: NO;
+    kRemoveIndicators = [prefs[@"removeIndicators"] boolValue] ?: NO;
     kReExplore = [prefs[@"reExplore"] boolValue] ?: NO;
     kRemoveShorts = [prefs[@"removeShorts"] boolValue] ?: NO;
     kRemoveSubscriptions = [prefs[@"removeSubscriptions"] boolValue] ?: NO;
@@ -816,6 +837,7 @@ static void reloadPrefs() {
         @"noWatermarks" : @(kNoWatermarks),
         @"miniplayer" : @(kMiniplayer),
         @"portraitFullscreen" : @(kPortraitFullscreen),
+        @"copyWithTimestamp" : @(kCopyWithTimestamp),
         @"disableAutoplay" : @(kDisableAutoplay),
         @"noContentWarning" : @(kNoContentWarning),
         @"classicQuality" : @(kClassicQuality),
@@ -847,6 +869,7 @@ static void reloadPrefs() {
         @"hideShortsAudioTrack" : @(kHideShortsAudioTrack),
         @"hideShortsPromoCards" : @(kHideShortsPromoCards),
         @"removeLabels" : @(kRemoveLabels),
+        @"removeIndicators" : @(kRemoveIndicators),
         @"reExplore" : @(kReExplore),
         @"removeShorts" : @(kRemoveShorts),
         @"removeSubscriptions" : @(kRemoveSubscriptions),

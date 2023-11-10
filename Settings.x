@@ -6,15 +6,6 @@
 
 static const NSInteger YTLiteSection = 789;
 
-static void resetYTLiteSettings() {
-    NSString *prefsPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"YTLite.plist"];
-    [[NSFileManager defaultManager] removeItemAtPath:prefsPath error:nil];
-
-    [[UIApplication sharedApplication] performSelector:@selector(suspend)];
-    [NSThread sleepForTimeInterval:1.0];
-    exit(0);
-}
-
 NSBundle *YTLiteBundle() {
     static NSBundle *bundle = nil;
     static dispatch_once_t onceToken;
@@ -179,6 +170,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
                 NSArray <YTSettingsSectionItem *> *rows = @[
                 createSwitchItem(LOC(@"Miniplayer"), LOC(@"MiniplayerDesc"), @"miniplayer", &kMiniplayer, selfObject),
                 createSwitchItem(LOC(@"PortraitFullscreen"), LOC(@"PortraitFullscreenDesc"), @"portraitFullscreen", &kPortraitFullscreen, selfObject),
+                createSwitchItem(LOC(@"CopyWithTimestamp"), LOC(@"CopyWithTimestampDesc"), @"copyWithTimestamp", &kCopyWithTimestamp, selfObject),
                 createSwitchItem(LOC(@"DisableAutoplay"), LOC(@"DisableAutoplayDesc"), @"disableAutoplay", &kDisableAutoplay, selfObject),
                 createSwitchItem(LOC(@"NoContentWarning"), LOC(@"NoContentWarningDesc"), @"noContentWarning", &kNoContentWarning, selfObject),
                 createSwitchItem(LOC(@"ClassicQuality"), LOC(@"ClassicQualityDesc"), @"classicQuality", &kClassicQuality, selfObject),
@@ -240,6 +232,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             NSArray <YTSettingsSectionItem *> *rows = @[
             createSwitchItem(LOC(@"RemoveLabels"), LOC(@"RemoveLabelsDesc"), @"removeLabels", &kRemoveLabels, selfObject),
+            createSwitchItem(LOC(@"RemoveIndicators"), LOC(@"RemoveIndicatorsDesc"), @"removeIndicators", &kRemoveIndicators, selfObject),
             createSwitchItem(LOC(@"ReExplore"), LOC(@"ReExploreDesc"), @"reExplore", &kReExplore, selfObject),
             createSwitchItem(LOC(@"HideShortsTab"), LOC(@"HideShortsTabDesc"), @"removeShorts", &kRemoveShorts, selfObject),
             createSwitchItem(LOC(@"HideSubscriptionsTab"), LOC(@"HideSubscriptionsTabDesc"), @"removeSubscriptions", &kRemoveSubscriptions, selfObject),
@@ -392,7 +385,12 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
 
     YTSettingsSectionItem *reset = [%c(YTSettingsSectionItem) itemWithTitle:LOC(@"ResetSettings") titleDescription:nil accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         YTAlertView *alertView = [%c(YTAlertView) confirmationDialogWithAction:^{
-            resetYTLiteSettings();
+            NSString *prefsPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"YTLite.plist"];
+            [[NSFileManager defaultManager] removeItemAtPath:prefsPath error:nil];
+
+            [[UIApplication sharedApplication] performSelector:@selector(suspend)];
+            [NSThread sleepForTimeInterval:1.0];
+            exit(0);
         }
         actionTitle:LOC(@"Yes")
         cancelTitle:LOC(@"No")];

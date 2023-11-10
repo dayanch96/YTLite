@@ -49,6 +49,7 @@ BOOL kNoPromotionCards;
 BOOL kNoWatermarks;
 BOOL kMiniplayer;
 BOOL kPortraitFullscreen;
+BOOL kCopyWithTimestamp;
 BOOL kDisableAutoplay;
 BOOL kNoContentWarning;
 BOOL kClassicQuality;
@@ -80,6 +81,7 @@ BOOL kHideShortsDescription;
 BOOL kHideShortsAudioTrack;
 BOOL kHideShortsPromoCards;
 BOOL kRemoveLabels;
+BOOL kRemoveIndicators;
 BOOL kReExplore;
 BOOL kRemoveShorts;
 BOOL kRemoveSubscriptions;
@@ -169,6 +171,9 @@ int kPivotIndex;
 @interface YTELMView : UIView
 @end
 
+@interface _ASDisplayView : UIView
+@end
+
 @interface MLHAMQueuePlayer : NSObject
 @property id playerEventCenter;
 -(void)setRate:(float)rate;
@@ -192,4 +197,9 @@ int kPivotIndex;
 + (instancetype)infoDialog;
 + (instancetype)confirmationDialogWithAction:(void (^)(void))action actionTitle:(NSString *)actionTitle cancelTitle:(NSString *)cancelTitle;
 - (void)show;
+@end
+
+@interface YTMainAppVideoPlayerOverlayViewController : UIViewController
+@property (readonly, nonatomic) CGFloat mediaTime;
+@property (readonly, nonatomic) NSString *videoID;
 @end

@@ -49,6 +49,8 @@
 "MiniplayerDesc" = "ミニプレイヤーに対応していない動画(子供向けの動画など)でもミニプレイヤーを有効にします";
 "PortraitFullscreen" = "縦画面フルスクリーンモード";
 "PortraitFullscreenDesc" = "縦画面フルスクリーンモードをサポートします";
+"CopyWithTimestamp" = "Copy timestamped links";
+"CopyWithTimestampDesc" = "Allows to copy timestamped link to the clipboard by pressing pause button.";
 "DisableAutoplay" = "自動再生を無効化";
 "DisableAutoplayDesc" = "アプリを開いた後に動画の自動再生を防止します";
 "NoContentWarning" = "コンテンツ警告をスキップ";
@@ -75,6 +77,8 @@
 "Tabbar" = "タブバー";
 "RemoveLabels" = "ラベルを削除";
 "RemoveLabelsDesc" = "タブラベルを削除します";
+"RemoveIndicators" = "Remove indicators";
+"RemoveIndicatorsDesc" = "Removes tab indicators.";
 "ReExplore" = "ショートタブを探索タブに置き換え";
 "ReExploreDesc" = "古いYouTubeバージョンのように、ショートタブの代わりに探索タブを表示します";
 "HideShortsTab" = "ショートタブを非表示";
