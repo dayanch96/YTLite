@@ -49,8 +49,8 @@
 "MiniplayerDesc" = "對於原本不支援迷你播放器的影片（例如針對兒童的影片），啟用迷你播放器";
 "PortraitFullscreen" = "直向全螢幕模式";
 "PortraitFullscreenDesc" = "啟用直向全螢幕模式";
-"CopyWithTimestamp" = "Copy timestamped links";
-"CopyWithTimestampDesc" = "Allows to copy timestamped link to the clipboard by pressing pause button.";
+"CopyWithTimestamp" = "複製時間標記連結";
+"CopyWithTimestampDesc" = "透過按下暫停按鈕，將帶有時間標記的連結複製到剪貼簿";
 "DisableAutoplay" = "停用自動播放";
 "DisableAutoplayDesc" = "在打開應用程式後防止自動播放影片";
 "NoContentWarning" = "略過內容警告";
@@ -75,10 +75,10 @@
 "NoDoubleTap2SeekDesc" = "停用點兩下手勢進行快轉";
 
 "Tabbar" = "下方標籤欄";
-"RemoveLabels" = "移除標籤文字";
+"RemoveLabels" = "移除文字";
 "RemoveLabelsDesc" = "移除標籤文字";
-"RemoveIndicators" = "Remove indicators";
-"RemoveIndicatorsDesc" = "Removes tab indicators.";
+"RemoveIndicators" = "刪除標記";
+"RemoveIndicatorsDesc" = "刪除標籤通知標記";
 "ReExplore" = "用探索取代Shorts分頁";
 "ReExploreDesc" = "如同舊版YouTube一樣顯示「探索」而非「Shorts」";
 "HideShortsTab" = "隱藏Shorts";
