@@ -49,8 +49,8 @@
 "MiniplayerDesc" = "Activa el mini reproductor para vídeos que no fueron diseñados originalmente para ello, como los vídeos dirigidos a niños.";
 "PortraitFullscreen" = "Modo de pantalla completa vertical";
 "PortraitFullscreenDesc" = "Activa el modo de pantalla completa vertical.";
-"CopyWithTimestamp" = "Copy timestamped links";
-"CopyWithTimestampDesc" = "Allows to copy timestamped link to the clipboard by pressing pause button.";
+"CopyWithTimestamp" = "Copiar enlaces con marca de tiempo";
+"CopyWithTimestampDesc" = "Permite copiar el enlace con marca de tiempo en el portapapeles pulsando el botón de pausa.";
 "DisableAutoplay" = "Desactivar reproducción automática";
 "DisableAutoplayDesc" = "Evita la reproducción automática de vídeos después de abrirlos.";
 "NoContentWarning" = "Omitir advertencia de contenido";
@@ -77,8 +77,8 @@
 "Tabbar" = "Barra de pestañas";
 "RemoveLabels" = "Eliminar etiquetas";
 "RemoveLabelsDesc" = "Elimina las etiquetas de las pestañas.";
-"RemoveIndicators" = "Remove indicators";
-"RemoveIndicatorsDesc" = "Removes tab indicators.";
+"RemoveIndicators" = "Eliminar indicadores";
+"RemoveIndicatorsDesc" = "Elimina los indicadores de pestaña.";
 "ReExplore" = "Reemplazar pestaña Shorts con pestaña Explorar";
 "ReExploreDesc" = "Muestra la pestaña Explorar en lugar de la pestaña Shorts como en versiones antiguas de YouTube.";
 "HideShortsTab" = "Ocultar pestaña Shorts";
