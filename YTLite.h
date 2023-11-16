@@ -90,6 +90,7 @@ BOOL kRemoveLibrary;
 BOOL kRemovePlayNext;
 BOOL kNoContinueWatching;
 BOOL kNoSearchHistory;
+BOOL kNoCommentSection;
 BOOL kNoRelatedWatchNexts;
 BOOL kStickSortComments;
 BOOL kHideSortComments;
@@ -110,6 +111,9 @@ int kPivotIndex;
 @end
 
 @interface YTPivotBarItemView : UIView
+@end
+
+@interface YTPivotBarIndicatorView : UIView
 @end
 
 @interface YTPivotBarViewController : UIViewController
