@@ -414,7 +414,12 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
     }];
     [sectionItems addObject:version];
 
-    [settingsViewController setSectionItems:sectionItems forCategory:YTLiteSection title:@"YTLite" titleDescription:nil headerHidden:NO];
+    NSString *title = @"YTLite";
+    if ([settingsViewController respondsToSelector:@selector(setSectionItems:forCategory:title:icon:titleDescription:headerHidden:)])
+        [settingsViewController setSectionItems:sectionItems forCategory:YTLiteSection title:title icon:nil titleDescription:nil headerHidden:NO];
+    else
+        [settingsViewController setSectionItems:sectionItems forCategory:YTLiteSection title:title titleDescription:nil headerHidden:NO];
+
 }
 
 - (void)updateSectionForCategory:(NSUInteger)category withEntry:(id)entry {
