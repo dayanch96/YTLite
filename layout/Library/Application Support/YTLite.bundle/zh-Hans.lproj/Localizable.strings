@@ -37,8 +37,8 @@
 "NoEndScreenCardsDesc" = "隐藏视频结尾处的片尾屏幕（缩略图）。";
 "NoFullscreenActions" = "禁用全屏操作";
 "NoFullscreenActionsDesc" = "在全屏模式下禁用操作面板。";
-"PersistentProgressBar" = "Persistent progress bar";
-"PersistentProgressBarDesc" = "Always shows progress bar in the player.";
+"PersistentProgressBar" = "持续进度条";
+"PersistentProgressBarDesc" = "始终在播放器中显示进度条。";
 "NoRelatedVids" = "没有相关视频";
 "NoRelatedVidsDesc" = "通过向上滑动删除播放界面中显示的相关视频。";
 "NoPromotionCards" = "隐藏付费";
@@ -55,8 +55,8 @@
 "CopyWithTimestampDesc" = "允许通过按下暂停按钮将带有时间戳的链接复制到剪贴板。";
 "DisableAutoplay" = "禁用自动播放视频";
 "DisableAutoplayDesc" = "打开后防止视频自动播放。";
-"DisableAutoCaptions" = "Disable auto captions";
-"DisableAutoCaptionsDesc" = "Prevents automatic activation of captions.";
+"DisableAutoCaptions" = "禁用自动字幕";
+"DisableAutoCaptionsDesc" = "防止自动激活字幕。";
 "NoContentWarning" = "跳过内容警告";
 "NoContentWarningDesc" = "跳过敏感内容警告消息。";
 "ClassicQuality" = "经典视频质量";
@@ -85,8 +85,8 @@
 "RemoveIndicatorsDesc" = "删除选项卡“红点”指示。";
 "ReExplore" = "“短视频”替换为“探索”";
 "ReExploreDesc" = "在旧版本 YouTube 中将“短视频”选项卡替换为“探索”。";
-"AddExplore" = "Add Explore tab";
-"AddExploreDesc" = "Adds Explore tab to the Tab bar.";
+"AddExplore" = "添加“探索”选项卡";
+"AddExploreDesc" = "将“探索”选项卡添加到底部选项卡栏。";
 "HideShortsTab" = "隐藏短视频";
 "HideShortsTabDesc" = "从选项卡栏中隐藏短视频。";
 "HideSubscriptionsTab" = "隐藏订阅内容";
@@ -97,16 +97,16 @@
 "HideLibraryTabDesc" = "从选项卡栏中隐藏媒体库。";
 
 "Shorts" = "短视频";
-"ShortsOnlyMode" = "Shorts Only Mode";
-"ShortsOnlyModeDesc" = "Limits YouTube functionality to viewing Shorts only.";
+"ShortsOnlyMode" = "仅短视频模式";
+"ShortsOnlyModeDesc" = "将 YouTube 功能限制为只能观看短视频。";
 "HideShorts" = "隐藏短视频";
 "HideShortsDesc" = "从首页、推荐等隐藏短视频（不适用于观看历史记录）。";
 "ShortsProgress" = "启用进度条";
 "ShortsProgressDesc" = "在短视频播放器中显示进度条。";
-"PinchToFullscreenShorts" = "Pinch to Fullscreen";
-"PinchToFullscreenShortsDesc" = "Manages visibility of the overlay with pinch in and pinch out gestures, displaying Shorts in fullscreen mode.";
-"ShortsToRegular" = "Shorts to regular videos";
-"ShortsToRegularDesc" = "Opens Shorts videos as regular videos.";
+"PinchToFullscreenShorts" = "捏合至全屏";
+"PinchToFullscreenShortsDesc" = "通过捏合和捏合手势管理播放界面，以全屏模式显示短视频。";
+"ShortsToRegular" = "常规短视频";
+"ShortsToRegularDesc" = "像打开普通视频一样打开短视频。";
 "ResumeShorts" = "不要从短视频开始";
 "ResumeShortsDesc" = "防止在打开应用程序时首先启动短视频，如果在观看短视频时关闭，就会发生这种情况。";
 "HideShortsLogo" = "隐藏短视频Logo";
@@ -133,8 +133,8 @@
 "HideShortsAvatarsDesc" = "隐藏右下角的发布者个人资料头像。";
 "HideShortsThanks" = "隐藏捐赠按钮";
 "HideShortsThanksDesc" = "从短视频播放器中隐藏捐赠按钮。";
-"HideShortsSource" = "Hide Shorts Source";
-"HideShortsSourceDesc" = "Hides the Shorts sources under the channel name.";
+"HideShortsSource" = "隐藏短视频来源";
+"HideShortsSourceDesc" = "在频道名称下隐藏短视频来源。";
 "HideShortsChannelName" = "隐藏发布者名称";
 "HideShortsChannelNameDesc" = "从短视频播放器中隐藏发布者名称和订阅按钮。";
 "HideShortsDescription" = "隐藏文案";
@@ -143,14 +143,14 @@
 "HideShortsAudioTrackDesc" = "隐藏短视频文案下方的音轨。";
 
 "Other" = "其他";
-"CopyPostText" = "Copy community posts text";
-"CopyPostTextDesc" = "Copies community posts text to the clipboard by long tap.";
-"SavePostImage" = "Save community posts image";
-"SavePostImageDesc" = "Saves community posts image to the Photos app by long tap.";
-"SaveProfilePhoto" = "Save profile picture";
-"SaveProfilePhotoDesc" = "Saves profile picture to the Photos app by long tap.";
-"FixAlbums" = "Fix covers";
-"FixAlbumsDesc" = "Fixes the display of covers for users from Russia.";
+"CopyPostText" = "复制社区帖子文本";
+"CopyPostTextDesc" = "长按社区帖子文本复制到剪贴板。";
+"SavePostImage" = "保存社区帖子图片";
+"SavePostImageDesc" = "长按社区帖子图片保存到照片应用程序。";
+"SaveProfilePhoto" = "保存个人资料图片";
+"SaveProfilePhotoDesc" = "长按个人资料图片保存到照片应用程序。";
+"FixAlbums" = "修复封面";
+"FixAlbumsDesc" = "修复来自俄罗斯用户的封面显示问题。";
 "RemovePlayNext" = "删除“播放队列中的下一个”";
 "RemovePlayNextDesc" = "从菜单中删除“播放队列中的下一个”选项。";
 "NoContinueWatching" = "删除“继续观看”";
@@ -190,11 +190,11 @@
 "AdvancedModeReminder" = "想为YTLite激活高级模式吗？\n\n此模式提供了50多个额外的选项来自定义和优化您的YouTube体验。\n可以稍后从设置中启用/禁用它 → %@ → %@ → %@。";
 "ResetSettings" = "重置YTLite设置";
 "ResetMessage" = "此选项会将YTLite设置重置为默认值并关闭YouTube。\n\n确定要继续吗？";
-"ShortsOnlyWarning" = "Are you sure you want to activate this mode?\n\nIn this mode, you will only be able to watch Shorts videos and won't be able to do anything else.\n\nYou can disable Shorts Only Mode by long pressing with two fingers in the Shorts player.";
-"ShortsModeTurnedOff" = "Shorts Only Mode has been turned off";
+"ShortsOnlyWarning" = "确定要激活此模式吗？\n\n在此模式下，将只能观看短视频，且无法执行任何其他操作。\n\n可以通过双指长按禁用“仅短视频模式”。";
+"ShortsModeTurnedOff" = "仅短视频模式已关闭";
 "Yes" = "是";
 "No" = "不";
 
-"Copied" = "Copied to clipboard";
-"Saved" = "Saved to Photos";
-"Error" = "Error";
+"Copied" = "已复制到剪贴板";
+"Saved" = "已保存到照片";
+"Error" = "错误";
