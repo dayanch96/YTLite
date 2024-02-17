@@ -71,30 +71,38 @@ static NSString *accessGroupID() {
 }
 %end
 
-%hook NSBundle
-- (NSString *)bundleIdentifier {
+BOOL isSelf() {
     NSArray *address = [NSThread callStackReturnAddresses];
     Dl_info info = {0};
-    if (dladdr((void *)[address[2] longLongValue], &info) == 0)
-        return %orig;
+    if (dladdr((void *)[address[2] longLongValue], &info) == 0) return NO;
     NSString *path = [NSString stringWithUTF8String:info.dli_fname];
-    if ([path hasPrefix:NSBundle.mainBundle.bundlePath])
-        return YT_BUNDLE_ID;
-    return %orig;
+    return [path hasPrefix:NSBundle.mainBundle.bundlePath];
 }
+
+%hook NSBundle
+- (NSString *)bundleIdentifier {
+    return isSelf() ? YT_BUNDLE_ID : %orig;
+}
+
+- (NSDictionary *)infoDictionary {
+    NSDictionary *dict = %orig;
+    if (!isSelf())
+        return %orig;
+    NSMutableDictionary *info = [dict mutableCopy];
+    if (info[@"CFBundleIdentifier"]) info[@"CFBundleIdentifier"] = YT_BUNDLE_ID;
+    if (info[@"CFBundleDisplayName"]) info[@"CFBundleDisplayName"] = YT_NAME;
+    if (info[@"CFBundleName"]) info[@"CFBundleName"] = YT_NAME;
+    return info;
+}
+
 - (id)objectForInfoDictionaryKey:(NSString *)key {
+    if (!isSelf())
+        return %orig;
     if ([key isEqualToString:@"CFBundleIdentifier"])
         return YT_BUNDLE_ID;
     if ([key isEqualToString:@"CFBundleDisplayName"] || [key isEqualToString:@"CFBundleName"])
         return YT_NAME;
     return %orig;
-}
-// Fix Google Sign in by @PoomSmart and @level3tjg (qnblackcat/uYouPlus#684)
-- (NSDictionary *)infoDictionary {
-    NSMutableDictionary *info = %orig.mutableCopy;
-    NSString *altBundleIdentifier = info[@"ALTBundleIdentifier"];
-    if (altBundleIdentifier) info[@"CFBundleIdentifier"] = altBundleIdentifier;
-    return info;
 }
 %end
 
@@ -133,6 +141,6 @@ static NSString *accessGroupID() {
 %end
 
 %ctor {
-    if ([[NSFileManager defaultManager] fileExistsAtPath:[[NSBundle mainBundle] pathForResource:@"embedded" ofType:@"mobileprovision"]])
-        %init(gSideloading);
+    BOOL isAppStoreApp = [[NSFileManager defaultManager] fileExistsAtPath:[[NSBundle mainBundle] appStoreReceiptURL].path];
+    if (!isAppStoreApp) %init(gSideloading);
 }

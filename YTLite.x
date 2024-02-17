@@ -32,11 +32,21 @@
 - (NSData *)elementData {
     if (self.hasCompatibilityOptions && self.compatibilityOptions.hasAdLoggingData && kNoAds) return nil;
 
-    NSArray *adDescriptions = @[@"brand_promo", @"product_carousel", @"product_engagement_panel", @"product_item", @"text_search_ad", @"text_image_button_layout", @"carousel_headered_layout", @"carousel_footered_layout", @"square_image_layout", @"landscape_image_wide_button_layout", @"feed_ad_metadata"];
     NSString *description = [self description];
-    if (([adDescriptions containsObject:description] && kNoAds) || ([description containsString:@"inline_shorts"] && kHideShorts)) {
+
+    NSArray *ads = @[@"brand_promo", @"product_carousel", @"product_engagement_panel", @"product_item", @"text_search_ad", @"text_image_button_layout", @"carousel_headered_layout", @"carousel_footered_layout", @"square_image_layout", @"landscape_image_wide_button_layout", @"feed_ad_metadata"];
+    if (kNoAds && [ads containsObject:description]) {
         return [NSData data];
-    } return %orig;
+    }
+
+    NSArray *shortsToRemove = @[@"shorts_shelf.eml", @"shorts_video_cell.eml", @"6Shorts"];
+    for (NSString *shorts in shortsToRemove) {
+        if (kHideShorts && [description containsString:shorts] && ![description containsString:@"history*"]) {
+            return nil;
+        }
+    }
+
+    return %orig;
 }
 %end
 
@@ -105,42 +115,29 @@
 %hook YTRightNavigationButtons
 - (void)layoutSubviews {
     %orig;
-    if (kNoCast && self.subviews.count > 1 && [self.subviews[1].accessibilityIdentifier isEqualToString:@"id.mdx.playbackroute.button"]) self.subviews[1].hidden = YES; // Hide icon immediately
+
     if (kNoNotifsButton) self.notificationButton.hidden = YES;
     if (kNoSearchButton) self.searchButton.hidden = YES;
 
-    NSInteger moreButtonIndex = -1;
-    for (NSInteger i = 0; i < self.subviews.count; i++) {
-        UIView *subview = self.subviews[i];
-        if ([subview.accessibilityIdentifier isEqualToString:@"id.settings.overflow.button"]) {
-            moreButtonIndex = i;
-            break;
-        }
-    }
-    
-    if (moreButtonIndex != -1 && moreButtonIndex < self.subviews.count - 1 && kNoVoiceSearchButton) {
-        UIView *voiceButton = self.subviews[moreButtonIndex + 1];
-        voiceButton.hidden = YES;
+    for (UIView *subview in self.subviews) {
+        if (kNoVoiceSearchButton && [subview.accessibilityLabel isEqualToString:NSLocalizedString(@"search.voice.access", nil)]) subview.hidden = YES;
+        if (kNoCast && [subview.accessibilityIdentifier isEqualToString:@"id.mdx.playbackroute.button"]) subview.hidden = YES;
     }
 }
 %end
 
-%hook YTSearchView
-- (void)layoutSubviews {
+%hook YTSearchViewController
+- (void)viewDidLoad {
     %orig;
-    // Hide Search History
-    if (kNoSearchHistory && self.subviews.count > 1) self.subviews[1].hidden = YES;
-    // Hide Voice Search Button
-    if (kNoVoiceSearchButton && self.subviews.count > 0) {
-        UIView *firstSubview = self.subviews.firstObject;
-        for (UIView *subview in firstSubview.subviews) {
-            if ([NSStringFromClass([subview class]) isEqualToString:@"UIView"]) {
-                [subview setValue:@(1) forKey:@"hidden"];
-                break;
-            }
-        }
-    }
+
+    if (kNoVoiceSearchButton) [self setValue:@(NO) forKey:@"_isVoiceSearchAllowed"];
 }
+
+- (void)setSuggestions:(id)arg1 { if (!kNoSearchHistory) %orig; }
+%end
+
+%hook YTPersonalizedSuggestionsCacheProvider
+- (id)activeCache { return kNoSearchHistory ? nil : %orig; }
 %end
 
 // Remove Videos Section Under Player
@@ -151,14 +148,13 @@
 }
 %end
 
-// Hide YouTube Logo
-%hook YTNavigationBarTitleView
-- (void)layoutSubviews { %orig; if (kNoYTLogo && self.subviews.count > 1 && [self.subviews[1].accessibilityIdentifier isEqualToString:@"id.yoodle.logo"]) self.subviews[1].hidden = YES; }
-%end
-
-// Stick Navigation bar
 %hook YTHeaderView
-- (BOOL)stickyNavHeaderEnabled { return kStickyNavbar ? YES : NO; } 
+// Stick Navigation bar
+- (BOOL)stickyNavHeaderEnabled { return kStickyNavbar ? YES : %orig; }
+
+// Hide YouTube Logo
+- (void)setCustomTitleView:(UIView *)customTitleView { if (!kNoYTLogo) %orig; }
+- (void)setTitle:(NSString *)title { kNoYTLogo ? %orig(@"") : %orig; }
 %end
 
 // Remove Subbar
@@ -189,7 +185,6 @@
 %hook YTHUDMessageView
 - (id)initWithMessage:(id)arg1 dismissHandler:(id)arg2 { return kNoHUDMsgs ? nil : %orig; }
 %end
-
 
 %hook YTColdConfig
 // Hide Next & Previous buttons
@@ -248,9 +243,17 @@
 - (void)setPaidContentWithPlayerData:(id)data { if (!kNoPromotionCards) %orig; }
 %end
 
+%hook YTInlinePlayerBarContainerView
+- (void)setPlayerBarAlpha:(CGFloat)alpha { kPersistentProgressBar ? %orig(1.0) : %orig; }
+%end
+
 // Remove Watermarks
 %hook YTAnnotationsViewController
 - (void)loadFeaturedChannelWatermark { if (!kNoWatermarks) %orig; }
+%end
+
+%hook YTMainAppVideoPlayerOverlayView
+- (BOOL)isWatermarkEnabled { return kNoWatermarks ? NO : %orig; }
 %end
 
 // Forcibly Enable Miniplayer
@@ -270,7 +273,7 @@
 
 // Skip Content Warning (https://github.com/qnblackcat/uYouPlus/blob/main/uYouPlus.xm#L452-L454)
 %hook YTPlayabilityResolutionUserActionUIController
-- (void)showConfirmAlert { if (kNoContentWarning) [self confirmAlertDidPressConfirm]; }
+- (void)showConfirmAlert { kNoContentWarning ? [self confirmAlertDidPressConfirm] : %orig; }
 %end
 
 // Classic Video Quality (https://github.com/PoomSmart/YTClassicVideoQuality)
@@ -374,13 +377,31 @@
 %hook YTPlayerViewController
 - (void)loadWithPlayerTransition:(id)arg1 playbackConfig:(id)arg2 {
     %orig;
+
     if (kAutoFullscreen) [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(autoFullscreen) userInfo:nil repeats:NO];
+    if (kShortsToRegular) [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(shortsToRegular) userInfo:nil repeats:NO];
+    if (kDisableAutoCaptions) [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(turnOffCaptions) userInfo:nil repeats:NO];
 }
 
 %new
 - (void)autoFullscreen {
     YTWatchController *watchController = [self valueForKey:@"_UIDelegate"];
     [watchController showFullScreen];
+}
+
+%new
+- (void)shortsToRegular {
+    if (self.contentVideoID != nil && [self.parentViewController isKindOfClass:NSClassFromString(@"YTShortsPlayerViewController")]) {
+        NSString *vidLink = [NSString stringWithFormat:@"vnd.youtube://%@", self.contentVideoID];
+        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:vidLink]]) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:vidLink] options:@{} completionHandler:nil];
+        }
+    }
+}
+
+%new
+- (void)turnOffCaptions {
+    [self setActiveCaptionTrack:nil];
 }
 %end
 
@@ -458,7 +479,7 @@
         if ([cell respondsToSelector:@selector(node)]) {
             NSString *idToRemove = [[cell node] accessibilityIdentifier];
             if ([idToRemove isEqualToString:@"statement_banner.view"] ||
-                (([idToRemove isEqualToString:@"eml.shorts-grid"] || [idToRemove isEqualToString:@"eml.shorts-shelf"] || [idToRemove isEqualToString:@"eml.inline_shorts"]) && kHideShorts)) {
+                (([idToRemove isEqualToString:@"eml.shorts-grid"] || [idToRemove isEqualToString:@"eml.shorts-shelf"]) && kHideShorts)) {
                 [self removeCellsAtIndexPath:indexPath];
             }
         }
@@ -483,6 +504,11 @@
 
 %hook YTReelPlayerViewControllerSub
 - (BOOL)shouldEnablePlayerBar { return kShortsProgress ? YES : NO; }
+- (BOOL)shouldAlwaysEnablePlayerBar { return kShortsProgress ? YES : NO; }
+- (BOOL)shouldEnablePlayerBarOnlyOnPause { return kShortsProgress ? NO : YES; }
+%end
+
+%hook YTShortsPlayerViewController
 - (BOOL)shouldAlwaysEnablePlayerBar { return kShortsProgress ? YES : NO; }
 - (BOOL)shouldEnablePlayerBarOnlyOnPause { return kShortsProgress ? NO : YES; }
 %end
@@ -512,16 +538,7 @@
 - (void)setViewCommentButton:(id)arg1 { if (!kHideShortsComments) %orig; }
 - (void)setRemixButton:(id)arg1 { if (!kHideShortsRemix) %orig; }
 - (void)setShareButton:(id)arg1 { if (!kHideShortsShare) %orig; }
-- (void)layoutSubviews {
-    %orig;
-
-    for (UIView *subview in self.subviews) {
-        if (kHideShortsAvatars && [NSStringFromClass([subview class]) isEqualToString:@"YTELMView"]) {
-            subview.hidden = YES;
-            break;
-        }
-    }
-}
+- (void)setNativePivotButton:(id)arg1 { if (!kHideShortsAvatars) %orig; }
 %end
 
 %hook YTReelHeaderView
@@ -531,31 +548,200 @@
 %hook YTReelTransparentStackView
 - (void)layoutSubviews {
     %orig;
-    if (kHideShortsSearch && self.subviews.count >= 3 && [self.subviews[0].accessibilityIdentifier isEqualToString:@"id.ui.generic.button"]) self.subviews[0].hidden = YES;
-    if (kHideShortsCamera && self.subviews.count >= 3 && [self.subviews[1].accessibilityIdentifier isEqualToString:@"id.ui.generic.button"]) self.subviews[1].hidden = YES;
-    if (kHideShortsMore && self.subviews.count >= 3 && [self.subviews[2].accessibilityIdentifier isEqualToString:@"id.ui.generic.button"]) self.subviews[2].hidden = YES;
-}
-%end
 
-%hook YTReelWatchHeaderView
-- (void)layoutSubviews {
-    %orig;
-    if (kHideShortsDescription && [self.subviews[2].accessibilityIdentifier isEqualToString:@"id.reels_smv_player_title_label"]) self.subviews[2].hidden = YES;
-    if (kHideShortsChannelName) self.subviews[self.subviews.count - 2].hidden = YES;
-    if (kHideShortsAudioTrack) self.subviews.lastObject.hidden = YES;
-    for (UIView *subview in self.subviews) {
-        if (kHideShortsPromoCards && [NSStringFromClass([subview class]) isEqualToString:@"YTBadge"]) {
-            subview.hidden = YES;
+    for (YTQTMButton *button in self.subviews) {
+        if ([button respondsToSelector:@selector(buttonRenderer)]) {
+            if (kHideShortsSearch && button.buttonRenderer.icon.iconType == 1045) button.hidden = YES;
+            if (kHideShortsCamera && button.buttonRenderer.icon.iconType == 1046) button.hidden = YES;
+            if (kHideShortsMore && button.buttonRenderer.icon.iconType == 1047) button.hidden = YES;
         }
     }
 }
 %end
 
+%hook YTReelWatchHeaderView
+- (void)setChannelBarElementRenderer:(id)renderer { if (!kHideShortsChannelName) %orig; }
+- (void)setHeaderRenderer:(id)renderer { if (!kHideShortsDescription) %orig; }
+- (void)setSoundMetadataElementRenderer:(id)renderer { if (!kHideShortsAudioTrack) %orig; }
+- (void)setActionElement:(id)renderer { if (!kHideShortsPromoCards) %orig; }
+- (void)setBadgeRenderer:(id)renderer { if (!kHideShortsThanks) %orig; }
+- (void)setMultiFormatLinkElementRenderer:(id)renderer { if (!kHideShortsSource) %orig; }
+%end
 
-%hook _ASDisplayView
+static BOOL isOverlayShown = YES;
+
+%hook YTPlayerView
+- (void)didPinch:(UIPinchGestureRecognizer *)gesture {
+    %orig;
+
+    if (kPinchToFullscreenShorts && [self.playerViewDelegate.parentViewController isKindOfClass:NSClassFromString(@"YTShortsPlayerViewController")]) {
+        YTShortsPlayerViewController *shortsPlayerVC = (YTShortsPlayerViewController *)self.playerViewDelegate.parentViewController;
+        YTReelContentView *contentView = (YTReelContentView *)shortsPlayerVC.view;
+
+        if (gesture.scale > 1) {
+            if (!kShortsOnlyMode) [shortsPlayerVC.navigationController.parentViewController hidePivotBar];
+
+            [UIView animateWithDuration:0.3 animations:^{
+                contentView.playbackOverlay.alpha = 0;
+                isOverlayShown = contentView.playbackOverlay.alpha;
+            }];
+        } else {
+            if (!kShortsOnlyMode) [shortsPlayerVC.navigationController.parentViewController showPivotBar];
+
+            [UIView animateWithDuration:0.3 animations:^{
+                contentView.playbackOverlay.alpha = 1;
+                isOverlayShown = contentView.playbackOverlay.alpha;
+            }];
+        }
+    }
+}
+
 - (void)layoutSubviews {
     %orig;
-    if (kHideShortsThanks && [self.accessibilityIdentifier isEqualToString:@"id.elements.components.suggested_action"]) self.hidden = YES;
+
+    if (kShortsOnlyMode && [self.playerViewDelegate.parentViewController isKindOfClass:NSClassFromString(@"YTShortsPlayerViewController")]) {
+        UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(turnShortsOnlyModeOff:)];
+        longPressGesture.numberOfTouchesRequired = 2;
+        longPressGesture.minimumPressDuration = 0.5;
+
+        [self addGestureRecognizer:longPressGesture];
+    }
+}
+
+%new
+- (void)turnShortsOnlyModeOff:(UILongPressGestureRecognizer *)gesture {
+    if (gesture.state == UIGestureRecognizerStateBegan) {
+        NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"YTLite.plist"];
+        NSMutableDictionary *prefs = [NSMutableDictionary dictionaryWithContentsOfFile:path];
+
+        [prefs setObject:@NO forKey:@"shortsOnlyMode"];
+        [prefs writeToFile:path atomically:NO];
+
+        CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), CFSTR("com.dvntm.ytlite.prefschanged"), NULL, NULL, YES);
+
+        UIResponder *responder = self.nextResponder;
+        while (responder && ![responder isKindOfClass:[UIViewController class]]) responder = responder.nextResponder;
+        if (responder) [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"ShortsModeTurnedOff") firstResponder:responder] send];
+
+        YTShortsPlayerViewController *shortsPlayerVC = (YTShortsPlayerViewController *)self.playerViewDelegate.parentViewController;
+        [shortsPlayerVC.navigationController.parentViewController performSelector:@selector(showPivotBar) withObject:nil afterDelay:1.0];
+
+    }
+}
+%end
+
+%hook YTReelWatchPlaybackOverlayView
+- (void)layoutSubviews {
+    %orig;
+
+    self.alpha = isOverlayShown;
+}
+%end
+
+%hook _ASDisplayView
+- (void)setKeepalive_node:(id)arg1 {
+    %orig;
+
+    NSString *description = [self description];
+    if (kCopyPostText && [description containsString:@"ELMExpandableTextNode-View"]) {
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(copyText:)];
+        longPress.minimumPressDuration = 0.3;
+        [self addGestureRecognizer:longPress];
+    }
+
+    if (kSavePostImage && [description containsString:@"YTImageZoomNode-View"]) {
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(saveImage:)];
+        longPress.minimumPressDuration = 0.3;
+        [self addGestureRecognizer:longPress];
+    }
+
+    if (kSaveProfilePhoto && [description containsString:@"ELMImageNode-View"] && [description containsString:@"eml.avatar"]) {
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(savePFP:)];
+        longPress.minimumPressDuration = 0.3;
+        [self addGestureRecognizer:longPress];
+    }
+}
+
+%new
+- (void)savePFP:(UILongPressGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+
+        NSString *URLString = self.keepalive_node.URL.absoluteString;
+        if (URLString) {
+            NSRange sizeRange = [URLString rangeOfString:@"=s"];
+            if (sizeRange.location != NSNotFound) {
+                NSRange dashRange = [URLString rangeOfString:@"-" options:0 range:NSMakeRange(sizeRange.location, URLString.length - sizeRange.location)];
+                if (dashRange.location != NSNotFound) {
+                    NSString *newURLString = [URLString stringByReplacingCharactersInRange:NSMakeRange(sizeRange.location + 2, dashRange.location - sizeRange.location - 2) withString:@"1024"];
+                    NSURL *PFPURL = [NSURL URLWithString:newURLString];
+
+                    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:PFPURL]];
+                    if (image) {
+                        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+
+                        UIResponder *responder = self.nextResponder;
+                        while (responder && ![responder isKindOfClass:[UIViewController class]]) responder = responder.nextResponder;
+                        if (responder) [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Saved") firstResponder:responder] send];
+                    }
+                }
+            }
+        }
+    }
+}
+
+%new
+- (void)copyText:(UILongPressGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        pasteboard.string = self.accessibilityLabel;
+
+        UIResponder *responder = self.nextResponder;
+        while (responder && ![responder isKindOfClass:[UIViewController class]]) responder = responder.nextResponder;
+        if (responder) [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:responder] send];
+    }
+}
+
+%new
+- (void)saveImage:(UILongPressGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+
+        NSURL *imageURL = self.keepalive_node.URL;
+        if (imageURL) {
+            NSString *URLString = imageURL.absoluteString;
+
+            if (kFixAlbums && [URLString hasPrefix:@"https://yt3."]) {
+                URLString = [URLString stringByReplacingOccurrencesOfString:@"https://yt3." withString:@"https://yt4."];
+            }
+
+            NSURL *downloadURL = nil;
+            if ([URLString containsString:@"c-fcrop"]) {
+                NSRange croppedURL = [URLString rangeOfString:@"c-fcrop"];
+                if (croppedURL.location != NSNotFound) {
+                    NSString *newURL = [URLString stringByReplacingOccurrencesOfString:[URLString substringFromIndex:croppedURL.location] withString:@"nd-v1"];
+                    downloadURL = [NSURL URLWithString:newURL];
+                }
+            } else {
+                downloadURL = imageURL;
+            }
+
+            UIResponder *responder = self.nextResponder;
+            while (responder && ![responder isKindOfClass:[UIViewController class]]) responder = responder.nextResponder;
+
+            NSURLSession *session = [NSURLSession sharedSession];
+            [[session dataTaskWithURL:downloadURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                if (data) {
+                    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                        PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];
+                        [request addResourceWithType:PHAssetResourceTypePhoto data:data options:nil];
+                    } completionHandler:^(BOOL success, NSError *error) {
+                        if (responder) [[%c(YTToastResponderEvent) eventWithMessage:success ? LOC(@"Saved") : [NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription] firstResponder:responder] send];
+                    }];
+                } else {
+                    if (responder) [[%c(YTToastResponderEvent) eventWithMessage:[NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription] firstResponder:responder] send];
+                }
+            }] resume];
+        }
+    }
 }
 %end
 
@@ -565,59 +751,39 @@
     NSMutableArray <YTIPivotBarSupportedRenderers *> *items = [renderer itemsArray];
 
     NSDictionary *identifiersToRemove = @{
-        @"FEshorts": @(kRemoveShorts),
-        @"FEsubscriptions": @(kRemoveSubscriptions),
-        @"FEuploads": @(kRemoveUploads),
-        @"FElibrary": @(kRemoveLibrary)
+        @"FEshorts": @[@(kRemoveShorts), @(kReExplore)],
+        @"FEsubscriptions": @[@(kRemoveSubscriptions)],
+        @"FEuploads": @[@(kRemoveUploads)],
+        @"FElibrary": @[@(kRemoveLibrary)]
     };
 
     for (NSString *identifier in identifiersToRemove) {
-        BOOL shouldRemoveItem = [identifiersToRemove[identifier] boolValue];
-        NSUInteger index = [items indexOfObjectPassingTest:^BOOL(YTIPivotBarSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
+        NSArray *removeValues = identifiersToRemove[identifier];
+        BOOL shouldRemoveItem = [removeValues containsObject:@(YES)];
+
+        NSUInteger index = [items indexOfObjectPassingTest:^BOOL(YTIPivotBarSupportedRenderers *renderer, NSUInteger idx, BOOL *stop) {
             if ([identifier isEqualToString:@"FEuploads"]) {
-                return shouldRemoveItem && [[[renderers pivotBarIconOnlyItemRenderer] pivotIdentifier] isEqualToString:identifier];
+                return shouldRemoveItem && [[[renderer pivotBarIconOnlyItemRenderer] pivotIdentifier] isEqualToString:identifier];
             } else {
-                return shouldRemoveItem && [[[renderers pivotBarItemRenderer] pivotIdentifier] isEqualToString:identifier];
+                return shouldRemoveItem && [[[renderer pivotBarItemRenderer] pivotIdentifier] isEqualToString:identifier];
             }
         }];
 
         if (index != NSNotFound) {
             [items removeObjectAtIndex:index];
         }
-    } %orig;
-}
-%end
-
-// Replace Shorts with Explore tab (https://github.com/PoomSmart/YTReExplore)
-static void replaceTab(YTIGuideResponse *response) {
-    NSMutableArray <YTIGuideResponseSupportedRenderers *> *renderers = [response itemsArray];
-    for (YTIGuideResponseSupportedRenderers *guideRenderers in renderers) {
-        YTIPivotBarRenderer *pivotBarRenderer = [guideRenderers pivotBarRenderer];
-        NSMutableArray <YTIPivotBarSupportedRenderers *> *items = [pivotBarRenderer itemsArray];
-        NSUInteger shortIndex = [items indexOfObjectPassingTest:^BOOL(YTIPivotBarSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
-            return [[[renderers pivotBarItemRenderer] pivotIdentifier] isEqualToString:@"FEshorts"];
-        }];
-        if (shortIndex != NSNotFound) {
-            [items removeObjectAtIndex:shortIndex];
-            NSUInteger exploreIndex = [items indexOfObjectPassingTest:^BOOL(YTIPivotBarSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
-                return [[[renderers pivotBarItemRenderer] pivotIdentifier] isEqualToString:[%c(YTIBrowseRequest) browseIDForExploreTab]];
-            }];
-            if (exploreIndex == NSNotFound) {
-                YTIPivotBarSupportedRenderers *exploreTab = [%c(YTIPivotBarRenderer) pivotSupportedRenderersWithBrowseId:[%c(YTIBrowseRequest) browseIDForExploreTab] title:LOC(@"Explore") iconType:292];
-                [items insertObject:exploreTab atIndex:1];
-            }
-        }
     }
-}
+    
+    NSUInteger exploreIndex = [items indexOfObjectPassingTest:^BOOL(YTIPivotBarSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
+        return [[[renderers pivotBarItemRenderer] pivotIdentifier] isEqualToString:[%c(YTIBrowseRequest) browseIDForExploreTab]];
+    }];
 
-%hook YTGuideServiceCoordinator
-- (void)handleResponse:(YTIGuideResponse *)response withCompletion:(id)completion {
-    if (kReExplore) replaceTab(response);
-    %orig(response, completion);
-}
-- (void)handleResponse:(YTIGuideResponse *)response error:(id)error completion:(id)completion {
-    if (kReExplore) replaceTab(response);
-    %orig(response, error, completion);
+    if (exploreIndex == NSNotFound && (kReExplore || kAddExplore)) {
+        YTIPivotBarSupportedRenderers *exploreTab = [%c(YTIPivotBarRenderer) pivotSupportedRenderersWithBrowseId:[%c(YTIBrowseRequest) browseIDForExploreTab] title:LOC(@"Explore") iconType:292];
+        [items insertObject:exploreTab atIndex:1];
+    }
+
+    %orig;
 }
 %end
 
@@ -628,76 +794,13 @@ static void replaceTab(YTIGuideResponse *response) {
 %end
 
 // Hide Tab Labels
-BOOL hasHomeBar = NO;
-CGFloat pivotBarViewHeight;
-
-%hook YTPivotBarView
-- (void)layoutSubviews {
-    %orig;
-    pivotBarViewHeight = self.frame.size.height;
-}
-%end
-
 %hook YTPivotBarItemView
-- (void)layoutSubviews {
+- (void)setRenderer:(YTIPivotBarRenderer *)renderer {
     %orig;
-
-    CGFloat pivotBarAccessibilityControlWidth;
 
     if (kRemoveLabels) {
-        for (UIView *subview in self.subviews) {
-            if ([subview isKindOfClass:objc_lookUpClass("YTPivotBarItemViewAccessibilityControl")]) {
-                pivotBarAccessibilityControlWidth = CGRectGetWidth(subview.frame);
-                break;
-            }
-        }
-
-        for (UIView *subview in self.subviews) {
-            if ([subview isKindOfClass:objc_lookUpClass("YTQTMButton")]) {
-                for (UIView *buttonSubview in subview.subviews) {
-                    if ([buttonSubview isKindOfClass:[UILabel class]]) {
-                        [buttonSubview removeFromSuperview];
-                        break;
-                    }
-                }
-
-                UIImageView *imageView = nil;
-                for (UIView *buttonSubview in subview.subviews) {
-                    if ([buttonSubview isKindOfClass:[UIImageView class]]) {
-                        imageView = (UIImageView *)buttonSubview;
-                        break;
-                    }
-                }
-
-                if (imageView) {
-                    CGFloat imageViewHeight = imageView.image.size.height;
-                    CGFloat imageViewWidth = imageView.image.size.width;
-                    CGRect buttonFrame = subview.frame;
-
-                    if (@available(iOS 13.0, *)) {
-                        UIWindowScene *mainWindowScene = (UIWindowScene *)[[[UIApplication sharedApplication] connectedScenes] anyObject];
-                        if (mainWindowScene) {
-                            UIEdgeInsets safeAreaInsets = mainWindowScene.windows.firstObject.safeAreaInsets;
-                            if (safeAreaInsets.bottom > 0) {
-                                hasHomeBar = YES;
-                            }
-                        }
-                    }
-
-                    CGFloat yOffset = hasHomeBar ? 15.0 : 0.0;
-                    CGFloat xOffset = (pivotBarAccessibilityControlWidth - imageViewWidth) / 2.0;
-
-                    buttonFrame.origin.y = (pivotBarViewHeight - imageViewHeight - yOffset) / 2.0;
-                    buttonFrame.origin.x = xOffset;
-
-                    buttonFrame.size.height = imageViewHeight;
-                    buttonFrame.size.width = imageViewWidth;
-
-                    subview.frame = buttonFrame;
-                    subview.bounds = CGRectMake(0, 0, imageViewWidth, imageViewHeight);
-                }
-            }
-        }
+        [self.navigationButton setTitle:@"" forState:UIControlStateNormal];
+        [self.navigationButton setSizeWithPaddingAndInsets:NO];
     }
 }
 %end
@@ -706,21 +809,24 @@ CGFloat pivotBarViewHeight;
 BOOL isTabSelected = NO;
 %hook YTPivotBarViewController
 - (void)viewDidAppear:(BOOL)animated {
-    %orig();
+    %orig;
 
-    if (!isTabSelected) {
+    if (!isTabSelected && !kShortsOnlyMode) {
         NSString *pivotIdentifier;
         switch (kPivotIndex) {
             case 0:
                 pivotIdentifier = @"FEwhat_to_watch";
                 break;
             case 1:
-                pivotIdentifier = @"FEshorts";
+                pivotIdentifier = @"FEexplore";
                 break;
             case 2:
-                pivotIdentifier = @"FEsubscriptions";
+                pivotIdentifier = @"FEshorts";
                 break;
             case 3:
+                pivotIdentifier = @"FEsubscriptions";
+                break;
+            case 4:
                 pivotIdentifier = @"FElibrary";
                 break;
             default:
@@ -729,6 +835,35 @@ BOOL isTabSelected = NO;
         [self selectItemWithPivotIdentifier:pivotIdentifier];
         isTabSelected = YES;
     }
+
+    if (kShortsOnlyMode) {
+        [self selectItemWithPivotIdentifier:@"FEshorts"];
+        [self.parentViewController hidePivotBar];
+    }
+}
+%end
+
+%hook YTTabsViewController
+- (void)viewDidAppear:(BOOL)animated {
+    %orig;
+
+    if (kShortsOnlyMode) {
+        [self.navigationController.parentViewController hidePivotBar];
+    }
+}
+%end
+
+%hook YTAppViewController
+- (void)showPivotBar { if (!kShortsOnlyMode) %orig;} ;
+%end
+
+%hook YTReelWatchRootViewController
+- (void)viewDidAppear:(BOOL)animated {
+    %orig;
+
+    if (kShortsOnlyMode) {
+        [self.navigationController.parentViewController hidePivotBar];
+    }
 }
 %end
 
@@ -736,6 +871,35 @@ BOOL isTabSelected = NO;
 %hook NSParagraphStyle
 + (NSWritingDirection)defaultWritingDirectionForLanguage:(id)lang { return kDisableRTL ? NSWritingDirectionLeftToRight : %orig; }
 + (NSWritingDirection)_defaultWritingDirection { return kDisableRTL ? NSWritingDirectionLeftToRight : %orig; }
+%end
+
+// Fix Albums For Russian Users
+static NSURL *newCoverURL(NSURL *originalURL) {
+    NSDictionary <NSString *, NSString *> *hostsToReplace = @{
+        @"yt3.ggpht.com": @"yt4.ggpht.com",
+        @"yt3.googleusercontent.com": @"yt4.googleusercontent.com",
+    };
+
+    NSString *const replacement = hostsToReplace[originalURL.host];
+    if (kFixAlbums && replacement) {
+        NSURLComponents *components = [NSURLComponents componentsWithURL:originalURL resolvingAgainstBaseURL:NO];
+        components.host = replacement;
+        return components.URL;
+    }
+    return originalURL;
+}
+
+%hook ELMImageDownloader
+- (id)downloadImageWithURL:(id)arg1 targetSize:(CGSize)arg2 callbackQueue:(id)arg3 downloadProgress:(id)arg4 completion:(id)arg5 {
+    return %orig(newCoverURL(arg1), arg2, arg3, arg4, arg5);
+}
+%end
+
+// Not necessary but preferred
+%hook ASBasicImageDownloader
+- (id)downloadImageWithURL:(id)arg1 shouldRetry:(BOOL)arg2 callbackQueue:(id)arg3 downloadProgress:(id)arg4 completion:(id)arg5 {
+    return %orig(newCoverURL(arg1), arg2, arg3, arg4, arg5);
+}
 %end
 
 static void reloadPrefs() {
@@ -759,6 +923,7 @@ static void reloadPrefs() {
     kNoDarkBg = [prefs[@"noDarkBg"] boolValue] ?: NO;
     kEndScreenCards = [prefs[@"endScreenCards"] boolValue] ?: NO;
     kNoFullscreenActions = [prefs[@"noFullscreenActions"] boolValue] ?: NO;
+    kPersistentProgressBar = [prefs[@"persistentProgressBar"] boolValue] ?: NO;
     kNoRelatedVids = [prefs[@"noRelatedVids"] boolValue] ?: NO;
     kNoPromotionCards = [prefs[@"noPromotionCards"] boolValue] ?: NO;
     kNoWatermarks = [prefs[@"noWatermarks"] boolValue] ?: NO;
@@ -766,6 +931,7 @@ static void reloadPrefs() {
     kPortraitFullscreen = [prefs[@"portraitFullscreen"] boolValue] ?: NO;
     kCopyWithTimestamp = [prefs[@"copyWithTimestamp"] boolValue] ?: NO;
     kDisableAutoplay = [prefs[@"disableAutoplay"] boolValue] ?: NO;
+    kDisableAutoCaptions = [prefs[@"disableAutoCaptions"] boolValue] ?: NO;
     kNoContentWarning = [prefs[@"noContentWarning"] boolValue] ?: NO;
     kClassicQuality = [prefs[@"classicQuality"] boolValue] ?: NO;
     kExtraSpeedOptions = [prefs[@"extraSpeedOptions"] boolValue] ?: NO;
@@ -776,8 +942,11 @@ static void reloadPrefs() {
     kAutoFullscreen = [prefs[@"autoFullscreen"] boolValue] ?: NO;
     kExitFullscreen = [prefs[@"exitFullscreen"] boolValue] ?: NO;
     kNoDoubleTapToSeek = [prefs[@"noDoubleTapToSeek"] boolValue] ?: NO;
+    kShortsOnlyMode = [prefs[@"shortsOnlyMode"] boolValue] ?: NO;
     kHideShorts = [prefs[@"hideShorts"] boolValue] ?: NO;
     kShortsProgress = [prefs[@"shortsProgress"] boolValue] ?: NO;
+    kPinchToFullscreenShorts = [prefs[@"pinchToFullscreenShorts"] boolValue] ?: NO;
+    kShortsToRegular = [prefs[@"shortsToRegular"] boolValue] ?: NO;
     kResumeShorts = [prefs[@"resumeShorts"] boolValue] ?: NO;
     kHideShortsLogo = [prefs[@"hideShortsLogo"] boolValue] ?: NO;
     kHideShortsSearch = [prefs[@"hideShortsSearch"] boolValue] ?: NO;
@@ -791,6 +960,7 @@ static void reloadPrefs() {
     kHideShortsShare = [prefs[@"hideShortsShare"] boolValue] ?: NO;
     kHideShortsAvatars = [prefs[@"hideShortsAvatars"] boolValue] ?: NO;
     kHideShortsThanks = [prefs[@"hideShortsThanks"] boolValue] ?: NO;
+    kHideShortsSource = [prefs[@"hideShortsSource"] boolValue] ?: NO;
     kHideShortsChannelName = [prefs[@"hideShortsChannelName"] boolValue] ?: NO;
     kHideShortsDescription = [prefs[@"hideShortsDescription"] boolValue] ?: NO;
     kHideShortsAudioTrack = [prefs[@"hideShortsAudioTrack"] boolValue] ?: NO;
@@ -798,10 +968,15 @@ static void reloadPrefs() {
     kRemoveLabels = [prefs[@"removeLabels"] boolValue] ?: NO;
     kRemoveIndicators = [prefs[@"removeIndicators"] boolValue] ?: NO;
     kReExplore = [prefs[@"reExplore"] boolValue] ?: NO;
+    kAddExplore = [prefs[@"addExplore"] boolValue] ?: NO;
     kRemoveShorts = [prefs[@"removeShorts"] boolValue] ?: NO;
     kRemoveSubscriptions = [prefs[@"removeSubscriptions"] boolValue] ?: NO;
     kRemoveUploads = (prefs[@"removeUploads"] != nil) ? [prefs[@"removeUploads"] boolValue] : YES;
     kRemoveLibrary = [prefs[@"removeLibrary"] boolValue] ?: NO;
+    kCopyPostText = [prefs[@"copyPostText"] boolValue] ?: NO;
+    kSavePostImage = [prefs[@"savePostImage"] boolValue] ?: NO;
+    kSaveProfilePhoto = [prefs[@"savePostImage"] boolValue] ?: NO;
+    kFixAlbums = [prefs[@"fixAlbums"] boolValue] ?: NO;
     kRemovePlayNext = [prefs[@"removePlayNext"] boolValue] ?: NO;
     kNoContinueWatching = [prefs[@"noContinueWatching"] boolValue] ?: NO;
     kNoSearchHistory = [prefs[@"noSearchHistory"] boolValue] ?: NO;
@@ -832,6 +1007,7 @@ static void reloadPrefs() {
         @"noDarkBg" : @(kNoDarkBg),
         @"endScreenCards" : @(kEndScreenCards),
         @"noFullscreenActions" : @(kNoFullscreenActions),
+        @"persistentProgressBar" : @(kPersistentProgressBar),
         @"noRelatedVids" : @(kNoRelatedVids),
         @"noPromotionCards" : @(kNoPromotionCards),
         @"noWatermarks" : @(kNoWatermarks),
@@ -839,6 +1015,7 @@ static void reloadPrefs() {
         @"portraitFullscreen" : @(kPortraitFullscreen),
         @"copyWithTimestamp" : @(kCopyWithTimestamp),
         @"disableAutoplay" : @(kDisableAutoplay),
+        @"disableAutoCaptions" : @(kDisableAutoCaptions),
         @"noContentWarning" : @(kNoContentWarning),
         @"classicQuality" : @(kClassicQuality),
         @"extraSpeedOptions" : @(kExtraSpeedOptions),
@@ -849,8 +1026,11 @@ static void reloadPrefs() {
         @"autoFullscreen" : @(kAutoFullscreen),
         @"exitFullscreen" : @(kExitFullscreen),
         @"noDoubleTapToSeek" : @(kNoDoubleTapToSeek),
+        @"shortsOnlyMode" : @(kShortsOnlyMode),
         @"hideShorts" : @(kHideShorts),
         @"shortsProgress" : @(kShortsProgress),
+        @"pinchToFullscreenShorts" : @(kPinchToFullscreenShorts),
+        @"shortsToRegular" : @(kShortsToRegular),
         @"resumeShorts" : @(kResumeShorts),
         @"hideShortsLogo" : @(kHideShortsLogo),
         @"hideShortsSearch" : @(kHideShortsSearch),
@@ -864,6 +1044,7 @@ static void reloadPrefs() {
         @"hideShortsShare" : @(kHideShortsShare),
         @"hideShortsAvatars" : @(kHideShortsAvatars),
         @"hideShortsThanks" : @(kHideShortsThanks),
+        @"hideShortsSource" : @(kHideShortsSource),
         @"hideShortsChannelName" : @(kHideShortsChannelName),
         @"hideShortsDescription" : @(kHideShortsDescription),
         @"hideShortsAudioTrack" : @(kHideShortsAudioTrack),
@@ -871,10 +1052,15 @@ static void reloadPrefs() {
         @"removeLabels" : @(kRemoveLabels),
         @"removeIndicators" : @(kRemoveIndicators),
         @"reExplore" : @(kReExplore),
+        @"addExplore" : @(kAddExplore),
         @"removeShorts" : @(kRemoveShorts),
         @"removeSubscriptions" : @(kRemoveSubscriptions),
         @"removeUploads" : @(kRemoveUploads),
         @"removeLibrary" : @(kRemoveLibrary),
+        @"copyPostText" : @(kCopyPostText),
+        @"savePostImage" : @(kSavePostImage),
+        @"saveProfilePhoto" : @(kSaveProfilePhoto),
+        @"fixAlbums" : @(kFixAlbums),
         @"removePlayNext" : @(kRemovePlayNext),
         @"noContinueWatching" : @(kNoContinueWatching),
         @"noSearchHistory" : @(kNoSearchHistory),
@@ -896,6 +1082,15 @@ static void prefsChanged(CFNotificationCenterRef center, void *observer, CFStrin
 }
 
 %ctor {
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"YTLite.plist"];
+    NSMutableDictionary *prefs = [NSMutableDictionary dictionaryWithContentsOfFile:path];
+
+    if ([prefs[@"shortsOnlyMode"] boolValue] && ([prefs[@"removeShorts"] boolValue] || [prefs[@"reExplore"] boolValue])) {
+        [prefs setObject:@NO forKey:@"removeShorts"];
+        [prefs setObject:@NO forKey:@"reExplore"];
+        [prefs writeToFile:path atomically:NO];
+    }
+
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)prefsChanged, CFSTR("com.dvntm.ytlite.prefschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     reloadPrefs();
 }

@@ -37,6 +37,8 @@
 "NoEndScreenCardsDesc" = "隱藏當影片結束時的懸停影片（縮圖）";
 "NoFullscreenActions" = "停用全螢幕操作";
 "NoFullscreenActionsDesc" = "在全螢幕模式下停用操作面板";
+"PersistentProgressBar" = "Persistent progress bar";
+"PersistentProgressBarDesc" = "Always shows progress bar in the player.";
 "NoRelatedVids" = "隱藏相關影片";
 "NoRelatedVidsDesc" = "移除全螢幕模式向上滑動時所出現的相關影片";
 "NoPromotionCards" = "隱藏付費推廣";
@@ -53,6 +55,8 @@
 "CopyWithTimestampDesc" = "透過按下暫停按鈕，將帶有時間標記的連結複製到剪貼簿";
 "DisableAutoplay" = "停用自動播放";
 "DisableAutoplayDesc" = "在打開應用程式後防止自動播放影片";
+"DisableAutoCaptions" = "Disable auto captions";
+"DisableAutoCaptionsDesc" = "Prevents automatic activation of captions.";
 "NoContentWarning" = "略過內容警告";
 "NoContentWarningDesc" = "略過敏感內容警告訊息";
 "ClassicQuality" = "舊版本影片畫質";
@@ -81,6 +85,8 @@
 "RemoveIndicatorsDesc" = "刪除標籤通知標記";
 "ReExplore" = "用探索取代Shorts分頁";
 "ReExploreDesc" = "如同舊版YouTube一樣顯示「探索」而非「Shorts」";
+"AddExplore" = "Add Explore tab";
+"AddExploreDesc" = "Adds Explore tab to the Tab bar.";
 "HideShortsTab" = "隱藏Shorts";
 "HideShortsTabDesc" = "從標籤欄中隱藏Shorts標籤";
 "HideSubscriptionsTab" = "隱藏訂閱內容";
@@ -91,10 +97,16 @@
 "HideLibraryTabDesc" = "從標籤欄中隱藏媒體庫標籤";
 
 "Shorts" = "Shorts";
+"ShortsOnlyMode" = "Shorts Only Mode";
+"ShortsOnlyModeDesc" = "Limits YouTube functionality to viewing Shorts only.";
 "HideShorts" = "隱藏Shorts影片";
 "HideShortsDesc" = "從首頁、推薦...等，隱藏Shorts影片（不適用於觀看紀錄）";
 "ShortsProgress" = "啟用時間進度條";
 "ShortsProgressDesc" = "在Shorts底部顯示進度條";
+"PinchToFullscreenShorts" = "Pinch to Fullscreen";
+"PinchToFullscreenShortsDesc" = "Manages visibility of the overlay with pinch in and pinch out gestures, displaying Shorts in fullscreen mode.";
+"ShortsToRegular" = "Shorts to regular videos";
+"ShortsToRegularDesc" = "Opens Shorts videos as regular videos.";
 "ResumeShorts" = "不要從Shorts開始";
 "ResumeShortsDesc" = "防止重新開啟應用程式時從Shorts開始播放，如果在觀看Shorts時關閉，就會發生這種情況";
 "HideShortsLogo" = "隱藏Shorts圖示";
@@ -121,6 +133,8 @@
 "HideShortsAvatarsDesc" = "隱藏右下角的頻道圖片";
 "HideShortsThanks" = "隱藏超級感謝按鈕";
 "HideShortsThanksDesc" = "從Shorts中隱藏超級感謝 (贊助) 按鈕";
+"HideShortsSource" = "Hide Shorts Source";
+"HideShortsSourceDesc" = "Hides the Shorts sources under the channel name.";
 "HideShortsChannelName" = "隱藏頻道名稱";
 "HideShortsChannelNameDesc" = "從Shorts中隱藏頻道名稱和訂閱按鈕";
 "HideShortsDescription" = "隱藏描述";
@@ -129,6 +143,14 @@
 "HideShortsAudioTrackDesc" = "隱藏Shorts描述下的原始音效";
 
 "Other" = "其它";
+"CopyPostText" = "Copy community posts text";
+"CopyPostTextDesc" = "Copies community posts text to the clipboard by long tap.";
+"SavePostImage" = "Save community posts image";
+"SavePostImageDesc" = "Saves community posts image to the Photos app by long tap.";
+"SaveProfilePhoto" = "Save profile picture";
+"SaveProfilePhotoDesc" = "Saves profile picture to the Photos app by long tap.";
+"FixAlbums" = "Fix covers";
+"FixAlbumsDesc" = "Fixes the display of covers for users from Russia.";
 "RemovePlayNext" = "移除「播放下一個」";
 "RemovePlayNextDesc" = "從選單移除「播放下一個」";
 "NoContinueWatching" = "移除「繼續觀看」";
@@ -168,5 +190,11 @@
 "AdvancedModeReminder" = "您是否想啟用YTLite的進階模式？\n\n這個模式提供了50多個額外的選項，可以自訂義和優化您的YouTube使用體驗。您稍後可以在「設定」中 → %@ → %@ → %@ 啟用或停用它。";
 "ResetSettings" = "重置YTLite設定";
 "ResetMessage" = "這個選項會將YTLite重置為預設值，並關閉Youtube\n\n您確定要繼續嗎?";
+"ShortsOnlyWarning" = "Are you sure you want to activate this mode?\n\nIn this mode, you will only be able to watch Shorts videos and won't be able to do anything else.\n\nYou can disable Shorts Only Mode by long pressing with two fingers in the Shorts player.";
+"ShortsModeTurnedOff" = "Shorts Only Mode has been turned off";
 "Yes" = "是";
 "No" = "否";
+
+"Copied" = "Copied to clipboard";
+"Saved" = "Saved to Photos";
+"Error" = "Error";

@@ -37,6 +37,8 @@
 "NoEndScreenCardsDesc" = "動画の終わりに表示されるエンドスクリーン(サムネイル)を非表示にします";
 "NoFullscreenActions" = "フルスクリーンアクションを無効化";
 "NoFullscreenActionsDesc" = "フルスクリーンモードでのアクションパネルを無効にします";
+"PersistentProgressBar" = "Persistent progress bar";
+"PersistentProgressBarDesc" = "Always shows progress bar in the player.";
 "NoRelatedVids" = "オーバーレイの関連動画を非表示";
 "NoRelatedVidsDesc" = "スワイプアップでオーバーレイに表示される関連動画を非表示にします";
 "NoPromotionCards" = "有料プロモーションカードを非表示";
@@ -53,6 +55,8 @@
 "CopyWithTimestampDesc" = "一時停止ボタンを押すことで、タイムスタンプ付きリンクをクリップボードにコピーできます";
 "DisableAutoplay" = "自動再生を無効化";
 "DisableAutoplayDesc" = "アプリを開いた後に動画の自動再生を防止します";
+"DisableAutoCaptions" = "Disable auto captions";
+"DisableAutoCaptionsDesc" = "Prevents automatic activation of captions.";
 "NoContentWarning" = "コンテンツ警告をスキップ";
 "NoContentWarningDesc" = "不適切なコンテンツの警告メッセージをスキップします";
 "ClassicQuality" = "クラシックなビデオ品質";
@@ -81,6 +85,8 @@
 "RemoveIndicatorsDesc" = "タブインジケーターを削除します";
 "ReExplore" = "ショートタブを探索タブに置き換え";
 "ReExploreDesc" = "古いYouTubeバージョンのように、ショートタブの代わりに探索タブを表示します";
+"AddExplore" = "Add Explore tab";
+"AddExploreDesc" = "Adds Explore tab to the Tab bar.";
 "HideShortsTab" = "ショートタブを非表示";
 "HideShortsTabDesc" = "タブバーからショートタブを非表示にします";
 "HideSubscriptionsTab" = "登録チャンネルタブを非表示";
@@ -91,10 +97,16 @@
 "HideLibraryTabDesc" = "タブバーからライブラリタブを非表示にします";
 
 "Shorts" = "ショート";
+"ShortsOnlyMode" = "Shorts Only Mode";
+"ShortsOnlyModeDesc" = "Limits YouTube functionality to viewing Shorts only.";
 "HideShorts" = "ショート動画を非表示";
 "HideShortsDesc" = "ホーム, おすすめなどからショート動画を非表示にします(視聴履歴には適用されません)";
 "ShortsProgress" = "プログレスバーを有効化";
 "ShortsProgressDesc" = "ショートオーバーレイにプログレスバーを表示します";
+"PinchToFullscreenShorts" = "Pinch to Fullscreen";
+"PinchToFullscreenShortsDesc" = "Manages visibility of the overlay with pinch in and pinch out gestures, displaying Shorts in fullscreen mode.";
+"ShortsToRegular" = "Shorts to regular videos";
+"ShortsToRegularDesc" = "Opens Shorts videos as regular videos.";
 "ResumeShorts" = "ショートタブからの再開を防止";
 "ResumeShortsDesc" = "ショートを視聴中にアプリを閉じた場合でも、ショートからの再開を防止します";
 "HideShortsLogo" = "ショートロゴを非表示";
@@ -121,6 +133,8 @@
 "HideShortsAvatarsDesc" = "右下隅のプロフィール画像を非表示にします";
 "HideShortsThanks" = "スーパーサンクスボタンを非表示";
 "HideShortsThanksDesc" = "ショートオーバーレイからスーパーサンクス(寄付)ボタンを非表示にします";
+"HideShortsSource" = "Hide Shorts Source";
+"HideShortsSourceDesc" = "Hides the Shorts sources under the channel name.";
 "HideShortsChannelName" = "チャンネル名を非表示";
 "HideShortsChannelNameDesc" = "ショートオーバーレイからチャンネル名とチャンネル登録ボタンを非表示にします";
 "HideShortsDescription" = "説明を非表示";
@@ -129,6 +143,14 @@
 "HideShortsAudioTrackDesc" = "ショートの説明の下に表示されるオーディオトラックを非表示にします";
 
 "Other" = "その他";
+"CopyPostText" = "Copy community posts text";
+"CopyPostTextDesc" = "Copies community posts text to the clipboard by long tap.";
+"SavePostImage" = "Save community posts image";
+"SavePostImageDesc" = "Saves community posts image to the Photos app by long tap.";
+"SaveProfilePhoto" = "Save profile picture";
+"SaveProfilePhotoDesc" = "Saves profile picture to the Photos app by long tap.";
+"FixAlbums" = "Fix covers";
+"FixAlbumsDesc" = "Fixes the display of covers for users from Russia.";
 "RemovePlayNext" = "\"次に再生\"を削除";
 "RemovePlayNextDesc" = "メニューから\"次に再生\"オプションを削除します";
 "NoContinueWatching" = "\"続きを見る\"を削除";
@@ -168,5 +190,11 @@
 "AdvancedModeReminder" = "YTLiteでアドバンスモードを有効にしますか?\n\nこのモードでは50以上の追加オプションを使用してYouTubeのカスタマイズと最適化が可能です。後で、設定 → %@ → %@ → %@から変更できます";
 "ResetSettings" = "YTLiteの設定をリセット";
 "ResetMessage" = "このオプションを選択するとYTLiteの設定がデフォルトにリセットされ、アプリが終了します。\n\n続行してもよろしいですか?";
+"ShortsOnlyWarning" = "Are you sure you want to activate this mode?\n\nIn this mode, you will only be able to watch Shorts videos and won't be able to do anything else.\n\nYou can disable Shorts Only Mode by long pressing with two fingers in the Shorts player.";
+"ShortsModeTurnedOff" = "Shorts Only Mode has been turned off";
 "Yes" = "はい";
 "No" = "いいえ";
+
+"Copied" = "Copied to clipboard";
+"Saved" = "Saved to Photos";
+"Error" = "Error";

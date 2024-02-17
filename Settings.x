@@ -6,19 +6,6 @@
 
 static const NSInteger YTLiteSection = 789;
 
-NSBundle *YTLiteBundle() {
-    static NSBundle *bundle = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSString *tweakBundlePath = [[NSBundle mainBundle] pathForResource:@"YTLite" ofType:@"bundle"];
-        if (tweakBundlePath)
-            bundle = [NSBundle bundleWithPath:tweakBundlePath];
-        else
-            bundle = [NSBundle bundleWithPath:ROOT_PATH_NS("/Library/Application Support/YTLite.bundle")];
-    });
-    return bundle;
-}
-
 // Settings
 %hook YTAppSettingsPresentationData
 + (NSArray *)settingsCategoryOrder {
@@ -66,12 +53,30 @@ NSBundle *YTLiteBundle() {
 
 static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleDescription, NSString *key, BOOL *value, id selfObject) {
     Class YTSettingsSectionItemClass = %c(YTSettingsSectionItem);
+    Class YTAlertViewClass = %c(YTAlertView);
     YTSettingsSectionItem *item = [YTSettingsSectionItemClass switchItemWithTitle:title
         titleDescription:titleDescription
         accessibilityIdentifier:nil
         switchOn:*value
         switchBlock:^BOOL(YTSettingsCell *cell, BOOL enabled) {
-            [selfObject updatePrefsForKey:key enabled:enabled];
+            if ([key isEqualToString:@"shortsOnlyMode"]) {
+                YTAlertView *alertView = [YTAlertViewClass confirmationDialogWithAction:^{
+                    [selfObject updatePrefsForKey:@"shortsOnlyMode" enabled:enabled];
+                }
+                actionTitle:LOC(@"Yes")
+                cancelAction:^{
+                    [cell setSwitchOn:!enabled animated:YES];
+                }
+                cancelTitle:LOC(@"No")];
+                alertView.title = LOC(@"Warning");
+                alertView.subtitle = LOC(@"ShortsOnlyWarning");
+                [alertView show];
+            }
+
+            else {
+                [selfObject updatePrefsForKey:key enabled:enabled];
+            }
+
             return YES;
         }
         settingItemId:0];
@@ -150,6 +155,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
                 createSwitchItem(LOC(@"NoDarkBg"), LOC(@"NoDarkBgDesc"), @"noDarkBg", &kNoDarkBg, selfObject),
                 createSwitchItem(LOC(@"NoEndScreenCards"), LOC(@"NoEndScreenCardsDesc"), @"endScreenCards", &kEndScreenCards, selfObject),
                 createSwitchItem(LOC(@"NoFullscreenActions"), LOC(@"NoFullscreenActionsDesc"), @"noFullscreenActions", &kNoFullscreenActions, selfObject),
+                createSwitchItem(LOC(@"PersistentProgressBar"), LOC(@"PersistentProgressBarDesc"), @"persistentProgressBar", &kPersistentProgressBar, selfObject),
                 createSwitchItem(LOC(@"NoRelatedVids"), LOC(@"NoRelatedVidsDesc"), @"noRelatedVids", &kNoRelatedVids, selfObject),
                 createSwitchItem(LOC(@"NoPromotionCards"), LOC(@"NoPromotionCardsDesc"), @"noPromotionCards", &kNoPromotionCards, selfObject),
                 createSwitchItem(LOC(@"NoWatermarks"), LOC(@"NoWatermarksDesc"), @"noWatermarks", &kNoWatermarks, selfObject)
@@ -172,6 +178,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
                 createSwitchItem(LOC(@"PortraitFullscreen"), LOC(@"PortraitFullscreenDesc"), @"portraitFullscreen", &kPortraitFullscreen, selfObject),
                 createSwitchItem(LOC(@"CopyWithTimestamp"), LOC(@"CopyWithTimestampDesc"), @"copyWithTimestamp", &kCopyWithTimestamp, selfObject),
                 createSwitchItem(LOC(@"DisableAutoplay"), LOC(@"DisableAutoplayDesc"), @"disableAutoplay", &kDisableAutoplay, selfObject),
+                createSwitchItem(LOC(@"DisableAutoCaptions"), LOC(@"DisableAutoCaptionsDesc"), @"disableAutoCaptions", &kDisableAutoCaptions, selfObject),
                 createSwitchItem(LOC(@"NoContentWarning"), LOC(@"NoContentWarningDesc"), @"noContentWarning", &kNoContentWarning, selfObject),
                 createSwitchItem(LOC(@"ClassicQuality"), LOC(@"ClassicQualityDesc"), @"classicQuality", &kClassicQuality, selfObject),
                 createSwitchItem(LOC(@"ExtraSpeedOptions"), LOC(@"ExtraSpeedOptionsDesc"), @"extraSpeedOptions", &kExtraSpeedOptions, selfObject),
@@ -197,8 +204,11 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
             }
             selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                 NSArray <YTSettingsSectionItem *> *rows = @[
+                createSwitchItem(LOC(@"ShortsOnlyMode"), LOC(@"ShortsOnlyModeDesc"), @"shortsOnlyMode", &kShortsOnlyMode, selfObject),
                 createSwitchItem(LOC(@"HideShorts"), LOC(@"HideShortsDesc"), @"hideShorts", &kHideShorts, selfObject),
                 createSwitchItem(LOC(@"ShortsProgress"), LOC(@"ShortsProgressDesc"), @"shortsProgress", &kShortsProgress, selfObject),
+                createSwitchItem(LOC(@"PinchToFullscreenShorts"), LOC(@"PinchToFullscreenShortsDesc"), @"pinchToFullscreenShorts", &kPinchToFullscreenShorts, selfObject),
+                createSwitchItem(LOC(@"ShortsToRegular"), LOC(@"ShortsToRegularDesc"), @"shortsToRegular", &kShortsToRegular, selfObject),
                 createSwitchItem(LOC(@"ResumeShorts"), LOC(@"ResumeShortsDesc"), @"resumeShorts", &kResumeShorts, selfObject),
                 createSwitchItem(LOC(@"HideShortsLogo"), LOC(@"HideShortsLogoDesc"), @"hideShortsLogo", &kHideShortsLogo, selfObject),
                 createSwitchItem(LOC(@"HideShortsSearch"), LOC(@"HideShortsSearchDesc"), @"hideShortsSearch", &kHideShortsSearch, selfObject),
@@ -212,6 +222,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
                 createSwitchItem(LOC(@"HideShortsShare"), LOC(@"HideShortsShareDesc"), @"hideShortsShare", &kHideShortsShare, selfObject),
                 createSwitchItem(LOC(@"HideShortsAvatars"), LOC(@"HideShortsAvatarsDesc"), @"hideShortsAvatars", &kHideShortsAvatars, selfObject),
                 createSwitchItem(LOC(@"HideShortsThanks"), LOC(@"HideShortsThanksDesc"), @"hideShortsThanks", &kHideShortsThanks, selfObject),
+                createSwitchItem(LOC(@"HideShortsSource"), LOC(@"HideShortsSourceDesc"), @"hideShortsSource", &kHideShortsSource, selfObject),
                 createSwitchItem(LOC(@"HideShortsChannelName"), LOC(@"HideShortsChannelNameDesc"), @"hideShortsChannelName", &kHideShortsChannelName, selfObject),
                 createSwitchItem(LOC(@"HideShortsDescription"), LOC(@"HideShortsDescriptionDesc"), @"hideShortsDescription", &kHideShortsDescription, selfObject),
                 createSwitchItem(LOC(@"HideShortsAudioTrack"), LOC(@"HideShortsAudioTrackDesc"), @"hideShortsAudioTrack", &kHideShortsAudioTrack, selfObject),
@@ -234,6 +245,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
             createSwitchItem(LOC(@"RemoveLabels"), LOC(@"RemoveLabelsDesc"), @"removeLabels", &kRemoveLabels, selfObject),
             createSwitchItem(LOC(@"RemoveIndicators"), LOC(@"RemoveIndicatorsDesc"), @"removeIndicators", &kRemoveIndicators, selfObject),
             createSwitchItem(LOC(@"ReExplore"), LOC(@"ReExploreDesc"), @"reExplore", &kReExplore, selfObject),
+            createSwitchItem(LOC(@"AddExplore"), LOC(@"AddExploreDesc"), @"addExplore", &kAddExplore, selfObject),
             createSwitchItem(LOC(@"HideShortsTab"), LOC(@"HideShortsTabDesc"), @"removeShorts", &kRemoveShorts, selfObject),
             createSwitchItem(LOC(@"HideSubscriptionsTab"), LOC(@"HideSubscriptionsTabDesc"), @"removeSubscriptions", &kRemoveSubscriptions, selfObject),
             createSwitchItem(LOC(@"HideUploadButton"), LOC(@"HideUploadButtonDesc"), @"removeUploads", &kRemoveUploads, selfObject),
@@ -254,6 +266,10 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
             }
             selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                 NSArray <YTSettingsSectionItem *> *rows = @[
+                createSwitchItem(LOC(@"CopyPostText"), LOC(@"CopyPostTextDesc"), @"copyPostText", &kCopyPostText, selfObject),
+                createSwitchItem(LOC(@"SavePostImage"), LOC(@"SavePostImageDesc"), @"savePostImage", &kSavePostImage, selfObject),
+                createSwitchItem(LOC(@"SaveProfilePhoto"), LOC(@"SaveProfilePhotoDesc"), @"saveProfilePhoto", &kSaveProfilePhoto, selfObject),
+                createSwitchItem(LOC(@"FixAlbums"), LOC(@"FixAlbumsDesc"), @"fixAlbums", &kFixAlbums, selfObject),
                 createSwitchItem(LOC(@"RemovePlayNext"), LOC(@"RemovePlayNextDesc"), @"removePlayNext", &kRemovePlayNext, selfObject),
                 createSwitchItem(LOC(@"NoContinueWatching"), LOC(@"NoContinueWatchingDesc"), @"noContinueWatching", &kNoContinueWatching, selfObject),
                 createSwitchItem(LOC(@"NoSearchHistory"), LOC(@"NoSearchHistoryDesc"), @"noSearchHistory", &kNoSearchHistory, selfObject),
@@ -277,10 +293,12 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
         detailTextBlock:^NSString *() {
             switch (kPivotIndex) {
                 case 1:
-                    return LOC(@"ShortsTab");
+                    return LOC(@"Explore");
                 case 2:
-                    return LOC(@"Subscriptions");
+                    return LOC(@"ShortsTab");
                 case 3:
+                    return LOC(@"Subscriptions");
+                case 4:
                     return LOC(@"Library");
                 case 0:
                 default:
@@ -295,6 +313,20 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
                     [self updateIntegerPrefsForKey:@"pivotIndex" intValue:kPivotIndex];
                     return YES;
                 }],
+                [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"Explore") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *library, NSUInteger arg1) {
+                    if (!kReExplore && !kAddExplore) {
+                        YTAlertView *alertView = [%c(YTAlertView) infoDialog];
+                        alertView.title = LOC(@"Warning");
+                        alertView.subtitle = LOC(@"TabIsHidden");
+                        [alertView show];
+                        return NO;
+                    } else {
+                        kPivotIndex = 1;
+                        [settingsViewController reloadData];
+                        [self updateIntegerPrefsForKey:@"pivotIndex" intValue:kPivotIndex];
+                        return YES;
+                    }
+                }],
                 [YTSettingsSectionItemClass checkmarkItemWithTitle:LOC(@"ShortsTab") titleDescription:nil selectBlock:^BOOL (YTSettingsCell *shorts, NSUInteger arg1) {
                     if (kRemoveShorts) {
                         YTAlertView *alertView = [%c(YTAlertView) infoDialog];
@@ -303,7 +335,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
                         [alertView show];
                         return NO;
                     } else {
-                        kPivotIndex = 1;
+                        kPivotIndex = 2;
                         [settingsViewController reloadData];
                         [self updateIntegerPrefsForKey:@"pivotIndex" intValue:kPivotIndex];
                         return YES;
@@ -317,7 +349,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
                         [alertView show];
                         return NO;
                     } else {
-                        kPivotIndex = 2;
+                        kPivotIndex = 3;
                         [settingsViewController reloadData];
                         [self updateIntegerPrefsForKey:@"pivotIndex" intValue:kPivotIndex];
                         return YES;
@@ -331,7 +363,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
                         [alertView show];
                         return NO;
                     } else {
-                        kPivotIndex = 3;
+                        kPivotIndex = 4;
                         [settingsViewController reloadData];
                         [self updateIntegerPrefsForKey:@"pivotIndex" intValue:kPivotIndex];
                         return YES;
@@ -414,11 +446,9 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
     }];
     [sectionItems addObject:version];
 
-    NSString *title = @"YTLite";
-    if ([settingsViewController respondsToSelector:@selector(setSectionItems:forCategory:title:icon:titleDescription:headerHidden:)])
-        [settingsViewController setSectionItems:sectionItems forCategory:YTLiteSection title:title icon:nil titleDescription:nil headerHidden:NO];
-    else
-        [settingsViewController setSectionItems:sectionItems forCategory:YTLiteSection title:title titleDescription:nil headerHidden:NO];
+    BOOL isNew = [settingsViewController respondsToSelector:@selector(setSectionItems:forCategory:title:icon:titleDescription:headerHidden:)];
+    isNew ? [settingsViewController setSectionItems:sectionItems forCategory:YTLiteSection title:@"YTLite" icon:nil titleDescription:nil headerHidden:NO]
+          : [settingsViewController setSectionItems:sectionItems forCategory:YTLiteSection title:@"YTLite" titleDescription:nil headerHidden:NO];
 
 }
 
@@ -440,15 +470,15 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
 
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             YTAlertView *alertView = [%c(YTAlertView) confirmationDialogWithAction:^{
-            [prefs setObject:@(YES) forKey:@"advancedMode"];
-            [prefs writeToFile:prefsPath atomically:NO];
-            CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), CFSTR("com.dvntm.ytlite.prefschanged"), NULL, NULL, YES);
-        }
-        actionTitle:LOC(@"Yes")
-        cancelTitle:LOC(@"No")];
-        alertView.title = @"YTLite";
-        alertView.subtitle = [NSString stringWithFormat:LOC(@"AdvancedModeReminder"), @"YTLite", LOC(@"Version"), LOC(@"Advanced")];
-        [alertView show];
+                [prefs setObject:@(YES) forKey:@"advancedMode"];
+                [prefs writeToFile:prefsPath atomically:NO];
+                CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), CFSTR("com.dvntm.ytlite.prefschanged"), NULL, NULL, YES);
+            }
+            actionTitle:LOC(@"Yes")
+            cancelTitle:LOC(@"No")];
+            alertView.title = @"YTLite";
+            alertView.subtitle = [NSString stringWithFormat:LOC(@"AdvancedModeReminder"), @"YTLite", LOC(@"Version"), LOC(@"Advanced")];
+            [alertView show];
         });
     }
 }
