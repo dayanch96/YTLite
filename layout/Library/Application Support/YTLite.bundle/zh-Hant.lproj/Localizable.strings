@@ -192,6 +192,7 @@
 "French" = "法文在地化";
 "Spanish" = "西班牙文在地化";
 "Japanese" = "日本語本地化";
+"Vietnamese" = "Vietnamese localization";
 "Advanced" = "進階模式";
 "AdvancedModeReminder" = "您是否想啟用YTLite的進階模式？\n\n這個模式提供了50多個額外的選項，可以自訂義和優化您的YouTube使用體驗。您稍後可以在「設定」中 → %@ → %@ → %@ 啟用或停用它。";
 "ClearCache" = "Clear cache";

@@ -192,6 +192,7 @@
 "French" = "法语本地化";
 "Spanish" = "西班牙语本地化";
 "Japanese" = "日语本地化";
+"Vietnamese" = "Vietnamese localization";
 "Advanced" = "高级模式";
 "AdvancedModeReminder" = "想为YTLite激活高级模式吗？\n\n此模式提供了50多个额外的选项来自定义和优化您的YouTube体验。\n可以稍后从设置中启用/禁用它 → %@ → %@ → %@。";
 "ClearCache" = "清除缓存";
