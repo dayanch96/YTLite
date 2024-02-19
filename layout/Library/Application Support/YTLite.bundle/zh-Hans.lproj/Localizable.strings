@@ -143,16 +143,16 @@
 "HideShortsAudioTrackDesc" = "隐藏短视频文案下方的音轨。";
 
 "Other" = "其他";
-"CopyVideoInfo" = "Copy video information";
-"CopyVideoInfoDesc" = "Adds button to copy video title and description into Video Description panel.";
+"CopyVideoInfo" = "复制视频信息";
+"CopyVideoInfoDesc" = "添加按钮从“视频说明”面板中复制视频的标题和描述。";
 "CopyPostText" = "复制社区帖子文本";
 "CopyPostTextDesc" = "长按社区帖子文本复制到剪贴板。";
 "SavePostImage" = "保存社区帖子图片";
 "SavePostImageDesc" = "长按社区帖子图片保存到照片应用程序。";
 "SaveProfilePhoto" = "保存个人资料图片";
 "SaveProfilePhotoDesc" = "长按个人资料图片保存到照片应用程序。";
-"CopyCommentText" = "Copy comments text";
-"CopyCommentTextDesc" = "Copies comments text to the clipboard by long tap.";
+"CopyCommentText" = "复制评论文本";
+"CopyCommentTextDesc" = "长按将评论文本复制到剪贴板。";
 "FixAlbums" = "修复封面";
 "FixAlbumsDesc" = "修复来自俄罗斯用户的封面显示问题。";
 "RemovePlayNext" = "删除“播放队列中的下一个”";
@@ -181,8 +181,8 @@
 "Warning" = "警告";
 "TabIsHidden" = "无法选择隐藏选项卡作为启动页。";
 
-"DonateViaPayPal" = "Donate via PayPal";
-"SupportViaGhSponsors" = "Support development via Github Sponsors";
+"DonateViaPayPal" = "PayPal 赞助";
+"SupportViaGhSponsors" = "通过 Github 赞助支持开发";
 "Version" = "版本";
 "About" = "关于";
 "Credits" = "信息";
@@ -194,7 +194,7 @@
 "Japanese" = "日语本地化";
 "Advanced" = "高级模式";
 "AdvancedModeReminder" = "想为YTLite激活高级模式吗？\n\n此模式提供了50多个额外的选项来自定义和优化您的YouTube体验。\n可以稍后从设置中启用/禁用它 → %@ → %@ → %@。";
-"ClearCache" = "Clear cache";
+"ClearCache" = "清除缓存";
 "ResetSettings" = "重置YTLite设置";
 "ResetMessage" = "此选项会将YTLite设置重置为默认值并关闭YouTube。\n\n确定要继续吗？";
 "ShortsOnlyWarning" = "确定要激活此模式吗？\n\n在此模式下，将只能观看短视频，且无法执行任何其他操作。\n\n可以通过双指长按禁用“仅短视频模式”。";
@@ -202,11 +202,11 @@
 "Yes" = "是";
 "No" = "不";
 
-"SelectAction" = "Select action";
-"CopyTitle" = "Copy title";
-"CopyDescription" = "Copy description";
-"Cancel" = "Cancel";
+"SelectAction" = "选择操作";
+"CopyTitle" = "复制标题";
+"CopyDescription" = "复制描述";
+"Cancel" = "取消";
 "Copied" = "已复制到剪贴板";
 "Saved" = "已保存到照片";
-"Done" = "Done";
+"Done" = "完成";
 "Error" = "错误";
