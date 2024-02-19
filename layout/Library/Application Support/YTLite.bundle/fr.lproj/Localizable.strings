@@ -163,7 +163,7 @@
 "NoSearchHistoryDesc" = "Masque visuellement l'historique de recherche et les suggestions. Note : Votre historique de recherche sera toujours accessible dans vos autres clients YouTube.";
 "NoRelatedWatchNexts" = "Masquer toutes les vidéos sous le lecteur";
 "NoRelatedWatchNextsDesc" = "Masque toutes les vidéos sous le lecteur, ne laissant que les informations sur la vidéo et la section des commentaires.";
-"StickSortComments" = "Épingler l'en-tête des commentaires";\
+"StickSortComments" = "Épingler l'en-tête des commentaires";
 "StickSortCommentsDesc" = "Épingle l'en-tête de tri des commentaires (Meilleurs, Plus récents) pour qu'il ne disparaisse pas pendant le défilement.";
 "HideSortComments" = "Masquer l'en-tête des commentaires";
 "HideSortCommentsDesc" = "Masque l'en-tête de tri des commentaires (Meilleurs, Plus récents) pour qu'il n'apparaisse jamais.";
