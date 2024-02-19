@@ -143,16 +143,16 @@
 "HideShortsAudioTrackDesc" = "Masque la piste audio sous la description des Shorts.";
 
 "Other" = "Autre";
-"CopyVideoInfo" = "Copy video information";
-"CopyVideoInfoDesc" = "Adds button to copy video title and description into Video Description panel.";
+"CopyVideoInfo" = "Copier les informations vidéo";
+"CopyVideoInfoDesc" = "Ajout d'un bouton permettant de copier le titre et la description de la vidéo dans le panneau Description de la vidéo.";
 "CopyPostText" = "Copier le texte des publications de la communauté";
 "CopyPostTextDesc" = "Copie le texte des publications de la communauté dans le presse-papiers en appuyant longuement.";
 "SavePostImage" = "Enregistrer l'image des publications de la communauté";
 "SavePostImageDesc" = "Enregistre l'image des publications de la communauté dans l'application Photos en appuyant longuement.";
 "SaveProfilePhoto" = "Enregistrer la photo de profil";
 "SaveProfilePhotoDesc" = "Enregistre la photo de profil dans l'application Photos en appuyant longuement.";
-"CopyCommentText" = "Copy comments text";
-"CopyCommentTextDesc" = "Copies comments text to the clipboard by long tap.";
+"CopyCommentText" = "Copier le texte des commentaires";
+"CopyCommentTextDesc" = "Copie le texte des commentaires dans le presse-papiers par un appui long.";
 "FixAlbums" = "Réparer les couvertures";
 "FixAlbumsDesc" = "Répare l'affichage des couvertures pour les utilisateurs de Russie.";
 "RemovePlayNext" = "Supprimer \"Placer en première position dans la file d'attente\"";
@@ -181,8 +181,8 @@
 "Warning" = "Avertissement";
 "TabIsHidden" = "L'onglet masqué ne peut pas être sélectionné comme page de démarrage";
 
-"DonateViaPayPal" = "Donate via PayPal";
-"SupportViaGhSponsors" = "Support development via Github Sponsors";
+"DonateViaPayPal" = "Faire un don via PayPal";
+"SupportViaGhSponsors" = "Soutenir le développement via les sponsors Github";
 "Version" = "Version";
 "About" = "À propos";
 "Credits" = "Crédits";
@@ -194,7 +194,7 @@
 "Japanese" = "Localisation japonaise";
 "Advanced" = "Mode avancé";
 "AdvancedModeReminder" = "Voulez-vous activer le mode avancé pour YTLite ?\n\nCe mode offre plus de 50 options supplémentaires pour personnaliser et optimiser votre expérience YouTube. Vous pouvez l'activer/désactiver ultérieurement depuis Paramètres → %@ → %@ → %@.";
-"ClearCache" = "Clear cache";
+"ClearCache" = "Effacer le cache";
 "ResetSettings" = "Réinitialiser les paramètres YTLite";
 "ResetMessage" = "Cette option réinitialisera les paramètres YTLite par défaut et fermera YouTube.\n\nÊtes-vous sûr de vouloir continuer ?";
 "ShortsOnlyWarning" = "Êtes-vous sûr de vouloir activer ce mode?\n\nDans ce mode, vous ne pourrez regarder que des vidéos Shorts et vous ne pourrez rien d'autre faire.\n\nVous pouvez désactiver le mode Shorts Only en appuyant longuement avec deux doigts dans le lecteur Shorts.";
@@ -202,11 +202,11 @@
 "Yes" = "Oui";
 "No" = "Non";
 
-"SelectAction" = "Select action";
-"CopyTitle" = "Copy title";
-"CopyDescription" = "Copy description";
-"Cancel" = "Cancel";
+"SelectAction" = "Sélectionner une action";
+"CopyTitle" = "Copier le titre";
+"CopyDescription" = "Copier la description";
+"Cancel" = "Annuler";
 "Copied" = "Copié dans le presse-papiers";
 "Saved" = "Enregistré dans Photos";
-"Done" = "Done";
+"Done" = "Terminé";
 "Error" = "Erreur";
