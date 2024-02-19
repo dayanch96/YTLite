@@ -192,6 +192,7 @@
 "French" = "フランス語翻訳";
 "Spanish" = "スペイン語翻訳";
 "Japanese" = "日本語翻訳";
+"Vietnamese" = "Vietnamese localization";
 "Advanced" = "アドバンスモード";
 "AdvancedModeReminder" = "YTLiteでアドバンスモードを有効にしますか?\n\nこのモードでは50以上の追加オプションを使用してYouTubeのカスタマイズと最適化が可能です。後で、設定 → %@ → %@ → %@から変更できます";
 "ClearCache" = "Clear cache";

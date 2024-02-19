@@ -192,6 +192,7 @@
 "French" = "French localization";
 "Spanish" = "Spanish localization";
 "Japanese" = "Japanese localization";
+"Vietnamese" = "Vietnamese localization";
 "Advanced" = "Advanced mode";
 "AdvancedModeReminder" = "Would you like to activate Advanced mode for YTLite?\n\nThis mode provides more than 50 additional options to customize and optimize your YouTube experience. You can enable/disable it later from Settings → %@ → %@ → %@.";
 "ClearCache" = "Clear cache";
