@@ -143,12 +143,16 @@
 "HideShortsAudioTrackDesc" = "ショートの説明の下に表示されるオーディオトラックを非表示にします";
 
 "Other" = "その他";
+"CopyVideoInfo" = "Copy video information";
+"CopyVideoInfoDesc" = "Adds button to copy video title and description into Video Description panel.";
 "CopyPostText" = "Copy community posts text";
 "CopyPostTextDesc" = "Copies community posts text to the clipboard by long tap.";
 "SavePostImage" = "Save community posts image";
 "SavePostImageDesc" = "Saves community posts image to the Photos app by long tap.";
 "SaveProfilePhoto" = "Save profile picture";
 "SaveProfilePhotoDesc" = "Saves profile picture to the Photos app by long tap.";
+"CopyCommentText" = "Copy comments text";
+"CopyCommentTextDesc" = "Copies comments text to the clipboard by long tap.";
 "FixAlbums" = "Fix covers";
 "FixAlbumsDesc" = "Fixes the display of covers for users from Russia.";
 "RemovePlayNext" = "\"次に再生\"を削除";
@@ -177,6 +181,8 @@
 "Warning" = "警告";
 "TabIsHidden" = "非表示のタブはスタートアップページとして選択できません";
 
+"DonateViaPayPal" = "Donate via PayPal";
+"SupportViaGhSponsors" = "Support development via Github Sponsors";
 "Version" = "バージョン";
 "About" = "About";
 "Credits" = "クレジット";
@@ -188,6 +194,7 @@
 "Japanese" = "日本語翻訳";
 "Advanced" = "アドバンスモード";
 "AdvancedModeReminder" = "YTLiteでアドバンスモードを有効にしますか?\n\nこのモードでは50以上の追加オプションを使用してYouTubeのカスタマイズと最適化が可能です。後で、設定 → %@ → %@ → %@から変更できます";
+"ClearCache" = "Clear cache";
 "ResetSettings" = "YTLiteの設定をリセット";
 "ResetMessage" = "このオプションを選択するとYTLiteの設定がデフォルトにリセットされ、アプリが終了します。\n\n続行してもよろしいですか?";
 "ShortsOnlyWarning" = "Are you sure you want to activate this mode?\n\nIn this mode, you will only be able to watch Shorts videos and won't be able to do anything else.\n\nYou can disable Shorts Only Mode by long pressing with two fingers in the Shorts player.";
@@ -195,6 +202,11 @@
 "Yes" = "はい";
 "No" = "いいえ";
 
+"SelectAction" = "Select action";
+"CopyTitle" = "Copy title";
+"CopyDescription" = "Copy description";
+"Cancel" = "Cancel";
 "Copied" = "Copied to clipboard";
 "Saved" = "Saved to Photos";
+"Done" = "Done";
 "Error" = "Error";

@@ -143,12 +143,16 @@
 "HideShortsAudioTrackDesc" = "Hides AudioTrack under Shorts description.";
 
 "Other" = "Other";
+"CopyVideoInfo" = "Copy video information";
+"CopyVideoInfoDesc" = "Adds button to copy video title and description into Video Description panel.";
 "CopyPostText" = "Copy community posts text";
 "CopyPostTextDesc" = "Copies community posts text to the clipboard by long tap.";
 "SavePostImage" = "Save image from community posts";
 "SavePostImageDesc" = "Saves community post image to the Photos app by long tap.";
 "SaveProfilePhoto" = "Save profile picture";
 "SaveProfilePhotoDesc" = "Saves profile picture to the Photos app by long tap.";
+"CopyCommentText" = "Copy comments text";
+"CopyCommentTextDesc" = "Copies comments text to the clipboard by long tap.";
 "FixAlbums" = "Fix covers";
 "FixAlbumsDesc" = "Fixes the display of covers for users from Russia.";
 "RemovePlayNext" = "Remove \"Play next in queue\"";
@@ -177,6 +181,8 @@
 "Warning" = "Warning";
 "TabIsHidden" = "Hidden tab cannot be selected as startup page";
 
+"DonateViaPayPal" = "Donate via PayPal";
+"SupportViaGhSponsors" = "Support development via Github Sponsors";
 "Version" = "Version";
 "About" = "About";
 "Credits" = "Credits";
@@ -188,6 +194,7 @@
 "Japanese" = "Japanese localization";
 "Advanced" = "Advanced mode";
 "AdvancedModeReminder" = "Would you like to activate Advanced mode for YTLite?\n\nThis mode provides more than 50 additional options to customize and optimize your YouTube experience. You can enable/disable it later from Settings → %@ → %@ → %@.";
+"ClearCache" = "Clear cache";
 "ResetSettings" = "Reset YTLite settings";
 "ResetMessage" = "This option will reset YTLite settings to default and close YouTube.\n\nAre you sure you want to continue?";
 "ShortsOnlyWarning" = "Are you sure you want to activate this mode?\n\nIn this mode, you will only be able to watch Shorts videos and won't be able to do anything else.\n\nYou can disable Shorts Only Mode by long pressing with two fingers in the Shorts player.";
@@ -195,6 +202,11 @@
 "Yes" = "Yes";
 "No" = "No";
 
+"SelectAction" = "Select action";
+"CopyTitle" = "Copy title";
+"CopyDescription" = "Copy description";
+"Cancel" = "Cancel";
 "Copied" = "Copied to clipboard";
 "Saved" = "Saved to Photos";
+"Done" = "Done";
 "Error" = "Error";

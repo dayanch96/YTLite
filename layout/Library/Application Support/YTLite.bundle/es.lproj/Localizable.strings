@@ -143,12 +143,16 @@
 "HideShortsAudioTrackDesc" = "Oculta la pista de audio debajo de la descripción de Shorts.";
 
 "Other" = "Otro";
+"CopyVideoInfo" = "Copy video information";
+"CopyVideoInfoDesc" = "Adds button to copy video title and description into Video Description panel.";
 "CopyPostText" = "Copia el texto de las publicaciones de la comunidad";
 "CopyPostTextDesc" = "Copia el texto de los posts de la comunidad al portapapeles mediante pulsación larga";
 "SavePostImage" = "Guardar imagen de las entradas de la comunidad";
 "SavePostImageDesc" = "Guarda la imagen de las publicaciones de la comunidad en la aplicación Fotos con un toque prolongado";
 "SaveProfilePhoto" = "Guardar foto de perfil";
 "SaveProfilePhotoDesc" = "Guarda la imagen de perfil en la aplicación Fotos con un toque prolongado";
+"CopyCommentText" = "Copy comments text";
+"CopyCommentTextDesc" = "Copies comments text to the clipboard by long tap.";
 "FixAlbums" = "Arreglar portadas";
 "FixAlbumsDesc" = "Corrige la visualización de portadas para usuarios de Rusia";
 "RemovePlayNext" = "Eliminar \"Reproducir siguiente en cola\"";
@@ -177,6 +181,8 @@
 "Warning" = "Advertencia";
 "TabIsHidden" = "No se puede seleccionar una pestaña oculta como página de inicio";
 
+"DonateViaPayPal" = "Donate via PayPal";
+"SupportViaGhSponsors" = "Support development via Github Sponsors";
 "Version" = "Versión";
 "About" = "Acerca de";
 "Credits" = "Créditos";
@@ -188,13 +194,19 @@
 "Japanese" = "Traducción: Japonés";
 "Advanced" = "Modo avanzado";
 "AdvancedModeReminder" = "¿Desea activar el modo Avanzado para YTLite?\n\nEste modo ofrece más de 50 opciones adicionales para personalizar y optimizar tu experiencia en YouTube. Puedes activarlo/desactivarlo más tarde desde Ajustes → %@ → %@ → %@.";
+"ClearCache" = "Clear cache";
 "ResetSettings" = "Restablecer configuración de YTLite";
 "ResetMessage" = "Esta opción restablecerá la configuración de YTLite a los valores predeterminados y cerrará YouTube.\n\n¿Estás seguro de que deseas continuar?";
-"ShortsOnlyWarning" = "¿Estás seguro de que quieres activar este modo?\n\nEn este modo, sólo podrás ver Shorts y no podrás hacer nada más.\n\nPuedes desactivar el modo sólo Shorts realizando una pulsación larga con dos dedos en el reproductor de Shorts."
+"ShortsOnlyWarning" = "¿Estás seguro de que quieres activar este modo?\n\nEn este modo, sólo podrás ver Shorts y no podrás hacer nada más.\n\nPuedes desactivar el modo sólo Shorts realizando una pulsación larga con dos dedos en el reproductor de Shorts.";
 "ShortsModeTurnedOff" = "Se ha desactivado el modo de sólo Shorts";
 "Yes" = "Sí";
 "No" = "No";
 
+"SelectAction" = "Select action";
+"CopyTitle" = "Copy title";
+"CopyDescription" = "Copy description";
+"Cancel" = "Cancel";
 "Copied" = "Copiado al portapapeles";
+"Done" = "Done";
 "Saved" = "Guardado en Fotos";
 "Error" = "Error";

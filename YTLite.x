@@ -280,8 +280,7 @@
 %hook YTVideoQualitySwitchControllerFactory
 - (id)videoQualitySwitchControllerWithParentResponder:(id)responder {
     Class originalClass = %c(YTVideoQualitySwitchOriginalController);
-    if (kClassicQuality) return originalClass ? [[originalClass alloc] initWithParentResponder:responder] : %orig;
-    return %orig;
+    return kClassicQuality && originalClass ? [[originalClass alloc] initWithParentResponder:responder] : %orig;
 }
 %end
 
@@ -638,27 +637,43 @@ static BOOL isOverlayShown = YES;
 }
 %end
 
+%hook ELMContainerNode
+%property (nonatomic, strong) NSString *copiedComment;
+%end
+
 %hook _ASDisplayView
 - (void)setKeepalive_node:(id)arg1 {
     %orig;
 
-    NSString *description = [self description];
-    if (kCopyPostText && [description containsString:@"ELMExpandableTextNode-View"]) {
-        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(copyText:)];
-        longPress.minimumPressDuration = 0.3;
-        [self addGestureRecognizer:longPress];
+    NSArray *gesturesInfo = @[
+        @{@"selector": @"copyText:", @"text": @"ELMExpandableTextNode-View", @"key": @(kCopyPostText)},
+        @{@"selector": @"saveImage:", @"text": @"YTImageZoomNode-View", @"key": @(kSavePostImage)},
+        @{@"selector": @"savePFP:", @"text": @"ELMImageNode-View", @"key": @(kSaveProfilePhoto)},
+        @{@"selector": @"copyComment:", @"text": @"id.ui.comment_cell", @"key": @(kCopyCommentText)}
+    ];
+
+    for (NSDictionary *gestureInfo in gesturesInfo) {
+        SEL selector = NSSelectorFromString(gestureInfo[@"selector"]);
+
+        if ([gestureInfo[@"key"] boolValue] && [[self description] containsString:gestureInfo[@"text"]]) {
+            UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:selector];
+            longPress.minimumPressDuration = 0.3;
+            [self addGestureRecognizer:longPress];
+            break;
+        }
     }
 
-    if (kSavePostImage && [description containsString:@"YTImageZoomNode-View"]) {
-        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(saveImage:)];
-        longPress.minimumPressDuration = 0.3;
-        [self addGestureRecognizer:longPress];
-    }
+    if ([[self description] containsString:@"id.comment.content.label"]) {
+        ASTextNode *textNode = (ASTextNode *)self.keepalive_node;
+        ASDisplayNode *displayNode = (ASDisplayNode *)self.keepalive_node;
 
-    if (kSaveProfilePhoto && [description containsString:@"ELMImageNode-View"] && [description containsString:@"eml.avatar"]) {
-        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(savePFP:)];
-        longPress.minimumPressDuration = 0.3;
-        [self addGestureRecognizer:longPress];
+        NSMutableArray *allObjects = displayNode.supernodes.allObjects;
+        for (ELMContainerNode *containerNode in allObjects) {
+            if ([containerNode.description containsString:@"id.ui.comment_cell"]) {
+                containerNode.copiedComment = textNode.attributedText.string;
+                break;
+            }
+        }
     }
 }
 
@@ -666,7 +681,8 @@ static BOOL isOverlayShown = YES;
 - (void)savePFP:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
 
-        NSString *URLString = self.keepalive_node.URL.absoluteString;
+        ASNetworkImageNode *imageNode = (ASNetworkImageNode *)self.keepalive_node;
+        NSString *URLString = imageNode.URL.absoluteString;
         if (URLString) {
             NSRange sizeRange = [URLString rangeOfString:@"=s"];
             if (sizeRange.location != NSNotFound) {
@@ -692,8 +708,7 @@ static BOOL isOverlayShown = YES;
 %new
 - (void)copyText:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
-        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-        pasteboard.string = self.accessibilityLabel;
+        [UIPasteboard generalPasteboard].string = self.accessibilityLabel;
 
         UIResponder *responder = self.nextResponder;
         while (responder && ![responder isKindOfClass:[UIViewController class]]) responder = responder.nextResponder;
@@ -705,7 +720,8 @@ static BOOL isOverlayShown = YES;
 - (void)saveImage:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
 
-        NSURL *imageURL = self.keepalive_node.URL;
+        ASNetworkImageNode *imageNode = (ASNetworkImageNode *)self.keepalive_node;
+        NSURL *imageURL = imageNode.URL;
         if (imageURL) {
             NSString *URLString = imageURL.absoluteString;
 
@@ -734,13 +750,25 @@ static BOOL isOverlayShown = YES;
                         PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];
                         [request addResourceWithType:PHAssetResourceTypePhoto data:data options:nil];
                     } completionHandler:^(BOOL success, NSError *error) {
-                        if (responder) [[%c(YTToastResponderEvent) eventWithMessage:success ? LOC(@"Saved") : [NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription] firstResponder:responder] send];
+                    if (responder) [[%c(YTToastResponderEvent) eventWithMessage:success ? LOC(@"Saved") : [NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription] firstResponder:responder] send];
                     }];
                 } else {
                     if (responder) [[%c(YTToastResponderEvent) eventWithMessage:[NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription] firstResponder:responder] send];
                 }
             }] resume];
         }
+    }
+}
+
+%new
+- (void)copyComment:(UILongPressGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        ELMContainerNode *containerNode = (ELMContainerNode *)self.keepalive_node;
+        [UIPasteboard generalPasteboard].string = containerNode.copiedComment;
+
+        UIResponder *responder = self.nextResponder;
+        while (responder && ![responder isKindOfClass:[UIViewController class]]) responder = responder.nextResponder;
+        if (responder) [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:responder] send];
     }
 }
 %end
@@ -847,6 +875,8 @@ BOOL isTabSelected = NO;
 - (void)viewDidAppear:(BOOL)animated {
     %orig;
 
+    isOverlayShown = YES;
+
     if (kShortsOnlyMode) {
         [self.navigationController.parentViewController hidePivotBar];
     }
@@ -854,7 +884,7 @@ BOOL isTabSelected = NO;
 %end
 
 %hook YTAppViewController
-- (void)showPivotBar { if (!kShortsOnlyMode) %orig;} ;
+- (void)showPivotBar { if (!kShortsOnlyMode) %orig; }
 %end
 
 %hook YTReelWatchRootViewController
@@ -864,6 +894,58 @@ BOOL isTabSelected = NO;
     if (kShortsOnlyMode) {
         [self.navigationController.parentViewController hidePivotBar];
     }
+}
+%end
+
+%hook YTEngagementPanelView
+- (void)layoutSubviews {
+    %orig;
+
+    if ([self.panelIdentifier.identifierString isEqualToString:@"video-description-ep-identifier"]) {
+        YTQTMButton *copyInfoButton = [%c(YTQTMButton) iconButton];
+        copyInfoButton.accessibilityLabel = LOC(@"CopyVideoInfo");
+        [copyInfoButton setTag:999];
+        [copyInfoButton enableNewTouchFeedback];
+        [copyInfoButton setImage:[UIImage imageNamed:@"yt_outline_copy_24pt" inBundle:[NSBundle mainBundle] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+        [copyInfoButton setTintColor:[UIColor labelColor]];
+        [copyInfoButton setTranslatesAutoresizingMaskIntoConstraints:false];
+        [copyInfoButton addTarget:self action:@selector(didTapCopyInfoButton:) forControlEvents:UIControlEventTouchUpInside];
+
+        if (kCopyVideoInfo && self.headerView && self.headerView.closeButton && ![self.headerView viewWithTag:999]) {
+            [self.headerView addSubview:copyInfoButton];
+
+            [NSLayoutConstraint activateConstraints:@[
+                [copyInfoButton.trailingAnchor constraintEqualToAnchor:self.headerView.closeButton.leadingAnchor],
+                [copyInfoButton.centerYAnchor constraintEqualToAnchor:self.headerView.closeButton.centerYAnchor],
+                [copyInfoButton.widthAnchor constraintEqualToConstant:40.0],
+                [copyInfoButton.heightAnchor constraintEqualToConstant:40.0],
+            ]];
+        }
+    }
+}
+
+%new
+- (void)didTapCopyInfoButton:(UIButton *)sender {
+    YTPlayerViewController *playerVC = self.resizeDelegate.parentViewController.parentViewController.parentViewController.playerViewController;
+    NSString *title = playerVC.playerResponse.playerData.videoDetails.title;
+    NSString *shortDescription = playerVC.playerResponse.playerData.videoDetails.shortDescription;
+
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:LOC(@"SelectAction") message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    alertController.view.tintColor = [UIColor labelColor];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"CopyTitle") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [UIPasteboard generalPasteboard].string = title;
+        [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:self.resizeDelegate] send];
+    }]];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"CopyDescription") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [UIPasteboard generalPasteboard].string = shortDescription;
+        [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:self.resizeDelegate] send];
+    }]];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"Cancel") style:UIAlertActionStyleCancel handler:nil]];
+
+    [self.resizeDelegate presentViewController:alertController animated:YES completion:nil];
 }
 %end
 
@@ -973,9 +1055,11 @@ static void reloadPrefs() {
     kRemoveSubscriptions = [prefs[@"removeSubscriptions"] boolValue] ?: NO;
     kRemoveUploads = (prefs[@"removeUploads"] != nil) ? [prefs[@"removeUploads"] boolValue] : YES;
     kRemoveLibrary = [prefs[@"removeLibrary"] boolValue] ?: NO;
+    kCopyVideoInfo = [prefs[@"copyVideoInfo"] boolValue] ?: NO;
     kCopyPostText = [prefs[@"copyPostText"] boolValue] ?: NO;
     kSavePostImage = [prefs[@"savePostImage"] boolValue] ?: NO;
     kSaveProfilePhoto = [prefs[@"savePostImage"] boolValue] ?: NO;
+    kCopyCommentText = [prefs[@"copyCommentText"] boolValue] ?: NO;
     kFixAlbums = [prefs[@"fixAlbums"] boolValue] ?: NO;
     kRemovePlayNext = [prefs[@"removePlayNext"] boolValue] ?: NO;
     kNoContinueWatching = [prefs[@"noContinueWatching"] boolValue] ?: NO;
@@ -1057,9 +1141,11 @@ static void reloadPrefs() {
         @"removeSubscriptions" : @(kRemoveSubscriptions),
         @"removeUploads" : @(kRemoveUploads),
         @"removeLibrary" : @(kRemoveLibrary),
+        @"copyVideoInfo" : @(kCopyVideoInfo),
         @"copyPostText" : @(kCopyPostText),
         @"savePostImage" : @(kSavePostImage),
         @"saveProfilePhoto" : @(kSaveProfilePhoto),
+        @"copyCommentText" : @(kCopyCommentText),
         @"fixAlbums" : @(kFixAlbums),
         @"removePlayNext" : @(kRemovePlayNext),
         @"noContinueWatching" : @(kNoContinueWatching),

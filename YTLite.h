@@ -110,9 +110,11 @@ BOOL kRemoveShorts;
 BOOL kRemoveSubscriptions;
 BOOL kRemoveUploads;
 BOOL kRemoveLibrary;
+BOOL kCopyVideoInfo;
 BOOL kCopyPostText;
 BOOL kSavePostImage;
 BOOL kSaveProfilePhoto;
+BOOL kCopyCommentText;
 BOOL kSavePost;
 BOOL kFixAlbums;
 BOOL kRemovePlayNext;
@@ -135,6 +137,10 @@ int kPivotIndex;
 @end
 
 @interface YTPivotBarView : UIView
+@end
+
+@interface YTLightweightQTMButton ()
+@property (nonatomic, assign, readwrite, getter=isShouldRaiseOnTouch) BOOL shouldRaiseOnTouch;
 @end
 
 @interface YTQTMButton ()
@@ -193,7 +199,13 @@ int kPivotIndex;
 @property (nonatomic, weak, readwrite) YTScrollableNavigationController *navigationController;
 @end
 
+@interface YTIVideoDetails ()
+@property (nonatomic, copy, readwrite) NSString *title;
+@property (nonatomic, copy, readwrite) NSString *shortDescription;
+@end
+
 @interface YTPlayerViewController (YTAFS)
+@property (nonatomic, assign, readonly) YTPlayerResponse *playerResponse;
 @property (nonatomic, weak, readwrite) UIViewController *parentViewController;
 @property (readonly, nonatomic) NSString *contentVideoID;
 - (void)setActiveCaptionTrack:(id)arg1;
@@ -205,6 +217,37 @@ int kPivotIndex;
 @interface YTPlayerView : UIView
 @property (nonatomic, weak, readwrite) YTPlayerViewController *playerViewDelegate;
 - (void)turnShortsOnlyModeOff:(UILongPressGestureRecognizer *)gesture;
+@end
+
+@interface YTEngagementPanelIdentifier : NSObject
+@property (nonatomic, copy, readonly) NSString *identifierString;
+@end
+
+@interface YTEngagementPanelHeaderView : UIView
+@property (nonatomic, assign, readonly) YTQTMButton *closeButton;
+@end
+
+@interface YTWatchViewController : UIViewController
+@property (nonatomic, weak, readwrite) YTPlayerViewController *playerViewController;
+@end
+
+@interface YTEngagementPanelContainerController : UIViewController
+@property (nonatomic, weak, readwrite) YTWatchViewController *parentViewController;
+@end
+
+@interface YTEngagementPanelNavigationController : UIViewController
+@property (nonatomic, weak, readwrite) YTEngagementPanelContainerController *parentViewController;
+@end
+
+@interface YTMainAppEngagementPanelViewController : UIViewController
+@property (nonatomic, weak, readwrite) YTEngagementPanelNavigationController *parentViewController;
+@end
+
+@interface YTEngagementPanelView : UIView
+@property (nonatomic, weak, readwrite) YTMainAppEngagementPanelViewController *resizeDelegate;
+@property (nonatomic, copy, readwrite) YTEngagementPanelIdentifier *panelIdentifier;
+@property (nonatomic, assign, readonly) YTEngagementPanelHeaderView *headerView;
+- (void)didTapCopyInfoButton:(UIButton *)sender;
 @end
 
 @interface YTSegmentableInlinePlayerBarView
@@ -241,15 +284,32 @@ int kPivotIndex;
 @interface YTELMView : UIView
 @end
 
-@interface ASNetworkImageNode : NSObject
+@interface ASNodeAncestryEnumerator : NSEnumerator
+@property (atomic, assign, readonly) NSMutableArray *allObjects;
+@end
+
+@interface ASDisplayNode : NSObject
+@property (atomic, assign, readonly) ASNodeAncestryEnumerator *supernodes;
+@end
+
+@interface ELMContainerNode : ASDisplayNode
+@property (nonatomic, strong, readwrite) NSString *copiedComment;
+@end
+
+@interface ASNetworkImageNode : ASDisplayNode
 @property (atomic, copy, readwrite) NSURL *URL;
 @end
 
+@interface ASTextNode : ASDisplayNode
+@property (atomic, copy, readwrite) NSAttributedString *attributedText;
+@end
+
 @interface _ASDisplayView : UIView
-@property (nonatomic, strong, readwrite) ASNetworkImageNode *keepalive_node;
+@property (nonatomic, strong, readwrite) ASDisplayNode *keepalive_node;
 - (void)copyText:(UILongPressGestureRecognizer *)sender;
 - (void)saveImage:(UILongPressGestureRecognizer *)sender;
 - (void)savePFP:(UILongPressGestureRecognizer *)sender;
+- (void)copyComment:(UILongPressGestureRecognizer *)sender;
 @end
 
 @interface MLHAMQueuePlayer : NSObject

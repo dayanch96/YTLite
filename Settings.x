@@ -6,6 +6,23 @@
 
 static const NSInteger YTLiteSection = 789;
 
+static NSString *GetCacheSize() {
+    NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
+    NSArray *filesArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:cachePath error:nil];
+
+    unsigned long long int folderSize = 0;
+    for (NSString *fileName in filesArray) {
+        NSString *filePath = [cachePath stringByAppendingPathComponent:fileName];
+        NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
+        folderSize += [fileAttributes fileSize];
+    }
+
+    NSByteCountFormatter *formatter = [[NSByteCountFormatter alloc] init];
+    formatter.countStyle = NSByteCountFormatterCountStyleFile;
+
+    return [formatter stringFromByteCount:folderSize];
+}
+
 // Settings
 %hook YTAppSettingsPresentationData
 + (NSArray *)settingsCategoryOrder {
@@ -266,9 +283,11 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
             }
             selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                 NSArray <YTSettingsSectionItem *> *rows = @[
+                createSwitchItem(LOC(@"CopyVideoInfo"), LOC(@"CopyVideoInfoDesc"), @"copyVideoInfo", &kCopyVideoInfo, selfObject),
                 createSwitchItem(LOC(@"CopyPostText"), LOC(@"CopyPostTextDesc"), @"copyPostText", &kCopyPostText, selfObject),
                 createSwitchItem(LOC(@"SavePostImage"), LOC(@"SavePostImageDesc"), @"savePostImage", &kSavePostImage, selfObject),
                 createSwitchItem(LOC(@"SaveProfilePhoto"), LOC(@"SaveProfilePhotoDesc"), @"saveProfilePhoto", &kSaveProfilePhoto, selfObject),
+                createSwitchItem(LOC(@"CopyCommentText"), LOC(@"CopyCommentTextDesc"), @"copyCommentText", &kCopyCommentText, selfObject),
                 createSwitchItem(LOC(@"FixAlbums"), LOC(@"FixAlbumsDesc"), @"fixAlbums", &kFixAlbums, selfObject),
                 createSwitchItem(LOC(@"RemovePlayNext"), LOC(@"RemovePlayNextDesc"), @"removePlayNext", &kRemovePlayNext, selfObject),
                 createSwitchItem(LOC(@"NoContinueWatching"), LOC(@"NoContinueWatchingDesc"), @"noContinueWatching", &kNoContinueWatching, selfObject),
@@ -415,6 +434,23 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
         return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/Dayanch96/"]];
     }];
 
+    YTSettingsSectionItem *paypal = [%c(YTSettingsSectionItem) itemWithTitle:LOC(@"DonateViaPayPal") titleDescription:nil accessibilityIdentifier:nil detailTextBlock:^NSString *() { return @"♡"; } selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+        return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://paypal.me/Dayanch96/"]];
+    }];
+
+    YTSettingsSectionItem *ghSponsors = [%c(YTSettingsSectionItem) itemWithTitle:LOC(@"SupportViaGhSponsors") titleDescription:nil accessibilityIdentifier:nil detailTextBlock:^NSString *() { return @"♡"; } selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+        return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/sponsors/dayanch96"]];
+    }];
+
+    YTSettingsSectionItem *cache = [%c(YTSettingsSectionItem) itemWithTitle:LOC(@"ClearCache") titleDescription:nil accessibilityIdentifier:nil detailTextBlock:^NSString *() { return GetCacheSize(); } selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
+            [[NSFileManager defaultManager] removeItemAtPath:cachePath error:nil];
+        });
+        [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Done") firstResponder:[self parentResponder]] send];
+        return YES;
+    }];
+
     YTSettingsSectionItem *reset = [%c(YTSettingsSectionItem) itemWithTitle:LOC(@"ResetSettings") titleDescription:nil accessibilityIdentifier:nil detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         YTAlertView *alertView = [%c(YTAlertView) confirmationDialogWithAction:^{
             NSString *prefsPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"YTLite.plist"];
@@ -438,12 +474,14 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
             return @(OS_STRINGIFY(TWEAK_VERSION));
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-            NSArray <YTSettingsSectionItem *> *rows = @[ps, miro, lillie, dayanch96, stalker, clement, balackburn, decibelios, skeids, space, createSwitchItem(LOC(@"Advanced"), nil, @"advancedMode", &kAdvancedMode, selfObject), reset];
+            NSArray <YTSettingsSectionItem *> *rows = @[ps, miro, lillie, dayanch96, stalker, clement, balackburn, decibelios, skeids, space, createSwitchItem(LOC(@"Advanced"), nil, @"advancedMode", &kAdvancedMode, selfObject), cache, reset];
 
         YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"About") pickerSectionTitle:LOC(@"Credits") rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
         [settingsViewController pushViewController:picker];
         return YES;
     }];
+    [sectionItems addObject:paypal];
+    [sectionItems addObject:ghSponsors];
     [sectionItems addObject:version];
 
     BOOL isNew = [settingsViewController respondsToSelector:@selector(setSectionItems:forCategory:title:icon:titleDescription:headerHidden:)];

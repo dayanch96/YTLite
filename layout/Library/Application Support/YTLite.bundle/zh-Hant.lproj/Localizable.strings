@@ -143,12 +143,16 @@
 "HideShortsAudioTrackDesc" = "隱藏Shorts描述下的原始音效";
 
 "Other" = "其它";
+"CopyVideoInfo" = "Copy video information";
+"CopyVideoInfoDesc" = "Adds button to copy video title and description into Video Description panel.";
 "CopyPostText" = "複製社群貼文文字";
 "CopyPostTextDesc" = "長按社群貼文文字複製到剪貼簿";
 "SavePostImage" = "儲存社群貼文圖片";
 "SavePostImageDesc" = "長按社群貼文圖片儲存到照片應用";
 "SaveProfilePhoto" = "儲存個人檔案照片";
 "SaveProfilePhotoDesc" = "長按個人檔案照片儲存到照片應用";
+"CopyCommentText" = "Copy comments text";
+"CopyCommentTextDesc" = "Copies comments text to the clipboard by long tap.";
 "FixAlbums" = "修復封面";
 "FixAlbumsDesc" = "為俄羅斯使用者修復封面顯示問題";
 "RemovePlayNext" = "移除「播放下一個」";
@@ -177,6 +181,8 @@
 "Warning" = "警告";
 "TabIsHidden" = "無法將隱藏的標籤選為啟動頁面";
 
+"DonateViaPayPal" = "Donate via PayPal";
+"SupportViaGhSponsors" = "Support development via Github Sponsors";
 "Version" = "版本";
 "About" = "關於";
 "Credits" = "貢獻";
@@ -188,6 +194,7 @@
 "Japanese" = "日本語本地化";
 "Advanced" = "進階模式";
 "AdvancedModeReminder" = "您是否想啟用YTLite的進階模式？\n\n這個模式提供了50多個額外的選項，可以自訂義和優化您的YouTube使用體驗。您稍後可以在「設定」中 → %@ → %@ → %@ 啟用或停用它。";
+"ClearCache" = "Clear cache";
 "ResetSettings" = "重置YTLite設定";
 "ResetMessage" = "這個選項會將YTLite重置為預設值，並關閉Youtube\n\n您確定要繼續嗎?";
 "ShortsOnlyWarning" = "您確定要開啟此模式嗎?\n\n在此模式下，您只能觀看Shorts影片，無法進行其它操作。\n\n您可以在Shorts播放器中使用兩指長按來停用只看Shorts模式。";
@@ -195,6 +202,11 @@
 "Yes" = "是";
 "No" = "否";
 
+"SelectAction" = "Select action";
+"CopyTitle" = "Copy title";
+"CopyDescription" = "Copy description";
+"Cancel" = "Cancel";
 "Copied" = "已複製到剪貼簿";
 "Saved" = "已儲存到照片應用";
+"Done" = "Done";
 "Error" = "發生錯誤";
