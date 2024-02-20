@@ -143,16 +143,16 @@
 "HideShortsAudioTrackDesc" = "隱藏Shorts描述下的原始音效";
 
 "Other" = "其它";
-"CopyVideoInfo" = "Copy video information";
-"CopyVideoInfoDesc" = "Adds button to copy video title and description into Video Description panel.";
+"CopyVideoInfo" = "複製影片資訊";
+"CopyVideoInfoDesc" = "新增按鈕將影片標題和說明，複製到影片說明欄";
 "CopyPostText" = "複製社群貼文文字";
 "CopyPostTextDesc" = "長按社群貼文文字複製到剪貼簿";
 "SavePostImage" = "儲存社群貼文圖片";
 "SavePostImageDesc" = "長按社群貼文圖片儲存到照片應用";
 "SaveProfilePhoto" = "儲存個人檔案照片";
 "SaveProfilePhotoDesc" = "長按個人檔案照片儲存到照片應用";
-"CopyCommentText" = "Copy comments text";
-"CopyCommentTextDesc" = "Copies comments text to the clipboard by long tap.";
+"CopyCommentText" = "複製評論文字";
+"CopyCommentTextDesc" = "長按評論文字複製到剪貼簿";
 "FixAlbums" = "修復封面";
 "FixAlbumsDesc" = "為俄羅斯使用者修復封面顯示問題";
 "RemovePlayNext" = "移除「播放下一個」";
@@ -160,7 +160,7 @@
 "NoContinueWatching" = "移除「繼續觀看」";
 "NoContinueWatchingDesc" = "從首頁中移除包含未完成影片的「繼續觀看」部分";
 "NoSearchHistory" = "隱藏搜尋記錄";
-"NoSearchHistoryDesc" = "視覺上隱藏搜尋歷史紀錄和建議。注意：您的搜尋紀錄仍然可在其它 YouTube 客戶端中存取";
+"NoSearchHistoryDesc" = "視覺上隱藏搜尋歷史紀錄和建議。注意：您的搜尋紀錄仍然可在其它YouTube客戶端中存取";
 "NoRelatedWatchNexts" = "隱藏播放器下的所有影片";
 "NoRelatedWatchNextsDesc" = "只留下影片資訊和留言區域";
 "StickSortComments" = "固定留言排序";
@@ -181,8 +181,8 @@
 "Warning" = "警告";
 "TabIsHidden" = "無法將隱藏的標籤選為啟動頁面";
 
-"DonateViaPayPal" = "Donate via PayPal";
-"SupportViaGhSponsors" = "Support development via Github Sponsors";
+"DonateViaPayPal" = "透過PayPal贊助";
+"SupportViaGhSponsors" = "透過Github贊助支持開發";
 "Version" = "版本";
 "About" = "關於";
 "Credits" = "貢獻";
@@ -191,11 +191,11 @@
 "ChineseTraditional" = "繁體中文在地化";
 "French" = "法文在地化";
 "Spanish" = "西班牙文在地化";
-"Japanese" = "日本語本地化";
-"Vietnamese" = "Vietnamese localization";
+"Japanese" = "日本語在地化";
+"Vietnamese" = "越南語在地化";
 "Advanced" = "進階模式";
 "AdvancedModeReminder" = "您是否想啟用YTLite的進階模式？\n\n這個模式提供了50多個額外的選項，可以自訂義和優化您的YouTube使用體驗。您稍後可以在「設定」中 → %@ → %@ → %@ 啟用或停用它。";
-"ClearCache" = "Clear cache";
+"ClearCache" = "清除快取";
 "ResetSettings" = "重置YTLite設定";
 "ResetMessage" = "這個選項會將YTLite重置為預設值，並關閉Youtube\n\n您確定要繼續嗎?";
 "ShortsOnlyWarning" = "您確定要開啟此模式嗎?\n\n在此模式下，您只能觀看Shorts影片，無法進行其它操作。\n\n您可以在Shorts播放器中使用兩指長按來停用只看Shorts模式。";
@@ -203,10 +203,10 @@
 "Yes" = "是";
 "No" = "否";
 
-"SelectAction" = "Select action";
-"CopyTitle" = "Copy title";
-"CopyDescription" = "Copy description";
-"Cancel" = "Cancel";
+"SelectAction" = "選擇動作";
+"CopyTitle" = "複製標題";
+"CopyDescription" = "複製說明";
+"Cancel" = "取消";
 "Copied" = "已複製到剪貼簿";
 "Saved" = "已儲存到照片應用";
 "Done" = "Done";
