@@ -641,6 +641,26 @@ static BOOL isOverlayShown = YES;
 %property (nonatomic, strong) NSString *copiedComment;
 %end
 
+%hook ASDisplayNode
+- (void)didLoad {
+    %orig;
+
+    ASTextNode *textNode = (ASTextNode *)self;
+
+    if (kCopyCommentText && [[self valueForKey:@"_accessibilityIdentifier"] isEqualToString:@"id.comment.content.label"]) {
+        NSString *comment = textNode.attributedText.string;
+
+        NSMutableArray *allObjects = self.supernodes.allObjects;
+        for (ELMContainerNode *containerNode in allObjects) {
+            if ([containerNode.description containsString:@"id.ui.comment_cell"] && comment) {
+                containerNode.copiedComment = comment;
+                break;
+            }
+        }
+    }
+}
+%end
+
 %hook _ASDisplayView
 - (void)setKeepalive_node:(id)arg1 {
     %orig;
@@ -660,19 +680,6 @@ static BOOL isOverlayShown = YES;
             longPress.minimumPressDuration = 0.3;
             [self addGestureRecognizer:longPress];
             break;
-        }
-    }
-
-    if ([[self description] containsString:@"id.comment.content.label"]) {
-        ASTextNode *textNode = (ASTextNode *)self.keepalive_node;
-        ASDisplayNode *displayNode = (ASDisplayNode *)self.keepalive_node;
-
-        NSMutableArray *allObjects = displayNode.supernodes.allObjects;
-        for (ELMContainerNode *containerNode in allObjects) {
-            if ([containerNode.description containsString:@"id.ui.comment_cell"]) {
-                containerNode.copiedComment = textNode.attributedText.string;
-                break;
-            }
         }
     }
 }
@@ -764,11 +771,15 @@ static BOOL isOverlayShown = YES;
 - (void)copyComment:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
         ELMContainerNode *containerNode = (ELMContainerNode *)self.keepalive_node;
-        [UIPasteboard generalPasteboard].string = containerNode.copiedComment;
+        NSString *comment = containerNode.copiedComment;
 
-        UIResponder *responder = self.nextResponder;
-        while (responder && ![responder isKindOfClass:[UIViewController class]]) responder = responder.nextResponder;
-        if (responder) [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:responder] send];
+        if (comment) {
+            [UIPasteboard generalPasteboard].string = comment;
+
+            UIResponder *responder = self.nextResponder;
+            while (responder && ![responder isKindOfClass:[UIViewController class]]) responder = responder.nextResponder;
+            if (responder) [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:responder] send];
+        }
     }
 }
 %end
@@ -901,7 +912,7 @@ BOOL isTabSelected = NO;
 - (void)layoutSubviews {
     %orig;
 
-    if ([self.panelIdentifier.identifierString isEqualToString:@"video-description-ep-identifier"]) {
+    if (kCopyVideoInfo && [self.panelIdentifier.identifierString isEqualToString:@"video-description-ep-identifier"]) {
         YTQTMButton *copyInfoButton = [%c(YTQTMButton) iconButton];
         copyInfoButton.accessibilityLabel = LOC(@"CopyVideoInfo");
         [copyInfoButton setTag:999];
@@ -911,12 +922,12 @@ BOOL isTabSelected = NO;
         [copyInfoButton setTranslatesAutoresizingMaskIntoConstraints:false];
         [copyInfoButton addTarget:self action:@selector(didTapCopyInfoButton:) forControlEvents:UIControlEventTouchUpInside];
 
-        if (kCopyVideoInfo && self.headerView && self.headerView.closeButton && ![self.headerView viewWithTag:999]) {
+        if (self.headerView && ![self.headerView viewWithTag:999]) {
             [self.headerView addSubview:copyInfoButton];
 
             [NSLayoutConstraint activateConstraints:@[
-                [copyInfoButton.trailingAnchor constraintEqualToAnchor:self.headerView.closeButton.leadingAnchor],
-                [copyInfoButton.centerYAnchor constraintEqualToAnchor:self.headerView.closeButton.centerYAnchor],
+                [copyInfoButton.trailingAnchor constraintEqualToAnchor:self.headerView.trailingAnchor constant:-48],
+                [copyInfoButton.centerYAnchor constraintEqualToAnchor:self.headerView.centerYAnchor],
                 [copyInfoButton.widthAnchor constraintEqualToConstant:40.0],
                 [copyInfoButton.heightAnchor constraintEqualToConstant:40.0],
             ]];

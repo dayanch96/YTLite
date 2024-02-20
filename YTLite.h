@@ -290,6 +290,7 @@ int kPivotIndex;
 
 @interface ASDisplayNode : NSObject
 @property (atomic, assign, readonly) ASNodeAncestryEnumerator *supernodes;
+@property (atomic, copy, readwrite) NSArray *yogaChildren;
 @end
 
 @interface ELMContainerNode : ASDisplayNode
