@@ -145,8 +145,8 @@
 "Other" = "Khác";
 "CopyVideoInfo" = "Sao chép thông tin video";
 "CopyVideoInfoDesc" = "Thêm nút để sao chép tiêu đề và mô tả video vào bảng Mô tả Video.";
-"CopyPostText" = "Sao chép văn bản bài đăng trên cộng đồng";
-"CopyPostTextDesc" = "Sao chép văn bản bài đăng của cộng đồng vào bảng tạm bằng cách nhấn giữ.";
+"PostManager" = "Save post information";
+"PostManagerDesc" = "Allows to copy post text and save post as image by long tap.";
 "SavePostImage" = "Lưu hình ảnh từ bài đăng trên cộng đồng";
 "SavePostImageDesc" = "Lưu hình ảnh bài đăng của cộng đồng vào ứng dụng Ảnh bằng cách nhấn giữ.";
 "SaveProfilePhoto" = "Lưu ảnh hồ sơ";
@@ -206,6 +206,9 @@
 "SelectAction" = "Chọn hành động";
 "CopyTitle" = "Sao chép tiêu đề";
 "CopyDescription" = "Sao chép mô tả";
+"CopyPostText" = "Copy post text";
+"SavePostAsImage" = "Save post as image";
+"CopyPostAsImage" = "Copy post as image";
 "Cancel" = "Hủy bỏ";
 "Copied" = "Sao chép vào clipboard";
 "Saved" = "Đã lưu vào Ảnh";

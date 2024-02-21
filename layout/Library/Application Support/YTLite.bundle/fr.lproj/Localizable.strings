@@ -145,8 +145,8 @@
 "Other" = "Autre";
 "CopyVideoInfo" = "Copier les informations vidéo";
 "CopyVideoInfoDesc" = "Ajout d'un bouton permettant de copier le titre et la description de la vidéo dans le panneau Description de la vidéo.";
-"CopyPostText" = "Copier le texte des publications de la communauté";
-"CopyPostTextDesc" = "Copie le texte des publications de la communauté dans le presse-papiers en appuyant longuement.";
+"PostManager" = "Save post information";
+"PostManagerDesc" = "Allows to copy post text and save post as image by long tap.";
 "SavePostImage" = "Enregistrer l'image des publications de la communauté";
 "SavePostImageDesc" = "Enregistre l'image des publications de la communauté dans l'application Photos en appuyant longuement.";
 "SaveProfilePhoto" = "Enregistrer la photo de profil";
@@ -206,6 +206,9 @@
 "SelectAction" = "Sélectionner une action";
 "CopyTitle" = "Copier le titre";
 "CopyDescription" = "Copier la description";
+"CopyPostText" = "Copy post text";
+"SavePostAsImage" = "Save post as image";
+"CopyPostAsImage" = "Copy post as image";
 "Cancel" = "Annuler";
 "Copied" = "Copié dans le presse-papiers";
 "Saved" = "Enregistré dans Photos";

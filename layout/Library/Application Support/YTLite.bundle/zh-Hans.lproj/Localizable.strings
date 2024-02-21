@@ -145,8 +145,8 @@
 "Other" = "其他";
 "CopyVideoInfo" = "复制视频信息";
 "CopyVideoInfoDesc" = "添加按钮从“视频说明”面板中复制视频的标题和描述。";
-"CopyPostText" = "复制社区帖子文本";
-"CopyPostTextDesc" = "长按社区帖子文本复制到剪贴板。";
+"PostManager" = "Save post information";
+"PostManagerDesc" = "Allows to copy post text and save post as image by long tap.";
 "SavePostImage" = "保存社区帖子图片";
 "SavePostImageDesc" = "长按社区帖子图片保存到照片应用程序。";
 "SaveProfilePhoto" = "保存个人资料图片";
@@ -192,7 +192,7 @@
 "French" = "法语本地化";
 "Spanish" = "西班牙语本地化";
 "Japanese" = "日语本地化";
-"Vietnamese" = "Vietnamese localization";
+"Vietnamese" = "越南语本地化";
 "Advanced" = "高级模式";
 "AdvancedModeReminder" = "想为YTLite激活高级模式吗？\n\n此模式提供了50多个额外的选项来自定义和优化您的YouTube体验。\n可以稍后从设置中启用/禁用它 → %@ → %@ → %@。";
 "ClearCache" = "清除缓存";
@@ -206,6 +206,9 @@
 "SelectAction" = "选择操作";
 "CopyTitle" = "复制标题";
 "CopyDescription" = "复制描述";
+"CopyPostText" = "Copy post text";
+"SavePostAsImage" = "Save post as image";
+"CopyPostAsImage" = "Copy post as image";
 "Cancel" = "取消";
 "Copied" = "已复制到剪贴板";
 "Saved" = "已保存到照片";

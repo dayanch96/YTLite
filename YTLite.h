@@ -111,7 +111,7 @@ BOOL kRemoveSubscriptions;
 BOOL kRemoveUploads;
 BOOL kRemoveLibrary;
 BOOL kCopyVideoInfo;
-BOOL kCopyPostText;
+BOOL kPostManager;
 BOOL kSavePostImage;
 BOOL kSaveProfilePhoto;
 BOOL kCopyCommentText;
@@ -289,12 +289,18 @@ int kPivotIndex;
 @end
 
 @interface ASDisplayNode : NSObject
+@property (nonatomic, assign, readonly) UIViewController *closestViewController;
 @property (atomic, assign, readonly) ASNodeAncestryEnumerator *supernodes;
 @property (atomic, copy, readwrite) NSArray *yogaChildren;
+@property (atomic) CALayer *layer;
 @end
 
 @interface ELMContainerNode : ASDisplayNode
 @property (nonatomic, strong, readwrite) NSString *copiedComment;
+@end
+
+@interface ELMExpandableTextNode : ASDisplayNode
+@property (atomic, assign, readonly) ASDisplayNode *currentTextNode;
 @end
 
 @interface ASNetworkImageNode : ASDisplayNode
@@ -307,7 +313,7 @@ int kPivotIndex;
 
 @interface _ASDisplayView : UIView
 @property (nonatomic, strong, readwrite) ASDisplayNode *keepalive_node;
-- (void)copyText:(UILongPressGestureRecognizer *)sender;
+- (void)postManager:(UILongPressGestureRecognizer *)sender;
 - (void)saveImage:(UILongPressGestureRecognizer *)sender;
 - (void)savePFP:(UILongPressGestureRecognizer *)sender;
 - (void)copyComment:(UILongPressGestureRecognizer *)sender;

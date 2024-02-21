@@ -145,8 +145,8 @@
 "Other" = "其它";
 "CopyVideoInfo" = "複製影片資訊";
 "CopyVideoInfoDesc" = "新增按鈕將影片標題和說明，複製到影片說明欄";
-"CopyPostText" = "複製社群貼文文字";
-"CopyPostTextDesc" = "長按社群貼文文字複製到剪貼簿";
+"PostManager" = "Save post information";
+"PostManagerDesc" = "Allows to copy post text and save post as image by long tap.";
 "SavePostImage" = "儲存社群貼文圖片";
 "SavePostImageDesc" = "長按社群貼文圖片儲存到照片應用";
 "SaveProfilePhoto" = "儲存個人檔案照片";
@@ -206,6 +206,9 @@
 "SelectAction" = "選擇動作";
 "CopyTitle" = "複製標題";
 "CopyDescription" = "複製說明";
+"CopyPostText" = "Copy post text";
+"SavePostAsImage" = "Save post as image";
+"CopyPostAsImage" = "Copy post as image";
 "Cancel" = "取消";
 "Copied" = "已複製到剪貼簿";
 "Saved" = "已儲存到照片應用";

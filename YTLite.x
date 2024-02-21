@@ -645,9 +645,8 @@ static BOOL isOverlayShown = YES;
 - (void)didLoad {
     %orig;
 
-    ASTextNode *textNode = (ASTextNode *)self;
-
     if (kCopyCommentText && [[self valueForKey:@"_accessibilityIdentifier"] isEqualToString:@"id.comment.content.label"]) {
+        ASTextNode *textNode = (ASTextNode *)self;
         NSString *comment = textNode.attributedText.string;
 
         NSMutableArray *allObjects = self.supernodes.allObjects;
@@ -658,15 +657,77 @@ static BOOL isOverlayShown = YES;
             }
         }
     }
+
+    if (kPostManager && [self isKindOfClass:NSClassFromString(@"ELMExpandableTextNode")]) {
+        ELMExpandableTextNode *expandableTextNode = (ELMExpandableTextNode *)self;
+        ASTextNode *textNode = (ASTextNode *)expandableTextNode.currentTextNode;
+
+        NSString *text = textNode.attributedText.string;
+
+        NSMutableArray *allObjects = self.supernodes.allObjects;
+        for (ELMContainerNode *containerNode in allObjects) {
+            if ([containerNode.description containsString:@"id.ui.backstage.original_post"] && text) {
+                containerNode.copiedComment = text;
+                break;
+            }
+        }
+    }
 }
 %end
+
+static void downloadImageFromURL(UIResponder *responder, NSURL *URL) {
+    NSString *URLString = URL.absoluteString;
+
+    if (kFixAlbums && [URLString hasPrefix:@"https://yt3."]) {
+        URLString = [URLString stringByReplacingOccurrencesOfString:@"https://yt3." withString:@"https://yt4."];
+    }
+
+    NSURL *downloadURL = nil;
+    if ([URLString containsString:@"c-fcrop"]) {
+        NSRange croppedURL = [URLString rangeOfString:@"c-fcrop"];
+        if (croppedURL.location != NSNotFound) {
+            NSString *newURL = [URLString stringByReplacingOccurrencesOfString:[URLString substringFromIndex:croppedURL.location] withString:@"nd-v1"];
+            downloadURL = [NSURL URLWithString:newURL];
+        }
+    } else {
+        downloadURL = URL;
+    }
+
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:downloadURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (data) {
+            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];
+                [request addResourceWithType:PHAssetResourceTypePhoto data:data options:nil];
+            } completionHandler:^(BOOL success, NSError *error) {
+            [[%c(YTToastResponderEvent) eventWithMessage:success ? LOC(@"Saved") : [NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription] firstResponder:responder] send];
+            }];
+        } else {
+            [[%c(YTToastResponderEvent) eventWithMessage:[NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription] firstResponder:responder] send];
+        }
+    }] resume];
+}
+
+static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^completionHandler)(UIImage *)) {
+    UIGraphicsBeginImageContextWithOptions(layer.frame.size, NO, 0.0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, backgroundColor.CGColor);
+    CGContextFillRect(context, CGRectMake(0, 0, layer.frame.size.width, layer.frame.size.height));
+    [layer renderInContext:context];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    if (completionHandler) {
+        completionHandler(image);
+    }
+}
 
 %hook _ASDisplayView
 - (void)setKeepalive_node:(id)arg1 {
     %orig;
 
     NSArray *gesturesInfo = @[
-        @{@"selector": @"copyText:", @"text": @"ELMExpandableTextNode-View", @"key": @(kCopyPostText)},
+        @{@"selector": @"postManager:", @"text": @"id.ui.backstage.original_post", @"key": @(kPostManager)},
         @{@"selector": @"saveImage:", @"text": @"YTImageZoomNode-View", @"key": @(kSavePostImage)},
         @{@"selector": @"savePFP:", @"text": @"ELMImageNode-View", @"key": @(kSaveProfilePhoto)},
         @{@"selector": @"copyComment:", @"text": @"id.ui.comment_cell", @"key": @(kCopyCommentText)}
@@ -713,13 +774,46 @@ static BOOL isOverlayShown = YES;
 }
 
 %new
-- (void)copyText:(UILongPressGestureRecognizer *)sender {
+- (void)postManager:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
-        [UIPasteboard generalPasteboard].string = self.accessibilityLabel;
+        ELMContainerNode *nodeForLayer = (ELMContainerNode *)self.keepalive_node.yogaChildren[0];
+        ELMContainerNode *containerNode = (ELMContainerNode *)self.keepalive_node;
+        NSString *text = containerNode.copiedComment;
+        CALayer *layer = nodeForLayer.layer;
+        UIColor *backgroundColor = containerNode.closestViewController.view.backgroundColor;
 
-        UIResponder *responder = self.nextResponder;
-        while (responder && ![responder isKindOfClass:[UIViewController class]]) responder = responder.nextResponder;
-        if (responder) [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:responder] send];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:LOC(@"SelectAction") message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        alertController.view.tintColor = [UIColor labelColor];
+
+        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"CopyPostText") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            if (text) {
+                [UIPasteboard generalPasteboard].string = text;
+                [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
+            }
+        }]];
+
+        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"SavePostAsImage") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            genImageFromLayer(layer, backgroundColor, ^(UIImage *image) {
+                [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                    PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAssetFromImage:image];
+                    request.creationDate = [NSDate date];
+                } completionHandler:^(BOOL success, NSError *error) {
+                    NSString *message = success ? LOC(@"Saved") : [NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription];
+                    [[%c(YTToastResponderEvent) eventWithMessage:message firstResponder:containerNode.closestViewController] send];
+                }];
+            });
+        }]];
+
+        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"CopyPostAsImage") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            genImageFromLayer(layer, backgroundColor, ^(UIImage *image) {
+                [UIPasteboard generalPasteboard].image = image;
+                [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
+            });
+        }]];
+
+        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"Cancel") style:UIAlertActionStyleCancel handler:nil]];
+
+        [containerNode.closestViewController presentViewController:alertController animated:YES completion:nil];
     }
 }
 
@@ -729,41 +823,11 @@ static BOOL isOverlayShown = YES;
 
         ASNetworkImageNode *imageNode = (ASNetworkImageNode *)self.keepalive_node;
         NSURL *imageURL = imageNode.URL;
-        if (imageURL) {
-            NSString *URLString = imageURL.absoluteString;
 
-            if (kFixAlbums && [URLString hasPrefix:@"https://yt3."]) {
-                URLString = [URLString stringByReplacingOccurrencesOfString:@"https://yt3." withString:@"https://yt4."];
-            }
+        UIResponder *responder = self.nextResponder;
+        while (responder && ![responder isKindOfClass:[UIViewController class]]) responder = responder.nextResponder;
 
-            NSURL *downloadURL = nil;
-            if ([URLString containsString:@"c-fcrop"]) {
-                NSRange croppedURL = [URLString rangeOfString:@"c-fcrop"];
-                if (croppedURL.location != NSNotFound) {
-                    NSString *newURL = [URLString stringByReplacingOccurrencesOfString:[URLString substringFromIndex:croppedURL.location] withString:@"nd-v1"];
-                    downloadURL = [NSURL URLWithString:newURL];
-                }
-            } else {
-                downloadURL = imageURL;
-            }
-
-            UIResponder *responder = self.nextResponder;
-            while (responder && ![responder isKindOfClass:[UIViewController class]]) responder = responder.nextResponder;
-
-            NSURLSession *session = [NSURLSession sharedSession];
-            [[session dataTaskWithURL:downloadURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                if (data) {
-                    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-                        PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];
-                        [request addResourceWithType:PHAssetResourceTypePhoto data:data options:nil];
-                    } completionHandler:^(BOOL success, NSError *error) {
-                    if (responder) [[%c(YTToastResponderEvent) eventWithMessage:success ? LOC(@"Saved") : [NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription] firstResponder:responder] send];
-                    }];
-                } else {
-                    if (responder) [[%c(YTToastResponderEvent) eventWithMessage:[NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription] firstResponder:responder] send];
-                }
-            }] resume];
-        }
+        if (imageURL) downloadImageFromURL(responder, imageURL);
     }
 }
 
@@ -1067,7 +1131,7 @@ static void reloadPrefs() {
     kRemoveUploads = (prefs[@"removeUploads"] != nil) ? [prefs[@"removeUploads"] boolValue] : YES;
     kRemoveLibrary = [prefs[@"removeLibrary"] boolValue] ?: NO;
     kCopyVideoInfo = [prefs[@"copyVideoInfo"] boolValue] ?: NO;
-    kCopyPostText = [prefs[@"copyPostText"] boolValue] ?: NO;
+    kPostManager = [prefs[@"postManager"] boolValue] ?: NO;
     kSavePostImage = [prefs[@"savePostImage"] boolValue] ?: NO;
     kSaveProfilePhoto = [prefs[@"savePostImage"] boolValue] ?: NO;
     kCopyCommentText = [prefs[@"copyCommentText"] boolValue] ?: NO;
@@ -1153,7 +1217,7 @@ static void reloadPrefs() {
         @"removeUploads" : @(kRemoveUploads),
         @"removeLibrary" : @(kRemoveLibrary),
         @"copyVideoInfo" : @(kCopyVideoInfo),
-        @"copyPostText" : @(kCopyPostText),
+        @"postManager" : @(kPostManager),
         @"savePostImage" : @(kSavePostImage),
         @"saveProfilePhoto" : @(kSaveProfilePhoto),
         @"copyCommentText" : @(kCopyCommentText),

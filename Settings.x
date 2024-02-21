@@ -284,7 +284,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
             selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                 NSArray <YTSettingsSectionItem *> *rows = @[
                 createSwitchItem(LOC(@"CopyVideoInfo"), LOC(@"CopyVideoInfoDesc"), @"copyVideoInfo", &kCopyVideoInfo, selfObject),
-                createSwitchItem(LOC(@"CopyPostText"), LOC(@"CopyPostTextDesc"), @"copyPostText", &kCopyPostText, selfObject),
+                createSwitchItem(LOC(@"PostManager"), LOC(@"PostManagerDesc"), @"postManager", &kPostManager, selfObject),
                 createSwitchItem(LOC(@"SavePostImage"), LOC(@"SavePostImageDesc"), @"savePostImage", &kSavePostImage, selfObject),
                 createSwitchItem(LOC(@"SaveProfilePhoto"), LOC(@"SaveProfilePhotoDesc"), @"saveProfilePhoto", &kSaveProfilePhoto, selfObject),
                 createSwitchItem(LOC(@"CopyCommentText"), LOC(@"CopyCommentTextDesc"), @"copyCommentText", &kCopyCommentText, selfObject),
