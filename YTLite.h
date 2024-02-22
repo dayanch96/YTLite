@@ -114,7 +114,7 @@ BOOL kCopyVideoInfo;
 BOOL kPostManager;
 BOOL kSavePostImage;
 BOOL kSaveProfilePhoto;
-BOOL kCopyCommentText;
+BOOL kCommentManager;
 BOOL kSavePost;
 BOOL kFixAlbums;
 BOOL kRemovePlayNext;
@@ -316,7 +316,7 @@ int kPivotIndex;
 - (void)postManager:(UILongPressGestureRecognizer *)sender;
 - (void)saveImage:(UILongPressGestureRecognizer *)sender;
 - (void)savePFP:(UILongPressGestureRecognizer *)sender;
-- (void)copyComment:(UILongPressGestureRecognizer *)sender;
+- (void)commentManager:(UILongPressGestureRecognizer *)sender;
 @end
 
 @interface MLHAMQueuePlayer : NSObject

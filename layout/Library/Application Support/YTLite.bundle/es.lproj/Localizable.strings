@@ -151,8 +151,8 @@
 "SavePostImageDesc" = "Guarda la imagen de las publicaciones de la comunidad en la aplicación Fotos con un toque prolongado";
 "SaveProfilePhoto" = "Guardar foto de perfil";
 "SaveProfilePhotoDesc" = "Guarda la imagen de perfil en la aplicación Fotos con un toque prolongado";
-"CopyCommentText" = "Copy comments text";
-"CopyCommentTextDesc" = "Copies comments text to the clipboard by long tap.";
+"CommentManager" = "Save comment information";
+"CommentManagerDesc" = "Allows to copy comment text and save comment as image by long tap.";
 "FixAlbums" = "Arreglar portadas";
 "FixAlbumsDesc" = "Corrige la visualización de portadas para usuarios de Rusia";
 "RemovePlayNext" = "Eliminar \"Reproducir siguiente en cola\"";
@@ -209,6 +209,9 @@
 "CopyPostText" = "Copy post text";
 "SavePostAsImage" = "Save post as image";
 "CopyPostAsImage" = "Copy post as image";
+"CopyCommentText" = "Copy comment text";
+"SaveCommentAsImage" = "Save comment as image";
+"CopyCommentAsImage" = "Copy comment as image";
 "Cancel" = "Cancel";
 "Copied" = "Copiado al portapapeles";
 "Done" = "Done";

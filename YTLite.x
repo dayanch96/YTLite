@@ -642,10 +642,10 @@ static BOOL isOverlayShown = YES;
 %end
 
 %hook ASDisplayNode
-- (void)didLoad {
+- (void)setFrame:(CGRect)frame {
     %orig;
 
-    if (kCopyCommentText && [[self valueForKey:@"_accessibilityIdentifier"] isEqualToString:@"id.comment.content.label"]) {
+    if (kCommentManager && [[self valueForKey:@"_accessibilityIdentifier"] isEqualToString:@"id.comment.content.label"]) {
         ASTextNode *textNode = (ASTextNode *)self;
         NSString *comment = textNode.attributedText.string;
 
@@ -661,7 +661,6 @@ static BOOL isOverlayShown = YES;
     if (kPostManager && [self isKindOfClass:NSClassFromString(@"ELMExpandableTextNode")]) {
         ELMExpandableTextNode *expandableTextNode = (ELMExpandableTextNode *)self;
         ASTextNode *textNode = (ASTextNode *)expandableTextNode.currentTextNode;
-
         NSString *text = textNode.attributedText.string;
 
         NSMutableArray *allObjects = self.supernodes.allObjects;
@@ -730,7 +729,7 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
         @{@"selector": @"postManager:", @"text": @"id.ui.backstage.original_post", @"key": @(kPostManager)},
         @{@"selector": @"saveImage:", @"text": @"YTImageZoomNode-View", @"key": @(kSavePostImage)},
         @{@"selector": @"savePFP:", @"text": @"ELMImageNode-View", @"key": @(kSaveProfilePhoto)},
-        @{@"selector": @"copyComment:", @"text": @"id.ui.comment_cell", @"key": @(kCopyCommentText)}
+        @{@"selector": @"commentManager:", @"text": @"id.ui.comment_cell", @"key": @(kCommentManager)}
     ];
 
     for (NSDictionary *gestureInfo in gesturesInfo) {
@@ -832,18 +831,46 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 }
 
 %new
-- (void)copyComment:(UILongPressGestureRecognizer *)sender {
+- (void)commentManager:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
         ELMContainerNode *containerNode = (ELMContainerNode *)self.keepalive_node;
         NSString *comment = containerNode.copiedComment;
 
-        if (comment) {
-            [UIPasteboard generalPasteboard].string = comment;
+        CALayer *layer = self.layer;
+        UIColor *backgroundColor = containerNode.closestViewController.view.backgroundColor;
 
-            UIResponder *responder = self.nextResponder;
-            while (responder && ![responder isKindOfClass:[UIViewController class]]) responder = responder.nextResponder;
-            if (responder) [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:responder] send];
-        }
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:LOC(@"SelectAction") message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        alertController.view.tintColor = [UIColor labelColor];
+
+        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"CopyCommentText") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            if (comment) {
+                [UIPasteboard generalPasteboard].string = comment;
+                [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
+            }
+        }]];
+
+        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"SaveCommentAsImage") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            genImageFromLayer(layer, backgroundColor, ^(UIImage *image) {
+                [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                    PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAssetFromImage:image];
+                    request.creationDate = [NSDate date];
+                } completionHandler:^(BOOL success, NSError *error) {
+                    NSString *message = success ? LOC(@"Saved") : [NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription];
+                    [[%c(YTToastResponderEvent) eventWithMessage:message firstResponder:containerNode.closestViewController] send];
+                }];
+            });
+        }]];
+
+        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"CopyCommentAsImage") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            genImageFromLayer(layer, backgroundColor, ^(UIImage *image) {
+                [UIPasteboard generalPasteboard].image = image;
+                [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
+            });
+        }]];
+
+        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"Cancel") style:UIAlertActionStyleCancel handler:nil]];
+
+        [containerNode.closestViewController presentViewController:alertController animated:YES completion:nil];
     }
 }
 %end
@@ -1134,7 +1161,7 @@ static void reloadPrefs() {
     kPostManager = [prefs[@"postManager"] boolValue] ?: NO;
     kSavePostImage = [prefs[@"savePostImage"] boolValue] ?: NO;
     kSaveProfilePhoto = [prefs[@"savePostImage"] boolValue] ?: NO;
-    kCopyCommentText = [prefs[@"copyCommentText"] boolValue] ?: NO;
+    kCommentManager = [prefs[@"commentManager"] boolValue] ?: NO;
     kFixAlbums = [prefs[@"fixAlbums"] boolValue] ?: NO;
     kRemovePlayNext = [prefs[@"removePlayNext"] boolValue] ?: NO;
     kNoContinueWatching = [prefs[@"noContinueWatching"] boolValue] ?: NO;
@@ -1220,7 +1247,7 @@ static void reloadPrefs() {
         @"postManager" : @(kPostManager),
         @"savePostImage" : @(kSavePostImage),
         @"saveProfilePhoto" : @(kSaveProfilePhoto),
-        @"copyCommentText" : @(kCopyCommentText),
+        @"commentManager" : @(kCommentManager),
         @"fixAlbums" : @(kFixAlbums),
         @"removePlayNext" : @(kRemovePlayNext),
         @"noContinueWatching" : @(kNoContinueWatching),

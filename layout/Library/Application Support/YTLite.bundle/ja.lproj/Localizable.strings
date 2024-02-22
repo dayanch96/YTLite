@@ -151,8 +151,8 @@
 "SavePostImageDesc" = "Saves community posts image to the Photos app by long tap.";
 "SaveProfilePhoto" = "Save profile picture";
 "SaveProfilePhotoDesc" = "Saves profile picture to the Photos app by long tap.";
-"CopyCommentText" = "Copy comments text";
-"CopyCommentTextDesc" = "Copies comments text to the clipboard by long tap.";
+"CommentManager" = "Save comment information";
+"CommentManagerDesc" = "Allows to copy comment text and save comment as image by long tap.";
 "FixAlbums" = "Fix covers";
 "FixAlbumsDesc" = "Fixes the display of covers for users from Russia.";
 "RemovePlayNext" = "\"次に再生\"を削除";
@@ -209,6 +209,9 @@
 "CopyPostText" = "Copy post text";
 "SavePostAsImage" = "Save post as image";
 "CopyPostAsImage" = "Copy post as image";
+"CopyCommentText" = "Copy comment text";
+"SaveCommentAsImage" = "Save comment as image";
+"CopyCommentAsImage" = "Copy comment as image";
 "Cancel" = "Cancel";
 "Copied" = "Copied to clipboard";
 "Saved" = "Saved to Photos";

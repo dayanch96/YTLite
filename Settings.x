@@ -287,7 +287,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *titleD
                 createSwitchItem(LOC(@"PostManager"), LOC(@"PostManagerDesc"), @"postManager", &kPostManager, selfObject),
                 createSwitchItem(LOC(@"SavePostImage"), LOC(@"SavePostImageDesc"), @"savePostImage", &kSavePostImage, selfObject),
                 createSwitchItem(LOC(@"SaveProfilePhoto"), LOC(@"SaveProfilePhotoDesc"), @"saveProfilePhoto", &kSaveProfilePhoto, selfObject),
-                createSwitchItem(LOC(@"CopyCommentText"), LOC(@"CopyCommentTextDesc"), @"copyCommentText", &kCopyCommentText, selfObject),
+                createSwitchItem(LOC(@"CommentManager"), LOC(@"CommentManagerDesc"), @"commentManager", &kCommentManager, selfObject),
                 createSwitchItem(LOC(@"FixAlbums"), LOC(@"FixAlbumsDesc"), @"fixAlbums", &kFixAlbums, selfObject),
                 createSwitchItem(LOC(@"RemovePlayNext"), LOC(@"RemovePlayNextDesc"), @"removePlayNext", &kRemovePlayNext, selfObject),
                 createSwitchItem(LOC(@"NoContinueWatching"), LOC(@"NoContinueWatchingDesc"), @"noContinueWatching", &kNoContinueWatching, selfObject),
