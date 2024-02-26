@@ -151,8 +151,8 @@
 "SavePostImageDesc" = "长按社区帖子图片保存到照片应用程序。";
 "SaveProfilePhoto" = "保存个人资料图片";
 "SaveProfilePhotoDesc" = "长按个人资料图片保存到照片应用程序。";
-"CommentManager" = "Save comment information";
-"CommentManagerDesc" = "Allows to copy comment text and save comment as image by long tap.";
+"CommentManager" = "保存评论信息";
+"CommentManagerDesc" = "允许通过长按复制评论文本并将评论保存为图片。";
 "FixAlbums" = "修复封面";
 "FixAlbumsDesc" = "修复来自俄罗斯用户的封面显示问题。";
 "RemovePlayNext" = "删除“播放队列中的下一个”";
@@ -209,9 +209,9 @@
 "CopyPostText" = "复制帖子文本";
 "SavePostAsImage" = "帖子另存为图片";
 "CopyPostAsImage" = "帖子作为图片复制";
-"CopyCommentText" = "Copy comment text";
-"SaveCommentAsImage" = "Save comment as image";
-"CopyCommentAsImage" = "Copy comment as image";
+"CopyCommentText" = "复制评论文本";
+"SaveCommentAsImage" = "评论另存为图片";
+"CopyCommentAsImage" = "评论作为图片复制";
 "Cancel" = "取消";
 "Copied" = "已复制到剪贴板";
 "Saved" = "已保存到照片";
