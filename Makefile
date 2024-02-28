@@ -5,14 +5,14 @@ endif
 DEBUG=0
 FINALPACKAGE=1
 ARCHS = arm64
-PACKAGE_VERSION = 2.6.3
+PACKAGE_VERSION = 2.7
 TARGET := iphone:clang:latest:13.0
 
 include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = YTLite
-$(TWEAK_NAME)_FRAMEWORKS = UIKit Foundation
+$(TWEAK_NAME)_FRAMEWORKS = UIKit Foundation SystemConfiguration
 $(TWEAK_NAME)_CFLAGS = -fobjc-arc -DTWEAK_VERSION=$(PACKAGE_VERSION)
-$(TWEAK_NAME)_FILES = YTLite.x Settings.x Sideloading.x
+$(TWEAK_NAME)_FILES = $(wildcard *.x *.m)
 
 include $(THEOS_MAKE_PATH)/tweak.mk

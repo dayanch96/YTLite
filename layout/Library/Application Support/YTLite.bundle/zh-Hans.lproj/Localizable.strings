@@ -67,6 +67,12 @@
 "DontSnap2ChapterDesc" = "禁用通过双击手势跳到下一集。";
 "RedProgressBar" = "红色进度条";
 "RedProgressBarDesc" = "加回红色进度条。";
+"NoPlayerRemixButton" = "Remove remix button";
+"NoPlayerRemixButtonDesc" = "Removes remix button under the player.";
+"NoPlayerClipButton" = "Remove clip button";
+"NoPlayerClipButtonDesc" = "Removes clip button under the player.";
+"NoPlayerDownloadButton" = "Remove download button";
+"NoPlayerDownloadButtonDesc" = "Removes download button under the player.";
 "NoHints" = "禁用提示";
 "NoHintsDesc" = "禁用播放期间出现在右上角的作者提示。";
 "NoFreeZoom" = "禁用自由缩放手势";
@@ -147,8 +153,6 @@
 "CopyVideoInfoDesc" = "添加按钮从“视频说明”面板中复制视频的标题和描述。";
 "PostManager" = "保存帖子信息";
 "PostManagerDesc" = "允许通过长按复制帖子文本并将帖子另存为图片。";
-"SavePostImage" = "保存社区帖子图片";
-"SavePostImageDesc" = "长按社区帖子图片保存到照片应用程序。";
 "SaveProfilePhoto" = "保存个人资料图片";
 "SaveProfilePhotoDesc" = "长按个人资料图片保存到照片应用程序。";
 "CommentManager" = "保存评论信息";
@@ -157,6 +161,20 @@
 "FixAlbumsDesc" = "修复来自俄罗斯用户的封面显示问题。";
 "RemovePlayNext" = "删除“播放队列中的下一个”";
 "RemovePlayNextDesc" = "从菜单中删除“播放队列中的下一个”选项。";
+"RemoveDownloadMenu" = "Remove \"Download\"";
+"RemoveDownloadMenuDesc" = "Removes \"Download\" option from menu.";
+"RemoveWatchLaterMenu" = "Remove \"Save to Watch Later\"";
+"RemoveWatchLaterMenuDesc" = "Removes \"Save to Watch Later\" option from menu.";
+"RemoveSaveToPlaylistMenu" = "Remove \"Save to playlist\"";
+"RemoveSaveToPlaylistMenuDesc" = "Removes \"Save to playlist\" option from menu.";
+"RemoveShareMenu" = "Remove \"Share\"";
+"RemoveShareMenuDesc" = "Removes \"Share\" option from menu.";
+"RemoveNotInterestedMenu" = "Remove \"Not interested\"";
+"RemoveNotInterestedMenuDesc" = "Removes \"Not interested\" option from menu.";
+"RemoveDontRecommendMenu" = "Remove \"Don't recommend channel\"";
+"RemoveDontRecommendMenuDesc" = "Removes \"Don't recommend channel\" option from menu.";
+"RemoveReportMenu" = "Remove \"Report\"";
+"RemoveReportMenuDesc" = "Removes \"Report\" option from menu.";
 "NoContinueWatching" = "删除“继续观看”";
 "NoContinueWatchingDesc" = "从首页中删除包含未完成视频的“继续观看”部分。";
 "NoSearchHistory" = "隐藏搜索历史记录";
@@ -172,6 +190,12 @@
 "DisableRTL" = "禁用 RTL 格式";
 "DisableRTLDesc" = "对于最初以从右到左 (RTL) 显示的语言，强制以从左到右 (LTR) 格式显示文本。";
 
+"PlaybackQualityOnWiFi" = "Playback quality on WiFi";
+"PlaybackQualityOnCellular" = "Playback quality on Cellular";
+"SelectQuality" = "Select Quality";
+"Default" = "Default";
+"Best" = "Best";
+
 "Startup" = "启动页";
 "Home" = "首页";
 "Explore" = "探索";
@@ -181,8 +205,8 @@
 "Warning" = "警告";
 "TabIsHidden" = "无法选择隐藏选项卡作为启动页。";
 
-"DonateViaPayPal" = "PayPal 赞助";
-"SupportViaGhSponsors" = "通过 Github 赞助支持开发";
+"SupportDevelopment" = "Support development";
+"SupportDevelopmentDesc" = "If you like YTLite and would like to support its development, you can do it using any of convenient ways below.\nThanks❤";
 "Version" = "版本";
 "About" = "关于";
 "Credits" = "信息";
@@ -194,6 +218,7 @@
 "Japanese" = "日语本地化";
 "Vietnamese" = "越南语本地化";
 "Advanced" = "高级模式";
+"AdvancedDesc" = "More customizable mode";
 "AdvancedModeReminder" = "想为YTLite激活高级模式吗？\n\n此模式提供了50多个额外的选项来自定义和优化您的YouTube体验。\n可以稍后从设置中启用/禁用它 → %@ → %@ → %@。";
 "ClearCache" = "清除缓存";
 "ResetSettings" = "重置YTLite设置";
@@ -212,6 +237,8 @@
 "CopyCommentText" = "复制评论文本";
 "SaveCommentAsImage" = "评论另存为图片";
 "CopyCommentAsImage" = "评论作为图片复制";
+"SaveProfilePicture" = "Save profile picture";
+"CopyProfilePicture" = "Copy profile picture";
 "Cancel" = "取消";
 "Copied" = "已复制到剪贴板";
 "Saved" = "已保存到照片";

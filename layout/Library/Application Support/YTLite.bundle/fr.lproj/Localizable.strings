@@ -67,6 +67,12 @@
 "DontSnap2ChapterDesc" = "Désactive le passage à l'épisode suivant en double tapant.";
 "RedProgressBar" = "Barre de progression rouge";
 "RedProgressBarDesc" = "Ramène la barre de progression rouge.";
+"NoPlayerRemixButton" = "Remove remix button";
+"NoPlayerRemixButtonDesc" = "Removes remix button under the player.";
+"NoPlayerClipButton" = "Remove clip button";
+"NoPlayerClipButtonDesc" = "Removes clip button under the player.";
+"NoPlayerDownloadButton" = "Remove download button";
+"NoPlayerDownloadButtonDesc" = "Removes download button under the player.";
 "NoHints" = "Désactiver les indices";
 "NoHintsDesc" = "Désactive les indices de l'auteur qui apparaissent dans le coin supérieur droit pendant la lecture.";
 "NoFreeZoom" = "Désactiver le geste de zoom libre";
@@ -147,8 +153,6 @@
 "CopyVideoInfoDesc" = "Ajout d'un bouton permettant de copier le titre et la description de la vidéo dans le panneau Description de la vidéo.";
 "PostManager" = "Save post information";
 "PostManagerDesc" = "Allows to copy post text and save post as image by long tap.";
-"SavePostImage" = "Enregistrer l'image des publications de la communauté";
-"SavePostImageDesc" = "Enregistre l'image des publications de la communauté dans l'application Photos en appuyant longuement.";
 "SaveProfilePhoto" = "Enregistrer la photo de profil";
 "SaveProfilePhotoDesc" = "Enregistre la photo de profil dans l'application Photos en appuyant longuement.";
 "CommentManager" = "Save comment information";
@@ -157,6 +161,20 @@
 "FixAlbumsDesc" = "Répare l'affichage des couvertures pour les utilisateurs de Russie.";
 "RemovePlayNext" = "Supprimer \"Placer en première position dans la file d'attente\"";
 "RemovePlayNextDesc" = "Supprime l'option \"Placer en première position dans la file d'attente\" du menu.";
+"RemoveDownloadMenu" = "Remove \"Download\"";
+"RemoveDownloadMenuDesc" = "Removes \"Download\" option from menu.";
+"RemoveWatchLaterMenu" = "Remove \"Save to Watch Later\"";
+"RemoveWatchLaterMenuDesc" = "Removes \"Save to Watch Later\" option from menu.";
+"RemoveSaveToPlaylistMenu" = "Remove \"Save to playlist\"";
+"RemoveSaveToPlaylistMenuDesc" = "Removes \"Save to playlist\" option from menu.";
+"RemoveShareMenu" = "Remove \"Share\"";
+"RemoveShareMenuDesc" = "Removes \"Share\" option from menu.";
+"RemoveNotInterestedMenu" = "Remove \"Not interested\"";
+"RemoveNotInterestedMenuDesc" = "Removes \"Not interested\" option from menu.";
+"RemoveDontRecommendMenu" = "Remove \"Don't recommend channel\"";
+"RemoveDontRecommendMenuDesc" = "Removes \"Don't recommend channel\" option from menu.";
+"RemoveReportMenu" = "Remove \"Report\"";
+"RemoveReportMenuDesc" = "Removes \"Report\" option from menu.";
 "NoContinueWatching" = "Supprimer \"Continuer à regarder\"";
 "NoContinueWatchingDesc" = "Supprime la section \"Continuer à regarder\" contenant les vidéos inachevées de la page d'accueil.";
 "NoSearchHistory" = "Masquer l'historique de recherche";
@@ -172,6 +190,12 @@
 "DisableRTL" = "Désactiver le formatage de droite à gauche";
 "DisableRTLDesc" = "Affiche le texte de force en format de gauche à droite (LTR) pour les langues qui sont initialement affichées de droite à gauche (RTL).";
 
+"PlaybackQualityOnWiFi" = "Playback quality on WiFi";
+"PlaybackQualityOnCellular" = "Playback quality on Cellular";
+"SelectQuality" = "Select Quality";
+"Default" = "Default";
+"Best" = "Best";
+
 "Startup" = "Page de démarrage";
 "Home" = "Accueil";
 "Explore" = "Explorer";
@@ -181,8 +205,8 @@
 "Warning" = "Avertissement";
 "TabIsHidden" = "L'onglet masqué ne peut pas être sélectionné comme page de démarrage";
 
-"DonateViaPayPal" = "Faire un don via PayPal";
-"SupportViaGhSponsors" = "Soutenir le développement via les sponsors Github";
+"SupportDevelopment" = "Support development";
+"SupportDevelopmentDesc" = "If you like YTLite and would like to support its development, you can do it using any of convenient ways below.\nThanks❤";
 "Version" = "Version";
 "About" = "À propos";
 "Credits" = "Crédits";
@@ -194,6 +218,7 @@
 "Japanese" = "Localisation japonaise";
 "Vietnamese" = "Localisation vietnamienne";
 "Advanced" = "Mode avancé";
+"AdvancedDesc" = "More customizable mode";
 "AdvancedModeReminder" = "Voulez-vous activer le mode avancé pour YTLite ?\n\nCe mode offre plus de 50 options supplémentaires pour personnaliser et optimiser votre expérience YouTube. Vous pouvez l'activer/désactiver ultérieurement depuis Paramètres → %@ → %@ → %@.";
 "ClearCache" = "Effacer le cache";
 "ResetSettings" = "Réinitialiser les paramètres YTLite";
@@ -212,6 +237,8 @@
 "CopyCommentText" = "Copy comment text";
 "SaveCommentAsImage" = "Save comment as image";
 "CopyCommentAsImage" = "Copy comment as image";
+"SaveProfilePicture" = "Save profile picture";
+"CopyProfilePicture" = "Copy profile picture";
 "Cancel" = "Annuler";
 "Copied" = "Copié dans le presse-papiers";
 "Saved" = "Enregistré dans Photos";

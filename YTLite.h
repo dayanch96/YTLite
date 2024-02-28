@@ -2,28 +2,8 @@
 #import <Foundation/Foundation.h>
 #import <rootless.h>
 #import <Photos/Photos.h>
-#import "../YouTubeHeader/YTAlertView.h"
-#import "../YouTubeHeader/YTIGuideResponse.h"
-#import "../YouTubeHeader/YTIGuideResponseSupportedRenderers.h"
-#import "../YouTubeHeader/YTIPivotBarSupportedRenderers.h"
-#import "../YouTubeHeader/YTIPivotBarRenderer.h"
-#import "../YouTubeHeader/YTIBrowseRequest.h"
-#import "../YouTubeHeader/YTISectionListRenderer.h"
-#import "../YouTubeHeader/YTQTMButton.h"
-#import "../YouTubeHeader/YTIButtonRenderer.h"
-#import "../YouTubeHeader/YTVideoQualitySwitchOriginalController.h"
-#import "../YouTubeHeader/YTPlayerViewController.h"
-#import "../YouTubeHeader/YTWatchController.h"
-#import "../YouTubeHeader/YTPlayerOverlay.h"
-#import "../YouTubeHeader/YTPlayerOverlayProvider.h"
-#import "../YouTubeHeader/YTSettingsViewController.h"
-#import "../YouTubeHeader/YTSettingsSectionItem.h"
-#import "../YouTubeHeader/YTSettingsSectionItemManager.h"
-#import "../YouTubeHeader/YTSettingsPickerViewController.h"
-#import "../YouTubeHeader/YTUIUtils.h"
-#import "../YouTubeHeader/YTIMenuConditionalServiceItemRenderer.h"
-#import "../YouTubeHeader/YTToastResponderEvent.h"
-#import "../YouTubeHeader/YTPageStyleController.h"
+#import "Reachability.h"
+#import "YouTubeHeaders.h"
 
 static inline NSBundle *YTLiteBundle() {
     static NSBundle *bundle = nil;
@@ -74,6 +54,9 @@ BOOL kClassicQuality;
 BOOL kExtraSpeedOptions;
 BOOL kDontSnapToChapter;
 BOOL kRedProgressBar;
+BOOL kNoPlayerRemixButton;
+BOOL kNoPlayerClipButton;
+BOOL kNoPlayerDownloadButton;
 BOOL kNoHints;
 BOOL kNoFreeZoom;
 BOOL kAutoFullscreen;
@@ -112,12 +95,18 @@ BOOL kRemoveUploads;
 BOOL kRemoveLibrary;
 BOOL kCopyVideoInfo;
 BOOL kPostManager;
-BOOL kSavePostImage;
 BOOL kSaveProfilePhoto;
 BOOL kCommentManager;
 BOOL kSavePost;
 BOOL kFixAlbums;
 BOOL kRemovePlayNext;
+BOOL kRemoveDownloadMenu;
+BOOL kRemoveWatchLaterMenu;
+BOOL kRemoveSaveToPlaylistMenu;
+BOOL kRemoveShareMenu;
+BOOL kRemoveNotInterestedMenu;
+BOOL kRemoveDontRecommendMenu;
+BOOL kRemoveReportMenu;
 BOOL kNoContinueWatching;
 BOOL kNoSearchHistory;
 BOOL kNoRelatedWatchNexts;
@@ -127,16 +116,28 @@ BOOL kPlaylistOldMinibar;
 BOOL kDisableRTL;
 BOOL kAdvancedMode;
 BOOL kAdvancedModeReminder;
+int kWiFiQualityIndex;
+int kCellQualityIndex;
 int kPivotIndex;
+
+@interface YTTouchFeedbackController : YTCollectionViewCell
+@property (nonatomic, strong, readwrite) UIColor *feedbackColor;
+@end
+
+@interface ABCSwitch : UIControl
+@property (nonatomic, strong, readwrite) UIColor *onTintColor;
+@end
+
+@interface YTSettingsCell ()
+- (void)setIndicatorIcon:(int)icon;
+@end
 
 @interface YTSettingsSectionItemManager (Custom)
 @property (nonatomic, strong) NSMutableDictionary *prefs;
 @property (nonatomic, strong) NSString *prefsPath;
 - (void)updatePrefsForKey:(NSString *)key enabled:(BOOL)enabled;
 - (void)updateIntegerPrefsForKey:(NSString *)key intValue:(NSInteger)intValue;
-@end
-
-@interface YTPivotBarView : UIView
+- (UIImage *)resizedImageNamed:(NSString *)iconName;
 @end
 
 @interface YTLightweightQTMButton ()
@@ -146,10 +147,6 @@ int kPivotIndex;
 @interface YTQTMButton ()
 @property (nonatomic, strong, readwrite) YTIButtonRenderer *buttonRenderer;
 - (void)setSizeWithPaddingAndInsets:(BOOL)sizeWithPaddingAndInsets;
-@end
-
-@interface YTPivotBarItemView : UIView
-@property (nonatomic, strong, readwrite) YTQTMButton *navigationButton;
 @end
 
 @interface YTRightNavigationButtons : UIView
@@ -171,9 +168,20 @@ int kPivotIndex;
 - (void)showPivotBar;
 @end
 
+@interface YTPivotBarView : UIView
+- (void)selectItemWithPivotIdentifier:(id)pivotIndentifier;
+@end
+
 @interface YTPivotBarViewController : UIViewController
 @property (nonatomic, weak, readwrite) YTAppViewController *parentViewController;
+- (YTPivotBarView *)pivotBarView;
 - (void)selectItemWithPivotIdentifier:(id)pivotIndentifier;
+@end
+
+@interface YTPivotBarItemView : UIView
+@property (nonatomic, strong, readwrite) YTIPivotBarItemRenderer *renderer;
+@property (nonatomic, weak, readwrite) YTPivotBarViewController *delegate;
+@property (nonatomic, strong, readwrite) YTQTMButton *navigationButton;
 @end
 
 @interface YTScrollableNavigationController : UINavigationController
@@ -199,19 +207,43 @@ int kPivotIndex;
 @property (nonatomic, weak, readwrite) YTScrollableNavigationController *navigationController;
 @end
 
-@interface YTIVideoDetails ()
+@interface YTIVideoDetails : NSObject
 @property (nonatomic, copy, readwrite) NSString *title;
 @property (nonatomic, copy, readwrite) NSString *shortDescription;
 @end
 
-@interface YTPlayerViewController (YTAFS)
+@interface YTIPlayerResponse : NSObject
+@property (nonatomic, assign, readonly) YTIVideoDetails *videoDetails;
+@end
+
+@interface YTPlayerResponse : NSObject
+@property (nonatomic, assign, readonly) YTIPlayerResponse *playerData;
+@end
+
+@interface MLQuickMenuVideoQualitySettingFormatConstraint : NSObject
+- (instancetype)initWithVideoQualitySetting:(int)settings formatSelectionReason:(NSInteger)reason qualityLabel:(NSString *)label;
+@end
+
+@interface MLFormat : NSObject
+@property (nonatomic, assign, readonly) NSString *qualityLabel;
+@property (nonatomic, assign, readonly) int singleDimensionResolution;
+@end
+
+@interface YTSingleVideoController : NSObject
+@property (nonatomic, assign, readonly) NSArray *selectableVideoFormats;
+- (void)setVideoFormatConstraint:(MLQuickMenuVideoQualitySettingFormatConstraint *)formatConstraint;
+@end
+
+@interface YTPlayerViewController : UIViewController
 @property (nonatomic, assign, readonly) YTPlayerResponse *playerResponse;
+@property (nonatomic, assign, readonly) YTSingleVideoController *activeVideo;
 @property (nonatomic, weak, readwrite) UIViewController *parentViewController;
 @property (readonly, nonatomic) NSString *contentVideoID;
 - (void)setActiveCaptionTrack:(id)arg1;
 - (void)shortsToRegular;
 - (void)autoFullscreen;
 - (void)turnOffCaptions;
+- (void)autoQuality;
 @end
 
 @interface YTPlayerView : UIView
@@ -288,15 +320,16 @@ int kPivotIndex;
 @property (atomic, assign, readonly) NSMutableArray *allObjects;
 @end
 
-@interface ASDisplayNode : NSObject
+@interface ASDisplayNode ()
 @property (nonatomic, assign, readonly) UIViewController *closestViewController;
 @property (atomic, assign, readonly) ASNodeAncestryEnumerator *supernodes;
-@property (atomic, copy, readwrite) NSArray *yogaChildren;
+// @property (atomic, copy, readwrite) NSArray *yogaChildren;
 @property (atomic) CALayer *layer;
 @end
 
 @interface ELMContainerNode : ASDisplayNode
 @property (nonatomic, strong, readwrite) NSString *copiedComment;
+@property (nonatomic, strong, readwrite) NSURL *copiedURL;
 @end
 
 @interface ELMExpandableTextNode : ASDisplayNode
@@ -307,6 +340,9 @@ int kPivotIndex;
 @property (atomic, copy, readwrite) NSURL *URL;
 @end
 
+@interface YTImageZoomNode : ASNetworkImageNode
+@end
+
 @interface ASTextNode : ASDisplayNode
 @property (atomic, copy, readwrite) NSAttributedString *attributedText;
 @end
@@ -314,18 +350,21 @@ int kPivotIndex;
 @interface _ASDisplayView : UIView
 @property (nonatomic, strong, readwrite) ASDisplayNode *keepalive_node;
 - (void)postManager:(UILongPressGestureRecognizer *)sender;
-- (void)saveImage:(UILongPressGestureRecognizer *)sender;
 - (void)savePFP:(UILongPressGestureRecognizer *)sender;
 - (void)commentManager:(UILongPressGestureRecognizer *)sender;
 @end
 
-@interface MLHAMQueuePlayer : NSObject
-@property id playerEventCenter;
--(void)setRate:(float)rate;
-@end
+// @interface MLHAMQueuePlayer : NSObject
+// @property id playerEventCenter;
+// -(void)setRate:(float)rate;
+// @end
 
 @interface YTVarispeedSwitchControllerOption : NSObject
-- (id)initWithTitle:(id)title rate:(float)rate;
+- (id)initWithTitle:(NSString *)title rate:(float)rate;
+@end
+
+@interface YTVarispeedSwitchController : NSObject
+- (void)addActionForOption:(YTVarispeedSwitchControllerOption *)option;
 @end
 
 @interface HAMPlayerInternal : NSObject
@@ -339,4 +378,28 @@ int kPivotIndex;
 @interface YTMainAppVideoPlayerOverlayViewController : UIViewController
 @property (readonly, nonatomic) CGFloat mediaTime;
 @property (readonly, nonatomic) NSString *videoID;
+@end
+
+@interface YTFormattedStringLabel : UILabel
+@end
+
+@interface YTActionSheetHeaderView : UIView
+- (void)showHeaderDivider;
+@end
+
+@interface YTActionSheetAction : NSObject
++ (instancetype)actionWithTitle:(NSString *)title iconImage:(UIImage *)image style:(NSInteger)style handler:(void (^)(void))handler;
++ (instancetype)actionWithTitle:(NSString *)title iconImage:(UIImage *)image secondaryIconImage:(UIImage *)secondaryIconImage accessibilityIdentifier:(NSString *)identifier handler:(void (^)(void))handler;
++ (instancetype)actionWithTitle:(NSString *)title titleColor:(UIColor *)titleColor iconImage:(UIImage *)image iconColor:(UIColor *)iconColor disableAutomaticButtonColor:(BOOL)autoColor accessibilityIdentifier:(NSString *)identifier handler:(void (^)(void))handler;
+@end
+
+@interface YTDefaultSheetController : NSObject
+- (void)addAction:(YTActionSheetAction *)action;
+- (void)presentFromView:(UIView *)view animated:(BOOL)animated completion:(void(^)(void))completion;
+- (void)presentFromViewController:(UIViewController *)vc animated:(BOOL)animated completion:(void(^)(void))completion;
+
++ (instancetype)sheetControllerWithParentResponder:(id)parentResponder;
++ (instancetype)sheetControllerWithParentResponder:(id)parentResponder forcedSheetStyle:(NSInteger)style;
++ (instancetype)sheetControllerWithMessage:(NSString *)message delegate:(id)delegate parentResponder:(id)parentResponder;
++ (instancetype)sheetControllerWithMessage:(NSString *)message subMessage:(NSString *)subMessage delegate:(id)delegate parentResponder:(id)parentResponder;
 @end

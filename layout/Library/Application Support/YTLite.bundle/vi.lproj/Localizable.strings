@@ -67,6 +67,12 @@
 "DontSnap2ChapterDesc" = "Tắt tính năng tự động chuyển tới chương gần nhất khi tua video.";
 "RedProgressBar" = "Thanh tiến trình màu đỏ";
 "RedProgressBarDesc" = "Mang lại thanh tiến trình màu đỏ.";
+"NoPlayerRemixButton" = "Remove remix button";
+"NoPlayerRemixButtonDesc" = "Removes remix button under the player.";
+"NoPlayerClipButton" = "Remove clip button";
+"NoPlayerClipButtonDesc" = "Removes clip button under the player.";
+"NoPlayerDownloadButton" = "Remove download button";
+"NoPlayerDownloadButtonDesc" = "Removes download button under the player.";
 "NoHints" = "Tắt gợi ý";
 "NoHintsDesc" = "Tắt gợi ý của tác giả xuất hiện ở góc trên bên phải trong khi phát lại.";
 "NoFreeZoom" = "Tắt tính năng chạm để thu phóng";
@@ -147,8 +153,6 @@
 "CopyVideoInfoDesc" = "Thêm nút để sao chép tiêu đề và mô tả video vào bảng Mô tả Video.";
 "PostManager" = "Lưu bài đăng";
 "PostManagerDesc" = "Cho phép sao chép văn bản bài đăng và lưu bài đăng dưới dạng hình ảnh bằng cách nhấn giữ.";
-"SavePostImage" = "Lưu hình ảnh từ bài đăng trên cộng đồng";
-"SavePostImageDesc" = "Lưu hình ảnh bài đăng của cộng đồng vào ứng dụng Ảnh bằng cách nhấn giữ.";
 "SaveProfilePhoto" = "Lưu ảnh hồ sơ";
 "SaveProfilePhotoDesc" = "Lưu ảnh hồ sơ vào ứng dụng Ảnh bằng cách nhấn và giữ.";
 "CommentManager" = "Lưu bình luận";
@@ -157,6 +161,20 @@
 "FixAlbumsDesc" = "Sửa lỗi hiển thị Albums cho người dùng Nga.";
 "RemovePlayNext" = "Xóa \"Phát tiếp theo trong danh sách chờ\"";
 "RemovePlayNextDesc" = "Xóa tùy chọn \"Phát tiếp theo trong danh sách chờ\" khỏi menu.";
+"RemoveDownloadMenu" = "Remove \"Download\"";
+"RemoveDownloadMenuDesc" = "Removes \"Download\" option from menu.";
+"RemoveWatchLaterMenu" = "Remove \"Save to Watch Later\"";
+"RemoveWatchLaterMenuDesc" = "Removes \"Save to Watch Later\" option from menu.";
+"RemoveSaveToPlaylistMenu" = "Remove \"Save to playlist\"";
+"RemoveSaveToPlaylistMenuDesc" = "Removes \"Save to playlist\" option from menu.";
+"RemoveShareMenu" = "Remove \"Share\"";
+"RemoveShareMenuDesc" = "Removes \"Share\" option from menu.";
+"RemoveNotInterestedMenu" = "Remove \"Not interested\"";
+"RemoveNotInterestedMenuDesc" = "Removes \"Not interested\" option from menu.";
+"RemoveDontRecommendMenu" = "Remove \"Don't recommend channel\"";
+"RemoveDontRecommendMenuDesc" = "Removes \"Don't recommend channel\" option from menu.";
+"RemoveReportMenu" = "Remove \"Report\"";
+"RemoveReportMenuDesc" = "Removes \"Report\" option from menu.";
 "NoContinueWatching" = "Xóa \"Tiếp tục xem\"";
 "NoContinueWatchingDesc" = "Xóa phần \"Tiếp tục xem\" chứa các video chưa xem hết khỏi Trang chủ.";
 "NoSearchHistory" = "Ẩn lịch sử tìm kiếm";
@@ -172,6 +190,12 @@
 "DisableRTL" = "Tắt định dạng RTL";
 "DisableRTLDesc" = "Hiển thị mạnh mẽ văn bản ở định dạng từ trái sang phải (LTR) cho các ngôn ngữ ban đầu được hiển thị ở định dạng từ phải sang trái (RTL).";
 
+"PlaybackQualityOnWiFi" = "Playback quality on WiFi";
+"PlaybackQualityOnCellular" = "Playback quality on Cellular";
+"SelectQuality" = "Select Quality";
+"Default" = "Default";
+"Best" = "Best";
+
 "Startup" = "Trang khởi động";
 "Home" = "Trang chủ";
 "Explore" = "Khám phá";
@@ -181,8 +205,8 @@
 "Warning" = "Cảnh báo";
 "TabIsHidden" = "Không thể chọn Tab ẩn làm trang khởi động";
 
-"DonateViaPayPal" = "Quyên góp qua PayPal";
-"SupportViaGhSponsors" = "Hỗ trợ phát triển thông qua Github";
+"SupportDevelopment" = "Support development";
+"SupportDevelopmentDesc" = "If you like YTLite and would like to support its development, you can do it using any of convenient ways below.\nThanks❤";
 "Version" = "Phiên bản";
 "About" = "Giới thiệu";
 "Credits" = "Credits";
@@ -194,6 +218,7 @@
 "Japanese" = "Tiếng Nhật";
 "Vietnamese" = "Tiếng Việt";
 "Advanced" = "Chế độ nâng cao";
+"AdvancedDesc" = "More customizable mode";
 "AdvancedModeReminder" = "Bạn có muốn kích hoạt Chế độ nâng cao cho YTLite không?\n\nChế độ này cung cấp hơn 50 tùy chọn bổ sung để tùy chỉnh và tối ưu hóa trải nghiệm YouTube của bạn. Bạn có thể Bật/Tắt nó sau từ Cài đặt → %@ → %@ → %@.";
 "ClearCache" = "Xóa bộ nhớ đệm";
 "ResetSettings" = "Đặt lại cài đặt YTLite";
@@ -212,6 +237,8 @@
 "CopyCommentText" = "Sao chép văn bản bình luận";
 "SaveCommentAsImage" = "Lưu bình luận dưới dạng hình ảnh";
 "CopyCommentAsImage" = "Sao chép bình luận dưới dạng hình ảnh";
+"SaveProfilePicture" = "Save profile picture";
+"CopyProfilePicture" = "Copy profile picture";
 "Cancel" = "Hủy bỏ";
 "Copied" = "Sao chép vào clipboard";
 "Saved" = "Đã lưu vào Ảnh";

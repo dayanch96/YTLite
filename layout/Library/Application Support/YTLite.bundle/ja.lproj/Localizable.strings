@@ -67,6 +67,12 @@
 "DontSnap2ChapterDesc" = "ダブルタップジェスチャーで次のエピソードへスキップするのを無効にします";
 "RedProgressBar" = "赤いプログレスバー";
 "RedProgressBarDesc" = "赤いプログレスバーを復元します";
+"NoPlayerRemixButton" = "Remove remix button";
+"NoPlayerRemixButtonDesc" = "Removes remix button under the player.";
+"NoPlayerClipButton" = "Remove clip button";
+"NoPlayerClipButtonDesc" = "Removes clip button under the player.";
+"NoPlayerDownloadButton" = "Remove download button";
+"NoPlayerDownloadButtonDesc" = "Removes download button under the player.";
 "NoHints" = "ヒントを無効化";
 "NoHintsDesc" = "再生中に右上に表示される投稿者のヒントを無効にします";
 "NoFreeZoom" = "フリーズームジェスチャーを無効化";
@@ -147,8 +153,6 @@
 "CopyVideoInfoDesc" = "Adds button to copy video title and description into Video Description panel.";
 "PostManager" = "Save post information";
 "PostManagerDesc" = "Allows to copy post text and save post as image by long tap.";
-"SavePostImage" = "Save community posts image";
-"SavePostImageDesc" = "Saves community posts image to the Photos app by long tap.";
 "SaveProfilePhoto" = "Save profile picture";
 "SaveProfilePhotoDesc" = "Saves profile picture to the Photos app by long tap.";
 "CommentManager" = "Save comment information";
@@ -157,6 +161,20 @@
 "FixAlbumsDesc" = "Fixes the display of covers for users from Russia.";
 "RemovePlayNext" = "\"次に再生\"を削除";
 "RemovePlayNextDesc" = "メニューから\"次に再生\"オプションを削除します";
+"RemoveDownloadMenu" = "Remove \"Download\"";
+"RemoveDownloadMenuDesc" = "Removes \"Download\" option from menu.";
+"RemoveWatchLaterMenu" = "Remove \"Save to Watch Later\"";
+"RemoveWatchLaterMenuDesc" = "Removes \"Save to Watch Later\" option from menu.";
+"RemoveSaveToPlaylistMenu" = "Remove \"Save to playlist\"";
+"RemoveSaveToPlaylistMenuDesc" = "Removes \"Save to playlist\" option from menu.";
+"RemoveShareMenu" = "Remove \"Share\"";
+"RemoveShareMenuDesc" = "Removes \"Share\" option from menu.";
+"RemoveNotInterestedMenu" = "Remove \"Not interested\"";
+"RemoveNotInterestedMenuDesc" = "Removes \"Not interested\" option from menu.";
+"RemoveDontRecommendMenu" = "Remove \"Don't recommend channel\"";
+"RemoveDontRecommendMenuDesc" = "Removes \"Don't recommend channel\" option from menu.";
+"RemoveReportMenu" = "Remove \"Report\"";
+"RemoveReportMenuDesc" = "Removes \"Report\" option from menu.";
 "NoContinueWatching" = "\"続きを見る\"を削除";
 "NoContinueWatchingDesc" = "ホームページに未完成の動画を含む\"続きを見る\"セクションを削除します";
 "NoSearchHistory" = "検索履歴を非表示";
@@ -172,6 +190,12 @@
 "DisableRTL" = "RTLフォーマットを無効化";
 "DisableRTLDesc" = "RTLで表示される言語を左から右(LTR)の形式で表示するように強制します";
 
+"PlaybackQualityOnWiFi" = "Playback quality on WiFi";
+"PlaybackQualityOnCellular" = "Playback quality on Cellular";
+"SelectQuality" = "Select Quality";
+"Default" = "Default";
+"Best" = "Best";
+
 "Startup" = "スタートアップページ";
 "Home" = "ホーム";
 "Explore" = "探索";
@@ -181,8 +205,8 @@
 "Warning" = "警告";
 "TabIsHidden" = "非表示のタブはスタートアップページとして選択できません";
 
-"DonateViaPayPal" = "Donate via PayPal";
-"SupportViaGhSponsors" = "Support development via Github Sponsors";
+"SupportDevelopment" = "Support development";
+"SupportDevelopmentDesc" = "If you like YTLite and would like to support its development, you can do it using any of convenient ways below.\nThanks❤";
 "Version" = "バージョン";
 "About" = "About";
 "Credits" = "クレジット";
@@ -194,6 +218,7 @@
 "Japanese" = "日本語翻訳";
 "Vietnamese" = "Vietnamese localization";
 "Advanced" = "アドバンスモード";
+"AdvancedDesc" = "More customizable mode";
 "AdvancedModeReminder" = "YTLiteでアドバンスモードを有効にしますか?\n\nこのモードでは50以上の追加オプションを使用してYouTubeのカスタマイズと最適化が可能です。後で、設定 → %@ → %@ → %@から変更できます";
 "ClearCache" = "Clear cache";
 "ResetSettings" = "YTLiteの設定をリセット";
@@ -212,6 +237,8 @@
 "CopyCommentText" = "Copy comment text";
 "SaveCommentAsImage" = "Save comment as image";
 "CopyCommentAsImage" = "Copy comment as image";
+"SaveProfilePicture" = "Save profile picture";
+"CopyProfilePicture" = "Copy profile picture";
 "Cancel" = "Cancel";
 "Copied" = "Copied to clipboard";
 "Saved" = "Saved to Photos";

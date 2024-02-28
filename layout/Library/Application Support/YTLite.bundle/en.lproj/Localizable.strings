@@ -67,6 +67,12 @@
 "DontSnap2ChapterDesc" = "Disables skipping to the next episode by double-tap gesture.";
 "RedProgressBar" = "Red progress bar";
 "RedProgressBarDesc" = "Brings back red progress bar.";
+"NoPlayerRemixButton" = "Remove remix button";
+"NoPlayerRemixButtonDesc" = "Removes remix button under the player.";
+"NoPlayerClipButton" = "Remove clip button";
+"NoPlayerClipButtonDesc" = "Removes clip button under the player.";
+"NoPlayerDownloadButton" = "Remove download button";
+"NoPlayerDownloadButtonDesc" = "Removes download button under the player.";
 "NoHints" = "Disable hints";
 "NoHintsDesc" = "Disables hints by author which appears at the top-right corner during playback.";
 "NoFreeZoom" = "Disable free zoom gesture";
@@ -147,8 +153,6 @@
 "CopyVideoInfoDesc" = "Adds button to copy video title and description into Video Description panel.";
 "PostManager" = "Save post information";
 "PostManagerDesc" = "Allows to copy post text and save post as image by long tap.";
-"SavePostImage" = "Save image from community posts";
-"SavePostImageDesc" = "Saves community post image to the Photos app by long tap.";
 "SaveProfilePhoto" = "Save profile picture";
 "SaveProfilePhotoDesc" = "Saves profile picture to the Photos app by long tap.";
 "CommentManager" = "Save comment information";
@@ -157,6 +161,20 @@
 "FixAlbumsDesc" = "Fixes the display of covers for users from Russia.";
 "RemovePlayNext" = "Remove \"Play next in queue\"";
 "RemovePlayNextDesc" = "Removes \"Play next in queue\" option from menu.";
+"RemoveDownloadMenu" = "Remove \"Download\"";
+"RemoveDownloadMenuDesc" = "Removes \"Download\" option from menu.";
+"RemoveWatchLaterMenu" = "Remove \"Save to Watch Later\"";
+"RemoveWatchLaterMenuDesc" = "Removes \"Save to Watch Later\" option from menu.";
+"RemoveSaveToPlaylistMenu" = "Remove \"Save to playlist\"";
+"RemoveSaveToPlaylistMenuDesc" = "Removes \"Save to playlist\" option from menu.";
+"RemoveShareMenu" = "Remove \"Share\"";
+"RemoveShareMenuDesc" = "Removes \"Share\" option from menu.";
+"RemoveNotInterestedMenu" = "Remove \"Not interested\"";
+"RemoveNotInterestedMenuDesc" = "Removes \"Not interested\" option from menu.";
+"RemoveDontRecommendMenu" = "Remove \"Don't recommend channel\"";
+"RemoveDontRecommendMenuDesc" = "Removes \"Don't recommend channel\" option from menu.";
+"RemoveReportMenu" = "Remove \"Report\"";
+"RemoveReportMenuDesc" = "Removes \"Report\" option from menu.";
 "NoContinueWatching" = "Remove \"Continue watching\"";
 "NoContinueWatchingDesc" = "Removes the \"Continue watching\" section containing unfinished videos from the Home page.";
 "NoSearchHistory" = "Hide search history";
@@ -172,6 +190,12 @@
 "DisableRTL" = "Disable RTL formatting";
 "DisableRTLDesc" = "Forcefully displays text in left-to-right (LTR) format for languages that are initially displayed in right-to-left (RTL).";
 
+"PlaybackQualityOnWiFi" = "Playback quality on WiFi";
+"PlaybackQualityOnCellular" = "Playback quality on Cellular";
+"SelectQuality" = "Select Quality";
+"Default" = "Default";
+"Best" = "Best";
+
 "Startup" = "Startup page";
 "Home" = "Home";
 "Explore" = "Explore";
@@ -181,8 +205,8 @@
 "Warning" = "Warning";
 "TabIsHidden" = "Hidden tab cannot be selected as startup page";
 
-"DonateViaPayPal" = "Donate via PayPal";
-"SupportViaGhSponsors" = "Support development via Github Sponsors";
+"SupportDevelopment" = "Support development";
+"SupportDevelopmentDesc" = "If you like YTLite and would like to support its development, you can do it using any of convenient ways below.\nThanks❤";
 "Version" = "Version";
 "About" = "About";
 "Credits" = "Credits";
@@ -194,6 +218,7 @@
 "Japanese" = "Japanese localization";
 "Vietnamese" = "Vietnamese localization";
 "Advanced" = "Advanced mode";
+"AdvancedDesc" = "More customizable mode";
 "AdvancedModeReminder" = "Would you like to activate Advanced mode for YTLite?\n\nThis mode provides more than 50 additional options to customize and optimize your YouTube experience. You can enable/disable it later from Settings → %@ → %@ → %@.";
 "ClearCache" = "Clear cache";
 "ResetSettings" = "Reset YTLite settings";
@@ -207,11 +232,15 @@
 "CopyTitle" = "Copy title";
 "CopyDescription" = "Copy description";
 "CopyPostText" = "Copy post text";
+"SaveCurrentImage" = "Save current image";
+"CopyCurrentImage" = "Copy current image";
 "SavePostAsImage" = "Save post as image";
 "CopyPostAsImage" = "Copy post as image";
 "CopyCommentText" = "Copy comment text";
 "SaveCommentAsImage" = "Save comment as image";
 "CopyCommentAsImage" = "Copy comment as image";
+"SaveProfilePicture" = "Save profile picture";
+"CopyProfilePicture" = "Copy profile picture";
 "Cancel" = "Cancel";
 "Copied" = "Copied to clipboard";
 "Saved" = "Saved to Photos";

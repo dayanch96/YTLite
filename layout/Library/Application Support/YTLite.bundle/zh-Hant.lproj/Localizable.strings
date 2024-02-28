@@ -67,6 +67,12 @@
 "DontSnap2ChapterDesc" = "停用點兩下手勢跳轉到下一集";
 "RedProgressBar" = "紅色進度條";
 "RedProgressBarDesc" = "恢復紅色的進度條";
+"NoPlayerRemixButton" = "Remove remix button";
+"NoPlayerRemixButtonDesc" = "Removes remix button under the player.";
+"NoPlayerClipButton" = "Remove clip button";
+"NoPlayerClipButtonDesc" = "Removes clip button under the player.";
+"NoPlayerDownloadButton" = "Remove download button";
+"NoPlayerDownloadButtonDesc" = "Removes download button under the player.";
 "NoHints" = "停用提示";
 "NoHintsDesc" = "在播放過程中出現在右上角的作者提示";
 "NoFreeZoom" = "停用自由縮放手勢";
@@ -147,8 +153,6 @@
 "CopyVideoInfoDesc" = "新增按鈕將影片標題和說明，複製到影片說明欄";
 "PostManager" = "儲存貼文資訊";
 "PostManagerDesc" = "長按可以複製貼文內容或將貼文儲存為圖片";
-"SavePostImage" = "儲存社群貼文圖片";
-"SavePostImageDesc" = "長按社群貼文圖片儲存到照片應用";
 "SaveProfilePhoto" = "儲存個人檔案照片";
 "SaveProfilePhotoDesc" = "長按個人檔案照片儲存到照片應用";
 "CommentManager" = "儲存留言資訊";
@@ -157,6 +161,20 @@
 "FixAlbumsDesc" = "為俄羅斯使用者修復封面顯示問題";
 "RemovePlayNext" = "移除「播放下一個」";
 "RemovePlayNextDesc" = "從選單移除「播放下一個」";
+"RemoveDownloadMenu" = "Remove \"Download\"";
+"RemoveDownloadMenuDesc" = "Removes \"Download\" option from menu.";
+"RemoveWatchLaterMenu" = "Remove \"Save to Watch Later\"";
+"RemoveWatchLaterMenuDesc" = "Removes \"Save to Watch Later\" option from menu.";
+"RemoveSaveToPlaylistMenu" = "Remove \"Save to playlist\"";
+"RemoveSaveToPlaylistMenuDesc" = "Removes \"Save to playlist\" option from menu.";
+"RemoveShareMenu" = "Remove \"Share\"";
+"RemoveShareMenuDesc" = "Removes \"Share\" option from menu.";
+"RemoveNotInterestedMenu" = "Remove \"Not interested\"";
+"RemoveNotInterestedMenuDesc" = "Removes \"Not interested\" option from menu.";
+"RemoveDontRecommendMenu" = "Remove \"Don't recommend channel\"";
+"RemoveDontRecommendMenuDesc" = "Removes \"Don't recommend channel\" option from menu.";
+"RemoveReportMenu" = "Remove \"Report\"";
+"RemoveReportMenuDesc" = "Removes \"Report\" option from menu.";
 "NoContinueWatching" = "移除「繼續觀看」";
 "NoContinueWatchingDesc" = "從首頁中移除包含未完成影片的「繼續觀看」部分";
 "NoSearchHistory" = "隱藏搜尋記錄";
@@ -172,6 +190,12 @@
 "DisableRTL" = "停用RTL格式";
 "DisableRTLDesc" = "強制將初始顯示從右到左（RTL）格式的語言，改為從左到右（LTR）顯示";
 
+"PlaybackQualityOnWiFi" = "Playback quality on WiFi";
+"PlaybackQualityOnCellular" = "Playback quality on Cellular";
+"SelectQuality" = "Select Quality";
+"Default" = "Default";
+"Best" = "Best";
+
 "Startup" = "啟動頁面";
 "Home" = "首頁";
 "Explore" = "探索";
@@ -181,8 +205,8 @@
 "Warning" = "警告";
 "TabIsHidden" = "無法將隱藏的標籤選為啟動頁面";
 
-"DonateViaPayPal" = "透過PayPal贊助";
-"SupportViaGhSponsors" = "透過Github贊助支持開發";
+"SupportDevelopment" = "Support development";
+"SupportDevelopmentDesc" = "If you like YTLite and would like to support its development, you can do it using any of convenient ways below.\nThanks❤";
 "Version" = "版本";
 "About" = "關於";
 "Credits" = "貢獻";
@@ -194,6 +218,7 @@
 "Japanese" = "日本語在地化";
 "Vietnamese" = "越南語在地化";
 "Advanced" = "進階模式";
+"AdvancedDesc" = "More customizable mode";
 "AdvancedModeReminder" = "您是否想啟用YTLite的進階模式？\n\n這個模式提供了50多個額外的選項，可以自訂義和優化您的YouTube使用體驗。您稍後可以在「設定」中 → %@ → %@ → %@ 啟用或停用它。";
 "ClearCache" = "清除快取";
 "ResetSettings" = "重置YTLite設定";
@@ -212,6 +237,8 @@
 "CopyCommentText" = "複製留言內容";
 "SaveCommentAsImage" = "留言儲存為圖片";
 "CopyCommentAsImage" = "複製留言為圖片";
+"SaveProfilePicture" = "Save profile picture";
+"CopyProfilePicture" = "Copy profile picture";
 "Cancel" = "取消";
 "Copied" = "已複製到剪貼簿";
 "Saved" = "已儲存到照片應用";

@@ -1,5 +1,9 @@
 #import "YTLite.h"
 
+static UIImage *YTImageNamed(NSString *imageName) {
+    return [UIImage imageNamed:imageName inBundle:[NSBundle mainBundle] compatibleWithTraitCollection:nil];
+}
+
 // YouTube-X (https://github.com/PoomSmart/YouTube-X/)
 // Background Playback
 %hook YTIPlayabilityStatus
@@ -284,44 +288,22 @@
 }
 %end
 
-// Extra Speed Options (https://github.com/LillieH1000/YouTube-Reborn/blob/v4/Tweak.xm#L853) - Same code but for .x
+
+// Extra Speed Options
 %hook YTVarispeedSwitchController
-- (void *)init {
-    void *ret = (void *)%orig;
-    if (kExtraSpeedOptions) {
-        NSArray *speedOptions = @[@"0.1x", @"0.25x", @"0.5x", @"0.75x", @"1x", @"1.25x", @"1.5x", @"1.75x", @"2x", @"2.5x", @"3x", @"3.5x", @"4x", @"5x"];
-        NSMutableArray *speedOptionsCopy = [NSMutableArray new];
+- (void)setDelegate:(id)arg1 {
+    NSMutableArray *optionsCopy = [[self valueForKey:@"_options"] mutableCopy];
+    NSArray *speedOptions = @[@"2.5", @"3", @"3.5", @"4", @"5"];
 
-        for (NSString *title in speedOptions) {
-            float rate = [title floatValue];
-            [speedOptionsCopy addObject:[[objc_lookUpClass("YTVarispeedSwitchControllerOption") alloc] initWithTitle:title rate:rate]];
-        }
-
-        Ivar optionsIvar = class_getInstanceVariable(object_getClass(self), "_options");
-        object_setIvar(self, optionsIvar, [speedOptionsCopy copy]);
-
-    } return ret;
-}
-%end
-
-%hook MLHAMQueuePlayer
-- (void)setRate:(float)rate {
-    if (kExtraSpeedOptions) {
-        Ivar rateIvar = class_getInstanceVariable([self class], "_rate");
-        if (rateIvar) {
-            float* ratePtr = (float *)((__bridge void *)self + ivar_getOffset(rateIvar));
-            *ratePtr = rate;
-        }
-
-        id ytPlayer = object_getIvar(self, class_getInstanceVariable([self class], "_player"));
-        if ([ytPlayer respondsToSelector:@selector(setRate:)]) {
-            [ytPlayer setRate:rate];
-        }
-
-        [self.playerEventCenter broadcastRateChange:rate];
-    } else {
-        %orig(rate);
+    for (NSString *title in speedOptions) {
+        float rate = [title floatValue];
+        YTVarispeedSwitchControllerOption *option = [[%c(YTVarispeedSwitchControllerOption) alloc] initWithTitle:title rate:rate];
+        [optionsCopy addObject:option];
     }
+
+    if (kExtraSpeedOptions) [self setValue:[optionsCopy copy] forKey:@"_options"];
+
+    return %orig;
 }
 %end
 
@@ -377,6 +359,7 @@
 - (void)loadWithPlayerTransition:(id)arg1 playbackConfig:(id)arg2 {
     %orig;
 
+    if (kWiFiQualityIndex != 0 || kCellQualityIndex != 0) [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(autoQuality) userInfo:nil repeats:NO];
     if (kAutoFullscreen) [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(autoFullscreen) userInfo:nil repeats:NO];
     if (kShortsToRegular) [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(shortsToRegular) userInfo:nil repeats:NO];
     if (kDisableAutoCaptions) [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(turnOffCaptions) userInfo:nil repeats:NO];
@@ -401,6 +384,76 @@
 %new
 - (void)turnOffCaptions {
     [self setActiveCaptionTrack:nil];
+}
+
+%new
+- (void)autoQuality {
+    if (![self.view.superview isKindOfClass:NSClassFromString(@"YTWatchView")]) {
+        return;
+    }
+
+    NetworkStatus status = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
+    NSInteger kQualityIndex = status == ReachableViaWiFi ? kWiFiQualityIndex : kCellQualityIndex;
+
+    NSString *bestQualityLabel;
+    int highestResolution = 0;
+    for (MLFormat *format in self.activeVideo.selectableVideoFormats) {
+        int reso = format.singleDimensionResolution;
+        if (reso > highestResolution) {
+            highestResolution = reso;
+            bestQualityLabel = format.qualityLabel;
+        }
+    }
+
+    NSString *qualityLabel = kQualityIndex == 1 ? bestQualityLabel :
+                             kQualityIndex == 2 ? @"2160p60" :
+                             kQualityIndex == 3 ? @"2160p" :
+                             kQualityIndex == 4 ? @"1440p60" :
+                             kQualityIndex == 5 ? @"1440p" :
+                             kQualityIndex == 6 ? @"1080p60" :
+                             kQualityIndex == 7 ? @"1080p" :
+                             kQualityIndex == 8 ? @"720p60" :
+                             kQualityIndex == 9 ? @"720p" :
+                             kQualityIndex == 10 ? @"480p" :
+                             kQualityIndex == 11 ? @"360p" :
+                             nil;
+
+    if (![qualityLabel isEqualToString:bestQualityLabel]) {
+        BOOL exactMatch = NO;
+        NSString *closestQualityLabel = qualityLabel;
+
+        for (MLFormat *format in self.activeVideo.selectableVideoFormats) {
+            if ([format.qualityLabel isEqualToString:qualityLabel]) {
+                exactMatch = YES;
+                break;
+            }
+        }
+
+        if (!exactMatch) {
+            NSInteger bestQualityDifference = NSIntegerMax;
+
+            for (MLFormat *format in self.activeVideo.selectableVideoFormats) {
+                NSArray *formatСomponents = [format.qualityLabel componentsSeparatedByString:@"p"];
+                NSArray *targetComponents = [qualityLabel componentsSeparatedByString:@"p"];
+                if (formatСomponents.count == 2) {
+                    NSInteger formatQuality = [formatСomponents.firstObject integerValue];
+                    NSInteger targetQuality = [targetComponents.firstObject integerValue];
+                    NSInteger difference = labs(formatQuality - targetQuality);
+                    if (difference < bestQualityDifference) {
+                        bestQualityDifference = difference;
+                        closestQualityLabel = format.qualityLabel;
+                    }
+                }
+            }
+
+            qualityLabel = closestQualityLabel;
+        }
+    }
+
+    MLQuickMenuVideoQualitySettingFormatConstraint *fc = [[%c(MLQuickMenuVideoQualitySettingFormatConstraint) alloc] init];
+    if ([fc respondsToSelector:@selector(initWithVideoQualitySetting:formatSelectionReason:qualityLabel:)]) {
+        [self.activeVideo setVideoFormatConstraint:[fc initWithVideoQualitySetting:3 formatSelectionReason:2 qualityLabel:qualityLabel]];
+    }
 }
 %end
 
@@ -465,6 +518,79 @@
     if (kRemovePlayNext && renderer.icon.iconType == 251) {
         return NO;
     } return %orig;
+}
+%end
+
+// Remove Download button from the menu
+%hook YTDefaultSheetController
+- (void)addAction:(YTActionSheetAction *)action {
+    NSString *identifier = [action valueForKey:@"_accessibilityIdentifier"];
+
+    NSDictionary *actionsToRemove = @{
+        @"7": @(kRemoveDownloadMenu),
+        @"1": @(kRemoveWatchLaterMenu),
+        @"3": @(kRemoveSaveToPlaylistMenu),
+        @"5": @(kRemoveShareMenu),
+        @"12": @(kRemoveNotInterestedMenu),
+        @"31": @(kRemoveDontRecommendMenu),
+        @"58": @(kRemoveReportMenu)
+    };
+
+    if (![actionsToRemove[identifier] boolValue]) {
+        %orig;
+    }
+}
+%end
+
+// Hide buttons under the video player (@PoomSmart)
+static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *identifiers) {
+    for (id child in [nodeController children]) {
+        if ([child isKindOfClass:%c(ELMNodeController)]) {
+            NSArray <ELMComponent *> *elmChildren = [(ELMNodeController *)child children];
+            for (ELMComponent *elmChild in elmChildren) {
+                for (NSString *identifier in identifiers) {
+                    if ([[elmChild description] containsString:identifier])
+                        return YES;
+                }
+            }
+        }
+
+        if ([child isKindOfClass:%c(ASNodeController)]) {
+            ASDisplayNode *childNode = ((ASNodeController *)child).node; // ELMContainerNode
+            NSArray *yogaChildren = childNode.yogaChildren;
+            for (ASDisplayNode *displayNode in yogaChildren) {
+                if ([identifiers containsObject:displayNode.accessibilityIdentifier])
+                    return YES;
+            }
+
+            return findCell(child, identifiers);
+        }
+
+        return NO;
+    }
+    return NO;
+}
+
+%hook ASCollectionView
+- (CGSize)sizeForElement:(ASCollectionElement *)element {
+    if ([self.accessibilityIdentifier isEqualToString:@"id.video.scrollable_action_bar"]) {
+        ASCellNode *node = [element node];
+        ASNodeController *nodeController = [node controller];
+
+        if (kNoPlayerRemixButton && findCell(nodeController, @[@"id.video.remix.button"])) {
+            return CGSizeZero;
+        }
+
+        if (kNoPlayerClipButton && findCell(nodeController, @[@"clip_button.eml"])) {
+            return CGSizeZero;
+        }
+
+        if (kNoPlayerDownloadButton && findCell(nodeController, @[@"id.ui.add_to.offline.button"])) {
+            return CGSizeZero;
+        }
+    }
+
+    return %orig;
 }
 %end
 
@@ -538,6 +664,7 @@
 - (void)setRemixButton:(id)arg1 { if (!kHideShortsRemix) %orig; }
 - (void)setShareButton:(id)arg1 { if (!kHideShortsShare) %orig; }
 - (void)setNativePivotButton:(id)arg1 { if (!kHideShortsAvatars) %orig; }
+- (void)setPivotButtonElementRenderer:(id)arg1 { if (!kHideShortsAvatars) %orig; }
 %end
 
 %hook YTReelHeaderView
@@ -637,8 +764,61 @@ static BOOL isOverlayShown = YES;
 }
 %end
 
+static void downloadImageFromURL(UIResponder *responder, NSURL *URL, BOOL download) {
+    NSString *URLString = URL.absoluteString;
+
+    if (kFixAlbums && [URLString hasPrefix:@"https://yt3."]) {
+        URLString = [URLString stringByReplacingOccurrencesOfString:@"https://yt3." withString:@"https://yt4."];
+    }
+
+    NSURL *downloadURL = nil;
+    if ([URLString containsString:@"c-fcrop"]) {
+        NSRange croppedURL = [URLString rangeOfString:@"c-fcrop"];
+        if (croppedURL.location != NSNotFound) {
+            NSString *newURL = [URLString stringByReplacingOccurrencesOfString:[URLString substringFromIndex:croppedURL.location] withString:@"nd-v1"];
+            downloadURL = [NSURL URLWithString:newURL];
+        }
+    } else {
+        downloadURL = URL;
+    }
+
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:downloadURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (data) {
+            if (download) {
+                [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                    PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];
+                    [request addResourceWithType:PHAssetResourceTypePhoto data:data options:nil];
+                } completionHandler:^(BOOL success, NSError *error) {
+                    [[%c(YTToastResponderEvent) eventWithMessage:success ? LOC(@"Saved") : [NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription] firstResponder:responder] send];
+                }];
+            } else {
+                [UIPasteboard generalPasteboard].image = [UIImage imageWithData:data];
+                [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:responder] send];
+            }
+        } else {
+            [[%c(YTToastResponderEvent) eventWithMessage:[NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription] firstResponder:responder] send];
+        }
+    }] resume];
+}
+
+static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^completionHandler)(UIImage *)) {
+    UIGraphicsBeginImageContextWithOptions(layer.frame.size, NO, 0.0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, backgroundColor.CGColor);
+    CGContextFillRect(context, CGRectMake(0, 0, layer.frame.size.width, layer.frame.size.height));
+    [layer renderInContext:context];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    if (completionHandler) {
+        completionHandler(image);
+    }
+}
+
 %hook ELMContainerNode
 %property (nonatomic, strong) NSString *copiedComment;
+%property (nonatomic, strong) NSURL *copiedURL;
 %end
 
 %hook ASDisplayNode
@@ -674,52 +854,26 @@ static BOOL isOverlayShown = YES;
 }
 %end
 
-static void downloadImageFromURL(UIResponder *responder, NSURL *URL) {
-    NSString *URLString = URL.absoluteString;
+%hook YTImageZoomNode
+- (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2 {
+    BOOL isImageLoaded = [self valueForKey:@"_didLoadImage"];
+    if (kPostManager && isImageLoaded) {
+        ASDisplayNode *displayNode = (ASDisplayNode *)self;
+        ASNetworkImageNode *imageNode = (ASNetworkImageNode *)self;
+        NSURL *URL = imageNode.URL;
 
-    if (kFixAlbums && [URLString hasPrefix:@"https://yt3."]) {
-        URLString = [URLString stringByReplacingOccurrencesOfString:@"https://yt3." withString:@"https://yt4."];
-    }
-
-    NSURL *downloadURL = nil;
-    if ([URLString containsString:@"c-fcrop"]) {
-        NSRange croppedURL = [URLString rangeOfString:@"c-fcrop"];
-        if (croppedURL.location != NSNotFound) {
-            NSString *newURL = [URLString stringByReplacingOccurrencesOfString:[URLString substringFromIndex:croppedURL.location] withString:@"nd-v1"];
-            downloadURL = [NSURL URLWithString:newURL];
+        NSMutableArray *allObjects = displayNode.supernodes.allObjects;
+        for (ELMContainerNode *containerNode in allObjects) {
+            if ([containerNode.description containsString:@"id.ui.backstage.original_post"]) {
+                containerNode.copiedURL = URL;
+                break;
+            }
         }
-    } else {
-        downloadURL = URL;
     }
 
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:downloadURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (data) {
-            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-                PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];
-                [request addResourceWithType:PHAssetResourceTypePhoto data:data options:nil];
-            } completionHandler:^(BOOL success, NSError *error) {
-            [[%c(YTToastResponderEvent) eventWithMessage:success ? LOC(@"Saved") : [NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription] firstResponder:responder] send];
-            }];
-        } else {
-            [[%c(YTToastResponderEvent) eventWithMessage:[NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription] firstResponder:responder] send];
-        }
-    }] resume];
+    return %orig;
 }
-
-static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^completionHandler)(UIImage *)) {
-    UIGraphicsBeginImageContextWithOptions(layer.frame.size, NO, 0.0);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, backgroundColor.CGColor);
-    CGContextFillRect(context, CGRectMake(0, 0, layer.frame.size.width, layer.frame.size.height));
-    [layer renderInContext:context];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-
-    if (completionHandler) {
-        completionHandler(image);
-    }
-}
+%end
 
 %hook _ASDisplayView
 - (void)setKeepalive_node:(id)arg1 {
@@ -727,7 +881,6 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 
     NSArray *gesturesInfo = @[
         @{@"selector": @"postManager:", @"text": @"id.ui.backstage.original_post", @"key": @(kPostManager)},
-        @{@"selector": @"saveImage:", @"text": @"YTImageZoomNode-View", @"key": @(kSavePostImage)},
         @{@"selector": @"savePFP:", @"text": @"ELMImageNode-View", @"key": @(kSaveProfilePhoto)},
         @{@"selector": @"commentManager:", @"text": @"id.ui.comment_cell", @"key": @(kCommentManager)}
     ];
@@ -760,11 +913,20 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 
                     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:PFPURL]];
                     if (image) {
-                        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+                        YTDefaultSheetController *sheetController = [%c(YTDefaultSheetController) sheetControllerWithParentResponder:nil];
+    
+                        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"SaveProfilePicture") iconImage:YTImageNamed(@"yt_outline_image_24pt") style:0 handler:^ {
+                            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 
-                        UIResponder *responder = self.nextResponder;
-                        while (responder && ![responder isKindOfClass:[UIViewController class]]) responder = responder.nextResponder;
-                        if (responder) [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Saved") firstResponder:responder] send];
+                            [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Saved") firstResponder:self.keepalive_node.closestViewController] send];
+                        }]];
+
+                        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyProfilePicture") iconImage:YTImageNamed(@"yt_outline_library_image_24pt") style:0 handler:^ {
+                            [UIPasteboard generalPasteboard].image = image;
+                            [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:self.keepalive_node.closestViewController] send];
+                        }]];
+
+                        [sheetController presentFromViewController:self.keepalive_node.closestViewController animated:YES completion:nil];
                     }
                 }
             }
@@ -778,20 +940,30 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
         ELMContainerNode *nodeForLayer = (ELMContainerNode *)self.keepalive_node.yogaChildren[0];
         ELMContainerNode *containerNode = (ELMContainerNode *)self.keepalive_node;
         NSString *text = containerNode.copiedComment;
+        NSURL *URL = containerNode.copiedURL;
         CALayer *layer = nodeForLayer.layer;
         UIColor *backgroundColor = containerNode.closestViewController.view.backgroundColor;
 
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:LOC(@"SelectAction") message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        alertController.view.tintColor = [UIColor labelColor];
-
-        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"CopyPostText") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        YTDefaultSheetController *sheetController = [%c(YTDefaultSheetController) sheetControllerWithParentResponder:nil];
+        
+        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyPostText") iconImage:YTImageNamed(@"yt_outline_message_bubble_right_24pt") style:0 handler:^ {
             if (text) {
                 [UIPasteboard generalPasteboard].string = text;
                 [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
             }
         }]];
 
-        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"SavePostAsImage") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (URL) {
+            [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"SaveCurrentImage") iconImage:YTImageNamed(@"yt_outline_image_24pt") style:0 handler:^ {
+                downloadImageFromURL(containerNode.closestViewController, URL, YES);
+            }]];
+
+            [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyCurrentImage") iconImage:YTImageNamed(@"yt_outline_library_image_24pt") style:0 handler:^ {
+                downloadImageFromURL(containerNode.closestViewController, URL, NO);
+            }]];
+        }
+
+        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"SavePostAsImage") titleColor:[[UIColor redColor] colorWithAlphaComponent:0.7f] iconImage:YTImageNamed(@"yt_outline_image_24pt") iconColor:[[UIColor redColor] colorWithAlphaComponent:0.7f] disableAutomaticButtonColor:YES accessibilityIdentifier:nil handler:^ {
             genImageFromLayer(layer, backgroundColor, ^(UIImage *image) {
                 [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
                     PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAssetFromImage:image];
@@ -803,30 +975,14 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
             });
         }]];
 
-        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"CopyPostAsImage") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyPostAsImage") titleColor:[[UIColor redColor] colorWithAlphaComponent:0.7f] iconImage:YTImageNamed(@"yt_outline_library_image_24pt") iconColor:[[UIColor redColor] colorWithAlphaComponent:0.7f] disableAutomaticButtonColor:YES accessibilityIdentifier:nil handler:^ {
             genImageFromLayer(layer, backgroundColor, ^(UIImage *image) {
                 [UIPasteboard generalPasteboard].image = image;
                 [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
             });
         }]];
 
-        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"Cancel") style:UIAlertActionStyleCancel handler:nil]];
-
-        [containerNode.closestViewController presentViewController:alertController animated:YES completion:nil];
-    }
-}
-
-%new
-- (void)saveImage:(UILongPressGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateBegan) {
-
-        ASNetworkImageNode *imageNode = (ASNetworkImageNode *)self.keepalive_node;
-        NSURL *imageURL = imageNode.URL;
-
-        UIResponder *responder = self.nextResponder;
-        while (responder && ![responder isKindOfClass:[UIViewController class]]) responder = responder.nextResponder;
-
-        if (imageURL) downloadImageFromURL(responder, imageURL);
+        [sheetController presentFromViewController:containerNode.closestViewController animated:YES completion:nil];
     }
 }
 
@@ -839,17 +995,16 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
         CALayer *layer = self.layer;
         UIColor *backgroundColor = containerNode.closestViewController.view.backgroundColor;
 
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:LOC(@"SelectAction") message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        alertController.view.tintColor = [UIColor labelColor];
+        YTDefaultSheetController *sheetController = [%c(YTDefaultSheetController) sheetControllerWithParentResponder:nil];
 
-        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"CopyCommentText") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyCommentText") iconImage:YTImageNamed(@"yt_outline_message_bubble_right_24pt") style:0 handler:^ {
             if (comment) {
                 [UIPasteboard generalPasteboard].string = comment;
                 [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
             }
         }]];
 
-        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"SaveCommentAsImage") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"SaveCommentAsImage") iconImage:YTImageNamed(@"yt_outline_image_24pt") style:0 handler:^ {
             genImageFromLayer(layer, backgroundColor, ^(UIImage *image) {
                 [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
                     PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAssetFromImage:image];
@@ -861,16 +1016,14 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
             });
         }]];
 
-        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"CopyCommentAsImage") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyCommentAsImage") iconImage:YTImageNamed(@"yt_outline_library_image_24pt") style:0 handler:^ {
             genImageFromLayer(layer, backgroundColor, ^(UIImage *image) {
                 [UIPasteboard generalPasteboard].image = image;
                 [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
             });
         }]];
 
-        [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"Cancel") style:UIAlertActionStyleCancel handler:nil]];
-
-        [containerNode.closestViewController presentViewController:alertController animated:YES completion:nil];
+        [sheetController presentFromViewController:containerNode.closestViewController animated:YES completion:nil];
     }
 }
 %end
@@ -942,26 +1095,12 @@ BOOL isTabSelected = NO;
     %orig;
 
     if (!isTabSelected && !kShortsOnlyMode) {
-        NSString *pivotIdentifier;
-        switch (kPivotIndex) {
-            case 0:
-                pivotIdentifier = @"FEwhat_to_watch";
-                break;
-            case 1:
-                pivotIdentifier = @"FEexplore";
-                break;
-            case 2:
-                pivotIdentifier = @"FEshorts";
-                break;
-            case 3:
-                pivotIdentifier = @"FEsubscriptions";
-                break;
-            case 4:
-                pivotIdentifier = @"FElibrary";
-                break;
-            default:
-                return;
-        }
+        NSString *pivotIdentifier = kPivotIndex == 1 ? @"FEexplore" :
+                                    kPivotIndex == 2 ? @"FEshorts" :
+                                    kPivotIndex == 3 ? @"FEsubscriptions" :
+                                    kPivotIndex == 4 ? @"FElibrary" :
+                                    @"FEwhat_to_watch";
+
         [self selectItemWithPivotIdentifier:pivotIdentifier];
         isTabSelected = YES;
     }
@@ -1008,7 +1147,7 @@ BOOL isTabSelected = NO;
         copyInfoButton.accessibilityLabel = LOC(@"CopyVideoInfo");
         [copyInfoButton setTag:999];
         [copyInfoButton enableNewTouchFeedback];
-        [copyInfoButton setImage:[UIImage imageNamed:@"yt_outline_copy_24pt" inBundle:[NSBundle mainBundle] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+        [copyInfoButton setImage:YTImageNamed(@"yt_outline_copy_24pt") forState:UIControlStateNormal];
         [copyInfoButton setTintColor:[UIColor labelColor]];
         [copyInfoButton setTranslatesAutoresizingMaskIntoConstraints:false];
         [copyInfoButton addTarget:self action:@selector(didTapCopyInfoButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -1032,22 +1171,19 @@ BOOL isTabSelected = NO;
     NSString *title = playerVC.playerResponse.playerData.videoDetails.title;
     NSString *shortDescription = playerVC.playerResponse.playerData.videoDetails.shortDescription;
 
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:LOC(@"SelectAction") message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    alertController.view.tintColor = [UIColor labelColor];
+    YTDefaultSheetController *sheetController = [%c(YTDefaultSheetController) sheetControllerWithParentResponder:nil];
 
-    [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"CopyTitle") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyTitle") iconImage:YTImageNamed(@"yt_outline_text_box_24pt") style:0 handler:^ {
         [UIPasteboard generalPasteboard].string = title;
         [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:self.resizeDelegate] send];
     }]];
 
-    [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"CopyDescription") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyDescription") iconImage:YTImageNamed(@"yt_outline_message_bubble_right_24pt") style:0 handler:^ {
         [UIPasteboard generalPasteboard].string = shortDescription;
         [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:self.resizeDelegate] send];
     }]];
 
-    [alertController addAction:[UIAlertAction actionWithTitle:LOC(@"Cancel") style:UIAlertActionStyleCancel handler:nil]];
-
-    [self.resizeDelegate presentViewController:alertController animated:YES completion:nil];
+    [sheetController presentFromViewController:self.resizeDelegate animated:YES completion:nil];
 }
 %end
 
@@ -1121,6 +1257,9 @@ static void reloadPrefs() {
     kExtraSpeedOptions = [prefs[@"extraSpeedOptions"] boolValue] ?: NO;
     kDontSnapToChapter = [prefs[@"dontSnapToChapter"] boolValue] ?: NO;
     kRedProgressBar = [prefs[@"redProgressBar"] boolValue] ?: NO;
+    kNoPlayerRemixButton = [prefs[@"noPlayerRemixButton"] boolValue] ?: NO;
+    kNoPlayerClipButton = [prefs[@"noPlayerClipButton"] boolValue] ?: NO;
+    kNoPlayerDownloadButton = [prefs[@"noPlayerDownloadButton"] boolValue] ?: NO;
     kNoHints = [prefs[@"noHints"] boolValue] ?: NO;
     kNoFreeZoom = [prefs[@"noFreeZoom"] boolValue] ?: NO;
     kAutoFullscreen = [prefs[@"autoFullscreen"] boolValue] ?: NO;
@@ -1159,11 +1298,17 @@ static void reloadPrefs() {
     kRemoveLibrary = [prefs[@"removeLibrary"] boolValue] ?: NO;
     kCopyVideoInfo = [prefs[@"copyVideoInfo"] boolValue] ?: NO;
     kPostManager = [prefs[@"postManager"] boolValue] ?: NO;
-    kSavePostImage = [prefs[@"savePostImage"] boolValue] ?: NO;
-    kSaveProfilePhoto = [prefs[@"savePostImage"] boolValue] ?: NO;
+    kSaveProfilePhoto = [prefs[@"saveProfilePhoto"] boolValue] ?: NO;
     kCommentManager = [prefs[@"commentManager"] boolValue] ?: NO;
     kFixAlbums = [prefs[@"fixAlbums"] boolValue] ?: NO;
     kRemovePlayNext = [prefs[@"removePlayNext"] boolValue] ?: NO;
+    kRemoveDownloadMenu = [prefs[@"removeDownloadMenu"] boolValue] ?: NO;
+    kRemoveWatchLaterMenu = [prefs[@"removeWatchLaterMenu"] boolValue] ?: NO;
+    kRemoveSaveToPlaylistMenu = [prefs[@"removeSaveToPlaylistMenu"] boolValue] ?: NO;
+    kRemoveShareMenu = [prefs[@"removeShareMenu"] boolValue] ?: NO;
+    kRemoveNotInterestedMenu = [prefs[@"removeNotInterestedMenu"] boolValue] ?: NO;
+    kRemoveDontRecommendMenu = [prefs[@"removeDontRecommendMenu"] boolValue] ?: NO;
+    kRemoveReportMenu = [prefs[@"removeReportMenu"] boolValue] ?: NO;
     kNoContinueWatching = [prefs[@"noContinueWatching"] boolValue] ?: NO;
     kNoSearchHistory = [prefs[@"noSearchHistory"] boolValue] ?: NO;
     kNoRelatedWatchNexts = [prefs[@"noRelatedWatchNexts"] boolValue] ?: NO;
@@ -1171,6 +1316,8 @@ static void reloadPrefs() {
     kHideSortComments = [prefs[@"hideSortComments"] boolValue] ?: NO;
     kPlaylistOldMinibar = [prefs[@"playlistOldMinibar"] boolValue] ?: NO;
     kDisableRTL = [prefs[@"disableRTL"] boolValue] ?: NO;
+    kWiFiQualityIndex = (prefs[@"wifiQualityIndex"] != nil) ? [prefs[@"wifiQualityIndex"] intValue] : 0;
+    kCellQualityIndex = (prefs[@"cellQualityIndex"] != nil) ? [prefs[@"cellQualityIndex"] intValue] : 0;
     kPivotIndex = (prefs[@"pivotIndex"] != nil) ? [prefs[@"pivotIndex"] intValue] : 0;
     kAdvancedMode = [prefs[@"advancedMode"] boolValue] ?: NO;
     kAdvancedModeReminder = [prefs[@"advancedModeReminder"] boolValue] ?: NO;
@@ -1207,6 +1354,9 @@ static void reloadPrefs() {
         @"extraSpeedOptions" : @(kExtraSpeedOptions),
         @"dontSnapToChapter" : @(kDontSnapToChapter),
         @"redProgressBar" : @(kRedProgressBar),
+        @"noPlayerRemixButton" : @(kNoPlayerRemixButton),
+        @"noPlayerClipButton" : @(kNoPlayerClipButton),
+        @"noPlayerDownloadButton" : @(kNoPlayerDownloadButton),
         @"noHints" : @(kNoHints),
         @"noFreeZoom" : @(kNoFreeZoom),
         @"autoFullscreen" : @(kAutoFullscreen),
@@ -1245,11 +1395,17 @@ static void reloadPrefs() {
         @"removeLibrary" : @(kRemoveLibrary),
         @"copyVideoInfo" : @(kCopyVideoInfo),
         @"postManager" : @(kPostManager),
-        @"savePostImage" : @(kSavePostImage),
         @"saveProfilePhoto" : @(kSaveProfilePhoto),
         @"commentManager" : @(kCommentManager),
         @"fixAlbums" : @(kFixAlbums),
         @"removePlayNext" : @(kRemovePlayNext),
+        @"removeDownloadMenu" : @(kRemoveDownloadMenu),
+        @"removeWatchLaterMenu" : @(kRemoveWatchLaterMenu),
+        @"removeSaveToPlaylistMenu" : @(kRemoveSaveToPlaylistMenu),
+        @"removeShareMenu" : @(kRemoveShareMenu),
+        @"removeNotInterestedMenu" : @(kRemoveNotInterestedMenu),
+        @"removeDontRecommendMenu" : @(kRemoveDontRecommendMenu),
+        @"removeReportMenu" : @(kRemoveReportMenu),
         @"noContinueWatching" : @(kNoContinueWatching),
         @"noSearchHistory" : @(kNoSearchHistory),
         @"noRelatedWatchNexts" : @(kNoRelatedWatchNexts),
@@ -1257,6 +1413,8 @@ static void reloadPrefs() {
         @"hideSortComments" : @(kHideSortComments),
         @"playlistOldMinibar" : @(kPlaylistOldMinibar),
         @"disableRTL" : @(kDisableRTL),
+        @"wifiQualityIndex" : @(kWiFiQualityIndex),
+        @"cellQualityIndex" : @(kCellQualityIndex),
         @"pivotIndex" : @(kPivotIndex),
         @"advancedMode" : @(kAdvancedMode),
         @"advancedModeReminder" : @(kAdvancedModeReminder)
@@ -1277,6 +1435,24 @@ static void prefsChanged(CFNotificationCenterRef center, void *observer, CFStrin
         [prefs setObject:@NO forKey:@"removeShorts"];
         [prefs setObject:@NO forKey:@"reExplore"];
         [prefs writeToFile:path atomically:NO];
+    }
+
+    if (![prefs[@"advancedMode"] boolValue] && ![prefs[@"advancedModeReminder"] boolValue]) {
+        [prefs setObject:@(YES) forKey:@"advancedModeReminder"];
+        [prefs writeToFile:path atomically:NO];
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            YTAlertView *alertView = [%c(YTAlertView) confirmationDialogWithAction:^{
+                [prefs setObject:@(YES) forKey:@"advancedMode"];
+                [prefs writeToFile:path atomically:NO];
+                CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), CFSTR("com.dvntm.ytlite.prefschanged"), NULL, NULL, YES);
+            }
+            actionTitle:LOC(@"Yes")
+            cancelTitle:LOC(@"No")];
+            alertView.title = @"YTLite";
+            alertView.subtitle = [NSString stringWithFormat:LOC(@"AdvancedModeReminder"), @"YTLite", LOC(@"Version"), LOC(@"Advanced")];
+            [alertView show];
+        });
     }
 
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)prefsChanged, CFSTR("com.dvntm.ytlite.prefschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
