@@ -161,7 +161,7 @@
 "FixAlbumsDesc" = "Répare l'affichage des vignettes pour les utilisateurs de Russie.";
 "RemovePlayNext" = "Supprimer \"Placer en première position dans la file d'attente\"";
 "RemovePlayNextDesc" = "Supprime l'option \"Placer en première position dans la file d'attente\" du menu.";
-""RemoveDownloadMenu" = "Supprimer \"Télécharger\"";
+"RemoveDownloadMenu" = "Supprimer \"Télécharger\"";
 "RemoveDownloadMenuDesc" = "Supprime l'option \"Télécharger\" du menu.";
 "RemoveWatchLaterMenu" = "Supprimer \"Enregistrer pour plus tard\"";
 "RemoveWatchLaterMenuDesc" = "Supprime l'option \"Enregistrer pour plus tard\" du menu.";
