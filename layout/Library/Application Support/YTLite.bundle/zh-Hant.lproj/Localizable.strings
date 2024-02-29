@@ -234,9 +234,11 @@
 "CopyPostText" = "複製貼文內容";
 "SavePostAsImage" = "貼文儲存為圖片";
 "CopyPostAsImage" = "複製貼文為圖片";
+"SaveCurrentImage" = "儲存當前圖片";
+"CopyCurrentImage" = "複製當前圖片";
 "CopyCommentText" = "複製留言內容";
 "SaveCommentAsImage" = "留言儲存為圖片";
-"CopyCommentAsImage" = "複製留言為圖片";
+"CopyCommentAsImage" = "儲存留言為圖片";
 "SaveProfilePicture" = "儲存個人檔案照片";
 "CopyProfilePicture" = "複製個人檔案照片";
 "Cancel" = "取消";
