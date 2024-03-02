@@ -697,24 +697,46 @@ static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *ide
 static BOOL isOverlayShown = YES;
 
 %hook YTPlayerView
-- (void)didPinch:(UIPinchGestureRecognizer *)gesture {
-    %orig;
+- (void)didMoveToWindow {
+    %orig();
 
-    if (kPinchToFullscreenShorts && [self.playerViewDelegate.parentViewController isKindOfClass:NSClassFromString(@"YTShortsPlayerViewController")]) {
+    if ([self.superview isKindOfClass:NSClassFromString(@"YTReelContentView")]) {
+        UIButton *SFSButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [SFSButton setImage:[UIImage systemImageNamed:@"arrow.up.left.and.down.right.and.arrow.up.right.and.down.left"] forState:UIControlStateNormal];
+        SFSButton.imageView.tintColor = [UIColor whiteColor];
+        [SFSButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
+        [SFSButton setTranslatesAutoresizingMaskIntoConstraints:false];
+        [self addSubview:SFSButton];
+
+        // Adding Auto Layout constraints
+        [NSLayoutConstraint activateConstraints:@[
+            [SFSButton.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-105],
+            [SFSButton.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-615],
+            [SFSButton.widthAnchor constraintEqualToConstant:40],
+            [SFSButton.heightAnchor constraintEqualToConstant:88]
+        ]];
+    }
+}
+
+
+%new
+- (void)didTapButton:(UIButton *)sender {
+    // Perform the actions you want when the button is tapped
+    if ([self.playerViewDelegate.parentViewController isKindOfClass:NSClassFromString(@"YTShortsPlayerViewController")]) {
         YTShortsPlayerViewController *shortsPlayerVC = (YTShortsPlayerViewController *)self.playerViewDelegate.parentViewController;
         YTReelContentView *contentView = (YTReelContentView *)shortsPlayerVC.view;
 
-        if (gesture.scale > 1) {
-            if (!kShortsOnlyMode) [shortsPlayerVC.navigationController.parentViewController hidePivotBar];
-
-            [UIView animateWithDuration:0.3 animations:^{
+        // You can include the actions from the didPinch: method here
+        // For example:
+        if (!kShortsOnlyMode && isOverlayShown) {
+            [shortsPlayerVC.navigationController.parentViewController hidePivotBar];
+            [UIView animateWithDuration:0.1 animations:^{
                 contentView.playbackOverlay.alpha = 0;
                 isOverlayShown = contentView.playbackOverlay.alpha;
             }];
         } else {
             if (!kShortsOnlyMode) [shortsPlayerVC.navigationController.parentViewController showPivotBar];
-
-            [UIView animateWithDuration:0.3 animations:^{
+            [UIView animateWithDuration:0.1 animations:^{
                 contentView.playbackOverlay.alpha = 1;
                 isOverlayShown = contentView.playbackOverlay.alpha;
             }];
