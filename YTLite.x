@@ -240,7 +240,7 @@ static UIImage *YTImageNamed(NSString *imageName) {
         if (self.enterFullscreenButton) {
             [self.enterFullscreenButton removeFromSuperview];
         }
-        self.fullscreenButtonDisabled = YES;
+//      self.fullscreenButtonDisabled = YES;
     }
 }
 %end
