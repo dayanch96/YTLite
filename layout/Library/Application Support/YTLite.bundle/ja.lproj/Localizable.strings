@@ -37,6 +37,8 @@
 "NoEndScreenCardsDesc" = "動画の終わりに表示されるエンドスクリーン(サムネイル)を非表示にします";
 "NoFullscreenActions" = "フルスクリーンアクションを無効化";
 "NoFullscreenActionsDesc" = "フルスクリーンモードでのアクションパネルを無効にします";
+"NoFullscreenButton" = "Remove fullscreen button";
+"NoFullscreenButtonDesc" = "Removes the fullscreen button in the player.";
 "PersistentProgressBar" = "Persistent progress bar";
 "PersistentProgressBarDesc" = "Always shows progress bar in the player.";
 "NoRelatedVids" = "オーバーレイの関連動画を非表示";

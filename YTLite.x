@@ -229,6 +229,22 @@ static UIImage *YTImageNamed(NSString *imageName) {
 - (void)setEnabled:(BOOL)arg1 { kNoFullscreenActions ? %orig(NO) : %orig; }
 %end
 
+// Hide Fullscreen Button
+%hook YTInlinePlayerBarContainerView
+- (void)layoutSubviews {
+    %orig;
+    if (kNoFullscreenButton) {
+        if (self.exitFullscreenButton) {
+            [self.exitFullscreenButton removeFromSuperview];
+        }
+        if (self.enterFullscreenButton) {
+            [self.enterFullscreenButton removeFromSuperview];
+        }
+        self.fullscreenButtonDisabled = YES;
+    }
+}
+%end
+
 // Dont Show Related Videos on Finish
 %hook YTFullscreenEngagementOverlayController
 - (void)setRelatedVideosVisible:(BOOL)arg1 { kNoRelatedVids ? %orig(NO) : %orig; }
@@ -1243,6 +1259,7 @@ static void reloadPrefs() {
     kNoDarkBg = [prefs[@"noDarkBg"] boolValue] ?: NO;
     kEndScreenCards = [prefs[@"endScreenCards"] boolValue] ?: NO;
     kNoFullscreenActions = [prefs[@"noFullscreenActions"] boolValue] ?: NO;
+    kNoFullscreenButton = [prefs[@"noFullscreenButton"] boolValue] ?: NO;
     kPersistentProgressBar = [prefs[@"persistentProgressBar"] boolValue] ?: NO;
     kNoRelatedVids = [prefs[@"noRelatedVids"] boolValue] ?: NO;
     kNoPromotionCards = [prefs[@"noPromotionCards"] boolValue] ?: NO;
@@ -1340,6 +1357,7 @@ static void reloadPrefs() {
         @"noDarkBg" : @(kNoDarkBg),
         @"endScreenCards" : @(kEndScreenCards),
         @"noFullscreenActions" : @(kNoFullscreenActions),
+        @"noFullscreenButton" : @(kNoFullscreenButton),
         @"persistentProgressBar" : @(kPersistentProgressBar),
         @"noRelatedVids" : @(kNoRelatedVids),
         @"noPromotionCards" : @(kNoPromotionCards),

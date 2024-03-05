@@ -37,6 +37,8 @@
 "NoEndScreenCardsDesc" = "Oculta las tarjetas emergentes de fin de pantalla (miniaturas) al final de los vídeos.";
 "NoFullscreenActions" = "Desactivar acciones en pantalla completa";
 "NoFullscreenActionsDesc" = "Desactiva el panel de acciones en el modo de pantalla completa.";
+"NoFullscreenButton" = "Remove fullscreen button";
+"NoFullscreenButtonDesc" = "Removes the fullscreen button in the player.";
 "PersistentProgressBar" = "Barra de progreso persistente";
 "PersistentProgressBarDesc" = "Muestra siempre la barra de progreso en el reproductor.";
 "NoRelatedVids" = "Sin vídeos relacionados en la superposición";

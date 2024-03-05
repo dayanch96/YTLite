@@ -37,6 +37,8 @@
 "NoEndScreenCardsDesc" = "隱藏當影片結束時的懸停影片（縮圖）";
 "NoFullscreenActions" = "停用全螢幕操作";
 "NoFullscreenActionsDesc" = "在全螢幕模式下停用操作面板";
+"NoFullscreenButton" = "Remove fullscreen button";
+"NoFullscreenButtonDesc" = "Removes the fullscreen button in the player.";
 "PersistentProgressBar" = "固定進度條";
 "PersistentProgressBarDesc" = "總是在播放器中顯示進度條";
 "NoRelatedVids" = "隱藏相關影片";

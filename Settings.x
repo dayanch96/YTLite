@@ -188,6 +188,7 @@ static YTSettingsSectionItem *createSwitchItem(NSString *title, NSString *key, B
                 createSwitchItem(@"NoDarkBg", @"noDarkBg", &kNoDarkBg, selfObject),
                 createSwitchItem(@"NoEndScreenCards", @"endScreenCards", &kEndScreenCards, selfObject),
                 createSwitchItem(@"NoFullscreenActions", @"noFullscreenActions", &kNoFullscreenActions, selfObject),
+                createSwitchItem(@"NoFullscreenButton", @"noFullscreenButton", &kNoFullscreenButton, selfObject),
                 createSwitchItem(@"PersistentProgressBar", @"persistentProgressBar", &kPersistentProgressBar, selfObject),
                 createSwitchItem(@"NoRelatedVids", @"noRelatedVids", &kNoRelatedVids, selfObject),
                 createSwitchItem(@"NoPromotionCards", @"noPromotionCards", &kNoPromotionCards, selfObject),

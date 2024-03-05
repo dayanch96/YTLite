@@ -37,6 +37,8 @@
 "NoEndScreenCardsDesc" = "Ẩn thumbnail của các video đề xuất, xuất hiện ở cuối video.";
 "NoFullscreenActions" = "Vô hiệu hóa các hành động toàn màn hình";
 "NoFullscreenActionsDesc" = "Vô hiệu hóa bảng hành động ở chế độ toàn màn hình.";
+"NoFullscreenButton" = "Remove fullscreen button";
+"NoFullscreenButtonDesc" = "Removes the fullscreen button in the player.";
 "PersistentProgressBar" = "Thanh tiến trình liên tục";
 "PersistentProgressBarDesc" = "Luôn hiển thị thanh tiến trình trong trình phát.";
 "NoRelatedVids" = "Không có video liên quan trong lớp phủ";

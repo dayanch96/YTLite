@@ -40,6 +40,7 @@ BOOL kReplacePrevNext;
 BOOL kNoDarkBg;
 BOOL kEndScreenCards;
 BOOL kNoFullscreenActions;
+BOOL kNoFullscreenButton;
 BOOL kPersistentProgressBar;
 BOOL kNoRelatedVids;
 BOOL kNoPromotionCards;

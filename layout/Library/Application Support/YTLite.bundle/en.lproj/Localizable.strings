@@ -37,6 +37,8 @@
 "NoEndScreenCardsDesc" = "Hides End screens (thumbnails) at the end of videos.";
 "NoFullscreenActions" = "Disable fullscreen actions";
 "NoFullscreenActionsDesc" = "Disables actions panel in fullscreen mode.";
+"NoFullscreenButton" = "Remove fullscreen button";
+"NoFullscreenButtonDesc" = "Removes the fullscreen button in the player.";
 "PersistentProgressBar" = "Persistent progress bar";
 "PersistentProgressBarDesc" = "Always shows progress bar in the player.";
 "NoRelatedVids" = "No related videos in overlay";

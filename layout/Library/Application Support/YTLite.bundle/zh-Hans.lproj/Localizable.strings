@@ -37,6 +37,8 @@
 "NoEndScreenCardsDesc" = "隐藏视频结尾处的片尾屏幕（缩略图）。";
 "NoFullscreenActions" = "禁用全屏操作";
 "NoFullscreenActionsDesc" = "在全屏模式下禁用操作面板。";
+"NoFullscreenButton" = "Remove fullscreen button";
+"NoFullscreenButtonDesc" = "Removes the fullscreen button in the player.";
 "PersistentProgressBar" = "持续进度条";
 "PersistentProgressBarDesc" = "始终在播放器中显示进度条。";
 "NoRelatedVids" = "没有相关视频";

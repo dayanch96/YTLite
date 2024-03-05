@@ -37,6 +37,8 @@
 "NoEndScreenCardsDesc" = "Masque les cartes de fin d'écran (vignettes) à la fin des vidéos.";
 "NoFullscreenActions" = "Désactiver les actions en plein écran";
 "NoFullscreenActionsDesc" = "Désactive le panneau d'actions en mode plein écran.";
+"NoFullscreenButton" = "Remove fullscreen button";
+"NoFullscreenButtonDesc" = "Removes the fullscreen button in the player.";
 "PersistentProgressBar" = "Barre de progression persistante";
 "PersistentProgressBarDesc" = " Affiche toujours la barre de progression dans le lecteur ";
 "NoRelatedVids" = "Pas de vidéos associées dans l'overlay";
