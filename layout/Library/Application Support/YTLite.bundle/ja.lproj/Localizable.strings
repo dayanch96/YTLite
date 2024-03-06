@@ -19,6 +19,8 @@
 "NoSubbarDesc" = "ナビゲーションバーの下にあるサブバー(すべて,音楽,ライブ など)を非表示にします";
 "NoYTLogo" = "YouTubeロゴを削除";
 "NoYTLogoDesc" = "ナビゲーションバーのYouTubeロゴを非表示にします";
+"PremiumYTLogo" = "Set Premium YouTube logo";
+"PremiumYTLogoDesc" = "Sets Premium YouTube logo in the Navigation bar.";
 
 "Overlay" = "オーバーレイ";
 "HideAutoplay" = "自動再生スイッチを非表示";
@@ -39,12 +41,18 @@
 "NoFullscreenActionsDesc" = "フルスクリーンモードでのアクションパネルを無効にします";
 "PersistentProgressBar" = "Persistent progress bar";
 "PersistentProgressBarDesc" = "Always shows progress bar in the player.";
+"StockVolumeHUD" = "Stock volume HUD";
+"StockVolumeHUDDesc" = "Displays system volume HUD in fullscreen.";
 "NoRelatedVids" = "オーバーレイの関連動画を非表示";
 "NoRelatedVidsDesc" = "スワイプアップでオーバーレイに表示される関連動画を非表示にします";
 "NoPromotionCards" = "有料プロモーションカードを非表示";
 "NoPromotionCardsDesc" = "プロモーションが含まれている動画の\"有料プロモーションを含む\"カードを非表示にします";
 "NoWatermarks" = "ウォーターマークを非表示";
 "NoWatermarksDesc" = "プレーヤーからチャンネルのウォーターマークを非表示にします";
+"VideoEndTime" = "Show playback end time";
+"VideoEndTimeDesc" = "Adds video playback end time to the player bar.";
+"24hrFormat" = "24-hour format";
+"24hrFormatDesc" = "Shows end time in 24-hour format.";
 
 "Player" = "プレーヤー";
 "Miniplayer" = "ミニプレーヤーを有効化";
@@ -65,6 +73,10 @@
 "ExtraSpeedOptionsDesc" = "プレーヤーメニューに追加の再生速度オプションを追加します";
 "DontSnap2Chapter" = "チャプターへのスナップを無効化";
 "DontSnap2ChapterDesc" = "ダブルタップジェスチャーで次のエピソードへスキップするのを無効にします";
+"NoTwoFingerSnapToChapter" = "Disable two finger double tap";
+"NoTwoFingerSnapToChapterDesc" = "Disables two finger double tap snap to chapter gesture.";
+"PauseOnOverlay" = "Pause on overlay";
+"PauseOnOverlayDesc" = "Sets playback on pause if overlay appears.";
 "RedProgressBar" = "赤いプログレスバー";
 "RedProgressBarDesc" = "赤いプログレスバーを復元します";
 "NoPlayerRemixButton" = "Remove remix button";
@@ -105,6 +117,8 @@
 "Shorts" = "ショート";
 "ShortsOnlyMode" = "Shorts Only Mode";
 "ShortsOnlyModeDesc" = "Limits YouTube functionality to viewing Shorts only.";
+"AutoSkipShorts" = "Auto-skip Shorts";
+"AutoSkipShortsDesc" = "Moves to the next video when the current video playback finishes.";
 "HideShorts" = "ショート動画を非表示";
 "HideShortsDesc" = "ホーム, おすすめなどからショート動画を非表示にします(視聴履歴には適用されません)";
 "ShortsProgress" = "プログレスバーを有効化";
@@ -159,6 +173,8 @@
 "CommentManagerDesc" = "Allows to copy comment text and save comment as image by long tap.";
 "FixAlbums" = "Fix covers";
 "FixAlbumsDesc" = "Fixes the display of covers for users from Russia.";
+"NativeShare" = "Native share sheet";
+"NativeShareDesc" = "Uses system share sheet to share media";
 "RemovePlayNext" = "\"次に再生\"を削除";
 "RemovePlayNextDesc" = "メニューから\"次に再生\"オプションを削除します";
 "RemoveDownloadMenu" = "Remove \"Download\"";
@@ -190,6 +206,13 @@
 "DisableRTL" = "RTLフォーマットを無効化";
 "DisableRTLDesc" = "RTLで表示される言語を左から右(LTR)の形式で表示するように強制します";
 
+"HoldToSpeed" = "Hold to speed";
+"Disable" = "Disable";
+"Disabled" = "Disabled";
+"PlaybackSpeed" = "Playback Speed";
+
+"DefaultPlaybackRate" = "Default playback rate";
+
 "PlaybackQualityOnWiFi" = "Playback quality on WiFi";
 "PlaybackQualityOnCellular" = "Playback quality on Cellular";
 "SelectQuality" = "Select Quality";
@@ -207,10 +230,13 @@
 
 "SupportDevelopment" = "Support development";
 "SupportDevelopmentDesc" = "If you like YTLite and would like to support its development, you can do it using any of convenient ways below.\nThanks❤";
+"Contributors" = "Contributors";
+"OpenSourceLibs" = "Open Source Libraries";
 "Version" = "バージョン";
 "About" = "About";
 "Credits" = "クレジット";
 "Developer" = "YTLiteの開発者";
+"SpecialThanks" = "Special thanks";
 "ChineseSimplified" = "中国語(簡体字)翻訳";
 "ChineseTraditional" = "中国語(繁体字)翻訳";
 "French" = "フランス語翻訳";
@@ -225,6 +251,8 @@
 "ResetMessage" = "このオプションを選択するとYTLiteの設定がデフォルトにリセットされ、アプリが終了します。\n\n続行してもよろしいですか?";
 "ShortsOnlyWarning" = "Are you sure you want to activate this mode?\n\nIn this mode, you will only be able to watch Shorts videos and won't be able to do anything else.\n\nYou can disable Shorts Only Mode by long pressing with two fingers in the Shorts player.";
 "ShortsModeTurnedOff" = "Shorts Only Mode has been turned off";
+"LibraryAdded" = "The You/Library tab has been restored";
+"LibraryRemoved" = "The You/Library tab has been removed";
 "Yes" = "はい";
 "No" = "いいえ";
 
@@ -232,6 +260,8 @@
 "CopyTitle" = "Copy title";
 "CopyDescription" = "Copy description";
 "CopyPostText" = "Copy post text";
+"SaveCurrentImage" = "Save current image";
+"CopyCurrentImage" = "Copy current image";
 "SavePostAsImage" = "Save post as image";
 "CopyPostAsImage" = "Copy post as image";
 "CopyCommentText" = "Copy comment text";

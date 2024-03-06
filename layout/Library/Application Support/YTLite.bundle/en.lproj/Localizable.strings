@@ -19,6 +19,8 @@
 "NoSubbarDesc" = "Hides Subbar (All, New to you, Live etc.) under the Navigation bar.";
 "NoYTLogo" = "Remove YouTube logo";
 "NoYTLogoDesc" = "Removes YouTube logo in the Navigation bar.";
+"PremiumYTLogo" = "Set Premium YouTube logo";
+"PremiumYTLogoDesc" = "Sets Premium YouTube logo in the Navigation bar.";
 
 "Overlay" = "Overlay";
 "HideAutoplay" = "Hide Autoplay switch";
@@ -39,12 +41,18 @@
 "NoFullscreenActionsDesc" = "Disables actions panel in fullscreen mode.";
 "PersistentProgressBar" = "Persistent progress bar";
 "PersistentProgressBarDesc" = "Always shows progress bar in the player.";
+"StockVolumeHUD" = "Stock volume HUD";
+"StockVolumeHUDDesc" = "Displays system volume HUD in fullscreen.";
 "NoRelatedVids" = "No related videos in overlay";
 "NoRelatedVidsDesc" = "Removes related videos displayed in the overlay by swiping up.";
 "NoPromotionCards" = "Hide Paid Promotion cards";
 "NoPromotionCardsDesc" = "Hides \"Includes Paid Promotions\" card in promotions included videos.";
 "NoWatermarks" = "Hide Watermarks";
 "NoWatermarksDesc" = "Hides channel watermarks from the player.";
+"VideoEndTime" = "Show playback end time";
+"VideoEndTimeDesc" = "Adds video playback end time to the player bar.";
+"24hrFormat" = "24-hour format";
+"24hrFormatDesc" = "Shows end time in 24-hour format.";
 
 "Player" = "Player";
 "Miniplayer" = "Enable mini player";
@@ -53,7 +61,7 @@
 "PortraitFullscreenDesc" = "Enables portrait fullscreen mode support.";
 "CopyWithTimestamp" = "Copy timestamped links";
 "CopyWithTimestampDesc" = "Allows to copy timestamped link to the clipboard by pressing pause button.";
-"DisableAutoplay" = "Disable Autoplay videos";
+"DisableAutoplay" = "Disable autoplay videos";
 "DisableAutoplayDesc" = "Prevents video playback after opening.";
 "DisableAutoCaptions" = "Disable auto captions";
 "DisableAutoCaptionsDesc" = "Prevents automatic activation of captions.";
@@ -65,6 +73,10 @@
 "ExtraSpeedOptionsDesc" = "Adds more video playback speed options to the player menu.";
 "DontSnap2Chapter" = "Disable snap to chapter";
 "DontSnap2ChapterDesc" = "Disables skipping to the next episode by double-tap gesture.";
+"NoTwoFingerSnapToChapter" = "Disable two finger double tap";
+"NoTwoFingerSnapToChapterDesc" = "Disables two finger double tap snap to chapter gesture.";
+"PauseOnOverlay" = "Pause on overlay";
+"PauseOnOverlayDesc" = "Sets playback on pause if overlay appears.";
 "RedProgressBar" = "Red progress bar";
 "RedProgressBarDesc" = "Brings back red progress bar.";
 "NoPlayerRemixButton" = "Remove remix button";
@@ -100,11 +112,13 @@
 "HideUploadButton" = "Hide Upload button";
 "HideUploadButtonDesc" = "Hides Upload button from the Tab bar.";
 "HideLibraryTab" = "Hide Library tab";
-"HideLibraryTabDesc" = "Hides Library tab from the Tab bar.";
+"HideLibraryTabDesc" = "Hides Library tab from the Tab bar.\n\nThis tab can be restored by long pressing Home tab.";
 
 "Shorts" = "Shorts";
 "ShortsOnlyMode" = "Shorts Only Mode";
 "ShortsOnlyModeDesc" = "Limits YouTube functionality to viewing Shorts only.";
+"AutoSkipShorts" = "Auto-skip Shorts";
+"AutoSkipShortsDesc" = "Moves to the next video when the current video playback finishes.";
 "HideShorts" = "Hide Shorts videos";
 "HideShortsDesc" = "Hides Shorts videos from Homepage, Recommended etc. (Not applied to Watch history)";
 "ShortsProgress" = "Enable progress bar";
@@ -159,6 +173,8 @@
 "CommentManagerDesc" = "Allows to copy comment text and save comment as image by long tap.";
 "FixAlbums" = "Fix covers";
 "FixAlbumsDesc" = "Fixes the display of covers for users from Russia.";
+"NativeShare" = "Native share sheet";
+"NativeShareDesc" = "Uses system share sheet to share media";
 "RemovePlayNext" = "Remove \"Play next in queue\"";
 "RemovePlayNextDesc" = "Removes \"Play next in queue\" option from menu.";
 "RemoveDownloadMenu" = "Remove \"Download\"";
@@ -190,6 +206,13 @@
 "DisableRTL" = "Disable RTL formatting";
 "DisableRTLDesc" = "Forcefully displays text in left-to-right (LTR) format for languages that are initially displayed in right-to-left (RTL).";
 
+"HoldToSpeed" = "Hold to speed";
+"Disable" = "Disable";
+"Disabled" = "Disabled";
+"PlaybackSpeed" = "Playback Speed";
+
+"DefaultPlaybackRate" = "Default playback rate";
+
 "PlaybackQualityOnWiFi" = "Playback quality on WiFi";
 "PlaybackQualityOnCellular" = "Playback quality on Cellular";
 "SelectQuality" = "Select Quality";
@@ -207,10 +230,13 @@
 
 "SupportDevelopment" = "Support development";
 "SupportDevelopmentDesc" = "If you like YTLite and would like to support its development, you can do it using any of convenient ways below.\nThanks❤";
+"Contributors" = "Contributors";
+"OpenSourceLibs" = "Open Source Libraries";
 "Version" = "Version";
 "About" = "About";
 "Credits" = "Credits";
 "Developer" = "YTLite developer";
+"SpecialThanks" = "Special thanks";
 "ChineseSimplified" = "Chinese (Simplified) localization";
 "ChineseTraditional" = "Chinese (Traditional) localization";
 "French" = "French localization";
@@ -225,6 +251,8 @@
 "ResetMessage" = "This option will reset YTLite settings to default and close YouTube.\n\nAre you sure you want to continue?";
 "ShortsOnlyWarning" = "Are you sure you want to activate this mode?\n\nIn this mode, you will only be able to watch Shorts videos and won't be able to do anything else.\n\nYou can disable Shorts Only Mode by long pressing with two fingers in the Shorts player.";
 "ShortsModeTurnedOff" = "Shorts Only Mode has been turned off";
+"LibraryAdded" = "The You/Library tab has been restored";
+"LibraryRemoved" = "The You/Library tab has been removed";
 "Yes" = "Yes";
 "No" = "No";
 
