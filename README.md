@@ -4,7 +4,11 @@ Lightweight YouTube Enhancer
 Advanced mode can be activated inside **Version cell**. Then simply reopen YTLite settings
 
 # How to build it yourself
-Clone this repo and __[YouTubeHeader by PoomSmart](https://github.com/PoomSmart/YouTubeHeader/)__
+Clone this repo
+
+Clone __[YouTubeHeader by PoomSmart](https://github.com/PoomSmart/YouTubeHeader/)__
+
+Clone __[protobuf by Protocol Buffers](https://github.com/protocolbuffers/protobuf)__
 
 cd YTLite folder and run
 
