@@ -112,7 +112,7 @@
 "HideUploadButton" = "Ocultar botón Subir";
 "HideUploadButtonDesc" = "Oculta el botón Subir de la barra de pestañas.";
 "HideLibraryTab" = "Ocultar pestaña Biblioteca";
-"HideLibraryTabDesc" = "Oculta la pestaña Biblioteca de la barra de pestañas.";
+"HideLibraryTabDesc" = "Hides Library tab from the Tab bar.\n\nThis tab can be restored by long pressing Home tab.";
 
 "Shorts" = "Shorts";
 "ShortsOnlyMode" = "Modo sólo Shorts";
