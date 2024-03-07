@@ -17,10 +17,10 @@
 "StickyNavbarDesc" = "向下滑動時保持可見狀態";
 "NoSubbar" = "隱藏子導覽列";
 "NoSubbarDesc" = "隱藏導覽列下的子導覽列（全部、讓你耳目一新的影片、直播中...等）";
-"NoYTLogo" = "移除YouTube圖示";
-"NoYTLogoDesc" = "移除在左上方導覽列的YouTube圖示";
-"PremiumYTLogo" = "YouTube Premium 圖示";
-"PremiumYTLogoDesc" = "左上方導覽列設定為YouTube Premium 圖示";
+"NoYTLogo" = "移除 YouTube 標誌";
+"NoYTLogoDesc" = "移除在左上方導覽列的 YouTube 標誌";
+"PremiumYTLogo" = "YouTube Premium 標誌";
+"PremiumYTLogoDesc" = "左上方導覽列設定為 YouTube Premium 標誌";
 
 "Overlay" = "播放介面";
 "HideAutoplay" = "隱藏自動播放開關";
