@@ -111,8 +111,8 @@
 "HideSubscriptionsTabDesc" = "從標籤欄中隱藏訂閱內容";
 "HideUploadButton" = "隱藏+";
 "HideUploadButtonDesc" = "從標籤欄中隱藏+標籤";
-"HideLibraryTab" = "隱藏媒體庫";
-"HideLibraryTabDesc" = "從標籤欄中隱藏媒體庫標籤";
+"HideLibraryTab" = "隱藏你的內容/媒體庫";
+"HideLibraryTabDesc" = "從標籤欄中隱藏你的內容/媒體庫標籤\n\n長按首頁標籤，可以恢復此標籤";
 
 "Shorts" = "Shorts";
 "ShortsOnlyMode" = "只看Shorts模式";
@@ -224,7 +224,7 @@
 "Explore" = "探索";
 "ShortsTab" = "Shorts";
 "Subscriptions" = "訂閱內容";
-"Library" = "媒體庫";
+"Library" = "你的內容/媒體庫";
 "Warning" = "警告";
 "TabIsHidden" = "無法將隱藏的標籤選為啟動頁面";
 
