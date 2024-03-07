@@ -112,7 +112,7 @@
 "HideUploadButton" = "隐藏上传按钮";
 "HideUploadButtonDesc" = "从选项卡栏中隐藏上传按钮。";
 "HideLibraryTab" = "隐藏媒体库";
-"HideLibraryTabDesc" = "从选项卡栏中隐藏媒体库。";
+"HideLibraryTabDesc" = "Hides Library tab from the Tab bar.\n\nThis tab can be restored by long pressing Home tab.";
 
 "Shorts" = "短视频";
 "ShortsOnlyMode" = "仅短视频模式";
