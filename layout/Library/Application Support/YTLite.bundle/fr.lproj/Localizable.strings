@@ -19,8 +19,8 @@
 "NoSubbarDesc" = "Masque la sous-barre (Tous, Nouveautés, En direct, etc.) sous la barre de navigation.";
 "NoYTLogo" = "Supprimer le logo YouTube";
 "NoYTLogoDesc" = "Supprime le logo YouTube dans la barre de navigation.";
-"PremiumYTLogo" = "Set Premium YouTube logo";
-"PremiumYTLogoDesc" = "Sets Premium YouTube logo in the Navigation bar.";
+"PremiumYTLogo" = "Définir le logo Premium YouTube";
+"PremiumYTLogoDesc" = "Définit le logo Premium YouTube dans la barre de navigation.";
 
 "Overlay" = "Overlay";
 "HideAutoplay" = "Masquer le toggle de lecture automatique";
@@ -40,19 +40,19 @@
 "NoFullscreenActions" = "Désactiver les actions en plein écran";
 "NoFullscreenActionsDesc" = "Désactive le panneau d'actions en mode plein écran.";
 "PersistentProgressBar" = "Barre de progression persistante";
-"PersistentProgressBarDesc" = " Affiche toujours la barre de progression dans le lecteur ";
-"StockVolumeHUD" = "Stock volume HUD";
-"StockVolumeHUDDesc" = "Displays system volume HUD in fullscreen.";
+"PersistentProgressBarDesc" = "Affiche toujours la barre de progression dans le lecteur";
+"StockVolumeHUD" = "HUD du volume original";
+"StockVolumeHUDDesc" = "Affiche le HUD du volume du système en plein écran.";
 "NoRelatedVids" = "Pas de vidéos associées dans l'overlay";
 "NoRelatedVidsDesc" = "Supprime les vidéos associées affichées dans l'overlay en faisant glisser vers le haut.";
 "NoPromotionCards" = "Masquer les cartes de promotion payante";
 "NoPromotionCardsDesc" = "Masque la carte \"Comprend des promotions payantes\" dans les vidéos avec promotions incluses.";
 "NoWatermarks" = "Masquer les filigranes";
 "NoWatermarksDesc" = "Masque les filigranes de chaîne dans le lecteur.";
-"VideoEndTime" = "Show playback end time";
-"VideoEndTimeDesc" = "Adds video playback end time to the player bar.";
-"24hrFormat" = "24-hour format";
-"24hrFormatDesc" = "Shows end time in 24-hour format.";
+"VideoEndTime" = "Afficher l'heure de fin de lecture";
+"VideoEndTimeDesc" = "Ajoute l'heure de fin de lecture à la barre du lecteur.";
+"24hrFormat" = "Format 24 heures";
+"24hrFormatDesc" = "Affiche l'heure de fin au format 24 heures.";
 
 "Player" = "Lecteur";
 "Miniplayer" = "Activer le mini-lecteur";
@@ -73,10 +73,10 @@
 "ExtraSpeedOptionsDesc" = "Ajoute des options de vitesse de lecture supplémentaires au menu de vitesse.";
 "DontSnap2Chapter" = "Désactiver la coupure au chapitre";
 "DontSnap2ChapterDesc" = "Désactive le passage à l'épisode suivant en double tapant.";
-"NoTwoFingerSnapToChapter" = "Disable two finger double tap";
-"NoTwoFingerSnapToChapterDesc" = "Disables two finger double tap snap to chapter gesture.";
-"PauseOnOverlay" = "Pause on overlay";
-"PauseOnOverlayDesc" = "Sets playback on pause if overlay appears.";
+"NoTwoFingerSnapToChapter" = "Désactiver le double tap à deux doigts";
+"NoTwoFingerSnapToChapterDesc" = "Désactive le geste de double tap à deux doigts pour passer au chapitre.";
+"PauseOnOverlay" = "Pause quand l'overlay est visible";
+"PauseOnOverlayDesc" = "Met la lecture en pause si l'overlay apparaît.";
 "RedProgressBar" = "Barre de progression rouge";
 "RedProgressBarDesc" = "Ramène la barre de progression rouge.";
 "NoPlayerRemixButton" = "Supprimer le bouton de remix";
@@ -112,13 +112,13 @@
 "HideUploadButton" = "Masquer le bouton de téléchargement";
 "HideUploadButtonDesc" = "Masque le bouton de téléchargement de la barre d'onglets";
 "HideLibraryTab" = "Masquer l'onglet Bibliothèque";
-"HideLibraryTabDesc" = "Hides Library tab from the Tab bar.\n\nThis tab can be restored by long pressing Home tab.";
+"HideLibraryTabDesc" = "Masque l'onglet Bibliothèque de la barre d'onglets.\n\nCet onglet peut être restauré en maintenant enfoncée l'onglet Accueil.";
 
 "Shorts" = "Shorts";
 "ShortsOnlyMode" = "Mode Shorts uniquement";
 "ShortsOnlyModeDesc" = "Limite les fonctionnalités de YouTube à la visualisation des Shorts uniquement.";
-"AutoSkipShorts" = "Auto-skip Shorts";
-"AutoSkipShortsDesc" = "Moves to the next video when the current video playback finishes.";
+"AutoSkipShorts" = "Défilage automatique des Shorts";
+"AutoSkipShortsDesc" = "Passe automatiquement à la vidéo suivante lorsque la lecture de la vidéo actuelle est terminée.";
 "HideShorts" = "Masquer les vidéos Shorts";
 "HideShortsDesc" = "Masque les vidéos Shorts de la page d'accueil, des recommandations, etc. (Non appliqué à l'historique de visionnage)";
 "ShortsProgress" = "Activer la barre de progression";
@@ -173,8 +173,8 @@
 "CommentManagerDesc" = "Permet de copier le texte des commentaires et de sauvegarder le commentaire en tant qu'image en maintenant une pression prolongée.";
 "FixAlbums" = "Réparer les vignettes";
 "FixAlbumsDesc" = "Répare l'affichage des vignettes pour les utilisateurs de Russie.";
-"NativeShare" = "Native share sheet";
-"NativeShareDesc" = "Uses system share sheet to share media";
+"NativeShare" = "Fiche de partage native";
+"NativeShareDesc" = "Utilise la fiche de partage du système pour partager des médias";
 "RemovePlayNext" = "Supprimer \"Placer en première position dans la file d'attente\"";
 "RemovePlayNextDesc" = "Supprime l'option \"Placer en première position dans la file d'attente\" du menu.";
 "RemoveDownloadMenu" = "Supprimer \"Télécharger\"";
@@ -206,12 +206,12 @@
 "DisableRTL" = "Désactiver le formatage de droite à gauche";
 "DisableRTLDesc" = "Affiche le texte de force en format de gauche à droite (LTR) pour les langues qui sont initialement affichées de droite à gauche (RTL).";
 
-"HoldToSpeed" = "Hold to speed";
-"Disable" = "Disable";
-"Disabled" = "Disabled";
-"PlaybackSpeed" = "Playback Speed";
+"HoldToSpeed" = "Maintenir pour accélérer";
+"Disable" = "Désactiver";
+"Disabled" = "Désactivé";
+"PlaybackSpeed" = "Vitesse de lecture";
 
-"DefaultPlaybackRate" = "Default playback rate";
+"DefaultPlaybackRate" = " Vitesse de lecture par défaut " ;
 
 "PlaybackQualityOnWiFi" = "Qualité de lecture sur WiFi";
 "PlaybackQualityOnCellular" = "Qualité de lecture sur réseau cellulaire";
@@ -230,13 +230,13 @@
 
 "SupportDevelopment" = "Soutenir le développement";
 "SupportDevelopmentDesc" = "Si vous aimez YTLite et souhaitez soutenir son développement, vous pouvez le faire en utilisant l'une des méthodes pratiques ci-dessous.\nMerci❤";
-"Contributors" = "Contributors";
-"OpenSourceLibs" = "Open Source Libraries";
+"Contributors" = "Contributeurs";
+"OpenSourceLibs" = "Bibliothèques Open Source";
 "Version" = "Version";
 "About" = "À propos";
 "Credits" = "Crédits";
-"Developer" = "Développeur YTLite";
-"SpecialThanks" = "Special thanks";
+"Developer" = "Développeur de YTLite";
+"SpecialThanks" = "Remerciements spéciaux";
 "ChineseSimplified" = "Localisation chinoise (simplifiée)";
 "ChineseTraditional" = "Localisation chinoise (traditionnelle)";
 "French" = "Localisation française";
@@ -251,8 +251,8 @@
 "ResetMessage" = "Cette option réinitialisera les paramètres YTLite par défaut et fermera YouTube.\n\nÊtes-vous sûr de vouloir continuer ?";
 "ShortsOnlyWarning" = "Êtes-vous sûr de vouloir activer ce mode?\n\nDans ce mode, vous ne pourrez regarder que des vidéos Shorts et vous ne pourrez rien d'autre faire.\n\nVous pouvez désactiver le mode Shorts Only en appuyant longuement avec deux doigts dans le lecteur Shorts.";
 "ShortsModeTurnedOff" = "Le mode Shorts uniquement a été désactivé";
-"LibraryAdded" = "The You/Library tab has been restored";
-"LibraryRemoved" = "The You/Library tab has been removed";
+"LibraryAdded" = "L'onglet Vous/Bibliothèque a été restauré";
+"LibraryRemoved" = "L'onglet Vous/Bibliothèque a été supprimé";
 "Yes" = "Oui";
 "No" = "Non";
 
