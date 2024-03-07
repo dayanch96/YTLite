@@ -213,7 +213,6 @@
 @end
 
 @interface YTSegmentableInlinePlayerBarView : UIView
-@property (nonatomic, assign, readonly) CGFloat totalTime;
 @property (nonatomic, assign, readwrite) BOOL enableSnapToChapter;
 @end
 

@@ -411,6 +411,20 @@ void addEndTime(YTPlayerViewController *self, YTSingleVideoController *video, YT
     }
 }
 
+void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video, YTSingleVideoTime *time) {
+    if (!ytlBool(@"autoSkipShorts")) return;
+
+    if (floor(time.time) >= floor(video.totalMediaTime)) {
+        if ([self.parentViewController isKindOfClass:%c(YTShortsPlayerViewController)]) {
+            YTShortsPlayerViewController *shortsVC = (YTShortsPlayerViewController *)self.parentViewController;
+
+            if ([shortsVC respondsToSelector:@selector(reelContentViewRequestsAdvanceToNextVideo:)]) {
+                [shortsVC performSelector:@selector(reelContentViewRequestsAdvanceToNextVideo:)];
+            }
+        }
+    }
+}
+
 %hook YTPlayerViewController
 - (void)loadWithPlayerTransition:(id)arg1 playbackConfig:(id)arg2 {
     %orig;
@@ -520,12 +534,14 @@ void addEndTime(YTPlayerViewController *self, YTSingleVideoController *video, YT
     %orig;
 
     addEndTime(self, video, time);
+    autoSkipShorts(self, video, time);
 }
 
 - (void)potentiallyMutatedSingleVideo:(YTSingleVideoController *)video currentVideoTimeDidChange:(YTSingleVideoTime *)time {
     %orig;
 
     addEndTime(self, video, time);
+    autoSkipShorts(self, video, time);
 }
 %end
 
@@ -840,19 +856,6 @@ static BOOL isOverlayShown = YES;
         UIWindow *mainWindow = [UIApplication sharedApplication].windows.firstObject;
         YTAppViewController *appVC = (YTAppViewController *)mainWindow.rootViewController;
         [appVC performSelector:@selector(showPivotBar) withObject:nil afterDelay:1.0];
-    }
-}
-%end
-
-%hook YTSegmentableInlinePlayerBarView
-- (void)setScrubberTime:(CGFloat)time {
-    %orig;
-
-    if (ytlBool(@"autoSkipShorts") && round(time) == round(self.totalTime)) {
-        UIWindow *mainWindow = [UIApplication sharedApplication].windows.firstObject;
-        YTAppViewController *appVC = (YTAppViewController *)mainWindow.rootViewController;
-
-        [appVC.pivotBarViewController.scrubberDelegate performSelector:@selector(reelContentViewRequestsAdvanceToNextVideo:)];
     }
 }
 %end
@@ -1230,7 +1233,7 @@ BOOL isTabSelected = NO;
 - (void)showPivotBar {
     if (!ytlBool(@"shortsOnlyMode")) {
         %orig;
-    
+
         isOverlayShown = YES;
     }
 }
