@@ -112,7 +112,7 @@
 "HideUploadButton" = "Ẩn nút Tải lên";
 "HideUploadButtonDesc" = "Ẩn nút Tải lên khỏi thanh Tab.";
 "HideLibraryTab" = "Ẩn tab Thư viện";
-"HideLibraryTabDesc" = "Hides Library tab from the Tab bar.\n\nThis tab can be restored by long pressing Home tab.";
+"HideLibraryTabDesc" = "Ẩn tab Thư viện khỏi thanh tab.\n\nTab này có thể được khôi phục bằng cách nhấn và giữ tab Trang chủ.";
 
 "Shorts" = "Shorts";
 "ShortsOnlyMode" = "Chế độ chỉ dành cho Short";
