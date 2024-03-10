@@ -809,7 +809,7 @@ static BOOL isOverlayShown = YES;
     if (ytlBool(@"pinchToFullscreenShorts") && [self.playerViewDelegate.parentViewController isKindOfClass:NSClassFromString(@"YTShortsPlayerViewController")]) {
         YTShortsPlayerViewController *shortsPlayerVC = (YTShortsPlayerViewController *)self.playerViewDelegate.parentViewController;
         YTReelContentView *contentView = (YTReelContentView *)shortsPlayerVC.view;
-        UIWindow *mainWindow = [UIApplication sharedApplication].windows.firstObject;
+        UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
         YTAppViewController *appVC = (YTAppViewController *)mainWindow.rootViewController;
 
         if (gesture.scale > 1) {
@@ -853,7 +853,7 @@ static BOOL isOverlayShown = YES;
 
         [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"ShortsModeTurnedOff") firstResponder:[%c(YTUIUtils) topViewControllerForPresenting]] send];
 
-        UIWindow *mainWindow = [UIApplication sharedApplication].windows.firstObject;
+        UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
         YTAppViewController *appVC = (YTAppViewController *)mainWindow.rootViewController;
         [appVC performSelector:@selector(showPivotBar) withObject:nil afterDelay:1.0];
     }
