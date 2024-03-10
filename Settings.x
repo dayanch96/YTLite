@@ -85,7 +85,8 @@ static NSString *GetCacheSize() {
         else {
             ytlSetBool(enabled, key);
 
-            if (ytlBool(@"removeLabels") || ytlBool(@"reExplore") || ytlBool(@"addExplore") || ytlBool(@"removeShorts") || ytlBool(@"removeSubscriptions") || ytlBool(@"removeUploads") || ytlBool(@"removeLibrary")) {
+            NSArray *keys = @[@"removeLabels", @"removeIndicators", @"reExplore", @"addExplore", @"removeShorts", @"removeSubscriptions", @"removeUploads", @"removeLibrary"];
+            if ([keys containsObject:key]) {
                 [[[%c(YTHeaderContentComboViewController) alloc] init] refreshPivotBar];
             }
         }
