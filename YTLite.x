@@ -236,9 +236,11 @@ static UIImage *YTImageNamed(NSString *imageName) {
     if (kNoFullscreenButton) {
         if (self.exitFullscreenButton) {
             [self.exitFullscreenButton removeFromSuperview];
+            self.exitFullscreenButton.frame = CGRectZero;
         }
         if (self.enterFullscreenButton) {
             [self.enterFullscreenButton removeFromSuperview];
+            self.enterFullscreenButton.frame = CGRectZero;
         }
 //      self.fullscreenButtonDisabled = YES;
     }
