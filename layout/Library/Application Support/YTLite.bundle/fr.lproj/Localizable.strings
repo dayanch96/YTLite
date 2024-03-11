@@ -211,7 +211,7 @@
 "Disabled" = "Désactivé";
 "PlaybackSpeed" = "Vitesse de lecture";
 
-"DefaultPlaybackRate" = " Vitesse de lecture par défaut " ;
+"DefaultPlaybackRate" = "Vitesse de lecture par défaut" ;
 
 "PlaybackQualityOnWiFi" = "Qualité de lecture sur WiFi";
 "PlaybackQualityOnCellular" = "Qualité de lecture sur réseau cellulaire";
