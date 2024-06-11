@@ -240,13 +240,13 @@
 "SupportDevelopmentDesc" = "Si te gusta YTLite y quieres apoyar su desarrollo, puedes hacerlo utilizando cualquiera de las formas convenientes que se indican a continuación.\n¡Gracias❤!";
 "Contributors" = "Colaboradores";
 "OpenSourceLibs" = "Bibliotecas de código abierto";
-"Preferences" = "%@ preferences";
+"Preferences" = "%@ preferencias";
 "Version" = "Versión";
 "About" = "Acerca de";
 "Credits" = "Créditos";
 "Developer" = "Desarrollador de YTLite";
 "SpecialThanks" = "Agradecimientos especiales";
-"SpecialThanks.Test" = "Invaluable contribution to tweak testing";
+"SpecialThanks.Test" = "Inestimable contribución a las pruebas del tweak";
 "ChineseSimplified" = "Traducción: Chino (Simplificado)";
 "ChineseTraditional" = "Traducción: Chino (Tradicional)";
 "French" = "Traducción: Frances";
