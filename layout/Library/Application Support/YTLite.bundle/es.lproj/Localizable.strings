@@ -1,6 +1,6 @@
 "Downloading" = "Descargar";
 "DownloadManager" = "Gestor de descargas";
-"DownloadManagerDesc" = "Sustituye la acción del botón 'Descargar' bajo el reproductor por un Gestor de Descargas, que permite descargar Vídeo, Audio, Imagen en Miniatura y Copiar Información de Vídeo.\n\nPara descargar vídeos 2K+, activa el tweak YTUHD.";
+"DownloadManagerDesc" = "Sustituye la acción del botón 'Descargar' bajo el reproductor por un Gestor de Descargas, que permite descargar Vídeo, Audio, Imagen en Miniatura y Copiar Información de Vídeo.";
 "DownloadManagerYtl" = "Añadir como botón de YouTube Plus";
 "DownloadManagerYtlDesc" = "Añade el botón YouTube Plus para el gestor de descargas bajo el reproductor.";
 "PostManager" = "Guardar información de post";

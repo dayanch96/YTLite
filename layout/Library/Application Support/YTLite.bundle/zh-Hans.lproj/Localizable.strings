@@ -1,6 +1,6 @@
 "Downloading" = "下载器";
 "DownloadManager" = "下载管理器";
-"DownloadManagerDesc" = "将播放器下方的“下载”按钮替换为“下载管理器”，允许下载视频、音频、缩略图和复制视频信息。\n\n要下载2K+视频，请启用YTUHD插件。";
+"DownloadManagerDesc" = "将播放器下方的“下载”按钮替换为“下载管理器”，允许下载视频、音频、缩略图和复制视频信息。";
 "DownloadManagerYtl" = "添加“YouTube Plus”按钮";
 "DownloadManagerYtlDesc" = "在播放器下方添加“YouTube Plus”按钮作为下载器，且“下载管理器”功能将失效。";
 "PostManager" = "保存帖子信息";

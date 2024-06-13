@@ -1,6 +1,6 @@
 "Downloading" = "Downloading";
 "DownloadManager" = "Download manager";
-"DownloadManagerDesc" = "Replaces 'Download' button action under the player with a Download Manager, which allows downloading Video, Audio, Thumbnail Image, and Copying Video Information.\n\nTo download 2K+ videos, enable YTUHD tweak.";
+"DownloadManagerDesc" = "Replaces 'Download' button action under the player with a Download Manager, which allows downloading Video, Audio, Thumbnail Image, and Copying Video Information.";
 "DownloadManagerYtl" = "Add as YouTube Plus button";
 "DownloadManagerYtlDesc" = "Adds YouTube Plus button for download manager under the player.";
 "PostManager" = "Gérer les publications";

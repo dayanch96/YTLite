@@ -1,6 +1,6 @@
 "Downloading" = "下載";
 "DownloadManager" = "下載管理器";
-"DownloadManagerDesc" = "將播放器下方的\"下載\"按鈕更換為\"下載管理器\"，該管理器允許下載影片、音訊、縮圖，和複製影片資訊\n\n若要下載2K+影片，請啟用YTUHD插件";
+"DownloadManagerDesc" = "將播放器下方的\"下載\"按鈕更換為\"下載管理器\"，該管理器允許下載影片、音訊、縮圖，和複製影片資訊";
 "DownloadManagerYtl" = "新增YouTube Plus按鈕";
 "DownloadManagerYtlDesc" = "播放器下方新增\"YouTube Plus\"按鈕作為下載管理器";
 "PostManager" = "儲存貼文資訊";
