@@ -8,9 +8,9 @@
 
     dispatch_once(&onceToken, ^{
         NSString *tweakBundlePath = [[NSBundle mainBundle] pathForResource:@"YTLite" ofType:@"bundle"];
-        NSString *rootlessBundlePath = ROOT_PATH_NS("/Library/Application Support/YTLite.bundle");
+        NSString *kBundlePath = jbroot(@"/Library/Application Support/YTLite.bundle");
 
-        bundle = [NSBundle bundleWithPath:tweakBundlePath ?: rootlessBundlePath];
+        bundle = [NSBundle bundleWithPath:tweakBundlePath ?: kBundlePath];
     });
 
     return bundle;
