@@ -1,5 +1,7 @@
 ifeq ($(ROOTLESS),1)
 THEOS_PACKAGE_SCHEME=rootless
+else ifeq ($(ROOTHIDE),1)
+THEOS_PACKAGE_SCHEME=roothide
 endif
 
 DEBUG=0
