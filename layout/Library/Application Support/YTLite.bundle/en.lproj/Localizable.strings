@@ -362,9 +362,10 @@
 "ShortsOnlyWarning" = "Are you sure you want to activate this mode?\n\nIn this mode, you will only be able to watch Shorts videos and won't be able to do anything else.\n\nYou can disable Shorts Only Mode by long pressing with two fingers in the Shorts player.";
 "ShortsModeTurnedOff" = "Shorts Only Mode has been turned off";
 
-"LibraryHidingConfirmation" = "A long press on the Home tab was detected.\n\nDo you want to hide the You/Library tab?";
-"LibraryAdded" = "The You/Library tab has been restored";
-"LibraryRemoved" = "The You/Library tab has been removed";
+"AddLibraryTab" = "Restore \"You\" tab";
+"RemoveLibraryTab" = "Remove \"You\" tab";
+"LibraryAdded" = "The \"You\" tab has been restored";
+"LibraryRemoved" = "The \"You\" tab has been removed";
 
 "Yes" = "Yes";
 "No" = "No";

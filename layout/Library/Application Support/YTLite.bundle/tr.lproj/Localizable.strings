@@ -362,9 +362,10 @@
 "ShortsOnlyWarning" = "Bu modu etkinleştirmek istediğinizden emin misiniz?\n\nBu modda, yalnızca Shorts videolarını izleyebilir ve başka hiçbir şey yapamazsınız.\n\nShorts Sadece Modunu devre dışı bırakmak için Shorts oynatıcıda iki parmakla uzun basmanız yeterlidir.";
 "ShortsModeTurnedOff" = "Sadece Shorts Modu kapatıldı";
 
-"LibraryHidingConfirmation" = "Ana sayfa sekmeye uzun basma algılandı.\n\nSiz/Kitaplık sekmesini gizlemek ister misiniz?";
-"LibraryAdded" = "Siz/Kütüphane sekmesi geri yüklendi";
-"LibraryRemoved" = "Siz/Kütüphane sekmesi kaldırıldı";
+"AddLibraryTab" = "\"Siz\" sekmesini ekle";
+"RemoveLibraryTab" = "\"Siz\" sekmesini kaldır";
+"LibraryAdded" = "\"Siz\" sekmesi geri yüklendi";
+"LibraryRemoved" = "\"Siz\" sekmesi kaldırıldı";
 
 "Yes" = "Evet";
 "No" = "Hayır";

@@ -362,9 +362,10 @@
 "ShortsOnlyWarning" = "Bạn có chắc chắn muốn kích hoạt chế độ này?\n\nỞ chế độ này, bạn sẽ chỉ có thể xem video Shorts và không thể làm gì khác.\n\nBạn có thể tắt Chế độ chỉ Shorts bằng cách nhấn và giữ bằng hai ngón tay trong trình phát Shorts.";
 "ShortsModeTurnedOff" = "Chế độ chỉ dành cho Shorts đã bị tắt";
 
-"LibraryHidingConfirmation" = "A long press on the Home tab was detected.\n\nDo you want to hide the You/Library tab?";
-"LibraryAdded" = "Tab Thư viện đã được khôi phục";
-"LibraryRemoved" = "Tab Thư viện đã bị xóa";
+"AddLibraryTab" = "Restore \"You\" tab";
+"RemoveLibraryTab" = "Remove \"You\" tab";
+"LibraryAdded" = "The \"You\" tab has been restored";
+"LibraryRemoved" = "The \"You\" tab has been removed";
 
 "Yes" = "Có";
 "No" = "Không";

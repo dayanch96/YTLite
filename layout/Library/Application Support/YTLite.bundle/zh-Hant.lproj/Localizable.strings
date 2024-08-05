@@ -362,9 +362,10 @@
 "ShortsOnlyWarning" = "您確定要開啟此模式嗎?\n\n在此模式下，您只能觀看Shorts影片，無法進行其它操作。\n\n您可以在Shorts播放器中使用兩指長按來停用只看Shorts模式。";
 "ShortsModeTurnedOff" = "已關閉「只看Shorts模式」";
 
-"LibraryHidingConfirmation" = "A long press on the Home tab was detected.\n\nDo you want to hide the You/Library tab?";
-"LibraryAdded" = "你的內容/媒體庫標籤已恢復";
-"LibraryRemoved" = "你的內容/媒體庫標籤已移除";
+"AddLibraryTab" = "Restore \"You\" tab";
+"RemoveLibraryTab" = "Remove \"You\" tab";
+"LibraryAdded" = "The \"You\" tab has been restored";
+"LibraryRemoved" = "The \"You\" tab has been removed";
 
 "Yes" = "是";
 "No" = "否";

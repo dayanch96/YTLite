@@ -362,9 +362,10 @@
 "ShortsOnlyWarning" = "确定要激活此模式吗？\n\n在此模式下，将只能观看短视频，且无法执行任何其他操作。\n\n可以通过双指长按禁用“仅短视频模式”。";
 "ShortsModeTurnedOff" = "仅短视频模式已关闭";
 
-"LibraryHidingConfirmation" = "检测到长按“首页”标签页。\n\n想隐藏“我/媒体库”标签页吗？";
-"LibraryAdded" = "“我/媒体库”标签页已恢复";
-"LibraryRemoved" = "“我/媒体库”标签页已隐藏";
+"AddLibraryTab" = "Restore \"You\" tab";
+"RemoveLibraryTab" = "Remove \"You\" tab";
+"LibraryAdded" = "“我”标签页已恢复";
+"LibraryRemoved" = "“我”标签页已隐藏";
 
 "Yes" = "是";
 "No" = "不";

@@ -362,9 +362,10 @@
 "ShortsOnlyWarning" = "¿Estás seguro de que quieres activar este modo?\n\nEn este modo, sólo podrás ver Shorts y no podrás hacer nada más.\n\nPuedes desactivar el modo sólo Shorts realizando una pulsación larga con dos dedos en el reproductor de Shorts.";
 "ShortsModeTurnedOff" = "Se ha desactivado el modo de sólo Shorts";
 
-"LibraryHidingConfirmation" = "A long press on the Home tab was detected.\n\nDo you want to hide the You/Library tab?";
-"LibraryAdded" = "Se ha restablecido la pestaña Tú/Biblioteca";
-"LibraryRemoved" = "Se ha eliminado la pestaña Tú/Biblioteca";
+"AddLibraryTab" = "Restore \"You\" tab";
+"RemoveLibraryTab" = "Remove \"You\" tab";
+"LibraryAdded" = "The \"You\" tab has been restored";
+"LibraryRemoved" = "The \"You\" tab has been removed";
 
 "Yes" = "Sí";
 "No" = "No";
