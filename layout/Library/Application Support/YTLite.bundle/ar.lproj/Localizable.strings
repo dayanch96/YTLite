@@ -362,10 +362,10 @@
 "ShortsOnlyWarning" = "هل أنت متأكد أنك تريد تفعيل هذا الوضع؟\n\nفي هذا الوضع، ستتمكن فقط من مشاهدة فيديوهات القصيرة ولن تتمكن من القيام بأي شيء آخر.\n\nيمكنك تعطيل وضع الفيديوهات القصيرة فقط عن طريق الضغط المطول بإصبعين في مشغل الفيديوهات القصيرة.";
 "ShortsModeTurnedOff" = "تم تعطيل وضع الفيديوهات القصيرة (Shorts) فقط";
 
-"AddLibraryTab" = "Restore \"You\" tab";
-"RemoveLibraryTab" = "Remove \"You\" tab";
-"LibraryAdded" = "The \"You\" tab has been restored";
-"LibraryRemoved" = "The \"You\" tab has been removed";
+"AddLibraryTab" = "استعادة علامة التبويب \"أنت\"";
+"RemoveLibraryTab" = "قم بإزالة علامة التبويب \"أنت\"";
+"LibraryAdded" = "تمت استعادة علامة التبويب \"أنت\"";
+"LibraryRemoved" = "تمت إزالة علامة التبويب \"أنت\"";
 
 "Yes" = "نعم";
 "No" = "لا";
