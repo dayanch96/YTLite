@@ -1,0 +1,442 @@
+/* Main section */
+"Main" = "Ana";
+
+/* Downloading options */
+"Downloading" = "İndirme";
+"DownloadManager" = "İndirme yöneticisi";
+"DownloadManagerDesc" = "Oyuncunun altındaki 'İndir' düğmesi eylemini, Video, Ses, Küçük Resim Görüntüsü indirmeye ve Video Bilgilerini Kopyalamaya olanak tanıyan bir İndirme Yöneticisi ile değiştirir.";
+"PostManager" = "Gönderi bilgisini kaydet";
+"PostManagerDesc" = "Uzun basarak gönderi metnini kopyalamaya ve gönderiyi resim olarak kaydetmeye olanak tanır.";
+"SaveProfilePhoto" = "Profil resmini kaydet";
+"SaveProfilePhotoDesc" = "Uzun basarak profil resmini Fotoğraflar uygulamasına kaydeder.";
+"CommentManager" = "Yorum bilgisini kaydet";
+"CommentManagerDesc" = "Uzun basarak yorum metnini kopyalamaya ve yorumları resim olarak kaydetmeye olanak tanır.";
+
+"YtlButtonPosition" = "İndirme düğmesi yerleşimi";
+"UnderPlayer" = "Oynatıcının altında";
+"Overlay" = "Kaplama üzerinde";
+"Both" = "Her ikisi de";
+
+"PostDownloadAction" = "İndirme sonrası eylem";
+"PostDownloadDesc" = "Seçilen eylem, video indirme işlemi başarılı bir şekilde tamamlandığında gerçekleştirilecektir.";
+"SaveToPhotos" = "Fotoğraflara kaydet";
+"Share" = "Paylaş";
+"Ask" = "Sor";
+"DownloadCompleted" = "İndirme tamamlandı";
+
+"PreferredAudio" = "Tercih edilen ses parçası";
+"Selected" = "Seçilen";
+"English" = "İngilizce";
+"SelectAudioTrack" = "Ses parçası seçin";
+"EnglishNotFound" = "İngilizce ses parçası bulunamadı";
+
+/* Nav bar options */
+"Navbar" = "Gezinme çubuğu";
+"RemoveCast" = "Cast düğmesini gizle";
+"RemoveCastDesc" = "Gezinme çubuğundan Cast düğmesini gizler.";
+"RemoveNotifications" = "Bildirimler düğmesini gizle";
+"RemoveNotificationsDesc" = "Gezinme çubuğundan Bildirimler düğmesini gizler.";
+"RemoveSearch" = "Arama düğmesini gizle";
+"RemoveSearchDesc" = "Gezinme çubuğundan Arama düğmesini gizler.";
+"RemoveVoiceSearch" = "Sesli arama düğmesini gizle";
+"RemoveVoiceSearchDesc" = "Gezinme çubuğundan Sesli arama düğmesini gizler.";
+"StickyNavbar" = "Sabit gezinme çubuğu";
+"StickyNavbarDesc" = "Gezinme çubuğunu sabitler, böylece aşağı kaydırırken görünür kalır.";
+"NoSubbar" = "Alt çubuğu gizle";
+"NoSubbarDesc" = "Gezinme çubuğunun altındaki Alt çubuğu (Hepsi, Sizin İçin Yeni, Canlı vb.) gizler.";
+"NoYTLogo" = "YouTube logosunu kaldır";
+"NoYTLogoDesc" = "Gezinme çubuğundaki YouTube logosunu kaldırır.";
+"PremiumYTLogo" = "Premium YouTube logosunu ayarla";
+"PremiumYTLogoDesc" = "Gezinme çubuğuna Premium YouTube logosunu ayarlar.";
+
+/* Feed options */
+"Feed" = "Akış";
+"RemoveAds" = "Reklamları kaldır";
+"RemoveAdsDesc" = "Uygulama içi reklamları kaldırır.";
+"HideShorts" = "Shorts videolarını gizle";
+"HideShortsDesc" = "Anasayfa, Önerilenler vb. yerlerden Shorts videolarını gizler.";
+"KeepSubsShorts" = "Shorts videolarını Aboneliklerde tut";
+"KeepSubsShortsDesc" = "Abonelikler sekmesindeki Shorts videolarını kaldırmayı engeller.";
+"RemoveCommunityPosts" = "Topluluk gönderilerini kaldır";
+"RemoveCommunityPostsDesc" = "Akıştan topluluk gönderilerini kaldırır.";
+"RemoveMixPlaylists" = "Karışımları kaldır";
+"RemoveMixPlaylistsDesc" = "YouTube tarafından oluşturulan karışım çalma listesini akıştan kaldırır.";
+"RemoveLiveVids" = "Canlı yayınları kaldır";
+"RemoveLiveVidsDesc" = "Ana sekmesinden canlı yayınları kaldırır.";
+"RemoveHorizontalFeeds" = "Yatay akışları kaldır";
+"RemoveHorizontalFeedsDesc" = "Ana sekmesinden tüm yatay akışları (Haberler, İzlemeye Devam Et, Gönderi koleksiyonu, vb.) kaldırır.";
+"RemoveMoreTopics" = "\"Daha fazla konu\"yu kaldır";
+"RemoveMoreTopicsDesc" = "Akıştan \"Daha fazla konu\"yu kaldırır.";
+"FixAlbums" = "Kapakları düzelt";
+"FixAlbumsDesc" = "Rusya'daki kullanıcılar için kapakların görüntülenmesini düzeltir.";
+
+/* Player options */
+"Player" = "Oyuncu";
+"PlaybackQualityOnWiFi" = "WiFi'de oynatma kalitesi";
+"PlaybackQualityOnCellular" = "Hücresel bağlantıda oynatma kalitesi";
+
+"Player.Interface" = "Arayüz";
+"SpeedControls" = "Hız kontrolleri";
+"SpeedControlsDesc" = "Kaplama üzerinde hız kontrol düğmelerini gösterir";
+"HideAutoplay" = "Otomatik oynatma anahtarını gizle";
+"HideAutoplayDesc" = "Kaplama üzerinde Otomatik oynatma anahtarını gizler.";
+"HideSubs" = "Altyazı düğmesini gizle";
+"HideSubsDesc" = "Kaplama üzerinde Altyazı düğmesini gizler.";
+"HidePrevNext" = "Önceki ve Sonraki düğmelerini gizle";
+"HidePrevNextDesc" = "Kaplama üzerinde Önceki ve Sonraki video düğmelerini gizler.";
+"ReplacePrevNext" = "İleri sar ve Geri sar düğmeleri";
+"ReplacePrevNextDesc" = "Kaplama üzerinde Önceki ve Sonraki video düğmelerini İleri sar ve Geri sar düğmeleri ile değiştirir.";
+"NoDarkBg" = "Koyu arka planı kaldır";
+"NoDarkBgDesc" = "Kaplama koyu arka planını kaldırır.";
+"PortraitFullscreen" = "Dikey tam ekran modu";
+"PortraitFullscreenDesc" = "Dikey tam ekran modu desteğini etkinleştirir.";
+"ClassicQuality" = "Klasik video kalitesi";
+"ClassicQualityDesc" = "Klasik video kalitesi seçim menüsünü geri getirir.";
+"ExtraSpeedOptions" = "Ekstra hız seçenekleri";
+"ExtraSpeedOptionsDesc" = "Oyuncu menüsüne daha fazla video oynatma hızı seçeneği ekler.";
+"NoEndScreenCards" = "Bitiş ekranı hover kartlarını gizle";
+"NoEndScreenCardsDesc" = "Videoların sonunda Bitiş ekranlarını (küçük resimler) gizler.";
+"NoAutonavEndScreenCards" = "Otomatik oynatma bitiş ekranını gizle";
+"NoAutonavEndScreenCardsDesc" = "Oynatma bittikten sonra ne oynatılacağını gösteren ekranı gizler. Bu seçeneği devre dışı bırakmak otomatik oynatmayı da devre dışı bırakır.";
+"NoFullscreenActions" = "Tam ekran eylemlerini devre dışı bırak";
+"NoFullscreenActionsDesc" = "Tam ekran modunda eylemler panelini devre dışı bırakır.";
+"PersistentProgressBar" = "Kalıcı ilerleme çubuğu";
+"PersistentProgressBarDesc" = "Oyuncuda her zaman ilerleme çubuğunu gösterir.";
+"RedProgressBar" = "Kırmızı ilerleme çubuğu";
+"RedProgressBarDesc" = "Kırmızı ilerleme çubuğunu geri getirir.";
+"StockVolumeHUD" = "Sistem ses HUD'u";
+"StockVolumeHUDDesc" = "Tam ekran modunda sistem ses HUD'unu gösterir.";
+"NoRelatedVids" = "Kaplama içinde ilişkili videolar yok";
+"NoRelatedVidsDesc" = "Kaplama içinde yukarı kaydırarak görüntülenen ilişkili videoları kaldırır.";
+"NoPromotionCards" = "Ücretli Promosyon kartlarını gizle";
+"NoPromotionCardsDesc" = "Promosyon içeren videolarda \"Ücretli Promosyonlar İçerir\" kartını gizler.";
+"NoWatermarks" = "Filigranları gizle";
+"NoWatermarksDesc" = "Oyuncudan kanal filigranlarını gizler.";
+"VideoEndTime" = "Oynatma bitiş zamanını göster";
+"VideoEndTimeDesc" = "Oyuncu çubuğuna video oynatma bitiş zamanını ekler.";
+"24hrFormat" = "24 saat formatı";
+"24hrFormatDesc" = "Bitiş zamanını 24 saat formatında gösterir.";
+
+"Player.Actions" = "Eylemler";
+"DefaultPlaybackRate" = "Varsayılan oynatma hızı";
+"BackgroundPlayback" = "Arka planda oynatma";
+"BackgroundPlaybackDesc" = "Arka planda oynatmayı etkinleştirir.";
+"Miniplayer" = "Mini oynatıcıyı etkinleştir";
+"MiniplayerDesc" = "Çocuklara yönelik videolar gibi başlangıçta mini oynatıcı için tasarlanmamış videolar için mini oynatıcıyı etkinleştirir.";
+"DisableAutoplay" = "Otomatik oynatma videolarını devre dışı bırak";
+"DisableAutoplayDesc" = "Açıldıktan sonra video oynatmayı engeller.";
+"DisableAutoCaptions" = "Otomatik altyazıları devre dışı bırak";
+"DisableAutoCaptionsDesc" = "Altyazıların otomatik olarak etkinleştirilmesini engeller.";
+"NoContentWarning" = "İçerik uyarısını atla";
+"NoContentWarningDesc" = "Hassas içerik uyarı mesajını atlar.";
+"NoHints" = "İpuçlarını devre dışı bırak";
+"NoHintsDesc" = "Oynatma ekranı kontrollerinin nasıl kullanılacağını açıklayan ipuçlarını devre dışı bırakır.";
+"AutoFullscreen" = "Videoları tam ekranda oynat";
+"AutoFullscreenDesc" = "Videoları otomatik olarak tam ekran modunda oynatır.";
+"ExitFullscreen" = "Bitince tam ekran modundan çık";
+"ExitFullscreenDesc" = "Video oynatımı sonunda tam ekran modundan çıkar.";
+
+"Player.Gestures" = "Hareketler";
+"HoldToSpeed" = "Hızlandırmak için basılı tut";
+"AdjustWithFinger" = "Hareketlerle hız ayarla";
+"AdjustWithFingerDesc" = "Oynatıcıda uzun süre basılı tutarak ve parmağınızı yukarı ve aşağı hareket ettirerek oynatma hızını ayarlamanıza olanak tanır";
+"PreserveSpeed" = "Hızı koru";
+"PreserveSpeedDesc" = "Hareket tamamlandıktan sonra ayarlanan hızı korur";
+"TwoFingerTapToPause" = "İki parmakla duraklat";
+"TwoFingerTapToPauseDesc" = "Ekrana iki parmakla dokunarak oynatmayı duraklatır/yeniden başlatır.";
+"TwoFingerPanToBrightness" = "Parlaklığı ayarla";
+"TwoFingerPanToBrightnessDesc" = "Ekranı iki parmakla yukarı/aşağı kaydırarak parlaklığı ayarlamanıza olanak tanır.";
+"CopyWithTimestamp" = "Zaman damgalı bağlantıları kopyala";
+"CopyWithTimestampDesc" = "Duraklat düğmesine basarak zaman damgalı bağlantıyı panoya kopyalamanıza olanak tanır.";
+"PauseOnOverlay" = "Üst bilgi üzerinde duraklat";
+"PauseOnOverlayDesc" = "Üst bilgi görünürse oynatmayı duraklatır.";
+"DontSnap2Chapter" = "Bölüme geçişi devre dışı bırak";
+"DontSnap2ChapterDesc" = "Çift dokunma hareketiyle bir sonraki bölüme geçişi devre dışı bırakır.";
+"NoTwoFingerSnapToChapter" = "İki parmak çift dokunma ile bölüme geçişi devre dışı bırak";
+"NoTwoFingerSnapToChapterDesc" = "İki parmak çift dokunma ile bölüme geçişi devre dışı bırakır.";
+"NoFreeZoom" = "Serbest yakınlaştırma hareketini devre dışı bırak";
+"NoFreeZoomDesc" = "Yeni serbest yakınlaştırma hareketlerini devre dışı bırakır.";
+"NoDoubleTap2Seek" = "Çift dokunarak aramayı devre dışı bırak";
+"NoDoubleTap2SeekDesc" = "Çift dokunarak arama hareketini devre dışı bırakır.";
+
+/* Shorts options */
+"Shorts" = "Shorts";
+"ShortsOnlyMode" = "Sadece Shorts Modu";
+"ShortsOnlyModeDesc" = "YouTube işlevselliğini yalnızca Shorts izlemeyle sınırlar.";
+"AutoSkipShorts" = "Shorts'u otomatik atla";
+"AutoSkipShortsDesc" = "Mevcut video oynatımı bittiğinde bir sonraki videoya geçer.";
+"ShortsProgress" = "İlerleme çubuğunu etkinleştir";
+"ShortsProgressDesc" = "Shorts üst bilgisinde ilerleme çubuğunu gösterir.";
+"SpeedByLongTap" = "Shorts oynatma hızını artır";
+"SpeedByLongTapDesc" = "Ekranın belirli bir kısmına uzun süre basarak oynatma hızını artırmanıza olanak tanır.";
+"SpeedLocation" = "Etkinleştirme konumu";
+"PinchToFullscreenShorts" = "Tam ekran için sıkıştır";
+"PinchToFullscreenShortsDesc" = "Sıkıştırma hareketleriyle üst bilgi görünürlüğünü yönetir, Shorts'u tam ekran modunda görüntüler.";
+"ShortsToRegular" = "Shorts'u normal videolar olarak aç";
+"ShortsToRegularDesc" = "Shorts videolarını normal videolar olarak açar.";
+"HideShortsLogo" = "Shorts logosunu gizle";
+"HideShortsLogoDesc" = "Shorts logosunu sol üst köşede gizler.";
+"HideShortsSearch" = "Arama düğmesini gizle";
+"HideShortsSearchDesc" = "Shorts üst bilgisinde arama düğmesini gizler.";
+"HideShortsCamera" = "Kamera düğmesini gizle";
+"HideShortsCameraDesc" = "Shorts üst bilgisinde kamera düğmesini gizler.";
+"HideShortsMore" = "Daha fazla (⋮) düğmesini gizle";
+"HideShortsMoreDesc" = "Shorts üst bilgisinde Daha fazla (⋮) düğmesini gizler. Ekrana uzun süre basarak erişilebilir.";
+"HideShortsSubscriptions" = "Abonelikler düğmesini gizle";
+"HideShortsSubscriptionsDesc" = "Shorts duraklatıldığında görünen Abonelikler düğmesini gizler.";
+
+/* Tab bar options */
+"Tabbar" = "Sekme çubuğu";
+"Startup" = "Başlangıç sayfası";
+"FEwhat_to_watch" = "Ana sayfa";
+"FEexplore" = "Keşfet";
+"FEshorts" = "Shorts";
+"FEsubscriptions" = "Abonelikler";
+"FElibrary" = "Kütüphane";
+"FEuploads" = "Yeni";
+"FEhistory" = "Geçmiş";
+
+"RemoveLabels" = "Etiketleri kaldır";
+"RemoveIndicators" = "Göstergeleri kaldır";
+
+"ActiveTabs" = "Aktif sekmeler";
+"InactiveTabs" = "Pasif sekmeler";
+"HideLibraryFooter" = "Kütüphane sekmesi, Ana Sayfa sekmesine uzun basılarak gizlenebilir veya gösterilebilir.";
+"Warning" = "Uyarı";
+"TabIsHidden" = "Gizli sekme başlangıç sayfası olarak seçilemez";
+"TabIsStartupTab" = "Başlangıç sayfası olarak seçilen sekme gizlenemez";
+
+/* Interface options */
+"Interface" = "Arayüz";
+"OledTheme" = "Oled teması";
+"OledThemeDesc" = "Tüm koyu renkleri siyaha çevirir";
+"NoSearchHistory" = "Arama geçmişini gizle";
+"NoSearchHistoryDesc" = "Arama geçmişini ve önerileri görsel olarak gizler. Not: Arama geçmişiniz diğer YouTube istemcilerinizde hala erişilebilir olacaktır.";
+"NoRelatedWatchNexts" = "Oynatıcı altındaki tüm videoları gizle";
+"NoRelatedWatchNextsDesc" = "Oynatıcının altındaki tüm videoları gizler, yalnızca video bilgileri ve yorumlar bölümünü bırakır.";
+"StickSortComments" = "Yorum başlığını sabitle";
+"StickSortCommentsDesc" = "Yorum sıralama başlığını (En iyi, En yeni) kaydırma sırasında kaybolmayacak şekilde sabitler.";
+"HideSortComments" = "Yorum başlığını gizle";
+"HideSortCommentsDesc" = "Yorum sıralama başlığını (En iyi, En yeni) asla görünmeyecek şekilde gizler.";
+"PlaylistOldMinibar" = "Eski oynatma listesi minibarı";
+"PlaylistOldMinibarDesc" = "Yeni kayan oynatma listesi panelini eski olanla değiştirir.";
+"OldYTUI" = "Eski arayüz";
+"OldYTUIDesc" = "YouTube sürümünü sahte olarak göstererek eski arayüzü geri getirir";
+"DisableRTL" = "RTL formatlamayı devre dışı bırak";
+"DisableRTLDesc" = "Başlangıçta sağdan sola (RTL) görüntülenen diller için metni zorla soldan sağa (LTR) formatında görüntüler.";
+
+"StartupAnimation" = "Başlangıç animasyonu";
+"StartupAnimationDesc" = "YouTube başlangıç yükleme animasyonunu gösterir";
+
+"InterfaceStyle" = "Arayüz stili";
+
+"ContextMenu" = "Bağlam menüsü";
+"NativeShare" = "Yerel paylaşım sayfası";
+"NativeShareDesc" = "Medya paylaşmak için sistem paylaşım sayfasını kullanır";
+"RemoveInlineComment" = "Satır içi yorumu kaldır";
+"RemoveInlineCommentDesc" = "Oynatıcının altındaki yorum bölümünü kaldırır.";
+"RemovePlayNext" = "\"Sıradakini sırada oynat\"ı kaldır";
+"RemovePlayNextDesc" = "Menüden \"Sıradakini sırada oynat\" seçeneğini kaldırır.";
+"RemoveDownloadMenu" = "\"İndir\"i kaldır";
+"RemoveDownloadMenuDesc" = "Menüden \"İndir\" seçeneğini kaldırır.";
+"RemoveWatchLaterMenu" = "\"Daha Sonra İzle'ye Kaydet\"i kaldır";
+"RemoveWatchLaterMenuDesc" = "Menüden \"Daha Sonra İzle'ye Kaydet\" seçeneğini kaldırır.";
+"RemoveSaveToPlaylistMenu" = "\"Oynatma listesine kaydet\"i kaldır";
+"RemoveSaveToPlaylistMenuDesc" = "Menüden \"Oynatma listesine kaydet\" seçeneğini kaldırır.";
+"RemoveShareMenu" = "\"Paylaş\"ı kaldır";
+"RemoveShareMenuDesc" = "Menüden \"Paylaş\" seçeneğini kaldırır.";
+"RemoveNotInterestedMenu" = "\"İlgilenmiyorum\"u kaldır";
+"RemoveNotInterestedMenuDesc" = "Menüden \"İlgilenmiyorum\" seçeneğini kaldırır.";
+"RemoveDontRecommendMenu" = "\"Kanalı önermeyin\"i kaldır";
+"RemoveDontRecommendMenuDesc" = "Menüden \"Kanalı önermeyin\" seçeneğini kaldırır.";
+"RemoveReportMenu" = "\"Rapor Et\"i kaldır";
+"RemoveReportMenuDesc" = "Menüden \"Rapor Et\" seçeneğini kaldırır.";
+
+/* SponsorBlock settings */
+"EnableSponsorBlock" = "Etkinleştir";
+"EnableSponsorBlockDesc" = "SponsorBlock eklentisini etkinleştirir.";
+"SegmentsInFeedPlayer" = "Akışta göster";
+"SegmentsInFeedPlayerDesc" = "Akışta, oynatıcının ilerleme çubuğunda renkli kısımları gösterir.";
+"SegmentsInMiniPlayer" = "Mini oynatıcıda göster";
+"SegmentsInMiniPlayerDesc" = "Mini oynatıcının ilerleme çubuğunda renkli kısımları gösterir.";
+"SegmentSkipAudio" = "Sesli uyarı";
+"SegmentSkipAudioDesc" = "Bir kısım atlandığında sesli uyarı çalar.";
+"DurationWithoutSegments" = "Yeni süreyi göster";
+"DurationWithoutSegmentsDesc" = "Kısımsız toplam süreyi gösterir.";
+
+"SkipAlertDuration" = "Atlama Uyarı Süresi";
+"UnskipAlertDuration" = "Geri Atlama Uyarı Süresi";
+
+"Segments" = "Kısımlar";
+"Sponsor" = "Sponsor";
+"SponsorDesc" = "Ücretli tanıtım, ücretli yönlendirmeler ve doğrudan reklamlar.";
+"SponsorColor" = "Sponsor kısmı rengi";
+"Intro" = "Ara/Giriş animasyonu";
+"IntroDesc" = "Videonun başında bulunan ve aynı içerik üreticisi tarafından yapılan diğer videolarda da görülen animasyon, durağan görüntü veya klip içeren kısımlar.";
+"IntroColor" = "Ara/Giriş animasyonu kısmı rengi";
+"Endcards" = "Bitiş Kartları/Jenerik";
+"EndcardsDesc" = "Genellikle videonun sonunda veya yakınında görünen bitiş kartlarının ve/veya jeneriklerin göründüğü kısımlar.";
+"EndcardsColor" = "Jenerik kısmı rengi";
+"Interaction" = "Etkileşim hatırlatmaları";
+"InteractionDesc" = "Beğenme, abone olma veya ücretli/ücretsiz platform(lar)da etkileşimde bulunma gibi açık hatırlatmalar (örneğin, bir videoya tıklama)";
+"InteractionColor" = "Etkileşim kısmı rengi";
+"SelfPromo" = "Ücretsiz/Kendini reklamlama";
+"SelfPromoDesc" = "Kendini reklamlama: İçerik üreticisiyle doğrudan ilişkili bir ürünü veya hizmeti tanıtma.\nÜcretsiz: İçerik üreticisi bu tanıtım karşılığında herhangi bir ödeme almaz.";
+"SelfPromoColor" = "Kendini reklamlama kısmı rengi";
+"MusicOfftopic" = "Müzik: Müzik dışı bölüm";
+"MusicOfftopicDesc" = "Şarkıyı dinlemekten alıkoyan müzik oynatmadaki offtopic kısımları. Diğer kategoriye girmeyen müzik kliplerinin kısımları için kullanılır.";
+"MusicOfftopicColor" = "Müzik dışı kısmı rengi";
+"Preview" = "Önizleme";
+"PreviewDesc" = "Bu videoda veya aynı serideki diğer videolarda nelerin geleceğini gösteren ve tüm bilgilerin daha sonra videoda tekrarlandığı kliplerin koleksiyonu.";
+"PreviewColor" = "Önizleme kısmı rengi";
+"Highlight" = "Öne çıkan";
+"HighlightDesc" = "Bir videonun öne çıkan noktasına veya önemli noktasına ulaşmak için kullanılır.";
+"HighlightColor" = "Öne çıkan kısmı rengi";
+"Jokes" = "Konuyla Alakasız/Şaka";
+"JokesDesc" = "Konuyla Alakasız/Şaka, videonun ana içeriğini anlamak için gerekli olmayan, yalnızca doldurma veya mizah amacıyla eklenen bağlantılı sahneler içindir.";
+"JokesColor" = "Şaka kısmı rengi";
+
+"Sb.Disable" = "Devre Dışı";
+"Sb.Skip" = "Otomatik atla";
+"Sb.SkipTo" = "Segment'e atla";
+"Sb.Ask" = "Sor";
+"Sb.Display" = "Oynatıcıda göster";
+
+"sb_sponsor" = "Sponsor kısmı";
+"sb_intro" = "Giriş kısmı";
+"sb_outro" = "Bitiş kartları kısmı";
+"sb_interaction" = "Etkileşim kısmı";
+"sb_selfpromo" = "Kendini reklamlama kısmı";
+"sb_music_offtopic" = "Müzik dışı kısmı";
+"sb_preview" = "Önizleme kısmı";
+"sb_poi_highlight" = "Öne çıkan nokta";
+"sb_filler" = "Doldurma/Şaka kısmı";
+
+"SegmentDetected" = "%@ bulundu";
+"SegmentSkipped" = "%@ atlandı";
+"SkippedToSegment" = "%@na atlandı";
+"SkipSegment" = "Atla";
+"SkipToSegment" = "Göster";
+"Unskip" = "Geri atla";
+
+/* Developer section */
+"Developer" = "Geliştirici";
+"FollowMe" = "Beni X'te takip edin";
+"SupportDevelopment" = "Gelişimi destekleyin";
+"DonateDesc" = "Desteğiniz benim için çok önemli";
+"SupportDevelopmentDesc" = "YTPlus'u beğendiyseniz ve gelişimini desteklemek isterseniz, aşağıdaki uygun yolları kullanarak destek olabilirsiniz.\nTeşekkürler❤";
+
+/* Credits section */
+"Credits" = "Katkılar";
+
+"Contributors" = "Katkıda bulunanlar";
+"DevContribution" = "Geliştirmeye katkıda bulunanlar";
+"SpecialThanks" = "Özel teşekkürler";
+"SpecialThanks.Test" = "Değerli test katkısı";
+
+"Localizations" = "Yerelleştirme yazarları";
+"ChineseSimplified" = "Çince (Basitleştirilmiş) yerelleştirme";
+"ChineseTraditional" = "Çince (Geleneksel) yerelleştirme";
+"French" = "Fransızca yerelleştirme";
+"Spanish" = "İspanyolca yerelleştirme";
+"Japanese" = "Japonca yerelleştirme";
+"Vietnamese" = "Vietnamca yerelleştirme";
+"Arabic" = "Arapça yerelleştirme";
+"Turkish" = "Türkçe yerelleştirme";
+
+"OpenSourceLibs" = "Açık Kaynak Kütüphaneler";
+
+"Preferences" = "%@ tercihleri";
+"ManagePreferences" = "Tercihleri yönet";
+"ImportPreferences" = "Tercihleri içe aktar";
+"PreImportMessage" = "Bu işlem, geçerli tercihlerin yerini seçilen dosyadaki tercihlerle değiştirecektir.\n\nDevam etmek istediğinizden emin misiniz?";
+"ExportPreferences" = "Tercihleri dışa aktar";
+"ResetSettings" = "Ayarları varsayılana dön";
+"ResetMessage" = "Bu işlem YTPlus ayarlarını varsayılana sıfırlayacak ve YouTube'u kapatacaktır.\n\nDevam etmek istediğinizden emin misiniz?";
+
+"ManageCache" = "Önbelleği yönet";
+"ClearCacheAtStart" = "Başlangıçta önbelleği temizle";
+"ClearCacheAtStartDesc" = "Başlangıçta önbelleği otomatik olarak temizler.";
+"ClearCache" = "Önbelleği temizle";
+
+"ShortsOnlyWarning" = "Bu modu etkinleştirmek istediğinizden emin misiniz?\n\nBu modda, yalnızca Shorts videolarını izleyebilir ve başka hiçbir şey yapamazsınız.\n\nShorts Sadece Modunu devre dışı bırakmak için Shorts oynatıcıda iki parmakla uzun basmanız yeterlidir.";
+"ShortsModeTurnedOff" = "Sadece Shorts Modu kapatıldı";
+
+"LibraryHidingConfirmation" = "Ana sayfa sekmeye uzun basma algılandı.\n\nSiz/Kitaplık sekmesini gizlemek ister misiniz?";
+"LibraryAdded" = "Siz/Kütüphane sekmesi geri yüklendi";
+"LibraryRemoved" = "Siz/Kütüphane sekmesi kaldırıldı";
+
+"Yes" = "Evet";
+"No" = "Hayır";
+
+"Select" = "Seç";
+"Default" = "Varsayılan";
+"Best" = "En iyi";
+"Show" = "Göster";
+"Disable" = "Devre dışı bırak";
+"Disabled" = "Devre dışı";
+"PlaybackSpeed" = "Oynatma Hızı";
+"SpeedPreserved" = "Hız korundu";
+"ResetSpeed" = "Sıfırla";
+
+"Brightness" = "Parlaklık";
+"Toast.PlaybackSpeed" = "Oynatma Hızı";
+
+"SelectAction" = "Eylem seç";
+"DownloadVideo" = "Videoyu indir";
+"DownloadAudio" = "Sesi indir";
+"SaveImage" = "Görüntüyü kaydet";
+"CopyInformation" = "Bilgiyi kopyala";
+"CopyChannelName" = "Kanal adını kopyala";
+"CopyTitle" = "Başlığı kopyala";
+"CopyDescription" = "Açıklamayı kopyala";
+"CopyTimestampedLink" = "Zaman damgalı bağlantıyı kopyala";
+"PlayInExternalPlayer" = "Harici oynatıcıda oynat";
+"PlayInSystemPlayer" = "Sistem oynatıcıda oynat";
+"PlayInInfuse" = "Infuse'da oynat";
+"PlayInVLC" = "VLC'de oynat";
+"PlayerNotFound" = "Oynatıcı bulunamadı";
+"OpenAsRegularVideo" = "Normal video olarak aç";
+"CopyPostText" = "Gönderi metnini kopyala";
+"SaveCurrentImage" = "Mevcut görüntüyü kaydet";
+"CopyCurrentImage" = "Mevcut görüntüyü kopyala";
+"SavePostAsImage" = "Gönderiyi görüntü olarak kaydet";
+"CopyPostAsImage" = "Gönderiyi görüntü olarak kopyala";
+"CopyCommentText" = "Yorum metnini kopyala";
+"SaveCommentAsImage" = "Yorumu görüntü olarak kaydet";
+"CopyCommentAsImage" = "Yorumu görüntü olarak kopyala";
+"SaveProfilePicture" = "Profil resmini kaydet";
+"CopyProfilePicture" = "Profil resmini kopyala";
+"DownloadThumbnail" = "Küçük resmi kaydet";
+"CopyThumbnail" = "Küçük resmi kopyala";
+"Cancel" = "İptal";
+"Cancelled" = "İptal edildi";
+"Copied" = "Panoya kopyalandı";
+"Saved" = "Fotoğraflara kaydedildi";
+"Done" = "Tamamlandı";
+"Error" = "Hata";
+"Error.Clipboard" = "Hata oluştu. Daha fazla bilgi için panoyu kontrol edin";
+"Error.PathIssue" = "Hata oluştu. Son yolun oluşturulmasında sorun. Medya başlığıyla ilgili sorun mu?";
+"Error.TryLater" = "Canlı yayın yapılıyor veya medya, Google sunucusunda işleme devam ediliyor.\n\nLütfen daha sonra tekrar deneyin.";
+"Error.NoSpace" = "Cihazda yetersiz alan.\n\nEn az %@ ek serbest alan gereklidir. Mevcut serbest alan: %@";
+"Error.Multidownloading" = "Çoklu indirme henüz mevcut değil.";
+"Error.FailedToImport" = "Tercihler içe aktarılamadı";
+"DownloadingVideo" = "Video indiriliyor";
+"DownloadingAudio" = "Ses indiriliyor";
+"Converting" = "Dönüştürülüyor";
+"RetryLogin" = "Geçici çözüm etkinleştirildi.\n\nLütfen tekrar deneyin.";
+"LoginInfo" = "Google hesabınıza başarılı bir şekilde giriş yaptıktan sonra uygulama yeniden başlatılmalıdır";
+
+"Welcome.Download" = "Medya İndir";
+"Welcome.DownloadDesc" = "En sevdiğiniz içerikleri indirin, ister Videolar, Shorts, Sesler, ister Profil fotoğrafları olsun. İlginç gönderileri ve yorumları kopyalayın veya görüntü olarak kaydedin";
+"Welcome.Content" = "Arayüzü Ayarla";
+"Welcome.ContentDesc" = "İstenmeyen içerikleri ve arayüz öğelerini kaldırın. Gerçek OLED karanlık modunu etkinleştirin";
+"Welcome.Player" = "Oynatıcı Davranışını Ayarla";
+"Welcome.PlayerDesc" = "Oynatıcının davranışını özelleştirin, kaliteyi ve oynatma hızını otomatik seçin. Hareketlerle kontrol edin";
+"Welcome.More" = "Ve daha fazlası...";
+"Welcome.MoreDesc" = "YouTube Plus, tercihlerinizi kaydetme ve önbelleği temizleme gibi 50'den fazla farklı seçenek içerir. Ayarlar YouTube ayarları altındaki YouTube Plus bölümünde mevcuttur";
+"SupportMe" = "Beni destekleyin";
+"Continue" = "Devam et";
+
+"DonationReminder" = "Desteğiniz YTPlus'ı daha iyi hale getiriyor... Tweak ayarlarından destek olun";
+"DontRemind" = "Kapat";
