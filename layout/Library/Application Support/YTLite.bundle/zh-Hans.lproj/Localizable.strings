@@ -362,8 +362,8 @@
 "ShortsOnlyWarning" = "确定要激活此模式吗？\n\n在此模式下，将只能观看短视频，且无法执行任何其他操作。\n\n可以通过双指长按禁用“仅短视频模式”。";
 "ShortsModeTurnedOff" = "仅短视频模式已关闭";
 
-"AddLibraryTab" = "Restore \"You\" tab";
-"RemoveLibraryTab" = "Remove \"You\" tab";
+"AddLibraryTab" = "恢复“我”标签页";
+"RemoveLibraryTab" = "隐藏“我”标签页";
 "LibraryAdded" = "“我”标签页已恢复";
 "LibraryRemoved" = "“我”标签页已隐藏";
 
