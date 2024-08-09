@@ -137,6 +137,8 @@
 "ExitFullscreenDesc" = "Video oynatımı sonunda tam ekran modundan çıkar.";
 
 "Player.Gestures" = "Hareketler";
+"LeftSideGesture" = "Sol taraf için hareket";
+"RightSideGesture" = "Sağ taraf için hareket";
 "HoldToSpeed" = "Hızlandırmak için basılı tut";
 "AdjustWithFinger" = "Hareketlerle hız ayarla";
 "AdjustWithFingerDesc" = "Oynatıcıda uzun süre basılı tutarak ve parmağınızı yukarı ve aşağı hareket ettirerek oynatma hızını ayarlamanıza olanak tanır";
@@ -205,6 +207,7 @@
 "Warning" = "Uyarı";
 "TabIsHidden" = "Gizli sekme başlangıç sayfası olarak seçilemez";
 "TabIsStartupTab" = "Başlangıç sayfası olarak seçilen sekme gizlenemez";
+"TabsCountRestricted" = "En fazla altı sekme ekleyebilirsiniz";
 
 /* Interface options */
 "Interface" = "Arayüz";
@@ -380,8 +383,9 @@
 "SpeedPreserved" = "Hız korundu";
 "ResetSpeed" = "Sıfırla";
 
-"Brightness" = "Parlaklık";
+"Toast.Brightness" = "Parlaklık";
 "Toast.PlaybackSpeed" = "Oynatma Hızı";
+"Toast.Volume" = "Ses";
 
 "SelectAction" = "Eylem seç";
 "DownloadVideo" = "Videoyu indir";

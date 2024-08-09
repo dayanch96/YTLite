@@ -118,6 +118,8 @@
 "24hrFormatDesc" = "يعرض وقت الانتهاء بصيغة 24 ساعة.";
 
 "Player.Actions" = "الإجراءات";
+"LeftSideGesture" = "إيماءة للجانب الأيسر";
+"RightSideGesture" = "إيماءة للجانب الأيمن";
 "DefaultPlaybackRate" = "معدل التشغيل الافتراضي";
 "BackgroundPlayback" = "التشغيل في الخلفية";
 "BackgroundPlaybackDesc" = "يتيح التشغيل في الخلفية.";
@@ -205,6 +207,7 @@
 "Warning" = "تحذير";
 "TabIsHidden" = "لا يمكن تحديد علامة التبويب المخفية كصفحة بدء";
 "TabIsStartupTab" = "لا يمكن إخفاء علامة التبويب المحددة كصفحة بدء التشغيل";
+"TabsCountRestricted" = "يمكنك أن يكون لديك ما يصل إلى ستة علامات تبويب نشطة فقط";
 
 /* Interface options */
 "Interface" = "واجهة المستخدم";
@@ -380,8 +383,9 @@
 "SpeedPreserved" = "السرعة محفوظة";
 "ResetSpeed" = "إعادة تعيين";
 
-"Brightness" = "السطوع";
+"Toast.Brightness" = "السطوع";
 "Toast.PlaybackSpeed" = "سرعة التشغيل";
+"Toast.Volume" = "الصوت";
 
 "SelectAction" = "اختر الإجراء";
 "DownloadVideo" = "حفظ الفيديو";

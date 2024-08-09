@@ -137,6 +137,8 @@
 "ExitFullscreenDesc" = "Thoát khỏi chế độ toàn màn hình khi kết thúc phát video.";
 
 "Player.Gestures" = "Gestures";
+"LeftSideGesture" = "Gesture for the left side";
+"RightSideGesture" = "Gesture for the right side";
 "HoldToSpeed" = "Giữ tốc độ";
 "AdjustWithFinger" = "Adjust speed by gestures";
 "AdjustWithFingerDesc" = "Allows adjusting playback speed by long press on player and moving finger up and down";
@@ -205,6 +207,7 @@
 "Warning" = "Cảnh báo";
 "TabIsHidden" = "Không thể chọn Tab ẩn làm trang khởi động";
 "TabIsStartupTab" = "The tab selected as the startup page cannot be hidden";
+"TabsCountRestricted" = "You can only have up to six active tabs";
 
 /* Interface options */
 "Interface" = "Interface";
@@ -380,8 +383,9 @@
 "SpeedPreserved" = "Speed preserved";
 "ResetSpeed" = "Reset";
 
-"Brightness" = "Brightness";
+"Toast.Brightness" = "Brightness";
 "Toast.PlaybackSpeed" = "Playback Speed";
+"Toast.Volume" = "Volume";
 
 "SelectAction" = "Chọn hành động";
 "DownloadVideo" = "Download video";

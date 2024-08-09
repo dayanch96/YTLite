@@ -137,6 +137,8 @@
 "ExitFullscreenDesc" = "動画再生が終了したときにフルスクリーンモードを終了します。";
 
 "Player.Gestures" = "ジェスチャー";
+"LeftSideGesture" = "Gesture for the left side";
+"RightSideGesture" = "Gesture for the right side";
 "HoldToSpeed" = "再生速度を維持";
 "AdjustWithFinger" = "ジェスチャーで速度を調整する";
 "AdjustWithFingerDesc" = "プレーヤーを長押しして指を上下に動かすことで再生速度を調整できます。";
@@ -205,6 +207,7 @@
 "Warning" = "警告";
 "TabIsHidden" = "非表示のタブはスタートアップページとして選択できません。";
 "TabIsStartupTab" = "The tab selected as the startup page cannot be hidden";
+"TabsCountRestricted" = "You can only have up to six active tabs";
 
 /* Interface options */
 "Interface" = "インターフェース";
@@ -380,8 +383,9 @@
 "SpeedPreserved" = "速度を維持";
 "ResetSpeed" = "リセット";
 
-"Brightness" = "明るさ";
+"Toast.Brightness" = "明るさ";
 "Toast.PlaybackSpeed" = "再生速度";
+"Toast.Volume" = "Volume";
 
 "SelectAction" = "アクションを選択";
 "DownloadVideo" = "ビデオをダウンロード";

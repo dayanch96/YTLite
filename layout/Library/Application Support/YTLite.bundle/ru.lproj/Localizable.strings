@@ -40,8 +40,6 @@
 "RemoveSearchDesc" = "Скрывает кнопку поиска с панели навигации.";
 "RemoveVoiceSearch" = "Скрыть «Голосовой поиск»";
 "RemoveVoiceSearchDesc" = "Скрывает кнопку голосового поиска с панели навигации.";
-"RemoveSponsorBlock" = "Скрыть «SponsorBlock»";
-"RemoveSponsorBlockDesc" = "Скрывает кнопку «SponsorBlock» с панели навигации.";
 "StickyNavbar" = "Закрепить панель навигации";
 "StickyNavbarDesc" = "Фиксирует панель навигации в верхней части экрана.";
 "NoSubbar" = "Скрыть наклейки";
@@ -139,6 +137,8 @@
 "ExitFullscreenDesc" = "Выходит из полноэкранного режима по окончанию воспроизведения.";
 
 "Player.Gestures" = "Жесты";
+"LeftSideGesture" = "Жест для левой части";
+"RightSideGesture" = "Жест для правой части";
 "HoldToSpeed" = "Ускорение долгим нажатием";
 "AdjustWithFinger" = "Регулировать скорость жестами";
 "AdjustWithFingerDesc" = "Позволяет регулировать скорость зажатием и вертикальным движением пальца по окну плеера";
@@ -172,8 +172,6 @@
 "SpeedByLongTap" = "Ускоренное воспроизведение";
 "SpeedByLongTapDesc" = "Позволяет ускорить воспроизведение долгим нажатием по определенной части экрана.";
 "SpeedLocation" = "Зона активации ускорения";
-"LeftSide" = "Левая часть экрана";
-"RightSide" = "Правая часть экрана";
 "PinchToFullscreenShorts" = "Полноэкранный режим щипком";
 "PinchToFullscreenShortsDesc" = "Скрывает панель вкладок, тем самым отображает Shorts на весь экран.";
 "ShortsToRegular" = "Shorts как обычные видео";
@@ -209,6 +207,7 @@
 "Warning" = "Внимание";
 "TabIsHidden" = "Скрытая вкладка не может быть выбрана в качестве начальной страницы";
 "TabIsStartupTab" = "Вкладка, выбранная в качестве начальной страницы, не может быть скрыта";
+"TabsCountRestricted" = "Можно добавлять не более шести активных вкладок";
 
 /* Interface options */
 "Interface" = "Интерфейс";
@@ -366,7 +365,6 @@
 "ShortsOnlyWarning" = "Вы уверены, что хотите активировать данный режим?\n\nВ данном режиме вы не сможете ничего делать, кроме как смотреть видеоролики Shorts.\n\nРежим Shorts можно будет отключить зажав в плеере двумя пальцами.";
 "ShortsModeTurnedOff" = "Режим Shorts был отключен";
 
-"LibraryHidingConfirmation" = "Было распознано долгое нажатие по вкладке «Домой».\n\nХотите скрыть вкладку «Вы»/«Библиотека»?";
 "AddLibraryTab" = "Добавить вкладку «Вы»";
 "RemoveLibraryTab" = "Удалить вкладку «Вы»";
 "LibraryAdded" = "Вкладка «Вы» восстановлена";
@@ -385,8 +383,9 @@
 "SpeedPreserved" = "Скорость сохранена";
 "ResetSpeed" = "Сбросить";
 
-"Brightness" = "Яркость";
+"Toast.Brightness" = "Яркость";
 "Toast.PlaybackSpeed" = "Скорость";
+"Toast.Volume" = "Громкость";
 
 "SelectAction" = "Выберите действие";
 "DownloadVideo" = "Скачать видео";

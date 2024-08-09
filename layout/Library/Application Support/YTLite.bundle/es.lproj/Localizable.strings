@@ -137,6 +137,8 @@
 "ExitFullscreenDesc" = "Sale del modo de pantalla completa al finalizar la reproducción del vídeo.";
 
 "Player.Gestures" = "Gestos";
+"LeftSideGesture" = "Gesture for the left side";
+"RightSideGesture" = "Gesture for the right side";
 "HoldToSpeed" = "Mantener para velocidad";
 "AdjustWithFinger" = "Ajusta la velocidad mediante gestos";
 "AdjustWithFingerDesc" = "Permite ajustar la velocidad de reproducción presionando durante mucho tiempo el reproductor y moviendo el dedo hacia arriba y hacia abajo";
@@ -205,6 +207,7 @@
 "Warning" = "Advertencia";
 "TabIsHidden" = "No se puede seleccionar una pestaña oculta como página de inicio";
 "TabIsStartupTab" = "The tab selected as the startup page cannot be hidden";
+"TabsCountRestricted" = "You can only have up to six active tabs";
 
 /* Interface options */
 "Interface" = "Interfaz";
@@ -380,8 +383,9 @@
 "SpeedPreserved" = "Velocidad conservada";
 "ResetSpeed" = "Restablecer";
 
-"Brightness" = "Luminosidad";
+"Toast.Brightness" = "Luminosidad";
 "Toast.PlaybackSpeed" = "Velocidad de reproducción";
+"Toast.Volume" = "Volume";
 
 "SelectAction" = "Seleccionar acción";
 "DownloadVideo" = "Descargar vídeo";

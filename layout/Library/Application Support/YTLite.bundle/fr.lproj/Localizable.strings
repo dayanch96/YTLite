@@ -137,6 +137,8 @@
 "ExitFullscreenDesc" = "Quitte le mode plein écran à la fin de la lecture de la vidéo.";
 
 "Player.Gestures" = "Gestes";
+"LeftSideGesture" = "Gesture for the left side";
+"RightSideGesture" = "Gesture for the right side";
 "HoldToSpeed" = "Maintenir pour accélérer";
 "AdjustWithFinger" = "Ajuster la vitesse par gestes";
 "AdjustWithFingerDesc" = "Permet d'ajuster la vitesse de lecture par un appui long sur le lecteur et en déplaçant le doigt vers le haut et le bas";
@@ -205,6 +207,7 @@
 "Warning" = "Avertissement";
 "TabIsHidden" = "L'onglet masqué ne peut pas être sélectionné comme page de démarrage";
 "TabIsStartupTab" = "L'onglet sélectionné comme page de démarrage ne peut pas être masqué";
+"TabsCountRestricted" = "You can only have up to six active tabs";
 
 /* Interface options */
 "Interface" = "Interface";
@@ -380,8 +383,9 @@
 "SpeedPreserved" = "Vitesse conservée";
 "ResetSpeed" = "Réinitialiser";
 
-"Brightness" = "Luminosité";
+"Toast.Brightness" = "Luminosité";
 "Toast.PlaybackSpeed" = "Vitesse de lecture";
+"Toast.Volume" = "Volume";
 
 "SelectAction" = "Sélectionner une action";
 "DownloadVideo" = "Télécharger la vidéo";

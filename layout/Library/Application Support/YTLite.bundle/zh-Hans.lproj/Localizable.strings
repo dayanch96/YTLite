@@ -137,6 +137,8 @@
 "ExitFullscreenDesc" = "在视频播放结束时退出全屏模式。";
 
 "Player.Gestures" = "手势";
+"LeftSideGesture" = "Gesture for the left side";
+"RightSideGesture" = "Gesture for the right side";
 "HoldToSpeed" = "长按变更速度";
 "AdjustWithFinger" = "通过手势调整速度";
 "AdjustWithFingerDesc" = "允许长按播放器并上下滑动手指来调整音量。";
@@ -205,6 +207,7 @@
 "Warning" = "警告";
 "TabIsHidden" = "无法选择隐藏选项卡作为启动页。";
 "TabIsStartupTab" = "选定为“启动页”的标签页无法隐藏";
+"TabsCountRestricted" = "You can only have up to six active tabs";
 
 /* Interface options */
 "Interface" = "界面项";
@@ -362,8 +365,8 @@
 "ShortsOnlyWarning" = "确定要激活此模式吗？\n\n在此模式下，将只能观看短视频，且无法执行任何其他操作。\n\n可以通过双指长按禁用“仅短视频模式”。";
 "ShortsModeTurnedOff" = "仅短视频模式已关闭";
 
-"AddLibraryTab" = "Restore \"You\" tab";
-"RemoveLibraryTab" = "Remove \"You\" tab";
+"AddLibraryTab" = "恢复“我”标签页";
+"RemoveLibraryTab" = "隐藏“我”标签页";
 "LibraryAdded" = "“我”标签页已恢复";
 "LibraryRemoved" = "“我”标签页已隐藏";
 
@@ -380,8 +383,9 @@
 "SpeedPreserved" = "速度保持";
 "ResetSpeed" = "重置";
 
-"Brightness" = "亮度";
+"Toast.Brightness" = "亮度";
 "Toast.PlaybackSpeed" = "播放速度";
+"Toast.Volume" = "Volume";
 
 "SelectAction" = "选择操作";
 "DownloadVideo" = "下载视频";

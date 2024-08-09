@@ -137,6 +137,8 @@
 "ExitFullscreenDesc" = "Exits fullscreen mode at the end of video playback.";
 
 "Player.Gestures" = "Gestures";
+"LeftSideGesture" = "Gesture for the left side";
+"RightSideGesture" = "Gesture for the right side";
 "HoldToSpeed" = "Hold to speed";
 "AdjustWithFinger" = "Adjust speed by gestures";
 "AdjustWithFingerDesc" = "Allows adjusting playback speed by long press on player and moving finger up and down";
@@ -205,6 +207,7 @@
 "Warning" = "Warning";
 "TabIsHidden" = "Hidden tab cannot be selected as startup page";
 "TabIsStartupTab" = "The tab selected as the startup page cannot be hidden";
+"TabsCountRestricted" = "You can only have up to six active tabs";
 
 /* Interface options */
 "Interface" = "Interface";
@@ -380,8 +383,9 @@
 "SpeedPreserved" = "Speed preserved";
 "ResetSpeed" = "Reset";
 
-"Brightness" = "Brightness";
+"Toast.Brightness" = "Brightness";
 "Toast.PlaybackSpeed" = "Playback Speed";
+"Toast.Volume" = "Volume";
 
 "SelectAction" = "Select action";
 "DownloadVideo" = "Download video";
