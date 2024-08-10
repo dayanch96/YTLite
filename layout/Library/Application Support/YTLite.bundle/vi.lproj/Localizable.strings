@@ -144,6 +144,12 @@
 "AdjustWithFingerDesc" = "Allows adjusting playback speed by long press on player and moving finger up and down";
 "PreserveSpeed" = "Preserve Speed";
 "PreserveSpeedDesc" = "Preserves adjusted speed after gesture completion";
+"SeekAnywhere" = "Swipe to seek";
+"SeekAnywhereDesc" = "Allows controlling playback seeking by swiping left and right.";
+"SeekMethod" = "Seek method";
+"Independent" = "Independent";
+"DurationBased" = "Duration-based";
+"SeekSensitivity" = "Seek sensitivity";
 "TwoFingerTapToPause" = "Pause using two fingers";
 "TwoFingerTapToPauseDesc" = "Pause/Resume playback by tapping on the screen using two fingers.";
 "TwoFingerPanToBrightness" = "Adjust brightness";
@@ -328,6 +334,10 @@
 "SupportDevelopment" = "Hỗ trợ nhà phát triển";
 "DonateDesc" = "Your support means a lot to me";
 "SupportDevelopmentDesc" = "Nếu bạn thích YTPlus và muốn hỗ trợ sự phát triển của nó, bạn có thể thực hiện bằng bất kỳ cách thuận tiện nào dưới đây.\nCảm ơn❤";
+"VisitGithub" = "Github Repository";
+"VisitGithubDesc" = "Star the repo, request a feature or report issues";
+"VisitTelegram" = "My Telegram Channel";
+"VisitTelegramDesc" = "Stay informed about the latest app updates";
 
 /* Credits section */
 "Credits" = "Credits";
@@ -442,6 +452,11 @@
 "Welcome.MoreDesc" = "YouTube Plus includes over 50 different options, including features like saving preferences and clearing cache. Settings are available in the YouTube Plus section under YouTube settings";
 "SupportMe" = "Support me";
 "Continue" = "Continue";
+
+"Conflicts.Detected" = "Incompatible Tweaks Detected";
+"Conflicts.DetectedDesc" = "Despite the apparent stability of the app, the developer of YouTube Plus does not recommend combining tweaks with similar functionality in the same app and cannot guarantee safe usage.\n\nBy continuing to use the app, you take full responsibility and agree that any complaints about performance will be ignored.";
+"Conflicts.AcceptRisks" = "I Accept All Risks";
+"Conflicts.CloseYT" = "Close YouTube";
 
 "DonationReminder" = "Your support makes YTPlus better... Support through tweak settings";
 "DontRemind" = "Turn off";

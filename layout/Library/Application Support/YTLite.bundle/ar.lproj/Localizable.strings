@@ -144,6 +144,12 @@
 "AdjustWithFingerDesc" = "يسمح بضبط سرعة التشغيل عن طريق الضغط المطول على المشغل وتحريك الإصبع لأعلى ولأسفل.";
 "PreserveSpeed" = "الاحتفاظ بالسرعة";
 "PreserveSpeedDesc" = "يحافظ على السرعة المعدلة بعد اكتمال الإيماءة.";
+"SeekAnywhere" = "Swipe to seek";
+"SeekAnywhereDesc" = "Allows controlling playback seeking by swiping left and right.";
+"SeekMethod" = "Seek method";
+"Independent" = "Independent";
+"DurationBased" = "Duration-based";
+"SeekSensitivity" = "Seek sensitivity";
 "TwoFingerTapToPause" = "إيقاف التشغيل باستخدام إصبعين";
 "TwoFingerTapToPauseDesc" = "إيقاف تشغيل/استئناف التشغيل عن طريق الضغط على الشاشة باستخدام إصبعين.";
 "TwoFingerPanToBrightness" = "ضبط السطوع";
@@ -328,6 +334,10 @@
 "SupportDevelopment" = "دعم التطوير";
 "DonateDesc" = "دعمك يعني الكثير بالنسبة لي";
 "SupportDevelopmentDesc" = "إذا أعجبك YTPlus وترغب في دعم تطويره، يمكنك فعل ذلك باستخدام أي من الطرق المناسبة أدناه.\nشكرًا ❤";
+"VisitGithub" = "Github Repository";
+"VisitGithubDesc" = "Star the repo, request a feature or report issues";
+"VisitTelegram" = "My Telegram Channel";
+"VisitTelegramDesc" = "Stay informed about the latest app updates";
 
 /* Credits section */
 "Credits" = "الاعتمادات";
@@ -442,6 +452,11 @@
 "Welcome.MoreDesc" = "يتضمن YouTube Plus اكثر من 50 خيارًا مختلفًا، بما في ذلك ميزات مثل حفظ الإعدادات ومسح الذاكرة المؤقتة. إعدادات الأداة متوفرة بإسم YouTube Plus ضمن إعدادات الـYouTube.";
 "SupportMe" = "ادعمني";
 "Continue" = "متابعة";
+
+"Conflicts.Detected" = "Incompatible Tweaks Detected";
+"Conflicts.DetectedDesc" = "Despite the apparent stability of the app, the developer of YouTube Plus does not recommend combining tweaks with similar functionality in the same app and cannot guarantee safe usage.\n\nBy continuing to use the app, you take full responsibility and agree that any complaints about performance will be ignored.";
+"Conflicts.AcceptRisks" = "I Accept All Risks";
+"Conflicts.CloseYT" = "Close YouTube";
 
 "DonationReminder" = "دعمك يجعل YTPlus أفضل, ادعم من خلال إعدادات الأداة";
 "DontRemind" = "إيقاف التذكير";

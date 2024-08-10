@@ -144,6 +144,12 @@
 "AdjustWithFingerDesc" = "允许长按播放器并上下滑动手指来调整音量。";
 "PreserveSpeed" = "保持速度";
 "PreserveSpeedDesc" = "手势完成后保持调整后的速度。";
+"SeekAnywhere" = "Swipe to seek";
+"SeekAnywhereDesc" = "Allows controlling playback seeking by swiping left and right.";
+"SeekMethod" = "Seek method";
+"Independent" = "Independent";
+"DurationBased" = "Duration-based";
+"SeekSensitivity" = "Seek sensitivity";
 "TwoFingerTapToPause" = "使用双指暂停";
 "TwoFingerTapToPauseDesc" = "用双指点击屏幕即可“暂停/恢复”播放。";
 "TwoFingerPanToBrightness" = "调整亮度";
@@ -328,6 +334,10 @@
 "SupportDevelopment" = "支持开发";
 "DonateDesc" = "你的支持对我来说意义重大！";
 "SupportDevelopmentDesc" = "如果您喜欢“YouTube Plus”并愿意支持其开发，可以使用以下任何便捷的方式来赞助。\n感谢❤";
+"VisitGithub" = "Github Repository";
+"VisitGithubDesc" = "Star the repo, request a feature or report issues";
+"VisitTelegram" = "My Telegram Channel";
+"VisitTelegramDesc" = "Stay informed about the latest app updates";
 
 /* Credits section */
 "Credits" = "信息";
@@ -442,6 +452,11 @@
 "Welcome.MoreDesc" = "“YouTube Plus”包含 50 多种不同的功能选项，包括保存偏好设置和清除缓存等功能。可以在 YouTube 设置下的“YouTube Plus”选项中找到功能设置。";
 "SupportMe" = "支持我";
 "Continue" = "继续";
+
+"Conflicts.Detected" = "Incompatible Tweaks Detected";
+"Conflicts.DetectedDesc" = "Despite the apparent stability of the app, the developer of YouTube Plus does not recommend combining tweaks with similar functionality in the same app and cannot guarantee safe usage.\n\nBy continuing to use the app, you take full responsibility and agree that any complaints about performance will be ignored.";
+"Conflicts.AcceptRisks" = "I Accept All Risks";
+"Conflicts.CloseYT" = "Close YouTube";
 
 "DonationReminder" = "您的支持使“YouTube Plus”变得更好...通过插件设置来支持开发工作。";
 "DontRemind" = "关闭";

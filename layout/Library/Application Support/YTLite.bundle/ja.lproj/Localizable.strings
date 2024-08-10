@@ -144,6 +144,12 @@
 "AdjustWithFingerDesc" = "プレーヤーを長押しして指を上下に動かすことで再生速度を調整できます。";
 "PreserveSpeed" = "速度を維持";
 "PreserveSpeedDesc" = "ジェスチャー終了後も調整された速度を維持します。";
+"SeekAnywhere" = "Swipe to seek";
+"SeekAnywhereDesc" = "Allows controlling playback seeking by swiping left and right.";
+"SeekMethod" = "Seek method";
+"Independent" = "Independent";
+"DurationBased" = "Duration-based";
+"SeekSensitivity" = "Seek sensitivity";
 "TwoFingerTapToPause" = "2本の指で一時停止";
 "TwoFingerTapToPauseDesc" = "2 本の指で画面をタップして再生を一時停止/再開します。";
 "TwoFingerPanToBrightness" = "明るさを調整する";
@@ -328,6 +334,10 @@
 "SupportDevelopment" = "開発のサポート";
 "DonateDesc" = "Your support means a lot to me";
 "SupportDevelopmentDesc" = "YTPlus が気に入って、その開発をサポートしたい場合は、以下のいずれかの便利な方法でサポートできます。\nありがとう❤";
+"VisitGithub" = "Github Repository";
+"VisitGithubDesc" = "Star the repo, request a feature or report issues";
+"VisitTelegram" = "My Telegram Channel";
+"VisitTelegramDesc" = "Stay informed about the latest app updates";
 
 /* Credits section */
 "Credits" = "クレジット";
@@ -442,6 +452,11 @@
 "Welcome.MoreDesc" = "YouTube Plusには、設定の保存やキャッシュのクリアなどの機能を含む50以上のオプションが含まれています。設定は、YouTube設定のYouTube Plusセクションで利用できます。";
 "SupportMe" = "サポートしてください";
 "Continue" = "続ける";
+
+"Conflicts.Detected" = "Incompatible Tweaks Detected";
+"Conflicts.DetectedDesc" = "Despite the apparent stability of the app, the developer of YouTube Plus does not recommend combining tweaks with similar functionality in the same app and cannot guarantee safe usage.\n\nBy continuing to use the app, you take full responsibility and agree that any complaints about performance will be ignored.";
+"Conflicts.AcceptRisks" = "I Accept All Risks";
+"Conflicts.CloseYT" = "Close YouTube";
 
 "DonationReminder" = "あなたのサポートにより、YTPlus はより良くなります...設定のtweakを通じてサポートします。";
 "DontRemind" = "オフにする";

@@ -144,6 +144,12 @@
 "AdjustWithFingerDesc" = "Oynatıcıda uzun süre basılı tutarak ve parmağınızı yukarı ve aşağı hareket ettirerek oynatma hızını ayarlamanıza olanak tanır";
 "PreserveSpeed" = "Hızı koru";
 "PreserveSpeedDesc" = "Hareket tamamlandıktan sonra ayarlanan hızı korur";
+"SeekAnywhere" = "Kaydırarak sarma";
+"SeekAnywhereDesc" = "Oynatmayı, parmağınızı sola ve sağa kaydırarak sarmanıza olanak tanır.";
+"SeekMethod" = "Sarma yöntemi";
+"Independent" = "Bağımsız";
+"DurationBased" = "Süreye dayalı";
+"SeekSensitivity" = "Sarma hassasiyeti";
 "TwoFingerTapToPause" = "İki parmakla duraklat";
 "TwoFingerTapToPauseDesc" = "Ekrana iki parmakla dokunarak oynatmayı duraklatır/yeniden başlatır.";
 "TwoFingerPanToBrightness" = "Parlaklığı ayarla";
@@ -328,6 +334,10 @@
 "SupportDevelopment" = "Gelişimi destekleyin";
 "DonateDesc" = "Desteğiniz benim için çok önemli";
 "SupportDevelopmentDesc" = "YTPlus'u beğendiyseniz ve gelişimini desteklemek isterseniz, aşağıdaki uygun yolları kullanarak destek olabilirsiniz.\nTeşekkürler❤";
+"VisitGithub" = "Github Deposu";
+"VisitGithubDesc" = "Depoya yıldız verin, özellik isteyin veya sorun bildirin";
+"VisitTelegram" = "Telegram Kanalım";
+"VisitTelegramDesc" = "Uygulamanın en son güncellemelerinden haberdar olun";
 
 /* Credits section */
 "Credits" = "Katkılar";
@@ -442,6 +452,11 @@
 "Welcome.MoreDesc" = "YouTube Plus, tercihlerinizi kaydetme ve önbelleği temizleme gibi 50'den fazla farklı seçenek içerir. Ayarlar YouTube ayarları altındaki YouTube Plus bölümünde mevcuttur";
 "SupportMe" = "Beni destekleyin";
 "Continue" = "Devam et";
+
+"Conflicts.Detected" = "Uyumsuz Tweak'ler Tespit Edildi";
+"Conflicts.DetectedDesc" = "Uygulamanın görünürdeki istikrarına rağmen, YouTube Plus geliştiricisi, benzer işlevselliğe sahip tweak'lerin aynı uygulamada birleştirilmesini önermemekte ve güvenli kullanım garantisi vermemektedir.\n\nUygulamayı kullanmaya devam ederek, tüm sorumluluğu kabul edersiniz ve performansla ilgili şikayetlerin dikkate alınmayacağını kabul edersiniz.";
+"Conflicts.AcceptRisks" = "Tüm Riskleri Kabul Ediyorum";
+"Conflicts.CloseYT" = "YouTube'u Kapat";
 
 "DonationReminder" = "Desteğiniz YTPlus'ı daha iyi hale getiriyor... Tweak ayarlarından destek olun";
 "DontRemind" = "Kapat";

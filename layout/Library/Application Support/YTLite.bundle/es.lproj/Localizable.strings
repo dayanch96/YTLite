@@ -144,6 +144,12 @@
 "AdjustWithFingerDesc" = "Permite ajustar la velocidad de reproducción presionando durante mucho tiempo el reproductor y moviendo el dedo hacia arriba y hacia abajo";
 "PreserveSpeed" = "Preservar la velocidad";
 "PreserveSpeedDesc" = "Conserva la velocidad ajustada después de completar el gesto";
+"SeekAnywhere" = "Swipe to seek";
+"SeekAnywhereDesc" = "Allows controlling playback seeking by swiping left and right.";
+"SeekMethod" = "Seek method";
+"Independent" = "Independent";
+"DurationBased" = "Duration-based";
+"SeekSensitivity" = "Seek sensitivity";
 "TwoFingerTapToPause" = "Pausa con dos dedos";
 "TwoFingerTapToPauseDesc" = "Pausa/reanuda la reproducción tocando en la pantalla con dos dedos.";
 "TwoFingerPanToBrightness" = "Ajustar el brillo";
@@ -328,6 +334,10 @@
 "SupportDevelopment" = "Apoyar el desarrollo";
 "DonateDesc" = "Your support means a lot to me";
 "SupportDevelopmentDesc" = "Si te gusta YTPlus y quieres apoyar su desarrollo, puedes hacerlo utilizando cualquiera de las formas convenientes que se indican a continuación.\n¡Gracias❤!";
+"VisitGithub" = "Github Repository";
+"VisitGithubDesc" = "Star the repo, request a feature or report issues";
+"VisitTelegram" = "My Telegram Channel";
+"VisitTelegramDesc" = "Stay informed about the latest app updates";
 
 /* Credits section */
 "Credits" = "Créditos";
@@ -442,6 +452,11 @@
 "Welcome.MoreDesc" = "YouTube Plus incluye más de 50 opciones diferentes, entre las que se incluyen funciones como guardar las preferencias y borrar la caché. Los ajustes están disponibles en la sección YouTube Plus, en Ajustes de YouTube";
 "SupportMe" = "Apóyame";
 "Continue" = "Continuar";
+
+"Conflicts.Detected" = "Incompatible Tweaks Detected";
+"Conflicts.DetectedDesc" = "Despite the apparent stability of the app, the developer of YouTube Plus does not recommend combining tweaks with similar functionality in the same app and cannot guarantee safe usage.\n\nBy continuing to use the app, you take full responsibility and agree that any complaints about performance will be ignored.";
+"Conflicts.AcceptRisks" = "I Accept All Risks";
+"Conflicts.CloseYT" = "Close YouTube";
 
 "DonationReminder" = "Tu apoyo hace que YTPlus sea mejor... Apoyo a través de ajustes tweak";
 "DontRemind" = "No recordar";

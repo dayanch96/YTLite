@@ -144,6 +144,12 @@
 "AdjustWithFingerDesc" = "透過在播放器上長按並上下滑動手指來調整播放速度";
 "PreserveSpeed" = "保持速度";
 "PreserveSpeedDesc" = "手勢完成後保持調整後的速度";
+"SeekAnywhere" = "Swipe to seek";
+"SeekAnywhereDesc" = "Allows controlling playback seeking by swiping left and right.";
+"SeekMethod" = "Seek method";
+"Independent" = "Independent";
+"DurationBased" = "Duration-based";
+"SeekSensitivity" = "Seek sensitivity";
 "TwoFingerTapToPause" = "使用兩指暫停";
 "TwoFingerTapToPauseDesc" = "兩指點擊螢幕即可\"暫停/恢復\"播放";
 "TwoFingerPanToBrightness" = "調整亮度";
@@ -328,6 +334,10 @@
 "SupportDevelopment" = "支持開發";
 "DonateDesc" = "您的支持對我來說意義非凡";
 "SupportDevelopmentDesc" = "如果您喜歡YTPlus並且願意支持開發，可以使用以下任何方便的方式支持。\n感謝❤";
+"VisitGithub" = "Github Repository";
+"VisitGithubDesc" = "Star the repo, request a feature or report issues";
+"VisitTelegram" = "My Telegram Channel";
+"VisitTelegramDesc" = "Stay informed about the latest app updates";
 
 /* Credits section */
 "Credits" = "貢獻";
@@ -442,6 +452,11 @@
 "Welcome.MoreDesc" = "YouTube Plus包含超過50種不同的選項，包括儲存偏好設定和清除快取...等功能。這些功能在YouTube設定下的\"YouTube Plus\"";
 "SupportMe" = "支持我";
 "Continue" = "繼續";
+
+"Conflicts.Detected" = "Incompatible Tweaks Detected";
+"Conflicts.DetectedDesc" = "Despite the apparent stability of the app, the developer of YouTube Plus does not recommend combining tweaks with similar functionality in the same app and cannot guarantee safe usage.\n\nBy continuing to use the app, you take full responsibility and agree that any complaints about performance will be ignored.";
+"Conflicts.AcceptRisks" = "I Accept All Risks";
+"Conflicts.CloseYT" = "Close YouTube";
 
 "DonationReminder" = "您的支持讓YTPlus變得更好...請透過插件設定進行支持";
 "DontRemind" = "關閉";
