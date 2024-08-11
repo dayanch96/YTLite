@@ -239,6 +239,10 @@
 
 "InterfaceStyle" = "Arayüz stili";
 
+"MiniplayerStyle" = "Mini oynatıcı stili";
+"MiniplayerStyleDesc" = "Yüzen stile geçmek/çıkmak için uygulamanın yeniden başlatılması gerekir.";
+"Floating" = "Yüzen";
+
 "ContextMenu" = "Bağlam menüsü";
 "NativeShare" = "Yerel paylaşım sayfası";
 "NativeShareDesc" = "Medya paylaşmak için sistem paylaşım sayfasını kullanır";

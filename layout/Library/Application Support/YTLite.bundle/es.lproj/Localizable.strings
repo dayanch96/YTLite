@@ -239,6 +239,10 @@
 
 "InterfaceStyle" = "Interface style";
 
+"MiniplayerStyle" = "Miniplayer style";
+"MiniplayerStyleDesc" = "Switching to/from floating mode requires restarting the app.";
+"Floating" = "Floating";
+
 "ContextMenu" = "Context menu";
 "NativeShare" = "Hoja de acciones nativas";
 "NativeShareDesc" = "Utiliza la hoja de uso compartido del sistema para compartir medios";

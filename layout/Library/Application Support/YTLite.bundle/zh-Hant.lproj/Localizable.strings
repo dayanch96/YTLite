@@ -239,6 +239,10 @@
 
 "InterfaceStyle" = "介面風格";
 
+"MiniplayerStyle" = "Miniplayer style";
+"MiniplayerStyleDesc" = "Switching to/from floating mode requires restarting the app.";
+"Floating" = "Floating";
+
 "ContextMenu" = "上下文選單";
 "NativeShare" = "原生分享選單";
 "NativeShareDesc" = "使用系統分享選單分享媒體";

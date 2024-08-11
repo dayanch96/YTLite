@@ -239,6 +239,10 @@
 
 "InterfaceStyle" = "Interface style";
 
+"MiniplayerStyle" = "Miniplayer style";
+"MiniplayerStyleDesc" = "Switching to/from floating mode requires restarting the app.";
+"Floating" = "Floating";
+
 "ContextMenu" = "Context menu";
 "NativeShare" = "Bảng chia sẻ gốc";
 "NativeShareDesc" = "Sử dụng bảng chia sẻ hệ thống để chia sẻ phương tiện";

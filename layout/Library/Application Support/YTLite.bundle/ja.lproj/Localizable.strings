@@ -239,6 +239,10 @@
 
 "InterfaceStyle" = "Interface style";
 
+"MiniplayerStyle" = "Miniplayer style";
+"MiniplayerStyleDesc" = "Switching to/from floating mode requires restarting the app.";
+"Floating" = "Floating";
+
 "ContextMenu" = "Context menu";
 "NativeShare" = "システムのシェアシート";
 "NativeShareDesc" = "システムの共有シートを使用してメディアを共有します。";
