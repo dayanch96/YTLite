@@ -137,19 +137,19 @@
 "ExitFullscreenDesc" = "在视频播放结束时退出全屏模式。";
 
 "Player.Gestures" = "手势";
-"LeftSideGesture" = "Gesture for the left side";
-"RightSideGesture" = "Gesture for the right side";
+"LeftSideGesture" = "左侧手势";
+"RightSideGesture" = "右侧手势";
 "HoldToSpeed" = "长按变更速度";
 "AdjustWithFinger" = "通过手势调整速度";
 "AdjustWithFingerDesc" = "允许长按播放器并上下滑动手指来调整音量。";
 "PreserveSpeed" = "保持速度";
 "PreserveSpeedDesc" = "手势完成后保持调整后的速度。";
-"SeekAnywhere" = "Swipe to seek";
-"SeekAnywhereDesc" = "Allows controlling playback seeking by swiping left and right.";
-"SeekMethod" = "Seek method";
-"Independent" = "Independent";
-"DurationBased" = "Duration-based";
-"SeekSensitivity" = "Seek sensitivity";
+"SeekAnywhere" = "滑动控制进度";
+"SeekAnywhereDesc" = "允许通过左右滑动来控制播放进度。";
+"SeekMethod" = "进度方式";
+"Independent" = "独立";
+"DurationBased" = "基于播放时间";
+"SeekSensitivity" = "进度灵敏度";
 "TwoFingerTapToPause" = "使用双指暂停";
 "TwoFingerTapToPauseDesc" = "用双指点击屏幕即可“暂停/恢复”播放。";
 "TwoFingerPanToBrightness" = "调整亮度";
@@ -213,7 +213,7 @@
 "Warning" = "警告";
 "TabIsHidden" = "无法选择隐藏选项卡作为启动页。";
 "TabIsStartupTab" = "选定为“启动页”的标签页无法隐藏";
-"TabsCountRestricted" = "You can only have up to six active tabs";
+"TabsCountRestricted" = "最多只能拥有六个活动标签页";
 
 /* Interface options */
 "Interface" = "界面项";
@@ -239,9 +239,9 @@
 
 "InterfaceStyle" = "界面样式";
 
-"MiniplayerStyle" = "Miniplayer style";
-"MiniplayerStyleDesc" = "Switching to/from floating mode requires restarting the app.";
-"Floating" = "Floating";
+"MiniplayerStyle" = "迷你播放器风格";
+"MiniplayerStyleDesc" = "“切换至悬浮模式/从悬浮模式切出”需要重新启动应用程序。";
+"Floating" = "悬浮";
 
 "ContextMenu" = "上下文菜单";
 "NativeShare" = "原生分享菜单";
@@ -338,10 +338,10 @@
 "SupportDevelopment" = "支持开发";
 "DonateDesc" = "你的支持对我来说意义重大！";
 "SupportDevelopmentDesc" = "如果您喜欢“YouTube Plus”并愿意支持其开发，可以使用以下任何便捷的方式来赞助。\n感谢❤";
-"VisitGithub" = "Github Repository";
-"VisitGithubDesc" = "Star the repo, request a feature or report issues";
-"VisitTelegram" = "My Telegram Channel";
-"VisitTelegramDesc" = "Stay informed about the latest app updates";
+"VisitGithub" = "Github仓库";
+"VisitGithubDesc" = "为本项目加注星标，请求功能或报告问题。";
+"VisitTelegram" = "电报频道";
+"VisitTelegramDesc" = "随时了解最新的应用程序更新";
 
 /* Credits section */
 "Credits" = "信息";
@@ -376,8 +376,8 @@
 "ClearCacheAtStartDesc" = "“YouTube”启动时自动清除缓存。";
 "ClearCache" = "清除缓存";
 
-"NoDonationReminder" = "Disable donation reminder";
-"NoDonationReminderDesc" = "Turns off the rarely shown donation reminder.";
+"NoDonationReminder" = "禁用捐赠提醒";
+"NoDonationReminderDesc" = "关闭偶尔显示的捐赠提醒。";
 
 "ShortsOnlyWarning" = "确定要激活此模式吗？\n\n在此模式下，将只能观看短视频，且无法执行任何其他操作。\n\n可以通过双指长按禁用“仅短视频模式”。";
 "ShortsModeTurnedOff" = "仅短视频模式已关闭";
@@ -402,7 +402,7 @@
 
 "Toast.Brightness" = "亮度";
 "Toast.PlaybackSpeed" = "播放速度";
-"Toast.Volume" = "Volume";
+"Toast.Volume" = "音量";
 
 "SelectAction" = "选择操作";
 "DownloadVideo" = "下载视频";
@@ -460,9 +460,9 @@
 "SupportMe" = "支持我";
 "Continue" = "继续";
 
-"Conflicts.Detected" = "Incompatible Tweaks Detected";
-"Conflicts.DetectedDesc" = "Despite the apparent stability of the app, the developer of YouTube Plus does not recommend combining tweaks with similar functionality in the same app and cannot guarantee safe usage.\n\nBy continuing to use the app, you take full responsibility and agree that any complaints about performance will be ignored.";
-"Conflicts.AcceptRisks" = "I Accept All Risks";
-"Conflicts.CloseYT" = "Close YouTube";
+"Conflicts.Detected" = "检测到不兼容的插件";
+"Conflicts.DetectedDesc" = "尽管YouTube看似稳定，但“YouTube Plus”的开发人员不建议在同一应用程序中拥有具有类似功能的插件，并且不能保证安全使用。\n\n如果继续使用，则表示您将承担全部风险责任，并同意不再对任何性能相关进行反馈/投诉。";
+"Conflicts.AcceptRisks" = "我接受所有风险";
+"Conflicts.CloseYT" = "关闭YouTube";
 
-"DonationReminder" = "Your support helps to make YouTube Plus even better.\n\nYou can contribute or choose to disable these notifications in the YouTube Plus settings. Thank you💜";
+"DonationReminder" = "您的支持能让“YouTube Plus”变得更好。\n\n您可以在“YouTube Plus”设置中选择捐赠或选择关闭这些通知。谢谢💜";
