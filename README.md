@@ -11,9 +11,14 @@ A flexible enhancer for YouTube on iOS, featuring over hundred customizable opti
 <li>Copy video, comment, and post information</li>
 <li>Interface customization: Remove feed elements, reorder tabs, enable OLED mode, and as use Shorts-only mode</li>
 <li>Player settings: Gestures, default quality, preferred audio track</li>
+<li>Save, Load and Restore settings. Clear cache once or automatically on app startup</li>
 <li>Built-in SponsorBlock</li>
 <li>And much, much more</li>
 <br>
 
 
 **YouTube Plus preferences can be found in the YouTube Settings**
+
+**All contributors are listed in the Contributors section**
+
+**Used open-source libraries are listed in the Open Source Libraries section**
