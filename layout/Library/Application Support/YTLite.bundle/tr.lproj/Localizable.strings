@@ -376,6 +376,9 @@
 "ClearCacheAtStartDesc" = "Başlangıçta önbelleği otomatik olarak temizler.";
 "ClearCache" = "Önbelleği temizle";
 
+"NoDonationReminder" = "Bağış hatırlatmasını kapat";
+"NoDonationReminderDesc" = "Nadiren gösterilen bağış hatırlatmasını devre dışı bırakır.";
+
 "ShortsOnlyWarning" = "Bu modu etkinleştirmek istediğinizden emin misiniz?\n\nBu modda, yalnızca Shorts videolarını izleyebilir ve başka hiçbir şey yapamazsınız.\n\nShorts Sadece Modunu devre dışı bırakmak için Shorts oynatıcıda iki parmakla uzun basmanız yeterlidir.";
 "ShortsModeTurnedOff" = "Sadece Shorts Modu kapatıldı";
 
@@ -462,5 +465,4 @@
 "Conflicts.AcceptRisks" = "Tüm Riskleri Kabul Ediyorum";
 "Conflicts.CloseYT" = "YouTube'u Kapat";
 
-"DonationReminder" = "Desteğiniz YTPlus'ı daha iyi hale getiriyor... Tweak ayarlarından destek olun";
-"DontRemind" = "Kapat";
+"DonationReminder" = "Desteğiniz, YouTube Plus'ı daha da iyi hale getirmeme yardımcı oluyor.\n\nDoğrudan katkıda bulunabilir veya bu bildirimleri YouTube Plus ayarlarında devre dışı bırakabilirsiniz. Teşekkürler💜";

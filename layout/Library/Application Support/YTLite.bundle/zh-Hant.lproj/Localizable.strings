@@ -376,6 +376,9 @@
 "ClearCacheAtStartDesc" = "開啟Youtube時，自動清除快取";
 "ClearCache" = "清除快取";
 
+"NoDonationReminder" = "Disable donation reminder";
+"NoDonationReminderDesc" = "Turns off the rarely shown donation reminder.";
+
 "ShortsOnlyWarning" = "您確定要開啟此模式嗎?\n\n在此模式下，您只能觀看Shorts影片，無法進行其它操作。\n\n您可以在Shorts播放器中使用兩指長按來停用只看Shorts模式。";
 "ShortsModeTurnedOff" = "已關閉「只看Shorts模式」";
 
@@ -462,5 +465,4 @@
 "Conflicts.AcceptRisks" = "I Accept All Risks";
 "Conflicts.CloseYT" = "Close YouTube";
 
-"DonationReminder" = "您的支持讓YTPlus變得更好...請透過插件設定進行支持";
-"DontRemind" = "關閉";
+"DonationReminder" = "Your support helps to make YouTube Plus even better.\n\nYou can contribute or choose to disable these notifications in the YouTube Plus settings. Thank you💜";

@@ -376,6 +376,9 @@
 "ClearCacheAtStartDesc" = "Automatically clears the cache on startup.";
 "ClearCache" = "Clear cache";
 
+"NoDonationReminder" = "Disable donation reminder";
+"NoDonationReminderDesc" = "Turns off the rarely shown donation reminder.";
+
 "ShortsOnlyWarning" = "Are you sure you want to activate this mode?\n\nIn this mode, you will only be able to watch Shorts videos and won't be able to do anything else.\n\nYou can disable Shorts Only Mode by long pressing with two fingers in the Shorts player.";
 "ShortsModeTurnedOff" = "Shorts Only Mode has been turned off";
 
@@ -462,5 +465,4 @@
 "Conflicts.AcceptRisks" = "I Accept All Risks";
 "Conflicts.CloseYT" = "Close YouTube";
 
-"DonationReminder" = "Your support makes YTPlus better... Support through tweak settings";
-"DontRemind" = "Turn off";
+"DonationReminder" = "Your support helps to make YouTube Plus even better.\n\nYou can contribute or choose to disable these notifications in the YouTube Plus settings. Thank you💜";

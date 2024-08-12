@@ -376,6 +376,9 @@
 "ClearCacheAtStartDesc" = "يقوم بمسح ذاكرة التخزين المؤقتة تلقائيا عند بدء التشغيل.";
 "ClearCache" = "مسح الذاكرة المؤقتة";
 
+"NoDonationReminder" = "Disable donation reminder";
+"NoDonationReminderDesc" = "Turns off the rarely shown donation reminder.";
+
 "ShortsOnlyWarning" = "هل أنت متأكد أنك تريد تفعيل هذا الوضع؟\n\nفي هذا الوضع، ستتمكن فقط من مشاهدة فيديوهات القصيرة ولن تتمكن من القيام بأي شيء آخر.\n\nيمكنك تعطيل وضع الفيديوهات القصيرة فقط عن طريق الضغط المطول بإصبعين في مشغل الفيديوهات القصيرة.";
 "ShortsModeTurnedOff" = "تم تعطيل وضع الفيديوهات القصيرة (Shorts) فقط";
 
@@ -462,5 +465,4 @@
 "Conflicts.AcceptRisks" = "I Accept All Risks";
 "Conflicts.CloseYT" = "Close YouTube";
 
-"DonationReminder" = "دعمك يجعل YTPlus أفضل, ادعم من خلال إعدادات الأداة";
-"DontRemind" = "إيقاف التذكير";
+"DonationReminder" = "Your support helps to make YouTube Plus even better.\n\nYou can contribute or choose to disable these notifications in the YouTube Plus settings. Thank you💜";

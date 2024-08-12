@@ -376,6 +376,9 @@
 "ClearCacheAtStartDesc" = "Automatically clears the cache on startup.";
 "ClearCache" = "キャッシュのクリア";
 
+"NoDonationReminder" = "Disable donation reminder";
+"NoDonationReminderDesc" = "Turns off the rarely shown donation reminder.";
+
 "ShortsOnlyWarning" = "このモードを有効にしてもよろしいですか?\n\nこのモードでは、ショート動画の視聴のみが可能で、他の操作は行えません。\n\nショート動画プレーヤーで「2本の指で長押し」すると、ショート動画専用モードを無効にできます。";
 "ShortsModeTurnedOff" = "ショートのみモードがオフになりました";
 
@@ -462,5 +465,4 @@
 "Conflicts.AcceptRisks" = "I Accept All Risks";
 "Conflicts.CloseYT" = "Close YouTube";
 
-"DonationReminder" = "あなたのサポートにより、YTPlus はより良くなります...設定のtweakを通じてサポートします。";
-"DontRemind" = "オフにする";
+"DonationReminder" = "Your support helps to make YouTube Plus even better.\n\nYou can contribute or choose to disable these notifications in the YouTube Plus settings. Thank you💜";

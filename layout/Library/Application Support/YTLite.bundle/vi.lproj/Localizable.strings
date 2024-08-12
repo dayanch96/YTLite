@@ -376,6 +376,9 @@
 "ClearCacheAtStartDesc" = "Automatically clears the cache on startup.";
 "ClearCache" = "Xóa bộ nhớ đệm";
 
+"NoDonationReminder" = "Disable donation reminder";
+"NoDonationReminderDesc" = "Turns off the rarely shown donation reminder.";
+
 "ShortsOnlyWarning" = "Bạn có chắc chắn muốn kích hoạt chế độ này?\n\nỞ chế độ này, bạn sẽ chỉ có thể xem video Shorts và không thể làm gì khác.\n\nBạn có thể tắt Chế độ chỉ Shorts bằng cách nhấn và giữ bằng hai ngón tay trong trình phát Shorts.";
 "ShortsModeTurnedOff" = "Chế độ chỉ dành cho Shorts đã bị tắt";
 
@@ -462,5 +465,4 @@
 "Conflicts.AcceptRisks" = "I Accept All Risks";
 "Conflicts.CloseYT" = "Close YouTube";
 
-"DonationReminder" = "Your support makes YTPlus better... Support through tweak settings";
-"DontRemind" = "Turn off";
+"DonationReminder" = "Your support helps to make YouTube Plus even better.\n\nYou can contribute or choose to disable these notifications in the YouTube Plus settings. Thank you💜";

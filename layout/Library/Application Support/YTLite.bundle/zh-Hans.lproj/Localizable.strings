@@ -376,6 +376,9 @@
 "ClearCacheAtStartDesc" = "“YouTube”启动时自动清除缓存。";
 "ClearCache" = "清除缓存";
 
+"NoDonationReminder" = "Disable donation reminder";
+"NoDonationReminderDesc" = "Turns off the rarely shown donation reminder.";
+
 "ShortsOnlyWarning" = "确定要激活此模式吗？\n\n在此模式下，将只能观看短视频，且无法执行任何其他操作。\n\n可以通过双指长按禁用“仅短视频模式”。";
 "ShortsModeTurnedOff" = "仅短视频模式已关闭";
 
@@ -462,5 +465,4 @@
 "Conflicts.AcceptRisks" = "I Accept All Risks";
 "Conflicts.CloseYT" = "Close YouTube";
 
-"DonationReminder" = "您的支持使“YouTube Plus”变得更好...通过插件设置来支持开发工作。";
-"DontRemind" = "关闭";
+"DonationReminder" = "Your support helps to make YouTube Plus even better.\n\nYou can contribute or choose to disable these notifications in the YouTube Plus settings. Thank you💜";
