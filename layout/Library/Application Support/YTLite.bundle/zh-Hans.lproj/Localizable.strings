@@ -140,8 +140,8 @@
 "LeftSideGesture" = "左侧手势";
 "RightSideGesture" = "右侧手势";
 "HoldToSpeed" = "长按变更速度";
-"AdjustWithFinger" = "通过手势调整速度";
-"AdjustWithFingerDesc" = "允许长按播放器并上下滑动手指来调整音量。";
+"AdjustWithFinger" = "调整速度";
+"AdjustWithFingerDesc" = "允许长按播放器并上下滑动手指来调整播放速度。";
 "PreserveSpeed" = "保持速度";
 "PreserveSpeedDesc" = "手势完成后保持调整后的速度。";
 "SeekAnywhere" = "滑动控制进度";
