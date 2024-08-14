@@ -137,19 +137,19 @@
 "ExitFullscreenDesc" = "影片播放結束時退出全螢幕模式";
 
 "Player.Gestures" = "手勢";
-"LeftSideGesture" = "Gesture for the left side";
-"RightSideGesture" = "Gesture for the right side";
+"LeftSideGesture" = "左邊手勢";
+"RightSideGesture" = "右邊手勢";
 "HoldToSpeed" = "按住加速";
 "AdjustWithFinger" = "調整速度";
 "AdjustWithFingerDesc" = "透過在播放器上長按並上下滑動手指來調整播放速度";
 "PreserveSpeed" = "保持速度";
 "PreserveSpeedDesc" = "手勢完成後保持調整後的速度";
-"SeekAnywhere" = "Swipe to seek";
-"SeekAnywhereDesc" = "Allows controlling playback seeking by swiping left and right.";
-"SeekMethod" = "Seek method";
-"Independent" = "Independent";
-"DurationBased" = "Duration-based";
-"SeekSensitivity" = "Seek sensitivity";
+"SeekAnywhere" = "滑動快轉/倒轉";
+"SeekAnywhereDesc" = "允許透過左右滑動來控制播放進度";
+"SeekMethod" = "快轉/倒轉方式";
+"Independent" = "獨立";
+"DurationBased" = "基於影片長度";
+"SeekSensitivity" = "快轉/倒轉靈敏度";
 "TwoFingerTapToPause" = "使用兩指暫停";
 "TwoFingerTapToPauseDesc" = "兩指點擊螢幕即可\"暫停/恢復\"播放";
 "TwoFingerPanToBrightness" = "調整亮度";
@@ -213,7 +213,7 @@
 "Warning" = "警告";
 "TabIsHidden" = "無法將隱藏的標籤頁選為啟動頁面";
 "TabIsStartupTab" = "選擇為啟動頁面的標籤，無法隱藏";
-"TabsCountRestricted" = "You can only have up to six active tabs";
+"TabsCountRestricted" = "最多只能設定顯示六個標籤頁";
 
 /* Interface options */
 "Interface" = "介面";
@@ -239,9 +239,9 @@
 
 "InterfaceStyle" = "介面風格";
 
-"MiniplayerStyle" = "Miniplayer style";
-"MiniplayerStyleDesc" = "Switching to/from floating mode requires restarting the app.";
-"Floating" = "Floating";
+"MiniplayerStyle" = "迷你播放器風格";
+"MiniplayerStyleDesc" = "切換到/離開浮動模式，需要重新啟動應用程式。";
+"Floating" = "浮動";
 
 "ContextMenu" = "上下文選單";
 "NativeShare" = "原生分享選單";
@@ -338,10 +338,10 @@
 "SupportDevelopment" = "支持開發";
 "DonateDesc" = "您的支持對我來說意義非凡";
 "SupportDevelopmentDesc" = "如果您喜歡YTPlus並且願意支持開發，可以使用以下任何方便的方式支持。\n感謝❤";
-"VisitGithub" = "Github Repository";
-"VisitGithubDesc" = "Star the repo, request a feature or report issues";
-"VisitTelegram" = "My Telegram Channel";
-"VisitTelegramDesc" = "Stay informed about the latest app updates";
+"VisitGithub" = "Github儲存庫";
+"VisitGithubDesc" = "為儲存庫標記星號，提出功能請求或回報問題。";
+"VisitTelegram" = "我的Telegram頻道";
+"VisitTelegramDesc" = "隨時掌握App的最新更新資訊";
 
 /* Credits section */
 "Credits" = "貢獻";
@@ -376,8 +376,8 @@
 "ClearCacheAtStartDesc" = "開啟Youtube時，自動清除快取";
 "ClearCache" = "清除快取";
 
-"NoDonationReminder" = "Disable donation reminder";
-"NoDonationReminderDesc" = "Turns off the rarely shown donation reminder.";
+"NoDonationReminder" = "停用捐款提醒";
+"NoDonationReminderDesc" = "關閉偶爾顯示的捐款提醒";
 
 "ShortsOnlyWarning" = "您確定要開啟此模式嗎?\n\n在此模式下，您只能觀看Shorts影片，無法進行其它操作。\n\n您可以在Shorts播放器中使用兩指長按來停用只看Shorts模式。";
 "ShortsModeTurnedOff" = "已關閉「只看Shorts模式」";
@@ -400,9 +400,9 @@
 "SpeedPreserved" = "保持速度";
 "ResetSpeed" = "重設";
 
-"Brightness" = "亮度";
+"Toast.Brightness" = "亮度";
 "Toast.PlaybackSpeed" = "播放速度";
-"Toast.Volume" = "Volume";
+"Toast.Volume" = "音量";
 
 "SelectAction" = "選擇動作";
 "DownloadVideo" = "下載影片";
@@ -460,9 +460,9 @@
 "SupportMe" = "支持我";
 "Continue" = "繼續";
 
-"Conflicts.Detected" = "Incompatible Tweaks Detected";
-"Conflicts.DetectedDesc" = "Despite the apparent stability of the app, the developer of YouTube Plus does not recommend combining tweaks with similar functionality in the same app and cannot guarantee safe usage.\n\nBy continuing to use the app, you take full responsibility and agree that any complaints about performance will be ignored.";
-"Conflicts.AcceptRisks" = "I Accept All Risks";
-"Conflicts.CloseYT" = "Close YouTube";
+"Conflicts.Detected" = "偵測到不相容的插件";
+"Conflicts.DetectedDesc" = "儘管應用程式看似穩定，YouTube Plus 開發者不建議將功能類似的插件合併在同一個應用程式中，並且無法保證安全使用。\n\n繼續使用此應用程式，表示您將承擔全部風險責任，並同意任何有關於效能的投訴將被忽略。";
+"Conflicts.AcceptRisks" = "我接受所有風險";
+"Conflicts.CloseYT" = "關閉YouTube";
 
-"DonationReminder" = "Your support helps to make YouTube Plus even better.\n\nYou can contribute or choose to disable these notifications in the YouTube Plus settings. Thank you💜";
+"DonationReminder" = "您的支持有助於讓YouTube Plus變得更好。\n\n你可以在YouTube Plus的設定裡面，選擇捐款或關閉這些通知。謝謝你💜";
