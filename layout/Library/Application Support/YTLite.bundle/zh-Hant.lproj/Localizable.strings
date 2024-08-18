@@ -30,6 +30,12 @@
 "SelectAudioTrack" = "選擇音軌";
 "EnglishNotFound" = "找不到英文音軌";
 
+"Captions" = "Captions/Subtitles";
+"EmbedCapsToVideos" = "Embed captions";
+"EmbedCapsToVideosDesc" = "Embeds selected captions/subtitles into videos.";
+"DownloadCaptions" = "Download captions";
+"SelectCaption" = "Select captions/subtitles";
+
 /* Nav bar options */
 "Navbar" = "頂部導覽列";
 "RemoveCast" = "隱藏投放按鈕";
@@ -75,6 +81,14 @@
 "PlaybackQualityOnWiFi" = "使用Wi-Fi時的影片畫質";
 "PlaybackQualityOnCellular" = "使用行動網路時的影片畫質";
 
+"PreferredCaptions" = "Preferred captions";
+"Original" = "Original";
+"Custom" = "Select manually";
+"CustomAudioTrack" = "Selected audio track";
+"CustomCaptions" = "Selected captions";
+"AutoGenCaps" = "Auto-generated captions";
+"AutoGenCapsDesc" = "If the selected captions are not found, YouTube Plus will try to select either a translation of original captions or a translation of auto-generated captions.";
+
 "Player.Interface" = "介面";
 "SpeedControls" = "播放速度控制";
 "SpeedControlsDesc" = "在播放介面顯示速度控制按鈕";
@@ -86,6 +100,10 @@
 "HidePrevNextDesc" = "隱藏播放器中上一部和下一部影片按鈕";
 "ReplacePrevNext" = "取代快轉和倒轉按鈕";
 "ReplacePrevNextDesc" = "將播放器中的上一部和下一部影片按鈕取代為快轉和倒轉按鈕";
+"RememberLoopMode" = "Remember loop mode";
+"RememberLoopModeDesc" = "Remembers the last selected loop mode in the player menu.";
+"FullscreenToTheLeft" = "Fullscreen on left rotation";
+"FullscreenToTheLeftDesc" = "Tapping the fullscreen button will rotate the screen to the left. A swipe-up gesture will enter the regular fullscreen mode.";
 "PortraitFullscreen" = "直向全螢幕模式";
 "PortraitFullscreenDesc" = "啟用直向全螢幕模式";
 "ClassicQuality" = "舊版本影片畫質";
@@ -203,6 +221,7 @@
 "FElibrary" = "你的內容/媒體庫";
 "FEuploads" = "建立";
 "FEhistory" = "觀看紀錄";
+"VLWL" = "Watch Later";
 
 "RemoveLabels" = "移除文字";
 "RemoveIndicators" = "刪除標記";

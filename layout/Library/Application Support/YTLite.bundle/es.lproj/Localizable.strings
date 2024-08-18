@@ -30,6 +30,12 @@
 "SelectAudioTrack" = "Select audio track";
 "EnglishNotFound" = "English audio track not found";
 
+"Captions" = "Captions/Subtitles";
+"EmbedCapsToVideos" = "Embed captions";
+"EmbedCapsToVideosDesc" = "Embeds selected captions/subtitles into videos.";
+"DownloadCaptions" = "Download captions";
+"SelectCaption" = "Select captions/subtitles";
+
 /* Nav bar options */
 "Navbar" = "Barra de navegación";
 "RemoveCast" = "Ocultar botón Emitir";
@@ -75,6 +81,14 @@
 "PlaybackQualityOnWiFi" = "Calidad de reproducción en WiFi";
 "PlaybackQualityOnCellular" = "Calidad de reproducción en red móvil";
 
+"PreferredCaptions" = "Preferred captions";
+"Original" = "Original";
+"Custom" = "Select manually";
+"CustomAudioTrack" = "Selected audio track";
+"CustomCaptions" = "Selected captions";
+"AutoGenCaps" = "Auto-generated captions";
+"AutoGenCapsDesc" = "If the selected captions are not found, YouTube Plus will try to select either a translation of original captions or a translation of auto-generated captions.";
+
 "Player.Interface" = "Interfaz";
 "SpeedControls" = "Controles de velocidad";
 "SpeedControlsDesc" = "Muestra los botones de control de velocidad en la superposición";
@@ -86,6 +100,10 @@
 "HidePrevNextDesc" = "Oculta los botones de video Anterior y Siguiente de la superposición.";
 "ReplacePrevNext" = "Botones de Avance rápido y Rebobinado";
 "ReplacePrevNextDesc" = "Reemplaza los botones de video Anterior y Siguiente por botones de Avance rápido y Rebobinado en la superposición.";
+"RememberLoopMode" = "Remember loop mode";
+"RememberLoopModeDesc" = "Remembers the last selected loop mode in the player menu.";
+"FullscreenToTheLeft" = "Fullscreen on left rotation";
+"FullscreenToTheLeftDesc" = "Tapping the fullscreen button will rotate the screen to the left. A swipe-up gesture will enter the regular fullscreen mode.";
 "PortraitFullscreen" = "Modo de pantalla completa vertical";
 "PortraitFullscreenDesc" = "Activa el modo de pantalla completa vertical.";
 "ClassicQuality" = "Calidad de vídeo clásica";
@@ -203,13 +221,14 @@
 "FElibrary" = "Biblioteca";
 "FEuploads" = "Create";
 "FEhistory" = "History";
+"VLWL" = "Watch Later";
 
 "RemoveLabels" = "Eliminar etiquetas";
 "RemoveIndicators" = "Eliminar indicadores";
 
 "ActiveTabs" = "Active tabs";
 "InactiveTabs" = "Inactive tabs";
-"HideLibraryFooter" = "Library tab can be hidden or shown by long pressing Home tab.";
+"HideLibraryFooter" = "Library tab can be hidden or shown by long pressing the first tab of the tab bar.";
 "Warning" = "Advertencia";
 "TabIsHidden" = "No se puede seleccionar una pestaña oculta como página de inicio";
 "TabIsStartupTab" = "The tab selected as the startup page cannot be hidden";

@@ -30,6 +30,12 @@
 "SelectAudioTrack" = "Select audio track";
 "EnglishNotFound" = "English audio track not found";
 
+"Captions" = "Captions/Subtitles";
+"EmbedCapsToVideos" = "Embed captions";
+"EmbedCapsToVideosDesc" = "Embeds selected captions/subtitles into videos.";
+"DownloadCaptions" = "Download captions";
+"SelectCaption" = "Select captions/subtitles";
+
 /* Nav bar options */
 "Navbar" = "ナビゲーションバー";
 "RemoveCast" = "キャストボタンを非表示";
@@ -75,6 +81,14 @@
 "PlaybackQualityOnWiFi" = "WiFiでの再生品質";
 "PlaybackQualityOnCellular" = "モバイル通信での再生品質";
 
+"PreferredCaptions" = "Preferred captions";
+"Original" = "Original";
+"Custom" = "Select manually";
+"CustomAudioTrack" = "Selected audio track";
+"CustomCaptions" = "Selected captions";
+"AutoGenCaps" = "Auto-generated captions";
+"AutoGenCapsDesc" = "If the selected captions are not found, YouTube Plus will try to select either a translation of original captions or a translation of auto-generated captions.";
+
 "Player.Interface" = "インターフェース";
 "SpeedControls" = "スピードコントロール";
 "SpeedControlsDesc" = "オーバーレイにスピードコントロールボタンを表示します。";
@@ -86,14 +100,18 @@
 "HidePrevNextDesc" = "オーバーレイから前へ/次へのビデオボタンを非表示にします。";
 "ReplacePrevNext" = "早送り/巻き戻しボタンに置き換え";
 "ReplacePrevNextDesc" = "オーバーレイの前へ/次へボタンを早送り/巻き戻しボタンに置き換えます。";
-"NoDarkBg" = "暗い背景を削除";
-"NoDarkBgDesc" = "オーバーレイの暗い背景を削除します。";
+"RememberLoopMode" = "Remember loop mode";
+"RememberLoopModeDesc" = "Remembers the last selected loop mode in the player menu.";
+"FullscreenToTheLeft" = "Fullscreen on left rotation";
+"FullscreenToTheLeftDesc" = "Tapping the fullscreen button will rotate the screen to the left. A swipe-up gesture will enter the regular fullscreen mode.";
 "PortraitFullscreen" = "縦画面フルスクリーンモード";
 "PortraitFullscreenDesc" = "縦画面フルスクリーンモードをサポートします。";
 "ClassicQuality" = "クラシックなビデオ品質";
 "ClassicQualityDesc" = "クラシックなビデオ品質選択メニューを復元します。";
 "ExtraSpeedOptions" = "再生速度の追加オプション";
 "ExtraSpeedOptionsDesc" = "プレーヤーメニューに追加の再生速度オプションを追加します。";
+"NoDarkBg" = "暗い背景を削除";
+"NoDarkBgDesc" = "オーバーレイの暗い背景を削除します。";
 "NoEndScreenCards" = "エンドスクリーンのホバーカードを非表示";
 "NoEndScreenCardsDesc" = "動画の終わりに表示されるエンドスクリーン(サムネイル)を非表示にします。";
 "NoAutonavEndScreenCards" = "自動再生画面を非表示にする";
@@ -203,13 +221,14 @@
 "FElibrary" = "ライブラリ";
 "FEuploads" = "Create";
 "FEhistory" = "History";
+"VLWL" = "Watch Later";
 
 "RemoveLabels" = "ラベルを削除";
 "RemoveIndicators" = "インジケーターを削除";
 
 "ActiveTabs" = "Active tabs";
 "InactiveTabs" = "Inactive tabs";
-"HideLibraryFooter" = "Library tab can be hidden or shown by long pressing Home tab.";
+"HideLibraryFooter" = "Library tab can be hidden or shown by long pressing the first tab of the tab bar.";
 "Warning" = "警告";
 "TabIsHidden" = "非表示のタブはスタートアップページとして選択できません。";
 "TabIsStartupTab" = "The tab selected as the startup page cannot be hidden";

@@ -30,6 +30,12 @@
 "SelectAudioTrack" = "Select audio track";
 "EnglishNotFound" = "English audio track not found";
 
+"Captions" = "Captions/Subtitles";
+"EmbedCapsToVideos" = "Embed captions";
+"EmbedCapsToVideosDesc" = "Embeds selected captions/subtitles into videos.";
+"DownloadCaptions" = "Download captions";
+"SelectCaption" = "Select captions/subtitles";
+
 /* Nav bar options */
 "Navbar" = "Thanh điều hướng";
 "RemoveCast" = "Ẩn nút Cast";
@@ -75,6 +81,14 @@
 "PlaybackQualityOnWiFi" = "Chất lượng Video trên mạng Wi-Fi";
 "PlaybackQualityOnCellular" = "Chất lượng Video trên mạng di động";
 
+"PreferredCaptions" = "Preferred captions";
+"Original" = "Original";
+"Custom" = "Select manually";
+"CustomAudioTrack" = "Selected audio track";
+"CustomCaptions" = "Selected captions";
+"AutoGenCaps" = "Auto-generated captions";
+"AutoGenCapsDesc" = "If the selected captions are not found, YouTube Plus will try to select either a translation of original captions or a translation of auto-generated captions.";
+
 "Player.Interface" = "Interface";
 "SpeedControls" = "Speed controls";
 "SpeedControlsDesc" = "Shows speed control buttons on overlay";
@@ -86,6 +100,10 @@
 "HidePrevNextDesc" = "Ẩn các nút Trước và Tiếp theo khỏi lớp phủ video.";
 "ReplacePrevNext" = "Nút tua đi và tua lại nhanh";
 "ReplacePrevNextDesc" = "Thay thế các nút Trước và Tiếp theo thành nút tua đi và tua lại nhanh trong lớp phủ video.";
+"RememberLoopMode" = "Remember loop mode";
+"RememberLoopModeDesc" = "Remembers the last selected loop mode in the player menu.";
+"FullscreenToTheLeft" = "Fullscreen on left rotation";
+"FullscreenToTheLeftDesc" = "Tapping the fullscreen button will rotate the screen to the left. A swipe-up gesture will enter the regular fullscreen mode.";
 "PortraitFullscreen" = "Chế độ toàn màn hình dọc";
 "PortraitFullscreenDesc" = "Cho phép hỗ trợ chế độ toàn màn hình dọc.";
 "ClassicQuality" = "Chất lượng video cổ điển";
@@ -203,13 +221,14 @@
 "FElibrary" = "Thư viện";
 "FEuploads" = "Create";
 "FEhistory" = "History";
+"VLWL" = "Watch Later";
 
 "RemoveLabels" = "Xóa nhãn";
 "RemoveIndicators" = "Xóa chỉ báo";
 
 "ActiveTabs" = "Active tabs";
 "InactiveTabs" = "Inactive tabs";
-"HideLibraryFooter" = "Library tab can be hidden or shown by long pressing Home tab.";
+"HideLibraryFooter" = "Library tab can be hidden or shown by long pressing the first tab of the tab bar.";
 "Warning" = "Cảnh báo";
 "TabIsHidden" = "Không thể chọn Tab ẩn làm trang khởi động";
 "TabIsStartupTab" = "The tab selected as the startup page cannot be hidden";

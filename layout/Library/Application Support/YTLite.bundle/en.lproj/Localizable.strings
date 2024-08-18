@@ -30,6 +30,12 @@
 "SelectAudioTrack" = "Select audio track";
 "EnglishNotFound" = "English audio track not found";
 
+"Captions" = "Captions/Subtitles";
+"EmbedCapsToVideos" = "Embed captions";
+"EmbedCapsToVideosDesc" = "Embeds selected captions/subtitles into videos.";
+"DownloadCaptions" = "Download captions";
+"SelectCaption" = "Select captions/subtitles";
+
 /* Nav bar options */
 "Navbar" = "Navigation bar";
 "RemoveCast" = "Hide Cast button";
@@ -75,6 +81,14 @@
 "PlaybackQualityOnWiFi" = "Playback quality on WiFi";
 "PlaybackQualityOnCellular" = "Playback quality on Cellular";
 
+"PreferredCaptions" = "Preferred captions";
+"Original" = "Original";
+"Custom" = "Select manually";
+"CustomAudioTrack" = "Selected audio track";
+"CustomCaptions" = "Selected captions";
+"AutoGenCaps" = "Auto-generated captions";
+"AutoGenCapsDesc" = "If the selected captions are not found, YouTube Plus will try to select either a translation of original captions or a translation of auto-generated captions.";
+
 "Player.Interface" = "Interface";
 "SpeedControls" = "Speed controls";
 "SpeedControlsDesc" = "Shows speed control buttons on overlay.";
@@ -86,6 +100,10 @@
 "HidePrevNextDesc" = "Hides Previous and Next video buttons from overlay.";
 "ReplacePrevNext" = "Fast forward and Rewind buttons";
 "ReplacePrevNextDesc" = "Replaces Previous and Next video buttons to Fast forward and Rewind buttons in overlay.";
+"RememberLoopMode" = "Remember loop mode";
+"RememberLoopModeDesc" = "Remembers the last selected loop mode in the player menu.";
+"FullscreenToTheLeft" = "Fullscreen on left rotation";
+"FullscreenToTheLeftDesc" = "Tapping the fullscreen button will rotate the screen to the left. A swipe-up gesture will enter the regular fullscreen mode.";
 "PortraitFullscreen" = "Portrait fullscreen mode";
 "PortraitFullscreenDesc" = "Enables portrait fullscreen mode support.";
 "ClassicQuality" = "Classic video quality";
@@ -203,13 +221,14 @@
 "FElibrary" = "Library";
 "FEuploads" = "Create";
 "FEhistory" = "History";
+"VLWL" = "Watch Later";
 
 "RemoveLabels" = "Remove tab labels";
 "RemoveIndicators" = "Remove tab indicators";
 
 "ActiveTabs" = "Active tabs";
 "InactiveTabs" = "Inactive tabs";
-"HideLibraryFooter" = "Library tab can be hidden or shown by long pressing Home tab.";
+"HideLibraryFooter" = "Library tab can be hidden or shown by long pressing the first tab of the tab bar.";
 "Warning" = "Warning";
 "TabIsHidden" = "Hidden tab cannot be selected as startup page";
 "TabIsStartupTab" = "The tab selected as the startup page cannot be hidden";

@@ -30,6 +30,12 @@
 "SelectAudioTrack" = "إختار المسار الصوتي";
 "EnglishNotFound" = "لم يتم العثور على المسار الصوتي باللغة الإنجليزية";
 
+"Captions" = "Captions/Subtitles";
+"EmbedCapsToVideos" = "Embed captions";
+"EmbedCapsToVideosDesc" = "Embeds selected captions/subtitles into videos.";
+"DownloadCaptions" = "Download captions";
+"SelectCaption" = "Select captions/subtitles";
+
 /* Nav bar options */
 "Navbar" = "شريط التنقل";
 "RemoveCast" = "إخفاء زر البث";
@@ -75,6 +81,14 @@
 "PlaybackQualityOnWiFi" = "جودة التشغيل على WiFi";
 "PlaybackQualityOnCellular" = "جودة التشغيل على البيانات الخلوية";
 
+"PreferredCaptions" = "Preferred captions";
+"Original" = "Original";
+"Custom" = "Select manually";
+"CustomAudioTrack" = "Selected audio track";
+"CustomCaptions" = "Selected captions";
+"AutoGenCaps" = "Auto-generated captions";
+"AutoGenCapsDesc" = "If the selected captions are not found, YouTube Plus will try to select either a translation of original captions or a translation of auto-generated captions.";
+
 "Player.Interface" = "واجهة المستخدم";
 "SpeedControls" = "أزرار التحكم في السرعة";
 "SpeedControlsDesc" = "يعرض أزرار التحكم في السرعة على مشغل الفديو.";
@@ -86,6 +100,10 @@
 "HidePrevNextDesc" = "يخفي أزرار الفيديو السابق والتالي من مشغل الفديو.";
 "ReplacePrevNext" = "أزرار التقديم السريع والإرجاع";
 "ReplacePrevNextDesc" = "يستبدل أزرار الفيديو السابق والتالي بأزرار التقديم السريع والإرجاع في مشغل الفديو.";
+"RememberLoopMode" = "Remember loop mode";
+"RememberLoopModeDesc" = "Remembers the last selected loop mode in the player menu.";
+"FullscreenToTheLeft" = "Fullscreen on left rotation";
+"FullscreenToTheLeftDesc" = "Tapping the fullscreen button will rotate the screen to the left. A swipe-up gesture will enter the regular fullscreen mode.";
 "PortraitFullscreen" = "وضع ملء الشاشة العمودي";
 "PortraitFullscreenDesc" = "يتيح دعم وضع ملء الشاشة العمودي.";
 "ClassicQuality" = "جودة الفيديو الكلاسيكية";
@@ -203,13 +221,14 @@
 "FElibrary" = "المكتبة";
 "FEuploads" = "إنشاء";
 "FEhistory" = "السجل";
+"VLWL" = "Watch Later";
 
 "RemoveLabels" = "إزالة التسميات";
 "RemoveIndicators" = "إزالة المؤشرات";
 
 "ActiveTabs" = "علامات التبويب النشطة";
 "InactiveTabs" = "علامات التبويب الغير نشطة";
-"HideLibraryFooter" = "يمكن إخفاء علامة تبويب المكتبة أو إظهارها بالضغط لفترة طويلة على علامة تبويب الصفحة الرئيسية.";
+"HideLibraryFooter" = "Library tab can be hidden or shown by long pressing the first tab of the tab bar.";
 "Warning" = "تحذير";
 "TabIsHidden" = "لا يمكن تحديد علامة التبويب المخفية كصفحة بدء";
 "TabIsStartupTab" = "لا يمكن إخفاء علامة التبويب المحددة كصفحة بدء التشغيل";

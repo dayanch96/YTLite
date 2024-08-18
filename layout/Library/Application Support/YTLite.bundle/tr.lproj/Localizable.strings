@@ -30,6 +30,12 @@
 "SelectAudioTrack" = "Ses parçası seçin";
 "EnglishNotFound" = "İngilizce ses parçası bulunamadı";
 
+"Captions" = "Altyazılar";
+"EmbedCapsToVideos" = "Altyazıları göm";
+"EmbedCapsToVideosDesc" = "Seçilen altyazıları videolara gömer.";
+"DownloadCaptions" = "Altyazıları indir";
+"SelectCaption" = "Altyazıları seç";
+
 /* Nav bar options */
 "Navbar" = "Gezinme çubuğu";
 "RemoveCast" = "Cast düğmesini gizle";
@@ -75,6 +81,14 @@
 "PlaybackQualityOnWiFi" = "WiFi'de oynatma kalitesi";
 "PlaybackQualityOnCellular" = "Hücresel bağlantıda oynatma kalitesi";
 
+"PreferredCaptions" = "Tercih edilen altyazılar";
+"Original" = "Orijinal";
+"Custom" = "Elle seç";
+"CustomAudioTrack" = "Seçilen ses parçası";
+"CustomCaptions" = "Seçilen altyazılar";
+"AutoGenCaps" = "Otomatik oluşturulan altyazılar";
+"AutoGenCapsDesc" = "Seçilen altyazılar bulunamazsa, YouTube Plus orijinal altyazıların çevirisini veya otomatik oluşturulan altyazıların çevirisini seçmeye çalışacaktır.";
+
 "Player.Interface" = "Arayüz";
 "SpeedControls" = "Hız kontrolleri";
 "SpeedControlsDesc" = "Kaplama üzerinde hız kontrol düğmelerini gösterir";
@@ -86,14 +100,18 @@
 "HidePrevNextDesc" = "Kaplama üzerinde Önceki ve Sonraki video düğmelerini gizler.";
 "ReplacePrevNext" = "İleri sar ve Geri sar düğmeleri";
 "ReplacePrevNextDesc" = "Kaplama üzerinde Önceki ve Sonraki video düğmelerini İleri sar ve Geri sar düğmeleri ile değiştirir.";
-"NoDarkBg" = "Koyu arka planı kaldır";
-"NoDarkBgDesc" = "Kaplama koyu arka planını kaldırır.";
+"RememberLoopMode" = "Döngü modunu hatırla";
+"RememberLoopModeDesc" = "Oynatıcının ek ayarlarında seçilen döngü modunu hatırlar.";
+"FullscreenToTheLeft" = "Sol dönüşte tam ekran";
+"FullscreenToTheLeftDesc" = "Tam ekran düğmesine dokunmak ekranı sola döndürecektir. Yukarı kaydırma hareketi, eskisi gibi normal tam ekran moduna geçiş yapacaktır.";
 "PortraitFullscreen" = "Dikey tam ekran modu";
 "PortraitFullscreenDesc" = "Dikey tam ekran modu desteğini etkinleştirir.";
 "ClassicQuality" = "Klasik video kalitesi";
 "ClassicQualityDesc" = "Klasik video kalitesi seçim menüsünü geri getirir.";
 "ExtraSpeedOptions" = "Ekstra hız seçenekleri";
 "ExtraSpeedOptionsDesc" = "Oyuncu menüsüne daha fazla video oynatma hızı seçeneği ekler.";
+"NoDarkBg" = "Koyu arka planı kaldır";
+"NoDarkBgDesc" = "Kaplama koyu arka planını kaldırır.";
 "NoEndScreenCards" = "Bitiş ekranı hover kartlarını gizle";
 "NoEndScreenCardsDesc" = "Videoların sonunda Bitiş ekranlarını (küçük resimler) gizler.";
 "NoAutonavEndScreenCards" = "Otomatik oynatma bitiş ekranını gizle";
@@ -203,13 +221,14 @@
 "FElibrary" = "Kütüphane";
 "FEuploads" = "Yeni";
 "FEhistory" = "Geçmiş";
+"VLWL" = "Sonra izle";
 
 "RemoveLabels" = "Etiketleri kaldır";
 "RemoveIndicators" = "Göstergeleri kaldır";
 
 "ActiveTabs" = "Aktif sekmeler";
 "InactiveTabs" = "Pasif sekmeler";
-"HideLibraryFooter" = "Kütüphane sekmesi, Ana Sayfa sekmesine uzun basılarak gizlenebilir veya gösterilebilir.";
+"HideLibraryFooter" = "Kütüphane sekmesi, sekme çubuğundaki ilk sekmeye uzun basılarak gizlenebilir veya gösterilebilir.";
 "Warning" = "Uyarı";
 "TabIsHidden" = "Gizli sekme başlangıç sayfası olarak seçilemez";
 "TabIsStartupTab" = "Başlangıç sayfası olarak seçilen sekme gizlenemez";
