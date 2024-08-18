@@ -30,11 +30,11 @@
 "SelectAudioTrack" = "Sélectionner la piste audio";
 "EnglishNotFound" = "Piste audio anglaise non trouvée";
 
-"Captions" = "Captions/Subtitles";
-"EmbedCapsToVideos" = "Embed captions";
-"EmbedCapsToVideosDesc" = "Embeds selected captions/subtitles into videos.";
-"DownloadCaptions" = "Download captions";
-"SelectCaption" = "Select captions/subtitles";
+"Captions" = "Sous-titres";
+"EmbedCapsToVideos" = "Intégrer les sous-titres";
+"EmbedCapsToVideosDesc" = "Intègre les sous-titres sélectionnés dans les vidéos.";
+"DownloadCaptions" = "Télécharger les sous-titres";
+"SelectCaption" = "Sélectionner les sous-titres";
 
 /* Nav bar options */
 "Navbar" = "Barre de navigation";
@@ -81,13 +81,13 @@
 "PlaybackQualityOnWiFi" = "Qualité de lecture sur WiFi";
 "PlaybackQualityOnCellular" = "Qualité de lecture sur réseau cellulaire";
 
-"PreferredCaptions" = "Preferred captions";
+"PreferredCaptions" = "Sous-titres préférés";
 "Original" = "Original";
-"Custom" = "Select manually";
-"CustomAudioTrack" = "Selected audio track";
-"CustomCaptions" = "Selected captions";
-"AutoGenCaps" = "Auto-generated captions";
-"AutoGenCapsDesc" = "If the selected captions are not found, YouTube Plus will try to select either a translation of original captions or a translation of auto-generated captions.";
+"Custom" = "Sélectionner manuellement";
+"CustomAudioTrack" = "Piste audio sélectionnée";
+"CustomCaptions" = "Sous-titres sélectionnés";
+"AutoGenCaps" = "Sous-titres générés automatiquement";
+"AutoGenCapsDesc" = "Si les sous-titres sélectionnés ne sont pas trouvés, YouTube Plus essaiera de sélectionner soit une traduction des sous-titres originaux, soit une traduction des sous-titres générés automatiquement.";
 
 "Player.Interface" = "Interface";
 "SpeedControls" = "Contrôles de la vitesse";
@@ -100,10 +100,10 @@
 "HidePrevNextDesc" = "Masque les boutons vidéo Précédent et Suivant de l'overlay.";
 "ReplacePrevNext" = "Boutons Avance rapide et Retour rapide";
 "ReplacePrevNextDesc" = "Remplace les boutons vidéo Précédent et Suivant par des boutons Avance rapide et Retour rapide dans l'overlay.";
-"RememberLoopMode" = "Remember loop mode";
-"RememberLoopModeDesc" = "Remembers the last selected loop mode in the player menu.";
-"FullscreenToTheLeft" = "Fullscreen on left rotation";
-"FullscreenToTheLeftDesc" = "Tapping the fullscreen button will rotate the screen to the left. A swipe-up gesture will enter the regular fullscreen mode.";
+"RememberLoopMode" = "Mémoriser le mode de lecture en boucle";
+"RememberLoopModeDesc" = "Mémorise le dernier mode de lecture en boucle sélectionné dans le menu du lecteur.";
+"FullscreenToTheLeft" = "Plein écran en rotation vers la gauche";
+"FullscreenToTheLeftDesc" = "Appuyer sur le bouton plein écran fera pivoter l'écran vers la gauche. Un geste de balayage vers le haut activera le mode plein écran normal.";
 "PortraitFullscreen" = "Mode plein écran en portrait";
 "PortraitFullscreenDesc" = "Active la prise en charge du plein écran en mode portrait.";
 "ClassicQuality" = "Sélection de qualité classique";
@@ -155,19 +155,19 @@
 "ExitFullscreenDesc" = "Quitte le mode plein écran à la fin de la lecture de la vidéo.";
 
 "Player.Gestures" = "Gestes";
-"LeftSideGesture" = "Gesture for the left side";
-"RightSideGesture" = "Gesture for the right side";
+"LeftSideGesture" = "Geste pour le côté gauche";
+"RightSideGesture" = "Geste pour le côté droit";
 "HoldToSpeed" = "Maintenir pour accélérer";
 "AdjustWithFinger" = "Ajuster la vitesse par gestes";
 "AdjustWithFingerDesc" = "Permet d'ajuster la vitesse de lecture par un appui long sur le lecteur et en déplaçant le doigt vers le haut et le bas";
 "PreserveSpeed" = "Conserver la vitesse";
 "PreserveSpeedDesc" = "Conserve la vitesse ajustée après la fin du geste";
-"SeekAnywhere" = "Swipe to seek";
-"SeekAnywhereDesc" = "Allows controlling playback seeking by swiping left and right.";
-"SeekMethod" = "Seek method";
-"Independent" = "Independent";
-"DurationBased" = "Duration-based";
-"SeekSensitivity" = "Seek sensitivity";
+"SeekAnywhere" = "Glisser pour chercher";
+"SeekAnywhereDesc" = "Permet de contrôler la recherche de lecture en glissant vers la gauche et la droite.";
+"SeekMethod" = "Méthode de recherche";
+"Independent" = "Indépendant";
+"DurationBased" = "Basé sur la durée";
+"SeekSensitivity" = "Sensibilité de recherche";
 "TwoFingerTapToPause" = "Pause avec deux doigts";
 "TwoFingerTapToPauseDesc" = "Met en pause/reprend la lecture en tapant sur l'écran avec deux doigts.";
 "TwoFingerPanToBrightness" = "Ajuster la luminosité";
@@ -221,18 +221,18 @@
 "FElibrary" = "Bibliothèque";
 "FEuploads" = "Créer";
 "FEhistory" = "Historique";
-"VLWL" = "Watch Later";
+"VLWL" = "À regarder plus tard";
 
 "RemoveLabels" = "Supprimer les sous-titres";
 "RemoveIndicators" = "Supprimer les indicateurs";
 
 "ActiveTabs" = "Onglets actifs";
 "InactiveTabs" = "Onglets inactifs";
-"HideLibraryFooter" = "Library tab can be hidden or shown by long pressing the first tab of the tab bar.";
+"HideLibraryFooter" = "L'onglet Bibliothèque peut être masqué ou affiché en appuyant longuement sur le premier onglet de la barre d'onglets.";
 "Warning" = "Avertissement";
 "TabIsHidden" = "L'onglet masqué ne peut pas être sélectionné comme page de démarrage";
 "TabIsStartupTab" = "L'onglet sélectionné comme page de démarrage ne peut pas être masqué";
-"TabsCountRestricted" = "You can only have up to six active tabs";
+"TabsCountRestricted" = "Vous ne pouvez pas avoir plus de six onglets actifs";
 
 /* Interface options */
 "Interface" = "Interface";
@@ -258,9 +258,9 @@
 
 "InterfaceStyle" = "Style d'interface";
 
-"MiniplayerStyle" = "Miniplayer style";
-"MiniplayerStyleDesc" = "Switching to/from floating mode requires restarting the app.";
-"Floating" = "Floating";
+"MiniplayerStyle" = "Style du mini-lecteur";
+"MiniplayerStyleDesc" = "Le passage au/du mode flottant nécessite de redémarrer l'application.";
+"Floating" = "Flottant";
 
 "ContextMenu" = "Menu contextuel";
 "NativeShare" = "Feuille de partage native";
@@ -395,14 +395,14 @@
 "ClearCacheAtStartDesc" = "Efface automatiquement le cache au démarrage.";
 "ClearCache" = "Effacer le cache";
 
-"NoDonationReminder" = "Disable donation reminder";
-"NoDonationReminderDesc" = "Turns off the rarely shown donation reminder.";
+"NoDonationReminder" = "Désactiver le rappel de don";
+"NoDonationReminderDesc" = "Désactive le rappel de don rarement affiché.";
 
 "ShortsOnlyWarning" = "Êtes-vous sûr de vouloir activer ce mode ?\n\nDans ce mode, vous ne pourrez regarder que des vidéos Shorts et vous ne pourrez rien faire d'autre.\n\nVous pouvez désactiver le mode Shorts uniquement en appuyant longuement avec deux doigts dans le lecteur Shorts.";
 "ShortsModeTurnedOff" = "Le mode Shorts uniquement a été désactivé";
 
-"AddLibraryTab" = "Restore \"You\" tab";
-"RemoveLibraryTab" = "Remove \"You\" tab";
+"AddLibraryTab" = "Restaurer l'onglet \"Vous\"";
+"RemoveLibraryTab" = "Supprimer l'onglet \"Vous\"";
 "LibraryAdded" = "L'onglet \"Vous\" a été restauré";
 "LibraryRemoved" = "L'onglet \"Vous\" a été supprimé";
 
@@ -479,9 +479,8 @@
 "SupportMe" = "Me soutenir";
 "Continue" = "Continuer";
 
-"Conflicts.Detected" = "Incompatible Tweaks Detected";
-"Conflicts.DetectedDesc" = "Despite the apparent stability of the app, the developer of YouTube Plus does not recommend combining tweaks with similar functionality in the same app and cannot guarantee safe usage.\n\nBy continuing to use the app, you take full responsibility and agree that any complaints about performance will be ignored.";
-"Conflicts.AcceptRisks" = "I Accept All Risks";
-"Conflicts.CloseYT" = "Close YouTube";
-
-"DonationReminder" = "Your support helps to make YouTube Plus even better.\n\nYou can contribute or choose to disable these notifications in the YouTube Plus settings. Thank you💜";
+"Conflicts.Detected" = "Tweaks incompatibles détectés";
+"Conflicts.DetectedDesc" = "Malgré la stabilité apparente de l'application, le développeur de YouTube Plus ne recommande pas de combiner des tweaks ayant des fonctionnalités similaires dans la même application et ne peut garantir une utilisation sûre.\n\nEn continuant à utiliser l'application, vous assumez l'entière responsabilité et acceptez que toute plainte concernant les performances sera ignorée.";
+"Conflicts.AcceptRisks" = "J'accepte tous les risques";
+"Conflicts.CloseYT" = "Fermer YouTube";
+"DonationReminder" = "Votre soutien aide à rendre YouTube Plus encore meilleur.\n\nVous pouvez contribuer ou choisir de désactiver ces notifications dans les paramètres de YouTube Plus. Merci💜";
