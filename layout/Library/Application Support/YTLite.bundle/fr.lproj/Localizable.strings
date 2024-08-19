@@ -466,6 +466,7 @@
 "Error.FailedToImport" = "Échec de l'importation des préférences";
 "DownloadingVideo" = "Téléchargement de la vidéo";
 "DownloadingAudio" = "Téléchargement de l'audio";
+"ParsingCaptions" = "Parsing captions";
 "Converting" = "Conversion";
 "RetryLogin" = "Solution de contournement activée.\n\nVeuillez réessayer.";
 "LoginInfo" = "Redémarrage de l'app requis après la connexion réussie au compte Google";

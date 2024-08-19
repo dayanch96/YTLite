@@ -466,6 +466,7 @@
 "Error.FailedToImport" = "設定をインポートできませんでした";
 "DownloadingVideo" = "ビデオをダウンロード";
 "DownloadingAudio" = "オーディオをダウンロード";
+"ParsingCaptions" = "Parsing captions";
 "Converting" = "変換中";
 "RetryLogin" = "回避策が有効になりました。\n\nもう一度お試しください。";
 "LoginInfo" = "Googleアカウントへのログインに成功した後、アプリの再起動が必要です。";

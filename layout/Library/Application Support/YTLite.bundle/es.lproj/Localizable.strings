@@ -466,6 +466,7 @@
 "Error.FailedToImport" = "Error al importar las preferencias";
 "DownloadingVideo" = "Descargando vídeo";
 "DownloadingAudio" = "Descargando audio";
+"ParsingCaptions" = "Parsing captions";
 "Converting" = "Convirtiendo";
 "RetryLogin" = "Solución alternativa activada.\n\nPor favor, inténtelo de nuevo.";
 "LoginInfo" = "Se requiere reiniciar la aplicación después de iniciar sesión con éxito en la cuenta de Google";

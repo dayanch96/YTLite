@@ -466,6 +466,7 @@
 "Error.FailedToImport" = "无法导入偏好设置。";
 "DownloadingVideo" = "视频下载中";
 "DownloadingAudio" = "音频下载中";
+"ParsingCaptions" = "Parsing captions";
 "Converting" = "转换中";
 "RetryLogin" = "解决方法已激活。\n\n请重试。";
 "LoginInfo" = "成功登录Google帐户后需要重新启动应用程序。";

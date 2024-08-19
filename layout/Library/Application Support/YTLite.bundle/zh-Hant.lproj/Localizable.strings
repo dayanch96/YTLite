@@ -466,6 +466,7 @@
 "Error.FailedToImport" = "偏好設定匯入失敗";
 "DownloadingVideo" = "下載影片中...";
 "DownloadingAudio" = "下載音訊中...";
+"ParsingCaptions" = "Parsing captions";
 "Converting" = "轉檔中...";
 "RetryLogin" = "已啟用登入權限修復\n\n請再次登入";
 "LoginInfo" = "成功登錄Google帳戶後需要重新啟動應用程式";

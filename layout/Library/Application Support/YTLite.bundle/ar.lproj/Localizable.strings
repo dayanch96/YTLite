@@ -466,6 +466,7 @@
 "Error.FailedToImport" = "فشل في استيراد الإعدادات";
 "DownloadingVideo" = "جاري حفظ الفيديو";
 "DownloadingAudio" = "جاري حفظ الصوت";
+"ParsingCaptions" = "Parsing captions";
 "Converting" = "جاري التحويل";
 "RetryLogin" = "تم تنشيط حل مؤقت.\n\nيرجى المحاولة مرة أخرى.";
 "LoginInfo" = "مطلوب إعادة تشغيل التطبيق بعد تسجيل الدخول بنجاح إلى حساب Google";

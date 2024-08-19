@@ -466,6 +466,7 @@
 "Error.FailedToImport" = "Tercihler içe aktarılamadı";
 "DownloadingVideo" = "Video indiriliyor";
 "DownloadingAudio" = "Ses indiriliyor";
+"ParsingCaptions" = "Altyazılar indiriliyor";
 "Converting" = "Dönüştürülüyor";
 "RetryLogin" = "Geçici çözüm etkinleştirildi.\n\nLütfen tekrar deneyin.";
 "LoginInfo" = "Google hesabınıza başarılı bir şekilde giriş yaptıktan sonra uygulama yeniden başlatılmalıdır";

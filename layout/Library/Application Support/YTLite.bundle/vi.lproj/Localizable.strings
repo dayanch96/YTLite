@@ -466,6 +466,7 @@
 "Error.FailedToImport" = "Failed to import preferences";
 "DownloadingVideo" = "Downloading video";
 "DownloadingAudio" = "Downloading audio";
+"ParsingCaptions" = "Parsing captions";
 "Converting" = "Converting";
 "RetryLogin" = "Workaround activated.\n\nPlease try again.";
 "LoginInfo" = "App restart required after successful signing into Google account";
