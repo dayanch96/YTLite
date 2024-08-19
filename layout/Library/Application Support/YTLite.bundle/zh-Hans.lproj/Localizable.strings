@@ -30,11 +30,11 @@
 "SelectAudioTrack" = "选择音轨";
 "EnglishNotFound" = "未找到英语音轨";
 
-"Captions" = "Captions/Subtitles";
-"EmbedCapsToVideos" = "Embed captions";
-"EmbedCapsToVideosDesc" = "Embeds selected captions/subtitles into videos.";
-"DownloadCaptions" = "Download captions";
-"SelectCaption" = "Select captions/subtitles";
+"Captions" = "字幕";
+"EmbedCapsToVideos" = "嵌入字幕";
+"EmbedCapsToVideosDesc" = "将选定的字幕嵌入视频。";
+"DownloadCaptions" = "下载字幕";
+"SelectCaption" = "选择字幕";
 
 /* Nav bar options */
 "Navbar" = "导航栏";
@@ -81,13 +81,13 @@
 "PlaybackQualityOnWiFi" = "WiFi网络播放质量";
 "PlaybackQualityOnCellular" = "蜂窝网络播放质量";
 
-"PreferredCaptions" = "Preferred captions";
-"Original" = "Original";
-"Custom" = "Select manually";
-"CustomAudioTrack" = "Selected audio track";
-"CustomCaptions" = "Selected captions";
-"AutoGenCaps" = "Auto-generated captions";
-"AutoGenCapsDesc" = "If the selected captions are not found, YouTube Plus will try to select either a translation of original captions or a translation of auto-generated captions.";
+"PreferredCaptions" = "首选字幕";
+"Original" = "原始";
+"Custom" = "手动选择";
+"CustomAudioTrack" = "已选音轨";
+"CustomCaptions" = "已选字幕";
+"AutoGenCaps" = "自动生成字幕";
+"AutoGenCapsDesc" = "如果找不到所选的字幕，“YouTube Plus”将尝试选择原始字幕的翻译或自动生成的字幕的翻译。";
 
 "Player.Interface" = "界面";
 "SpeedControls" = "速度控制";
@@ -100,10 +100,10 @@
 "HidePrevNextDesc" = "从播放界面中隐藏上一个和下一个视频按钮。";
 "ReplacePrevNext" = "快进和快退按钮";
 "ReplacePrevNextDesc" = "将上一个和下一个视频按钮替换为快进和快退按钮。";
-"RememberLoopMode" = "Remember loop mode";
-"RememberLoopModeDesc" = "Remembers the last selected loop mode in the player menu.";
-"FullscreenToTheLeft" = "Fullscreen on left rotation";
-"FullscreenToTheLeftDesc" = "Tapping the fullscreen button will rotate the screen to the left. A swipe-up gesture will enter the regular fullscreen mode.";
+"RememberLoopMode" = "记忆循环模式";
+"RememberLoopModeDesc" = "记住播放器菜单中最后选择的循环模式。";
+"FullscreenToTheLeft" = "左旋转全屏";
+"FullscreenToTheLeftDesc" = "点击全屏按钮将使屏幕向左旋转，向上滑动将进入常规全屏模式。";
 "PortraitFullscreen" = "竖屏全屏模式";
 "PortraitFullscreenDesc" = "启用竖屏全屏模式支持。";
 "ClassicQuality" = "经典视频质量";
@@ -218,10 +218,10 @@
 "FEexplore" = "探索";
 "FEshorts" = "短视频";
 "FEsubscriptions" = "订阅";
-"FElibrary" = "媒体库";
+"FElibrary" = "“我”/媒体库";
 "FEuploads" = "创建";
 "FEhistory" = "历史";
-"VLWL" = "Watch Later";
+"VLWL" = "稍后观看";
 
 "RemoveLabels" = "移除标签";
 "RemoveIndicators" = "删除指示器";
@@ -267,8 +267,8 @@
 "NativeShareDesc" = "使用系统原生分享菜单来分享媒体。";
 "RemoveInlineComment" = "删除评论";
 "RemoveInlineCommentDesc" = "删除播放器下方的评论板块。";
-"RemoveCommentGuidelines" = "Remove guidelines";
-"RemoveCommentGuidelinesDesc" = "Removes pinned guidelines from the comments section.";
+"RemoveCommentGuidelines" = "删除指南";
+"RemoveCommentGuidelinesDesc" = "从评论板块删除固定指南。";
 "RemovePlayNext" = "删除“播放队列中的下一个”";
 "RemovePlayNextDesc" = "从菜单中删除“播放队列中的下一个”选项。";
 "RemoveDownloadMenu" = "删除“下载”";
@@ -357,7 +357,7 @@
 "Developer" = "开发者";
 "FollowMe" = "在 X 上关注我";
 "SupportDevelopment" = "支持开发";
-"DonateDesc" = "你的支持对我来说意义重大！";
+"DonateDesc" = "您的支持对我来说意义重大！";
 "SupportDevelopmentDesc" = "如果您喜欢“YouTube Plus”并愿意支持其开发，可以使用以下任何便捷的方式来赞助。\n感谢❤";
 "VisitGithub" = "Github仓库";
 "VisitGithubDesc" = "为本项目加注星标，请求功能或报告问题。";
@@ -466,7 +466,7 @@
 "Error.FailedToImport" = "无法导入偏好设置。";
 "DownloadingVideo" = "视频下载中";
 "DownloadingAudio" = "音频下载中";
-"ParsingCaptions" = "Parsing captions";
+"ParsingCaptions" = "解析字幕中";
 "Converting" = "转换中";
 "RetryLogin" = "解决方法已激活。\n\n请重试。";
 "LoginInfo" = "成功登录Google帐户后需要重新启动应用程序。";
@@ -483,8 +483,8 @@
 "Continue" = "继续";
 
 "Conflicts.Detected" = "检测到不兼容的插件";
-"Conflicts.DetectedDesc" = "尽管YouTube看似稳定，但“YouTube Plus”的开发人员不建议在同一应用程序中拥有具有类似功能的插件，并且不能保证安全使用。\n\n如果继续使用，则表示您将承担全部风险责任，并同意不再对任何性能相关进行反馈/投诉。";
+"Conflicts.DetectedDesc" = "尽管 YouTube 看似稳定，但“YouTube Plus”的开发人员不建议在同一应用程序中拥有具有类似功能的插件，并且不能保证安全使用。\n\n如果继续使用，则表示您将承担全部风险责任，并同意不再对任何性能相关进行反馈/投诉。";
 "Conflicts.AcceptRisks" = "我接受所有风险";
-"Conflicts.CloseYT" = "关闭YouTube";
+"Conflicts.CloseYT" = "关闭 YouTube";
 
 "DonationReminder" = "您的支持能让“YouTube Plus”变得更好。\n\n您可以在“YouTube Plus”设置中选择捐赠或选择关闭这些通知。谢谢💜";
