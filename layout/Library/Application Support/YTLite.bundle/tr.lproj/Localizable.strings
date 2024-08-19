@@ -267,6 +267,8 @@
 "NativeShareDesc" = "Medya paylaşmak için sistem paylaşım sayfasını kullanır";
 "RemoveInlineComment" = "Satır içi yorumu kaldır";
 "RemoveInlineCommentDesc" = "Oynatıcının altındaki yorum bölümünü kaldırır.";
+"RemoveCommentGuidelines" = "Yönergeleri kaldır";
+"RemoveCommentGuidelinesDesc" = "Yorumlar bölümündeki sabitlenmiş yönergeleri kaldırır.";
 "RemovePlayNext" = "\"Sıradakini sırada oynat\"ı kaldır";
 "RemovePlayNextDesc" = "Menüden \"Sıradakini sırada oynat\" seçeneğini kaldırır.";
 "RemoveDownloadMenu" = "\"İndir\"i kaldır";

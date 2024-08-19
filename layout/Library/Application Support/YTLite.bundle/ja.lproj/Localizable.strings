@@ -267,6 +267,8 @@
 "NativeShareDesc" = "システムの共有シートを使用してメディアを共有します。";
 "RemoveInlineComment" = "インラインコメントを削除";
 "RemoveInlineCommentDesc" = "プレーヤーの下のコメントセクションを削除します。";
+"RemoveCommentGuidelines" = "Remove guidelines";
+"RemoveCommentGuidelinesDesc" = "Removes pinned guidelines from the comments section.";
 "RemovePlayNext" = "「次に再生」を削除";
 "RemovePlayNextDesc" = "メニューから「次に再生」オプションを削除します。";
 "RemoveDownloadMenu" = "「ダウンロード」を削除";

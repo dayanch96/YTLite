@@ -267,6 +267,8 @@
 "NativeShareDesc" = "Utilise la feuille de partage du système pour partager les médias";
 "RemoveInlineComment" = "Supprimer le commentaire en ligne";
 "RemoveInlineCommentDesc" = "Supprime la section des commentaires sous le lecteur.";
+"RemoveCommentGuidelines" = "Remove guidelines";
+"RemoveCommentGuidelinesDesc" = "Removes pinned guidelines from the comments section.";
 "RemovePlayNext" = "Supprimer \"Placer en première position dans la file d'attente\"";
 "RemovePlayNextDesc" = "Supprime l'option \"Placer en première position dans la file d'attente\" du menu.";
 "RemoveDownloadMenu" = "Supprimer \"Télécharger\"";
@@ -483,4 +485,5 @@
 "Conflicts.DetectedDesc" = "Malgré la stabilité apparente de l'application, le développeur de YouTube Plus ne recommande pas de combiner des tweaks ayant des fonctionnalités similaires dans la même application et ne peut garantir une utilisation sûre.\n\nEn continuant à utiliser l'application, vous assumez l'entière responsabilité et acceptez que toute plainte concernant les performances sera ignorée.";
 "Conflicts.AcceptRisks" = "J'accepte tous les risques";
 "Conflicts.CloseYT" = "Fermer YouTube";
+
 "DonationReminder" = "Votre soutien aide à rendre YouTube Plus encore meilleur.\n\nVous pouvez contribuer ou choisir de désactiver ces notifications dans les paramètres de YouTube Plus. Merci💜";

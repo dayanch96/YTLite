@@ -267,6 +267,8 @@
 "NativeShareDesc" = "使用系统原生分享菜单来分享媒体。";
 "RemoveInlineComment" = "删除评论";
 "RemoveInlineCommentDesc" = "删除播放器下方的评论板块。";
+"RemoveCommentGuidelines" = "Remove guidelines";
+"RemoveCommentGuidelinesDesc" = "Removes pinned guidelines from the comments section.";
 "RemovePlayNext" = "删除“播放队列中的下一个”";
 "RemovePlayNextDesc" = "从菜单中删除“播放队列中的下一个”选项。";
 "RemoveDownloadMenu" = "删除“下载”";

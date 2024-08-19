@@ -267,6 +267,8 @@
 "NativeShareDesc" = "يستخدم واجهة المشاركة الخاصة بالنظام لمشاركة الوسائط";
 "RemoveInlineComment" = "إزالة قسم التعليقات";
 "RemoveInlineCommentDesc" = "يزيل قسم التعليقات أسفل المشغل.";
+"RemoveCommentGuidelines" = "Remove guidelines";
+"RemoveCommentGuidelinesDesc" = "Removes pinned guidelines from the comments section.";
 "RemovePlayNext" = "إزالة \"تشغيل التالي في قائمة الانتظار\"";
 "RemovePlayNextDesc" = "يزيل خيار \"تشغيل التالي في قائمة الانتظار\" من القائمة.";
 "RemoveDownloadMenu" = "إزالة \"تنزيل\"";

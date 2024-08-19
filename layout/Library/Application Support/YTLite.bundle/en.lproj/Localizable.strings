@@ -267,6 +267,8 @@
 "NativeShareDesc" = "Uses system share sheet to share media";
 "RemoveInlineComment" = "Remove inline comment";
 "RemoveInlineCommentDesc" = "Removes comment section under the player.";
+"RemoveCommentGuidelines" = "Remove guidelines";
+"RemoveCommentGuidelinesDesc" = "Removes pinned guidelines from the comments section.";
 "RemovePlayNext" = "Remove \"Play next in queue\"";
 "RemovePlayNextDesc" = "Removes \"Play next in queue\" option from menu.";
 "RemoveDownloadMenu" = "Remove \"Download\"";

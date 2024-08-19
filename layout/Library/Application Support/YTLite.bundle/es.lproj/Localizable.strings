@@ -267,6 +267,8 @@
 "NativeShareDesc" = "Utiliza la hoja de uso compartido del sistema para compartir medios";
 "RemoveInlineComment" = "Eliminar el comentario en línea";
 "RemoveInlineCommentDesc" = "Elimina la sección de comentarios debajo del reproductor.";
+"RemoveCommentGuidelines" = "Remove guidelines";
+"RemoveCommentGuidelinesDesc" = "Removes pinned guidelines from the comments section.";
 "RemovePlayNext" = "Eliminar \"Reproducir siguiente en cola\"";
 "RemovePlayNextDesc" = "Elimina la opción \"Reproducir siguiente en cola\" del menú.";
 "RemoveDownloadMenu" = "Eliminar \"Descargar\"";

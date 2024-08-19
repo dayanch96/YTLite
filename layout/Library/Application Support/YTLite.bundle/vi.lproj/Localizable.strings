@@ -267,6 +267,8 @@
 "NativeShareDesc" = "Sử dụng bảng chia sẻ hệ thống để chia sẻ phương tiện";
 "RemoveInlineComment" = "Remove inline comment";
 "RemoveInlineCommentDesc" = "Removes comment section under the player.";
+"RemoveCommentGuidelines" = "Remove guidelines";
+"RemoveCommentGuidelinesDesc" = "Removes pinned guidelines from the comments section.";
 "RemovePlayNext" = "Xóa \"Phát tiếp theo trong danh sách chờ\"";
 "RemovePlayNextDesc" = "Xóa tùy chọn \"Phát tiếp theo trong danh sách chờ\" khỏi menu.";
 "RemoveDownloadMenu" = "Xóa \"Tải video xuống\"";

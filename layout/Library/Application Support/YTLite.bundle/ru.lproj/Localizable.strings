@@ -267,6 +267,8 @@
 "NativeShareDesc" = "Выводит системное меню «Поделиться» при отправке контента.";
 "RemoveInlineComment" = "Убрать секцию с комментарием";
 "RemoveInlineCommentDesc" = "Убирает секцию с комментарием под плеером.";
+"RemoveCommentGuidelines" = "Убрать «Правила сообщества»";
+"RemoveCommentGuidelinesDesc" = "Убирает прикрепленные правила сообщества в секции с комментариями.";
 "RemovePlayNext" = "Убрать «Добавить в начало очереди»";
 "RemovePlayNextDesc" = "Убирает опцию «Добавить в начало очереди» из меню видео.";
 "RemoveDownloadMenu" = "Убрать «Скачать»";
