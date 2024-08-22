@@ -30,15 +30,15 @@
 "SelectAudioTrack" = "選擇音軌";
 "EnglishNotFound" = "找不到英文音軌";
 
-"Captions" = "Captions/Subtitles";
-"EmbedCapsToVideos" = "Embed captions";
-"EmbedCapsToVideosDesc" = "Embeds selected captions/subtitles into videos.";
-"EmbedAutoGenCaps" = "Auto-generated/translated captions";
-"EmbedAutoGenCapsDesc" = "Adds auto-generated, translated, and auto-translated captions to the captions/subtitles list.";
-"DownloadCaptions" = "Download captions";
-"SelectCaption" = "Select captions/subtitles";
-"Translated" = "translated";
-"TranslatedAutoGen" = "auto-translated";
+"Captions" = "字幕";
+"EmbedCapsToVideos" = "嵌入字幕";
+"EmbedCapsToVideosDesc" = "將選定的字幕嵌入影片";
+"EmbedAutoGenCaps" = "自動產生/翻譯字幕";
+"EmbedAutoGenCapsDesc" = "將自動產生、翻譯及自動翻譯的字幕加入到字幕清單中。";
+"DownloadCaptions" = "下載字幕";
+"SelectCaption" = "選擇字幕";
+"Translated" = "已翻譯";
+"TranslatedAutoGen" = "自動翻譯";
 
 /* Nav bar options */
 "Navbar" = "頂部導覽列";
@@ -85,13 +85,13 @@
 "PlaybackQualityOnWiFi" = "使用Wi-Fi時的影片畫質";
 "PlaybackQualityOnCellular" = "使用行動網路時的影片畫質";
 
-"PreferredCaptions" = "Preferred captions";
-"Original" = "Original";
-"Custom" = "Select manually";
-"CustomAudioTrack" = "Selected audio track";
-"CustomCaptions" = "Selected captions";
-"AutoGenCaps" = "Auto-generated captions";
-"AutoGenCapsDesc" = "If the selected captions are not found, YouTube Plus will try to select either a translation of original captions or a translation of auto-generated captions.";
+"PreferredCaptions" = "偏好字幕";
+"Original" = "原始";
+"Custom" = "手動選擇";
+"CustomAudioTrack" = "選擇音軌";
+"CustomCaptions" = "選擇字幕";
+"AutoGenCaps" = "自動產生字幕";
+"AutoGenCapsDesc" = "若找不到選定的字幕，YouTube Plus會嘗試選擇原始字幕的翻譯或自動產生字幕的翻譯版本";
 
 "Player.Interface" = "介面";
 "SpeedControls" = "播放速度控制";
@@ -104,10 +104,10 @@
 "HidePrevNextDesc" = "隱藏播放器中上一部和下一部影片按鈕";
 "ReplacePrevNext" = "取代快轉和倒轉按鈕";
 "ReplacePrevNextDesc" = "將播放器中的上一部和下一部影片按鈕取代為快轉和倒轉按鈕";
-"RememberLoopMode" = "Remember loop mode";
-"RememberLoopModeDesc" = "Remembers the last selected loop mode in the player menu.";
-"FullscreenToTheLeft" = "Fullscreen on left rotation";
-"FullscreenToTheLeftDesc" = "Fullscreen mode will rotate the device to the left orientation instead of the usual right.";
+"RememberLoopMode" = "記住循環播放影片";
+"RememberLoopModeDesc" = "記住播放器選單中最後選擇的循環模式";
+"FullscreenToTheLeft" = "向左旋轉進入全螢幕";
+"FullscreenToTheLeftDesc" = "全螢幕模式會將畫面向左旋轉，而非預設的向右旋轉。";
 "PortraitFullscreen" = "直向全螢幕模式";
 "PortraitFullscreenDesc" = "啟用直向全螢幕模式";
 "ClassicQuality" = "舊版本影片畫質";
@@ -222,17 +222,17 @@
 "FEexplore" = "探索";
 "FEshorts" = "Shorts";
 "FEsubscriptions" = "訂閱內容";
-"FElibrary" = "你的內容/媒體庫";
+"FElibrary" = "個人中心/媒體庫";
 "FEuploads" = "建立";
 "FEhistory" = "觀看紀錄";
-"VLWL" = "Watch Later";
+"VLWL" = "稍後觀看";
 
 "RemoveLabels" = "移除文字";
 "RemoveIndicators" = "刪除標記";
 
 "ActiveTabs" = "顯示標籤頁";
 "InactiveTabs" = "隱藏標籤頁";
-"HideLibraryFooter" = "長按首頁標籤可以顯示或隱藏\"你的內容/媒體庫\"";
+"HideLibraryFooter" = "長按首頁標籤可以顯示或隱藏\"個人中心\"";
 "Warning" = "警告";
 "TabIsHidden" = "無法將隱藏的標籤頁選為啟動頁面";
 "TabIsStartupTab" = "選擇為啟動頁面的標籤，無法隱藏";
@@ -271,8 +271,8 @@
 "NativeShareDesc" = "使用系統分享選單分享媒體";
 "RemoveInlineComment" = "移除留言";
 "RemoveInlineCommentDesc" = "移除播放器下方的留言區塊";
-"RemoveCommentGuidelines" = "Remove guidelines";
-"RemoveCommentGuidelinesDesc" = "Removes pinned guidelines from the comments section.";
+"RemoveCommentGuidelines" = "移除社群規範";
+"RemoveCommentGuidelinesDesc" = "移除留言區置頂的社群規範";
 "RemovePlayNext" = "移除「播放下一個」";
 "RemovePlayNextDesc" = "從選單移除「播放下一個」";
 "RemoveDownloadMenu" = "移除「下載影片」";
@@ -407,10 +407,10 @@
 "ShortsOnlyWarning" = "您確定要開啟此模式嗎?\n\n在此模式下，您只能觀看Shorts影片，無法進行其它操作。\n\n您可以在Shorts播放器中使用兩指長按來停用只看Shorts模式。";
 "ShortsModeTurnedOff" = "已關閉「只看Shorts模式」";
 
-"AddLibraryTab" = "恢復\"你的內容\"標籤";
-"RemoveLibraryTab" = "移除\"你的內容\"標籤";
-"LibraryAdded" = "\"你的內容\"標籤已恢復";
-"LibraryRemoved" = "\"你的內容\"標籤已移除";
+"AddLibraryTab" = "恢復\"個人中心\"標籤";
+"RemoveLibraryTab" = "移除\"個人中心\"標籤";
+"LibraryAdded" = "\"個人中心\"標籤已恢復";
+"LibraryRemoved" = "\"個人中心\"標籤已移除";
 
 "Yes" = "是";
 "No" = "否";
@@ -438,7 +438,7 @@
 "CopyTitle" = "複製標題";
 "CopyDescription" = "複製說明";
 "CopyTimestampedLink" = "複製含有時間標記的連結";
-"CopyTranscript" = "Copy transcript";
+"CopyTranscript" = "複製字幕";
 "PlayInExternalPlayer" = "在外部播放器中播放";
 "PlayInSystemPlayer" = "在系統播放器中播放";
 "PlayInInfuse" = "在Infuse中播放";
@@ -469,10 +469,10 @@
 "Error.NoSpace" = "裝置儲存空間不足。\n\n至少需要 %@ 的額外可用空間。目前可用空間: %@";
 "Error.Multidownloading" = "暫時不支援批次下載";
 "Error.FailedToImport" = "偏好設定匯入失敗";
-"DownloadingVideo" = "下載影片中...";
-"DownloadingAudio" = "下載音訊中...";
-"ParsingCaptions" = "Parsing captions";
-"ParsingTranscript" = "Parsing the transcript";
+"DownloadingVideo" = "影片下載中...";
+"DownloadingAudio" = "音訊下載中...";
+"ParsingCaptions" = "解析字幕中...";
+"ParsingTranscript" = "解析逐字稿中...";
 "Converting" = "轉檔中...";
 "RetryLogin" = "已啟用登入權限修復\n\n請再次登入";
 "LoginInfo" = "成功登錄Google帳戶後需要重新啟動應用程式";
@@ -489,7 +489,7 @@
 "Continue" = "繼續";
 
 "Conflicts.Detected" = "偵測到不相容的插件";
-"Conflicts.DetectedDesc" = "儘管應用程式看似穩定，YouTube Plus 開發者不建議將功能類似的插件合併在同一個應用程式中，並且無法保證安全使用。\n\n繼續使用此應用程式，表示您將承擔全部風險責任，並同意任何有關於效能的投訴將被忽略。";
+"Conflicts.DetectedDesc" = "儘管應用程式看似穩定，YouTube Plus開發者不建議將功能類似的插件合併在同一個應用程式中，並且無法保證安全使用。\n\n繼續使用此應用程式，表示您將承擔全部風險責任，並同意任何有關於效能的投訴將被忽略。";
 "Conflicts.AcceptRisks" = "我接受所有風險";
 "Conflicts.CloseYT" = "關閉YouTube";
 
