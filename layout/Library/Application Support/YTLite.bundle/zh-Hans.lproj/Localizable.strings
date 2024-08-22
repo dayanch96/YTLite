@@ -33,12 +33,12 @@
 "Captions" = "字幕";
 "EmbedCapsToVideos" = "嵌入字幕";
 "EmbedCapsToVideosDesc" = "将选定的字幕嵌入视频。";
-"EmbedAutoGenCaps" = "Auto-generated/translated captions";
-"EmbedAutoGenCapsDesc" = "Adds auto-generated, translated, and auto-translated captions to the captions/subtitles list.";
+"EmbedAutoGenCaps" = "自动生成/翻译的字幕";
+"EmbedAutoGenCapsDesc" = "将自动生成、翻译和自动翻译的字幕添加到字幕列表。";
 "DownloadCaptions" = "下载字幕";
 "SelectCaption" = "选择字幕";
-"Translated" = "translated";
-"TranslatedAutoGen" = "auto-translated";
+"Translated" = "已翻译";
+"TranslatedAutoGen" = "自动翻译";
 
 /* Nav bar options */
 "Navbar" = "导航栏";
@@ -106,8 +106,8 @@
 "ReplacePrevNextDesc" = "将上一个和下一个视频按钮替换为快进和快退按钮。";
 "RememberLoopMode" = "记忆循环模式";
 "RememberLoopModeDesc" = "记住播放器菜单中最后选择的循环模式。";
-"FullscreenToTheLeft" = "左旋转全屏";
-"FullscreenToTheLeftDesc" = "Fullscreen mode will rotate the device to the left orientation instead of the usual right.";
+"FullscreenToTheLeft" = "全屏左旋转";
+"FullscreenToTheLeftDesc" = "点击全屏按钮后，屏幕全屏且向左旋转显示，而不是通常的向右。";
 "PortraitFullscreen" = "竖屏全屏模式";
 "PortraitFullscreenDesc" = "启用竖屏全屏模式支持。";
 "ClassicQuality" = "经典视频质量";
@@ -438,7 +438,7 @@
 "CopyTitle" = "复制标题";
 "CopyDescription" = "复制描述";
 "CopyTimestampedLink" = "复制带时间戳的链接";
-"CopyTranscript" = "Copy transcript";
+"CopyTranscript" = "复制字幕";
 "PlayInExternalPlayer" = "在外部播放器中播放";
 "PlayInSystemPlayer" = "在系统播放器中播放";
 "PlayInInfuse" = "用 Infuse 播放";
@@ -472,7 +472,7 @@
 "DownloadingVideo" = "视频下载中";
 "DownloadingAudio" = "音频下载中";
 "ParsingCaptions" = "解析字幕中";
-"ParsingTranscript" = "Parsing the transcript";
+"ParsingTranscript" = "解析字幕中";
 "Converting" = "转换中";
 "RetryLogin" = "解决方法已激活。\n\n请重试。";
 "LoginInfo" = "成功登录Google帐户后需要重新启动应用程序。";
@@ -494,3 +494,4 @@
 "Conflicts.CloseYT" = "关闭 YouTube";
 
 "DonationReminder" = "您的支持能让“YouTube Plus”变得更好。\n\n您可以在“YouTube Plus”设置中选择捐赠或选择关闭这些通知。谢谢💜";
+
