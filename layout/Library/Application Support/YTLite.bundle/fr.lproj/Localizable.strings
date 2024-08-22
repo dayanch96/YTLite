@@ -33,8 +33,12 @@
 "Captions" = "Sous-titres";
 "EmbedCapsToVideos" = "Intégrer les sous-titres";
 "EmbedCapsToVideosDesc" = "Intègre les sous-titres sélectionnés dans les vidéos.";
+"EmbedAutoGenCaps" = "Auto-generated/translated captions";
+"EmbedAutoGenCapsDesc" = "Adds auto-generated, translated, and auto-translated captions to the captions/subtitles list.";
 "DownloadCaptions" = "Télécharger les sous-titres";
 "SelectCaption" = "Sélectionner les sous-titres";
+"Translated" = "translated";
+"TranslatedAutoGen" = "auto-translated";
 
 /* Nav bar options */
 "Navbar" = "Barre de navigation";
@@ -103,7 +107,7 @@
 "RememberLoopMode" = "Mémoriser le mode de lecture en boucle";
 "RememberLoopModeDesc" = "Mémorise le dernier mode de lecture en boucle sélectionné dans le menu du lecteur.";
 "FullscreenToTheLeft" = "Plein écran en rotation vers la gauche";
-"FullscreenToTheLeftDesc" = "Appuyer sur le bouton plein écran fera pivoter l'écran vers la gauche. Un geste de balayage vers le haut activera le mode plein écran normal.";
+"FullscreenToTheLeftDesc" = "Fullscreen mode will rotate the device to the left orientation instead of the usual right.";
 "PortraitFullscreen" = "Mode plein écran en portrait";
 "PortraitFullscreenDesc" = "Active la prise en charge du plein écran en mode portrait.";
 "ClassicQuality" = "Sélection de qualité classique";
@@ -434,6 +438,7 @@
 "CopyTitle" = "Copier le titre";
 "CopyDescription" = "Copier la description";
 "CopyTimestampedLink" = "Copier le lien avec horodatage";
+"CopyTranscript" = "Copy transcript";
 "PlayInExternalPlayer" = "Lire dans un lecteur externe";
 "PlayInSystemPlayer" = "Lire dans le lecteur système";
 "PlayInInfuse" = "Lire dans Infuse";
@@ -467,6 +472,7 @@
 "DownloadingVideo" = "Téléchargement de la vidéo";
 "DownloadingAudio" = "Téléchargement de l'audio";
 "ParsingCaptions" = "Parsing captions";
+"ParsingTranscript" = "Parsing the transcript";
 "Converting" = "Conversion";
 "RetryLogin" = "Solution de contournement activée.\n\nVeuillez réessayer.";
 "LoginInfo" = "Redémarrage de l'app requis après la connexion réussie au compte Google";

@@ -33,8 +33,12 @@
 "Captions" = "Altyazılar";
 "EmbedCapsToVideos" = "Altyazıları göm";
 "EmbedCapsToVideosDesc" = "Seçilen altyazıları videolara gömer.";
+"EmbedAutoGenCaps" = "Otomatik oluşturulmuş/çeviri";
+"EmbedAutoGenCapsDesc" = "Altyazılar listesine otomatik oluşturulmuş, çevrilmiş ve otomatik çevrilmiş altyazıları ekler.";
 "DownloadCaptions" = "Altyazıları indir";
 "SelectCaption" = "Altyazıları seç";
+"Translated" = "çeviri";
+"TranslatedAutoGen" = "otomatik çeviri";
 
 /* Nav bar options */
 "Navbar" = "Gezinme çubuğu";
@@ -103,7 +107,7 @@
 "RememberLoopMode" = "Döngü modunu hatırla";
 "RememberLoopModeDesc" = "Oynatıcının ek ayarlarında seçilen döngü modunu hatırlar.";
 "FullscreenToTheLeft" = "Sol dönüşte tam ekran";
-"FullscreenToTheLeftDesc" = "Tam ekran düğmesine dokunmak ekranı sola döndürecektir. Yukarı kaydırma hareketi, eskisi gibi normal tam ekran moduna geçiş yapacaktır.";
+"FullscreenToTheLeftDesc" = "Tam ekran moduna geçiş, ekranı sola döndürecektir.";
 "PortraitFullscreen" = "Dikey tam ekran modu";
 "PortraitFullscreenDesc" = "Dikey tam ekran modu desteğini etkinleştirir.";
 "ClassicQuality" = "Klasik video kalitesi";
@@ -434,6 +438,7 @@
 "CopyTitle" = "Başlığı kopyala";
 "CopyDescription" = "Açıklamayı kopyala";
 "CopyTimestampedLink" = "Zaman damgalı bağlantıyı kopyala";
+"CopyTranscript" = "Transkript kopyala";
 "PlayInExternalPlayer" = "Harici oynatıcıda oynat";
 "PlayInSystemPlayer" = "Sistem oynatıcıda oynat";
 "PlayInInfuse" = "Infuse'da oynat";
@@ -467,6 +472,7 @@
 "DownloadingVideo" = "Video indiriliyor";
 "DownloadingAudio" = "Ses indiriliyor";
 "ParsingCaptions" = "Altyazılar indiriliyor";
+"ParsingTranscript" = "Transkript oluşturuluyor";
 "Converting" = "Dönüştürülüyor";
 "RetryLogin" = "Geçici çözüm etkinleştirildi.\n\nLütfen tekrar deneyin.";
 "LoginInfo" = "Google hesabınıza başarılı bir şekilde giriş yaptıktan sonra uygulama yeniden başlatılmalıdır";

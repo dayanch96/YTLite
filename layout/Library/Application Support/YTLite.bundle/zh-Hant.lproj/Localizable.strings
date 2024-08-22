@@ -33,8 +33,12 @@
 "Captions" = "Captions/Subtitles";
 "EmbedCapsToVideos" = "Embed captions";
 "EmbedCapsToVideosDesc" = "Embeds selected captions/subtitles into videos.";
+"EmbedAutoGenCaps" = "Auto-generated/translated captions";
+"EmbedAutoGenCapsDesc" = "Adds auto-generated, translated, and auto-translated captions to the captions/subtitles list.";
 "DownloadCaptions" = "Download captions";
 "SelectCaption" = "Select captions/subtitles";
+"Translated" = "translated";
+"TranslatedAutoGen" = "auto-translated";
 
 /* Nav bar options */
 "Navbar" = "頂部導覽列";
@@ -103,7 +107,7 @@
 "RememberLoopMode" = "Remember loop mode";
 "RememberLoopModeDesc" = "Remembers the last selected loop mode in the player menu.";
 "FullscreenToTheLeft" = "Fullscreen on left rotation";
-"FullscreenToTheLeftDesc" = "Tapping the fullscreen button will rotate the screen to the left. A swipe-up gesture will enter the regular fullscreen mode.";
+"FullscreenToTheLeftDesc" = "Fullscreen mode will rotate the device to the left orientation instead of the usual right.";
 "PortraitFullscreen" = "直向全螢幕模式";
 "PortraitFullscreenDesc" = "啟用直向全螢幕模式";
 "ClassicQuality" = "舊版本影片畫質";
@@ -434,6 +438,7 @@
 "CopyTitle" = "複製標題";
 "CopyDescription" = "複製說明";
 "CopyTimestampedLink" = "複製含有時間標記的連結";
+"CopyTranscript" = "Copy transcript";
 "PlayInExternalPlayer" = "在外部播放器中播放";
 "PlayInSystemPlayer" = "在系統播放器中播放";
 "PlayInInfuse" = "在Infuse中播放";
@@ -467,6 +472,7 @@
 "DownloadingVideo" = "下載影片中...";
 "DownloadingAudio" = "下載音訊中...";
 "ParsingCaptions" = "Parsing captions";
+"ParsingTranscript" = "Parsing the transcript";
 "Converting" = "轉檔中...";
 "RetryLogin" = "已啟用登入權限修復\n\n請再次登入";
 "LoginInfo" = "成功登錄Google帳戶後需要重新啟動應用程式";

@@ -33,8 +33,12 @@
 "Captions" = "Captions/Subtitles";
 "EmbedCapsToVideos" = "Embed captions";
 "EmbedCapsToVideosDesc" = "Embeds selected captions/subtitles into videos.";
+"EmbedAutoGenCaps" = "Auto-generated/translated captions";
+"EmbedAutoGenCapsDesc" = "Adds auto-generated, translated, and auto-translated captions to the captions/subtitles list.";
 "DownloadCaptions" = "Download captions";
 "SelectCaption" = "Select captions/subtitles";
+"Translated" = "translated";
+"TranslatedAutoGen" = "auto-translated";
 
 /* Nav bar options */
 "Navbar" = "شريط التنقل";
@@ -103,7 +107,7 @@
 "RememberLoopMode" = "Remember loop mode";
 "RememberLoopModeDesc" = "Remembers the last selected loop mode in the player menu.";
 "FullscreenToTheLeft" = "Fullscreen on left rotation";
-"FullscreenToTheLeftDesc" = "Tapping the fullscreen button will rotate the screen to the left. A swipe-up gesture will enter the regular fullscreen mode.";
+"FullscreenToTheLeftDesc" = "Fullscreen mode will rotate the device to the left orientation instead of the usual right.";
 "PortraitFullscreen" = "وضع ملء الشاشة العمودي";
 "PortraitFullscreenDesc" = "يتيح دعم وضع ملء الشاشة العمودي.";
 "ClassicQuality" = "جودة الفيديو الكلاسيكية";
@@ -434,6 +438,7 @@
 "CopyTitle" = "نسخ العنوان";
 "CopyDescription" = "نسخ الوصف";
 "CopyTimestampedLink" = "نسخ الرابط مع الطابع الزمني";
+"CopyTranscript" = "Copy transcript";
 "PlayInExternalPlayer" = "تشغيل في مشغل خارجي";
 "PlayInSystemPlayer" = "تشغيل في مشغل النظام";
 "PlayInInfuse" = "تشغيل في Infuse";
@@ -467,6 +472,7 @@
 "DownloadingVideo" = "جاري حفظ الفيديو";
 "DownloadingAudio" = "جاري حفظ الصوت";
 "ParsingCaptions" = "Parsing captions";
+"ParsingTranscript" = "Parsing the transcript";
 "Converting" = "جاري التحويل";
 "RetryLogin" = "تم تنشيط حل مؤقت.\n\nيرجى المحاولة مرة أخرى.";
 "LoginInfo" = "مطلوب إعادة تشغيل التطبيق بعد تسجيل الدخول بنجاح إلى حساب Google";

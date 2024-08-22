@@ -33,8 +33,12 @@
 "Captions" = "Captions/Subtitles";
 "EmbedCapsToVideos" = "Embed captions";
 "EmbedCapsToVideosDesc" = "Embeds selected captions/subtitles into videos.";
+"EmbedAutoGenCaps" = "Auto-generated/translated captions";
+"EmbedAutoGenCapsDesc" = "Adds auto-generated, translated, and auto-translated captions to the captions/subtitles list.";
 "DownloadCaptions" = "Download captions";
 "SelectCaption" = "Select captions/subtitles";
+"Translated" = "translated";
+"TranslatedAutoGen" = "auto-translated";
 
 /* Nav bar options */
 "Navbar" = "Navigation bar";
@@ -103,7 +107,7 @@
 "RememberLoopMode" = "Remember loop mode";
 "RememberLoopModeDesc" = "Remembers the last selected loop mode in the player menu.";
 "FullscreenToTheLeft" = "Fullscreen on left rotation";
-"FullscreenToTheLeftDesc" = "Tapping the fullscreen button will rotate the screen to the left. A swipe-up gesture will enter the regular fullscreen mode.";
+"FullscreenToTheLeftDesc" = "Fullscreen mode will rotate the device to the left orientation instead of the usual right.";
 "PortraitFullscreen" = "Portrait fullscreen mode";
 "PortraitFullscreenDesc" = "Enables portrait fullscreen mode support.";
 "ClassicQuality" = "Classic video quality";
@@ -434,6 +438,7 @@
 "CopyTitle" = "Copy title";
 "CopyDescription" = "Copy description";
 "CopyTimestampedLink" = "Copy link with timestamp";
+"CopyTranscript" = "Copy transcript";
 "PlayInExternalPlayer" = "Play in external player";
 "PlayInSystemPlayer" = "Play in system player";
 "PlayInInfuse" = "Play in Infuse";
@@ -467,6 +472,7 @@
 "DownloadingVideo" = "Downloading video";
 "DownloadingAudio" = "Downloading audio";
 "ParsingCaptions" = "Parsing captions";
+"ParsingTranscript" = "Parsing the transcript";
 "Converting" = "Converting";
 "RetryLogin" = "Workaround activated.\n\nPlease try again.";
 "LoginInfo" = "App restart required after successful signing into Google account";

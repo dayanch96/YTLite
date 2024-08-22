@@ -33,8 +33,12 @@
 "Captions" = "字幕";
 "EmbedCapsToVideos" = "嵌入字幕";
 "EmbedCapsToVideosDesc" = "将选定的字幕嵌入视频。";
+"EmbedAutoGenCaps" = "Auto-generated/translated captions";
+"EmbedAutoGenCapsDesc" = "Adds auto-generated, translated, and auto-translated captions to the captions/subtitles list.";
 "DownloadCaptions" = "下载字幕";
 "SelectCaption" = "选择字幕";
+"Translated" = "translated";
+"TranslatedAutoGen" = "auto-translated";
 
 /* Nav bar options */
 "Navbar" = "导航栏";
@@ -103,7 +107,7 @@
 "RememberLoopMode" = "记忆循环模式";
 "RememberLoopModeDesc" = "记住播放器菜单中最后选择的循环模式。";
 "FullscreenToTheLeft" = "左旋转全屏";
-"FullscreenToTheLeftDesc" = "点击全屏按钮将使屏幕向左旋转，向上滑动将进入常规全屏模式。";
+"FullscreenToTheLeftDesc" = "Fullscreen mode will rotate the device to the left orientation instead of the usual right.";
 "PortraitFullscreen" = "竖屏全屏模式";
 "PortraitFullscreenDesc" = "启用竖屏全屏模式支持。";
 "ClassicQuality" = "经典视频质量";
@@ -218,7 +222,7 @@
 "FEexplore" = "探索";
 "FEshorts" = "短视频";
 "FEsubscriptions" = "订阅";
-"FElibrary" = "“我”/媒体库";
+"FElibrary" = "“我”";
 "FEuploads" = "创建";
 "FEhistory" = "历史";
 "VLWL" = "稍后观看";
@@ -434,6 +438,7 @@
 "CopyTitle" = "复制标题";
 "CopyDescription" = "复制描述";
 "CopyTimestampedLink" = "复制带时间戳的链接";
+"CopyTranscript" = "Copy transcript";
 "PlayInExternalPlayer" = "在外部播放器中播放";
 "PlayInSystemPlayer" = "在系统播放器中播放";
 "PlayInInfuse" = "用 Infuse 播放";
@@ -467,6 +472,7 @@
 "DownloadingVideo" = "视频下载中";
 "DownloadingAudio" = "音频下载中";
 "ParsingCaptions" = "解析字幕中";
+"ParsingTranscript" = "Parsing the transcript";
 "Converting" = "转换中";
 "RetryLogin" = "解决方法已激活。\n\n请重试。";
 "LoginInfo" = "成功登录Google帐户后需要重新启动应用程序。";
