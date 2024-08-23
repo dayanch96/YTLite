@@ -348,3 +348,10 @@
 + (instancetype)sheetControllerWithMessage:(NSString *)message delegate:(id)delegate parentResponder:(id)parentResponder;
 + (instancetype)sheetControllerWithMessage:(NSString *)message subMessage:(NSString *)subMessage delegate:(id)delegate parentResponder:(id)parentResponder;
 @end
+
+@interface YTInnerTubeCollectionViewController : NSObject
+@end
+
+@interface YTReelModel : NSObject
+@property (nonatomic, readonly, assign) int videoType;
+@end
