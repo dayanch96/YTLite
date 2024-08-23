@@ -32,39 +32,85 @@ static UIImage *YTImageNamed(NSString *imageName) {
 - (void)decorateContext:(id)context { if (!ytlBool(@"noAds")) %orig; }
 %end
 
-%hook YTIElementRenderer
-- (NSData *)elementData {
-    if (self.hasCompatibilityOptions && self.compatibilityOptions.hasAdLoggingData && ytlBool(@"noAds")) return nil;
-
-    NSString *description = [self description];
-
-    NSArray *ads = @[@"brand_promo", @"product_carousel", @"product_engagement_panel", @"product_item", @"text_search_ad", @"text_image_button_layout", @"carousel_headered_layout", @"carousel_footered_layout", @"square_image_layout", @"landscape_image_wide_button_layout", @"feed_ad_metadata"];
-    if (ytlBool(@"noAds") && [ads containsObject:description]) {
-        return [NSData data];
-    }
-
-    NSArray *shortsToRemove = @[@"shorts_shelf.eml", @"shorts_video_cell.eml", @"6Shorts"];
-    for (NSString *shorts in shortsToRemove) {
-        if (ytlBool(@"hideShorts") && [description containsString:shorts] && ![description containsString:@"history*"]) {
-            return nil;
-        }
-    }
-
-    return %orig;
+%hook YTLocalPlaybackController
+- (id)createAdsPlaybackCoordinator { return ytlBool(@"noAds") ? nil : %orig; }
+%end
+%hook MDXSession
+- (void)adPlaying:(id)ad { if (!ytlBool(@"noAds")) %orig; }
+%end
+%hook YTReelInfinitePlaybackDataSource
+- (void)setReels:(NSMutableOrderedSet<YTReelModel *> *)reels {
+    [reels filterUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(YTReelModel *obj, NSDictionary *bindings) {
+        return !([obj respondsToSelector:@selector(videoType)] && obj.videoType == 3);
+    }]];
+    %orig;
 }
 %end
 
-%hook YTSectionListViewController
-- (void)loadWithModel:(YTISectionListRenderer *)model {
+NSString *getAdString(NSString *description) {
+    static NSArray *adKeywords;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        adKeywords=@[@"brand_promo",@"carousel_footered_layout",@"carousel_headered_layout",@"feed_ad_metadata",
+                      @"full_width_portrait_image_layout",@"full_width_square_image_layout",
+                      @"landscape_image_wide_button_layout",@"post_shelf",@"product_carousel",
+                      @"product_engagement_panel",@"product_item",@"shopping_carousel",
+                      @"statement_banner",@"square_image_layout",@"text_image_button_layout",
+                      @"text_search_ad",@"video_display_full_layout",
+                      @"video_display_full_buttoned_layout"];
+    });
+
+    for (NSString *keyword in adKeywords) {
+        if ([description containsString:keyword]) {
+            return keyword;
+        }
+    }
+    return nil;
+}
+static BOOL isAdRenderer(YTIElementRenderer *elementRenderer, int kind) {
+    if ([elementRenderer respondsToSelector:@selector(hasCompatibilityOptions)] && elementRenderer.hasCompatibilityOptions && elementRenderer.compatibilityOptions.hasAdLoggingData) {
+        return YES;
+    }
+    NSString *adString = getAdString([elementRenderer description]);
+    if (adString) {
+        return YES;
+    }
+    return NO;
+}
+static NSMutableArray<YTIItemSectionRenderer *> *filteredArray(NSArray<YTIItemSectionRenderer *> *array) {
+    NSMutableArray *newArray = [array mutableCopy];
+    NSIndexSet *removeIndexes = [newArray indexesOfObjectsPassingTest:^BOOL(YTIItemSectionRenderer *sectionRenderer, NSUInteger idx, BOOL *stop) {
+        if (![sectionRenderer isKindOfClass:%c(YTIItemSectionRenderer)]) {
+            return NO;
+        }
+        NSMutableArray *contentsArray = sectionRenderer.contentsArray;
+        if (contentsArray.count > 1) {
+            NSIndexSet *removeContentsArrayIndexes = [contentsArray indexesOfObjectsPassingTest:^BOOL(YTIItemSectionSupportedRenderers *sectionSupportedRenderers, NSUInteger idx2, BOOL *stop2) {
+                return isAdRenderer(sectionSupportedRenderers.elementRenderer, 3);
+            }];
+            [contentsArray removeObjectsAtIndexes:removeContentsArrayIndexes];
+        }
+        return isAdRenderer([contentsArray.firstObject elementRenderer], 2);
+    }];
+    [newArray removeObjectsAtIndexes:removeIndexes];
+    return newArray;
+}
+%hook YTInnerTubeCollectionViewController
+
+- (void)displaySectionsWithReloadingSectionControllerByRenderer:(id)renderer {
     if (ytlBool(@"noAds")) {
-        NSMutableArray <YTISectionListSupportedRenderers *> *contentsArray = model.contentsArray;
-        NSIndexSet *removeIndexes = [contentsArray indexesOfObjectsPassingTest:^BOOL(YTISectionListSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
-            YTIItemSectionRenderer *sectionRenderer = renderers.itemSectionRenderer;
-            YTIItemSectionSupportedRenderers *firstObject = [sectionRenderer.contentsArray firstObject];
-            return firstObject.hasPromotedVideoRenderer || firstObject.hasCompactPromotedVideoRenderer || firstObject.hasPromotedVideoInlineMutedRenderer;
-        }];
-        [contentsArray removeObjectsAtIndexes:removeIndexes];
-    } %orig;
+        NSMutableArray *sectionRenderers = [self valueForKey:@"_sectionRenderers"];
+        [self setValue:filteredArray(sectionRenderers) forKey:@"_sectionRenderers"];
+    }
+    %orig;
+}
+
+- (void)addSectionsFromArray:(NSArray <YTIItemSectionRenderer *> *)array {
+    if (ytlBool(@"noAds")) {
+        %orig(filteredArray(array));
+    } else {
+        %orig(array); // Make sure to handle the else case if needed
+    }
 }
 %end
 
