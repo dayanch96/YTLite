@@ -161,6 +161,8 @@
 "Player.Gestures" = "手势";
 "LeftSideGesture" = "左侧手势";
 "RightSideGesture" = "右侧手势";
+"ActivationAreaWidth" = "Gesture activation width";
+"ActivationAreaWidthDesc" = "This value determines the gesture recognition zone in pixels for the left and right sides of the screen.\n\nThe maximum allowed value is one-third of the screen width.\n\nAdjusting this setting is useful to prevent accidental activation when attempting to minimize or expand the player.";
 "HoldToSpeed" = "长按变更速度";
 "AdjustWithFinger" = "调整速度";
 "AdjustWithFingerDesc" = "允许长按播放器并上下滑动手指来调整播放速度。";
@@ -169,6 +171,7 @@
 "SeekAnywhere" = "滑动控制进度";
 "SeekAnywhereDesc" = "允许通过左右滑动来控制播放进度。";
 "SeekMethod" = "进度方式";
+"SeekMethodDesc" = "Independent: Free fast scrolling across the entire video duration. Only the seek sensitivity is respected.\n\nDuration-based: The scrolling strength will depend on the length of the video and the seek sensitivity. This can be useful for long videos to prevent scrolling through large sections of the video.";
 "Independent" = "独立";
 "DurationBased" = "基于播放时间";
 "SeekSensitivity" = "进度灵敏度";
@@ -191,10 +194,13 @@
 
 /* Shorts options */
 "Shorts" = "短视频";
+"PlaybackMode" = "Playback completion action";
+"Loop" = "Loop";
+"ScrollToNext" = "Scroll to next";
+"Stop" = "Stop";
+"AutoSkipShorts" = "自动跳过短视频";
 "ShortsOnlyMode" = "仅短视频模式";
 "ShortsOnlyModeDesc" = "将 YouTube 功能限制为只能观看短视频。";
-"AutoSkipShorts" = "自动跳过短视频";
-"AutoSkipShortsDesc" = "当前视频播放结束后跳转至下一个视频。";
 "ShortsProgress" = "启用进度条";
 "ShortsProgressDesc" = "在短视频播放器中显示进度条。";
 "SpeedByLongTap" = "加快短视频播放速度";
@@ -462,6 +468,7 @@
 "Copied" = "已复制到剪贴板";
 "Saved" = "已保存到照片";
 "Done" = "完成";
+"NothingToShowInMenu" = "Nothing to show in this context menu";
 "Error" = "错误";
 "Error.Clipboard" = "错误，检查剪贴板以获取更多信息。";
 "Error.PathIssue" = "错误，最终生成路径时出现问题。媒体标题有问题？";

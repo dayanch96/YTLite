@@ -161,6 +161,8 @@
 "Player.Gestures" = "手勢";
 "LeftSideGesture" = "左邊手勢";
 "RightSideGesture" = "右邊手勢";
+"ActivationAreaWidth" = "Gesture activation width";
+"ActivationAreaWidthDesc" = "This value determines the gesture recognition zone in pixels for the left and right sides of the screen.\n\nThe maximum allowed value is one-third of the screen width.\n\nAdjusting this setting is useful to prevent accidental activation when attempting to minimize or expand the player.";
 "HoldToSpeed" = "按住加速";
 "AdjustWithFinger" = "調整速度";
 "AdjustWithFingerDesc" = "透過在播放器上長按並上下滑動手指來調整播放速度";
@@ -169,6 +171,7 @@
 "SeekAnywhere" = "滑動快轉/倒轉";
 "SeekAnywhereDesc" = "允許透過左右滑動來控制播放進度";
 "SeekMethod" = "快轉/倒轉方式";
+"SeekMethodDesc" = "Independent: Free fast scrolling across the entire video duration. Only the seek sensitivity is respected.\n\nDuration-based: The scrolling strength will depend on the length of the video and the seek sensitivity. This can be useful for long videos to prevent scrolling through large sections of the video.";
 "Independent" = "獨立";
 "DurationBased" = "基於影片長度";
 "SeekSensitivity" = "快轉/倒轉靈敏度";
@@ -191,10 +194,13 @@
 
 /* Shorts options */
 "Shorts" = "Shorts";
+"PlaybackMode" = "Playback completion action";
+"Loop" = "Loop";
+"ScrollToNext" = "Scroll to next";
+"Stop" = "Stop";
+"AutoSkipShorts" = "連續播放Shorts";
 "ShortsOnlyMode" = "只看Shorts模式";
 "ShortsOnlyModeDesc" = "限制YouTube功能只能觀看Shorts影片";
-"AutoSkipShorts" = "連續播放Shorts";
-"AutoSkipShortsDesc" = "影片播放完畢後，自動播放下一部";
 "ShortsProgress" = "啟用時間進度列";
 "ShortsProgressDesc" = "在Shorts底部顯示進度列";
 "SpeedByLongTap" = "加快Shorts播放速度";
@@ -462,6 +468,7 @@
 "Copied" = "已複製到剪貼簿";
 "Saved" = "已儲存到照片App";
 "Done" = "完成";
+"NothingToShowInMenu" = "Nothing to show in this context menu";
 "Error" = "發生錯誤";
 "Error.Clipboard" = "錯誤!!檢查剪貼簿獲取更多資訊";
 "Error.PathIssue" = "錯誤!!產生最終路徑時出現問題。媒體標題有問題?";

@@ -161,6 +161,8 @@
 "Player.Gestures" = "Gestes";
 "LeftSideGesture" = "Geste pour le côté gauche";
 "RightSideGesture" = "Geste pour le côté droit";
+"ActivationAreaWidth" = "Gesture activation width";
+"ActivationAreaWidthDesc" = "This value determines the gesture recognition zone in pixels for the left and right sides of the screen.\n\nThe maximum allowed value is one-third of the screen width.\n\nAdjusting this setting is useful to prevent accidental activation when attempting to minimize or expand the player.";
 "HoldToSpeed" = "Maintenir pour accélérer";
 "AdjustWithFinger" = "Ajuster la vitesse par gestes";
 "AdjustWithFingerDesc" = "Permet d'ajuster la vitesse de lecture par un appui long sur le lecteur et en déplaçant le doigt vers le haut et le bas";
@@ -169,6 +171,7 @@
 "SeekAnywhere" = "Glisser pour chercher";
 "SeekAnywhereDesc" = "Permet de contrôler la recherche de lecture en glissant vers la gauche et la droite.";
 "SeekMethod" = "Méthode de recherche";
+"SeekMethodDesc" = "Independent: Free fast scrolling across the entire video duration. Only the seek sensitivity is respected.\n\nDuration-based: The scrolling strength will depend on the length of the video and the seek sensitivity. This can be useful for long videos to prevent scrolling through large sections of the video.";
 "Independent" = "Indépendant";
 "DurationBased" = "Basé sur la durée";
 "SeekSensitivity" = "Sensibilité de recherche";
@@ -191,10 +194,13 @@
 
 /* Shorts options */
 "Shorts" = "Shorts";
+"PlaybackMode" = "Playback completion action";
+"Loop" = "Loop";
+"ScrollToNext" = "Scroll to next";
+"Stop" = "Stop";
+"AutoSkipShorts" = "Auto-skip des Shorts";
 "ShortsOnlyMode" = "Mode Shorts uniquement";
 "ShortsOnlyModeDesc" = "Limite les fonctionnalités de YouTube à la visualisation des Shorts uniquement.";
-"AutoSkipShorts" = "Auto-skip des Shorts";
-"AutoSkipShortsDesc" = "Passe à la vidéo suivante lorsque la lecture de la vidéo actuelle se termine.";
 "ShortsProgress" = "Activer la barre de progression";
 "ShortsProgressDesc" = "Affiche la barre de progression dans l'overlay des Shorts.";
 "SpeedByLongTap" = "Augmenter la vitesse de lecture des Shorts";
@@ -462,6 +468,7 @@
 "Copied" = "Copié dans le presse-papiers";
 "Saved" = "Enregistré dans Photos";
 "Done" = "Terminé";
+"NothingToShowInMenu" = "Nothing to show in this context menu";
 "Error" = "Erreur";
 "Error.Clipboard" = "Erreur. Vérifiez le presse-papiers pour plus d'infos";
 "Error.PathIssue" = "Erreur. Problème de génération du chemin final. Problème avec le titre du média ?";

@@ -161,6 +161,8 @@
 "Player.Gestures" = "Hareketler";
 "LeftSideGesture" = "Sol taraf için hareket";
 "RightSideGesture" = "Sağ taraf için hareket";
+"ActivationAreaWidth" = "Tanıma bölgesinin genişliği";
+"ActivationAreaWidthDesc" = "Bu değer, ekranın sol ve sağ taraflarındaki jest tanıma bölgesinin genişliğini piksel cinsinden belirler.\n\nİzin verilen maksimum değer, ekran genişliğinin üçte biridir.\n\nBunun ayarlanması, oynatıcıyı küçültmeye veya genişletmeye çalışırken yanlışlıkla etkinleştirmeyi önlemek için yararlıdır.";
 "HoldToSpeed" = "Hızlandırmak için basılı tut";
 "AdjustWithFinger" = "Hareketlerle hız ayarla";
 "AdjustWithFingerDesc" = "Oynatıcıda uzun süre basılı tutarak ve parmağınızı yukarı ve aşağı hareket ettirerek oynatma hızını ayarlamanıza olanak tanır";
@@ -169,6 +171,7 @@
 "SeekAnywhere" = "Kaydırarak sarma";
 "SeekAnywhereDesc" = "Oynatmayı, parmağınızı sola ve sağa kaydırarak sarmanıza olanak tanır.";
 "SeekMethod" = "Sarma yöntemi";
+"SeekMethodDesc" = "Bağımsız: Tüm video süresi boyunca serbest hızlı kaydırma. Yalnızca sarma hassasiyeti dikkate alınır.\n\nSüreye dayalı: Kaydırma gücü, videonun uzunluğuna ve sarma hassasiyetine bağlı olacaktır. Bu, uzun videolar için büyük bölümleri atlamayı önlemek adına yararlıdır.";
 "Independent" = "Bağımsız";
 "DurationBased" = "Süreye dayalı";
 "SeekSensitivity" = "Sarma hassasiyeti";
@@ -191,10 +194,13 @@
 
 /* Shorts options */
 "Shorts" = "Shorts";
+"PlaybackMode" = "Oynatma tamamlanma eylemi";
+"Loop" = "Tekrarla";
+"ScrollToNext" = "Sonrakiye kaydır";
+"Stop" = "Durdur";
+"AutoSkipShorts" = "Otomatik kaydır";
 "ShortsOnlyMode" = "Sadece Shorts Modu";
 "ShortsOnlyModeDesc" = "YouTube işlevselliğini yalnızca Shorts izlemeyle sınırlar.";
-"AutoSkipShorts" = "Shorts'u otomatik atla";
-"AutoSkipShortsDesc" = "Mevcut video oynatımı bittiğinde bir sonraki videoya geçer.";
 "ShortsProgress" = "İlerleme çubuğunu etkinleştir";
 "ShortsProgressDesc" = "Shorts üst bilgisinde ilerleme çubuğunu gösterir.";
 "SpeedByLongTap" = "Shorts oynatma hızını artır";
@@ -462,6 +468,7 @@
 "Copied" = "Panoya kopyalandı";
 "Saved" = "Fotoğraflara kaydedildi";
 "Done" = "Tamamlandı";
+"NothingToShowInMenu" = "Bu bağlam menüsünde gösterilecek hiçbir şey yok";
 "Error" = "Hata";
 "Error.Clipboard" = "Hata oluştu. Daha fazla bilgi için panoyu kontrol edin";
 "Error.PathIssue" = "Hata oluştu. Son yolun oluşturulmasında sorun. Medya başlığıyla ilgili sorun mu?";

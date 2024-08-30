@@ -140,8 +140,6 @@
 "24hrFormatDesc" = "يعرض وقت الانتهاء بصيغة 24 ساعة.";
 
 "Player.Actions" = "الإجراءات";
-"LeftSideGesture" = "إيماءة للجانب الأيسر";
-"RightSideGesture" = "إيماءة للجانب الأيمن";
 "DefaultPlaybackRate" = "معدل التشغيل الافتراضي";
 "BackgroundPlayback" = "التشغيل في الخلفية";
 "BackgroundPlaybackDesc" = "يتيح التشغيل في الخلفية.";
@@ -161,6 +159,10 @@
 "ExitFullscreenDesc" = "يخرج من وضع ملء الشاشة في نهاية تشغيل الفيديو.";
 
 "Player.Gestures" = "الإيماءات";
+"LeftSideGesture" = "إيماءة للجانب الأيسر";
+"RightSideGesture" = "إيماءة للجانب الأيمن";
+"ActivationAreaWidth" = "Gesture activation width";
+"ActivationAreaWidthDesc" = "This value determines the gesture recognition zone in pixels for the left and right sides of the screen.\n\nThe maximum allowed value is one-third of the screen width.\n\nAdjusting this setting is useful to prevent accidental activation when attempting to minimize or expand the player.";
 "HoldToSpeed" = "اضغط مع الاستمرار للسرعة";
 "AdjustWithFinger" = "ضبط السرعة بالإيماءات";
 "AdjustWithFingerDesc" = "يسمح بضبط سرعة التشغيل عن طريق الضغط المطول على المشغل وتحريك الإصبع لأعلى ولأسفل.";
@@ -169,6 +171,7 @@
 "SeekAnywhere" = "أسحب للبحث";
 "SeekAnywhereDesc" = "يسمح بالتحكم في التقديم والإرجاع أثناء التشغيل عن طريق السحب لليسار ولليمين.";
 "SeekMethod" = "طريقة البحث";
+"SeekMethodDesc" = "Independent: Free fast scrolling across the entire video duration. Only the seek sensitivity is respected.\n\nDuration-based: The scrolling strength will depend on the length of the video and the seek sensitivity. This can be useful for long videos to prevent scrolling through large sections of the video.";
 "Independent" = "مستقل";
 "DurationBased" = "على أساس المدة";
 "SeekSensitivity" = "حساسية البحث";
@@ -191,10 +194,13 @@
 
 /* Shorts options */
 "Shorts" = "الفيديوهات القصيرة";
+"PlaybackMode" = "Playback completion action";
+"Loop" = "Loop";
+"ScrollToNext" = "Scroll to next";
+"Stop" = "Stop";
+"AutoSkipShorts" = "تخطي الفيديوهات القصيرة تلقائيًا";
 "ShortsOnlyMode" = "وضع الفيديوهات القصيرة";
 "ShortsOnlyModeDesc" = "يحد من وظائف الـYouTube لمشاهدة الفيديوهات القصيرة (Shorts) فقط.";
-"AutoSkipShorts" = "تخطي الفيديوهات القصيرة تلقائيًا";
-"AutoSkipShortsDesc" = "ينتقل إلى الفيديو التالي عند انتهاء تشغيل الفيديو الحالي.";
 "ShortsProgress" = "تمكين شريط التقدم";
 "ShortsProgressDesc" = "يعرض شريط التقدم في مشغل الفيديوهات القصيرة (Shorts).";
 "SpeedByLongTap" = "زيادة سرعة تشغيل الفيديوهات القصيرة بالضغط المطول";
@@ -462,6 +468,7 @@
 "Copied" = "تم النسخ إلى الحافظة";
 "Saved" = "تم الحفظ في الصور";
 "Done" = "تم";
+"NothingToShowInMenu" = "لا يوجد شيء لعرضه في قائمة السياق هذه";
 "Error" = "خطأ";
 "Error.Clipboard" = "خطأ. تحقق من الحافظة لمزيد من المعلومات";
 "Error.PathIssue" = "خطأ. مشكلة في توليد المسار النهائي. مشكلة في عنوان الوسائط؟";

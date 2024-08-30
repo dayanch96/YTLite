@@ -161,6 +161,8 @@
 "Player.Gestures" = "Gestures";
 "LeftSideGesture" = "Gesture for the left side";
 "RightSideGesture" = "Gesture for the right side";
+"ActivationAreaWidth" = "Gesture activation width";
+"ActivationAreaWidthDesc" = "This value determines the gesture recognition zone in pixels for the left and right sides of the screen.\n\nThe maximum allowed value is one-third of the screen width.\n\nAdjusting this setting is useful to prevent accidental activation when attempting to minimize or expand the player.";
 "HoldToSpeed" = "Hold to speed";
 "AdjustWithFinger" = "Adjust speed by gestures";
 "AdjustWithFingerDesc" = "Allows adjusting playback speed by long press on player and moving finger up and down.";
@@ -169,6 +171,7 @@
 "SeekAnywhere" = "Swipe to seek";
 "SeekAnywhereDesc" = "Allows controlling playback seeking by swiping left and right.";
 "SeekMethod" = "Seek method";
+"SeekMethodDesc" = "Independent: Free fast scrolling across the entire video duration. Only the seek sensitivity is respected.\n\nDuration-based: The scrolling strength will depend on the length of the video and the seek sensitivity. This can be useful for long videos to prevent scrolling through large sections of the video.";
 "Independent" = "Independent";
 "DurationBased" = "Duration-based";
 "SeekSensitivity" = "Seek sensitivity";
@@ -191,10 +194,13 @@
 
 /* Shorts options */
 "Shorts" = "Shorts";
+"PlaybackMode" = "Playback completion action";
+"Loop" = "Loop";
+"ScrollToNext" = "Scroll to next";
+"Stop" = "Stop";
+"AutoSkipShorts" = "Auto-skip Shorts";
 "ShortsOnlyMode" = "Shorts Only Mode";
 "ShortsOnlyModeDesc" = "Limits YouTube functionality to viewing Shorts only.";
-"AutoSkipShorts" = "Auto-skip Shorts";
-"AutoSkipShortsDesc" = "Moves to the next video when the current video playback finishes.";
 "ShortsProgress" = "Enable progress bar";
 "ShortsProgressDesc" = "Displays progress bar in the Shorts overlay.";
 "SpeedByLongTap" = "Increase Shorts playback rate";
@@ -462,6 +468,7 @@
 "Copied" = "Copied to clipboard";
 "Saved" = "Saved to Photos";
 "Done" = "Done";
+"NothingToShowInMenu" = "Nothing to show in this context menu";
 "Error" = "Error";
 "Error.Clipboard" = "Error. Check clipboard for more info";
 "Error.PathIssue" = "Error. Problem with generating final path. Issue with media title?";

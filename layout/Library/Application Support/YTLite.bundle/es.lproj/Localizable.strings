@@ -161,6 +161,8 @@
 "Player.Gestures" = "Gestos";
 "LeftSideGesture" = "Gesture for the left side";
 "RightSideGesture" = "Gesture for the right side";
+"ActivationAreaWidth" = "Gesture activation width";
+"ActivationAreaWidthDesc" = "This value determines the gesture recognition zone in pixels for the left and right sides of the screen.\n\nThe maximum allowed value is one-third of the screen width.\n\nAdjusting this setting is useful to prevent accidental activation when attempting to minimize or expand the player.";
 "HoldToSpeed" = "Mantener para velocidad";
 "AdjustWithFinger" = "Ajusta la velocidad mediante gestos";
 "AdjustWithFingerDesc" = "Permite ajustar la velocidad de reproducción presionando durante mucho tiempo el reproductor y moviendo el dedo hacia arriba y hacia abajo";
@@ -169,6 +171,7 @@
 "SeekAnywhere" = "Swipe to seek";
 "SeekAnywhereDesc" = "Allows controlling playback seeking by swiping left and right.";
 "SeekMethod" = "Seek method";
+"SeekMethodDesc" = "Independent: Free fast scrolling across the entire video duration. Only the seek sensitivity is respected.\n\nDuration-based: The scrolling strength will depend on the length of the video and the seek sensitivity. This can be useful for long videos to prevent scrolling through large sections of the video.";
 "Independent" = "Independent";
 "DurationBased" = "Duration-based";
 "SeekSensitivity" = "Seek sensitivity";
@@ -191,10 +194,13 @@
 
 /* Shorts options */
 "Shorts" = "Shorts";
+"PlaybackMode" = "Playback completion action";
+"Loop" = "Loop";
+"ScrollToNext" = "Scroll to next";
+"Stop" = "Stop";
+"AutoSkipShorts" = "Salto automático de Shorts";
 "ShortsOnlyMode" = "Modo sólo Shorts";
 "ShortsOnlyModeDesc" = "Limita la funcionalidad de YouTube únicamente a la visualización de Shorts.";
-"AutoSkipShorts" = "Salto automático de Shorts";
-"AutoSkipShortsDesc" = "Pasa al vídeo siguiente cuando finaliza la reproducción del vídeo actual.";
 "ShortsProgress" = "Activar barra de progreso";
 "ShortsProgressDesc" = "Muestra una barra de progreso en la superposición de Shorts.";
 "SpeedByLongTap" = "Aumentar la velocidad de reproducción de los Shorts";
@@ -461,6 +467,7 @@
 "Cancelled" = "Cancelado";
 "Copied" = "Copiado al portapapeles";
 "Done" = "Hecho";
+"NothingToShowInMenu" = "Nothing to show in this context menu";
 "Saved" = "Guardado en Fotos";
 "Error" = "Error";
 "Error.Clipboard" = "Error. Revisa el portapapeles para obtener más información";
