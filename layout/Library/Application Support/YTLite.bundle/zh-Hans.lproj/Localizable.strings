@@ -71,8 +71,8 @@
 "RemoveCommunityPostsDesc" = "从视频流中删除社区帖子。";
 "RemoveMixPlaylists" = "删除混合列表";
 "RemoveMixPlaylistsDesc" = "删除由YouTube生成的混合播放列表";
-"RemoveLiveVids" = "删除实时视频";
-"RemoveLiveVidsDesc" = "首页中删除实时视频。";
+"RemoveLiveVids" = "删除视频直播";
+"RemoveLiveVidsDesc" = "首页中删除直播视频。";
 "RemoveHorizontalFeeds" = "删除动态提要";
 "RemoveHorizontalFeedsDesc" = "首页中删除所有动态提要（新闻、继续观看、帖子集合等）。";
 "RemoveMoreTopics" = "删除“更多主题”";
@@ -201,8 +201,8 @@
 "AutoSkipShorts" = "自动播放";
 "ShortsOnlyMode" = "仅短视频模式";
 "ShortsOnlyModeDesc" = "将 YouTube 功能限制为只能观看短视频。";
-"RestrictShorts" = "Limit Shorts";
-"RestrictShortsDesc" = "Limits the number of Shorts in the feed to 10-15. Useful if you want to avoid the habit of endlessly scrolling through the feed.";
+"RestrictShorts" = "短视频限流";
+"RestrictShortsDesc" = "将视频流中的短视频数量限制为10-15条。如果想避免无休止地滚动浏览短视频，这很有用。";
 "ShortsProgress" = "启用进度条";
 "ShortsProgressDesc" = "在短视频播放器中显示进度条。";
 "SpeedByLongTap" = "加快短视频播放速度";
@@ -212,8 +212,8 @@
 "PinchToFullscreenShortsDesc" = "通过捏合和捏合手势管理播放界面，以全屏模式显示短视频。";
 "ShortsToRegular" = "常规短视频";
 "ShortsToRegularDesc" = "像打开普通视频一样打开短视频。";
-"RemoveShortsLive" = "Remove live videos";
-"RemoveShortsLiveDesc" = "Removes live videos from the feed.";
+"RemoveShortsLive" = "删除视频直播";
+"RemoveShortsLiveDesc" = "从视频流中删除直播视频。";
 "HideShortsLogo" = "隐藏短视频 Logo";
 "HideShortsLogoDesc" = "隐藏左上角的短视频 Logo。";
 "HideShortsSearch" = "隐藏搜索按钮";
