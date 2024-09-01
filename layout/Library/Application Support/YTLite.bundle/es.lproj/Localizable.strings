@@ -134,8 +134,8 @@
 "NoPromotionCardsDesc" = "Oculta la tarjeta \"Incluye promociones pagadas\" en los vídeos que incluyen promociones pagadas.";
 "NoWatermarks" = "Ocultar marcas de agua";
 "NoWatermarksDesc" = "Oculta las marcas de agua del canal del reproductor.";
-"DisableAmbientMode" = "Disable ambient mode";
-"DisableAmbientModeDesc" = "Disables ambient mode both in the player and in the area underneath it.";
+"DisableAmbientMode" = "Desactivar modo ambiente";
+"DisableAmbientModeDesc" = "Desactiva el modo ambiente tanto en el reproductor como en la zona situada debajo de él.";
 "VideoEndTime" = "Muestra la hora de finalización de la reproducción";
 "VideoEndTimeDesc" = "Añade la hora final de reproducción del vídeo a la barra del reproductor.";
 "24hrFormat" = "Formato de 24 horas";
