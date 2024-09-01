@@ -201,6 +201,8 @@
 "AutoSkipShorts" = "تخطي الفيديوهات القصيرة تلقائيًا";
 "ShortsOnlyMode" = "وضع الفيديوهات القصيرة";
 "ShortsOnlyModeDesc" = "يحد من وظائف الـYouTube لمشاهدة الفيديوهات القصيرة (Shorts) فقط.";
+"RestrictShorts" = "Limit Shorts";
+"RestrictShortsDesc" = "Limits the number of Shorts in the feed to 10-15. Useful if you want to avoid the habit of endlessly scrolling through the feed.";
 "ShortsProgress" = "تمكين شريط التقدم";
 "ShortsProgressDesc" = "يعرض شريط التقدم في مشغل الفيديوهات القصيرة (Shorts).";
 "SpeedByLongTap" = "زيادة سرعة تشغيل الفيديوهات القصيرة بالضغط المطول";
@@ -210,6 +212,8 @@
 "PinchToFullscreenShortsDesc" = "يدير ظهور مشغل الفديو بإيماءات التكبير والتصغير، لعرض الفيديوهات القصيرة (Shorts) في وضع ملء الشاشة.";
 "ShortsToRegular" = "الفيديوهات القصيرة إلى الفيديوهات العادية";
 "ShortsToRegularDesc" = "يفتح الفيديوهات القصيرة (Shorts) كفيديوهات عادية.";
+"RemoveShortsLive" = "Remove live videos";
+"RemoveShortsLiveDesc" = "Removes live videos from the feed.";
 "HideShortsLogo" = "إخفاء شعار Shorts";
 "HideShortsLogoDesc" = "يخفي شعار Shorts في الزاوية العلوية اليسرى، الذي موجود في مشغل الفيديوهات القصيرة (Shorts).";
 "HideShortsSearch" = "إخفاء زر البحث";

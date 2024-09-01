@@ -201,6 +201,8 @@
 "AutoSkipShorts" = "Tự động bỏ qua Shorts";
 "ShortsOnlyMode" = "Chế độ chỉ dành cho Short";
 "ShortsOnlyModeDesc" = "Giới hạn chức năng của YouTube chỉ ở chế độ Short.";
+"RestrictShorts" = "Limit Shorts";
+"RestrictShortsDesc" = "Limits the number of Shorts in the feed to 10-15. Useful if you want to avoid the habit of endlessly scrolling through the feed.";
 "ShortsProgress" = "Bật thanh tiến trình";
 "ShortsProgressDesc" = "Hiển thị thanh tiến trình trong lớp phủ Shorts.";
 "SpeedByLongTap" = "Tăng tốc độ phát video ngắn";
@@ -210,6 +212,8 @@
 "PinchToFullscreenShortsDesc" = "Quản lý khả năng hiển thị của lớp phủ bằng cử chỉ chụm vào và kéo ra, hiển thị Shorts ở chế độ toàn màn hình.";
 "ShortsToRegular" = "Từ Shorts đến video thông thường";
 "ShortsToRegularDesc" = "Mở Shorts như video thông thường.";
+"RemoveShortsLive" = "Remove live videos";
+"RemoveShortsLiveDesc" = "Removes live videos from the feed.";
 "HideShortsLogo" = "Ẩn biểu tượng video ngắn (Shorts)";
 "HideShortsLogoDesc" = "Ẩn biểu tượng Shorts ở góc trên cùng bên trái.";
 "HideShortsSearch" = "Ẩn nút Tìm kiếm";

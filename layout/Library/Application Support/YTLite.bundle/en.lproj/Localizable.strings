@@ -199,8 +199,10 @@
 "ScrollToNext" = "Scroll to next";
 "Stop" = "Stop";
 "AutoSkipShorts" = "Auto-skip Shorts";
-"ShortsOnlyMode" = "Shorts Only Mode";
+"ShortsOnlyMode" = "Shorts only mode";
 "ShortsOnlyModeDesc" = "Limits YouTube functionality to viewing Shorts only.";
+"RestrictShorts" = "Limit Shorts";
+"RestrictShortsDesc" = "Limits the number of Shorts in the feed to 10-15. Useful if you want to avoid the habit of endlessly scrolling through the feed.";
 "ShortsProgress" = "Enable progress bar";
 "ShortsProgressDesc" = "Displays progress bar in the Shorts overlay.";
 "SpeedByLongTap" = "Increase Shorts playback rate";
@@ -210,6 +212,8 @@
 "PinchToFullscreenShortsDesc" = "Manages visibility of the overlay with pinch in and pinch out gestures, displaying Shorts in fullscreen mode.";
 "ShortsToRegular" = "Shorts to regular videos";
 "ShortsToRegularDesc" = "Opens Shorts videos as regular videos.";
+"RemoveShortsLive" = "Remove live videos";
+"RemoveShortsLiveDesc" = "Removes live videos from the feed.";
 "HideShortsLogo" = "Hide Shorts logo";
 "HideShortsLogoDesc" = "Hides Shorts logo in the top left corner.";
 "HideShortsSearch" = "Hide Search button";

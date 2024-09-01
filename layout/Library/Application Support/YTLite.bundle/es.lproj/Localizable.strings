@@ -201,6 +201,8 @@
 "AutoSkipShorts" = "Salto automático de Shorts";
 "ShortsOnlyMode" = "Modo sólo Shorts";
 "ShortsOnlyModeDesc" = "Limita la funcionalidad de YouTube únicamente a la visualización de Shorts.";
+"RestrictShorts" = "Limit Shorts";
+"RestrictShortsDesc" = "Limits the number of Shorts in the feed to 10-15. Useful if you want to avoid the habit of endlessly scrolling through the feed.";
 "ShortsProgress" = "Activar barra de progreso";
 "ShortsProgressDesc" = "Muestra una barra de progreso en la superposición de Shorts.";
 "SpeedByLongTap" = "Aumentar la velocidad de reproducción de los Shorts";
@@ -210,6 +212,8 @@
 "PinchToFullscreenShortsDesc" = "Gestiona la visibilidad de la superposición con gestos de pellizcar para acercar y pellizcar para alejar, mostrando Shorts en modo de pantalla completa.";
 "ShortsToRegular" = "De Shorts a vídeos normales";
 "ShortsToRegularDesc" = "Abre los Shorts como vídeos normales.";
+"RemoveShortsLive" = "Remove live videos";
+"RemoveShortsLiveDesc" = "Removes live videos from the feed.";
 "HideShortsLogo" = "Ocultar el logo de Shorts";
 "HideShortsLogoDesc" = "Oculta el logo de Shorts en la esquina superior izquierda.";
 "HideShortsSearch" = "Ocultar botón de búsqueda";

@@ -201,6 +201,8 @@
 "AutoSkipShorts" = "Otomatik kaydır";
 "ShortsOnlyMode" = "Sadece Shorts Modu";
 "ShortsOnlyModeDesc" = "YouTube işlevselliğini yalnızca Shorts izlemeyle sınırlar.";
+"RestrictShorts" = "Shorts sayısını kısıtla";
+"RestrictShortsDesc" = "Akıştaki Shorts sayısını 10-15 ile sınırlar. Sonsuz kaydırma alışkanlığından kaçınmak isteyenler için faydalı olabilir.";
 "ShortsProgress" = "İlerleme çubuğunu etkinleştir";
 "ShortsProgressDesc" = "Shorts üst bilgisinde ilerleme çubuğunu gösterir.";
 "SpeedByLongTap" = "Shorts oynatma hızını artır";
@@ -210,6 +212,8 @@
 "PinchToFullscreenShortsDesc" = "Sıkıştırma hareketleriyle üst bilgi görünürlüğünü yönetir, Shorts'u tam ekran modunda görüntüler.";
 "ShortsToRegular" = "Shorts'u normal videolar olarak aç";
 "ShortsToRegularDesc" = "Shorts videolarını normal videolar olarak açar.";
+"RemoveShortsLive" = "Canlı yayınları kaldır";
+"RemoveShortsLiveDesc" = "Akıştaki canlı yayınları kaldırır.";
 "HideShortsLogo" = "Shorts logosunu gizle";
 "HideShortsLogoDesc" = "Shorts logosunu sol üst köşede gizler.";
 "HideShortsSearch" = "Arama düğmesini gizle";

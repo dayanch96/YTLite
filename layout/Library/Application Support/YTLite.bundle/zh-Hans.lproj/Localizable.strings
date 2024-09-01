@@ -201,6 +201,8 @@
 "AutoSkipShorts" = "自动播放";
 "ShortsOnlyMode" = "仅短视频模式";
 "ShortsOnlyModeDesc" = "将 YouTube 功能限制为只能观看短视频。";
+"RestrictShorts" = "Limit Shorts";
+"RestrictShortsDesc" = "Limits the number of Shorts in the feed to 10-15. Useful if you want to avoid the habit of endlessly scrolling through the feed.";
 "ShortsProgress" = "启用进度条";
 "ShortsProgressDesc" = "在短视频播放器中显示进度条。";
 "SpeedByLongTap" = "加快短视频播放速度";
@@ -210,6 +212,8 @@
 "PinchToFullscreenShortsDesc" = "通过捏合和捏合手势管理播放界面，以全屏模式显示短视频。";
 "ShortsToRegular" = "常规短视频";
 "ShortsToRegularDesc" = "像打开普通视频一样打开短视频。";
+"RemoveShortsLive" = "Remove live videos";
+"RemoveShortsLiveDesc" = "Removes live videos from the feed.";
 "HideShortsLogo" = "隐藏短视频 Logo";
 "HideShortsLogoDesc" = "隐藏左上角的短视频 Logo。";
 "HideShortsSearch" = "隐藏搜索按钮";

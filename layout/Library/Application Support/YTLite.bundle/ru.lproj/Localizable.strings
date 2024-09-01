@@ -201,6 +201,8 @@
 "AutoSkipShorts" = "Автопереход к следующему";
 "ShortsOnlyMode" = "Режим Shorts";
 "ShortsOnlyModeDesc" = "Ограничивает функциональность YouTube до отображения видеороликов Shorts";
+"RestrictShorts" = "Ограничить количество";
+"RestrictShortsDesc" = "Ограничивает количество Shorts в ленте до 10-15. Полезно, если хотите избавиться от привычки бесконечно листать ленту.";
 "ShortsProgress" = "Показывать прогресс-бар";
 "ShortsProgressDesc" = "Отображает прогресс-бар в плеере Shorts.";
 "SpeedByLongTap" = "Ускоренное воспроизведение";
@@ -210,6 +212,8 @@
 "PinchToFullscreenShortsDesc" = "Скрывает панель вкладок, тем самым отображает Shorts на весь экран.";
 "ShortsToRegular" = "Shorts как обычные видео";
 "ShortsToRegularDesc" = "Воспроизводит видеоролики Shorts в обычном проигрывателе.";
+"RemoveShortsLive" = "Убрать трансляции";
+"RemoveShortsLiveDesc" = "Удаляет прямые трансляции, исключая их из ленты.";
 "HideShortsLogo" = "Скрыть логотип Shorts";
 "HideShortsLogoDesc" = "Скрывает логотип Shorts, расположенный в верхнем левом углу.";
 "HideShortsSearch" = "Скрыть кнопку «Поиск»";

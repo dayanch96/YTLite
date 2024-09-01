@@ -200,7 +200,9 @@
 "Stop" = "Stop";
 "AutoSkipShorts" = "ショート動画を自動スキップ";
 "ShortsOnlyMode" = "ショートのみモード";
-"ShortsOnlyModeDesc" = "YouTubeの機能をショート動画の視聴のみに制限します。注意:これをOnにすると他の操作は行えません。\n\nショート動画プレーヤーで「2本の指で長押し」すると、ショート動画専用モードを無効にできます。";
+"ShortsOnlyModeDesc" = "YouTubeの機能をショート動画の視聴のみに制限します。注意:これをOnにすると他の操作は行えません。";
+"RestrictShorts" = "Limit Shorts";
+"RestrictShortsDesc" = "Limits the number of Shorts in the feed to 10-15. Useful if you want to avoid the habit of endlessly scrolling through the feed.";
 "ShortsProgress" = "プログレスバーを有効化";
 "ShortsProgressDesc" = "ショートオーバーレイにプログレスバーを表示します。";
 "SpeedByLongTap" = "ショート動画の再生速度を上げる";
@@ -210,6 +212,8 @@
 "PinchToFullscreenShortsDesc" = "ピンチインとピンチアウトのジェスチャでオーバーレイの表示を管理し、ショート動画を全画面モードで表示します。";
 "ShortsToRegular" = "ショートから通常の動画";
 "ShortsToRegularDesc" = "ショート動画を通常の動画として開きます。";
+"RemoveShortsLive" = "Remove live videos";
+"RemoveShortsLiveDesc" = "Removes live videos from the feed.";
 "HideShortsLogo" = "ショートロゴを非表示";
 "HideShortsLogoDesc" = "左上隅のショートロゴを非表示にします。";
 "HideShortsSearch" = "検索ボタンを非表示";

@@ -201,6 +201,8 @@
 "AutoSkipShorts" = "連續播放Shorts";
 "ShortsOnlyMode" = "只看Shorts模式";
 "ShortsOnlyModeDesc" = "限制YouTube功能只能觀看Shorts影片";
+"RestrictShorts" = "Limit Shorts";
+"RestrictShortsDesc" = "Limits the number of Shorts in the feed to 10-15. Useful if you want to avoid the habit of endlessly scrolling through the feed.";
 "ShortsProgress" = "啟用時間進度列";
 "ShortsProgressDesc" = "在Shorts底部顯示進度列";
 "SpeedByLongTap" = "加快Shorts播放速度";
@@ -210,6 +212,8 @@
 "PinchToFullscreenShortsDesc" = "透過兩指縮放手勢，控制覆蓋層的顯示，讓Shorts以全螢幕模式播放";
 "ShortsToRegular" = "Shorts轉為一般影片";
 "ShortsToRegularDesc" = "將Shorts作為一般影片開啟";
+"RemoveShortsLive" = "Remove live videos";
+"RemoveShortsLiveDesc" = "Removes live videos from the feed.";
 "HideShortsLogo" = "隱藏Shorts圖示";
 "HideShortsLogoDesc" = "左上角Shorts圖示";
 "HideShortsSearch" = "隱藏搜尋按鈕";
