@@ -134,6 +134,8 @@
 "NoPromotionCardsDesc" = "プロモーションが含まれている動画の「有料プロモーションを含む」カードを非表示にします。";
 "NoWatermarks" = "ウォーターマークを非表示";
 "NoWatermarksDesc" = "プレーヤーからチャンネルのウォーターマークを非表示にします。";
+"DisableAmbientMode" = "Disable ambient mode";
+"DisableAmbientModeDesc" = "Disables ambient mode both in the player and in the area underneath it.";
 "VideoEndTime" = "再生終了時刻を表示";
 "VideoEndTimeDesc" = "プレーヤー バーにビデオの再生終了時刻を追加します。";
 "24hrFormat" = "24時間フォーマット";
@@ -303,6 +305,8 @@
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "Enable";
 "EnableSponsorBlockDesc" = "Activates the SponsorBlock extension.";
+"ShowNotifications" = "Show notifications";
+"ShowNotificationsDesc" = "Displays notifications for the auto-skipped segments. Notifications for categories that require manual skipping are always shown.";
 "SegmentsInFeedPlayer" = "Display segments in the feed";
 "SegmentsInFeedPlayerDesc" = "Displays colored segments on the progress bar of players in the feed.";
 "SegmentsInMiniPlayer" = "Display segments on the mini-player";

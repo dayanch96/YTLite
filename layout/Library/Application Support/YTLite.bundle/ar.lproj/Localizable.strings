@@ -134,6 +134,8 @@
 "NoPromotionCardsDesc" = "يخفي بطاقة \"تتضمن عروض ترويجية مدفوعة\" في الفيديوهات التي تتضمن ترويجاً.";
 "NoWatermarks" = "إخفاء العلامات المائية";
 "NoWatermarksDesc" = "يخفي العلامات المائية للقناة من المشغل.";
+"DisableAmbientMode" = "Disable ambient mode";
+"DisableAmbientModeDesc" = "Disables ambient mode both in the player and in the area underneath it.";
 "VideoEndTime" = "إظهار وقت نهاية التشغيل";
 "VideoEndTimeDesc" = "يضيف وقت نهاية تشغيل الفيديو إلى شريط المشغل.";
 "24hrFormat" = "صيغة 24 ساعة";
@@ -303,6 +305,8 @@
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "تفعيل";
 "EnableSponsorBlockDesc" = "تفعيل أداة SponsorBlock";
+"ShowNotifications" = "Show notifications";
+"ShowNotificationsDesc" = "Displays notifications for the auto-skipped segments. Notifications for categories that require manual skipping are always shown.";
 "SegmentsInFeedPlayer" = "عرض الشرائح في المنشورات";
 "SegmentsInFeedPlayerDesc" = "يعرض الشرائح الملونة على شريط تقدم المشغل في المنشورات.";
 "SegmentsInMiniPlayer" = "عرض الشرائح على المشغل المصغر";

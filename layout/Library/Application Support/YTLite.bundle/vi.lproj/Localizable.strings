@@ -134,6 +134,8 @@
 "NoPromotionCardsDesc" = "Ẩn thẻ \"Bao gồm quảng cáo trả phí\" trong các video có quảng cáo.";
 "NoWatermarks" = "Ẩn watermark của kênh";
 "NoWatermarksDesc" = "Ẩn watermark của kênh trong video. Yêu cầu khởi động lại ứng dụng.";
+"DisableAmbientMode" = "Disable ambient mode";
+"DisableAmbientModeDesc" = "Disables ambient mode both in the player and in the area underneath it.";
 "VideoEndTime" = "Hiển thị thời gian kết thúc phát";
 "VideoEndTimeDesc" = "Thêm thời gian kết thúc phát video vào thanh trình phát.";
 "24hrFormat" = "Định dạng 24 giờ";
@@ -303,6 +305,8 @@
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "Bật";
 "EnableSponsorBlockDesc" = "Kích hoạt tiện ích mở rộng PromoteBlock.";
+"ShowNotifications" = "Show notifications";
+"ShowNotificationsDesc" = "Displays notifications for the auto-skipped segments. Notifications for categories that require manual skipping are always shown.";
 "SegmentsInFeedPlayer" = "Hiển thị các phân đoạn trong nguồn cấp dữ liệu";
 "SegmentsInFeedPlayerDesc" = "Hiển thị các phân đoạn màu trên thanh tiến trình của người chơi trong nguồn cấp dữ liệu.";
 "SegmentsInMiniPlayer" = "Hiển thị các phân đoạn trên trình phát mini";

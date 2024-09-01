@@ -134,6 +134,8 @@
 "NoPromotionCardsDesc" = "Oculta la tarjeta \"Incluye promociones pagadas\" en los vídeos que incluyen promociones pagadas.";
 "NoWatermarks" = "Ocultar marcas de agua";
 "NoWatermarksDesc" = "Oculta las marcas de agua del canal del reproductor.";
+"DisableAmbientMode" = "Disable ambient mode";
+"DisableAmbientModeDesc" = "Disables ambient mode both in the player and in the area underneath it.";
 "VideoEndTime" = "Muestra la hora de finalización de la reproducción";
 "VideoEndTimeDesc" = "Añade la hora final de reproducción del vídeo a la barra del reproductor.";
 "24hrFormat" = "Formato de 24 horas";
@@ -192,6 +194,7 @@
 "NoDoubleTap2Seek" = "Desactivar doble toque para buscar";
 "NoDoubleTap2SeekDesc" = "Desactiva el gesto de doble toque para buscar.";
 
+/* Shorts options */
 "Shorts" = "Shorts";
 "PlaybackMode" = "Acción al finalizar la reproducción";
 "Loop" = "Bucle";
@@ -302,6 +305,8 @@
 "EnableSponsorBlock" = "Habilitar";
 "EnableSponsorBlockDesc" = "Activa la extensión SponsorBlock.";
 "SegmentsInFeedPlayer" = "Mostrar segmentos en el feed";
+"ShowNotifications" = "Show notifications";
+"ShowNotificationsDesc" = "Displays notifications for the auto-skipped segments. Notifications for categories that require manual skipping are always shown.";
 "SegmentsInFeedPlayerDesc" = "Muestra segmentos coloreados en la barra de progreso de los reproductores en el feed.";
 "SegmentsInMiniPlayer" = "Mostrar segmentos en el mini reproductor";
 "SegmentsInMiniPlayerDesc" = "Muestra segmentos coloreados en la barra de progreso del mini reproductor.";

@@ -134,6 +134,8 @@
 "NoPromotionCardsDesc" = "Hides \"Includes Paid Promotions\" card in promotions included videos.";
 "NoWatermarks" = "Hide Watermarks";
 "NoWatermarksDesc" = "Hides channel watermarks from the player.";
+"DisableAmbientMode" = "Disable ambient mode";
+"DisableAmbientModeDesc" = "Disables ambient mode both in the player and in the area underneath it.";
 "VideoEndTime" = "Show playback end time";
 "VideoEndTimeDesc" = "Adds video playback end time to the player bar.";
 "24hrFormat" = "24-hour format";
@@ -303,6 +305,8 @@
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "Enable";
 "EnableSponsorBlockDesc" = "Activates the SponsorBlock extension.";
+"ShowNotifications" = "Show notifications";
+"ShowNotificationsDesc" = "Displays notifications for the auto-skipped segments. Notifications for categories that require manual skipping are always shown.";
 "SegmentsInFeedPlayer" = "Display segments in the feed";
 "SegmentsInFeedPlayerDesc" = "Displays colored segments on the progress bar of players in the feed.";
 "SegmentsInMiniPlayer" = "Display segments on the mini-player";

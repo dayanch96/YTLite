@@ -134,6 +134,8 @@
 "NoPromotionCardsDesc" = "Promosyon içeren videolarda \"Ücretli Promosyonlar İçerir\" kartını gizler.";
 "NoWatermarks" = "Filigranları gizle";
 "NoWatermarksDesc" = "Oyuncudan kanal filigranlarını gizler.";
+"DisableAmbientMode" = "Ambient modunu devre dışı bırak";
+"DisableAmbientModeDesc" = "Oyuncuda ve altındaki alanda ambient modunu devre dışı bırakır.";
 "VideoEndTime" = "Oynatma bitiş zamanını göster";
 "VideoEndTimeDesc" = "Oyuncu çubuğuna video oynatma bitiş zamanını ekler.";
 "24hrFormat" = "24 saat formatı";
@@ -303,6 +305,8 @@
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "Etkinleştir";
 "EnableSponsorBlockDesc" = "SponsorBlock eklentisini etkinleştirir.";
+"ShowNotifications" = "Bildirimleri göster";
+"ShowNotificationsDesc" = "Otomatik olarak atlanan kısımlar için bildirimler gösterir. Manuel olarak atlama gerektiren kısımlar için bildirimler her zaman görüntülenir.";
 "SegmentsInFeedPlayer" = "Akışta göster";
 "SegmentsInFeedPlayerDesc" = "Akışta, oynatıcının ilerleme çubuğunda renkli kısımları gösterir.";
 "SegmentsInMiniPlayer" = "Mini oynatıcıda göster";

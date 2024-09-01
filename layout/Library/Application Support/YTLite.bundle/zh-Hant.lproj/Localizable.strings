@@ -134,6 +134,8 @@
 "NoPromotionCardsDesc" = "在付費推廣的影片中隱藏「付費推廣」";
 "NoWatermarks" = "隱藏浮水印";
 "NoWatermarksDesc" = "在播放器中隱藏頻道浮水印";
+"DisableAmbientMode" = "Disable ambient mode";
+"DisableAmbientModeDesc" = "Disables ambient mode both in the player and in the area underneath it.";
 "VideoEndTime" = "顯示播放結束時間";
 "VideoEndTimeDesc" = "新增影片播放結束時間至播放器欄";
 "24hrFormat" = "24小時制";
@@ -303,6 +305,8 @@
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "啟用";
 "EnableSponsorBlockDesc" = "SponsorBlock擴充功能";
+"ShowNotifications" = "Show notifications";
+"ShowNotificationsDesc" = "Displays notifications for the auto-skipped segments. Notifications for categories that require manual skipping are always shown.";
 "SegmentsInFeedPlayer" = "播放器中顯示片段";
 "SegmentsInFeedPlayerDesc" = "在播放器的進度列上顯示彩色片段標記";
 "SegmentsInMiniPlayer" = "迷你播放器中顯示片段";

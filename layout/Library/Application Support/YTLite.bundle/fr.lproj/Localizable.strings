@@ -134,6 +134,8 @@
 "NoPromotionCardsDesc" = "Masque la carte \"Inclut des promotions payantes\" dans les vidéos avec promotions.";
 "NoWatermarks" = "Masquer les filigranes";
 "NoWatermarksDesc" = "Masque les filigranes de chaîne dans le lecteur.";
+"DisableAmbientMode" = "Disable ambient mode";
+"DisableAmbientModeDesc" = "Disables ambient mode both in the player and in the area underneath it.";
 "VideoEndTime" = "Afficher l'heure de fin de lecture";
 "VideoEndTimeDesc" = "Ajoute l'heure de fin de lecture de la vidéo à la barre du lecteur.";
 "24hrFormat" = "Format 24 heures";
@@ -303,6 +305,8 @@
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "Activer";
 "EnableSponsorBlockDesc" = "Active l'extension SponsorBlock.";
+"ShowNotifications" = "Show notifications";
+"ShowNotificationsDesc" = "Displays notifications for the auto-skipped segments. Notifications for categories that require manual skipping are always shown.";
 "SegmentsInFeedPlayer" = "Afficher les segments dans le feed";
 "SegmentsInFeedPlayerDesc" = "Affiche les segments colorés sur la barre de progression des lecteurs dans le feed.";
 "SegmentsInMiniPlayer" = "Afficher les segments dans le mini-lecteur";
