@@ -22,3 +22,15 @@ A flexible enhancer for YouTube on iOS, featuring over hundred customizable opti
 **All contributors are listed in the Contributors section**
 
 **Used open-source libraries are listed in the Open Source Libraries section**
+
+
+## How to build a YouTube Plus app by yourself using Github actions
+
+If this is your first time here, start from step 1. If you built a YouTube Plus app before, skip steps 1 and 2. Instead, click on the "Sync fork" button to get the latest version of the tweak and continue through step 3.
+
+1. Fork this repository using the fork button on the top right.
+2. On your forked repository, go to Repository Settings > Actions, enable Read and Write permissions.
+3. Go to the Actions tab on your forked repo, click on "Create YouTube Plus app" located on the left side. Click "Run workflow" button located on the right side.
+4. Find a decrypted .ipa file (we cannot provide you this due to legal reasons) and upload it to a file provider (filebin.net or Dropbox is recommended). Paste the url to the necessary field.
+5. Type tweak version from releases (by default selected latest release) and click "Run workflow".
+6. Wait for the build to finish. You can download the YouTube Plus app from the releases section of your forked repo. (If you can't find the releases section, go to your forked repo and add /releases to the url. i.e github.com/user/YTLite/releases)
