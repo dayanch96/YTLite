@@ -305,8 +305,8 @@
 "EnableSponsorBlock" = "Habilitar";
 "EnableSponsorBlockDesc" = "Activa la extensión SponsorBlock.";
 "SegmentsInFeedPlayer" = "Mostrar segmentos en el feed";
-"ShowNotifications" = "Show notifications";
-"ShowNotificationsDesc" = "Displays notifications for the auto-skipped segments. Notifications for categories that require manual skipping are always shown.";
+"ShowNotifications" = "Mostrar notificaciones";
+"ShowNotificationsDesc" = "Muestra notificaciones para los segmentos omitidos automáticamente. Las notificaciones para las categorías que requieren omisión manual siempre se muestran.";
 "SegmentsInFeedPlayerDesc" = "Muestra segmentos coloreados en la barra de progreso de los reproductores en el feed.";
 "SegmentsInMiniPlayer" = "Mostrar segmentos en el mini reproductor";
 "SegmentsInMiniPlayerDesc" = "Muestra segmentos coloreados en la barra de progreso del mini reproductor.";
