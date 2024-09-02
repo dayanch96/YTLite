@@ -134,8 +134,8 @@
 "NoPromotionCardsDesc" = "在付费视频中隐藏“付费内容”。";
 "NoWatermarks" = "隐藏水印";
 "NoWatermarksDesc" = "隐藏播放器的频道水印。";
-"DisableAmbientMode" = "Disable ambient mode";
-"DisableAmbientModeDesc" = "Disables ambient mode both in the player and in the area underneath it.";
+"DisableAmbientMode" = "禁用氛围模式";
+"DisableAmbientModeDesc" = "禁用播放器及其下方区域的氛围模式。";
 "VideoEndTime" = "显示播放结束时间";
 "VideoEndTimeDesc" = "将视频播放结束时间添加到播放器栏。";
 "24hrFormat" = "24小时格式";
@@ -305,8 +305,8 @@
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "启用";
 "EnableSponsorBlockDesc" = "启用SponsorBlock扩展。";
-"ShowNotifications" = "Show notifications";
-"ShowNotificationsDesc" = "Displays notifications for the auto-skipped segments. Notifications for categories that require manual skipping are always shown.";
+"ShowNotifications" = "显示通知";
+"ShowNotificationsDesc" = "显示自动跳过片段的通知，需要手动跳过的类别的通知会始终显示。";
 "SegmentsInFeedPlayer" = "显示片段颜色";
 "SegmentsInFeedPlayerDesc" = "在播放器的进度条上显示各种类别片段的颜色。";
 "SegmentsInMiniPlayer" = "显示片段颜色（迷你播放器）";
