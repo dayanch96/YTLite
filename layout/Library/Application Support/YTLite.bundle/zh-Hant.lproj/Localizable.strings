@@ -134,8 +134,8 @@
 "NoPromotionCardsDesc" = "在付費推廣的影片中隱藏「付費推廣」";
 "NoWatermarks" = "隱藏浮水印";
 "NoWatermarksDesc" = "在播放器中隱藏頻道浮水印";
-"DisableAmbientMode" = "Disable ambient mode";
-"DisableAmbientModeDesc" = "Disables ambient mode both in the player and in the area underneath it.";
+"DisableAmbientMode" = "停用微光效果";
+"DisableAmbientModeDesc" = "停用播放器和下方區域的微光效果";
 "VideoEndTime" = "顯示播放結束時間";
 "VideoEndTimeDesc" = "新增影片播放結束時間至播放器欄";
 "24hrFormat" = "24小時制";
@@ -163,8 +163,8 @@
 "Player.Gestures" = "手勢";
 "LeftSideGesture" = "左邊手勢";
 "RightSideGesture" = "右邊手勢";
-"ActivationAreaWidth" = "Gesture activation width";
-"ActivationAreaWidthDesc" = "This value determines the gesture recognition zone in pixels for the left and right sides of the screen.\n\nThe maximum allowed value is one-third of the screen width.\n\nAdjusting this setting is useful to prevent accidental activation when attempting to minimize or expand the player.";
+"ActivationAreaWidth" = "手勢啟動寬度";
+"ActivationAreaWidthDesc" = "此值決定螢幕左右兩側的手勢識別區域（單位:像素）\n\n最大值允許為螢幕寬度的三分之一。\n\n調整此設定有助於防止在嘗試最小化或展開播放器時意外啟動";
 "HoldToSpeed" = "按住加速";
 "AdjustWithFinger" = "調整速度";
 "AdjustWithFingerDesc" = "透過在播放器上長按並上下滑動手指來調整播放速度";
@@ -173,7 +173,7 @@
 "SeekAnywhere" = "滑動快轉/倒轉";
 "SeekAnywhereDesc" = "允許透過左右滑動來控制播放進度";
 "SeekMethod" = "快轉/倒轉方式";
-"SeekMethodDesc" = "Independent: Free fast scrolling across the entire video duration. Only the seek sensitivity is respected.\n\nDuration-based: The scrolling strength will depend on the length of the video and the seek sensitivity. This can be useful for long videos to prevent scrolling through large sections of the video.";
+"SeekMethodDesc" = "獨立:可以在整部影片內自由快速滑動。取決於快轉/倒轉靈敏度\n\n基於影片長度:滑動進度將取於影片時間長度和快轉/倒轉靈敏度。這對於長時間影片很有幫助，可以防止滑動時跳過大部分的影片內容。";
 "Independent" = "獨立";
 "DurationBased" = "基於影片長度";
 "SeekSensitivity" = "快轉/倒轉靈敏度";
@@ -196,15 +196,15 @@
 
 /* Shorts options */
 "Shorts" = "Shorts";
-"PlaybackMode" = "Playback completion action";
-"Loop" = "Loop";
-"ScrollToNext" = "Scroll to next";
-"Stop" = "Stop";
+"PlaybackMode" = "播放結束後的動作";
+"Loop" = "循環播放";
+"ScrollToNext" = "播放下一部";
+"Stop" = "停止";
 "AutoSkipShorts" = "連續播放Shorts";
 "ShortsOnlyMode" = "只看Shorts模式";
 "ShortsOnlyModeDesc" = "限制YouTube功能只能觀看Shorts影片";
-"RestrictShorts" = "Limit Shorts";
-"RestrictShortsDesc" = "Limits the number of Shorts in the feed to 10-15. Useful if you want to avoid the habit of endlessly scrolling through the feed.";
+"RestrictShorts" = "限制Shorts數量";
+"RestrictShortsDesc" = "將動態中Shorts數量限制在10-15部。可以避免養成無止境瀏覽的習慣";
 "ShortsProgress" = "啟用時間進度列";
 "ShortsProgressDesc" = "在Shorts底部顯示進度列";
 "SpeedByLongTap" = "加快Shorts播放速度";
@@ -214,8 +214,8 @@
 "PinchToFullscreenShortsDesc" = "透過兩指縮放手勢，控制覆蓋層的顯示，讓Shorts以全螢幕模式播放";
 "ShortsToRegular" = "Shorts轉為一般影片";
 "ShortsToRegularDesc" = "將Shorts作為一般影片開啟";
-"RemoveShortsLive" = "Remove live videos";
-"RemoveShortsLiveDesc" = "Removes live videos from the feed.";
+"RemoveShortsLive" = "移除直播影片";
+"RemoveShortsLiveDesc" = "從首頁動態移除直播影片";
 "HideShortsLogo" = "隱藏Shorts圖示";
 "HideShortsLogoDesc" = "左上角Shorts圖示";
 "HideShortsSearch" = "隱藏搜尋按鈕";
@@ -305,8 +305,8 @@
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "啟用";
 "EnableSponsorBlockDesc" = "SponsorBlock擴充功能";
-"ShowNotifications" = "Show notifications";
-"ShowNotificationsDesc" = "Displays notifications for the auto-skipped segments. Notifications for categories that require manual skipping are always shown.";
+"ShowNotifications" = "顯示通知";
+"ShowNotificationsDesc" = "顯示自動跳過片段的通知。需要手動跳過的類別通知會始終顯示。";
 "SegmentsInFeedPlayer" = "播放器中顯示片段";
 "SegmentsInFeedPlayerDesc" = "在播放器的進度列上顯示彩色片段標記";
 "SegmentsInMiniPlayer" = "迷你播放器中顯示片段";
@@ -476,7 +476,7 @@
 "Copied" = "已複製到剪貼簿";
 "Saved" = "已儲存到照片App";
 "Done" = "完成";
-"NothingToShowInMenu" = "Nothing to show in this context menu";
+"NothingToShowInMenu" = "這個上下文選單中沒有可顯示的內容";
 "Error" = "發生錯誤";
 "Error.Clipboard" = "錯誤!!檢查剪貼簿獲取更多資訊";
 "Error.PathIssue" = "錯誤!!產生最終路徑時出現問題。媒體標題有問題?";
