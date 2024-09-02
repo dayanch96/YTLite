@@ -164,7 +164,7 @@
 "LeftSideGesture" = "左邊手勢";
 "RightSideGesture" = "右邊手勢";
 "ActivationAreaWidth" = "手勢啟動寬度";
-"ActivationAreaWidthDesc" = "此值決定螢幕左右兩側的手勢識別區域（單位:像素）\n\n最大值允許為螢幕寬度的三分之一。\n\n調整此設定有助於防止在嘗試最小化或展開播放器時意外啟動";
+"ActivationAreaWidthDesc" = "此值決定螢幕左右兩側的手勢識別區域（單位:像素）\n\n最大值允許為螢幕寬度的三分之一\n\n調整此設定有助於防止在嘗試最小化或展開播放器時意外啟動";
 "HoldToSpeed" = "按住加速";
 "AdjustWithFinger" = "調整速度";
 "AdjustWithFingerDesc" = "透過在播放器上長按並上下滑動手指來調整播放速度";
@@ -173,7 +173,7 @@
 "SeekAnywhere" = "滑動快轉/倒轉";
 "SeekAnywhereDesc" = "允許透過左右滑動來控制播放進度";
 "SeekMethod" = "快轉/倒轉方式";
-"SeekMethodDesc" = "獨立:可以在整部影片內自由快速滑動。取決於快轉/倒轉靈敏度\n\n基於影片長度:滑動進度將取於影片時間長度和快轉/倒轉靈敏度。這對於長時間影片很有幫助，可以防止滑動時跳過大部分的影片內容。";
+"SeekMethodDesc" = "獨立:可以在整部影片內自由快速滑動(取決於快轉/倒轉靈敏度)\n\n基於影片長度:滑動進度取決於影片時間長度和快轉/倒轉靈敏度。這對於長時間影片很有幫助，可以防止滑動時跳過大部分的影片內容。";
 "Independent" = "獨立";
 "DurationBased" = "基於影片長度";
 "SeekSensitivity" = "快轉/倒轉靈敏度";
