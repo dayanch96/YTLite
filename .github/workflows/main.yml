@@ -64,6 +64,6 @@ jobs:
         uses: softprops/action-gh-release@v2.0.1
         with:
           tag_name: v${{ github.run_number }}
-          name: YouTubePlus-v${{ github.run_number }}
-          files: YouTubePlus.ipa
+          name: YouTubePlus v${{ inputs.tweak_version }} (${{ github.run_number }})
+          files: YouTubePlus_${{ inputs.tweak_version }}.ipa
           draft: true
