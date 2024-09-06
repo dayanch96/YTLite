@@ -24,6 +24,9 @@ A flexible enhancer for YouTube on iOS, featuring over hundred customizable opti
 **Used open-source libraries are listed in the Open Source Libraries section**
 
 
+## Reviews
+Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbreak.com/blog/youtube-plus/
+
 ## How to build a YouTube Plus app by yourself using Github actions
 
 If this is your first time here, start from step 1. If you built a YouTube Plus app before, skip steps 1 and 2. Instead, click on the "Sync fork" button to get the latest version of the tweak and continue through step 3.
