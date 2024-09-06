@@ -33,26 +33,11 @@ jobs:
           path: main
           submodules: recursive
 
-      - name: Install Dependencies
-        run: brew install ldid dpkg make coreutils
-
       - name: Set PATH environment variable
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
 
-      - name: Cache Azule
-        id: azule_cache
-        uses: actions/cache@v4.0.1
-        env:
-          cache-name: azule-cache
-        with:
-          path: ${{ github.workspace }}/Azule
-          key: ${{ env.cache-name }}
-          restore-keys: ${{ env.cache-name }}
-
-      - name: Clone Azule Repository
-        if: steps.azule_cache.outputs.cache-hit != 'true'
-        run: |
-          git clone https://github.com/Al4ise/Azule ${{ github.workspace }}/Azule
+      - name: Install Pyzule
+        run: bash -c "$(curl https://raw.githubusercontent.com/asdfzxcvbn/pyzule/main/install-pyzule.sh)"
 
       - name: Download YouTube
         id: download_youtube
@@ -64,21 +49,18 @@ jobs:
           deb_url="https://github.com/dayanch96/YTLite/releases/download/v${{ inputs.tweak_version }}/com.dvntm.ytlite_${{ inputs.tweak_version }}_iphoneos-arm.deb"
           wget "$deb_url" --no-verbose -O ${{ github.workspace }}/ytplus.deb
 
+      - name: Clone Open in YouTube (Safari extension)
+        run: |
+          git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/CokePokes/YoutubeExtensions/
+          cd YoutubeExtensions
+          git sparse-checkout set --no-cone OpenYoutubeSafariExtension.appex
+          git checkout
+          mv *.appex ${{ github.workspace }}
+
       - name: Inject tweak into IPA
         run: |
           cd ${{ github.workspace }}
-          ./Azule/azule -n YouTubePlus -i ${{ github.workspace }}/youtube.ipa -o ${{ github.workspace }} -f ${{ github.workspace }}/ytplus.deb
-
-      - name: Remove the Watch folder
-        run: |
-          cd ${{ github.workspace }}
-          mv YouTubePlus.ipa YouTubePlus.zip
-          unzip -q YouTubePlus.zip
-          cd Payload/Youtube.app
-          rm -rf Watch
-          cd ../..
-          zip -qr YouTubePlus.ipa Payload
-          rm -rf Payload
+          pyzule -i ${{ github.workspace }}/youtube.ipa -o ${{ github.workspace }}/YouTubePlus_${{ inputs.tweak_version }}.ipa -f ${{ github.workspace }}/ytplus.deb ${{ github.workspace }}/OpenYoutubeSafariExtension.appex -w
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v2.0.1
