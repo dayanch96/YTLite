@@ -168,7 +168,7 @@
 "HoldToSpeed" = "Hold to speed";
 "AdjustWithFinger" = "Adjust speed by gestures";
 "AdjustWithFingerDesc" = "Allows adjusting playback speed by long press on player and moving finger up and down.";
-"PreserveSpeed" = "Preserve Speed";
+"PreserveSpeed" = "Preserve speed";
 "PreserveSpeedDesc" = "Preserves adjusted speed after gesture completion.";
 "SeekAnywhere" = "Swipe to seek";
 "SeekAnywhereDesc" = "Allows controlling playback seeking by swiping left and right.";
@@ -399,6 +399,7 @@
 "Vietnamese" = "Vietnamese localization";
 "Arabic" = "Arabic localization";
 "Turkish" = "Turkish localization";
+"Italian" = "Italian localization";
 
 "OpenSourceLibs" = "Open Source Libraries";
 
