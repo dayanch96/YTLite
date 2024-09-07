@@ -4,7 +4,7 @@
 /* Downloading options */
 "Downloading" = "İndirme";
 "DownloadManager" = "İndirme yöneticisi";
-"DownloadManagerDesc" = "Oyuncunun altındaki 'İndir' düğmesi eylemini, Video, Ses, Küçük Resim Görüntüsü indirmeye ve Video Bilgilerini Kopyalamaya olanak tanıyan bir İndirme Yöneticisi ile değiştirir.";
+"DownloadManagerDesc" = "Oynatıcının altındaki 'İndir' düğmesi eylemini, Video, Ses, Küçük Resim Görüntüsü indirmeye ve Video Bilgilerini Kopyalamaya olanak tanıyan bir İndirme Yöneticisi ile değiştirir.";
 "PostManager" = "Gönderi bilgisini kaydet";
 "PostManagerDesc" = "Uzun basarak gönderi metnini kopyalamaya ve gönderiyi resim olarak kaydetmeye olanak tanır.";
 "SaveProfilePhoto" = "Profil resmini kaydet";
@@ -81,8 +81,8 @@
 "FixAlbumsDesc" = "Rusya'daki kullanıcılar için kapakların görüntülenmesini düzeltir.";
 
 /* Player options */
-"Player" = "Oyuncu";
-"PlaybackQualityOnWiFi" = "WiFi'de oynatma kalitesi";
+"Player" = "Oynatıcı";
+"PlaybackQualityOnWiFi" = "WiFi'da oynatma kalitesi";
 "PlaybackQualityOnCellular" = "Hücresel bağlantıda oynatma kalitesi";
 
 "PreferredCaptions" = "Tercih edilen altyazılar";
@@ -113,7 +113,7 @@
 "ClassicQuality" = "Klasik video kalitesi";
 "ClassicQualityDesc" = "Klasik video kalitesi seçim menüsünü geri getirir.";
 "ExtraSpeedOptions" = "Ekstra hız seçenekleri";
-"ExtraSpeedOptionsDesc" = "Oyuncu menüsüne daha fazla video oynatma hızı seçeneği ekler.";
+"ExtraSpeedOptionsDesc" = "Oynatıcı menüsüne daha fazla video oynatma hızı seçeneği ekler.";
 "NoDarkBg" = "Koyu arka planı kaldır";
 "NoDarkBgDesc" = "Kaplama koyu arka planını kaldırır.";
 "NoEndScreenCards" = "Bitiş ekranı hover kartlarını gizle";
@@ -123,21 +123,21 @@
 "NoFullscreenActions" = "Tam ekran eylemlerini devre dışı bırak";
 "NoFullscreenActionsDesc" = "Tam ekran modunda eylemler panelini devre dışı bırakır.";
 "PersistentProgressBar" = "Kalıcı ilerleme çubuğu";
-"PersistentProgressBarDesc" = "Oyuncuda her zaman ilerleme çubuğunu gösterir.";
+"PersistentProgressBarDesc" = "Oynatıcıda her zaman ilerleme çubuğunu gösterir.";
 "RedProgressBar" = "Kırmızı ilerleme çubuğu";
 "RedProgressBarDesc" = "Kırmızı ilerleme çubuğunu geri getirir.";
 "StockVolumeHUD" = "Sistem ses HUD'u";
 "StockVolumeHUDDesc" = "Tam ekran modunda sistem ses HUD'unu gösterir.";
-"NoRelatedVids" = "Kaplama içinde ilişkili videolar yok";
-"NoRelatedVidsDesc" = "Kaplama içinde yukarı kaydırarak görüntülenen ilişkili videoları kaldırır.";
+"NoRelatedVids" = "Kaplama içinde alakalı videolar bölümünü kaldır";
+"NoRelatedVidsDesc" = "Kaplama içinde yukarı kaydırarak görüntülenen alakalı videoları kaldırır.";
 "NoPromotionCards" = "Ücretli Promosyon kartlarını gizle";
 "NoPromotionCardsDesc" = "Promosyon içeren videolarda \"Ücretli Promosyonlar İçerir\" kartını gizler.";
 "NoWatermarks" = "Filigranları gizle";
-"NoWatermarksDesc" = "Oyuncudan kanal filigranlarını gizler.";
-"DisableAmbientMode" = "Ambient modunu devre dışı bırak";
-"DisableAmbientModeDesc" = "Oyuncuda ve altındaki alanda ambient modunu devre dışı bırakır.";
+"NoWatermarksDesc" = "Oynatıcıdan kanal filigranlarını gizler.";
+"DisableAmbientMode" = "Ambiyans modunu devre dışı bırak";
+"DisableAmbientModeDesc" = "Oynatıcıda ve altındaki alanda ambient modunu devre dışı bırakır.";
 "VideoEndTime" = "Oynatma bitiş zamanını göster";
-"VideoEndTimeDesc" = "Oyuncu çubuğuna video oynatma bitiş zamanını ekler.";
+"VideoEndTimeDesc" = "Oynatıcı çubuğuna video oynatma bitiş zamanını ekler.";
 "24hrFormat" = "24 saat formatı";
 "24hrFormatDesc" = "Bitiş zamanını 24 saat formatında gösterir.";
 
@@ -147,8 +147,8 @@
 "BackgroundPlaybackDesc" = "Arka planda oynatmayı etkinleştirir.";
 "Miniplayer" = "Mini oynatıcıyı etkinleştir";
 "MiniplayerDesc" = "Çocuklara yönelik videolar gibi başlangıçta mini oynatıcı için tasarlanmamış videolar için mini oynatıcıyı etkinleştirir.";
-"DisableAutoplay" = "Otomatik oynatma videolarını devre dışı bırak";
-"DisableAutoplayDesc" = "Açıldıktan sonra video oynatmayı engeller.";
+"DisableAutoplay" = "Otomatik oynatmayı devre dışı bırak";
+"DisableAutoplayDesc" = "Açıldıktan sonra videonun otomatik olarak oynamasını engeller, duraklatılmış olarak açılır.";
 "DisableAutoCaptions" = "Otomatik altyazıları devre dışı bırak";
 "DisableAutoCaptionsDesc" = "Altyazıların otomatik olarak etkinleştirilmesini engeller.";
 "NoContentWarning" = "İçerik uyarısını atla";
@@ -160,7 +160,7 @@
 "ExitFullscreen" = "Bitince tam ekran modundan çık";
 "ExitFullscreenDesc" = "Video oynatımı sonunda tam ekran modundan çıkar.";
 
-"Player.Gestures" = "Hareketler";
+"Player.Gestures" = "Hareketle kontroller";
 "LeftSideGesture" = "Sol taraf için hareket";
 "RightSideGesture" = "Sağ taraf için hareket";
 "ActivationAreaWidth" = "Tanıma bölgesinin genişliği";
@@ -196,7 +196,7 @@
 
 /* Shorts options */
 "Shorts" = "Shorts";
-"PlaybackMode" = "Oynatma tamamlanma eylemi";
+"PlaybackMode" = "Oynatma bittiğinde şu olsun:";
 "Loop" = "Tekrarla";
 "ScrollToNext" = "Sonrakiye kaydır";
 "Stop" = "Durdur";
@@ -234,7 +234,7 @@
 "FEexplore" = "Keşfet";
 "FEshorts" = "Shorts";
 "FEsubscriptions" = "Abonelikler";
-"FElibrary" = "Kütüphane";
+"FElibrary" = "Siz/Kütüphane";
 "FEuploads" = "Yeni";
 "FEhistory" = "Geçmiş";
 "VLWL" = "Sonra izle";
@@ -285,8 +285,8 @@
 "RemoveInlineCommentDesc" = "Oynatıcının altındaki yorum bölümünü kaldırır.";
 "RemoveCommentGuidelines" = "Yönergeleri kaldır";
 "RemoveCommentGuidelinesDesc" = "Yorumlar bölümündeki sabitlenmiş yönergeleri kaldırır.";
-"RemovePlayNext" = "\"Sıradakini sırada oynat\"ı kaldır";
-"RemovePlayNextDesc" = "Menüden \"Sıradakini sırada oynat\" seçeneğini kaldırır.";
+"RemovePlayNext" = "\"Sıranın başına ekle\"yi kaldır";
+"RemovePlayNextDesc" = "Menüden \"Sıranın başına ekle\" seçeneğini kaldırır.";
 "RemoveDownloadMenu" = "\"İndir\"i kaldır";
 "RemoveDownloadMenuDesc" = "Menüden \"İndir\" seçeneğini kaldırır.";
 "RemoveWatchLaterMenu" = "\"Daha Sonra İzle'ye Kaydet\"i kaldır";
@@ -298,9 +298,9 @@
 "RemoveNotInterestedMenu" = "\"İlgilenmiyorum\"u kaldır";
 "RemoveNotInterestedMenuDesc" = "Menüden \"İlgilenmiyorum\" seçeneğini kaldırır.";
 "RemoveDontRecommendMenu" = "\"Kanalı önermeyin\"i kaldır";
-"RemoveDontRecommendMenuDesc" = "Menüden \"Kanalı önermeyin\" seçeneğini kaldırır.";
-"RemoveReportMenu" = "\"Rapor Et\"i kaldır";
-"RemoveReportMenuDesc" = "Menüden \"Rapor Et\" seçeneğini kaldırır.";
+"RemoveDontRecommendMenuDesc" = "Menüden \"Kanalı önerme\" seçeneğini kaldırır.";
+"RemoveReportMenu" = "\"Bildir\"i kaldır";
+"RemoveReportMenuDesc" = "Menüden \"Bildir\" seçeneğini kaldırır.";
 
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "Etkinleştir";
@@ -377,8 +377,8 @@
 "SupportDevelopment" = "Gelişimi destekleyin";
 "DonateDesc" = "Desteğiniz benim için çok önemli";
 "SupportDevelopmentDesc" = "YTPlus'u beğendiyseniz ve gelişimini desteklemek isterseniz, aşağıdaki uygun yolları kullanarak destek olabilirsiniz.\nTeşekkürler❤";
-"VisitGithub" = "Github Deposu";
-"VisitGithubDesc" = "Depoya yıldız verin, özellik isteyin veya sorun bildirin";
+"VisitGithub" = "Github Havuzu";
+"VisitGithubDesc" = "Havuza yıldız verin, özellik isteyin veya sorun bildirin";
 "VisitTelegram" = "Telegram Kanalım";
 "VisitTelegramDesc" = "Uygulamanın en son güncellemelerinden haberdar olun";
 
@@ -408,7 +408,7 @@
 "ImportPreferences" = "Tercihleri içe aktar";
 "PreImportMessage" = "Bu işlem, geçerli tercihlerin yerini seçilen dosyadaki tercihlerle değiştirecektir.\n\nDevam etmek istediğinizden emin misiniz?";
 "ExportPreferences" = "Tercihleri dışa aktar";
-"ResetSettings" = "Ayarları varsayılana dön";
+"ResetSettings" = "Ayarları varsayılanlara döndür";
 "ResetMessage" = "Bu işlem YTPlus ayarlarını varsayılana sıfırlayacak ve YouTube'u kapatacaktır.\n\nDevam etmek istediğinizden emin misiniz?";
 
 "ManageCache" = "Önbelleği yönet";
@@ -455,7 +455,7 @@
 "CopyTimestampedLink" = "Zaman damgalı bağlantıyı kopyala";
 "CopyTranscript" = "Transkript kopyala";
 "PlayInExternalPlayer" = "Harici oynatıcıda oynat";
-"PlayInSystemPlayer" = "Sistem oynatıcıda oynat";
+"PlayInSystemPlayer" = "Sistemin oynatıcısında oynat";
 "PlayInInfuse" = "Infuse'da oynat";
 "PlayInVLC" = "VLC'de oynat";
 "PlayerNotFound" = "Oynatıcı bulunamadı";
