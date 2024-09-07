@@ -144,7 +144,7 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Inject tweaks into IPA
-        run: pyzule -i ${{ github.workspace }}/youtube.ipa -o ${{ github.workspace }}/YouTubePlus_${{ inputs.tweak_version }}_Tweaks.ipa -w -f ${{ github.workspace }}/ytplus.deb ${{ github.workspace }}/OpenYoutubeSafariExtension.appex ${{ github.workspace }}/youpip.deb ${{ github.workspace }}/ytuhd.deb ${{ github.workspace }}/ryd.deb
+        run: pyzule -i ${{ github.workspace }}/youtube.ipa -o ${{ github.workspace }}/YouTubePlus_${{ inputs.tweak_version }}_Tweaks.ipa -w -u -f ${{ github.workspace }}/ytplus.deb ${{ github.workspace }}/OpenYoutubeSafariExtension.appex ${{ github.workspace }}/youpip.deb ${{ github.workspace }}/ytuhd.deb ${{ github.workspace }}/ryd.deb
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v2.0.1
