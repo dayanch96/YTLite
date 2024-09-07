@@ -58,7 +58,7 @@ jobs:
           mv *.appex ${{ github.workspace }}
 
       - name: Inject tweak into IPA
-        run: pyzule -i ${{ github.workspace }}/youtube.ipa -o ${{ github.workspace }}/YouTubePlus_${{ inputs.tweak_version }}.ipa -f ${{ github.workspace }}/ytplus.deb ${{ github.workspace }}/OpenYoutubeSafariExtension.appex -w
+        run: pyzule -i ${{ github.workspace }}/youtube.ipa -o ${{ github.workspace }}/YouTubePlus_${{ inputs.tweak_version }}.ipa -f ${{ github.workspace }}/ytplus.deb ${{ github.workspace }}/OpenYoutubeSafariExtension.appex -w -u
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v2.0.1
