@@ -1,4 +1,4 @@
-name: YouTube Plus + YouPiP, YTUHD and RYD
+name: YouTubePlus + YouPiP, YTUHD, RYD, DEMC
 
 on:
   workflow_dispatch:
@@ -119,6 +119,12 @@ jobs:
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/Return-YouTube-Dislikes.git
 
+      - name: Clone DontEatMyContent 
+        run: |
+          cd ${{ github.workspace }}
+          git clone --quiet --depth=1 --recurse-submodules https://github.com/therealFoxster/DontEatMyContent.git
+    
+
       - name: Build YouPiP
         run: |
           cd ${{ github.workspace }}/YouPiP
@@ -143,8 +149,16 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
+      - name: Build DontEatMyContent
+        run: |
+          cd ${{ github.workspace }}/DontEatMyContent
+          make clean package DEBUG=0 FINALPACKAGE=1
+          mv packages/*.deb ${{ github.workspace }}/demc.deb
+        env:
+          THEOS: ${{ github.workspace }}/theos   
+
       - name: Inject tweaks into IPA
-        run: pyzule -i ${{ github.workspace }}/youtube.ipa -o ${{ github.workspace }}/YouTubePlus_${{ inputs.tweak_version }}_Tweaks.ipa -w -u -f ${{ github.workspace }}/ytplus.deb ${{ github.workspace }}/OpenYoutubeSafariExtension.appex ${{ github.workspace }}/youpip.deb ${{ github.workspace }}/ytuhd.deb ${{ github.workspace }}/ryd.deb
+        run: pyzule -i ${{ github.workspace }}/youtube.ipa -o ${{ github.workspace }}/YouTubePlus_${{ inputs.tweak_version }}_Tweaks.ipa -w -u -f ${{ github.workspace }}/ytplus.deb ${{ github.workspace }}/OpenYoutubeSafariExtension.appex ${{ github.workspace }}/youpip.deb ${{ github.workspace }}/ytuhd.deb ${{ github.workspace }}/ryd.deb ${{ github.workspace }}/demc.deb
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v2.0.1
