@@ -82,11 +82,18 @@ jobs:
         id: download_youtube
         run: wget "${{ inputs.ipa_url }}" --no-verbose -O ${{ github.workspace }}/youtube.ipa
 
+      - name: Hash YTLite url
+        if: ${{ inputs.ytlite_url }}
+        run: |
+          URL_YTPLUS="$(jq -r '.inputs.ytlite_url' $GITHUB_EVENT_PATH)"
+          echo ::add-mask::$URL_YTPLUS
+          echo URL_YTPLUS=$URL_YTPLUS >> $GITHUB_ENV
+
       - name: Download YouTube Plus
         id: download_ytp
         run: |
-          if [[ -n "${{ inputs.ytlite_url }}" ]]; then
-            wget "${{ inputs.ytlite_url }}" --no-verbose -O ${{ github.workspace }}/ytplus.deb
+          if [[ -n "${{ env.URL_YTPLUS }}" ]]; then
+            wget "${{ env.URL_YTPLUS }}" --quiet --no-verbose -O ${{ github.workspace }}/ytplus.deb
           else
             deb_url="https://github.com/dayanch96/YTLite/releases/download/v${{ inputs.tweak_version }}/com.dvntm.ytlite_${{ inputs.tweak_version }}_iphoneos-arm.deb"
             wget "$deb_url" --no-verbose -O ${{ github.workspace }}/ytplus.deb
