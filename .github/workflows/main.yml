@@ -15,6 +15,12 @@ on:
         required: true
         type: string
 
+      ytlite_url:
+        description: "(Optional) Direct URL to YTLite deb"
+        default: null
+        required: false
+        type: string
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -46,8 +52,12 @@ jobs:
       - name: Download YouTube Plus
         id: download_ytp
         run: |
-          deb_url="https://github.com/dayanch96/YTLite/releases/download/v${{ inputs.tweak_version }}/com.dvntm.ytlite_${{ inputs.tweak_version }}_iphoneos-arm.deb"
-          wget "$deb_url" --no-verbose -O ${{ github.workspace }}/ytplus.deb
+          if [[ -n "${{ inputs.ytlite_url }}" ]]; then
+            wget "${{ inputs.ytlite_url }}" --no-verbose -O ${{ github.workspace }}/ytplus.deb
+          else
+            deb_url="https://github.com/dayanch96/YTLite/releases/download/v${{ inputs.tweak_version }}/com.dvntm.ytlite_${{ inputs.tweak_version }}_iphoneos-arm.deb"
+            wget "$deb_url" --no-verbose -O ${{ github.workspace }}/ytplus.deb
+          fi
 
       - name: Clone Open in YouTube (Safari extension)
         run: |
