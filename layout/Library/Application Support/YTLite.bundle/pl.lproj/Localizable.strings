@@ -1,7 +1,7 @@
-/* Sekcja główna */
-"Main" = "Główna";
+/* Main section */
+"Main" = "Main";
 
-/* Opcje pobierania */
+/* Downloading options */
 "Downloading" = "Pobieranie";
 "DownloadManager" = "Menedżer pobierania";
 "DownloadManagerDesc" = "Zastępuje działanie przycisku 'Pobierz' pod odtwarzaczem Menedżerem pobierania, który pozwala na pobieranie wideo, audio, obrazu miniatury oraz kopiowanie informacji o wideo.";
@@ -40,7 +40,7 @@
 "Translated" = "przetłumaczone";
 "TranslatedAutoGen" = "automatycznie przetłumaczone";
 
-/* Opcje paska nawigacji */
+/* Nav bar options */
 "Navbar" = "Pasek nawigacji";
 "RemoveCast" = "Ukryj przycisk Cast";
 "RemoveCastDesc" = "Ukrywa przycisk Cast z paska nawigacji.";
@@ -59,7 +59,7 @@
 "PremiumYTLogo" = "Ustaw logo YouTube Premium";
 "PremiumYTLogoDesc" = "Ustawia logo YouTube Premium na pasku nawigacji.";
 
-/* Opcje kanału */
+/* Feed options */
 "Feed" = "Kanał";
 "RemoveAds" = "Usuń reklamy";
 "RemoveAdsDesc" = "Usuwa reklamy w aplikacji.";
@@ -80,7 +80,7 @@
 "FixAlbums" = "Napraw okładki";
 "FixAlbumsDesc" = "Naprawia wyświetlanie okładek dla użytkowników z Rosji.";
 
-/* Opcje odtwarzacza */
+/* Player options */
 "Player" = "Odtwarzacz";
 "PlaybackQualityOnWiFi" = "Jakość odtwarzania w sieci Wi-Fi";
 "PlaybackQualityOnCellular" = "Jakość odtwarzania w sieci komórkowej";
@@ -194,7 +194,7 @@
 "NoDoubleTap2Seek" = "Wyłącz podwójne stuknięcie do przewijania";
 "NoDoubleTap2SeekDesc" = "Wyłącza gest podwójnego stuknięcia do przewijania.";
 
-/* Opcje Shorts */
+/* Shorts options */
 "Shorts" = "Shorts";
 "PlaybackMode" = "Akcja po zakończeniu odtwarzania";
 "Loop" = "Pętla";
@@ -227,7 +227,7 @@
 "HideShortsSubscriptions" = "Ukryj przycisk Subskrypcje";
 "HideShortsSubscriptionsDesc" = "Ukrywa przycisk Subskrypcje, który pojawia się, gdy Shorts jest wstrzymany.";
 
-/* Opcje paska kart */
+/* Tab bar options */
 "Tabbar" = "Pasek kart";
 "Startup" = "Strona startowa";
 "FEwhat_to_watch" = "Główna";
@@ -250,7 +250,7 @@
 "TabIsStartupTab" = "Karta wybrana jako strona startowa nie może być ukryta";
 "TabsCountRestricted" = "Możesz mieć tylko do sześciu aktywnych kart";
 
-/* Opcje interfejsu */
+/* Interface options */
 "Interface" = "Interfejs";
 "OledTheme" = "Motyw OLED";
 "OledThemeDesc" = "Zamienia wszystkie ciemne kolory na czarne";
@@ -302,7 +302,7 @@
 "RemoveReportMenu" = "Usuń \"Zgłoś\"";
 "RemoveReportMenuDesc" = "Usuwa opcję \"Zgłoś\" z menu.";
 
-/* Ustawienia SponsorBlock */
+/* SponsorBlock settings */
 "EnableSponsorBlock" = "Włącz";
 "EnableSponsorBlockDesc" = "Aktywuje rozszerzenie SponsorBlock.";
 "ShowNotifications" = "Pokaż powiadomienia";
@@ -371,7 +371,7 @@
 "SkipToSegment" = "Do najważniejszego momentu";
 "Unskip" = "Cofnij pomijanie";
 
-/* Sekcja dewelopera */
+/* Developer section */
 "Developer" = "Deweloper";
 "FollowMe" = "Śledź mnie na X";
 "SupportDevelopment" = "Wesprzyj rozwój";
@@ -382,7 +382,7 @@
 "VisitTelegram" = "Mój kanał Telegram";
 "VisitTelegramDesc" = "Bądź na bieżąco z najnowszymi aktualizacjami aplikacji";
 
-/* Sekcja podziękowań */
+/* Credits section */
 "Credits" = "Podziękowania";
 
 "Contributors" = "Współtwórcy";
@@ -433,13 +433,13 @@
 
 "Select" = "Wybierz";
 "Default" = "Domyślne";
-"Best" = "Najlepsza";
+"Best" = "Najlepsze";
 "Show" = "Pokaż";
 "Disable" = "Wyłącz";
 "Disabled" = "Wyłączone";
 "PlaybackSpeed" = "Prędkość odtwarzania";
 "SpeedPreserved" = "Prędkość zachowana";
-"ResetSpeed" = "Resetuj";
+"ResetSpeed" = "Resetuj prędkość";
 
 "Toast.Brightness" = "Jasność";
 "Toast.PlaybackSpeed" = "Prędkość odtwarzania";
@@ -453,8 +453,8 @@
 "CopyChannelName" = "Kopiuj nazwę kanału";
 "CopyTitle" = "Kopiuj tytuł";
 "CopyDescription" = "Kopiuj opis";
-"CopyTimestampedLink" = "Kopiuj link z timestampem";
-"CopyTranscript" = "Kopiuj transkrypt";
+"CopyTimestampedLink" = "Kopiuj link ze znacznikiem czasu";
+"CopyTranscript" = "Kopiuj transkrypcje";
 "PlayInExternalPlayer" = "Odtwórz w zewnętrznym odtwarzaczu";
 "PlayInSystemPlayer" = "Odtwórz w odtwarzaczu systemowym";
 "PlayInInfuse" = "Odtwórz w Infuse";
