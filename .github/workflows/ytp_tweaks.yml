@@ -34,7 +34,7 @@ jobs:
           submodules: recursive
 
       - name: Install Dependencies
-        run: brew install make
+        run: brew install make ldid
 
       - name: Set PATH environment variable
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
@@ -69,8 +69,8 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Install Pyzule
-        run: bash -c "$(curl https://raw.githubusercontent.com/asdfzxcvbn/pyzule/main/install-pyzule.sh)"
+      - name: Install cyan
+        run: pip install https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
 
       - name: Download YouTube
         id: download_youtube
@@ -144,7 +144,9 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Inject tweaks into IPA
-        run: pyzule -i ${{ github.workspace }}/youtube.ipa -o ${{ github.workspace }}/YouTubePlus_${{ inputs.tweak_version }}_Tweaks.ipa -w -u -f ${{ github.workspace }}/ytplus.deb ${{ github.workspace }}/OpenYoutubeSafariExtension.appex ${{ github.workspace }}/youpip.deb ${{ github.workspace }}/ytuhd.deb ${{ github.workspace }}/ryd.deb
+        run: |
+          cyan -i youtube.ipa -o YouTubePlus_${{ inputs.tweak_version }}_Tweaks.ipa \
+            -uwf ytplus.deb OpenYoutubeSafariExtension.appex youpip.deb ytuhd.deb ryd.deb
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v2.0.1

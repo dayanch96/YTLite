@@ -36,8 +36,8 @@ jobs:
       - name: Set PATH environment variable
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
 
-      - name: Install Pyzule
-        run: bash -c "$(curl https://raw.githubusercontent.com/asdfzxcvbn/pyzule/main/install-pyzule.sh)"
+      - name: Install cyan
+        run: pip install https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
 
       - name: Download YouTube
         id: download_youtube
@@ -58,7 +58,7 @@ jobs:
           mv *.appex ${{ github.workspace }}
 
       - name: Inject tweak into IPA
-        run: pyzule -i ${{ github.workspace }}/youtube.ipa -o ${{ github.workspace }}/YouTubePlus_${{ inputs.tweak_version }}.ipa -f ${{ github.workspace }}/ytplus.deb ${{ github.workspace }}/OpenYoutubeSafariExtension.appex -w -u
+        run: cyan -i youtube.ipa -o YouTubePlus_${{ inputs.tweak_version }}.ipa -uwf ytplus.deb OpenYoutubeSafariExtension.appex
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v2.0.1
