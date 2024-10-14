@@ -390,16 +390,17 @@
 "SpecialThanks" = "Szczególne podziękowania";
 "SpecialThanks.Test" = "Nieoceniony wkład w testowanie tweaków";
 
-"Localizations" = "Autorzy lokalizacji";
-"ChineseSimplified" = "Lokalizacja chińska (uproszczona)";
-"ChineseTraditional" = "Lokalizacja chińska (tradycyjna)";
-"French" = "Lokalizacja francuska";
-"Spanish" = "Lokalizacja hiszpańska";
-"Japanese" = "Lokalizacja japońska";
-"Vietnamese" = "Lokalizacja wietnamska";
-"Arabic" = "Lokalizacja arabska";
-"Turkish" = "Lokalizacja turecka";
-"Italian" = "Lokalizacja włoska";
+"Localizations" = "Autorzy tłumaczeń";
+"ChineseSimplified" = "Język chiński (uproszczony)";
+"ChineseTraditional" = "Język chiński (tradycyjny)";
+"French" = "Język francuski";
+"Spanish" = "Język hiszpański";
+"Japanese" = "Język japoński";
+"Vietnamese" = "Język wietnamski";
+"Arabic" = "Język arabski;
+"Turkish" = "Język turecki";
+"Italian" = "Język włoski";
+"Polish" = "Język polski";
 
 "OpenSourceLibs" = "Biblioteki Open Source";
 
