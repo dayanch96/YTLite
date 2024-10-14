@@ -34,7 +34,7 @@ jobs:
           submodules: recursive
 
       - name: Install Dependencies
-        run: brew install make
+        run: brew install make ldid
 
       - name: Set PATH environment variable
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
