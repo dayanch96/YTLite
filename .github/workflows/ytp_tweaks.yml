@@ -22,7 +22,7 @@ concurrency:
 jobs:
   build:
     name: 
-    runs-on: macos-12
+    runs-on: macos-15
     permissions:
       contents: write
 
@@ -54,7 +54,7 @@ jobs:
         uses: actions/checkout@v4.1.7
         with:
           repository: theos/theos
-          ref: 3da31488281ecf4394d10302d2629607f4a1aa07
+          ref: 67db2ab8d950910161730de77c322658ea3e6b44
           path: ${{ github.workspace }}/theos
           submodules: recursive
 
