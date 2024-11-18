@@ -22,7 +22,7 @@ concurrency:
 jobs:
   build:
     name: 
-    runs-on: macos-12
+    runs-on: macos-latest
     permissions:
       contents: write
 
@@ -37,7 +37,10 @@ jobs:
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
 
       - name: Install cyan
-        run: pip install https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
+        run: pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
+
+      - name: Hide sensitive inputs
+        uses: levibostian/action-hide-sensitive-inputs@v1
 
       - name: Download YouTube
         id: download_youtube
