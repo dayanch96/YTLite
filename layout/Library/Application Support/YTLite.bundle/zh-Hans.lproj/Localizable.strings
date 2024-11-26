@@ -66,7 +66,7 @@
 "HideShorts" = "隐藏短视频";
 "HideShortsDesc" = "从首页、推荐等隐藏短视频（不适用于观看历史记录）。";
 "KeepSubsShorts" = "订阅中保留短视频";
-"KeepSubsShortsDesc" = "防止从“订阅”选项卡中删除短视频。";
+"KeepSubsShortsDesc" = "防止从“订阅”标签页中删除短视频。";
 "RemoveCommunityPosts" = "删除社区帖子";
 "RemoveCommunityPostsDesc" = "从视频流中删除社区帖子。";
 "RemoveMixPlaylists" = "删除混合列表";
@@ -228,7 +228,7 @@
 "HideShortsSubscriptionsDesc" = "隐藏短视频暂停时显示的订阅按钮。";
 
 /* Tab bar options */
-"Tabbar" = "选项卡";
+"Tabbar" = "标签栏";
 "Startup" = "启动页";
 "FEwhat_to_watch" = "首页";
 "FEexplore" = "探索";
@@ -240,13 +240,13 @@
 "VLWL" = "稍后观看";
 
 "RemoveLabels" = "移除标签";
-"RemoveIndicators" = "删除指示器";
+"RemoveIndicators" = "移除红点指示";
 
 "ActiveTabs" = "活跃的标签页";
 "InactiveTabs" = "隐藏的标签页";
-"HideLibraryFooter" = "长按“首页”选项卡可以隐藏或显示“媒体库”选项卡。";
+"HideLibraryFooter" = "长按“首页”标签页可以隐藏或显示“媒体库”标签页。";
 "Warning" = "警告";
-"TabIsHidden" = "无法选择隐藏选项卡作为启动页。";
+"TabIsHidden" = "无法选择隐藏标签页作为启动页。";
 "TabIsStartupTab" = "选定为“启动页”的标签页无法隐藏";
 "TabsCountRestricted" = "最多只能拥有六个活动标签页";
 
