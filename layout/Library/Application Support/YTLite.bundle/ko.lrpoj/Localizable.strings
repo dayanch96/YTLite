@@ -338,7 +338,7 @@
 "PlaylistOldMinibar" = "이전 플레이리스트 미니바";
 "PlaylistOldMinibarDesc" = "새로운 떠 있는 재생 목록 패널을 이전 패널로 바꿉니다.";
 "OldYTUI" = "이전 UI";
-"OldYTUIDesc" = "YouTube 버전을 스푸핑하여 이전 인터페이스를 반환합니다."
+"OldYTUIDesc" = "YouTube 버전을 스푸핑하여 이전 인터페이스를 반환합니다.";
 "DisableRTL" = "RTL 포맷 비활성화";
 "DisableRTLDesc" = "처음에는 오른쪽에서 왼쪽으로(RTL) 표시되는 언어에 대해 강제로 왼쪽에서 오른쪽으로(LTR) 형식으로 텍스트를 표시합니다.";
 
@@ -368,7 +368,7 @@
 "RemoveSaveToPlaylistMenuDesc" = "메뉴에서 \"재생목록에 저장\" 옵션을 제거합니다.";
 "RemoveShareMenu" = "\"공유\" 제거";
 "RemoveShareMenuDesc" = "메뉴에서 \"공유\" 옵션을 제거합니다.";
-"RemoveNotInterestedMenu" = "[관심없음]" 제거
+"RemoveNotInterestedMenu" = "\"관심없음\" 제거";
 "RemoveNotInterestedMenuDesc" = "메뉴에서 \"관심없음\" 옵션을 제거합니다.";
 "RemoveDontRecommendMenu" = "\"채널 추천 안 함\" 제거";
 "RemoveDontRecommendMenuDesc" = "메뉴에서 \"채널 추천 안 함\" 옵션을 제거합니다.";
@@ -394,7 +394,7 @@
 
 "Segments" = "세그먼트";
 "Sponsor" = "스폰서";
-"SponsorDesc" = "제작자와 직접 관련이 없는 제품이나 서비스를 홍보하는 비디오의 일부입니다. 제작자는 돈이나 무료 제품의 형태로 지불이나 보상을 받습니다."
+"SponsorDesc" = "제작자와 직접 관련이 없는 제품이나 서비스를 홍보하는 비디오의 일부입니다. 제작자는 돈이나 무료 제품의 형태로 지불이나 보상을 받습니다.";
 "SponsorColor" = "스폰서 세그먼트 색상";
 "Intro" = "중간 휴식/인트로 애니메이션";
 "IntroDesc" = "비디오 시작 부분에 일반적으로 발견되는 세그먼트로, 같은 제작자가 다른 비디오에서도 볼 수 있는 애니메이션, 정지 프레임 또는 클립이 포함되어 있습니다.";
@@ -403,10 +403,10 @@
 "EndcardsDesc" = "일반적으로 영상 끝부분이나 크레딧이 나오거나 엔드카드가 표시될 때 나타납니다.";
 "EndcardsColor" = "엔드카드 세그먼트 색상";
 "Interaction" = "상호작용 알림";
-"InteractionDesc" = "유료 또는 무료 플랫폼에서 좋아요를 누르거나 구독하거나 상호 작용하도록 명시적으로 상기시켜줌(예: 비디오 클릭)"
+"InteractionDesc" = "유료 또는 무료 플랫폼에서 좋아요를 누르거나 구독하거나 상호 작용하도록 명시적으로 상기시켜줌(예: 비디오 클릭)";
 "InteractionColor" = "상호작용 세그먼트 색상";
 "SelfPromo" = "무급/자체 홍보";
-"SelfPromoDesc" = "자체 홍보: 제작자 자신과 직접 관련된 제품이나 서비스를 홍보합니다.\n무급: 제작자는 이 홍보에 대한 대가로 어떠한 지불도 받지 않습니다."
+"SelfPromoDesc" = "자체 홍보: 제작자 자신과 직접 관련된 제품이나 서비스를 홍보합니다.\n무급: 제작자는 이 홍보에 대한 대가로 어떠한 지불도 받지 않습니다.";
 "SelfPromoColor" = "자체 홍보 세그먼트 색상";
 "MusicOfftopic" = "음악: 음악이 아닌 섹션";
 "MusicOfftopicDesc" = "주요 콘텐츠로 음악을 사용하는 비디오에만 사용 가능.";
@@ -570,20 +570,20 @@
 "ParsingTranscript" = "대본 분석 중";
 "Converting" = "변환 중";
 "RetryLogin" = "해결 방법이 활성화되었습니다.\n\n다시 시도해 주세요.";
-"LoginInfo" = "Google 계정에 성공적으로 로그인한 후 앱을 다시 시작해야 합니다."
+"LoginInfo" = "Google 계정에 성공적으로 로그인한 후 앱을 다시 시작해야 합니다.";
 
 "Welcome.Download" = "미디어 다운로드";
 "Welcome.DownloadDesc" = "비디오, 단편, 오디오 또는 프로필 사진 등 좋아하는 콘텐츠를 다운로드하세요. 흥미로운 게시물과 댓글을 복사하거나 이미지로 저장하세요";
 "Welcome.Content" = "인터페이스 조정";
 "Welcome.ContentDesc" = "원치 않는 콘텐츠와 인터페이스 요소를 제거합니다. 진정한 OLED 다크 모드를 활성화합니다";
 "Welcome.Player" = "플레이어 동작 설정";
-"Welcome.PlayerDesc" = "플레이어의 동작을 사용자 지정하고, 품질과 재생 속도를 자동으로 선택합니다. 제스처를 사용하여 제어합니다."
+"Welcome.PlayerDesc" = "플레이어의 동작을 사용자 지정하고, 품질과 재생 속도를 자동으로 선택합니다. 제스처를 사용하여 제어합니다.";
 "Welcome.More" = "그리고 훨씬 더...";
-"Welcome.MoreDesc" = "YouTube Plus에는 환경 설정 저장 및 캐시 지우기와 같은 기능을 포함하여 50개 이상의 다양한 옵션이 포함되어 있습니다. 설정은 YouTube 설정의 YouTube Plus 섹션에서 사용할 수 있습니다."
+"Welcome.MoreDesc" = "YouTube Plus에는 환경 설정 저장 및 캐시 지우기와 같은 기능을 포함하여 50개 이상의 다양한 옵션이 포함되어 있습니다. 설정은 YouTube 설정의 YouTube Plus 섹션에서 사용할 수 있습니다.";
 "SupportMe" = "저를 지원해주세요";
 "Continue" = "계속";
 
-"Conflicts.Detected" = "호환되지 않는 조정이 감지되었습니다."
+"Conflicts.Detected" = "호환되지 않는 조정이 감지되었습니다.";
 "Conflicts.DetectedDesc" = "앱의 겉보기 안정성에도 불구하고 YouTube Plus 개발자는 동일한 앱에서 유사한 기능을 가진 조정을 결합하는 것을 권장하지 않으며 안전한 사용을 보장할 수 없습니다.\n\n앱을 계속 사용하면 모든 책임을 지고 성능에 대한 모든 불만이 무시된다는 데 동의하게 됩니다.";
 "Conflicts.AcceptRisks" = "모든 위험을 감수합니다";
 "Conflicts.CloseYT" = "YouTube 닫기";
