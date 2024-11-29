@@ -1,5 +1,5 @@
 /* Main section */
-"Main" = "Main";
+"Main" = "Główne";
 
 /* Downloading options */
 "Downloading" = "Pobieranie";
@@ -34,9 +34,9 @@
 "AudioDRC" = "Preferuj stabilną głośność";
 "AudioDRCDesc" = "Menedżer pobierania będzie priorytetowo traktował dźwięk o stabilnej głośności (kompresja zakresu dynamiki), jeśli taki dźwięk jest dostępny.";
 
-"CaptionsAndThumbnails" = "Captions and Thumbnails";
-"EmbedThumbnailsToVideos" = "Embed thumbnails";
-"EmbedThumbnailsToVideosDesc" = "Embeds the video's thumbnail as its metadata thumbnail.";
+"CaptionsAndThumbnails" = "Napisy i Miniatury";
+"EmbedThumbnailsToVideos" = "Osadzaj miniatury";
+"EmbedThumbnailsToVideosDesc" = "Osadza miniaturę wideo jako miniaturę metadanych.";
 "EmbedCapsToVideos" = "Osadź napisy";
 "EmbedCapsToVideosDesc" = "Osadza wybrane napisy wideo w filmach.";
 "EmbedAutoGenCaps" = "Automatycznie wygenerowane/przetłumaczone napisy";
@@ -173,12 +173,12 @@
 "PlayerNoReport" = "Usuń przycisk \"Zgłoś\"";
 "PlayerNoReportDesc" = "Usuwa przycisk \"Zgłoś\"pod odtwarzaczem.";
 
-"ProgressBarStyle" = "Progress bar style";
-"SolidColor" = "Solid color";
+"ProgressBarStyle" = "Wygląd paska postępu";
+"SolidColor" = "Kolor jednolity";
 "Gradient" = "Gradient";
-"MainColor" = "Main color";
-"GradientColor" = "Gradient highlight";
-"ScrubberColor" = "Scrubber color";
+"MainColor" = "Główny kolor";
+"GradientColor" = "Podświetlenie gradientem";
+"ScrubberColor" = "Kolor w tle";
 
 "Player.Actions" = "Akcje";
 "DefaultPlaybackRate" = "Domyślna prędkość odtwarzania";
