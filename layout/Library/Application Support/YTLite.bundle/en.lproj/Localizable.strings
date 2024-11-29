@@ -30,7 +30,13 @@
 "SelectAudioTrack" = "Select audio track";
 "EnglishNotFound" = "English audio track not found";
 
-"Captions" = "Captions/Subtitles";
+"Audios" = "Audios";
+"AudioDRC" = "Prefer stable volume";
+"AudioDRCDesc" = "The download manager will prioritize audio with stable volume (Dynamic Range Compression) if such audio is available.";
+
+"CaptionsAndThumbnails" = "Captions and Thumbnails";
+"EmbedThumbnailsToVideos" = "Embed thumbnails";
+"EmbedThumbnailsToVideosDesc" = "Embeds the video's thumbnail as its metadata thumbnail.";
 "EmbedCapsToVideos" = "Embed captions";
 "EmbedCapsToVideosDesc" = "Embeds selected captions/subtitles into videos.";
 "EmbedAutoGenCaps" = "Auto-generated/translated captions";
@@ -77,6 +83,8 @@
 "RemoveHorizontalFeedsDesc" = "Removes all horizontal feeds (News, Continue Watching, Posts collection, etc.) from the Home tab.";
 "RemoveMoreTopics" = "Remove \"More topics\"";
 "RemoveMoreTopicsDesc" = "Removes \"More topics\" from the feed.";
+"RemovePlayables" = "Remove playables";
+"RemovePlayablesDesc" = "Removes playables (mini-games) from the feed.";
 "FixAlbums" = "Fix covers";
 "FixAlbumsDesc" = "Fixes the display of covers for users from Russia.";
 
@@ -95,7 +103,11 @@
 
 "Player.Interface" = "Interface";
 "SpeedControls" = "Speed controls";
-"SpeedControlsDesc" = "Shows speed control buttons on overlay.";
+"SpeedControlsDesc" = "Displays speed control buttons on overlay.";
+"MuteButton" = "Mute button";
+"MuteButtonDesc" = "Displays a button to mute or unmute the volume on the overlay.";
+"LockButton" = "Lock button";
+"LockButtonDesc" = "Displays a button to quickly lock the overlay screen and switch to fullscreen mode.";
 "HideAutoplay" = "Hide Autoplay switch";
 "HideAutoplayDesc" = "Hides Autoplay switch from the overlay.";
 "HideSubs" = "Hide Subtitles button";
@@ -140,6 +152,33 @@
 "VideoEndTimeDesc" = "Adds video playback end time to the player bar.";
 "24hrFormat" = "24-hour format";
 "24hrFormatDesc" = "Shows end time in 24-hour format.";
+"NoRelatedWatchNexts" = "Hide all videos under player";
+"NoRelatedWatchNextsDesc" = "Hides all videos below the player, leaving only the video info and comments section.";
+"RemoveInlineComment" = "Remove inline comment";
+"RemoveInlineCommentDesc" = "Removes comment section under the player.";
+"NoSubUnderPlayer" = "Remove \"Subscribe\" button";
+"NoSubUnderPlayerDesc" = "Removes \"Subscribe\" button under player.";
+"PlayerNoShare" = "Remove \"Share\" button";
+"PlayerNoShareDesc" = "Removes \"Share\" button under player.";
+"PlayerNoThanks" = "Remove \"Thanks\" button";
+"PlayerNoThanksDesc" = "Removes \"Thanks\" button under player.";
+"PlayerNoRemix" = "Remove \"Remix\" button";
+"PlayerNoRemixDesc" = "Removes \"Remix\" button under player.";
+"PlayerNoDownload" = "Remove \"Download\" button";
+"PlayerNoDownloadDesc" = "Removes \"Download\" button under player.";
+"PlayerNoClip" = "Remove \"Clip\" button";
+"PlayerNoClipDesc" = "Removes \"Clip\" button under player.";
+"PlayerNoSave" = "Remove \"Save\" button";
+"PlayerNoSaveDesc" = "Removes \"Save\" button under player.";
+"PlayerNoReport" = "Remove \"Report\" button";
+"PlayerNoReportDesc" = "Removes \"Report\" button under player.";
+
+"ProgressBarStyle" = "Progress bar style";
+"SolidColor" = "Solid color";
+"Gradient" = "Gradient";
+"MainColor" = "Main color";
+"GradientColor" = "Gradient highlight";
+"ScrubberColor" = "Scrubber color";
 
 "Player.Actions" = "Actions";
 "DefaultPlaybackRate" = "Default playback rate";
@@ -216,6 +255,8 @@
 "ShortsToRegularDesc" = "Opens Shorts videos as regular videos.";
 "RemoveShortsLive" = "Remove live videos";
 "RemoveShortsLiveDesc" = "Removes live videos from the feed.";
+
+"ShortsInterface" = "Interface";
 "HideShortsLogo" = "Hide Shorts logo";
 "HideShortsLogoDesc" = "Hides Shorts logo in the top left corner.";
 "HideShortsSearch" = "Hide Search button";
@@ -224,8 +265,38 @@
 "HideShortsCameraDesc" = "Hides Camera button from the Shorts overlay.";
 "HideShortsMore" = "Hide More (⋮) button";
 "HideShortsMoreDesc" = "Hides More (⋮) button from the Shorts overlay. It's also accessible by long-pressing the screen.";
-"HideShortsSubscriptions" = "Hide Subscriptions button";
-"HideShortsSubscriptionsDesc" = "Hides Subscriptions button which appears when Shorts paused.";
+
+"HideCarouselSub" = "Hide Subscriptions";
+"HideCarouselSubDesc" = "Removes Subscriptions button that appears in paused state.";
+"HideCarouselLive" = "Hide Live";
+"HideCarouselLiveDesc" = "Removes Live button that appears in paused state.";
+"HideCarouselTrends" = "Hide Trends";
+"HideCarouselTrendsDesc" = "Removes Trends button that appears in paused state.";
+"HideCarouselShop" = "Hide Shop";
+"HideCarouselShopDesc" = "Removes Shop button that appears in paused state.";
+
+"HideShortsLike" = "No Like button";
+"HideShortsLikeDesc" = "Removes the Like button from the action bar.";
+"HideShortsDislike" = "No Dislike button";
+"HideShortsDislikeDesc" = "Removes the Dislike button from the action bar.";
+"HideShortsComments" = "No Comments button";
+"HideShortsCommentsDesc" = "Removes the Comments button from the action bar.";
+"HideShortsShare" = "No Share button";
+"HideShortsShareDesc" = "Removes the Share button from the action bar.";
+"HideShortsRemix" = "No Remix button";
+"HideShortsRemixDesc" = "Removes the Remix button from the action bar.";
+"HideShortsSuggestion" = "No suggestions";
+"HideShortsSuggestionDesc" = "Removes the button with suggestions, such as Add to playlist, Super Thanks, etc.";
+"HideShortsSubscribe" = "No follow button";
+"HideShortsSubscribeDesc" = "Removes the Follow button next to the username.";
+"HideShortsUsername" = "No username";
+"HideShortsUsernameDesc" = "Removes the channel name.";
+"HideShortsDescription" = "No description";
+"HideShortsDescriptionDesc" = "Removes the Shorts description.";
+"HideShortsSource" = "No source link button";
+"HideShortsSourceDesc" = "Removes the button that navigates to the full video or another Short video.";
+"HideShortsAudio" = "No audio indicator";
+"HideShortsAudioDesc" = "Removes the line indicating the audio used in the Shorts.";
 
 /* Tab bar options */
 "Tabbar" = "Tab bar";
@@ -237,8 +308,10 @@
 "FElibrary" = "Library";
 "FEuploads" = "Create";
 "FEhistory" = "History";
+"FEpost_home" = "Posts";
 "VLWL" = "Watch Later";
 
+"TranslucentBar" = "Translucent tab bar";
 "RemoveLabels" = "Remove tab labels";
 "RemoveIndicators" = "Remove tab indicators";
 
@@ -254,10 +327,10 @@
 "Interface" = "Interface";
 "OledTheme" = "Oled theme";
 "OledThemeDesc" = "Turns all dark colors to black";
+"OledKeyboard" = "Oled keyboard";
+"OledKeyboardDesc" = "Applies oled black theme for dark keyboard";
 "NoSearchHistory" = "Hide search history";
 "NoSearchHistoryDesc" = "Visually hides search history and suggestions. Note: Your search history will still be accessible in your other YouTube clients.";
-"NoRelatedWatchNexts" = "Hide all videos under player";
-"NoRelatedWatchNextsDesc" = "Hides all videos below the player, leaving only the video info and comments section.";
 "StickSortComments" = "Stick comments header";
 "StickSortCommentsDesc" = "Pins sort comments header (Top, Newest) so that it won't disappear while scrolling.";
 "HideSortComments" = "Hide comments header";
@@ -279,10 +352,10 @@
 "Floating" = "Floating";
 
 "ContextMenu" = "Context menu";
+"NoShareChunk" = "Remove share identifier";
+"NoShareChunkDesc" = "Removes the \"si=identifier\" parameter from shared links. A good alternative to the \"Native share sheet\" option as YouTube continues to improve its sharing menu.";
 "NativeShare" = "Native share sheet";
 "NativeShareDesc" = "Uses system share sheet to share media";
-"RemoveInlineComment" = "Remove inline comment";
-"RemoveInlineCommentDesc" = "Removes comment section under the player.";
 "RemoveCommentGuidelines" = "Remove guidelines";
 "RemoveCommentGuidelinesDesc" = "Removes pinned guidelines from the comments section.";
 "RemovePlayNext" = "Remove \"Play next in queue\"";
@@ -377,9 +450,9 @@
 "SupportDevelopment" = "Support development";
 "DonateDesc" = "Your support means a lot to me";
 "SupportDevelopmentDesc" = "If you like YTPlus and would like to support its development, you can do it using any of convenient ways below.\nThanks❤";
-"VisitGithub" = "Github Repository";
+"VisitGithub" = "Github repository";
 "VisitGithubDesc" = "Star the repo, request a feature or report issues";
-"VisitTelegram" = "My Telegram Channel";
+"VisitTelegram" = "My Telegram channel";
 "VisitTelegramDesc" = "Stay informed about the latest app updates";
 
 /* Credits section */
@@ -400,8 +473,11 @@
 "Arabic" = "Arabic localization";
 "Turkish" = "Turkish localization";
 "Italian" = "Italian localization";
+"Korean" = "Korean localization";
+"Polish" = "Polish localization";
 
-"OpenSourceLibs" = "Open Source Libraries";
+"OpenSourceLibs" = "Open source libraries";
+"SupporterWall" = "Supporters";
 
 "Preferences" = "%@ preferences";
 "ManagePreferences" = "Preferences management";
@@ -462,6 +538,7 @@
 "OpenAsRegularVideo" = "Open as regular video";
 "CopyPostText" = "Copy post text";
 "SaveCurrentImage" = "Save current image";
+"ShowCurrentImage" = "Show current image";
 "CopyCurrentImage" = "Copy current image";
 "SavePostAsImage" = "Save post as image";
 "CopyPostAsImage" = "Copy post as image";
@@ -469,8 +546,10 @@
 "SaveCommentAsImage" = "Save comment as image";
 "CopyCommentAsImage" = "Copy comment as image";
 "SaveProfilePicture" = "Save profile picture";
+"ShowProfilePicture" = "Show profile picture";
 "CopyProfilePicture" = "Copy profile picture";
 "DownloadThumbnail" = "Save thumbnail";
+"ShowThumbnail" = "Show thumbnail";
 "CopyThumbnail" = "Copy thumbnail";
 "Cancel" = "Cancel";
 "Cancelled" = "Cancelled";

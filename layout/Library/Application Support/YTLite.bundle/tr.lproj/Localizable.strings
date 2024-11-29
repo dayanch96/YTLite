@@ -30,7 +30,13 @@
 "SelectAudioTrack" = "Ses parçası seçin";
 "EnglishNotFound" = "İngilizce ses parçası bulunamadı";
 
-"Captions" = "Altyazılar";
+"Audios" = "Sesler";
+"AudioDRC" = "Dengeli ses tercih et";
+"AudioDRCDesc" = "İndirme yöneticisi, mevcutsa dengeli ses (Dinamik Aralık Sıkıştırması) olan sesleri önceliklendirecek.";
+
+"CaptionsAndThumbnails" = "Captions and Thumbnails";
+"EmbedThumbnailsToVideos" = "Embed thumbnails";
+"EmbedThumbnailsToVideosDesc" = "Embeds the video's thumbnail as its metadata thumbnail.";
 "EmbedCapsToVideos" = "Altyazıları göm";
 "EmbedCapsToVideosDesc" = "Seçilen altyazıları videolara gömer.";
 "EmbedAutoGenCaps" = "Otomatik oluşturulmuş/çeviri";
@@ -77,6 +83,8 @@
 "RemoveHorizontalFeedsDesc" = "Ana sekmesinden tüm yatay akışları (Haberler, İzlemeye Devam Et, Gönderi koleksiyonu, vb.) kaldırır.";
 "RemoveMoreTopics" = "\"Daha fazla konu\"yu kaldır";
 "RemoveMoreTopicsDesc" = "Akıştan \"Daha fazla konu\"yu kaldırır.";
+"RemovePlayables" = "Mini oyunları kaldır";
+"RemovePlayablesDesc" = "Akıştan mini oyunları (Playables) kaldırır.";
 "FixAlbums" = "Kapakları düzelt";
 "FixAlbumsDesc" = "Rusya'daki kullanıcılar için kapakların görüntülenmesini düzeltir.";
 
@@ -96,6 +104,10 @@
 "Player.Interface" = "Arayüz";
 "SpeedControls" = "Hız kontrolleri";
 "SpeedControlsDesc" = "Kaplama üzerinde hız kontrol düğmelerini gösterir";
+"MuteButton" = "Sessiz düğmesi";
+"MuteButtonDesc" = "Kaplama üzerinde sesi kapatma/açma düğmesini gösterir.";
+"LockButton" = "Kilit düğmesi";
+"LockButtonDesc" = "Kaplama üzerinde, ekranı hızlıca kilitlemek ve tam ekran moduna geçmek için bir düğme gösterir.";
 "HideAutoplay" = "Otomatik oynatma anahtarını gizle";
 "HideAutoplayDesc" = "Kaplama üzerinde Otomatik oynatma anahtarını gizler.";
 "HideSubs" = "Altyazı düğmesini gizle";
@@ -140,6 +152,33 @@
 "VideoEndTimeDesc" = "Oynatıcı çubuğuna video oynatma bitiş zamanını ekler.";
 "24hrFormat" = "24 saat formatı";
 "24hrFormatDesc" = "Bitiş zamanını 24 saat formatında gösterir.";
+"NoRelatedWatchNexts" = "Oynatıcı altındaki tüm videoları gizle";
+"NoRelatedWatchNextsDesc" = "Oynatıcının altındaki tüm videoları gizler, yalnızca video bilgileri ve yorumlar bölümünü bırakır.";
+"RemoveInlineComment" = "Satır içi yorumu kaldır";
+"RemoveInlineCommentDesc" = "Oynatıcının altındaki yorum bölümünü kaldırır.";
+"NoSubUnderPlayer" = "Remove \"Subscribe\" button";
+"NoSubUnderPlayerDesc" = "Removes \"Subscribe\" button under player.";
+"PlayerNoShare" = "Remove \"Share\" button";
+"PlayerNoShareDesc" = "Removes \"Share\" button under player.";
+"PlayerNoThanks" = "Remove \"Thanks\" button";
+"PlayerNoThanksDesc" = "Removes \"Thanks\" button under player.";
+"PlayerNoRemix" = "Remove \"Remix\" button";
+"PlayerNoRemixDesc" = "Removes \"Remix\" button under player.";
+"PlayerNoDownload" = "Remove \"Download\" button";
+"PlayerNoDownloadDesc" = "Removes \"Download\" button under player.";
+"PlayerNoClip" = "Remove \"Clip\" button";
+"PlayerNoClipDesc" = "Removes \"Clip\" button under player.";
+"PlayerNoSave" = "Remove \"Save\" button";
+"PlayerNoSaveDesc" = "Removes \"Save\" button under player.";
+"PlayerNoReport" = "Remove \"Report\" button";
+"PlayerNoReportDesc" = "Removes \"Report\" button under player.";
+
+"ProgressBarStyle" = "Progress bar style";
+"SolidColor" = "Solid color";
+"Gradient" = "Gradient";
+"MainColor" = "Main color";
+"GradientColor" = "Gradient highlight";
+"ScrubberColor" = "Scrubber color";
 
 "Player.Actions" = "Eylemler";
 "DefaultPlaybackRate" = "Varsayılan oynatma hızı";
@@ -216,6 +255,8 @@
 "ShortsToRegularDesc" = "Shorts videolarını normal videolar olarak açar.";
 "RemoveShortsLive" = "Canlı yayınları kaldır";
 "RemoveShortsLiveDesc" = "Akıştaki canlı yayınları kaldırır.";
+
+"ShortsInterface" = "Interface";
 "HideShortsLogo" = "Shorts logosunu gizle";
 "HideShortsLogoDesc" = "Shorts logosunu sol üst köşede gizler.";
 "HideShortsSearch" = "Arama düğmesini gizle";
@@ -224,8 +265,37 @@
 "HideShortsCameraDesc" = "Shorts üst bilgisinde kamera düğmesini gizler.";
 "HideShortsMore" = "Daha fazla (⋮) düğmesini gizle";
 "HideShortsMoreDesc" = "Shorts üst bilgisinde Daha fazla (⋮) düğmesini gizler. Ekrana uzun süre basarak erişilebilir.";
-"HideShortsSubscriptions" = "Abonelikler düğmesini gizle";
-"HideShortsSubscriptionsDesc" = "Shorts duraklatıldığında görünen Abonelikler düğmesini gizler.";
+
+"HideCarouselSub" = "Hide Subscriptions";
+"HideCarouselSubDesc" = "Removes Subscriptions button that appears in paused state.";
+"HideCarouselLive" = "Hide Live";
+"HideCarouselLiveDesc" = "Removes Live button that appears in paused state.";
+"HideCarouselTrends" = "Hide Trends";
+"HideCarouselTrendsDesc" = "Removes Trends button that appears in paused state.";
+"HideCarouselShop" = "Hide Shop";
+"HideCarouselShopDesc" = "Removes Shop button that appears in paused state.";
+
+"HideShortsLike" = "No Like button";
+"HideShortsLikeDesc" = "Removes the Like button from the action bar.";
+"HideShortsDislike" = "No Dislike button";
+"HideShortsDislikeDesc" = "Removes the Dislike button from the action bar.";
+"HideShortsComments" = "No Comments button";
+"HideShortsCommentsDesc" = "Removes the Comments button from the action bar.";
+"HideShortsShare" = "No Share button";
+"HideShortsShareDesc" = "Removes the Share button from the action bar.";
+"HideShortsRemix" = "No Remix button";
+"HideShortsRemixDesc" = "Removes the Remix button from the action bar.";
+"HideShortsSuggestion" = "No suggestions";
+"HideShortsSuggestionDesc" = "Removes the button with suggestions, such as Add to playlist, Super Thanks, etc.";
+"HideShortsSubscribe" = "No follow button";
+"HideShortsSubscribeDesc" = "Removes the Follow button next to the username.";
+"HideShortsUsername" = "No username";
+"HideShortsUsernameDesc" = "Removes the channel name.";
+"HideShortsDescription" = "No description";
+"HideShortsDescriptionDesc" = "Removes the Shorts description.";
+"HideShortsSource" = "No source link button";
+"HideShortsSourceDesc" = "Removes the button that navigates to the full video or another Short video.";
+"HideShortsAudio" = "No audio indicator";
 
 /* Tab bar options */
 "Tabbar" = "Sekme çubuğu";
@@ -237,8 +307,10 @@
 "FElibrary" = "Siz/Kütüphane";
 "FEuploads" = "Yeni";
 "FEhistory" = "Geçmiş";
+"FEpost_home" = "Posts";
 "VLWL" = "Sonra izle";
 
+"TranslucentBar" = "Translucent tab bar";
 "RemoveLabels" = "Etiketleri kaldır";
 "RemoveIndicators" = "Göstergeleri kaldır";
 
@@ -254,10 +326,10 @@
 "Interface" = "Arayüz";
 "OledTheme" = "Oled teması";
 "OledThemeDesc" = "Tüm koyu renkleri siyaha çevirir";
+"OledKeyboard" = "Oled klavye";
+"OledKeyboardDesc" = "Koyu klavye için oled temayı uygular";
 "NoSearchHistory" = "Arama geçmişini gizle";
 "NoSearchHistoryDesc" = "Arama geçmişini ve önerileri görsel olarak gizler. Not: Arama geçmişiniz diğer YouTube istemcilerinizde hala erişilebilir olacaktır.";
-"NoRelatedWatchNexts" = "Oynatıcı altındaki tüm videoları gizle";
-"NoRelatedWatchNextsDesc" = "Oynatıcının altındaki tüm videoları gizler, yalnızca video bilgileri ve yorumlar bölümünü bırakır.";
 "StickSortComments" = "Yorum başlığını sabitle";
 "StickSortCommentsDesc" = "Yorum sıralama başlığını (En iyi, En yeni) kaydırma sırasında kaybolmayacak şekilde sabitler.";
 "HideSortComments" = "Yorum başlığını gizle";
@@ -279,10 +351,10 @@
 "Floating" = "Yüzen";
 
 "ContextMenu" = "Bağlam menüsü";
+"NoShareChunk" = "Paylaşım tanımlayıcısını kaldır";
+"NoShareChunkDesc" = "Paylaşılacak bağlantılardan \"si=identifier\" parametresini kaldırır. YouTube, paylaşım menüsünü geliştirmeye devam ettiği sebebiyle, \"Yerel paylaşım sayfası\" seçeneğine iyi bir alternatiftir.";
 "NativeShare" = "Yerel paylaşım sayfası";
 "NativeShareDesc" = "Medya paylaşmak için sistem paylaşım sayfasını kullanır";
-"RemoveInlineComment" = "Satır içi yorumu kaldır";
-"RemoveInlineCommentDesc" = "Oynatıcının altındaki yorum bölümünü kaldırır.";
 "RemoveCommentGuidelines" = "Yönergeleri kaldır";
 "RemoveCommentGuidelinesDesc" = "Yorumlar bölümündeki sabitlenmiş yönergeleri kaldırır.";
 "RemovePlayNext" = "\"Sıranın başına ekle\"yi kaldır";
@@ -400,8 +472,11 @@
 "Arabic" = "Arapça yerelleştirme";
 "Turkish" = "Türkçe yerelleştirme";
 "Italian" = "İtalyanca yerelleştirme";
+"Korean" = "Korece yerelleştirme";
+"Polish" = "Lehçe yerelleştirme";
 
 "OpenSourceLibs" = "Açık Kaynak Kütüphaneler";
+"SupporterWall" = "Sponsorlar";
 
 "Preferences" = "%@ tercihleri";
 "ManagePreferences" = "Tercihleri yönet";
@@ -462,6 +537,7 @@
 "OpenAsRegularVideo" = "Normal video olarak aç";
 "CopyPostText" = "Gönderi metnini kopyala";
 "SaveCurrentImage" = "Mevcut görüntüyü kaydet";
+"ShowCurrentImage" = "Mevcut görüntüyü göster";
 "CopyCurrentImage" = "Mevcut görüntüyü kopyala";
 "SavePostAsImage" = "Gönderiyi görüntü olarak kaydet";
 "CopyPostAsImage" = "Gönderiyi görüntü olarak kopyala";
@@ -469,8 +545,10 @@
 "SaveCommentAsImage" = "Yorumu görüntü olarak kaydet";
 "CopyCommentAsImage" = "Yorumu görüntü olarak kopyala";
 "SaveProfilePicture" = "Profil resmini kaydet";
+"ShowProfilePicture" = "Profil resmini göster";
 "CopyProfilePicture" = "Profil resmini kopyala";
 "DownloadThumbnail" = "Küçük resmi kaydet";
+"ShowThumbnail" = "Küçük resmi göster";
 "CopyThumbnail" = "Küçük resmi kopyala";
 "Cancel" = "İptal";
 "Cancelled" = "İptal edildi";

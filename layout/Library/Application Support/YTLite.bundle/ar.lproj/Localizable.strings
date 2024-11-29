@@ -30,7 +30,13 @@
 "SelectAudioTrack" = "إختار المسار الصوتي";
 "EnglishNotFound" = "لم يتم العثور على المسار الصوتي باللغة الإنجليزية";
 
-"Captions" = "التسميات التوضيحية/الترجمات";
+"Audios" = "Audios";
+"AudioDRC" = "Prefer stable volume";
+"AudioDRCDesc" = "The download manager will prioritize audio with stable volume (Dynamic Range Compression) if such audio is available.";
+
+"CaptionsAndThumbnails" = "Captions and Thumbnails";
+"EmbedThumbnailsToVideos" = "Embed thumbnails";
+"EmbedThumbnailsToVideosDesc" = "Embeds the video's thumbnail as its metadata thumbnail.";
 "EmbedCapsToVideos" = "دمج الترجمات";
 "EmbedCapsToVideosDesc" = "يقوم بدمج التسميات التوضيحية/الترجمات المحددة في مقاطع الفيديو.";
 "EmbedAutoGenCaps" = "التسميات التوضيحية التي تم إنشاؤها/ترجمتها تلقائيًا";
@@ -77,6 +83,8 @@
 "RemoveHorizontalFeedsDesc" = "يتم إزالة جميع المنشورات الأفقية (مثل الأخبار، متابعة المشاهدة، مجموعة المنشورات، وغيرها) من علامة التبويب الرئيسية.";
 "RemoveMoreTopics" = "إزالة \"المزيد من المواضيع\"";
 "RemoveMoreTopicsDesc" = "يزيل \"المزيد من المواضيع\" من المنشورات.";
+"RemovePlayables" = "Remove playables";
+"RemovePlayablesDesc" = "Removes playables (mini-games) from the feed.";
 "FixAlbums" = "إصلاح الألبومات";
 "FixAlbumsDesc" = "يصلح عرض الألبومات للمستخدمين من روسيا.";
 
@@ -96,6 +104,10 @@
 "Player.Interface" = "واجهة المستخدم";
 "SpeedControls" = "أزرار التحكم في السرعة";
 "SpeedControlsDesc" = "يعرض أزرار التحكم في السرعة على مشغل الفديو.";
+"MuteButton" = "Mute button";
+"MuteButtonDesc" = "Displays a button to mute or unmute the volume on the overlay.";
+"LockButton" = "Lock button";
+"LockButtonDesc" = "Displays a button to quickly lock the overlay screen and switch to fullscreen mode.";
 "HideAutoplay" = "إخفاء زر التشغيل التلقائي";
 "HideAutoplayDesc" = "يخفي زر التشغيل التلقائي من مشغل الفديو.";
 "HideSubs" = "إخفاء زر الترجمة";
@@ -140,6 +152,33 @@
 "VideoEndTimeDesc" = "يضيف وقت نهاية تشغيل الفيديو إلى شريط المشغل.";
 "24hrFormat" = "صيغة 24 ساعة";
 "24hrFormatDesc" = "يعرض وقت الانتهاء بصيغة 24 ساعة.";
+"NoRelatedWatchNexts" = "إخفاء كل الفيديوهات أسفل المشغل";
+"NoRelatedWatchNextsDesc" = "يخفي جميع الفيديوهات أسفل المشغل، مع إبقاء قسم معلومات الفيديو والتعليقات فقط.";
+"RemoveInlineComment" = "إزالة قسم التعليقات";
+"RemoveInlineCommentDesc" = "يزيل قسم التعليقات أسفل المشغل.";
+"NoSubUnderPlayer" = "Remove \"Subscribe\" button";
+"NoSubUnderPlayerDesc" = "Removes \"Subscribe\" button under player.";
+"PlayerNoShare" = "Remove \"Share\" button";
+"PlayerNoShareDesc" = "Removes \"Share\" button under player.";
+"PlayerNoThanks" = "Remove \"Thanks\" button";
+"PlayerNoThanksDesc" = "Removes \"Thanks\" button under player.";
+"PlayerNoRemix" = "Remove \"Remix\" button";
+"PlayerNoRemixDesc" = "Removes \"Remix\" button under player.";
+"PlayerNoDownload" = "Remove \"Download\" button";
+"PlayerNoDownloadDesc" = "Removes \"Download\" button under player.";
+"PlayerNoClip" = "Remove \"Clip\" button";
+"PlayerNoClipDesc" = "Removes \"Clip\" button under player.";
+"PlayerNoSave" = "Remove \"Save\" button";
+"PlayerNoSaveDesc" = "Removes \"Save\" button under player.";
+"PlayerNoReport" = "Remove \"Report\" button";
+"PlayerNoReportDesc" = "Removes \"Report\" button under player.";
+
+"ProgressBarStyle" = "Progress bar style";
+"SolidColor" = "Solid color";
+"Gradient" = "Gradient";
+"MainColor" = "Main color";
+"GradientColor" = "Gradient highlight";
+"ScrubberColor" = "Scrubber color";
 
 "Player.Actions" = "الإجراءات";
 "DefaultPlaybackRate" = "معدل التشغيل الافتراضي";
@@ -216,6 +255,8 @@
 "ShortsToRegularDesc" = "يفتح الفيديوهات القصيرة (Shorts) كفيديوهات عادية.";
 "RemoveShortsLive" = "Remove live videos";
 "RemoveShortsLiveDesc" = "Removes live videos from the feed.";
+
+"ShortsInterface" = "Interface";
 "HideShortsLogo" = "إخفاء شعار Shorts";
 "HideShortsLogoDesc" = "يخفي شعار Shorts في الزاوية العلوية اليسرى، الذي موجود في مشغل الفيديوهات القصيرة (Shorts).";
 "HideShortsSearch" = "إخفاء زر البحث";
@@ -224,8 +265,38 @@
 "HideShortsCameraDesc" = "يخفي زر الكاميرا من مشغل الفيديوهات القصيرة (Shorts).";
 "HideShortsMore" = "إخفاء زر المزيد (⋮)";
 "HideShortsMoreDesc" = "يخفي زر المزيد (⋮) من مشغل الفيديوهات القصيرة (Shorts). يمكن الوصول إليه أيضًا بالضغط المطول على الشاشة.";
-"HideShortsSubscriptions" = "إخفاء زر الاشتراكات";
-"HideShortsSubscriptionsDesc" = "يخفي زر الاشتراكات الذي يظهر عند إيقاف الفيديوهات القصيرة (Shorts).";
+
+"HideCarouselSub" = "Hide Subscriptions";
+"HideCarouselSubDesc" = "Removes Subscriptions button that appears in paused state.";
+"HideCarouselLive" = "Hide Live";
+"HideCarouselLiveDesc" = "Removes Live button that appears in paused state.";
+"HideCarouselTrends" = "Hide Trends";
+"HideCarouselTrendsDesc" = "Removes Trends button that appears in paused state.";
+"HideCarouselShop" = "Hide Shop";
+"HideCarouselShopDesc" = "Removes Shop button that appears in paused state.";
+
+"HideShortsLike" = "No Like button";
+"HideShortsLikeDesc" = "Removes the Like button from the action bar.";
+"HideShortsDislike" = "No Dislike button";
+"HideShortsDislikeDesc" = "Removes the Dislike button from the action bar.";
+"HideShortsComments" = "No Comments button";
+"HideShortsCommentsDesc" = "Removes the Comments button from the action bar.";
+"HideShortsShare" = "No Share button";
+"HideShortsShareDesc" = "Removes the Share button from the action bar.";
+"HideShortsRemix" = "No Remix button";
+"HideShortsRemixDesc" = "Removes the Remix button from the action bar.";
+"HideShortsSuggestion" = "No suggestions";
+"HideShortsSuggestionDesc" = "Removes the button with suggestions, such as Add to playlist, Super Thanks, etc.";
+"HideShortsSubscribe" = "No follow button";
+"HideShortsSubscribeDesc" = "Removes the Follow button next to the username.";
+"HideShortsUsername" = "No username";
+"HideShortsUsernameDesc" = "Removes the channel name.";
+"HideShortsDescription" = "No description";
+"HideShortsDescriptionDesc" = "Removes the Shorts description.";
+"HideShortsSource" = "No source link button";
+"HideShortsSourceDesc" = "Removes the button that navigates to the full video or another Short video.";
+"HideShortsAudio" = "No audio indicator";
+"HideShortsAudioDesc" = "Removes the line indicating the audio used in the Shorts.";
 
 /* Tab bar options */
 "Tabbar" = "شريط التبويبات";
@@ -237,8 +308,10 @@
 "FElibrary" = "المكتبة";
 "FEuploads" = "إنشاء";
 "FEhistory" = "السجل";
+"FEpost_home" = "Posts";
 "VLWL" = "المشاهدة لاحقًا";
 
+"TranslucentBar" = "Translucent tab bar";
 "RemoveLabels" = "إزالة التسميات";
 "RemoveIndicators" = "إزالة المؤشرات";
 
@@ -254,10 +327,10 @@
 "Interface" = "واجهة المستخدم";
 "OledTheme" = "ثيم OLED";
 "OledThemeDesc" = "يحول جميع الألوان الداكنة إلى الأسود.";
+"OledKeyboard" = "Oled keyboard";
+"OledKeyboardDesc" = "Applies oled black theme for dark keyboard";
 "NoSearchHistory" = "إخفاء سجل البحث";
 "NoSearchHistoryDesc" = "يخفي سجل البحث والاقتراحات بصريًا. ملاحظة: سيظل سجل البحث الخاص بك متاحًا في عملاء YouTube الآخرين.";
-"NoRelatedWatchNexts" = "إخفاء كل الفيديوهات أسفل المشغل";
-"NoRelatedWatchNextsDesc" = "يخفي جميع الفيديوهات أسفل المشغل، مع إبقاء قسم معلومات الفيديو والتعليقات فقط.";
 "StickSortComments" = "تثبيت رأس التعليقات";
 "StickSortCommentsDesc" = "يثبت خيارات ترتيب التعليقات (الأعلى، الأحدث) حتى لا تختفي أثناء التمرير.";
 "HideSortComments" = "إخفاء رأس التعليقات";
@@ -279,10 +352,10 @@
 "Floating" = "عائم";
 
 "ContextMenu" = "قائمة السياق";
+"NoShareChunk" = "Remove share identifier";
+"NoShareChunkDesc" = "Removes the \"si=identifier\" parameter from shared links. A good alternative to the \"Native share sheet\" option as YouTube continues to improve its sharing menu.";
 "NativeShare" = "واجهة المشاركة الأصلية";
 "NativeShareDesc" = "يستخدم واجهة المشاركة الخاصة بالنظام لمشاركة الوسائط";
-"RemoveInlineComment" = "إزالة قسم التعليقات";
-"RemoveInlineCommentDesc" = "يزيل قسم التعليقات أسفل المشغل.";
 "RemoveCommentGuidelines" = "إزالة إرشادات المجتمع";
 "RemoveCommentGuidelinesDesc" = "يزيل إرشادات المجتمع المثبتة في قسم التعليقات.";
 "RemovePlayNext" = "إزالة \"تشغيل التالي في قائمة الانتظار\"";
@@ -400,8 +473,11 @@
 "Arabic" = "ترجمها إلى اللغة العربية";
 "Turkish" = "ترجمها إلى اللغة التركية";
 "Italian" = "Italian localization";
+"Korean" = "Korean localization";
+"Polish" = "Polish localization";
 
 "OpenSourceLibs" = "مكتبات مفتوحة المصدر";
+"SupporterWall" = "Supporters";
 
 "Preferences" = "إعدادات %@";
 "ManagePreferences" = "إدارة الإعدادات";
@@ -462,6 +538,7 @@
 "OpenAsRegularVideo" = "فتح كفيديو عادي";
 "CopyPostText" = "نسخ نص المنشور";
 "SaveCurrentImage" = "حفظ الصورة الحالية";
+"ShowCurrentImage" = "Show current image";
 "CopyCurrentImage" = "نسخ الصورة الحالية";
 "SavePostAsImage" = "حفظ المنشور كصورة";
 "CopyPostAsImage" = "نسخ المنشور كصورة";
@@ -469,8 +546,10 @@
 "SaveCommentAsImage" = "حفظ التعليق كصورة";
 "CopyCommentAsImage" = "نسخ التعليق كصورة";
 "SaveProfilePicture" = "حفظ صورة الملف الشخصي";
+"ShowProfilePicture" = "Show profile picture";
 "CopyProfilePicture" = "نسخ صورة الملف الشخصي";
 "DownloadThumbnail" = "حفظ الصورة المصغرة";
+"ShowThumbnail" = "Show thumbnail";
 "CopyThumbnail" = "نسخ الصورة المصغرة";
 "Cancel" = "إلغاء";
 "Cancelled" = "تم الإلغاء";

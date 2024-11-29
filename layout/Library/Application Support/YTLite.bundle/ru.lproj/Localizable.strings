@@ -30,7 +30,13 @@
 "SelectAudioTrack" = "Выберите звуковую дорожку";
 "EnglishNotFound" = "Английская звуковая дорожка не найдена";
 
-"Captions" = "Субтитры";
+"Audios" = "Аудио";
+"AudioDRC" = "Предпочитать стабилизированную громкость";
+"AudioDRCDesc" = "Загрузчик будет отдавать предпочтение аудиодорожке с наличием постоянного уровня громкости (сжатие динамического диапазона), если такие имеются.";
+
+"CaptionsAndThumbnails" = "Обложки и субтитры";
+"EmbedThumbnailsToVideos" = "Встраивать обложки";
+"EmbedThumbnailsToVideosDesc" = "Встраивает обложку видео в качестве обложки метаданных.";
 "EmbedCapsToVideos" = "Встраивать субтитры";
 "EmbedCapsToVideosDesc" = "Встраивает выбранные субтитры в видео.";
 "EmbedAutoGenCaps" = "Автоматически сгенерированные";
@@ -77,6 +83,8 @@
 "RemoveHorizontalFeedsDesc" = "Удаляет все горизонтальные ленты по типу «Новости», «Продолжить просмотр», «Коллекция постов» с «Главной» вкладки.";
 "RemoveMoreTopics" = "Убрать «Еще темы»";
 "RemoveMoreTopicsDesc" = "Убирает раздел «Еще темы» с ленты.";
+"RemovePlayables" = "Убрать мини-игры";
+"RemovePlayablesDesc" = "Убирает мини-игры «Playables» с ленты.";
 "FixAlbums" = "Исправить отображение обложек";
 "FixAlbumsDesc" = "Исправляет отображение обложек в том случае, если вы из России.";
 
@@ -96,6 +104,10 @@
 "Player.Interface" = "Интерфейс";
 "SpeedControls" = "Управление скоростью";
 "SpeedControlsDesc" = "Отображает кнопки управления скоростью воспроизведения в оверлее.";
+"MuteButton" = "Отключение звука";
+"MuteButtonDesc" = "Отображает кнопку отключения/включения звука воспроизведения в оверлее.";
+"LockButton" = "Блокировка экрана";
+"LockButtonDesc" = "Отображает кнопку для быстрой блокировки экрана плеера и перехода в полноэкранный режим в оверлее.";
 "HideAutoplay" = "Скрыть «Автовоспроизведение»";
 "HideAutoplayDesc" = "Скрывает тумблер «Автовоспроизведение» с оверлея плеера.";
 "HideSubs" = "Скрыть «Субтитры»";
@@ -140,6 +152,33 @@
 "VideoEndTimeDesc" = "Отображает, в каком часу закончится ролик.";
 "24hrFormat" = "24-часовой формат";
 "24hrFormatDesc" = "Отображает время окончания в 24-часовом формате.";
+"NoRelatedWatchNexts" = "Скрыть все видео под плеером";
+"NoRelatedWatchNextsDesc" = "Скрывает все видео под плеером, оставляя только информацию о видео и раздел комментариев.";
+"RemoveInlineComment" = "Убрать секцию с комментарием";
+"RemoveInlineCommentDesc" = "Убирает секцию с комментарием под плеером.";
+"NoSubUnderPlayer" = "Убрать «Подписаться»";
+"NoSubUnderPlayerDesc" = "Убирает кнопку «Подписаться» под плеером.";
+"PlayerNoShare" = "Убрать «Поделиться»";
+"PlayerNoShareDesc" = "Убирает кнопку «Поделиться» под плеером.";
+"PlayerNoThanks" = "Убрать «Спасибо»";
+"PlayerNoThanksDesc" = "Убирает кнопку «Спасибо» под плеером.";
+"PlayerNoRemix" = "Убрать «Ремикс»";
+"PlayerNoRemixDesc" = "Убирает кнопку «Ремикс» под плеером.";
+"PlayerNoDownload" = "Убрать «Скачать»";
+"PlayerNoDownloadDesc" = "Убирает кнопку «Скачать» под плеером.";
+"PlayerNoClip" = "Убрать «Создать клип»";
+"PlayerNoClipDesc" = "Убирает кнопку «Создать клип» под плеером.";
+"PlayerNoSave" = "Убрать «Сохранить»";
+"PlayerNoSaveDesc" = "Убирает кнопку «Сохранить» под плеером.";
+"PlayerNoReport" = "Убрать «Пожаловаться»";
+"PlayerNoReportDesc" = "Убирает кнопку «Пожаловаться» под плеером.";
+
+"ProgressBarStyle" = "Стиль прогресс-бара";
+"SolidColor" = "Сплошной цвет";
+"Gradient" = "Градиент";
+"MainColor" = "Основной цвет";
+"GradientColor" = "Дополнительный цвет";
+"ScrubberColor" = "Цвет ползунка";
 
 "Player.Actions" = "Поведение";
 "DefaultPlaybackRate" = "Скорость воспроизведения по умолчанию";
@@ -216,6 +255,8 @@
 "ShortsToRegularDesc" = "Воспроизводит видеоролики Shorts в обычном проигрывателе.";
 "RemoveShortsLive" = "Убрать трансляции";
 "RemoveShortsLiveDesc" = "Удаляет прямые трансляции, исключая их из ленты.";
+
+"ShortsInterface" = "Интерфейс";
 "HideShortsLogo" = "Скрыть логотип Shorts";
 "HideShortsLogoDesc" = "Скрывает логотип Shorts, расположенный в верхнем левом углу.";
 "HideShortsSearch" = "Скрыть кнопку «Поиск»";
@@ -224,8 +265,38 @@
 "HideShortsCameraDesc" = "Скрывает кнопку камеры с плеера Shorts.";
 "HideShortsMore" = "Скрыть кнопку «⋮»";
 "HideShortsMoreDesc" = "Скрывает кнопку «Еще» (⋮) с плеера Shorts. Данное меню также доступно долгим нажатием по экрану.";
-"HideShortsSubscriptions" = "Скрыть «Подписки»";
-"HideShortsSubscriptionsDesc" = "Скрывает кнопку «Подписки», появляющуюся при остановке воспроизведения.";
+
+"HideCarouselSub" = "Скрыть «Подписки»";
+"HideCarouselSubDesc" = "Скрывает кнопку «Подписки», появляющуюся при паузе воспроизведения.";
+"HideCarouselLive" = "Скрыть «В эфире»";
+"HideCarouselLiveDesc" = "Скрывает кнопку «В эфире», появляющуюся при паузе воспроизведения.";
+"HideCarouselTrends" = "Скрыть «Тренды»";
+"HideCarouselTrendsDesc" = "Скрывает кнопку «Тренды», появляющуюся при паузе воспроизведения.";
+"HideCarouselShop" = "Скрыть «Покупки»";
+"HideCarouselShopDesc" = "Скрывает кнопку «Покупки», появляющуюся при паузе воспроизведения.";
+
+"HideShortsLike" = "Скрыть «Нравится»";
+"HideShortsLikeDesc" = "Скрывает кнопку «Нравится» с панели элементов.";
+"HideShortsDislike" = "Скрыть «Не нравится»";
+"HideShortsDislikeDesc" = "Скрывает кнопку «Не нравится» с панели элементов.";
+"HideShortsComments" = "Скрыть «Комментарии»";
+"HideShortsCommentsDesc" = "Скрывает кнопку «Комментарии» с панели элементов.";
+"HideShortsShare" = "Скрыть «Поделиться»";
+"HideShortsShareDesc" = "Скрывает кнопку «Поделиться» с панели элементов.";
+"HideShortsRemix" = "Скрыть «Ремикс»";
+"HideShortsRemixDesc" = "Скрывает кнопку «Ремикс» с панели элементов.";
+"HideShortsSuggestion" = "Скрыть рекомендации";
+"HideShortsSuggestionDesc" = "Скрывает кнопку с рекомендациями по типа Сохранить в плейлист, Суперспасибо и т.д.";
+"HideShortsSubscribe" = "Скрыть «Подписаться»";
+"HideShortsSubscribeDesc" = "Скрывает кнопку «Подписаться», отображаемую рядом с названием канала.";
+"HideShortsUsername" = "Скрыть название канала";
+"HideShortsUsernameDesc" = "Скрывает название канала, опубликовавшего Shorts.";
+"HideShortsDescription" = "Скрыть описание";
+"HideShortsDescriptionDesc" = "Скрывает описание ролика.";
+"HideShortsSource" = "Скрыть источник";
+"HideShortsSourceDesc" = "Скрывает кнопку с источником на полное видео либо другой ролик Shorts.";
+"HideShortsAudio" = "Скрыть аудиодорожку";
+"HideShortsAudioDesc" = "Скрывает индикатор используемой аудиодорожки.";
 
 /* Tab bar options */
 "Tabbar" = "Панель вкладок";
@@ -237,8 +308,10 @@
 "FElibrary" = "Библиотека";
 "FEuploads" = "Создать";
 "FEhistory" = "История";
+"FEpost_home" = "Посты";
 "VLWL" = "Смотреть позже";
 
+"TranslucentBar" = "Полупрозрачный стиль";
 "RemoveLabels" = "Скрыть названия вкладок";
 "RemoveIndicators" = "Скрыть индикаторы вкладок";
 
@@ -254,10 +327,10 @@
 "Interface" = "Интерфейс";
 "OledTheme" = "Oled режим";
 "OledThemeDesc" = "Заменяет темные цвета черным";
+"OledKeyboard" = "Oled клавиатура";
+"OledKeyboardDesc" = "Применяет черную тему для темной клавиатуры";
 "NoSearchHistory" = "Скрыть историю поиска";
 "NoSearchHistoryDesc" = "Визуально скрывает историю поиска и подсказок. Данная опция не отменяет трекинг вашей истории поиска.";
-"NoRelatedWatchNexts" = "Скрыть все видео под плеером";
-"NoRelatedWatchNextsDesc" = "Скрывает все видео под плеером, оставляя только информацию о видео и раздел комментариев.";
 "StickSortComments" = "Закрепить панель комментариев";
 "StickSortCommentsDesc" = "Закрепляет панель сортировки комментариев, чтобы она не терялись при прокрутке.";
 "HideSortComments" = "Скрыть панель комментариев";
@@ -279,10 +352,10 @@
 "Floating" = "Плавающий";
 
 "ContextMenu" = "Контекстное меню";
+"NoShareChunk" = "Меню «Поделиться» без идентификаторов";
+"NoShareChunkDesc" = "Подчищает следы типа «si=идентификатор» из ссылок. Хорошая альтернатива опции «Системное меню Поделиться», так как YouTube продолжает улучшать свое меню.";
 "NativeShare" = "Системное меню «Поделиться»";
 "NativeShareDesc" = "Выводит системное меню «Поделиться» при отправке контента.";
-"RemoveInlineComment" = "Убрать секцию с комментарием";
-"RemoveInlineCommentDesc" = "Убирает секцию с комментарием под плеером.";
 "RemoveCommentGuidelines" = "Убрать «Правила сообщества»";
 "RemoveCommentGuidelinesDesc" = "Убирает прикрепленные правила сообщества в секции с комментариями.";
 "RemovePlayNext" = "Убрать «Добавить в начало очереди»";
@@ -400,8 +473,11 @@
 "Arabic" = "Арабская локализация";
 "Turkish" = "Турецкая локализация";
 "Italian" = "Итальянская локализация";
+"Korean" = "Корейская локализация";
+"Polish" = "Польская локализация";
 
 "OpenSourceLibs" = "Библиотеки с исходным кодом";
+"SupporterWall" = "Спонсоры";
 
 "Preferences" = "Параметры %@";
 "ManagePreferences" = "Управление настройками";
@@ -462,6 +538,7 @@
 "OpenAsRegularVideo" = "Открыть как обычное видео";
 "CopyPostText" = "Скопировать текст поста";
 "SaveCurrentImage" = "Сохранить данное фото";
+"ShowCurrentImage" = "Просмотреть данное фото";
 "CopyCurrentImage" = "Скопировать данное фото";
 "SavePostAsImage" = "Сохранить пост как фото";
 "CopyPostAsImage" = "Скопировать пост как фото";
@@ -469,8 +546,10 @@
 "SaveCommentAsImage" = "Сохранить комментарий как фото";
 "CopyCommentAsImage" = "Скопировать комментарий как фото";
 "SaveProfilePicture" = "Сохранить фото профиля";
+"ShowProfilePicture" = "Просмотреть фото профиля";
 "CopyProfilePicture" = "Скопировать фото профиля";
 "DownloadThumbnail" = "Скачать обложку";
+"ShowThumbnail" = "Просмотреть обложку";
 "CopyThumbnail" = "Скопировать обложку";
 "Cancel" = "Отмена";
 "Cancelled" = "Операция отменена";

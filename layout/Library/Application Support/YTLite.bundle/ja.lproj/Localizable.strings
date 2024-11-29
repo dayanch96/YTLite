@@ -30,7 +30,13 @@
 "SelectAudioTrack" = "Select audio track";
 "EnglishNotFound" = "English audio track not found";
 
-"Captions" = "Captions/Subtitles";
+"Audios" = "Audios";
+"AudioDRC" = "Prefer stable volume";
+"AudioDRCDesc" = "The download manager will prioritize audio with stable volume (Dynamic Range Compression) if such audio is available.";
+
+"CaptionsAndThumbnails" = "Captions and Thumbnails";
+"EmbedThumbnailsToVideos" = "Embed thumbnails";
+"EmbedThumbnailsToVideosDesc" = "Embeds the video's thumbnail as its metadata thumbnail.";
 "EmbedCapsToVideos" = "Embed captions";
 "EmbedCapsToVideosDesc" = "Embeds selected captions/subtitles into videos.";
 "EmbedAutoGenCaps" = "Auto-generated/translated captions";
@@ -77,6 +83,8 @@
 "RemoveLiveVidsDesc" = "Removes Live streams from the Home tab.";
 "RemoveHorizontalFeeds" = "Remove horizontal feeds";
 "RemoveHorizontalFeedsDesc" = "Removes all horizontal feeds (News, Continue Watching, Posts collection, etc.) from the Home tab.";
+"RemovePlayables" = "Remove playables";
+"RemovePlayablesDesc" = "Removes playables (mini-games) from the feed.";
 "FixAlbums" = "カバーの修正";
 "FixAlbumsDesc" = "ロシアユーザー向けのカバーの表示を修正します。";
 
@@ -96,6 +104,10 @@
 "Player.Interface" = "インターフェース";
 "SpeedControls" = "スピードコントロール";
 "SpeedControlsDesc" = "オーバーレイにスピードコントロールボタンを表示します。";
+"MuteButton" = "Mute button";
+"MuteButtonDesc" = "Displays a button to mute or unmute the volume on the overlay.";
+"LockButton" = "Lock button";
+"LockButtonDesc" = "Displays a button to quickly lock the overlay screen and switch to fullscreen mode.";
 "HideAutoplay" = "自動再生スイッチを非表示";
 "HideAutoplayDesc" = "オーバーレイから自動再生スイッチを非表示にします。";
 "HideSubs" = "字幕ボタンを非表示";
@@ -140,6 +152,33 @@
 "VideoEndTimeDesc" = "プレーヤー バーにビデオの再生終了時刻を追加します。";
 "24hrFormat" = "24時間フォーマット";
 "24hrFormatDesc" = "終了時刻を24時間形式で表示します。";
+"NoRelatedWatchNexts" = "プレーヤー下のすべての動画を非表示";
+"NoRelatedWatchNextsDesc" = "プレーヤー下に表示されるすべての動画を非表示にし、動画情報とコメントセクションのみにします。";
+"RemoveInlineComment" = "インラインコメントを削除";
+"RemoveInlineCommentDesc" = "プレーヤーの下のコメントセクションを削除します。";
+"NoSubUnderPlayer" = "Remove \"Subscribe\" button";
+"NoSubUnderPlayerDesc" = "Removes \"Subscribe\" button under player.";
+"PlayerNoShare" = "Remove \"Share\" button";
+"PlayerNoShareDesc" = "Removes \"Share\" button under player.";
+"PlayerNoThanks" = "Remove \"Thanks\" button";
+"PlayerNoThanksDesc" = "Removes \"Thanks\" button under player.";
+"PlayerNoRemix" = "Remove \"Remix\" button";
+"PlayerNoRemixDesc" = "Removes \"Remix\" button under player.";
+"PlayerNoDownload" = "Remove \"Download\" button";
+"PlayerNoDownloadDesc" = "Removes \"Download\" button under player.";
+"PlayerNoClip" = "Remove \"Clip\" button";
+"PlayerNoClipDesc" = "Removes \"Clip\" button under player.";
+"PlayerNoSave" = "Remove \"Save\" button";
+"PlayerNoSaveDesc" = "Removes \"Save\" button under player.";
+"PlayerNoReport" = "Remove \"Report\" button";
+"PlayerNoReportDesc" = "Removes \"Report\" button under player.";
+
+"ProgressBarStyle" = "Progress bar style";
+"SolidColor" = "Solid color";
+"Gradient" = "Gradient";
+"MainColor" = "Main color";
+"GradientColor" = "Gradient highlight";
+"ScrubberColor" = "Scrubber color";
 
 "Player.Actions" = "アクション";
 "DefaultPlaybackRate" = "デフォルトの再生速度";
@@ -216,6 +255,8 @@
 "ShortsToRegularDesc" = "ショート動画を通常の動画として開きます。";
 "RemoveShortsLive" = "Remove live videos";
 "RemoveShortsLiveDesc" = "Removes live videos from the feed.";
+
+"ShortsInterface" = "Interface";
 "HideShortsLogo" = "ショートロゴを非表示";
 "HideShortsLogoDesc" = "左上隅のショートロゴを非表示にします。";
 "HideShortsSearch" = "検索ボタンを非表示";
@@ -224,8 +265,38 @@
 "HideShortsCameraDesc" = "ショートオーバーレイからカメラボタンを非表示にします。";
 "HideShortsMore" = "その他「⋮」ボタンを非表示";
 "HideShortsMoreDesc" = "ショートオーバーレイからその他「⋮」ボタンを非表示にします。画面の長押しでアクセスも可能です。";
-"HideShortsSubscriptions" = "チャンネル登録ボタンを非表示";
-"HideShortsSubscriptionsDesc" = "ショートが一時停止されたときに表示されるチャンネル登録ボタンを非表示にします。";
+
+"HideCarouselSub" = "Hide Subscriptions";
+"HideCarouselSubDesc" = "Removes Subscriptions button that appears in paused state.";
+"HideCarouselLive" = "Hide Live";
+"HideCarouselLiveDesc" = "Removes Live button that appears in paused state.";
+"HideCarouselTrends" = "Hide Trends";
+"HideCarouselTrendsDesc" = "Removes Trends button that appears in paused state.";
+"HideCarouselShop" = "Hide Shop";
+"HideCarouselShopDesc" = "Removes Shop button that appears in paused state.";
+
+"HideShortsLike" = "No Like button";
+"HideShortsLikeDesc" = "Removes the Like button from the action bar.";
+"HideShortsDislike" = "No Dislike button";
+"HideShortsDislikeDesc" = "Removes the Dislike button from the action bar.";
+"HideShortsComments" = "No Comments button";
+"HideShortsCommentsDesc" = "Removes the Comments button from the action bar.";
+"HideShortsShare" = "No Share button";
+"HideShortsShareDesc" = "Removes the Share button from the action bar.";
+"HideShortsRemix" = "No Remix button";
+"HideShortsRemixDesc" = "Removes the Remix button from the action bar.";
+"HideShortsSuggestion" = "No suggestions";
+"HideShortsSuggestionDesc" = "Removes the button with suggestions, such as Add to playlist, Super Thanks, etc.";
+"HideShortsSubscribe" = "No follow button";
+"HideShortsSubscribeDesc" = "Removes the Follow button next to the username.";
+"HideShortsUsername" = "No username";
+"HideShortsUsernameDesc" = "Removes the channel name.";
+"HideShortsDescription" = "No description";
+"HideShortsDescriptionDesc" = "Removes the Shorts description.";
+"HideShortsSource" = "No source link button";
+"HideShortsSourceDesc" = "Removes the button that navigates to the full video or another Short video.";
+"HideShortsAudio" = "No audio indicator";
+"HideShortsAudioDesc" = "Removes the line indicating the audio used in the Shorts.";
 
 /* Tab bar options */
 "Tabbar" = "タブバー";
@@ -237,8 +308,10 @@
 "FElibrary" = "ライブラリ";
 "FEuploads" = "Create";
 "FEhistory" = "History";
+"FEpost_home" = "Posts";
 "VLWL" = "Watch Later";
 
+"TranslucentBar" = "Translucent tab bar";
 "RemoveLabels" = "ラベルを削除";
 "RemoveIndicators" = "インジケーターを削除";
 
@@ -254,10 +327,10 @@
 "Interface" = "インターフェース";
 "OledTheme" = "OLEDテーマ";
 "OledThemeDesc" = "すべての暗い色を黒に変えます。";
+"OledKeyboard" = "Oled keyboard";
+"OledKeyboardDesc" = "Applies oled black theme for dark keyboard";
 "NoSearchHistory" = "検索履歴を非表示";
 "NoSearchHistoryDesc" = "検索履歴とサジェストを視覚的に非表示にします。注意:検索履歴は他のYouTubeクライアントからアクセス可能です。";
-"NoRelatedWatchNexts" = "プレーヤー下のすべての動画を非表示";
-"NoRelatedWatchNextsDesc" = "プレーヤー下に表示されるすべての動画を非表示にし、動画情報とコメントセクションのみにします。";
 "StickSortComments" = "コメントヘッダーを固定";
 "StickSortCommentsDesc" = "コメントのソートヘッダー（トップ、最新）をスクロールしても消えないように固定します。";
 "HideSortComments" = "コメントヘッダーを非表示";
@@ -279,10 +352,10 @@
 "Floating" = "Floating";
 
 "ContextMenu" = "Context menu";
+"NoShareChunk" = "Remove share identifier";
+"NoShareChunkDesc" = "Removes the \"si=identifier\" parameter from shared links. A good alternative to the \"Native share sheet\" option as YouTube continues to improve its sharing menu.";
 "NativeShare" = "システムのシェアシート";
 "NativeShareDesc" = "システムの共有シートを使用してメディアを共有します。";
-"RemoveInlineComment" = "インラインコメントを削除";
-"RemoveInlineCommentDesc" = "プレーヤーの下のコメントセクションを削除します。";
 "RemoveCommentGuidelines" = "Remove guidelines";
 "RemoveCommentGuidelinesDesc" = "Removes pinned guidelines from the comments section.";
 "RemovePlayNext" = "「次に再生」を削除";
@@ -400,8 +473,11 @@
 "Arabic" = "Arabic localization";
 "Turkish" = "Turkish localization";
 "Italian" = "Italian localization";
+"Korean" = "Korean localization";
+"Polish" = "Polish localization";
 
 "OpenSourceLibs" = "オープンソース ライブラリ";
+"SupporterWall" = "Supporters";
 
 "Preferences" = "%@ 設定";
 "ManagePreferences" = "Preferences management";
@@ -462,6 +538,7 @@
 "OpenAsRegularVideo" = "通常のビデオとして開く";
 "CopyPostText" = "投稿テキストをコピー";
 "SaveCurrentImage" = "現在のイメージを保存";
+"ShowCurrentImage" = "Show current image";
 "CopyCurrentImage" = "現在のイメージをコピー";
 "SavePostAsImage" = "投稿を画像として保存";
 "CopyPostAsImage" = "投稿を画像としてコピー";
@@ -469,8 +546,10 @@
 "SaveCommentAsImage" = "コメントを画像として保存";
 "CopyCommentAsImage" = "コメントを画像としてコピー";
 "SaveProfilePicture" = "プロフィール写真を保存する";
+"ShowProfilePicture" = "Show profile picture";
 "CopyProfilePicture" = "プロフィール写真をコピーする";
 "DownloadThumbnail" = "サムネイルを保存";
+"ShowThumbnail" = "Show thumbnail";
 "CopyThumbnail" = "サムネイルをコピー";
 "Cancel" = "キャンセル";
 "Cancelled" = "キャンセルされました";
