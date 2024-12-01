@@ -585,7 +585,7 @@
 
 "Conflicts.Detected" = "Wykryto niekompatybilne tweaki";
 "Conflicts.DetectedDesc" = "Pomimo pozornej stabilności aplikacji, deweloper YouTube Plus nie zaleca łączenia tweaków o podobnej funkcjonalności w tej samej aplikacji i nie może zagwarantować bezpiecznego użytkowania.\n\nKontynuując korzystanie z aplikacji, bierzesz pełną odpowiedzialność i zgadzasz się, że wszelkie skargi dotyczące wydajności zostaną zignorowane.";
-"Conflicts.SkipThisVersion" = "Don't Show for This Version";
+"Conflicts.SkipThisVersion" = "Nie pokazuj dla tej wersji";
 "Conflicts.AcceptRisks" = "Akceptuję wszystkie ryzyka";
 "Conflicts.CloseYT" = "Zamknij YouTube";
 
