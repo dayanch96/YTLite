@@ -211,7 +211,7 @@
 "SeekAnywhere" = "أسحب للبحث";
 "SeekAnywhereDesc" = "يسمح بالتحكم في التقديم والإرجاع أثناء التشغيل عن طريق السحب لليسار ولليمين.";
 "SeekMethod" = "طريقة البحث";
-"Independent: Free fast scrolling across the entire video duration. Only the seek sensitivity is respected.\n\nDuration-based: The scrolling strength will depend on the length of the video and the seek sensitivity. This can be useful for long videos to prevent scrolling through large sections of the video." = "مستقل: تمرير سريع بحرية خلال الفيديو بالكامل، مع احترام حساسية البحث فقط.\n\nمعتمد على المدة: يعتمد التمرير على طول الفيديو وحساسية البحث، وهو مفيد لتجنب تخطي أجزاء كبيرة في الفيديوهات الطويلة.";
+"SeekMethodDesc" = "مستقل: تمرير سريع بحرية خلال الفيديو بالكامل، مع احترام حساسية البحث فقط.\n\nمعتمد على المدة: يعتمد التمرير على طول الفيديو وحساسية البحث، وهو مفيد لتجنب تخطي أجزاء كبيرة في الفيديوهات الطويلة.";
 "Independent" = "مستقل";
 "DurationBased" = "على أساس المدة";
 "SeekSensitivity" = "حساسية التمرير";
