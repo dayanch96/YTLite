@@ -211,7 +211,7 @@
 "SeekAnywhere" = "أسحب للبحث";
 "SeekAnywhereDesc" = "يسمح بالتحكم في التقديم والإرجاع أثناء التشغيل عن طريق السحب لليسار ولليمين.";
 "SeekMethod" = "طريقة البحث";
-"مستقل: تمرير سريع بحرية خلال الفيديو بالكامل، مع احترام حساسية البحث فقط.\n\nمعتمد على المدة: يعتمد التمرير على طول الفيديو وحساسية البحث، وهو مفيد لتجنب تخطي أجزاء كبيرة في الفيديوهات الطويلة." = "Independent: Free fast scrolling across the entire video duration. Only the seek sensitivity is respected.\n\nDuration-based: The scrolling strength will depend on the length of the video and the seek sensitivity. This can be useful for long videos to prevent scrolling through large sections of the video.";
+"Independent: Free fast scrolling across the entire video duration. Only the seek sensitivity is respected.\n\nDuration-based: The scrolling strength will depend on the length of the video and the seek sensitivity. This can be useful for long videos to prevent scrolling through large sections of the video." = "مستقل: تمرير سريع بحرية خلال الفيديو بالكامل، مع احترام حساسية البحث فقط.\n\nمعتمد على المدة: يعتمد التمرير على طول الفيديو وحساسية البحث، وهو مفيد لتجنب تخطي أجزاء كبيرة في الفيديوهات الطويلة.";
 "Independent" = "مستقل";
 "DurationBased" = "على أساس المدة";
 "SeekSensitivity" = "حساسية التمرير";
@@ -236,7 +236,7 @@
 "Shorts" = "المقاطع القصيرة";
 "Playback completion action" = "الإجراء عند انتهاء التشغيل";
 "Loop" = "تشغيل متكرر";
-"Scroll to next" = "الانتقال إلى التالي";
+"Scroll to next" = "التمرير إلى التالي";
 "Stop" = "إيقاف التشغيل";
 "AutoSkipShorts" = "تخطي الفيديوهات القصيرة تلقائيًا";
 "ShortsOnlyMode" = "وضع الفيديوهات القصيرة";
@@ -252,10 +252,10 @@
 "PinchToFullscreenShortsDesc" = "يدير ظهور مشغل الفديو بإيماءات التكبير والتصغير، لعرض الفيديوهات القصيرة (Shorts) في وضع ملء الشاشة.";
 "ShortsToRegular" = "الفيديوهات القصيرة إلى الفيديوهات العادية";
 "ShortsToRegularDesc" = "يفتح الفيديوهات القصيرة (Shorts) كفيديوهات عادية.";
-"RemoveShortsLive" = "Remove live videos";
-"RemoveShortsLiveDesc" = "Removes live videos from the feed.";
+"RemoveShortsLive" = "إزالة مقاطع الفيديو المباشرة";
+"RemoveShortsLiveDesc" = "إزالة مقاطع الفيديو المباشرة من الخلاصة.";
 
-"ShortsInterface" = "Interface";
+"ShortsInterface" = "واجهة المقاطع القصيرة";
 "HideShortsLogo" = "إخفاء شعار Shorts";
 "HideShortsLogoDesc" = "يخفي شعار Shorts في الزاوية العلوية اليسرى، الذي موجود في مشغل الفيديوهات القصيرة (Shorts).";
 "HideShortsSearch" = "إخفاء زر البحث";
@@ -470,12 +470,12 @@
 "Vietnamese" = "ترجمها إلى اللغة الفيتنامية";
 "Arabic" = "ترجمها إلى اللغة العربية";
 "Turkish" = "ترجمها إلى اللغة التركية";
-"Italian" = "Italian localization";
-"Korean" = "Korean localization";
-"Polish" = "Polish localization";
+"Italian" = "ترجمها إلى اللغة الإيطالية";
+"Korean" = "ترجمها إلى اللغة الكورية";
+"Polish" = "ترجمها إلى اللغة البولندية";
 
 "OpenSourceLibs" = "مكتبات مفتوحة المصدر";
-"SupporterWall" = "Supporters";
+"SupporterWall" = "الداعمين";
 
 "Preferences" = "إعدادات %@";
 "ManagePreferences" = "إدارة الإعدادات";
