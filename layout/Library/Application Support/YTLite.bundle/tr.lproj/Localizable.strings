@@ -584,6 +584,7 @@
 
 "Conflicts.Detected" = "Uyumsuz Tweak'ler Tespit Edildi";
 "Conflicts.DetectedDesc" = "Uygulamanın görünürdeki istikrarına rağmen, YouTube Plus geliştiricisi, benzer işlevselliğe sahip tweak'lerin aynı uygulamada birleştirilmesini önermemekte ve güvenli kullanım garantisi vermemektedir.\n\nUygulamayı kullanmaya devam ederek, tüm sorumluluğu kabul edersiniz ve performansla ilgili şikayetlerin dikkate alınmayacağını kabul edersiniz.";
+"Conflicts.SkipThisVersion" = "Don't Show for This Version";
 "Conflicts.AcceptRisks" = "Tüm Riskleri Kabul Ediyorum";
 "Conflicts.CloseYT" = "YouTube'u Kapat";
 

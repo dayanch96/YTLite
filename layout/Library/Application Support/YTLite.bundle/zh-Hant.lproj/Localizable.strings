@@ -585,6 +585,7 @@
 
 "Conflicts.Detected" = "偵測到不相容的插件";
 "Conflicts.DetectedDesc" = "儘管應用程式看似穩定，YouTube Plus開發者不建議將功能類似的插件合併在同一個應用程式中，並且無法保證安全使用。\n\n繼續使用此應用程式，表示您將承擔全部風險責任，並同意任何有關於效能的投訴將被忽略。";
+"Conflicts.SkipThisVersion" = "Don't Show for This Version";
 "Conflicts.AcceptRisks" = "我接受所有風險";
 "Conflicts.CloseYT" = "關閉YouTube";
 
