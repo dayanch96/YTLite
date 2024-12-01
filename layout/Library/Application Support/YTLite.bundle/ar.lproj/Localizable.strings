@@ -585,6 +585,7 @@
 
 "Conflicts.Detected" = "تم إكتشاف أدوات غير متوافقة";
 "Conflicts.DetectedDesc" = "على الرغم من الاستقرار الظاهر للتطبيق، إلا أن مطور YouTube Plus لا يوصي بدمج أدوات ذات الوظائف المماثلة في نفس التطبيق ولا يمكنه ضمان الاستخدام الآمن.\n\nمن خلال الاستمرار في استخدام التطبيق، تتحمل المسؤولية الكاملة وتوافق على أن أي شكاوى حول الأداء ستتجاهل.";
+"Conflicts.SkipThisVersion" = "Don't Show for This Version";
 "Conflicts.AcceptRisks" = "أقبل جميع المخاطر";
 "Conflicts.CloseYT" = "أغلق الـYouTube";
 

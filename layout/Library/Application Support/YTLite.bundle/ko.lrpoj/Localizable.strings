@@ -585,6 +585,7 @@
 
 "Conflicts.Detected" = "호환되지 않는 조정이 감지되었습니다.";
 "Conflicts.DetectedDesc" = "앱의 겉보기 안정성에도 불구하고 YouTube Plus 개발자는 동일한 앱에서 유사한 기능을 가진 조정을 결합하는 것을 권장하지 않으며 안전한 사용을 보장할 수 없습니다.\n\n앱을 계속 사용하면 모든 책임을 지고 성능에 대한 모든 불만이 무시된다는 데 동의하게 됩니다.";
+"Conflicts.SkipThisVersion" = "Don't Show for This Version";
 "Conflicts.AcceptRisks" = "모든 위험을 감수합니다";
 "Conflicts.CloseYT" = "YouTube 닫기";
 
