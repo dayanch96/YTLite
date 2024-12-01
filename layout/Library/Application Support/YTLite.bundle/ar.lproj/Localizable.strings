@@ -31,11 +31,11 @@
 "EnglishNotFound" = "لم يتم العثور على المسار الصوتي باللغة الإنجليزية";
 
 "Audios" = "الصوتيات";
-"Prefer stable volume" = "تفضيل صوت مستقر";
-"The download manager will prioritize audio with stable volume (Dynamic Range Compression) if such audio is available." = "يقوم مدير التنزيل بإعطاء أولوية للصوت ذو مستوى ثابت (ضغط نطاق ديناميكي) إذا كان متوفرًا.";
+"AudioDRC" = "تفضيل صوت مستقر";
+"AudioDRCDesc" = "يقوم مدير التنزيل بإعطاء أولوية للصوت ذو مستوى ثابت (ضغط نطاق ديناميكي) إذا كان متوفرًا.";
 
-"Captions and Thumbnails" = "التسميات والصور المصغرة";
-"Embed thumbnails" = "إضافة الصور المصغرة للمقاطع";
+"CaptionsAndThumbnails" = "التسميات والصور المصغرة";
+"EmbedThumbnailsToVideos" = "إضافة الصور المصغرة للمقاطع";
 "EmbedThumbnailsToVideosDesc" = "يقوم بتضمين الصورة المصغرة للفيديو كصورة مصغرة للبيانات الوصفية.";
 "EmbedCapsToVideos" = "دمج الترجمات";
 "EmbedCapsToVideosDesc" = "يقوم بدمج التسميات التوضيحية/الترجمات المحددة في مقاطع الفيديو.";
@@ -172,12 +172,13 @@
 "PlayerNoSaveDesc" = "يزيل زر \"الحفظ\" الموجود أسفل المشغل.";
 "PlayerNoReport" = "إزالة زر \"الإبلاغ\"";
 "PlayerNoReportDesc" = "يزيل زر \"الإبلاغ\" الموجود أسفل المشغل.";
-"Progress bar style" = "شكل شريط التقدم";
-"Solid color" = "لون ثابت";
+
+"ProgressBarStyle" = "شكل شريط التقدم";
+"SolidColor" = "لون ثابت";
 "Gradient" = "لون متدرج";
 "MainColor" = "اللون الرئيسي";
-"Gradient highlight" = "لون التدرج";
-"Scrubber color" = "لون مؤشر التمرير";
+"GradientColor" = "لون التدرج";
+"ScrubberColor" = "لون مؤشر التمرير";
 
 "Player.Actions" = "الإجراءات";
 "DefaultPlaybackRate" = "معدل التشغيل الافتراضي";
@@ -201,7 +202,7 @@
 "Player.Gestures" = "الإيماءات";
 "LeftSideGesture" = "إيماءة للجانب الأيسر";
 "RightSideGesture" = "إيماءة للجانب الأيمن";
-"Gesture activation width" = "عرض منطقة الإيماءات";
+"ActivationAreaWidth" = "عرض منطقة الإيماءات";
 "ActivationAreaWidthDesc" = "تحدد هذه القيمة منطقة التعرف على الإيماءات بالبكسل للجانبين الأيسر والأيمن من الشاشة.\n\nالحد الأقصى للقيمة المسموح به هو ثلث عرض الشاشة.\n\nيعد ضبط هذا الإعداد مفيدا لمنع التنشيط العرضي عند محاولة تصغير المشغل أو توسيعه.";
 "HoldToSpeed" = "اضغط مع الاستمرار للسرعة";
 "AdjustWithFinger" = "ضبط السرعة بالإيماءات";
@@ -234,9 +235,9 @@
 
 /* Shorts options */
 "Shorts" = "المقاطع القصيرة";
-"Playback completion action" = "الإجراء عند انتهاء التشغيل";
+"PlaybackMode" = "الإجراء عند انتهاء التشغيل";
 "Loop" = "تشغيل متكرر";
-"Scroll to next" = "التمرير إلى التالي";
+"ScrollToNext" = "التمرير إلى التالي";
 "Stop" = "إيقاف التشغيل";
 "AutoSkipShorts" = "تخطي الفيديوهات القصيرة تلقائيًا";
 "ShortsOnlyMode" = "وضع الفيديوهات القصيرة";
@@ -351,7 +352,8 @@
 "Floating" = "عائم";
 
 "ContextMenu" = "قائمة السياق";
-"NoShareChunk" = "إزالة المعامل \"si=identifier\" من الروابط المشتركة. بديل جيد لخيار \"مشاركة الأصلية\" حيث تستمر يوتيوب في تحسين قائمة المشاركة الخاصة بها.";
+"NoShareChunk" = "إزالة معرّف المشاركة";
+"NoShareChunkDesc" = "يزيل معلمة \"si=identifier\" من الروابط المشتركة. خيار جيد بديل لـ \"واجهة المشاركة الأصلية\" حيث تواصل YouTube تحسين قائمة المشاركة الخاصة بها.";
 "NativeShare" = "واجهة المشاركة الأصلية";
 "NativeShareDesc" = "يستخدم واجهة المشاركة الخاصة بالنظام لمشاركة الوسائط";
 "RemoveCommentGuidelines" = "إزالة إرشادات المجتمع";
@@ -583,6 +585,7 @@
 
 "Conflicts.Detected" = "تم إكتشاف أدوات غير متوافقة";
 "Conflicts.DetectedDesc" = "على الرغم من الاستقرار الظاهر للتطبيق، إلا أن مطور YouTube Plus لا يوصي بدمج أدوات ذات الوظائف المماثلة في نفس التطبيق ولا يمكنه ضمان الاستخدام الآمن.\n\nمن خلال الاستمرار في استخدام التطبيق، تتحمل المسؤولية الكاملة وتوافق على أن أي شكاوى حول الأداء ستتجاهل.";
+"Conflicts.SkipThisVersion" = "لا تعرض لهذا الإصدار";
 "Conflicts.AcceptRisks" = "أقبل جميع المخاطر";
 "Conflicts.CloseYT" = "أغلق الـYouTube";
 
