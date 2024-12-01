@@ -558,8 +558,8 @@
 "Done" = "완료";
 "NothingToShowInMenu" = "이 상황에 맞는 메뉴에 표시할 내용이 없습니다";
 "Error" = "오류";
-"Error.Clipboard" = "오류. 자세한 내용은 클립보드를 확인하세요";
-"Error.PathIssue" = "오류. 최종 경로 생성에 문제가 있습니다. 미디어 제목에 문제가 있습니까?";
+"Error.Clipboard" = "오류. 클립보드에서 자세한 정보 확인";
+"Error.PathIssue" = "오류. 최종 경로를 생성하는 데 문제가 있습니다. 미디어 제목에 문제가 있나요?";
 "Error.TryLater" = "미디어가 라이브 상태이거나 Google 서버에서 처리가 완료될 것으로 예상됩니다.\n\n나중에 다시 시도하세요.";
 "Error.NoSpace" = "장치에 공간이 부족합니다.\n\n최소 %@개의 추가 여유 공간이 필요합니다. 사용 가능한 여유 공간: %@";
 "Error.Multidownloading" = "아직 다중 다운로드가 가능하지 않습니다.";
@@ -578,14 +578,14 @@
 "Welcome.ContentDesc" = "원치 않는 콘텐츠와 인터페이스 요소를 제거합니다. 진정한 OLED 다크 모드를 활성화합니다";
 "Welcome.Player" = "플레이어 동작 설정";
 "Welcome.PlayerDesc" = "플레이어의 동작을 사용자 지정하고, 품질과 재생 속도를 자동으로 선택합니다. 제스처를 사용하여 제어합니다.";
-"Welcome.More" = "그리고 훨씬 더...";
+"Welcome.More" = "그리고 더보기";
 "Welcome.MoreDesc" = "YouTube Plus에는 환경 설정 저장 및 캐시 지우기와 같은 기능을 포함하여 50개 이상의 다양한 옵션이 포함되어 있습니다. 설정은 YouTube 설정의 YouTube Plus 섹션에서 사용할 수 있습니다.";
 "SupportMe" = "저를 서포트해주세요";
 "Continue" = "계속";
 
 "Conflicts.Detected" = "호환되지 않는 조정이 감지되었습니다.";
 "Conflicts.DetectedDesc" = "앱의 겉보기 안정성에도 불구하고 YouTube Plus 개발자는 동일한 앱에서 유사한 기능을 가진 조정을 결합하는 것을 권장하지 않으며 안전한 사용을 보장할 수 없습니다.\n\n앱을 계속 사용하면 모든 책임을 지고 성능에 대한 모든 불만이 무시된다는 데 동의하게 됩니다.";
-"Conflicts.SkipThisVersion" = "Don't Show for This Version";
+"Conflicts.SkipThisVersion" = "이 버전에 표시 안 함";
 "Conflicts.AcceptRisks" = "모든 위험을 감수합니다";
 "Conflicts.CloseYT" = "YouTube 닫기";
 
