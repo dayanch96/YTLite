@@ -30,13 +30,13 @@
 "SelectAudioTrack" = "إختار المسار الصوتي";
 "EnglishNotFound" = "لم يتم العثور على المسار الصوتي باللغة الإنجليزية";
 
-"Audios" = "Audios";
-"AudioDRC" = "Prefer stable volume";
-"AudioDRCDesc" = "The download manager will prioritize audio with stable volume (Dynamic Range Compression) if such audio is available.";
+"Audios" = "الصوتيات";
+"AudioDRC" = "تفضيل صوت مستقر";
+"AudioDRCDesc" = "يقوم مدير التنزيل بإعطاء أولوية للصوت ذو مستوى ثابت (ضغط نطاق ديناميكي) إذا كان متوفرًا.";
 
-"CaptionsAndThumbnails" = "Captions and Thumbnails";
-"EmbedThumbnailsToVideos" = "Embed thumbnails";
-"EmbedThumbnailsToVideosDesc" = "Embeds the video's thumbnail as its metadata thumbnail.";
+"CaptionsAndThumbnails" = "التسميات والصور المصغرة";
+"EmbedThumbnailsToVideos" = "إضافة الصور المصغرة للمقاطع";
+"EmbedThumbnailsToVideosDesc" = "يقوم بتضمين الصورة المصغرة للفيديو كصورة مصغرة للبيانات الوصفية.";
 "EmbedCapsToVideos" = "دمج الترجمات";
 "EmbedCapsToVideosDesc" = "يقوم بدمج التسميات التوضيحية/الترجمات المحددة في مقاطع الفيديو.";
 "EmbedAutoGenCaps" = "التسميات التوضيحية التي تم إنشاؤها/ترجمتها تلقائيًا";
@@ -83,8 +83,8 @@
 "RemoveHorizontalFeedsDesc" = "يتم إزالة جميع المنشورات الأفقية (مثل الأخبار، متابعة المشاهدة، مجموعة المنشورات، وغيرها) من علامة التبويب الرئيسية.";
 "RemoveMoreTopics" = "إزالة \"المزيد من المواضيع\"";
 "RemoveMoreTopicsDesc" = "يزيل \"المزيد من المواضيع\" من المنشورات.";
-"RemovePlayables" = "Remove playables";
-"RemovePlayablesDesc" = "Removes playables (mini-games) from the feed.";
+"RemovePlayables" = "إزالة العناصر القابلة للتشغيل";
+"RemovePlayablesDesc" = "يقوم بإزالة العناصر القابلة للتشغيل (مقاطع التشغيل المصغرة) من الخلاصة.";
 "FixAlbums" = "إصلاح الألبومات";
 "FixAlbumsDesc" = "يصلح عرض الألبومات للمستخدمين من روسيا.";
 
@@ -104,10 +104,10 @@
 "Player.Interface" = "واجهة المستخدم";
 "SpeedControls" = "أزرار التحكم في السرعة";
 "SpeedControlsDesc" = "يعرض أزرار التحكم في السرعة على مشغل الفديو.";
-"MuteButton" = "Mute button";
-"MuteButtonDesc" = "Displays a button to mute or unmute the volume on the overlay.";
-"LockButton" = "Lock button";
-"LockButtonDesc" = "Displays a button to quickly lock the overlay screen and switch to fullscreen mode.";
+"MuteButton" = "زر الكتم";
+"MuteButtonDesc" = "يعرض زرًا لكتم الصوت أو إلغائه على الواجهة.";
+"LockButton" = "زر القفل";
+"LockButtonDesc" = "يعرض زرًا لقفل شاشة الواجهه بسرعة والتبديل إلى وضع الشاشة الكاملة.";
 "HideAutoplay" = "إخفاء زر التشغيل التلقائي";
 "HideAutoplayDesc" = "يخفي زر التشغيل التلقائي من مشغل الفديو.";
 "HideSubs" = "إخفاء زر الترجمة";
@@ -146,8 +146,8 @@
 "NoPromotionCardsDesc" = "يخفي بطاقة \"تتضمن عروض ترويجية مدفوعة\" في الفيديوهات التي تتضمن ترويجاً.";
 "NoWatermarks" = "إخفاء العلامات المائية";
 "NoWatermarksDesc" = "يخفي العلامات المائية للقناة من المشغل.";
-"DisableAmbientMode" = "Disable ambient mode";
-"DisableAmbientModeDesc" = "Disables ambient mode both in the player and in the area underneath it.";
+"DisableAmbientMode" = "تعطيل وضع الإضاءة المحيطة";
+"DisableAmbientModeDesc" = "يعطل وضع الإضاءة المحيطة في المشغل وفي المنطقة الواقعة تحته.";
 "VideoEndTime" = "إظهار وقت نهاية التشغيل";
 "VideoEndTimeDesc" = "يضيف وقت نهاية تشغيل الفيديو إلى شريط المشغل.";
 "24hrFormat" = "صيغة 24 ساعة";
@@ -156,29 +156,29 @@
 "NoRelatedWatchNextsDesc" = "يخفي جميع الفيديوهات أسفل المشغل، مع إبقاء قسم معلومات الفيديو والتعليقات فقط.";
 "RemoveInlineComment" = "إزالة قسم التعليقات";
 "RemoveInlineCommentDesc" = "يزيل قسم التعليقات أسفل المشغل.";
-"NoSubUnderPlayer" = "Remove \"Subscribe\" button";
-"NoSubUnderPlayerDesc" = "Removes \"Subscribe\" button under player.";
-"PlayerNoShare" = "Remove \"Share\" button";
-"PlayerNoShareDesc" = "Removes \"Share\" button under player.";
-"PlayerNoThanks" = "Remove \"Thanks\" button";
-"PlayerNoThanksDesc" = "Removes \"Thanks\" button under player.";
-"PlayerNoRemix" = "Remove \"Remix\" button";
-"PlayerNoRemixDesc" = "Removes \"Remix\" button under player.";
-"PlayerNoDownload" = "Remove \"Download\" button";
-"PlayerNoDownloadDesc" = "Removes \"Download\" button under player.";
-"PlayerNoClip" = "Remove \"Clip\" button";
-"PlayerNoClipDesc" = "Removes \"Clip\" button under player.";
-"PlayerNoSave" = "Remove \"Save\" button";
-"PlayerNoSaveDesc" = "Removes \"Save\" button under player.";
-"PlayerNoReport" = "Remove \"Report\" button";
-"PlayerNoReportDesc" = "Removes \"Report\" button under player.";
+"NoSubUnderPlayer" = "إزالة زر \"الاشتراك\"";
+"NoSubUnderPlayerDesc" = "يزيل زر \"الاشتراك\" الموجود أسفل المشغل.";
+"PlayerNoShare" = "إزالة زر \"المشاركة\"";
+"PlayerNoShareDesc" = "يزيل زر \"المشاركة\" الموجود أسفل المشغل.";
+"PlayerNoThanks" = "إزالة زر \"الشكر\"";
+"PlayerNoThanksDesc" = "يزيل زر \"الشكر\" الموجود أسفل المشغل.";
+"PlayerNoRemix" = "إزالة زر \"ريمكس\"";
+"PlayerNoRemixDesc" = "يزيل زر \"ريمكس\" الموجود أسفل المشغل.";
+"PlayerNoDownload" = "إزالة زر \"التنزيل\"";
+"PlayerNoDownloadDesc" = "يزيل زر \"التنزيل\" الموجود أسفل المشغل.";
+"PlayerNoClip" = "إزالة زر \"القص\"";
+"PlayerNoClipDesc" = "يزيل زر \"القص\" الموجود أسفل المشغل.";
+"PlayerNoSave" = "إزالة زر \"الحفظ\"";
+"PlayerNoSaveDesc" = "يزيل زر \"الحفظ\" الموجود أسفل المشغل.";
+"PlayerNoReport" = "إزالة زر \"الإبلاغ\"";
+"PlayerNoReportDesc" = "يزيل زر \"الإبلاغ\" الموجود أسفل المشغل.";
 
-"ProgressBarStyle" = "Progress bar style";
-"SolidColor" = "Solid color";
-"Gradient" = "Gradient";
-"MainColor" = "Main color";
-"GradientColor" = "Gradient highlight";
-"ScrubberColor" = "Scrubber color";
+"ProgressBarStyle" = "شكل شريط التقدم";
+"SolidColor" = "لون ثابت";
+"Gradient" = "لون متدرج";
+"MainColor" = "اللون الرئيسي";
+"GradientColor" = "لون التدرج";
+"ScrubberColor" = "لون مؤشر التمرير";
 
 "Player.Actions" = "الإجراءات";
 "DefaultPlaybackRate" = "معدل التشغيل الافتراضي";
@@ -202,8 +202,8 @@
 "Player.Gestures" = "الإيماءات";
 "LeftSideGesture" = "إيماءة للجانب الأيسر";
 "RightSideGesture" = "إيماءة للجانب الأيمن";
-"ActivationAreaWidth" = "Gesture activation width";
-"ActivationAreaWidthDesc" = "This value determines the gesture recognition zone in pixels for the left and right sides of the screen.\n\nThe maximum allowed value is one-third of the screen width.\n\nAdjusting this setting is useful to prevent accidental activation when attempting to minimize or expand the player.";
+"ActivationAreaWidth" = "عرض منطقة الإيماءات";
+"ActivationAreaWidthDesc" = "تحدد هذه القيمة منطقة التعرف على الإيماءات بالبكسل للجانبين الأيسر والأيمن من الشاشة.\n\nالحد الأقصى للقيمة المسموح به هو ثلث عرض الشاشة.\n\nيعد ضبط هذا الإعداد مفيدا لمنع التنشيط العرضي عند محاولة تصغير المشغل أو توسيعه.";
 "HoldToSpeed" = "اضغط مع الاستمرار للسرعة";
 "AdjustWithFinger" = "ضبط السرعة بالإيماءات";
 "AdjustWithFingerDesc" = "يسمح بضبط سرعة التشغيل عن طريق الضغط المطول على المشغل وتحريك الإصبع لأعلى ولأسفل.";
@@ -212,10 +212,10 @@
 "SeekAnywhere" = "أسحب للبحث";
 "SeekAnywhereDesc" = "يسمح بالتحكم في التقديم والإرجاع أثناء التشغيل عن طريق السحب لليسار ولليمين.";
 "SeekMethod" = "طريقة البحث";
-"SeekMethodDesc" = "Independent: Free fast scrolling across the entire video duration. Only the seek sensitivity is respected.\n\nDuration-based: The scrolling strength will depend on the length of the video and the seek sensitivity. This can be useful for long videos to prevent scrolling through large sections of the video.";
+"SeekMethodDesc" = "مستقل: تمرير سريع بحرية خلال الفيديو بالكامل، مع احترام حساسية البحث فقط.\n\nمعتمد على المدة: يعتمد التمرير على طول الفيديو وحساسية البحث، وهو مفيد لتجنب تخطي أجزاء كبيرة في الفيديوهات الطويلة.";
 "Independent" = "مستقل";
 "DurationBased" = "على أساس المدة";
-"SeekSensitivity" = "حساسية البحث";
+"SeekSensitivity" = "حساسية التمرير";
 "TwoFingerTapToPause" = "إيقاف التشغيل باستخدام إصبعين";
 "TwoFingerTapToPauseDesc" = "إيقاف تشغيل/استئناف التشغيل عن طريق الضغط على الشاشة باستخدام إصبعين.";
 "TwoFingerPanToBrightness" = "ضبط السطوع";
@@ -234,16 +234,16 @@
 "NoDoubleTap2SeekDesc" = "يعطل إيماءة النقر المزدوج للبحث.";
 
 /* Shorts options */
-"Shorts" = "الفيديوهات القصيرة";
-"PlaybackMode" = "Playback completion action";
-"Loop" = "Loop";
-"ScrollToNext" = "Scroll to next";
-"Stop" = "Stop";
+"Shorts" = "المقاطع القصيرة";
+"PlaybackMode" = "الإجراء عند انتهاء التشغيل";
+"Loop" = "تشغيل متكرر";
+"ScrollToNext" = "التمرير إلى التالي";
+"Stop" = "إيقاف التشغيل";
 "AutoSkipShorts" = "تخطي الفيديوهات القصيرة تلقائيًا";
 "ShortsOnlyMode" = "وضع الفيديوهات القصيرة";
 "ShortsOnlyModeDesc" = "يحد من وظائف الـYouTube لمشاهدة الفيديوهات القصيرة (Shorts) فقط.";
-"RestrictShorts" = "Limit Shorts";
-"RestrictShortsDesc" = "Limits the number of Shorts in the feed to 10-15. Useful if you want to avoid the habit of endlessly scrolling through the feed.";
+"RestrictShorts" = "الحد من المقاطع القصيرة";
+"RestrictShortsDesc" = "يحد من عدد الفيديوهات القصيرة في الخلاصة إلى 10-15. وهو أمر مفيد إذا كنت تريد تجنب عادة التمرير بلا نهاية عبر الخلاصة.";
 "ShortsProgress" = "تمكين شريط التقدم";
 "ShortsProgressDesc" = "يعرض شريط التقدم في مشغل الفيديوهات القصيرة (Shorts).";
 "SpeedByLongTap" = "زيادة سرعة تشغيل الفيديوهات القصيرة بالضغط المطول";
@@ -253,10 +253,10 @@
 "PinchToFullscreenShortsDesc" = "يدير ظهور مشغل الفديو بإيماءات التكبير والتصغير، لعرض الفيديوهات القصيرة (Shorts) في وضع ملء الشاشة.";
 "ShortsToRegular" = "الفيديوهات القصيرة إلى الفيديوهات العادية";
 "ShortsToRegularDesc" = "يفتح الفيديوهات القصيرة (Shorts) كفيديوهات عادية.";
-"RemoveShortsLive" = "Remove live videos";
-"RemoveShortsLiveDesc" = "Removes live videos from the feed.";
+"RemoveShortsLive" = "إزالة مقاطع الفيديو المباشرة";
+"RemoveShortsLiveDesc" = "إزالة مقاطع الفيديو المباشرة من الخلاصة.";
 
-"ShortsInterface" = "Interface";
+"ShortsInterface" = "واجهة المقاطع القصيرة";
 "HideShortsLogo" = "إخفاء شعار Shorts";
 "HideShortsLogoDesc" = "يخفي شعار Shorts في الزاوية العلوية اليسرى، الذي موجود في مشغل الفيديوهات القصيرة (Shorts).";
 "HideShortsSearch" = "إخفاء زر البحث";
@@ -266,52 +266,52 @@
 "HideShortsMore" = "إخفاء زر المزيد (⋮)";
 "HideShortsMoreDesc" = "يخفي زر المزيد (⋮) من مشغل الفيديوهات القصيرة (Shorts). يمكن الوصول إليه أيضًا بالضغط المطول على الشاشة.";
 
-"HideCarouselSub" = "Hide Subscriptions";
-"HideCarouselSubDesc" = "Removes Subscriptions button that appears in paused state.";
-"HideCarouselLive" = "Hide Live";
-"HideCarouselLiveDesc" = "Removes Live button that appears in paused state.";
-"HideCarouselTrends" = "Hide Trends";
-"HideCarouselTrendsDesc" = "Removes Trends button that appears in paused state.";
-"HideCarouselShop" = "Hide Shop";
-"HideCarouselShopDesc" = "Removes Shop button that appears in paused state.";
+"HideCarouselSub" = "إخفاء زر \"الاشتراكات\"";
+"HideCarouselSubDesc" = "يزيل زر \"الاشتراكات\" الذي يظهر في وضع التوقف المؤقت.";
+"HideCarouselLive" = "إخفاء زر \"البث المباشر\"";
+"HideCarouselLiveDesc" = "يزيل زر \"البث المباشر\" الذي يظهر في وضع التوقف المؤقت.";
+"HideCarouselTrends" = "إخفاء زر \"الرائج\"";
+"HideCarouselTrendsDesc" = "يزيل زر \"الرائج\" الذي يظهر في وضع التوقف المؤقت.";
+"HideCarouselShop" = "إخفاء زر \"التسوق\"";
+"HideCarouselShopDesc" = "يزيل زر \"التسوق\" الذي يظهر في وضع التوقف المؤقت.";
 
-"HideShortsLike" = "No Like button";
-"HideShortsLikeDesc" = "Removes the Like button from the action bar.";
-"HideShortsDislike" = "No Dislike button";
-"HideShortsDislikeDesc" = "Removes the Dislike button from the action bar.";
-"HideShortsComments" = "No Comments button";
-"HideShortsCommentsDesc" = "Removes the Comments button from the action bar.";
-"HideShortsShare" = "No Share button";
-"HideShortsShareDesc" = "Removes the Share button from the action bar.";
-"HideShortsRemix" = "No Remix button";
-"HideShortsRemixDesc" = "Removes the Remix button from the action bar.";
-"HideShortsSuggestion" = "No suggestions";
-"HideShortsSuggestionDesc" = "Removes the button with suggestions, such as Add to playlist, Super Thanks, etc.";
-"HideShortsSubscribe" = "No follow button";
-"HideShortsSubscribeDesc" = "Removes the Follow button next to the username.";
-"HideShortsUsername" = "No username";
-"HideShortsUsernameDesc" = "Removes the channel name.";
-"HideShortsDescription" = "No description";
-"HideShortsDescriptionDesc" = "Removes the Shorts description.";
-"HideShortsSource" = "No source link button";
-"HideShortsSourceDesc" = "Removes the button that navigates to the full video or another Short video.";
-"HideShortsAudio" = "No audio indicator";
-"HideShortsAudioDesc" = "Removes the line indicating the audio used in the Shorts.";
+"HideShortsLike" = "إخفاء زر \"الإعجاب\"";
+"HideShortsLikeDesc" = "يزيل زر \"الإعجاب\" من شريط الأدوات.";
+"HideShortsDislike" = "إخفاء زر \"عدم الإعجاب\"";
+"HideShortsDislikeDesc" = "يزيل زر \"عدم الإعجاب\" من شريط الأدوات.";
+"HideShortsComments" = "إخفاء زر \"التعليقات\"";
+"HideShortsCommentsDesc" = "يزيل زر \"التعليقات\" من شريط الأدوات.";
+"HideShortsShare" = "إخفاء زر \"المشاركة\"";
+"HideShortsShareDesc" = "يزيل زر \"المشاركة\" من شريط الأدوات.";
+"HideShortsRemix" = "إخفاء زر \"ريمكس\"";
+"HideShortsRemixDesc" = "يزيل زر \"ريمكس\" من شريط الأدوات.";
+"HideShortsSuggestion" = "إخفاء زر \"الاقتراحات\"";
+"HideShortsSuggestionDesc" = "يزيل زر الاقتراحات مثل \"إضافة إلى قائمة التشغيل\"، و\"Super Thanks\"، وغيرها.";
+"HideShortsSubscribe" = "إخفاء زر \"المتابعة\"";
+"HideShortsSubscribeDesc" = "يزيل زر \"المتابعة\" بجانب اسم المستخدم.";
+"HideShortsUsername" = "إخفاء اسم المستخدم";
+"HideShortsUsernameDesc" = "يزيل اسم القناة.";
+"HideShortsDescription" = "إخفاء الوصف";
+"HideShortsDescriptionDesc" = "يزيل وصف الفيديوهات القصيرة.";
+"HideShortsSource" = "إخفاء زر \"رابط المصدر\"";
+"HideShortsSourceDesc" = "يزيل الزر الذي يوجه إلى الفيديو الكامل أو فيديو قصير آخر.";
+"HideShortsAudio" = "إخفاء مؤشر الصوت";
+"HideShortsAudioDesc" = "يزيل الخط الذي يشير إلى الصوت المستخدم في الفيديوهات القصيرة.";
 
 /* Tab bar options */
 "Tabbar" = "شريط التبويبات";
 "Startup" = "صفحة البدء";
 "FEwhat_to_watch" = "الصفحة الرئيسية";
 "FEexplore" = "استكشاف";
-"FEshorts" = "Shorts";
+"FEshorts" = "مقاطع قصيرة";
 "FEsubscriptions" = "الاشتراكات";
 "FElibrary" = "المكتبة";
 "FEuploads" = "إنشاء";
 "FEhistory" = "السجل";
-"FEpost_home" = "Posts";
+"FEpost_home" = "منشورات";
 "VLWL" = "المشاهدة لاحقًا";
 
-"TranslucentBar" = "Translucent tab bar";
+"TranslucentBar" = "شريط علامات التبويب الشفاف";
 "RemoveLabels" = "إزالة التسميات";
 "RemoveIndicators" = "إزالة المؤشرات";
 
@@ -327,8 +327,8 @@
 "Interface" = "واجهة المستخدم";
 "OledTheme" = "ثيم OLED";
 "OledThemeDesc" = "يحول جميع الألوان الداكنة إلى الأسود.";
-"OledKeyboard" = "Oled keyboard";
-"OledKeyboardDesc" = "Applies oled black theme for dark keyboard";
+"OledKeyboard" = "لوحة مفاتيح Oled";
+"OledKeyboardDesc" = "يطبق سمة oled السوداء على لوحة المفاتيح المظلمة";
 "NoSearchHistory" = "إخفاء سجل البحث";
 "NoSearchHistoryDesc" = "يخفي سجل البحث والاقتراحات بصريًا. ملاحظة: سيظل سجل البحث الخاص بك متاحًا في عملاء YouTube الآخرين.";
 "StickSortComments" = "تثبيت رأس التعليقات";
@@ -352,8 +352,8 @@
 "Floating" = "عائم";
 
 "ContextMenu" = "قائمة السياق";
-"NoShareChunk" = "Remove share identifier";
-"NoShareChunkDesc" = "Removes the \"si=identifier\" parameter from shared links. A good alternative to the \"Native share sheet\" option as YouTube continues to improve its sharing menu.";
+"NoShareChunk" = "إزالة معرّف المشاركة";
+"NoShareChunkDesc" = "يزيل معلمة \"si=identifier\" من الروابط المشتركة. خيار جيد بديل لـ \"واجهة المشاركة الأصلية\" حيث تواصل YouTube تحسين قائمة المشاركة الخاصة بها.";
 "NativeShare" = "واجهة المشاركة الأصلية";
 "NativeShareDesc" = "يستخدم واجهة المشاركة الخاصة بالنظام لمشاركة الوسائط";
 "RemoveCommentGuidelines" = "إزالة إرشادات المجتمع";
@@ -378,8 +378,8 @@
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "تفعيل";
 "EnableSponsorBlockDesc" = "تفعيل أداة SponsorBlock";
-"ShowNotifications" = "Show notifications";
-"ShowNotificationsDesc" = "Displays notifications for the auto-skipped segments. Notifications for categories that require manual skipping are always shown.";
+"ShowNotifications" = "إظهار الإشعارات";
+"ShowNotificationsDesc" = "يعرض إشعارات للشرائح التي تم تخطيها تلقائيا. يتم دائما عرض إشعارات الفئات التي تتطلب تخطيا يدويا.";
 "SegmentsInFeedPlayer" = "عرض الشرائح في المنشورات";
 "SegmentsInFeedPlayerDesc" = "يعرض الشرائح الملونة على شريط تقدم المشغل في المنشورات.";
 "SegmentsInMiniPlayer" = "عرض الشرائح على المشغل المصغر";
@@ -472,12 +472,12 @@
 "Vietnamese" = "ترجمها إلى اللغة الفيتنامية";
 "Arabic" = "ترجمها إلى اللغة العربية";
 "Turkish" = "ترجمها إلى اللغة التركية";
-"Italian" = "Italian localization";
-"Korean" = "Korean localization";
-"Polish" = "Polish localization";
+"Italian" = "ترجمها إلى اللغة الإيطالية";
+"Korean" = "ترجمها إلى اللغة الكورية";
+"Polish" = "ترجمها إلى اللغة البولندية";
 
 "OpenSourceLibs" = "مكتبات مفتوحة المصدر";
-"SupporterWall" = "Supporters";
+"SupporterWall" = "الداعمين";
 
 "Preferences" = "إعدادات %@";
 "ManagePreferences" = "إدارة الإعدادات";
@@ -538,7 +538,7 @@
 "OpenAsRegularVideo" = "فتح كفيديو عادي";
 "CopyPostText" = "نسخ نص المنشور";
 "SaveCurrentImage" = "حفظ الصورة الحالية";
-"ShowCurrentImage" = "Show current image";
+"Show current image" = "عرض الصور الحالية";
 "CopyCurrentImage" = "نسخ الصورة الحالية";
 "SavePostAsImage" = "حفظ المنشور كصورة";
 "CopyPostAsImage" = "نسخ المنشور كصورة";
@@ -546,10 +546,10 @@
 "SaveCommentAsImage" = "حفظ التعليق كصورة";
 "CopyCommentAsImage" = "نسخ التعليق كصورة";
 "SaveProfilePicture" = "حفظ صورة الملف الشخصي";
-"ShowProfilePicture" = "Show profile picture";
+"Show profile picture" = "عرض صورة الملف الشخصي";
 "CopyProfilePicture" = "نسخ صورة الملف الشخصي";
 "DownloadThumbnail" = "حفظ الصورة المصغرة";
-"ShowThumbnail" = "Show thumbnail";
+"Show thumbnail" = "عرض الصورة المصغرة";
 "CopyThumbnail" = "نسخ الصورة المصغرة";
 "Cancel" = "إلغاء";
 "Cancelled" = "تم الإلغاء";
@@ -585,7 +585,7 @@
 
 "Conflicts.Detected" = "تم إكتشاف أدوات غير متوافقة";
 "Conflicts.DetectedDesc" = "على الرغم من الاستقرار الظاهر للتطبيق، إلا أن مطور YouTube Plus لا يوصي بدمج أدوات ذات الوظائف المماثلة في نفس التطبيق ولا يمكنه ضمان الاستخدام الآمن.\n\nمن خلال الاستمرار في استخدام التطبيق، تتحمل المسؤولية الكاملة وتوافق على أن أي شكاوى حول الأداء ستتجاهل.";
-"Conflicts.SkipThisVersion" = "Don't Show for This Version";
+"Conflicts.SkipThisVersion" = "لا تعرض لهذا الإصدار";
 "Conflicts.AcceptRisks" = "أقبل جميع المخاطر";
 "Conflicts.CloseYT" = "أغلق الـYouTube";
 
