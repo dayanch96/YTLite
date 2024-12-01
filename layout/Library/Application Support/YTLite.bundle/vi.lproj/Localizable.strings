@@ -584,6 +584,7 @@
 
 "Conflicts.Detected" = "Đã phát hiện tweak không tương thích";
 "Conflicts.DetectedDesc" = "Mặc dù ứng dụng trông có vẻ đang chạy bình thường, nhà phát triển của YouTube Plus khuyến khích bạn không nên cài đặt hai hoặc nhiều tweak có chức năng tương tự nhau vào cùng một ứng dụng vì có thể gây ra vấn đề.\n\nBằng việc tiếp tục sử dụng, bạn đã hiểu và đồng ý chịu hoàn toàn trách nhiệm, nhà phát triển sẽ không phản hồi về bất cứ vấn đề nào xảy ra trong quá trình sử dụng.";
+"Conflicts.SkipThisVersion" = "Don't Show for This Version";
 "Conflicts.AcceptRisks" = "Tôi chấp nhận mọi rủi ro";
 "Conflicts.CloseYT" = "Thoát YouTube";
 

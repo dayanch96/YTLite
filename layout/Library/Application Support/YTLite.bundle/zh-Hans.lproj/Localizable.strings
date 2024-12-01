@@ -585,6 +585,7 @@
 
 "Conflicts.Detected" = "检测到不兼容的插件";
 "Conflicts.DetectedDesc" = "尽管 YouTube 看似稳定，但“YouTube Plus”的开发人员不建议在同一应用程序中拥有具有类似功能的插件，并且不能保证安全使用。\n\n如果继续使用，则表示您将承担全部风险责任，并同意不再对任何性能相关进行反馈/投诉。";
+"Conflicts.SkipThisVersion" = "Don't Show for This Version";
 "Conflicts.AcceptRisks" = "我接受所有风险";
 "Conflicts.CloseYT" = "关闭 YouTube";
 

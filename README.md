@@ -2,9 +2,29 @@
 A flexible enhancer for YouTube on iOS, featuring over hundred customizable options.
 
 ## Screenshots
-| ![1](https://github.com/user-attachments/assets/3a761963-0fca-4a4d-8a39-eb491317bef9) | ![2](https://github.com/user-attachments/assets/a5b5821e-534f-4407-83e6-e1cf077211d8) | ![3](https://github.com/user-attachments/assets/13ef6bca-a49d-42f5-b2cb-f9ede7d6bb9f) |
-|---|---|---|
-| ![4](https://github.com/user-attachments/assets/fae36b65-89c9-473a-b40f-334bf1d69e75) | ![5](https://github.com/user-attachments/assets/1e989ff4-f843-467f-94ad-3195c2e3cb83) | ![6](https://github.com/user-attachments/assets/c4fb5ef6-0bd3-4eaf-ad3e-903bad115024) |
+<table>
+   <tr>
+      <td><img src="https://raw.githubusercontent.com/dayanch96/YTLite/refs/heads/main/Resources/scr1.jpg" alt="Screenshot 1" /></td>
+      <td><img src="https://raw.githubusercontent.com/dayanch96/YTLite/refs/heads/main/Resources/scr2.jpg" alt="Screenshot 2" /></td>
+      <td><img src="https://raw.githubusercontent.com/dayanch96/YTLite/refs/heads/main/Resources/scr3.jpg" alt="Screenshot 3" /></td>
+   </tr>
+</table>
+
+<details>
+  <summary>More screenshots</summary>
+  <table>
+    <tr>
+      <td><img src="https://raw.githubusercontent.com/dayanch96/YTLite/refs/heads/main/Resources/scr4.jpg" alt="Screenshot 4" /></td>
+      <td><img src="https://raw.githubusercontent.com/dayanch96/YTLite/refs/heads/main/Resources/scr5.jpg" alt="Screenshot 5" /></td>
+      <td><img src="https://raw.githubusercontent.com/dayanch96/YTLite/refs/heads/main/Resources/scr6.jpg" alt="Screenshot 6" /></td>
+    </tr>
+    <tr>
+      <td><img src="https://raw.githubusercontent.com/dayanch96/YTLite/refs/heads/main/Resources/scr7.jpg" alt="Screenshot 7" /></td>
+      <td><img src="https://raw.githubusercontent.com/dayanch96/YTLite/refs/heads/main/Resources/scr8.jpg" alt="Screenshot 8" /></td>
+      <td><img src="https://raw.githubusercontent.com/dayanch96/YTLite/refs/heads/main/Resources/scr9.jpg" alt="Screenshot 9" /></td>
+    </tr>
+  </table>
+</details>
 
 ## Main Features
 <li>Download videos, audio (including audio track selection), thumbnails, posts, and profile pictures</li>
@@ -28,16 +48,44 @@ A flexible enhancer for YouTube on iOS, featuring over hundred customizable opti
 Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbreak.com/blog/youtube-plus/
 
 ## How to build a YouTube Plus app by yourself using Github actions
+> [!NOTE]
+> If this your first time, complete following steps before starting:
+>
+> 1. Fork this repository using the fork button on the top right
+> 2. On your forked repository, go to **Repository Settings** > **Actions**, enable **Read and Write** permissions.
 
-If this is your first time here, start from step 1. If you built a YouTube Plus app before, skip steps 1 and 2. Instead, click on the "Sync fork" button to get the latest version of the tweak and continue through step 3.
+<details>
+  <summary>How to build app with YouTube Plus only</summary>
+  <ol>
+    <li>Click on <strong>Sync fork</strong>, and if your branch is out-of-date, click on <strong>Update branch</strong></li>
+    <li>Navigate to the <strong>Actions tab</strong> on your forked repository and select <strong>Create YouTube Plus app</strong></li>
+    <li>Click <strong>Run workflow</strong> button located on the right side</li>
+    <li>Prepare a decrypted .ipa file <em>(we cannot provide you this due to legal reasons)</em> and upload it to a file provider (filebin.net, filemail.com or Dropbox is recommended). Paste the URL to the decrypted IPA file field</li>
+    <li>Type tweak version from releases (by default selected latest release) and click <strong>Run workflow</strong></li>
+    <li>Wait for the build to finish. You can download the YouTube Plus app from the releases section of your forked repo. (If you can't find the releases section, go to your forked repo and add /releases to the URL, i.e github.com/user/YTLite/releases)</li>
+  </ol>
+</details>
 
-1. Fork this repository using the fork button on the top right.
-2. On your forked repository, go to **Repository Settings** > **Actions**, enable **Read and Write** permissions.
-3. Navigate to the **Actions tab** on your forked repository. Select the desired workflow from the list on the left:
-   - **Create YouTube Plus app** to build the YouTube Plus-only app.
-   - **YouTube Plus + YouPiP, YTUHD and RYD** to build the YouTube Plus app with YouPiP, YTUHD, and Return YouTube Dislikes.
-   - **[LINK] YouTube Plus + YouPiP, YTUHD and RYD** to enter direct link for the YouTube Plus tweak manually and build the YouTube Plus app with YouPiP, YTUHD, and Return YouTube Dislikes.
-4. Click **Run workflow** button located on the right side.
-5. Prepare a decrypted .ipa file (we cannot provide you this due to legal reasons) and upload it to a file provider (filebin.net or Dropbox is recommended). Paste the url to the necessary field.
-6. Type tweak version from releases (by default selected latest release) and click **Run workflow**.
-7. Wait for the build to finish. You can download the YouTube Plus app from the releases section of your forked repo. (If you can't find the releases section, go to your forked repo and add /releases to the url. i.e github.com/user/YTLite/releases)
+<details>
+  <summary>How to build app with YouTube Plus, YouPiP, YTUHD and Return-YouTube-Dislikes</summary>
+  <ol>
+    <li>Click on <strong>Sync fork</strong>, and if your branch is out-of-date, click on <strong>Update branch</strong></li>
+    <li>Navigate to the <strong>Actions tab</strong> on your forked repository and select <strong>YouTube Plus + YouPiP, YTUHD and RYD</strong></li>
+    <li>Click <strong>Run workflow</strong> button located on the right side</li>
+    <li>Prepare a decrypted .ipa file <em>(we cannot provide you this due to legal reasons)</em> and upload it to a file provider (filebin.net, filemail.com or Dropbox is recommended). Paste the URL to the decrypted IPA file field</li>
+    <li>Type tweak version from releases (by default selected latest release) and click <strong>Run workflow</strong></li>
+    <li>Wait for the build to finish. You can download the YouTube Plus app from the releases section of your forked repo. (If you can't find the releases section, go to your forked repo and add /releases to the URL, i.e github.com/user/YTLite/releases)</li>
+  </ol>
+</details>
+
+<details>
+  <summary>How to build app with YouTube Plus, YouPiP, YTUHD and Return-YouTube-Dislikes but with your link for YouTube Plus</summary>
+  <ol>
+    <li>Click on <strong>Sync fork</strong>, and if your branch is out-of-date, click on <strong>Update branch</strong></li>
+    <li>Navigate to the <strong>Actions tab</strong> on your forked repository and select <strong>[LINK] YouTube Plus + YouPiP, YTUHD and RYD</strong></li>
+    <li>Click <strong>Run workflow</strong> button located on the right side</li>
+    <li>Prepare a decrypted .ipa file <em>(we cannot provide you this due to legal reasons)</em> and upload it to a file provider (filebin.net, filemail.com or Dropbox is recommended). Paste the URL to the decrypted IPA file field</li>
+    <li>Upload your tweak file to a file provider and paste direct link to the YouTube Plus tweak file field and click <strong>Run workflow</strong></li>
+    <li>Wait for the build to finish. You can download the YouTube Plus app from the releases section of your forked repo. (If you can't find the releases section, go to your forked repo and add /releases to the URL, i.e github.com/user/YTLite/releases)</li>
+  </ol>
+</details>
