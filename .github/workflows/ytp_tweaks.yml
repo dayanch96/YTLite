@@ -127,6 +127,16 @@ jobs:
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouGroupSettings.git
 
+      - name: Clone YTVideoOverlay
+        run: |
+          cd ${{ github.workspace }}
+          git clone --quiet --depth=1 https://github.com/PoomSmart/YTVideoOverlay.git
+
+      - name: Clone YouQuality
+        run: |
+          cd ${{ github.workspace }}
+          git clone --quiet --depth=1 https://github.com/PoomSmart/YouQuality.git
+
       - name: Build YouPiP
         run: |
           cd ${{ github.workspace }}/YouPiP
