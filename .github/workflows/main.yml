@@ -48,7 +48,7 @@ on:
 
       info_note:
         description: "TIP: Learn more about integrations in the README via the link below"
-        default: "https://github.com/dayanch96/YTLite#how-to-build-a-youtube-plus-app-by-yourself-using-github-actions"
+        default: "https://github.com/dayanch96/YTLite#tweak-integration-details"
         type: string
         required: false
 
