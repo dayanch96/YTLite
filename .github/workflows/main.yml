@@ -75,10 +75,11 @@ jobs:
 
       - name: Validate IPA URL
         run: |
-          response=$(curl -sI "${{ inputs.ipa_url }}")
-          content_type=$(echo "$response" | grep -i "Content-Type" | awk '{print $2}' | tr -d '\r')
-          if [[ "$content_type" != "application/octet-stream" ]]; then
-            echo "Direct link to the IPA file required. Entered link is not a direct download or does not point to an IPA file."
+          curl -r 0-1023 -o sample.part "${{ inputs.ipa_url }}" > /dev/null 2>&1
+          file_type=$(file --mime-type -b sample.part)
+
+          if [[ "$file_type" != "application/x-ios-app" ]]; then
+            echo "ERROR: The file is not a valid IPA file. Please ensure that you have provided a direct link to the file, not a web page."
             exit 1
           fi
 
