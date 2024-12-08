@@ -266,11 +266,11 @@
 "HideShortsMore" = "더 보기 (⋮) 버튼 숨기기";
 "HideShortsMoreDesc" = "Shorts 오버레이에서 더 보기 (⋮) 버튼 숨기기. 화면을 길게 누르면 액세스할 수도 있습니다.";
 
-"HideCarouselSub" = "Hide Subscriptions";
+"HideCarouselSub" = "구독 버튼 숨기기";
 "HideCarouselSubDesc" = "일시 정지 상태에 나타나는 구독 버튼을 제거합니다.";
-"HideCarouselLive" = "Hide Live";
+"HideCarouselLive" = "라이브 버튼 숨기기";
 "HideCarouselLiveDesc" = "일시 정지 상태에 나타나는 라이브 버튼을 제거합니다.";
-"HideCarouselTrends" = "Hide Trends";
+"HideCarouselTrends" = "트렌드 버튼 숨기기";
 "HideCarouselTrendsDesc" = "일시 정지 상태에 나타나는 트렌드 버튼을 제거합니다.";
 "HideCarouselShop" = "Shop 숨기기";
 "HideCarouselShopDesc" = "일시 정지 상태에 나타나는 Shop 버튼을 제거합니다.";
@@ -303,13 +303,13 @@
 "Startup" = "시작 페이지";
 "FEwhat_to_watch" = "홈";
 "FEexplore" = "탐색";
-"FEshorts" = "단편";
+"FEshorts" = "Shorts";
 "FEsubscriptions" = "구독";
 "FElibrary" = "라이브러리";
-"FEuploads" = "만들기";
+"FEuploads" = "제작";
 "FEhistory" = "기록";
 "FEpost_home" = "게시물";
-"VLWL" = "나중에 보기";
+"VLWL" = "나중에 시청하기";
 
 "TranslucentBar" = "반투명 탭 바";
 "RemoveLabels" = "탭 라벨 제거";
@@ -434,7 +434,7 @@
 "sb_music_offtopic" = "오프토픽 세그먼트";
 "sb_preview" = "프리뷰 세그먼트";
 "sb_poi_highlight" = "하이라이트 세그먼트";
-"sb_filler" = "필러 세그먼트";
+"sb_filler" = "벗어난 주제/농담 세그먼트";
 
 "SegmentDetected" = "%@가 감지됨";
 "SegmentSkipped" = "%@가 건너뛰어짐";
