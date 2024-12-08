@@ -1,19 +1,56 @@
-name: YouTube Plus + YouPiP, YTUHD and RYD
+name: '[BETA] Create YouTube Plus app'
 
 on:
   workflow_dispatch:
     inputs:
+
+      enable_youpip:
+        description: "Integrate YouPiP"
+        type: boolean
+        required: true
+        default: true
+
+      enable_ytuhd:
+        description: "Integrate YTUHD"
+        type: boolean
+        required: true
+        default: true
+
+      enable_ryd:
+        description: "Integrate Return YouTube Dislikes"
+        type: boolean
+        required: true
+        default: true
+
+      enable_yq:
+        description: "Integrate YouQuality"
+        type: boolean
+        required: true
+        default: true
+
+      enable_demc:
+        description: "Integrate DontEatMyContent"
+        type: boolean
+        required: true
+        default: true
+
       ipa_url:
-        description: "The direct URL to the decrypted IPA file"
+        description: "URL to the decrypted IPA file"
         default: ""
         required: true
         type: string
 
-      tweak_version:
-        description: "The version of the tweak to use. Enter the version manually from dayanch96/YTLite/releases or leave default"
-        default: "5.1"
+      tweak_url:
+        description: "URL to the YouTube Plus tweak file"
+        default: ""
         required: true
         type: string
+
+      info_note:
+        description: "TIP: Learn more about integrations in the README via the link below"
+        default: "https://github.com/dayanch96/YTLite#tweak-integration-details"
+        type: string
+        required: false
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -81,9 +118,7 @@ jobs:
 
       - name: Download YouTube Plus
         id: download_ytp
-        run: |
-          deb_url="https://github.com/dayanch96/YTLite/releases/download/v${{ inputs.tweak_version }}/com.dvntm.ytlite_${{ inputs.tweak_version }}_iphoneos-arm.deb"
-          wget "$deb_url" --no-verbose -O ${{ github.workspace }}/ytplus.deb
+        run: wget "${{ inputs.tweak_url }}" --no-verbose -O ${{ github.workspace }}/ytplus.deb
 
       - name: Clone Open in YouTube (Safari extension)
         run: |
@@ -108,26 +143,49 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Clone YouPiP
+        if: ${{ inputs.enable_youpip }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouPiP.git
 
       - name: Clone YTUHD
+        if: ${{ inputs.enable_ytuhd }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YTUHD.git
 
       - name: Clone Return-YouTube-Dislikes
+        if: ${{ inputs.enable_ryd }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/Return-YouTube-Dislikes.git
 
       - name: Clone YouGroupSettings
+        if: ${{ inputs.enable_demc }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouGroupSettings.git
 
+      - name: Clone YouQuality
+        if: ${{ inputs.enable_yq }}
+        run: |
+          cd ${{ github.workspace }}
+          git clone --quiet --depth=1 https://github.com/PoomSmart/YouQuality.git
+
+      - name: Clone YTVideoOverlay
+        if: ${{ inputs.enable_yq }}
+        run: |
+          cd ${{ github.workspace }}
+          git clone --quiet --depth=1 https://github.com/PoomSmart/YTVideoOverlay.git
+
+      - name: Clone DontEatMyContent
+        if: ${{ inputs.enable_demc }}
+        run: |
+          cd ${{ github.workspace }}
+          git clone --quiet --depth=1 --recurse-submodules https://github.com/therealFoxster/DontEatMyContent.git
+
       - name: Build YouPiP
+        if: ${{ inputs.enable_youpip }}
         run: |
           cd ${{ github.workspace }}/YouPiP
           make clean package DEBUG=0 FINALPACKAGE=1
@@ -136,6 +194,7 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Build YTUHD
+        if: ${{ inputs.enable_ytuhd }}
         run: |
           cd ${{ github.workspace }}/YTUHD
           make clean package DEBUG=0 FINALPACKAGE=1
@@ -144,6 +203,7 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Build Return-YouTube-Dislikes
+        if: ${{ inputs.enable_ryd }}
         run: |
           cd ${{ github.workspace }}/Return-YouTube-Dislikes
           make clean package DEBUG=0 FINALPACKAGE=1
@@ -152,6 +212,7 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Build YouGroupSettings
+        if: ${{ inputs.enable_demc }}
         run: |
           cd ${{ github.workspace }}/YouGroupSettings
           make clean package DEBUG=0 FINALPACKAGE=1
@@ -159,15 +220,49 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
+      - name: Build YouQuality
+        if: ${{ inputs.enable_yq }}
+        run: |
+          cd ${{ github.workspace }}/YouQuality
+          make clean package DEBUG=0 FINALPACKAGE=1
+          mv packages/*.deb ${{ github.workspace }}/yq.deb
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
+      - name: Build YTVideoOverlay
+        if: ${{ inputs.enable_yq }}
+        run: |
+          cd ${{ github.workspace }}/YTVideoOverlay
+          make clean package DEBUG=0 FINALPACKAGE=1
+          mv packages/*.deb ${{ github.workspace }}/ytvo.deb
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
+      - name: Build DontEatMyContent
+        if: ${{ inputs.enable_demc }}
+        run: |
+          cd ${{ github.workspace }}/DontEatMyContent
+          make clean package DEBUG=0 FINALPACKAGE=1
+          mv packages/*.deb ${{ github.workspace }}/demc.deb
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
       - name: Inject tweaks into IPA
         run: |
-          cyan -i youtube.ipa -o YouTubePlus_${{ inputs.tweak_version }}_Tweaks.ipa \
-            -uwf ytplus.deb OpenYoutubeSafariExtension.appex youpip.deb ytuhd.deb ryd.deb ygs.deb
+          tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
+
+          for deb in youpip.deb ytuhd.deb ryd.deb ygs.deb yq.deb ytvo.deb demc.deb; do
+            if [ -f "$deb" ]; then
+              tweaks="$tweaks $deb"
+            fi
+          done
+
+          cyan -i youtube.ipa -o YouTubePlus_Beta.ipa -uwf $tweaks
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v2.0.1
         with:
           tag_name: v${{ github.run_number }}
-          name: YouTubePlus v${{ inputs.tweak_version }} + Tweaks (${{ github.run_number }})
-          files: YouTubePlus_${{ inputs.tweak_version }}_Tweaks.ipa
+          name: YouTubePlus Beta (${{ github.run_number }})
+          files: YouTubePlus_Beta.ipa
           draft: true

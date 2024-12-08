@@ -30,13 +30,13 @@
 "SelectAudioTrack" = "选择音轨";
 "EnglishNotFound" = "未找到英语音轨";
 
-"Audios" = "Audios";
-"AudioDRC" = "Prefer stable volume";
-"AudioDRCDesc" = "The download manager will prioritize audio with stable volume (Dynamic Range Compression) if such audio is available.";
+"Audios" = "音频";
+"AudioDRC" = "偏好稳定音量";
+"AudioDRCDesc" = "如果有稳定音量（动态范围压缩）的音频，下载管理器将优先考虑此类音频。";
 
-"CaptionsAndThumbnails" = "Captions and Thumbnails";
-"EmbedThumbnailsToVideos" = "Embed thumbnails";
-"EmbedThumbnailsToVideosDesc" = "Embeds the video's thumbnail as its metadata thumbnail.";
+"CaptionsAndThumbnails" = "字幕和缩略图";
+"EmbedThumbnailsToVideos" = "嵌入缩略图";
+"EmbedThumbnailsToVideosDesc" = "将视频的缩略图嵌入为其元数据缩略图。";
 "EmbedCapsToVideos" = "嵌入字幕";
 "EmbedCapsToVideosDesc" = "将选定的字幕嵌入视频。";
 "EmbedAutoGenCaps" = "自动生成/翻译的字幕";
@@ -83,8 +83,8 @@
 "RemoveHorizontalFeedsDesc" = "首页中删除所有动态提要（新闻、继续观看、帖子集合等）。";
 "RemoveMoreTopics" = "删除“更多主题”";
 "RemoveMoreTopicsDesc" = "从视频流中删除“更多主题”。";
-"RemovePlayables" = "Remove playables";
-"RemovePlayablesDesc" = "Removes playables (mini-games) from the feed.";
+"RemovePlayables" = "移除推广游戏";
+"RemovePlayablesDesc" = "从视频流中删除可玩内容（迷你游戏）。";
 "FixAlbums" = "修复封面";
 "FixAlbumsDesc" = "修复来自俄罗斯用户的封面显示问题。";
 
@@ -104,10 +104,10 @@
 "Player.Interface" = "界面";
 "SpeedControls" = "速度控制";
 "SpeedControlsDesc" = "在播放界面显示速度控制按钮。";
-"MuteButton" = "Mute button";
-"MuteButtonDesc" = "Displays a button to mute or unmute the volume on the overlay.";
-"LockButton" = "Lock button";
-"LockButtonDesc" = "Displays a button to quickly lock the overlay screen and switch to fullscreen mode.";
+"MuteButton" = "静音按钮";
+"MuteButtonDesc" = "在播放界面显示“静音”按钮。";
+"LockButton" = "锁定按钮";
+"LockButtonDesc" = "在播放界面显示一个按钮来快速锁定屏幕并切换到全屏模式。";
 "HideAutoplay" = "隐藏自动播放开关";
 "HideAutoplayDesc" = "从播放界面隐藏自动播放开关。";
 "HideSubs" = "隐藏字幕按钮";
@@ -156,29 +156,29 @@
 "NoRelatedWatchNextsDesc" = "隐藏播放器下方的所有视频，仅保留视频信息和评论部分。";
 "RemoveInlineComment" = "删除评论";
 "RemoveInlineCommentDesc" = "删除播放器下方的评论板块。";
-"NoSubUnderPlayer" = "Remove \"Subscribe\" button";
-"NoSubUnderPlayerDesc" = "Removes \"Subscribe\" button under player.";
-"PlayerNoShare" = "Remove \"Share\" button";
-"PlayerNoShareDesc" = "Removes \"Share\" button under player.";
-"PlayerNoThanks" = "Remove \"Thanks\" button";
-"PlayerNoThanksDesc" = "Removes \"Thanks\" button under player.";
-"PlayerNoRemix" = "Remove \"Remix\" button";
-"PlayerNoRemixDesc" = "Removes \"Remix\" button under player.";
-"PlayerNoDownload" = "Remove \"Download\" button";
-"PlayerNoDownloadDesc" = "Removes \"Download\" button under player.";
-"PlayerNoClip" = "Remove \"Clip\" button";
-"PlayerNoClipDesc" = "Removes \"Clip\" button under player.";
-"PlayerNoSave" = "Remove \"Save\" button";
-"PlayerNoSaveDesc" = "Removes \"Save\" button under player.";
-"PlayerNoReport" = "Remove \"Report\" button";
-"PlayerNoReportDesc" = "Removes \"Report\" button under player.";
+"NoSubUnderPlayer" = "删除“订阅”按钮";
+"NoSubUnderPlayerDesc" = "删除播放器下方的“订阅”按钮。";
+"PlayerNoShare" = "删除“分享”按钮";
+"PlayerNoShareDesc" = "删除播放器下方的“分享”按钮。";
+"PlayerNoThanks" = "删除“感谢”按钮";
+"PlayerNoThanksDesc" = "删除播放器下方的“感谢”按钮。";
+"PlayerNoRemix" = "删除“混剪”按钮";
+"PlayerNoRemixDesc" = "删除播放器下方的“混剪”按钮。";
+"PlayerNoDownload" = "删除“下载”按钮";
+"PlayerNoDownloadDesc" = "删除播放器下方的“下载”按钮。";
+"PlayerNoClip" = "删除“剪辑”按钮";
+"PlayerNoClipDesc" = "删除播放器下方的“剪辑”按钮。";
+"PlayerNoSave" = "删除“保存”按钮";
+"PlayerNoSaveDesc" = "删除播放器下方的“保存”按钮。";
+"PlayerNoReport" = "删除“举报”按钮";
+"PlayerNoReportDesc" = "删除播放器下方的“举报”按钮。";
 
-"ProgressBarStyle" = "Progress bar style";
-"SolidColor" = "Solid color";
-"Gradient" = "Gradient";
-"MainColor" = "Main color";
-"GradientColor" = "Gradient highlight";
-"ScrubberColor" = "Scrubber color";
+"ProgressBarStyle" = "进度条样式";
+"SolidColor" = "纯色";
+"Gradient" = "渐变";
+"MainColor" = "主色";
+"GradientColor" = "渐变颜色";
+"ScrubberColor" = "进度点颜色";
 
 "Player.Actions" = "操作";
 "DefaultPlaybackRate" = "默认播放速率";
@@ -256,7 +256,7 @@
 "RemoveShortsLive" = "删除视频直播";
 "RemoveShortsLiveDesc" = "从视频流中删除直播视频。";
 
-"ShortsInterface" = "Interface";
+"ShortsInterface" = "界面";
 "HideShortsLogo" = "隐藏短视频 Logo";
 "HideShortsLogoDesc" = "隐藏左上角的短视频 Logo。";
 "HideShortsSearch" = "隐藏搜索按钮";
@@ -266,37 +266,37 @@
 "HideShortsMore" = "隐藏更多(⋮)按钮";
 "HideShortsMoreDesc" = "从短视频播放器中隐藏更多(⋮)按钮 。也可以通过长按屏幕来访问它。";
 
-"HideCarouselSub" = "Hide Subscriptions";
-"HideCarouselSubDesc" = "Removes Subscriptions button that appears in paused state.";
-"HideCarouselLive" = "Hide Live";
-"HideCarouselLiveDesc" = "Removes Live button that appears in paused state.";
-"HideCarouselTrends" = "Hide Trends";
-"HideCarouselTrendsDesc" = "Removes Trends button that appears in paused state.";
-"HideCarouselShop" = "Hide Shop";
-"HideCarouselShopDesc" = "Removes Shop button that appears in paused state.";
+"HideCarouselSub" = "隐藏订阅";
+"HideCarouselSubDesc" = "删除暂停状态下出现的订阅按钮。";
+"HideCarouselLive" = "隐藏直播";
+"HideCarouselLiveDesc" = "删除暂停状态下出现的直播按钮。";
+"HideCarouselTrends" = "隐藏趋势";
+"HideCarouselTrendsDesc" = "删除暂停状态下出现的热门趋势按钮。";
+"HideCarouselShop" = "隐藏购物";
+"HideCarouselShopDesc" = "删除暂停状态下出现的购物按钮。";
 
-"HideShortsLike" = "No Like button";
-"HideShortsLikeDesc" = "Removes the Like button from the action bar.";
-"HideShortsDislike" = "No Dislike button";
-"HideShortsDislikeDesc" = "Removes the Dislike button from the action bar.";
-"HideShortsComments" = "No Comments button";
-"HideShortsCommentsDesc" = "Removes the Comments button from the action bar.";
-"HideShortsShare" = "No Share button";
-"HideShortsShareDesc" = "Removes the Share button from the action bar.";
-"HideShortsRemix" = "No Remix button";
-"HideShortsRemixDesc" = "Removes the Remix button from the action bar.";
-"HideShortsSuggestion" = "No suggestions";
-"HideShortsSuggestionDesc" = "Removes the button with suggestions, such as Add to playlist, Super Thanks, etc.";
-"HideShortsSubscribe" = "No follow button";
-"HideShortsSubscribeDesc" = "Removes the Follow button next to the username.";
-"HideShortsUsername" = "No username";
-"HideShortsUsernameDesc" = "Removes the channel name.";
-"HideShortsDescription" = "No description";
-"HideShortsDescriptionDesc" = "Removes the Shorts description.";
-"HideShortsSource" = "No source link button";
-"HideShortsSourceDesc" = "Removes the button that navigates to the full video or another Short video.";
-"HideShortsAudio" = "No audio indicator";
-"HideShortsAudioDesc" = "Removes the line indicating the audio used in the Shorts.";
+"HideShortsLike" = "隐藏“赞”按钮";
+"HideShortsLikeDesc" = "从操作栏中删除“赞”按钮。";
+"HideShortsDislike" = "隐藏“踩”按钮";
+"HideShortsDislikeDesc" = "从操作栏中删除“不喜欢”按钮。";
+"HideShortsComments" = "隐藏评论按钮";
+"HideShortsCommentsDesc" = "从操作栏中删除“评论”按钮。";
+"HideShortsShare" = "隐藏分享按钮";
+"HideShortsShareDesc" = "从操作栏中删除分享按钮。";
+"HideShortsRemix" = "删除混剪按钮";
+"HideShortsRemixDesc" = "从操作栏中删除混剪按钮。";
+"HideShortsSuggestion" = "隐藏建议按钮";
+"HideShortsSuggestionDesc" = "删除带有建议的按钮，例如“添加到播放列表”、“超级感谢”等。";
+"HideShortsSubscribe" = "隐藏关注按钮";
+"HideShortsSubscribeDesc" = "删除用户名旁边的“关注”按钮。";
+"HideShortsUsername" = "隐藏用户名";
+"HideShortsUsernameDesc" = "隐藏频道名称。";
+"HideShortsDescription" = "隐藏文案";
+"HideShortsDescriptionDesc" = "隐藏短视频文案。";
+"HideShortsSource" = "隐藏导航按钮";
+"HideShortsSourceDesc" = "删除导航至完整视频或其他短视频的按钮。";
+"HideShortsAudio" = "无音频指示器";
+"HideShortsAudioDesc" = "删除短视频中使用的音频引用指示。";
 
 /* Tab bar options */
 "Tabbar" = "标签栏";
@@ -308,10 +308,10 @@
 "FElibrary" = "“我”";
 "FEuploads" = "创建";
 "FEhistory" = "历史";
-"FEpost_home" = "Posts";
+"FEpost_home" = "帖子";
 "VLWL" = "稍后观看";
 
-"TranslucentBar" = "Translucent tab bar";
+"TranslucentBar" = "半透明标签栏";
 "RemoveLabels" = "移除标签";
 "RemoveIndicators" = "移除红点指示";
 
@@ -327,8 +327,8 @@
 "Interface" = "界面项";
 "OledTheme" = "OLED 主题";
 "OledThemeDesc" = "将所有深色变为黑色。";
-"OledKeyboard" = "Oled keyboard";
-"OledKeyboardDesc" = "Applies oled black theme for dark keyboard";
+"OledKeyboard" = "OLED键盘";
+"OledKeyboardDesc" = "为深色键盘应用OLED黑色主题。";
 "NoSearchHistory" = "隐藏搜索历史记录";
 "NoSearchHistoryDesc" = "直观地隐藏搜索历史记录和建议。注意：搜索历史记录仍然可以在其他 YouTube 客户端中访问。";
 "StickSortComments" = "固定评论排序";
@@ -352,8 +352,8 @@
 "Floating" = "悬浮";
 
 "ContextMenu" = "上下文菜单";
-"NoShareChunk" = "Remove share identifier";
-"NoShareChunkDesc" = "Removes the \"si=identifier\" parameter from shared links. A good alternative to the \"Native share sheet\" option as YouTube continues to improve its sharing menu.";
+"NoShareChunk" = "移除分享标识符";
+"NoShareChunkDesc" = "删除分享链接中的“si=identifier”参数；作为“原生分享菜单”选项的不错的替代方案，将继续改进其分享功能。";
 "NativeShare" = "原生分享菜单";
 "NativeShareDesc" = "使用系统原生分享菜单来分享媒体。";
 "RemoveCommentGuidelines" = "删除指南";
@@ -473,11 +473,11 @@
 "Arabic" = "阿拉伯语本地化";
 "Turkish" = "土耳其语本地化";
 "Italian" = "意大利语本地化";
-"Korean" = "Korean localization";
-"Polish" = "Polish localization";
+"Korean" = "韩语本地化";
+"Polish" = "波兰语本地化";
 
 "OpenSourceLibs" = "开源库";
-"SupporterWall" = "Supporters";
+"SupporterWall" = "支持者";
 
 "Preferences" = "%@ 配置";
 "ManagePreferences" = "配置管理";
@@ -538,7 +538,7 @@
 "OpenAsRegularVideo" = "像普通视频一样打开";
 "CopyPostText" = "复制帖子文本";
 "SaveCurrentImage" = "保存当前图片";
-"ShowCurrentImage" = "Show current image";
+"ShowCurrentImage" = "显示当前图片";
 "CopyCurrentImage" = "复制当前图片";
 "SavePostAsImage" = "帖子另存为图片";
 "CopyPostAsImage" = "帖子作为图片复制";
@@ -546,10 +546,10 @@
 "SaveCommentAsImage" = "评论另存为图片";
 "CopyCommentAsImage" = "评论作为图片复制";
 "SaveProfilePicture" = "保存个人资料图片";
-"ShowProfilePicture" = "Show profile picture";
+"ShowProfilePicture" = "显示个人头像";
 "CopyProfilePicture" = "复制个人资料图片";
 "DownloadThumbnail" = "保存缩略图";
-"ShowThumbnail" = "Show thumbnail";
+"ShowThumbnail" = "显示缩略图";
 "CopyThumbnail" = "复制缩略图";
 "Cancel" = "取消";
 "Cancelled" = "已取消";
@@ -585,7 +585,7 @@
 
 "Conflicts.Detected" = "检测到不兼容的插件";
 "Conflicts.DetectedDesc" = "尽管 YouTube 看似稳定，但“YouTube Plus”的开发人员不建议在同一应用程序中拥有具有类似功能的插件，并且不能保证安全使用。\n\n如果继续使用，则表示您将承担全部风险责任，并同意不再对任何性能相关进行反馈/投诉。";
-"Conflicts.SkipThisVersion" = "Don't Show for This Version";
+"Conflicts.SkipThisVersion" = "不显示此版本";
 "Conflicts.AcceptRisks" = "我接受所有风险";
 "Conflicts.CloseYT" = "关闭 YouTube";
 
