@@ -423,7 +423,7 @@
 "Sb.Disable" = "비활성화";
 "Sb.Skip" = "자동 건너뛰기";
 "Sb.SkipTo" = "부분으로 건너뛰기";
-"Sb.Ask" = "질문";
+"Sb.Ask" = "묻기";
 "Sb.Display" = "플레이어에 표시";
 
 "sb_sponsor" = "후원 부분";
