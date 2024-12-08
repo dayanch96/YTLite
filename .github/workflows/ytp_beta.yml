@@ -70,6 +70,27 @@ jobs:
           path: main
           submodules: recursive
 
+      - name: Hide sensitive inputs
+        uses: levibostian/action-hide-sensitive-inputs@v1
+
+      - name: Validate IPA URL
+        run: |
+          response=$(curl -sI "${{ inputs.ipa_url }}")
+          content_type=$(echo "$response" | grep -i "Content-Type" | awk '{print $2}' | tr -d '\r')
+          if [[ "$content_type" != "application/octet-stream" ]]; then
+            echo "Direct link to the IPA file required. Entered link is not a direct download or does not point to an IPA file."
+            exit 1
+          fi
+
+      - name: Validate Tweak URL
+        run: |
+          response=$(curl -sI "${{ inputs.tweak_url }}")
+          content_type=$(echo "$response" | grep -i "Content-Type" | awk '{print $2}' | tr -d '\r')
+          if [[ "$content_type" != "application/octet-stream" ]]; then
+            echo "Direct link to the tweak file required. Entered link is not a direct download or does not point to a DEB file."
+            exit 1
+          fi
+
       - name: Install Dependencies
         run: brew install make ldid
 
@@ -108,9 +129,6 @@ jobs:
 
       - name: Install cyan
         run: pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
-
-      - name: Hide sensitive inputs
-        uses: levibostian/action-hide-sensitive-inputs@v1
 
       - name: Download YouTube
         id: download_youtube

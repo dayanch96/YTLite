@@ -70,6 +70,18 @@ jobs:
           path: main
           submodules: recursive
 
+      - name: Hide sensitive inputs
+        uses: levibostian/action-hide-sensitive-inputs@v1
+
+      - name: Validate IPA URL
+        run: |
+          response=$(curl -sI "${{ inputs.ipa_url }}")
+          content_type=$(echo "$response" | grep -i "Content-Type" | awk '{print $2}' | tr -d '\r')
+          if [[ "$content_type" != "application/octet-stream" ]]; then
+            echo "Direct link to the IPA file required. Entered link is not a direct download or does not point to an IPA file."
+            exit 1
+          fi
+
       - name: Install Dependencies
         run: brew install make ldid
 
@@ -114,9 +126,6 @@ jobs:
         run: |
           deb_url="https://github.com/dayanch96/YTLite/releases/download/v${{ inputs.tweak_version }}/com.dvntm.ytlite_${{ inputs.tweak_version }}_iphoneos-arm.deb"
           wget "$deb_url" --no-verbose -O ${{ github.workspace }}/ytplus.deb
-
-      - name: Hide sensitive inputs
-        uses: levibostian/action-hide-sensitive-inputs@v1
 
       - name: Download YouTube
         id: download_youtube
