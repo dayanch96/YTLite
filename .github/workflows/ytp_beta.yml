@@ -46,6 +46,18 @@ on:
         required: true
         type: string
 
+      bundle_id:
+        description: "Change the bundle id of the app"
+        default: "com.google.ios.youtube"
+        required: true
+        type: string
+
+      app_name:
+        description: "Change the name of the app"
+        default: "YouTube"
+        required: true
+        type: string
+
       info_note:
         description: "TIP: Learn more about integrations in the README via the link below"
         default: "https://github.com/dayanch96/YTLite#tweak-integration-details"
@@ -277,7 +289,7 @@ jobs:
             fi
           done
 
-          cyan -i youtube.ipa -o YouTubePlus_Beta.ipa -uwf $tweaks
+          cyan -i youtube.ipa -b ${{ inputs.bundle_id }} -n "${{ inputs.app_name }}" -o YouTubePlus_Beta.ipa -uwf $tweaks
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v2.0.1
