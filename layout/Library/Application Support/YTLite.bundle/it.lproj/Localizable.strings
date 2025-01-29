@@ -30,13 +30,13 @@
 "SelectAudioTrack" = "Seleziona traccia audio";
 "EnglishNotFound" = "Traccia audio Inglese non trovata";
 
-"Audios" = "Audios";
-"AudioDRC" = "Prefer stable volume";
-"AudioDRCDesc" = "The download manager will prioritize audio with stable volume (Dynamic Range Compression) if such audio is available.";
+"Audios" = "Audio";
+"AudioDRC" = "Prediligi volume stabile";
+"AudioDRCDesc" = "Il download manager darà priorità all'audio con volume stabile (Dynamic Range Compression) se è disponibile.";
 
-"CaptionsAndThumbnails" = "Captions and Thumbnails";
-"EmbedThumbnailsToVideos" = "Embed thumbnails";
-"EmbedThumbnailsToVideosDesc" = "Embeds the video's thumbnail as its metadata thumbnail.";
+"CaptionsAndThumbnails" = "Sottotitoli e Miniature";
+"EmbedThumbnailsToVideos" = "Incorpora miniature";
+"EmbedThumbnailsToVideosDesc" = "Incorpora la miniatura del video come copertina nei metadati.";
 "EmbedCapsToVideos" = "Incorpora i sottotitoli nel video";
 "EmbedCapsToVideosDesc" = "Incorpora i sottotitoli selezionati nei video.";
 "EmbedAutoGenCaps" = "Sottotitoli generati automaticamente/tradotti";
@@ -83,8 +83,8 @@
 "RemoveHorizontalFeedsDesc" = "Rimuove tutti i feed orizzontali (News, Continua a guardare, ecc.) dalla Home.";
 "RemoveMoreTopics" = "Rimuovi \"Più argomenti\"";
 "RemoveMoreTopicsDesc" = "Rimuovi \"Più argomenti\" dal feed.";
-"RemovePlayables" = "Remove playables";
-"RemovePlayablesDesc" = "Removes playables (mini-games) from the feed.";
+"RemovePlayables" = "Rimuovi Sala Giochi";
+"RemovePlayablesDesc" = "Rimuove la Sala Giochi (mini-giochi) dal feed.";
 "FixAlbums" = "Sistema le copertine";
 "FixAlbumsDesc" = "Sistema la visualizzazione delle copertine per gli utenti in Russia.";
 
@@ -104,10 +104,10 @@
 "Player.Interface" = "Interfaccia";
 "SpeedControls" = "Controlli di velocità";
 "SpeedControlsDesc" = "Mostra i pulsanti di controllo della velocità nell'overlay.";
-"MuteButton" = "Mute button";
-"MuteButtonDesc" = "Displays a button to mute or unmute the volume on the overlay.";
-"LockButton" = "Lock button";
-"LockButtonDesc" = "Displays a button to quickly lock the overlay screen and switch to fullscreen mode.";
+"MuteButton" = "Pulsante Muto";
+"MuteButtonDesc" = "Mostra un pulsante per attivare o disattivare il volume sull'overlay.";
+"LockButton" = "Pulsante di Blocco";
+"LockButtonDesc" = "Visualizza un pulsante per bloccare rapidamente la schermata di overlay e passare alla modalità a schermo intero.";
 "HideAutoplay" = "Nascondi interruttore dell'autoplay";
 "HideAutoplayDesc" = "Nasconde l'interruttore dell'autoplay dall'overlay.";
 "HideSubs" = "Nascondi pulsante Sottotitoli";
@@ -156,29 +156,29 @@
 "NoRelatedWatchNextsDesc" = "Nasconde tutti i video sotto al player, lasciando solo le info del video e la sezione commenti.";
 "RemoveInlineComment" = "Rimuovi commenti incorporati";
 "RemoveInlineCommentDesc" = "Rimuove la sezione commenti sotto al player.";
-"NoSubUnderPlayer" = "Remove \"Subscribe\" button";
-"NoSubUnderPlayerDesc" = "Removes \"Subscribe\" button under player.";
-"PlayerNoShare" = "Remove \"Share\" button";
-"PlayerNoShareDesc" = "Removes \"Share\" button under player.";
-"PlayerNoThanks" = "Remove \"Thanks\" button";
-"PlayerNoThanksDesc" = "Removes \"Thanks\" button under player.";
-"PlayerNoRemix" = "Remove \"Remix\" button";
-"PlayerNoRemixDesc" = "Removes \"Remix\" button under player.";
-"PlayerNoDownload" = "Remove \"Download\" button";
-"PlayerNoDownloadDesc" = "Removes \"Download\" button under player.";
-"PlayerNoClip" = "Remove \"Clip\" button";
-"PlayerNoClipDesc" = "Removes \"Clip\" button under player.";
-"PlayerNoSave" = "Remove \"Save\" button";
-"PlayerNoSaveDesc" = "Removes \"Save\" button under player.";
-"PlayerNoReport" = "Remove \"Report\" button";
-"PlayerNoReportDesc" = "Removes \"Report\" button under player.";
+"NoSubUnderPlayer" = "Rimuovi il pulsante \"Iscriviti\"";
+"NoSubUnderPlayerDesc" = "Rimuove il pulsante \"Iscriviti\" sotto al video.";
+"PlayerNoShare" = "Rimuovi il pulsante \"Condividi\"";
+"PlayerNoShareDesc" = "Rimuove il pulsante \"Condividi\" sotto al video.";
+"PlayerNoThanks" = "Rimuovi il pulsante \"Ringrazia\"";
+"PlayerNoThanksDesc" = "Rimuove il pulsante \"Ringrazia\" sotto al video.";
+"PlayerNoRemix" = "Rimuovi il pulsante \"Remix\"";
+"PlayerNoRemixDesc" = "Rimuove il pulsante \"Remix\" sotto al video.";
+"PlayerNoDownload" = "Rimuovi il pulsante \"Download\"";
+"PlayerNoDownloadDesc" = "Rimuove il pulsante \"Download\" sotto al video.";
+"PlayerNoClip" = "Rimuovi il pulsante \"Clip\"";
+"PlayerNoClipDesc" = "Rimuove il pulsante \"Clip\" sotto al video.";
+"PlayerNoSave" = "Rimuovi il pulsante \"Salva\"";
+"PlayerNoSaveDesc" = "Rimuove il pulsante \"Salva\" sotto al video.";
+"PlayerNoReport" = "Rimuovi il pulsante \"Segnala\"";
+"PlayerNoReportDesc" = "Rimuove il pulsante \"Segnala\" sotto al video.";
 
-"ProgressBarStyle" = "Progress bar style";
-"SolidColor" = "Solid color";
-"Gradient" = "Gradient";
-"MainColor" = "Main color";
-"GradientColor" = "Gradient highlight";
-"ScrubberColor" = "Scrubber color";
+"ProgressBarStyle" = "Stile della Progress bar";
+"SolidColor" = "Tinta unita";
+"Gradient" = "Sfumatura";
+"MainColor" = "Colore principale";
+"GradientColor" = "Highlight sfumato";
+"ScrubberColor" = "Colore spazzolato";
 
 "Player.Actions" = "Azioni";
 "DefaultPlaybackRate" = "Velocità di riproduzione predefinita";
@@ -256,7 +256,7 @@
 "RemoveShortsLive" = "Rimuovi video live";
 "RemoveShortsLiveDesc" = "Rimuove i video live dal feed.";
 
-"ShortsInterface" = "Interface";
+"ShortsInterface" = "Interfaccia";
 "HideShortsLogo" = "Nascondi logo Shorts";
 "HideShortsLogoDesc" = "Nasconde il logo degli Shorts nell'angolo in alto a sinistra.";
 "HideShortsSearch" = "Nascondi il tasto Cerca";
@@ -266,37 +266,37 @@
 "HideShortsMore" = "Nascondi il tasto More (⋮)";
 "HideShortsMoreDesc" = "Nasconde il tasto More (⋮) dall'overlay degli Shorts. È anche accessibile premendo a lungo lo schermo.";
 
-"HideCarouselSub" = "Hide Subscriptions";
-"HideCarouselSubDesc" = "Removes Subscriptions button that appears in paused state.";
-"HideCarouselLive" = "Hide Live";
-"HideCarouselLiveDesc" = "Removes Live button that appears in paused state.";
-"HideCarouselTrends" = "Hide Trends";
-"HideCarouselTrendsDesc" = "Removes Trends button that appears in paused state.";
-"HideCarouselShop" = "Hide Shop";
-"HideCarouselShopDesc" = "Removes Shop button that appears in paused state.";
+"HideCarouselSub" = "Nascondi Iscrizioni";
+"HideCarouselSubDesc" = "Rimuove il pulsante iscrizioni che compare durante la pausa.";
+"HideCarouselLive" = "Nascondi Live";
+"HideCarouselLiveDesc" = "Rimuove il pulsante Live che compare durante la pausa.";
+"HideCarouselTrends" = "Nascondi Trends";
+"HideCarouselTrendsDesc" = "Rimuove il pulsante Trends che compare durante la pausa.";
+"HideCarouselShop" = "Nascondi Shop";
+"HideCarouselShopDesc" = "Rimuove il pulsante Shop che compare durante la pausa.";
 
-"HideShortsLike" = "No Like button";
-"HideShortsLikeDesc" = "Removes the Like button from the action bar.";
-"HideShortsDislike" = "No Dislike button";
-"HideShortsDislikeDesc" = "Removes the Dislike button from the action bar.";
-"HideShortsComments" = "No Comments button";
-"HideShortsCommentsDesc" = "Removes the Comments button from the action bar.";
-"HideShortsShare" = "No Share button";
-"HideShortsShareDesc" = "Removes the Share button from the action bar.";
-"HideShortsRemix" = "No Remix button";
-"HideShortsRemixDesc" = "Removes the Remix button from the action bar.";
-"HideShortsSuggestion" = "No suggestions";
-"HideShortsSuggestionDesc" = "Removes the button with suggestions, such as Add to playlist, Super Thanks, etc.";
-"HideShortsSubscribe" = "No follow button";
-"HideShortsSubscribeDesc" = "Removes the Follow button next to the username.";
+"HideShortsLike" = "No pulsante Like";
+"HideShortsLikeDesc" = "Rimuove il pulsante Like dall'action bar.";
+"HideShortsDislike" = "No pulsante Dislike";
+"HideShortsDislikeDesc" = "Rimuove il pulsante Dislike dall'action bar.";
+"HideShortsComments" = "No pulsante Commenti";
+"HideShortsCommentsDesc" = "Rimuove il pulsante Commenti dall'action bar.";
+"HideShortsShare" = "No pulsante Condividi";
+"HideShortsShareDesc" = "Rimuove il pulsante Condividi dall'action bar.";
+"HideShortsRemix" = "No pulsante Remix";
+"HideShortsRemixDesc" = "Rimuove il pulsante Remix dall'action bar.";
+"HideShortsSuggestion" = "No suggeriti";
+"HideShortsSuggestionDesc" = "Rimuove il pulsante con i suggeriti, come Aggiungi a playlist, super grazie, ecc.";
+"HideShortsSubscribe" = "No pulsante Segui";
+"HideShortsSubscribeDesc" = "Rimuove il pulsante Segui di fianco all'username.";
 "HideShortsUsername" = "No username";
-"HideShortsUsernameDesc" = "Removes the channel name.";
-"HideShortsDescription" = "No description";
-"HideShortsDescriptionDesc" = "Removes the Shorts description.";
-"HideShortsSource" = "No source link button";
-"HideShortsSourceDesc" = "Removes the button that navigates to the full video or another Short video.";
-"HideShortsAudio" = "No audio indicator";
-"HideShortsAudioDesc" = "Removes the line indicating the audio used in the Shorts.";
+"HideShortsUsernameDesc" = "Rimuove il nome del canale.";
+"HideShortsDescription" = "No descrizione";
+"HideShortsDescriptionDesc" = "Rimuove la descrizione dello Short.";
+"HideShortsSource" = "No pulsante Fonte";
+"HideShortsSourceDesc" = "Rimuove il pulsante che porta al video completo o a un altro Short.";
+"HideShortsAudio" = "No indicatore audio";
+"HideShortsAudioDesc" = "Rimuove la riga che indica l'audio negli Shorts.";
 
 /* Tab bar options */
 "Tabbar" = "Tab bar";
@@ -308,10 +308,10 @@
 "FElibrary" = "Libreria";
 "FEuploads" = "Crea";
 "FEhistory" = "Cronologia";
-"FEpost_home" = "Posts";
+"FEpost_home" = "Post";
 "VLWL" = "Guarda più tardi";
 
-"TranslucentBar" = "Translucent tab bar";
+"TranslucentBar" = "Tab bar traslucida";
 "RemoveLabels" = "Rimuovi descrizioni Tab";
 "RemoveIndicators" = "Rimuovi indicatori Tab";
 
@@ -327,8 +327,8 @@
 "Interface" = "Interfaccia";
 "OledTheme" = "Tema OLED";
 "OledThemeDesc" = "Rende neri tutti i colori scuri";
-"OledKeyboard" = "Oled keyboard";
-"OledKeyboardDesc" = "Applies oled black theme for dark keyboard";
+"OledKeyboard" = "Tastiera OLED";
+"OledKeyboardDesc" = "Applica il tema nero OLED alla tastiera";
 "NoSearchHistory" = "Nascondi cronologia di ricerca";
 "NoSearchHistoryDesc" = "Nasconde la cronologia di ricerca e i suggerimenti. Nota: La cronologia sarà ancora accessibile negli altri client YouTube.";
 "StickSortComments" = "Fissa l'header dei commenti";
@@ -352,8 +352,8 @@
 "Floating" = "Floating";
 
 "ContextMenu" = "Menu contestuale";
-"NoShareChunk" = "Remove share identifier";
-"NoShareChunkDesc" = "Removes the \"si=identifier\" parameter from shared links. A good alternative to the \"Native share sheet\" option as YouTube continues to improve its sharing menu.";
+"NoShareChunk" = "Rimuovi share identifier";
+"NoShareChunkDesc" = "Rimuove il parametro \"si=identifier\" dai link condivisi. Una buona alternativa all'opzione \"Share sheet nativo\" visto che YouTube continua a migliorare il suo menu condivisione.";
 "NativeShare" = "Share sheet nativo";
 "NativeShareDesc" = "Usa lo share sheet di sistema per condividere i media";
 "RemoveCommentGuidelines" = "Rimuovi le linee guida";
@@ -449,7 +449,7 @@
 "FollowMe" = "Seguimi su X";
 "SupportDevelopment" = "Supporta lo sviluppo";
 "DonateDesc" = "Il tuo supporto significa molto per me";
-"SupportDevelopmentDesc" = "Se ti piace TYPlus e vorresti supportare il suo sviluppo, puoi farlo utilizzando uno dei modi indicati di seguito.\nGrazie❤";
+"SupportDevelopmentDesc" = "Se ti piace YTPlus e vorresti supportare il suo sviluppo, puoi farlo utilizzando uno dei modi indicati di seguito.\nGrazie❤";
 "VisitGithub" = "Github Repository";
 "VisitGithubDesc" = "Metti una stella alla repo, richiedi una feature o segnala un problema";
 "VisitTelegram" = "Il mio canale Telegram";
@@ -493,7 +493,7 @@
 "ClearCache" = "Cancella cache";
 
 "NoDonationReminder" = "Disattiva promemoria donazioni";
-"NoDonationReminderDesc" = "Disattiva il raramente mostrato promemoria delle donazioni.";
+"NoDonationReminderDesc" = "Disattiva il promemoria delle donazioni mostrato di rado.";
 
 "ShortsOnlyWarning" = "Sei sicuro di voler attivare questa modalità?\n\nIn questa modalita, sarai solo in grado di vedere gli Shorts e non potrai fare nient'altro.\n\nPuoi disattivare la modalità Shorts-Only tenendo premuto con due dita nel player degli shorts.";
 "ShortsModeTurnedOff" = "La modalità Shorts-Only è stata disattivata";
@@ -538,7 +538,7 @@
 "OpenAsRegularVideo" = "Apri come video standard";
 "CopyPostText" = "Copia il testo del post";
 "SaveCurrentImage" = "Salva immagine corrente";
-"ShowCurrentImage" = "Show current image";
+"ShowCurrentImage" = "Mostra immagine corrente";
 "CopyCurrentImage" = "Copia immagine corrente";
 "SavePostAsImage" = "Salva il post come immagine";
 "CopyPostAsImage" = "Copia il post come immagine";
@@ -546,10 +546,10 @@
 "SaveCommentAsImage" = "Salva il commento come immagine";
 "CopyCommentAsImage" = "Copia il commento come immagine";
 "SaveProfilePicture" = "Salva immagine di profilo";
-"ShowProfilePicture" = "Show profile picture";
+"ShowProfilePicture" = "Mostra immagine di profilo";
 "CopyProfilePicture" = "Copia immagine di profilo";
 "DownloadThumbnail" = "Salva copertina";
-"ShowThumbnail" = "Show thumbnail";
+"ShowThumbnail" = "Mostra copertina";
 "CopyThumbnail" = "Copia copertina";
 "Cancel" = "Cancella";
 "Cancelled" = "Cancellato";
@@ -585,7 +585,7 @@
 
 "Conflicts.Detected" = "Rilevati Tweak non compatibili";
 "Conflicts.DetectedDesc" = "Nonostante la stabilità apparente dell'app, lo sviluppatore di YouTube Plus non consiglia di combinare tweak con funzioni simili nella stessa app e non può garantire un utilizzo sicuro.\n\nContinuando ad utilizzare l'app, ti assumi la completa responsabilità e accetti che ogni lamentela riguardo alle performance verrà ignorata.";
-"Conflicts.SkipThisVersion" = "Don't Show for This Version";
+"Conflicts.SkipThisVersion" = "Non mostrare in questa versione";
 "Conflicts.AcceptRisks" = "Accetto tutti i rischi";
 "Conflicts.CloseYT" = "Chiudi YouTube";
 
