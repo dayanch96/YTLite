@@ -21,8 +21,8 @@ static NSString *accessGroupID() {
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
     if (status == errSecItemNotFound)
         status = SecItemAdd((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
-        if (status != errSecSuccess)
-            return nil;
+    if (status != errSecSuccess)
+        return nil;
     NSString *accessGroup = [(__bridge NSDictionary *)result objectForKey:(__bridge NSString *)kSecAttrAccessGroup];
 
     return accessGroup;
