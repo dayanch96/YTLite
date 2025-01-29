@@ -162,6 +162,20 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
+      - name: Clone PSHeader
+        run: |
+          if [ -d "$THEOS/include/PSHeader" ]; then
+            echo "PSHeader exists. Pulling latest changes..."
+            cd $THEOS/include/PSHeader
+            git pull
+          else
+            echo "PSHeader does not exist. Cloning repository..."
+            cd $THEOS/include
+            git clone --quiet --depth=1 https://github.com/PoomSmart/PSHeader.git
+          fi
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
       - name: Clone YouPiP
         if: ${{ inputs.enable_youpip }}
         run: |
