@@ -140,8 +140,6 @@ jobs:
 
 
 
-        env:
-          THEOS: ${{ github.workspace }}/theos
 
 
 
@@ -149,12 +147,10 @@ jobs:
 
 
 
-        env:
-          THEOS: ${{ github.workspace }}/theos
 
 
-        env:
-          THEOS: ${{ github.workspace }}/theos
+
+
 
       - name: Inject tweaks into IPA
         run: |
