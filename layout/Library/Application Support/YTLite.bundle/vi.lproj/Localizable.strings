@@ -30,13 +30,13 @@
 "SelectAudioTrack" = "Chọn bản âm thanh";
 "EnglishNotFound" = "Không tìm thấy bản âm thanh tiếng Anh";
 
-"Audios" = "Audios";
-"AudioDRC" = "Prefer stable volume";
-"AudioDRCDesc" = "The download manager will prioritize audio with stable volume (Dynamic Range Compression) if such audio is available.";
+"Audios" = "Âm thanh";
+"AudioDRC" = "Ưu tiên âm lượng ổn định";
+"AudioDRCDesc" = "Trình quản lý tải xuống sẽ ưu tiên âm thanh có âm lượng ổn định (Nén dải động) nếu âm thanh như vậy có sẵn.";
 
-"CaptionsAndThumbnails" = "Captions and Thumbnails";
-"EmbedThumbnailsToVideos" = "Embed thumbnails";
-"EmbedThumbnailsToVideosDesc" = "Embeds the video's thumbnail as its metadata thumbnail.";
+"CaptionsAndThumbnails" = "Phụ đề và hình thu nhỏ";
+"EmbedThumbnailsToVideos" = "Nhúng hình thu nhỏ";
+"EmbedThumbnailsToVideosDesc" = "Nhúng hình thu nhỏ của video làm hình thu nhỏ siêu dữ liệu của nó.";
 "EmbedCapsToVideos" = "Nhúng phụ đề";
 "EmbedCapsToVideosDesc" = "Nhúng phụ đề đã chọn vào video.";
 "EmbedAutoGenCaps" = "Phụ đề tự động/đã dịch";
@@ -83,8 +83,8 @@
 "RemoveHorizontalFeedsDesc" = "Ẩn các nội dung được bố trí theo chiều ngang (Tin tức, Tiếp tục xem, Bộ sưu tập bài đăng, v.v.) khỏi tab Trang chủ.";
 "RemoveMoreTopics" = "Ẩn \"Chủ đề khác\"";
 "RemoveMoreTopicsDesc" = "Ẩn \"Chủ đề khác\" khỏi trang xem.";
-"RemovePlayables" = "Remove playables";
-"RemovePlayablesDesc" = "Removes playables (mini-games) from the feed.";
+"RemovePlayables" = "Loại bỏ trò chơi";
+"RemovePlayablesDesc" = "Loại bỏ các trò chơi (mini-game) khỏi trang xem.";
 "FixAlbums" = "Sửa ảnh bìa album";
 "FixAlbumsDesc" = "Sửa lỗi hiển thị ảnh bìa album cho người dùng Nga.";
 
@@ -104,10 +104,10 @@
 "Player.Interface" = "Giao diện";
 "SpeedControls" = "Điều khiển tốc độ";
 "SpeedControlsDesc" = "Hiển thị nút điều khiển tốc độ trong trình phát.";
-"MuteButton" = "Mute button";
-"MuteButtonDesc" = "Displays a button to mute or unmute the volume on the overlay.";
-"LockButton" = "Lock button";
-"LockButtonDesc" = "Displays a button to quickly lock the overlay screen and switch to fullscreen mode.";
+"MuteButton" = "Nút im lặng";
+"MuteButtonDesc" = "Hiển thị nút để tắt hoặc bật âm thanh trong trình phát.";
+"LockButton" = "Nút khóa màn hình";
+"LockButtonDesc" = "Hiển thị nút để nhanh chóng khóa màn hình và chuyển sang chế độ toàn màn hình.";
 "HideAutoplay" = "Ẩn nút Tự động phát";
 "HideAutoplayDesc" = "Ẩn nút Tự động phát khỏi trình phát.";
 "HideSubs" = "Ẩn nút Phụ đề";
@@ -156,29 +156,29 @@
 "NoRelatedWatchNextsDesc" = "Ẩn tất cả video dưới trình phát, chỉ để lại phần thông tin video và bình luận.";
 "RemoveInlineComment" = "Ẩn xem trước bình luận";
 "RemoveInlineCommentDesc" = "Ẩn bản xem trước bình luận dưới trình phát.";
-"NoSubUnderPlayer" = "Remove \"Subscribe\" button";
-"NoSubUnderPlayerDesc" = "Removes \"Subscribe\" button under player.";
-"PlayerNoShare" = "Remove \"Share\" button";
-"PlayerNoShareDesc" = "Removes \"Share\" button under player.";
-"PlayerNoThanks" = "Remove \"Thanks\" button";
-"PlayerNoThanksDesc" = "Removes \"Thanks\" button under player.";
-"PlayerNoRemix" = "Remove \"Remix\" button";
-"PlayerNoRemixDesc" = "Removes \"Remix\" button under player.";
-"PlayerNoDownload" = "Remove \"Download\" button";
-"PlayerNoDownloadDesc" = "Removes \"Download\" button under player.";
-"PlayerNoClip" = "Remove \"Clip\" button";
-"PlayerNoClipDesc" = "Removes \"Clip\" button under player.";
-"PlayerNoSave" = "Remove \"Save\" button";
-"PlayerNoSaveDesc" = "Removes \"Save\" button under player.";
-"PlayerNoReport" = "Remove \"Report\" button";
-"PlayerNoReportDesc" = "Removes \"Report\" button under player.";
+"NoSubUnderPlayer" = "Loại bỏ nút \"Đăng ký\"";
+"NoSubUnderPlayerDesc" = "Loại bỏ nút \"Đăng ký\" dưới trình phát.";
+"PlayerNoShare" = "Loại bỏ nút \"Chia sẻ\"";
+"PlayerNoShareDesc" = "Loại bỏ nút \"Chia sẻ\" dưới trình phát.";
+"PlayerNoThanks" = "Loại bỏ nút \"Cảm ơn\"";
+"PlayerNoThanksDesc" = "Loại bỏ nút \"Cảm ơn\" dưới trình phát.";
+"PlayerNoRemix" = "Loại bỏ nút \"Phối lại\"";
+"PlayerNoPhối lạiDesc" = "Loại bỏ nút \"Phối lại\" dưới trình phát.";
+"PlayerNoDownload" = "Loại bỏ nút \"Tải xuống\"";
+"PlayerNoDownloadDesc" = "Loại bỏ nút \"Tải xuống\" dưới trình phát.";
+"PlayerNoClip" = "Loại bỏ nút \"Cắt\"";
+"PlayerNoClipDesc" = "Loại bỏ nút \"Cắt\" dưới trình phát.";
+"PlayerNoSave" = "Loại bỏ nút \"Lưu\"";
+"PlayerNoSaveDesc" = "Loại bỏ nút \"Lưu\" dưới trình phát.";
+"PlayerNoReport" = "Loại bỏ nút \"Báo cáo\"";
+"PlayerNoReportDesc" = "Loại bỏ nút \"Báo cáo\" dưới trình phát.";
 
-"ProgressBarStyle" = "Progress bar style";
-"SolidColor" = "Solid color";
-"Gradient" = "Gradient";
-"MainColor" = "Main color";
-"GradientColor" = "Gradient highlight";
-"ScrubberColor" = "Scrubber color";
+"ProgressBarStyle" = "Kiểu thanh tiến trình";
+"SolidColor" = "Màu đồng nhất";
+"Gradient" = "Màu chuyển sắc";
+"MainColor" = "Màu chính";
+"GradientColor" = "Màu chuyển sắc nổi bật";
+"ScrubberColor" = "Màu thanh điều chỉnh";
 
 "Player.Actions" = "Hành động";
 "DefaultPlaybackRate" = "Tốc độ phát mặc định";
@@ -256,7 +256,7 @@
 "RemoveShortsLive" = "Ẩn video trực tiếp";
 "RemoveShortsLiveDesc" = "Ẩn các video trực tiếp khỏi trang xem.";
 
-"ShortsInterface" = "Interface";
+"ShortsInterface" = "Giao diện";
 "HideShortsLogo" = "Ẩn biểu tượng Shorts";
 "HideShortsLogoDesc" = "Ẩn biểu tượng Shorts ở góc trên cùng bên trái.";
 "HideShortsSearch" = "Ẩn nút Tìm kiếm";
@@ -266,36 +266,36 @@
 "HideShortsMore" = "Ẩn nút Thêm (⋮)";
 "HideShortsMoreDesc" = "Ẩn nút Thêm (⋮) khỏi video. Bạn vẫn có thể truy cập menu này bằng cách nhấn giữ vào màn hình.";
 
-"HideCarouselSub" = "Hide Subscriptions";
-"HideCarouselSubDesc" = "Removes Subscriptions button that appears in paused state.";
-"HideCarouselLive" = "Hide Live";
-"HideCarouselLiveDesc" = "Removes Live button that appears in paused state.";
-"HideCarouselTrends" = "Hide Trends";
-"HideCarouselTrendsDesc" = "Removes Trends button that appears in paused state.";
-"HideCarouselShop" = "Hide Shop";
-"HideCarouselShopDesc" = "Removes Shop button that appears in paused state.";
+"HideCarouselSub" = "Ẩn kênh đăng ký";
+"HideCarouselSubDesc" = "Loại bỏ nút kênh đăng ký khi tạm dừng.";
+"HideCarouselLive" = "Ẩn phát trực tiếp";
+"HideCarouselLiveDesc" = "Loại bỏ nút phát trực tiếp khi tạm dừng.";
+"HideCarouselTrends" = "Ẩn xu hướng";
+"HideCarouselTrendsDesc" = "Loại bỏ nút xu hướng khi tạm dừng.";
+"HideCarouselShop" = "Ẩn mua sắm";
+"HideCarouselShopDesc" = "Loại bỏ nút mua sắm khi tạm dừng.";
 
-"HideShortsLike" = "No Like button";
-"HideShortsLikeDesc" = "Removes the Like button from the action bar.";
-"HideShortsDislike" = "No Dislike button";
-"HideShortsDislikeDesc" = "Removes the Dislike button from the action bar.";
-"HideShortsComments" = "No Comments button";
-"HideShortsCommentsDesc" = "Removes the Comments button from the action bar.";
-"HideShortsShare" = "No Share button";
-"HideShortsShareDesc" = "Removes the Share button from the action bar.";
-"HideShortsRemix" = "No Remix button";
-"HideShortsRemixDesc" = "Removes the Remix button from the action bar.";
-"HideShortsSuggestion" = "No suggestions";
-"HideShortsSuggestionDesc" = "Removes the button with suggestions, such as Add to playlist, Super Thanks, etc.";
-"HideShortsSubscribe" = "No follow button";
-"HideShortsSubscribeDesc" = "Removes the Follow button next to the username.";
-"HideShortsUsername" = "No username";
-"HideShortsUsernameDesc" = "Removes the channel name.";
-"HideShortsDescription" = "No description";
-"HideShortsDescriptionDesc" = "Removes the Shorts description.";
-"HideShortsSource" = "No source link button";
-"HideShortsSourceDesc" = "Removes the button that navigates to the full video or another Short video.";
-"HideShortsAudio" = "No audio indicator";
+"HideShortsLike" = "Không có nút thích";
+"HideShortsLikeDesc" = "Loại bỏ nút thích khỏi thanh hành động.";
+"HideShortsDislike" = "Không có nút không thích";
+"HideShortsDislikeDesc" = "Loại bỏ nút không thích khỏi thanh hành động.";
+"HideShortsComments" = "Không có nút bình luận";
+"HideShortsCommentsDesc" = "Loại bỏ nút bình luận khỏi thanh hành động.";
+"HideShortsShare" = "Không có nút chia sẻ";
+"HideShortsShareDesc" = "Loại bỏ nút chia sẻ khỏi thanh hành động.";
+"HideShortsRemix" = "Không có nút phối lại";
+"HideShortsRemixDesc" = "Loại bỏ nút phối lại khỏi thanh hành động.";
+"HideShortsSuggestion" = "Không có gợi ý";
+"HideShortsSuggestionDesc" = "Loại bỏ nút gợi ý, như thêm vào playlist, Super Thanks, v.v.";
+"HideShortsSubscribe" = "Không có nút đăng ký";
+"HideShortsSubscribeDesc" = "Loại bỏ nút đăng ký bên cạnh tên người dùng.";
+"HideShortsUsername" = "Không có tên người dùng";
+"HideShortsUsernameDesc" = "Loại bỏ tên kênh.";
+"HideShortsDescription" = "Không có mô tả";
+"HideShortsDescriptionDesc" = "Loại bỏ mô tả của Shorts.";
+"HideShortsSource" = "Không có nút nguồn";
+"HideShortsSourceDesc" = "Loại bỏ nút dẫn đến video đầy đủ hoặc video Short khác.";
+"HideShortsAudio" = "Không có chỉ báo âm thanh";
 
 /* Tab bar options */
 "Tabbar" = "Thanh tab";
@@ -307,10 +307,10 @@
 "FElibrary" = "Thư viện";
 "FEuploads" = "Tạo";
 "FEhistory" = "Lịch sử";
-"FEpost_home" = "Posts";
+"FEpost_home" = "Bài đăng";
 "VLWL" = "Xem sau";
 
-"TranslucentBar" = "Translucent tab bar";
+"TranslucentBar" = "Thanh tab trong suốt";
 "RemoveLabels" = "Ẩn tiêu đề tab";
 "RemoveIndicators" = "Ẩn biểu thị hiện hoạt";
 
@@ -326,8 +326,8 @@
 "Interface" = "Giao diện";
 "OledTheme" = "Chủ đề OLED";
 "OledThemeDesc" = "Chuyển tất cả màu tối thành màu đen tuyền.";
-"OledKeyboard" = "Oled keyboard";
-"OledKeyboardDesc" = "Applies oled black theme for dark keyboard";
+"OledKeyboard" = "Bàn phím Oled";
+"OledKeyboardDesc" = "Áp dụng chủ đề đen oled cho bàn phím tối";
 "NoSearchHistory" = "Ẩn lịch sử tìm kiếm";
 "NoSearchHistoryDesc" = "Không hiển thị lịch sử tìm kiếm và đề xuất. Lưu ý: lịch sử tìm kiếm của bạn vẫn sẽ được lưu trong tài khoản, cài đặt này chỉ áp dụng cho ứng dụng hiện tại.";
 "StickSortComments" = "Thanh tùy chọn sắp xếp bình luận cố định";
@@ -352,7 +352,7 @@
 
 "ContextMenu" = "Menu ngữ cảnh";
 "NoShareChunk" = "Remove share identifier";
-"NoShareChunkDesc" = "Removes the \"si=identifier\" parameter from shared links. A good alternative to the \"Native share sheet\" option as YouTube continues to improve its sharing menu.";
+"NoShareChunkDesc" = "Loại bỏ tham số \"si=identifier\" khỏi các liên kết chia sẻ. Một lựa chọn tốt thay thế cho tùy chọn \"Bảng chia sẻ gốc\" khi YouTube tiếp tục cải tiến menu chia sẻ của họ.";
 "NativeShare" = "Bảng chia sẻ gốc";
 "NativeShareDesc" = "Sử dụng bảng chia sẻ của iOS để chia sẻ nội dung.";
 "RemoveCommentGuidelines" = "Ẩn nguyên tắc trên kênh";
@@ -460,7 +460,7 @@
 "Contributors" = "Người đóng góp";
 "DevContribution" = "Đóng góp phát triển";
 "SpecialThanks" = "Đặc biệt cảm ơn";
-"SpecialThanks.Test" = "Đóng góp to lớn trong việc thử nghiệm tweak";
+"SpecialThanks.Test" = "Đóng góp quý giá cho việc kiểm tra tinh chỉnh";
 
 "Localizations" = "Tác giả các bản dịch";
 "ChineseSimplified" = "Tiếng Trung (giản thể)";
@@ -471,12 +471,12 @@
 "Vietnamese" = "Tiếng Việt";
 "Arabic" = "Tiếng Ả Rập";
 "Turkish" = "Tiếng Thổ Nhĩ Kỳ";
-"Italian" = "Italian localization";
-"Korean" = "Korean localization";
-"Polish" = "Polish localization";
+"Italian" = "Tiếng Ý";
+"Korean" = "Tiếng Hàn";
+"Polish" = "Tiếng Ba Lan";
 
 "OpenSourceLibs" = "Thư viện nguồn mở";
-"SupporterWall" = "Supporters";
+"SupporterWall" = "Người ủng hộ";
 
 "Preferences" = "Cài đặt %@";
 "ManagePreferences" = "Quản lý cài đặt";
@@ -537,7 +537,7 @@
 "OpenAsRegularVideo" = "Mở như video thông thường";
 "CopyPostText" = "Sao chép nội dung bài đăng";
 "SaveCurrentImage" = "Lưu hình ảnh hiện tại";
-"ShowCurrentImage" = "Show current image";
+"ShowCurrentImage" = "Hiển thị hình ảnh hiện tại";
 "CopyCurrentImage" = "Sao chép hình ảnh hiện tại";
 "SavePostAsImage" = "Lưu bài đăng dưới dạng hình ảnh";
 "CopyPostAsImage" = "Sao chép bài đăng dưới dạng hình ảnh";
@@ -545,10 +545,10 @@
 "SaveCommentAsImage" = "Lưu bình luận dưới dạng hình ảnh";
 "CopyCommentAsImage" = "Sao chép bình luận dưới dạng hình ảnh";
 "SaveProfilePicture" = "Lưu ảnh hồ sơ";
-"ShowProfilePicture" = "Show profile picture";
+"ShowProfilePicture" = "Hiển thị ảnh hồ sơ";
 "CopyProfilePicture" = "Sao chép ảnh hồ sơ";
 "DownloadThumbnail" = "Lưu hình thu nhỏ";
-"ShowThumbnail" = "Show thumbnail";
+"ShowThumbnail" = "Hiển thị hình thu nhỏ";
 "CopyThumbnail" = "Sao chép hình thu nhỏ";
 "Cancel" = "Hủy bỏ";
 "Cancelled" = "Đã hủy";
@@ -584,7 +584,7 @@
 
 "Conflicts.Detected" = "Đã phát hiện tweak không tương thích";
 "Conflicts.DetectedDesc" = "Mặc dù ứng dụng trông có vẻ đang chạy bình thường, nhà phát triển của YouTube Plus khuyến khích bạn không nên cài đặt hai hoặc nhiều tweak có chức năng tương tự nhau vào cùng một ứng dụng vì có thể gây ra vấn đề.\n\nBằng việc tiếp tục sử dụng, bạn đã hiểu và đồng ý chịu hoàn toàn trách nhiệm, nhà phát triển sẽ không phản hồi về bất cứ vấn đề nào xảy ra trong quá trình sử dụng.";
-"Conflicts.SkipThisVersion" = "Don't Show for This Version";
+"Conflicts.SkipThisVersion" = "Không hiển thị cho phiên bản này";
 "Conflicts.AcceptRisks" = "Tôi chấp nhận mọi rủi ro";
 "Conflicts.CloseYT" = "Thoát YouTube";
 
