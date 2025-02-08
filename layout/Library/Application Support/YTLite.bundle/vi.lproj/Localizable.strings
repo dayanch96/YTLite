@@ -190,7 +190,7 @@
 "DisableAutoplayDesc" = "Không tự động phát video ngay khi nhấn xem.";
 "DisableAutoCaptions" = "Không tự bật phụ đề";
 "DisableAutoCaptionsDesc" = "Không tự động bật phụ đề ngay khi nhấn xem.";
-"NoContentWarning" = "Ẩn cảnh báo nội dung";
+"NoContentWarning" = "Bỏ qua cảnh báo nội dung";
 "NoContentWarningDesc" = "Không hiển thị hộp thoại cảnh báo nội dung nhạy cảm.";
 "NoHints" = "Ẩn thẻ gợi ý";
 "NoHintsDesc" = "Ẩn thẻ gợi ý của kênh xuất hiện ở góc trên bên phải video trong khi phát.";
@@ -359,7 +359,7 @@
 "RemoveCommentGuidelines" = "Ẩn nguyên tắc trên kênh";
 "RemoveCommentGuidelinesDesc" = "Ẩn nguyên tắc do kênh đưa ra trong phần bình luận.";
 "RemovePlayNext" = "Ẩn \"Phát tiếp theo trong danh sách chờ\"";
-"RemovePlayNextDesc" = "Ẩn tùy chọn thêm video vào dang sách chờ khỏi menu.";
+"RemovePlayNextDesc" = "Ẩn tùy chọn thêm video vào danh sách chờ khỏi menu.";
 "RemoveDownloadMenu" = "Ẩn \"Tải video xuống\"";
 "RemoveDownloadMenuDesc" = "Ẩn tùy chọn tải xuống video khỏi menu.";
 "RemoveWatchLaterMenu" = "Ẩn \"Lưu vào danh sách Xem sau\"";
