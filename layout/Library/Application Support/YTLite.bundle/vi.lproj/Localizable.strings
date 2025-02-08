@@ -163,7 +163,7 @@
 "PlayerNoThanks" = "Ẩn nút \"Cảm ơn\"";
 "PlayerNoThanksDesc" = "Ẩn nút ủng hộ kênh dưới trình phát.";
 "PlayerNoRemix" = "Ẩn nút \"Phối lại\"";
-"PlayerNoPhối lạiDesc" = "Ẩn nút phối lại video dưới trình phát.";
+"PlayerNoRemixDesc" = "Ẩn nút phối lại video dưới trình phát.";
 "PlayerNoDownload" = "Ẩn nút \"Tải xuống\"";
 "PlayerNoDownloadDesc" = "Ẩn nút tải xuống video dưới trình phát.";
 "PlayerNoClip" = "Ẩn nút \"Tạo đoạn video\"";
