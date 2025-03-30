@@ -327,7 +327,7 @@
 "Interface" = "界面项";
 "OledTheme" = "OLED 主题";
 "OledThemeDesc" = "将所有深色变为黑色。";
-"OledKeyboard" = "OLED键盘";
+"OledKeyboard" = "OLED 键盘";
 "OledKeyboardDesc" = "为深色键盘应用OLED黑色主题。";
 "NoSearchHistory" = "隐藏搜索历史记录";
 "NoSearchHistoryDesc" = "直观地隐藏搜索历史记录和建议。注意：搜索历史记录仍然可以在其他 YouTube 客户端中访问。";
@@ -374,6 +374,11 @@
 "RemoveDontRecommendMenuDesc" = "从菜单中删除“不推荐此频道”选项。";
 "RemoveReportMenu" = "删除“举报”";
 "RemoveReportMenuDesc" = "从菜单中删除“举报”选项。";
+"RemoveRemixMenu" = "删除“混剪”";
+"RemoveRemixMenuDesc" = "从菜单中删除“混剪”选项。";
+"RemoveYTMMenu" = "删除“YouTube 音乐”";
+"RemoveYTMMenuDesc" = "从菜单中删除“使用 YouTube 音乐收听”选项。";
+
 
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "启用";
@@ -524,6 +529,7 @@
 "DownloadVideo" = "下载视频";
 "DownloadAudio" = "下载音频";
 "SaveImage" = "保存图片";
+"Copy" = "复制";
 "CopyInformation" = "复制信息";
 "CopyChannelName" = "复制频道名称";
 "CopyTitle" = "复制标题";
