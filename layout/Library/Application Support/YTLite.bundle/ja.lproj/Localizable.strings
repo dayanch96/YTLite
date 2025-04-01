@@ -390,7 +390,7 @@
 "DurationWithoutSegmentsDesc" = "セグメント除いた合計の動画時間を表示します。";
 
 "SkipAlertDuration" = "「スキップ」ボタンを表示する時間";
-"UnskipAlertDuration" = "Unskip Alert Duration";
+"UnskipAlertDuration" = "「スキップしない」ボタンを表示する時間";
 
 "Segments" = "セグメント";
 "Sponsor" = "スポンサー";
@@ -439,10 +439,10 @@
 
 "SegmentDetected" = "%@ が検出されました";
 "SegmentSkipped" = "%@ はスキップされました";
-"SkippedToSegment" = "Skipped to the %@";
-"SkipSegment" = "Skip";
-"SkipToSegment" = "To highlight";
-"Unskip" = "Unskip";
+"SkippedToSegment" = "%@ にスキップしました";
+"SkipSegment" = "スキップ";
+"SkipToSegment" = "ハイライトに";
+"Unskip" = "スキップしない";
 
 /* Developer section */
 "Developer" = "開発者";
@@ -495,90 +495,90 @@
 "NoDonationReminder" = "寄付のリマインダーを無効化";
 "NoDonationReminderDesc" = "ほとんど表示されない寄付のリマインダーを非表示にします。";
 
-"ShortsOnlyWarning" = "このモードを有効にしてもよろしいですか?\n\nこのモードでは、ショート動画の視聴のみが可能で、他の操作は行えません。\n\nショート動画プレーヤーで「2本の指で長押し」すると、ショート動画専用モードを無効にできます。";
-"ShortsModeTurnedOff" = "ショートのみモードがオフになりました";
+"ShortsOnlyWarning" = "このモードを有効にしてもよろしいですか?\n\nこのモードでは、ショート動画の視聴のみが可能で、他の操作は行えません。\n\nショートプレーヤーで 2 本の指で長押しすると、ショート専用モードを無効にできます。";
+"ShortsModeTurnedOff" = "ショートのみモードがオフになりました。";
 
-"AddLibraryTab" = "Restore \"You\" tab";
-"RemoveLibraryTab" = "Remove \"You\" tab";
-"LibraryAdded" = "The You タブが復元されました";
-"LibraryRemoved" = "The You タブは削除されました";
+"AddLibraryTab" = "[マイページ] タブを復元";
+"RemoveLibraryTab" = "[マイページ] タブを削除";
+"LibraryAdded" = "[マイページ] タブを復元しました。";
+"LibraryRemoved" = "[マイページ] タブを削除しました。";
 
 "Yes" = "はい";
 "No" = "いいえ";
 
 "Select" = "選択";
 "Default" = "デフォルト";
-"Best" = "ベスト";
+"Best" = "最高";
 "Show" = "表示";
-"Disable" = "無効";
-"Disabled" = "無効化";
+"Disable" = "無効化";
+"Disabled" = "無効";
 "PlaybackSpeed" = "再生速度";
-"SpeedPreserved" = "速度を維持";
+"SpeedPreserved" = "速度を保存しました";
 "ResetSpeed" = "リセット";
 
 "Toast.Brightness" = "明るさ";
 "Toast.PlaybackSpeed" = "再生速度";
-"Toast.Volume" = "Volume";
+"Toast.Volume" = "音量";
 
 "SelectAction" = "アクションを選択";
-"DownloadVideo" = "ビデオをダウンロード";
+"DownloadVideo" = "動画をダウンロード";
 "DownloadAudio" = "オーディオをダウンロード";
-"SaveImage" = "イメージを保存";
+"SaveImage" = "画像を保存";
 "CopyInformation" = "情報をコピー";
 "CopyChannelName" = "チャンネル名をコピー";
 "CopyTitle" = "タイトルをコピー";
 "CopyDescription" = "説明をコピー";
 "CopyTimestampedLink" = "タイムスタンプ付きのリンクをコピー";
-"CopyTranscript" = "Copy transcript";
+"CopyTranscript" = "文字起こしをコピー";
 "PlayInExternalPlayer" = "外部プレーヤーで再生";
 "PlayInSystemPlayer" = "システムプレーヤーで再生";
-"PlayInInfuse" = "Infuseで再生";
-"PlayInVLC" = "VLCで再生";
-"PlayerNotFound" = "プレイヤーが見つかりません";
-"OpenAsRegularVideo" = "通常のビデオとして開く";
-"CopyPostText" = "投稿テキストをコピー";
-"SaveCurrentImage" = "現在のイメージを保存";
-"ShowCurrentImage" = "Show current image";
-"CopyCurrentImage" = "現在のイメージをコピー";
+"PlayInInfuse" = "Infuse で再生";
+"PlayInVLC" = "VLC で再生";
+"PlayerNotFound" = "プレーヤーが見つかりません";
+"OpenAsRegularVideo" = "通常の動画として開く";
+"CopyPostText" = "投稿のテキストをコピー";
+"SaveCurrentImage" = "現在の画像を保存";
+"ShowCurrentImage" = "現在の画像を表示";
+"CopyCurrentImage" = "現在の画像をコピー";
 "SavePostAsImage" = "投稿を画像として保存";
 "CopyPostAsImage" = "投稿を画像としてコピー";
-"CopyCommentText" = "コメントテキストをコピー";
+"CopyCommentText" = "コメントをコピー";
 "SaveCommentAsImage" = "コメントを画像として保存";
 "CopyCommentAsImage" = "コメントを画像としてコピー";
-"SaveProfilePicture" = "プロフィール写真を保存する";
-"ShowProfilePicture" = "Show profile picture";
-"CopyProfilePicture" = "プロフィール写真をコピーする";
+"SaveProfilePicture" = "プロフィール画像を保存";
+"ShowProfilePicture" = "プロフィール画像を表示";
+"CopyProfilePicture" = "プロフィール画像をコピー";
 "DownloadThumbnail" = "サムネイルを保存";
-"ShowThumbnail" = "Show thumbnail";
+"ShowThumbnail" = "サムネイルを表示";
 "CopyThumbnail" = "サムネイルをコピー";
 "Cancel" = "キャンセル";
 "Cancelled" = "キャンセルされました";
-"Copied" = "クリップボードにコピーされました";
-"Saved" = "写真に保存";
+"Copied" = "クリップボードにコピーしました";
+"Saved" = "「写真」アプリに保存";
 "Done" = "完了";
-"NothingToShowInMenu" = "Nothing to show in this context menu";
+"NothingToShowInMenu" = "このコンテキストメニューに表示するものはありません";
 "Error" = "エラー";
-"Error.Clipboard" = "エラー！詳細についてはクリップボードを確認してください";
-"Error.PathIssue" = "エラー！最終パスの生成時に問題が発生しました。メディアに問題があるかもしれません";
-"Error.TryLater" = "The media is live or processing on Google's server is expected to complete.\n\nPlease try again later.";
+"Error.Clipboard" = "エラー: 詳細についてはクリップボードを確認してください。";
+"Error.PathIssue" = "エラー: 最終パスの生成に問題が発生しました。メディアタイトルに問題がある可能性があります。";
+"Error.TryLater" = "メディアはライブ配信または Google サーバー上での処理完了待ち状態です。\n\n後ほど再度お試しください。";
 "Error.NoSpace" = "デバイスの空き容量が不足しています。\n\n少なくとも %@ の追加空き容量が必要です。使用可能な空き容量: %@";
-"Error.Multidownloading" = "マルチダウンロードはまだ利用できません。";
-"Error.FailedToImport" = "設定をインポートできませんでした";
-"DownloadingVideo" = "ビデオをダウンロード";
-"DownloadingAudio" = "オーディオをダウンロード";
-"ParsingCaptions" = "Parsing captions";
-"ParsingTranscript" = "Parsing the transcript";
+"Error.Multidownloading" = "同時ダウンロード機能はまだ利用できません。";
+"Error.FailedToImport" = "設定をインポートできませんでした。";
+"DownloadingVideo" = "動画のダウンロード中";
+"DownloadingAudio" = "オーディオのダウンロード中";
+"ParsingCaptions" = "字幕を解析中";
+"ParsingTranscript" = "トランスクリプトを解析中";
 "Converting" = "変換中";
 "RetryLogin" = "回避策が有効になりました。\n\nもう一度お試しください。";
-"LoginInfo" = "Googleアカウントへのログインに成功した後、アプリの再起動が必要です。";
+"LoginInfo" = "Google アカウントへのログインに成功した後、アプリの再起動が必要です。";
 
 "Welcome.Download" = "メディアのダウンロード";
-"Welcome.DownloadDesc" = "動画、ショート、オーディオ、プロフィール写真など、お気に入りのコンテンツをダウンロードできます。興味深い投稿やコメントをコピーしたり、画像として保存したりできます。";
+"Welcome.DownloadDesc" = "動画、ショート、オーディオ、プロフィール画像など、お気に入りのコンテンツをダウンロードできます。興味深い投稿やコメントをコピーしたり、画像として保存したりできます。";
 "Welcome.Content" = "インターフェースを調整";
 "Welcome.ContentDesc" = "不要なコンテンツやインターフェース要素を削除します。真の OLED ダークモードを有効にします。";
 "Welcome.Player" = "プレーヤーの動作を設定";
 "Welcome.PlayerDesc" = "プレーヤーの動作をカスタマイズし、画質と再生速度を自動選択します。ジェスチャーで操作可能です。";
-"Welcome.More" = "そしてさらに...";
+"Welcome.More" = "そしてさらに…";
 "Welcome.MoreDesc" = "YouTube Plus には設定の保存やキャッシュの消去など50以上の異なるオプションが含まれています。設定は YouTube 設定内の YouTube Plus セクションで利用可能です。";
 "SupportMe" = "支援してください";
 "Continue" = "続行";
