@@ -28,12 +28,6 @@ on:
         required: true
         default: true
 
-      enable_ytab:
-        description: "Integrate YTABConfig"
-        type: boolean
-        required: true
-        default: true
-
       enable_demc:
         description: "Integrate DontEatMyContent"
         type: boolean
@@ -215,12 +209,6 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouQuality.git
-
-      - name: Clone YTABConfig
-        if: ${{ inputs.enable_ytab }}
-        run: |
-          cd ${{ github.workspace }}
-          git clone --quiet --depth=1 https://github.com/PoomSmart/YTABConfig.git
 
       - name: Clone YTVideoOverlay
         if: ${{ inputs.enable_yq }}
