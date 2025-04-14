@@ -131,9 +131,5 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
 </details>
 
 <details>
-   <summary>YTSpeed</summary>
-</details>
-
-<details>
    <summary>NoYTPremium</summary>
 </details>
