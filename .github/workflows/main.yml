@@ -5,7 +5,7 @@ on:
     inputs:
 
       enable_demc:
-        description: "Integrate DontEatMyContent"
+        description: "Integrate DontEatMyContent (If your iDevice has a home button, uncheck this box)"
         type: boolean
         required: true
         default: true
@@ -195,7 +195,12 @@ jobs:
       - name: Clone YouMute 
         run: |
           cd ${{ github.workspace }}
-          git clone --quiet --depth=1 https://github.com/PoomSmart/YouMute.git   
+          git clone --quiet --depth=1 https://github.com/PoomSmart/YouMute.git
+
+      - name: Clone YTSpeed 
+        run: |
+          cd ${{ github.workspace }}
+          git clone --quiet --depth=1 https://github.com/Lyvendia/YTSpeed.git 
 
       - name: Clone DontEatMyContent
         if: ${{ inputs.enable_demc }}
@@ -264,7 +269,15 @@ jobs:
         run: |
           cd ${{ github.workspace }}/YTABConfig
           make clean package DEBUG=0 FINALPACKAGE=1
-          mv packages/*.deb ${{ github.workspace }}/ymute.deb
+          mv packages/*.deb ${{ github.workspace }}/ytmte.deb
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
+      - name: Build YTSpeed
+        run: |
+          cd ${{ github.workspace }}/YTABConfig
+          make clean package DEBUG=0 FINALPACKAGE=1
+          mv packages/*.deb ${{ github.workspace }}/ytspd.deb
         env:
           THEOS: ${{ github.workspace }}/theos
 
@@ -281,7 +294,7 @@ jobs:
         run: |
           tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
 
-          for deb in youpip.deb ytuhd.deb ryd.deb ygs.deb yq.deb ytvo.deb ytab.deb ymute.deb demc.deb; do
+          for deb in youpip.deb ytuhd.deb ryd.deb ygs.deb yq.deb ytvo.deb ytab.deb ytmte.deb ytspd.deb demc.deb; do
             if [ -f "$deb" ]; then
               tweaks="$tweaks $deb"
             fi
