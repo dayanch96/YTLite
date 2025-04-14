@@ -4,30 +4,6 @@ on:
   workflow_dispatch:
     inputs:
 
-      enable_youpip:
-        description: "Integrate YouPiP"
-        type: boolean
-        required: true
-        default: true
-
-      enable_ytuhd:
-        description: "Integrate YTUHD"
-        type: boolean
-        required: true
-        default: true
-
-      enable_ryd:
-        description: "Integrate Return YouTube Dislikes"
-        type: boolean
-        required: true
-        default: true
-
-      enable_yq:
-        description: "Integrate YouQuality"
-        type: boolean
-        required: true
-        default: true
-
       enable_demc:
         description: "Integrate DontEatMyContent"
         type: boolean
@@ -181,19 +157,16 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Clone YouPiP
-        if: ${{ inputs.enable_youpip }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouPiP.git
 
       - name: Clone YTUHD
-        if: ${{ inputs.enable_ytuhd }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YTUHD.git
 
       - name: Clone Return-YouTube-Dislikes
-        if: ${{ inputs.enable_ryd }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/Return-YouTube-Dislikes.git
@@ -205,16 +178,19 @@ jobs:
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouGroupSettings.git
 
       - name: Clone YouQuality
-        if: ${{ inputs.enable_yq }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouQuality.git
 
       - name: Clone YTVideoOverlay
-        if: ${{ inputs.enable_yq }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YTVideoOverlay.git
+
+      - name: Clone YTABConfig 
+        run: |
+          cd ${{ github.workspace }}
+          git clone --quiet --depth=1 https://github.com/PoomSmart/YTABConfig.git
 
       - name: Clone DontEatMyContent
         if: ${{ inputs.enable_demc }}
@@ -223,7 +199,6 @@ jobs:
           git clone --quiet --depth=1 --recurse-submodules https://github.com/therealFoxster/DontEatMyContent.git
 
       - name: Build YouPiP
-        if: ${{ inputs.enable_youpip }}
         run: |
           cd ${{ github.workspace }}/YouPiP
           make clean package DEBUG=0 FINALPACKAGE=1
@@ -232,7 +207,6 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Build YTUHD
-        if: ${{ inputs.enable_ytuhd }}
         run: |
           cd ${{ github.workspace }}/YTUHD
           make clean package DEBUG=0 FINALPACKAGE=1
@@ -241,7 +215,6 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Build Return-YouTube-Dislikes
-        if: ${{ inputs.enable_ryd }}
         run: |
           cd ${{ github.workspace }}/Return-YouTube-Dislikes
           make clean package DEBUG=0 FINALPACKAGE=1
@@ -259,7 +232,6 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Build YouQuality
-        if: ${{ inputs.enable_yq }}
         run: |
           cd ${{ github.workspace }}/YouQuality
           make clean package DEBUG=0 FINALPACKAGE=1
@@ -268,11 +240,18 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Build YTVideoOverlay
-        if: ${{ inputs.enable_yq }}
         run: |
           cd ${{ github.workspace }}/YTVideoOverlay
           make clean package DEBUG=0 FINALPACKAGE=1
           mv packages/*.deb ${{ github.workspace }}/ytvo.deb
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
+      - name: Build YTABConfig
+        run: |
+          cd ${{ github.workspace }}/YTABConfig
+          make clean package DEBUG=0 FINALPACKAGE=1
+          mv packages/*.deb ${{ github.workspace }}/ytab.deb
         env:
           THEOS: ${{ github.workspace }}/theos
 
