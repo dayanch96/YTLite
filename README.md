@@ -126,6 +126,7 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
 
 <details>
    <summary>YTABConfig</summary>
+   <p>YTABConfig is a tweak developed by <a href="https://github.com/PoomSmart">PoomSmart</a> that lets you configure A/B settings in the YouTube app.</p>
 </details>
 
 <details>
