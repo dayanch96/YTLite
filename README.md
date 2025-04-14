@@ -131,3 +131,7 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
 <details>
    <summary>YouMute</summary>
 </details>
+
+<details>
+   <summary>YTSpeed</summary>
+</details>
