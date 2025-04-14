@@ -192,11 +192,6 @@ jobs:
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YTABConfig.git
 
-      - name: Clone YTSpeed 
-        run: |
-          cd ${{ github.workspace }}
-          git clone --quiet --depth=1 https://github.com/Lyvendia/YTSpeed.git
-
       - name: Clone NoYTPremium 
         run: |
           cd ${{ github.workspace }}
@@ -265,14 +260,6 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Build YTSpeed
-        run: |
-          cd ${{ github.workspace }}/YTABConfig
-          make clean package DEBUG=0 FINALPACKAGE=1
-          mv packages/*.deb ${{ github.workspace }}/ytspd.deb
-        env:
-          THEOS: ${{ github.workspace }}/theos
-
       - name: Build NoYTPremium
         run: |
           cd ${{ github.workspace }}/YTABConfig
@@ -294,7 +281,7 @@ jobs:
         run: |
           tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
 
-          for deb in youpip.deb ytuhd.deb ryd.deb ygs.deb yq.deb ytvo.deb ytab.deb ytspd.deb noytpm.deb demc.deb; do
+          for deb in youpip.deb ytuhd.deb ryd.deb ygs.deb yq.deb ytvo.deb ytab.deb noytpm.deb demc.deb; do
             if [ -f "$deb" ]; then
               tweaks="$tweaks $deb"
             fi
