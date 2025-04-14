@@ -134,4 +134,6 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
 
 <details>
    <summary>NoYTPremium</summary>
+   <p>YTABConfig is a tweak developed by <a href="https://github.com/PoomSmart">PoomSmart</a> that gets rid of all YouTube Premium upsells.</p>
+   <p>Source code and additional information are available <a href="https://github.com/PoomSmart/NoYTPremium">in PoomSmart's GitHub repository</a>.</p>
 </details>
