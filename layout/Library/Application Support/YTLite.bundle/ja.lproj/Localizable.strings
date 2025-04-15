@@ -513,7 +513,7 @@
 "Disable" = "無効化";
 "Disabled" = "無効";
 "PlaybackSpeed" = "再生速度";
-"SpeedPreserved" = "速度を保存しました";
+"SpeedPreserved" = "再生速度を保存しました";
 "ResetSpeed" = "リセット";
 
 "Toast.Brightness" = "明るさ";
@@ -560,7 +560,7 @@
 "Error" = "エラー";
 "Error.Clipboard" = "エラー: 詳細についてはクリップボードを確認してください。";
 "Error.PathIssue" = "エラー: 最終パスの生成に問題が発生しました。メディアタイトルに問題がある可能性があります。";
-"Error.TryLater" = "メディアはライブ配信または Google サーバー上での処理完了待ち状態です。\n\n後ほど再度お試しください。";
+"Error.TryLater" = "メディアはライブ配信中または Google サーバー上での処理完了待ち状態です。\n\n後ほど再度お試しください。";
 "Error.NoSpace" = "デバイスの空き容量が不足しています。\n\n少なくとも %@ の追加空き容量が必要です。使用可能な空き容量: %@";
 "Error.Multidownloading" = "同時ダウンロード機能はまだ利用できません。";
 "Error.FailedToImport" = "設定をインポートできませんでした。";
@@ -579,7 +579,7 @@
 "Welcome.Player" = "プレーヤーの動作を設定";
 "Welcome.PlayerDesc" = "プレーヤーの動作をカスタマイズし、画質と再生速度を自動選択します。ジェスチャーで操作可能です。";
 "Welcome.More" = "そしてさらに…";
-"Welcome.MoreDesc" = "YouTube Plus には設定の保存やキャッシュの消去など50以上の異なるオプションが含まれています。設定は YouTube 設定内の YouTube Plus セクションで利用可能です。";
+"Welcome.MoreDesc" = "YouTube Plus には設定の保存やキャッシュの消去など 50 以上の異なるオプションが含まれています。YouTube Plus の設定は YouTube 設定内の YouTube Plus セクションで利用可能です。";
 "SupportMe" = "支援してください";
 "Continue" = "続行";
 
@@ -589,4 +589,4 @@
 "Conflicts.AcceptRisks" = "すべてのリスクを受け入ます";
 "Conflicts.CloseYT" = "YouTube を閉じる";
 
-"DonationReminder" = "皆様のご支援が YouTube Plus の更なる改善に繋がります。\n\n寄付を行うか、YouTube Plus 設定でこれらの通知を無効にすることもできます。ご支援ありがとうございます💜";
+"DonationReminder" = "皆さんのご支援が YouTube Plus の更なる改善に繋がります。\n\n寄付を行うか、YouTube Plus 設定でこれらの通知を無効にすることもできます。ご支援ありがとうございます💜";
