@@ -142,7 +142,7 @@ jobs:
 
       - name: Download YouTube
         id: download_youtube
-        run: wget "${{ inputs.ipa_url }}" --no-verbose -O ${{ github.workspace }}/youtube.ipa
+        run: wget "${{ inputs.ipa_url }}" --no-check-certificate --no-verbose -O ${{ github.workspace }}/youtube.ipa
 
       - name: Clone Open in YouTube (Safari extension)
         run: |
