@@ -4,7 +4,7 @@
 /* Downloading options */
 "Downloading" = "ダウンロード";
 "DownloadManager" = "ダウンロードマネージャー";
-"DownloadManagerDesc" = "プレーヤー下部の「ダウンロード」ボタンの動作をダウンロードマネージャーに置き換えます。これにより、動画、音声、サムネイル画像のダウンロードや動画情報のコピーが可能になります。";
+"DownloadManagerDesc" = "プレーヤー下部の [ダウンロード] ボタンの動作をダウンロードマネージャーに置き換えます。これにより、動画、音声、サムネイル画像のダウンロードや動画情報のコピーが可能になります。";
 "PostManager" = "投稿情報を保存";
 "PostManagerDesc" = "長押しでコミュニティ投稿のテキストをコピーしたり、コミュニティ投稿を画像として保存したりできるようになります。";
 "SaveProfilePhoto" = "プロフィール画像を保存";
@@ -32,7 +32,7 @@
 
 "Audios" = "オーディオ";
 "AudioDRC" = "「一定音量」を優先";
-"AudioDRCDesc" = "ダウンロードマネージャーは、「一定音量」の音声(ダイナミックレンジコンプレッション)が利用可能な場合、それを優先的に選択します。";
+"AudioDRCDesc" = "ダウンロードマネージャーは、「一定音量」の音声 (ダイナミックレンジコンプレッション) が利用可能な場合、それを優先的に選択します。";
 
 "CaptionsAndThumbnails" = "字幕とサムネイル";
 "EmbedThumbnailsToVideos" = "サムネイルを埋め込む";
@@ -49,17 +49,17 @@
 /* Nav bar options */
 "Navbar" = "ナビゲーションバー(上部のボタン類)";
 "RemoveCast" = "キャストボタンを非表示";
-"RemoveCastDesc" = "ナビゲーションバーから「キャスト」ボタンを非表示にします。";
+"RemoveCastDesc" = "ナビゲーションバーから [キャスト] ボタンを非表示にします。";
 "RemoveNotifications" = "通知ボタンを非表示";
-"RemoveNotificationsDesc" = "ナビゲーションバーから「通知」ボタンを非表示にします。";
+"RemoveNotificationsDesc" = "ナビゲーションバーから [通知] ボタンを非表示にします。";
 "RemoveSearch" = "検索ボタンを非表示";
-"RemoveSearchDesc" = "ナビゲーションバーから「検索」ボタンを非表示にします。";
+"RemoveSearchDesc" = "ナビゲーションバーから [検索] ボタンを非表示にします。";
 "RemoveVoiceSearch" = "音声検索ボタンを非表示";
 "RemoveVoiceSearchDesc" = "ナビゲーションバーから音声検索のボタンを非表示にします。";
 "StickyNavbar" = "ナビゲーションバーを固定";
 "StickyNavbarDesc" = "スクロール中もナビゲーションバーを非表示にせず表示したままにします。";
 "NoSubbar" = "サブバーを非表示";
-"NoSubbarDesc" = "ナビゲーションバーの下にあるサブバー(「すべて」、「音楽」、「ニュース」など)を非表示にします。";
+"NoSubbarDesc" = "ナビゲーションバーの下にあるサブバー ([すべて]、[音楽]、[ニュース] など) を非表示にします。";
 "NoYTLogo" = "YouTube ロゴを削除";
 "NoYTLogoDesc" = "ナビゲーションバーから YouTube ロゴを非表示にします。";
 "PremiumYTLogo" = "YouTube Premium ロゴに置換";
@@ -156,22 +156,22 @@
 "NoRelatedWatchNextsDesc" = "プレーヤー下に表示されるすべての動画を非表示にし、動画情報とコメント欄のみを表示します。";
 "RemoveInlineComment" = "インラインコメントを削除";
 "RemoveInlineCommentDesc" = "プレーヤー下のコメント欄を削除します。";
-"NoSubUnderPlayer" = "「チャンネル登録」ボタンを削除";
-"NoSubUnderPlayerDesc" = "プレーヤー下にある「チャンネル登録」ボタンを削除します。";
-"PlayerNoShare" = "「共有」ボタンを削除";
-"PlayerNoShareDesc" = "プレーヤー下にある「共有」ボタンを削除します。";
-"PlayerNoThanks" = "「Thanks」ボタンを削除";
-"PlayerNoThanksDesc" = "プレーヤー下にある「Thanks」ボタンを削除します。";
-"PlayerNoRemix" = "「リミックス」ボタンを削除";
-"PlayerNoRemixDesc" = "プレーヤー下にある「リミックス」ボタンを削除します。";
-"PlayerNoDownload" = "「オフライン」ボタンを削除";
-"PlayerNoDownloadDesc" = "プレーヤー下にある「オフライン」ボタンを削除します。";
-"PlayerNoClip" = "「クリップ」ボタンを削除";
-"PlayerNoClipDesc" = "プレーヤー下にある「クリップ」ボタンを削除します。";
-"PlayerNoSave" = "「保存」ボタンを削除";
-"PlayerNoSaveDesc" = "プレーヤー下にある「保存」ボタンを削除します。";
-"PlayerNoReport" = "「報告」ボタンを削除";
-"PlayerNoReportDesc" = "プレーヤー下にある「報告」ボタンを削除します。";
+"NoSubUnderPlayer" = "[チャンネル登録] ボタンを削除";
+"NoSubUnderPlayerDesc" = "プレーヤー下にある [チャンネル登録] ボタンを削除します。";
+"PlayerNoShare" = "共有ボタンを削除";
+"PlayerNoShareDesc" = "プレーヤー下にある [共有] ボタンを削除します。";
+"PlayerNoThanks" = "Thanks ボタンを削除";
+"PlayerNoThanksDesc" = "プレーヤー下にある [Thanks] ボタンを削除します。";
+"PlayerNoRemix" = "リミックスボタンを削除";
+"PlayerNoRemixDesc" = "プレーヤー下にある [リミックス] ボタンを削除します。";
+"PlayerNoDownload" = "オフラインボタンを削除";
+"PlayerNoDownloadDesc" = "プレーヤー下にある [オフライン] ボタンを削除します。";
+"PlayerNoClip" = "クリップボタンを削除";
+"PlayerNoClipDesc" = "プレーヤー下にある [クリップ] ボタンを削除します。";
+"PlayerNoSave" = "保存ボタンを削除";
+"PlayerNoSaveDesc" = "プレーヤー下にある [保存] ボタンを削除します。";
+"PlayerNoReport" = "報告ボタンを削除";
+"PlayerNoReportDesc" = "プレーヤー下にある [報告] ボタンを削除します。";
 
 "ProgressBarStyle" = "プログレスバーのスタイル";
 "SolidColor" = "単色";
@@ -267,13 +267,13 @@
 "HideShortsMoreDesc" = "ショートのプレーヤー上からその他( ⋮ )ボタンを非表示にします。画面を長押しでもアクセスも可能です。";
 
 "HideCarouselSub" = "チャンネル登録ボタンを非表示";
-"HideCarouselSubDesc" = "一時停止状態で表示される「チャンネル登録」ボタンを削除します。";
+"HideCarouselSubDesc" = "一時停止状態で表示される [チャンネル登録] ボタンを削除します。";
 "HideCarouselLive" = "ライブボタンを非表示";
-"HideCarouselLiveDesc" = "一時停止状態で表示される「ライブ」ボタンを削除します。";
+"HideCarouselLiveDesc" = "一時停止状態で表示される [ライブ] ボタンを削除します。";
 "HideCarouselTrends" = "トレンドボタンを非表示";
-"HideCarouselTrendsDesc" = "一時停止状態で表示される「トレンド」ボタンを削除します。";
+"HideCarouselTrendsDesc" = "一時停止状態で表示される [トレンド] ボタンを削除します。";
 "HideCarouselShop" = "ショップボタンを非表示";
-"HideCarouselShopDesc" = "一時停止状態で表示される「ショップ」ボタンを削除します。";
+"HideCarouselShopDesc" = "一時停止状態で表示される [ショップ] ボタンを削除します。";
 
 "HideShortsLike" = "高評価ボタンを非表示";
 "HideShortsLikeDesc" = "アクションバーから高評価ボタンを削除します。";
@@ -281,14 +281,14 @@
 "HideShortsDislikeDesc" = "アクションバーから低評価ボタンを削除します。";
 "HideShortsComments" = "コメントボタンを非表示";
 "HideShortsCommentsDesc" = "アクションバーからコメントボタンを削除します。";
-"HideShortsShare" = "「共有」ボタンを非表示";
-"HideShortsShareDesc" = "アクションバーから「共有」ボタンを削除します。";
+"HideShortsShare" = "共有ボタンを非表示";
+"HideShortsShareDesc" = "アクションバーから [共有] ボタンを削除します。";
 "HideShortsRemix" = "リミックスボタンを非表示";
-"HideShortsRemixDesc" = "アクションバーから「リミックス」ボタンを削除します。";
+"HideShortsRemixDesc" = "アクションバーから [リミックス] ボタンを削除します。";
 "HideShortsSuggestion" = "提案を非表示";
-"HideShortsSuggestionDesc" = "「再生リストに追加」、「Super Thanks」などの提案ボタンを削除します。";
+"HideShortsSuggestionDesc" = "[再生リストに追加]、[Super Thanks] などの提案ボタンを削除します。";
 "HideShortsSubscribe" = "チャンネル登録ボタンを非表示";
-"HideShortsSubscribeDesc" = "ユーザー名の横にある「チャンネル登録」ボタンを削除します。";
+"HideShortsSubscribeDesc" = "ユーザー名の横にある [チャンネル登録] ボタンを削除します。";
 "HideShortsUsername" = "ユーザー名を非表示";
 "HideShortsUsernameDesc" = "ユーザー名(チャンネル名)を削除します。";
 "HideShortsDescription" = "説明を非表示";
@@ -358,22 +358,22 @@
 "NativeShareDesc" = "システムの共有シートを使用してメディアを共有します。";
 "RemoveCommentGuidelines" = "ガイドラインを削除";
 "RemoveCommentGuidelinesDesc" = "コメント欄からガイドラインを削除します。";
-"RemovePlayNext" = "「次に再生」を削除";
-"RemovePlayNextDesc" = "メニューから「次に再生」オプションを削除します。";
-"RemoveDownloadMenu" = "「オフライン」を削除";
-"RemoveDownloadMenuDesc" = "メニューから「オフラインへの動画の保存」オプションを削除します。";
+"RemovePlayNext" = "[次に再生] を削除";
+"RemovePlayNextDesc" = "メニューから [次に再生] オプションを削除します。";
+"RemoveDownloadMenu" = "[オフライン] を削除";
+"RemoveDownloadMenuDesc" = "メニューから [オフラインへの動画の保存] オプションを削除します。";
 "RemoveWatchLaterMenu" = "[後で見る] に保存を削除";
-"RemoveWatchLaterMenuDesc" = "メニューから「[後で見る] に保存」オプションを削除します。";
-"RemoveSaveToPlaylistMenu" = "「再生リストに保存」を削除";
-"RemoveSaveToPlaylistMenuDesc" = "メニューから「再生リストに保存」オプションを削除します。";
-"RemoveShareMenu" = "共有を削除";
-"RemoveShareMenuDesc" = "メニューから「共有」オプションを削除します。";
-"RemoveNotInterestedMenu" = "「興味なし」を削除";
-"RemoveNotInterestedMenuDesc" = "メニューから「興味なし」オプションを削除します。";
+"RemoveWatchLaterMenuDesc" = "メニューから [[後で見る] に保存] オプションを削除します。";
+"RemoveSaveToPlaylistMenu" = "[再生リストに保存] を削除";
+"RemoveSaveToPlaylistMenuDesc" = "メニューから [再生リストに保存] オプションを削除します。";
+"RemoveShareMenu" = "[共有] を削除";
+"RemoveShareMenuDesc" = "メニューから [共有] オプションを削除します。";
+"RemoveNotInterestedMenu" = "[興味なし] を削除";
+"RemoveNotInterestedMenuDesc" = "メニューから [興味なし] オプションを削除します。";
 "RemoveDontRecommendMenu" = "チャンネルをおすすめに表示しないを削除";
-"RemoveDontRecommendMenuDesc" = "メニューから「チャンネルをおすすめに表示しない」オプションを削除します。";
-"RemoveReportMenu" = "「報告」を削除";
-"RemoveReportMenuDesc" = "メニューから「報告」オプションを削除します。";
+"RemoveDontRecommendMenuDesc" = "メニューから [チャンネルをおすすめに表示しない] オプションを削除します。";
+"RemoveReportMenu" = "[報告] を削除";
+"RemoveReportMenuDesc" = "メニューから [報告] オプションを削除します。";
 
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "有効化";
@@ -389,8 +389,8 @@
 "DurationWithoutSegments" = "新しい動画時間を表示";
 "DurationWithoutSegmentsDesc" = "セグメント除いた合計の動画時間を表示します。";
 
-"SkipAlertDuration" = "「スキップ」ボタンを表示する時間";
-"UnskipAlertDuration" = "「スキップしない」ボタンを表示する時間";
+"SkipAlertDuration" = "[スキップ] ボタンを表示する時間";
+"UnskipAlertDuration" = "[スキップしない] ボタンを表示する時間";
 
 "Segments" = "セグメント";
 "Sponsor" = "スポンサー";
@@ -446,7 +446,7 @@
 
 /* Developer section */
 "Developer" = "開発者";
-"FollowMe" = "𝕏(旧Twitter)でフォロー";
+"FollowMe" = "𝕏 (旧 Twitter) でフォロー";
 "SupportDevelopment" = "開発を支援";
 "DonateDesc" = "あなたの支援は私にとってとても励みになります！";
 "SupportDevelopmentDesc" = "もし YTPlus を気に入って頂き、開発を支援したい場合は、以下のいずれかの便利な方法でサポートできます。 \nご支援ありがとうございます❤";
