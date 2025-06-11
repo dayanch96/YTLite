@@ -8,31 +8,31 @@ on:
         description: "Integrate YouPiP"
         type: boolean
         required: true
-        default: true
+        default: false
 
       enable_ytuhd:
         description: "Integrate YTUHD"
         type: boolean
         required: true
-        default: true
-
-      enable_ryd:
-        description: "Integrate Return YouTube Dislikes"
-        type: boolean
-        required: true
-        default: true
+        default: false
 
       enable_yq:
         description: "Integrate YouQuality"
         type: boolean
         required: true
-        default: true
+        default: false
+
+      enable_ryd:
+        description: "Integrate Return YouTube Dislikes"
+        type: boolean
+        required: true
+        default: false
 
       enable_demc:
         description: "Integrate DontEatMyContent"
         type: boolean
         required: true
-        default: true
+        default: false
 
       ipa_url:
         description: "URL to the decrypted IPA file"
