@@ -293,8 +293,8 @@
 "HideShortsUsernameDesc" = "ユーザー名(チャンネル名)を削除します。";
 "HideShortsDescription" = "説明を非表示";
 "HideShortsDescriptionDesc" = "プレーヤー下部の説明を削除します。";
-"HideShortsSource" = "フルの動画のリンクラベルを非表示";
-"HideShortsSourceDesc" = "フルの動画のリンクのラベルを非表示にします。";
+"HideShortsSource" = "フルの動画へのリンクラベルを非表示";
+"HideShortsSourceDesc" = "フルの動画へのリンクラベルを非表示にします。";
 "HideShortsAudio" = "楽曲のラベルを非表示";
 "HideShortsAudioDesc" = "プレーヤー下部に表示される楽曲のラベルを非表示にします。";
 
@@ -362,7 +362,7 @@
 "RemovePlayNextDesc" = "メニューから [次に再生] オプションを削除します。";
 "RemoveDownloadMenu" = "[オフライン] を削除";
 "RemoveDownloadMenuDesc" = "メニューから [オフラインへの動画の保存] オプションを削除します。";
-"RemoveWatchLaterMenu" = "[後で見る] に保存を削除";
+"RemoveWatchLaterMenu" = "[[後で見る] に保存]を削除";
 "RemoveWatchLaterMenuDesc" = "メニューから [[後で見る] に保存] オプションを削除します。";
 "RemoveSaveToPlaylistMenu" = "[再生リストに保存] を削除";
 "RemoveSaveToPlaylistMenuDesc" = "メニューから [再生リストに保存] オプションを削除します。";
@@ -370,7 +370,7 @@
 "RemoveShareMenuDesc" = "メニューから [共有] オプションを削除します。";
 "RemoveNotInterestedMenu" = "[興味なし] を削除";
 "RemoveNotInterestedMenuDesc" = "メニューから [興味なし] オプションを削除します。";
-"RemoveDontRecommendMenu" = "チャンネルをおすすめに表示しないを削除";
+"RemoveDontRecommendMenu" = "[チャンネルをおすすめに表示しない] を削除";
 "RemoveDontRecommendMenuDesc" = "メニューから [チャンネルをおすすめに表示しない] オプションを削除します。";
 "RemoveReportMenu" = "[報告] を削除";
 "RemoveReportMenuDesc" = "メニューから [報告] オプションを削除します。";
@@ -451,7 +451,7 @@
 "DonateDesc" = "あなたの支援は私にとってとても励みになります！";
 "SupportDevelopmentDesc" = "もし YTPlus を気に入って頂き、開発を支援したい場合は、以下のいずれかの便利な方法でサポートできます。 \nご支援ありがとうございます❤";
 "VisitGithub" = "GitHub リポジトリ";
-"VisitGithubDesc" = "リポジトリにスターを付け、機能リクエストや問題報告を行う";
+"VisitGithubDesc" = "リポジトリにスターを付けたり、機能リクエストや問題報告を行えます";
 "VisitTelegram" = "Telegram チャンネル";
 "VisitTelegramDesc" = "最新のアプリのアップデートを確認できます。";
 
