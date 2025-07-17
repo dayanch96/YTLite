@@ -21,6 +21,7 @@
 "PostDownloadDesc" = "The selected action will be performed upon successful completion of the video download.";
 "SaveToPhotos" = "Save to photos";
 "Share" = "Share";
+"Copy" = "Copy";
 "Ask" = "Ask";
 "DownloadCompleted" = "Download completed";
 
@@ -91,13 +92,17 @@
 /* Player options */
 "Player" = "Player";
 "PlaybackQualityOnWiFi" = "Playback quality on WiFi";
+"PlaybackQualityOnWiFiDesc" = "Automatically applies the selected quality when streaming over Wi-Fi";
 "PlaybackQualityOnCellular" = "Playback quality on Cellular";
+"PlaybackQualityOnCellularDesc" = "Automatically applies the selected quality when streaming over mobile data";
 
 "PreferredCaptions" = "Preferred captions";
 "Original" = "Original";
 "Custom" = "Select manually";
 "CustomAudioTrack" = "Selected audio track";
+"CustomAudioTrackDesc" = "Specifies the preferred audio track language to use for playback, if available";
 "CustomCaptions" = "Selected captions";
+"CustomCaptionsDesc" = "Specifies the preferred captions language to display, if available";
 "AutoGenCaps" = "Auto-generated captions";
 "AutoGenCapsDesc" = "If the selected captions are not found, YouTube Plus will try to select either a translation of original captions or a translation of auto-generated captions.";
 
@@ -182,6 +187,7 @@
 
 "Player.Actions" = "Actions";
 "DefaultPlaybackRate" = "Default playback rate";
+"DefaultPlaybackRateDesc" = "Overrides the default playback speed";
 "BackgroundPlayback" = "Background playback";
 "BackgroundPlaybackDesc" = "Enables background playback.";
 "Miniplayer" = "Enable mini player";
@@ -200,15 +206,20 @@
 "ExitFullscreenDesc" = "Exits fullscreen mode at the end of video playback.";
 
 "Player.Gestures" = "Gestures";
+"CompactToast" = "Compact toast";
+"CompactToastDesc" = "Displays a compact-style toast for player gestures";
 "LeftSideGesture" = "Gesture for the left side";
+"LeftSideGestureDesc" = "Adjusts the selected setting by swiping vertically on the left side of the screen";
 "RightSideGesture" = "Gesture for the right side";
+"RightSideGestureDesc" = "Adjusts the selected setting by swiping vertically on the right side of the screen";
 "ActivationAreaWidth" = "Gesture activation width";
 "ActivationAreaWidthDesc" = "This value determines the gesture recognition zone in pixels for the left and right sides of the screen.\n\nThe maximum allowed value is one-third of the screen width.\n\nAdjusting this setting is useful to prevent accidental activation when attempting to minimize or expand the player.";
 "HoldToSpeed" = "Hold to speed";
+"HoldToSpeedDesc" = "Sets the playback speed triggered by a long press on the player";
 "AdjustWithFinger" = "Adjust speed by gestures";
 "AdjustWithFingerDesc" = "Allows adjusting playback speed by long press on player and moving finger up and down.";
-"PreserveSpeed" = "Preserve speed";
-"PreserveSpeedDesc" = "Preserves adjusted speed after gesture completion.";
+"PreserveSpeed" = "Lock speed";
+"PreserveSpeedDesc" = "Locks at adjusted speed after gesture completion.";
 "SeekAnywhere" = "Swipe to seek";
 "SeekAnywhereDesc" = "Allows controlling playback seeking by swiping left and right.";
 "SeekMethod" = "Seek method";
@@ -317,11 +328,10 @@
 
 "ActiveTabs" = "Active tabs";
 "InactiveTabs" = "Inactive tabs";
-"HideLibraryFooter" = "Library tab can be hidden or shown by long pressing the first tab of the tab bar.";
+"HideLibraryFooter" = "Tab settings are also accessible by long-pressing the first tab in the tab bar.";
 "Warning" = "Warning";
-"TabIsHidden" = "Hidden tab cannot be selected as startup page";
-"TabIsStartupTab" = "The tab selected as the startup page cannot be hidden";
-"TabsCountRestricted" = "You can only have up to six active tabs";
+"AtLeastOneTab" = "At least one tab must remain active";
+"TabsCountRestricted" = "Only up to six active tabs are allowed";
 
 /* Interface options */
 "Interface" = "Interface";
@@ -351,9 +361,13 @@
 "MiniplayerStyleDesc" = "Switching to/from floating mode requires restarting the app.";
 "Floating" = "Floating";
 
-"ContextMenu" = "Context menu";
+"Other" = "Other";
 "NoShareChunk" = "Remove share identifier";
 "NoShareChunkDesc" = "Removes the \"si=identifier\" parameter from shared links. A good alternative to the \"Native share sheet\" option as YouTube continues to improve its sharing menu.";
+"AutoCheckLinks" = "Auto-check clipboard";
+"AutoCheckLinksDesc" = "Check clipboard for YouTube-related links each time the app is opened.\nFor proper functionality, go to iOS Settings → YouTube → Paste from other apps and select \"Allow\"";
+
+"ContextMenu" = "Context menu";
 "NativeShare" = "Native share sheet";
 "NativeShareDesc" = "Uses system share sheet to share media";
 "RemoveCommentGuidelines" = "Remove guidelines";
@@ -374,10 +388,16 @@
 "RemoveDontRecommendMenuDesc" = "Removes \"Don't recommend channel\" option from menu.";
 "RemoveReportMenu" = "Remove \"Report\"";
 "RemoveReportMenuDesc" = "Removes \"Report\" option from menu.";
+"RemoveRemixMenu" = "Remove \"Remix\"";
+"RemoveRemixMenuDesc" = "Removes \"Remix\" option from menu.";
+"RemoveYTMMenu" = "Remove \"YouTube Music\"";
+"RemoveYTMMenuDesc" = "Removes \"Listen with YouTube Music\" option from menu.";
 
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "Enable";
 "EnableSponsorBlockDesc" = "Activates the SponsorBlock extension.";
+"SbPlayerButton" = "Display button in overlay";
+"SbPlayerButtonDesc" = "Adds SponsorBlock button in players overlay.";
 "ShowNotifications" = "Show notifications";
 "ShowNotificationsDesc" = "Displays notifications for the auto-skipped segments. Notifications for categories that require manual skipping are always shown.";
 "SegmentsInFeedPlayer" = "Display segments in the feed";
@@ -427,6 +447,13 @@
 "Sb.Ask" = "Ask";
 "Sb.Display" = "Display in player";
 
+"PublicUserID" = "Public UserID";
+"PrivateUserID" = "Private UserID";
+"TapToReveal" = "Tap to reveal";
+"Save" = "Save";
+"Error.SbPublicID" = "The public user ID must contain exactly 64 characters";
+"Error.SbPrivateID" = "The private (local) user ID must contain at least 32 characters";
+
 "sb_sponsor" = "Sponsor segment";
 "sb_intro" = "Intro segment";
 "sb_outro" = "Endcards segment";
@@ -434,14 +461,14 @@
 "sb_selfpromo" = "Self-promo segment";
 "sb_music_offtopic" = "Offtopic segment";
 "sb_preview" = "Preview segment";
-"sb_poi_highlight" = "Highlight segment";
+"sb_poi_highlight" = "Highlight";
 "sb_filler" = "Filler segment";
 
-"SegmentDetected" = "%@ detected";
+"SegmentDetected" = "%@ detected.\n%@";
 "SegmentSkipped" = "%@ has been skipped";
-"SkippedToSegment" = "Skipped to the %@";
-"SkipSegment" = "Skip";
-"SkipToSegment" = "To highlight";
+"SkippedToSegment" = "Jumped to %@";
+"SkipSegment" = "Would you like to skip the segment?";
+"SkipToSegment" = "Would you like to jump to the highlight?";
 "Unskip" = "Unskip";
 
 /* Developer section */
@@ -513,7 +540,7 @@
 "Disable" = "Disable";
 "Disabled" = "Disabled";
 "PlaybackSpeed" = "Playback Speed";
-"SpeedPreserved" = "Speed preserved";
+"SpeedPreserved" = "Speed locked at %@";
 "ResetSpeed" = "Reset";
 
 "Toast.Brightness" = "Brightness";
@@ -571,6 +598,22 @@
 "Converting" = "Converting";
 "RetryLogin" = "Workaround activated.\n\nPlease try again.";
 "LoginInfo" = "App restart required after successful signing into Google account";
+
+"OpenLink" = "Open link";
+"LinkDetected" = "A YouTube-related link was detected. Would you like to open it in YouTube?";
+
+"SbWhitelist" = "Whitelist";
+"SbAddToWhitelist" = "Add to the whitelist";
+"Sb.Whitelisted" = "Added to the whitelist";
+"SbRemoveFromWhitelist" = "Remove from the whitelist";
+"Sb.Whitelist" = "Whitelisted channels";
+"Sb.Channels" = "Channels";
+"Sb.ChannelsHere" = "Whitelisted channels appear here";
+"SortType" = "Sort type";
+"Sb.Newest" = "Newest first";
+"Sb.Oldest" = "Oldest first";
+"Sb.Alphabetical" = "Alphabetical (A-Z)";
+"Sb.AlphabeticalRev" = "Reverse (Z-A)";
 
 "Welcome.Download" = "Download Media";
 "Welcome.DownloadDesc" = "Download your favorite content, whether it's Videos, Shorts, Audio, or Profile photos. Copy interesting posts and comments or save them as images";

@@ -21,6 +21,7 @@
 "PostDownloadDesc" = "選択した動作は、動画のダウンロードが正常に完了すると実行されます。";
 "SaveToPhotos" = "「写真」アプリに保存";
 "Share" = "共有";
+"Copy" = "Copy";
 "Ask" = "確認";
 "DownloadCompleted" = "ダウンロード完了";
 
@@ -91,13 +92,17 @@
 /* Player options */
 "Player" = "プレーヤー";
 "PlaybackQualityOnWiFi" = "WiFi での再生画質";
+"PlaybackQualityOnWiFiDesc" = "Automatically applies the selected quality when streaming over Wi-Fi";
 "PlaybackQualityOnCellular" = "モバイルデータ通信での再生画質";
+"PlaybackQualityOnCellularDesc" = "Automatically applies the selected quality when streaming over mobile data";
 
 "PreferredCaptions" = "優先する字幕";
 "Original" = "オリジナル";
 "Custom" = "手動で選択";
 "CustomAudioTrack" = "音声トラックを選択";
+"CustomAudioTrackDesc" = "Specifies the preferred audio track language to use for playback, if available";
 "CustomCaptions" = "字幕を選択";
+"CustomCaptionsDesc" = "Specifies the preferred captions language to display, if available";
 "AutoGenCaps" = "自動生成の字幕";
 "AutoGenCapsDesc" = "選択した字幕が見つからない場合、YouTube Plus はオリジナル字幕の翻訳または自動生成字幕の翻訳を選択します。";
 
@@ -182,6 +187,7 @@
 
 "Player.Actions" = "動作";
 "DefaultPlaybackRate" = "デフォルトの再生速度";
+"DefaultPlaybackRateDesc" = "Overrides the default playback speed";
 "BackgroundPlayback" = "バックグラウンド再生";
 "BackgroundPlaybackDesc" = "バックグラウンド再生を有効にします。";
 "Miniplayer" = "ミニプレーヤーを有効化";
@@ -200,15 +206,20 @@
 "ExitFullscreenDesc" = "動画が終了した際に全画面表示を終了します。";
 
 "Player.Gestures" = "ジェスチャー";
+"CompactToast" = "Compact toast";
+"CompactToastDesc" = "Displays a compact-style toast for player gestures";
 "LeftSideGesture" = "左側のジェスチャー";
+"LeftSideGestureDesc" = "Adjusts the selected setting by swiping vertically on the left side of the screen";
 "RightSideGesture" = "右側のジェスチャー";
+"RightSideGestureDesc" = "Adjusts the selected setting by swiping vertically on the right side of the screen";
 "ActivationAreaWidth" = "ジェスチャー有効化幅";
 "ActivationAreaWidthDesc" = "この値は、画面左右のジェスチャー認識領域をピクセル単位で決定します。\n\n許可される最大値は画面幅の 3 分の 1 です。\n\nプレーヤーの最小化や拡大を試みる際の誤作動を防ぐために、この設定を調整すると便利です。";
 "HoldToSpeed" = "長押しで再生速度を変更";
+"HoldToSpeedDesc" = "Sets the playback speed triggered by a long press on the player";
 "AdjustWithFinger" = "ジェスチャーで再生速度を調整";
 "AdjustWithFingerDesc" = "プレーヤーを長押ししながら指を上下に動かすことで再生速度を調整できます。";
-"PreserveSpeed" = "再生速度を維持";
-"PreserveSpeedDesc" = "ジェスチャー終了後も調整された再生速度を維持します。";
+"PreserveSpeed" = "Lock speed";
+"PreserveSpeedDesc" = "Locks at adjusted speed after gesture completion.";
 "SeekAnywhere" = "スワイプでシーク";
 "SeekAnywhereDesc" = "左右にスワイプして再生シークを制御できるようにします。";
 "SeekMethod" = "シーク方法";
@@ -319,8 +330,7 @@
 "InactiveTabs" = "無効なタブ";
 "HideLibraryFooter" = "ライブラリタブは、タブバーの最初のタブを長押しすることで表示/非表示を切り替えられます。";
 "Warning" = "警告";
-"TabIsHidden" = "非表示のタブはアプリ起動時のページとして選択できません。";
-"TabIsStartupTab" = "アプリ起動時のページとして選択されたタブは非表示にできません。";
+"AtLeastOneTab" = "At least one tab must remain active";
 "TabsCountRestricted" = "有効なタブは最大 6 つまでです。";
 
 /* Interface options */
@@ -351,9 +361,13 @@
 "MiniplayerStyleDesc" = "フローティングモードへの切り替え/終了にはアプリの再起動が必要です。";
 "Floating" = "フローティング";
 
-"ContextMenu" = "コンテキストメニュー";
+"Other" = "Other";
 "NoShareChunk" = "共有識別子を削除";
 "NoShareChunkDesc" = "共有リンクから「si=identifier」パラメータを削除します。YouTube が共有メニューを継続的に改善しているため、「システムの共有シートに置換」オプションの優れた代替手段となります。";
+"AutoCheckLinks" = "Auto-check clipboard";
+"AutoCheckLinksDesc" = "Check clipboard for YouTube-related links each time the app is opened.\nFor proper functionality, go to iOS Settings → YouTube → Paste from other apps and select \"Allow\"";
+
+"ContextMenu" = "コンテキストメニュー";
 "NativeShare" = "システムの共有シートに置換";
 "NativeShareDesc" = "システムの共有シートを使用してメディアを共有します。";
 "RemoveCommentGuidelines" = "ガイドラインを削除";
@@ -374,10 +388,16 @@
 "RemoveDontRecommendMenuDesc" = "メニューから [チャンネルをおすすめに表示しない] オプションを削除します。";
 "RemoveReportMenu" = "[報告] を削除";
 "RemoveReportMenuDesc" = "メニューから [報告] オプションを削除します。";
+"RemoveRemixMenu" = "Remove \"Remix\"";
+"RemoveRemixMenuDesc" = "Removes \"Remix\" option from menu.";
+"RemoveYTMMenu" = "Remove \"YouTube Music\"";
+"RemoveYTMMenuDesc" = "Removes \"Listen with YouTube Music\" option from menu.";
 
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "有効化";
 "EnableSponsorBlockDesc" = "SponsorBlock 拡張機能を有効にします。";
+"SbPlayerButton" = "Display button in overlay";
+"SbPlayerButtonDesc" = "Adds SponsorBlock button in players overlay.";
 "ShowNotifications" = "通知を表示";
 "ShowNotificationsDesc" = "自動的にスキップされたセグメントの通知を表示します。手動でスキップする必要があるカテゴリの通知は常に表示されます。";
 "SegmentsInFeedPlayer" = "フィードにセグメントを表示";
@@ -427,6 +447,13 @@
 "Sb.Ask" = "スキップするか確認";
 "Sb.Display" = "プレーヤーに表示";
 
+"PublicUserID" = "Public UserID";
+"PrivateUserID" = "Private UserID";
+"TapToReveal" = "Tap to reveal";
+"Save" = "Save";
+"Error.SbPublicID" = "The public user ID must contain exactly 64 characters";
+"Error.SbPrivateID" = "The private (local) user ID must contain at least 32 characters";
+
 "sb_sponsor" = "スポンサーセグメント";
 "sb_intro" = "イントロセグメント";
 "sb_outro" = "エンドカードセグメント";
@@ -434,14 +461,14 @@
 "sb_selfpromo" = "自己プロモーションセグメント";
 "sb_music_offtopic" = "余談セグメント";
 "sb_preview" = "プレビューセグメント";
-"sb_poi_highlight" = "ハイライトセグメント";
+"sb_poi_highlight" = "Highlight";
 "sb_filler" = "フィラーセグメント";
 
-"SegmentDetected" = "%@ が検出されました";
-"SegmentSkipped" = "%@ はスキップされました";
-"SkippedToSegment" = "%@ にスキップしました";
-"SkipSegment" = "スキップ";
-"SkipToSegment" = "ハイライトに";
+"SegmentDetected" = "%@ detected.\n%@";
+"SegmentSkipped" = "%@ has been skipped";
+"SkippedToSegment" = "Jumped to %@";
+"SkipSegment" = "Would you like to skip the segment?";
+"SkipToSegment" = "Would you like to jump to the highlight?";
 "Unskip" = "スキップしない";
 
 /* Developer section */
@@ -513,7 +540,7 @@
 "Disable" = "無効化";
 "Disabled" = "無効";
 "PlaybackSpeed" = "再生速度";
-"SpeedPreserved" = "再生速度を保存しました";
+"SpeedPreserved" = "Speed locked at %@";
 "ResetSpeed" = "リセット";
 
 "Toast.Brightness" = "明るさ";
@@ -572,6 +599,22 @@
 "RetryLogin" = "回避策が有効になりました。\n\nもう一度お試しください。";
 "LoginInfo" = "Google アカウントへのログインに成功した後、アプリの再起動が必要です。";
 
+"OpenLink" = "Open link";
+"LinkDetected" = "A YouTube-related link was detected. Would you like to open it in YouTube?";
+
+"SbWhitelist" = "Whitelist";
+"SbAddToWhitelist" = "Add to the whitelist";
+"Sb.Whitelisted" = "Added to the whitelist";
+"SbRemoveFromWhitelist" = "Remove from the whitelist";
+"Sb.Whitelist" = "Whitelisted channels";
+"Sb.Channels" = "Channels";
+"Sb.ChannelsHere" = "Whitelisted channels appear here";
+"SortType" = "Sort type";
+"Sb.Newest" = "Newest first";
+"Sb.Oldest" = "Oldest first";
+"Sb.Alphabetical" = "Alphabetical (A-Z)";
+"Sb.AlphabeticalRev" = "Reverse (Z-A)";
+
 "Welcome.Download" = "メディアのダウンロード";
 "Welcome.DownloadDesc" = "動画、ショート、オーディオ、プロフィール画像など、お気に入りのコンテンツをダウンロードできます。興味深い投稿やコメントをコピーしたり、画像として保存したりできます。";
 "Welcome.Content" = "インターフェースを調整";
@@ -590,3 +633,16 @@
 "Conflicts.CloseYT" = "YouTube を閉じる";
 
 "DonationReminder" = "皆さんのご支援が YouTube Plus の更なる改善に繋がります。\n\n寄付を行うか、YouTube Plus 設定でこれらの通知を無効にすることもできます。ご支援ありがとうございます💜";
+
+/* Old localizations (commented out for reference)
+"TabIsHidden" = "非表示のタブはアプリ起動時のページとして選択できません。";
+"TabIsStartupTab" = "アプリ起動時のページとして選択されたタブは非表示にできません。";
+"PreserveSpeed" = "再生速度を維持";
+"PreserveSpeedDesc" = "ジェスチャー終了後も調整された再生速度を維持します。";
+"sb_poi_highlight" = "ハイライトセグメント";
+"SegmentDetected" = "%@ が検出されました";
+"SegmentSkipped" = "%@ はスキップされました";
+"SkippedToSegment" = "%@ にスキップしました";
+"SkipSegment" = "スキップ";
+"SkipToSegment" = "ハイライトに";
+"SpeedPreserved" = "再生速度を保存しました";

@@ -21,6 +21,7 @@
 "PostDownloadDesc" = "Chọn tác vụ để thực hiện sau khi tải video hoàn tất.";
 "SaveToPhotos" = "Lưu vào Ảnh";
 "Share" = "Chia sẻ";
+"Copy" = "Copy";
 "Ask" = "Hỏi";
 "DownloadCompleted" = "Tải xuống hoàn tất";
 
@@ -91,13 +92,17 @@
 /* Player options */
 "Player" = "Trình phát";
 "PlaybackQualityOnWiFi" = "Chất lượng video qua Wi-Fi";
+"PlaybackQualityOnWiFiDesc" = "Automatically applies the selected quality when streaming over Wi-Fi";
 "PlaybackQualityOnCellular" = "Chất lượng video qua mạng di động";
+"PlaybackQualityOnCellularDesc" = "Automatically applies the selected quality when streaming over mobile data";
 
 "PreferredCaptions" = "Lựa chọn phụ đề";
 "Original" = "Nguyên bản";
 "Custom" = "Tự chọn";
 "CustomAudioTrack" = "Bản âm thanh đã chọn";
+"CustomAudioTrackDesc" = "Specifies the preferred audio track language to use for playback, if available";
 "CustomCaptions" = "Phụ đề đã chọn";
+"CustomCaptionsDesc" = "Specifies the preferred captions language to display, if available";
 "AutoGenCaps" = "Cho phép phụ đề tự động";
 "AutoGenCapsDesc" = "Nếu không tìm thấy phụ đề đã chọn, YouTube Plus sẽ chuyển sang bản dịch của phụ đề gốc hoặc phụ đề tự động.";
 
@@ -182,6 +187,7 @@
 
 "Player.Actions" = "Hành động";
 "DefaultPlaybackRate" = "Tốc độ phát mặc định";
+"DefaultPlaybackRateDesc" = "Overrides the default playback speed";
 "BackgroundPlayback" = "Phát trong nền";
 "BackgroundPlaybackDesc" = "Tiếp tục phát khi thoát ứng dụng.";
 "Miniplayer" = "Dùng trình phát thu nhỏ với mọi video";
@@ -200,15 +206,20 @@
 "ExitFullscreenDesc" = "Thoát khỏi chế độ toàn màn hình khi video kết thúc.";
 
 "Player.Gestures" = "Cử chỉ";
+"CompactToast" = "Compact toast";
+"CompactToastDesc" = "Displays a compact-style toast for player gestures";
 "LeftSideGesture" = "Cử chỉ bên trái";
+"LeftSideGestureDesc" = "Adjusts the selected setting by swiping vertically on the left side of the screen";
 "RightSideGesture" = "Cử chỉ bên phải";
+"RightSideGestureDesc" = "Adjusts the selected setting by swiping vertically on the right side of the screen";
 "ActivationAreaWidth" = "Độ rộng khu vực thao tác";
 "ActivationAreaWidthDesc" = "Giá trị này là độ rộng khu vực thao tác của phần bên trái và bên phải màn hình tính theo đơn vị điểm ảnh.\n\nGiá trị tối đa cho phép bằng một phần ba chiều rộng màn hình.\n\nĐiều chỉnh cài đặt này nếu bạn thường xuyên gặp tình trạng thao tác nhầm khi thực hiện vuốt lên hoặc xuống để chuyển đổi chế độ toàn màn hình.";
 "HoldToSpeed" = "Nhấn giữ để chỉnh tốc độ thành";
+"HoldToSpeedDesc" = "Sets the playback speed triggered by a long press on the player";
 "AdjustWithFinger" = "Chỉnh tốc độ bằng cử chỉ";
 "AdjustWithFingerDesc" = "Điều chỉnh tốc độ bằng cách nhấn giữ vào video và di chuyển ngón tay lên xuống.";
-"PreserveSpeed" = "Giữ tốc độ đã điều chỉnh";
-"PreserveSpeedDesc" = "Duy trì tốc độ đã điều chỉnh sau khi thực hiện cử chỉ.";
+"PreserveSpeed" = "Lock speed";
+"PreserveSpeedDesc" = "Locks at adjusted speed after gesture completion.";
 "SeekAnywhere" = "Vuốt để tua chính xác";
 "SeekAnywhereDesc" = "Tua chính xác bằng cách vuốt sang trái hoặc sang phải ở vị trí bất kỳ trên màn hình.";
 "SeekMethod" = "Phương thức tua chính xác";
@@ -319,8 +330,7 @@
 "InactiveTabs" = "Tab đã ẩn";
 "HideLibraryFooter" = "Tab thư viện có thể được ẩn hoặc hiển thị bằng cách nhấn giữ vào tab đầu tiên trong thanh tab.";
 "Warning" = "Cảnh báo";
-"TabIsHidden" = "Không thể chọn tab đã ẩn làm trang khởi động";
-"TabIsStartupTab" = "Không thể ẩn tab đã chọn làm trang khởi động";
+"AtLeastOneTab" = "At least one tab must remain active";
 "TabsCountRestricted" = "Bạn chỉ có thể có tối đa sáu tab được hiển thị";
 
 /* Interface options */
@@ -351,9 +361,13 @@
 "MiniplayerStyleDesc" = "Việc chuyển sang hoặc chuyển từ chế độ cửa sổ nổi yêu cầu khởi động lại ứng dụng.";
 "Floating" = "Cửa sổ nổi";
 
-"ContextMenu" = "Menu ngữ cảnh";
+"Other" = "Other";
 "NoShareChunk" = "Bỏ tham số theo dõi";
 "NoShareChunkDesc" = "Loại bỏ tham số \"si=identifier\" khỏi liên kết chia sẻ. Có thể sử dụng thay cho tùy chọn \"Bảng chia sẻ hệ thống\", bởi YouTube đang ngày một cải thiện bảng chia sẻ của ứng dụng.";
+"AutoCheckLinks" = "Auto-check clipboard";
+"AutoCheckLinksDesc" = "Check clipboard for YouTube-related links each time the app is opened.\nFor proper functionality, go to iOS Settings → YouTube → Paste from other apps and select \"Allow\"";
+
+"ContextMenu" = "Menu ngữ cảnh";
 "NativeShare" = "Bảng chia sẻ hệ thống";
 "NativeShareDesc" = "Sử dụng bảng chia sẻ mặc định của iOS để chia sẻ nội dung.";
 "RemoveCommentGuidelines" = "Ẩn nguyên tắc trên kênh";
@@ -374,10 +388,16 @@
 "RemoveDontRecommendMenuDesc" = "Ẩn tùy chọn hạn chế đề xuất kênh khỏi menu.";
 "RemoveReportMenu" = "Ẩn \"Báo vi phạm\"";
 "RemoveReportMenuDesc" = "Ẩn tùy chọn báo vi phạm nội dung khỏi menu.";
+"RemoveRemixMenu" = "Remove \"Remix\"";
+"RemoveRemixMenuDesc" = "Removes \"Remix\" option from menu.";
+"RemoveYTMMenu" = "Remove \"YouTube Music\"";
+"RemoveYTMMenuDesc" = "Removes \"Listen with YouTube Music\" option from menu.";
 
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "Bật";
 "EnableSponsorBlockDesc" = "Kích hoạt tiện ích SponsorBlock.";
+"SbPlayerButton" = "Display button in overlay";
+"SbPlayerButtonDesc" = "Adds SponsorBlock button in players overlay.";
 "ShowNotifications" = "Hiện thông báo";
 "ShowNotificationsDesc" = "Hiển thị thông báo với các phân đoạn được bỏ qua tự động. Thông báo của các phân đoạn được bỏ qua thủ công sẽ luôn hiển thị.";
 "SegmentsInFeedPlayer" = "Hiện phân đoạn trong trang xem";
@@ -427,6 +447,13 @@
 "Sb.Ask" = "Hỏi";
 "Sb.Display" = "Chỉ hiển thị";
 
+"PublicUserID" = "Public UserID";
+"PrivateUserID" = "Private UserID";
+"TapToReveal" = "Tap to reveal";
+"Save" = "Save";
+"Error.SbPublicID" = "The public user ID must contain exactly 64 characters";
+"Error.SbPrivateID" = "The private (local) user ID must contain at least 32 characters";
+
 "sb_sponsor" = "phân đoạn tài trợ";
 "sb_intro" = "phân đoạn giới thiệu";
 "sb_outro" = "phân đoạn kết thúc";
@@ -434,14 +461,14 @@
 "sb_selfpromo" = "phân đoạn tự quảng cáo";
 "sb_music_offtopic" = "phân đoạn không phải nhạc";
 "sb_preview" = "phân đoạn xem trước";
-"sb_poi_highlight" = "phân đoạn nổi bật";
+"sb_poi_highlight" = "Highlight";
 "sb_filler" = "phân đoạn thêm thắt";
 
-"SegmentDetected" = "Đã phát hiện %@";
-"SegmentSkipped" = "Đã bỏ qua %@";
-"SkippedToSegment" = "Đã chuyển đến %@";
-"SkipSegment" = "Bỏ qua";
-"SkipToSegment" = "Đến phần nổi bật";
+"SegmentDetected" = "%@ detected.\n%@";
+"SegmentSkipped" = "%@ has been skipped";
+"SkippedToSegment" = "Jumped to %@";
+"SkipSegment" = "Would you like to skip the segment?";
+"SkipToSegment" = "Would you like to jump to the highlight?";
 "Unskip" = "Hoàn tác";
 
 /* Developer section */
@@ -513,7 +540,7 @@
 "Disable" = "Tắt";
 "Disabled" = "Đã tắt";
 "PlaybackSpeed" = "Tốc độ phát";
-"SpeedPreserved" = "Đã giữ tốc độ";
+"SpeedPreserved" = "Speed locked at %@";
 "ResetSpeed" = "Đặt lại";
 
 "Toast.Brightness" = "Độ sáng";
@@ -572,6 +599,22 @@
 "RetryLogin" = "Đã sử dụng giải pháp thay thế.\n\nVui lòng thử lại.";
 "LoginInfo" = "Yêu cầu khởi động lại ứng dụng sau khi đăng nhập thành công vào tài khoản Google";
 
+"OpenLink" = "Open link";
+"LinkDetected" = "A YouTube-related link was detected. Would you like to open it in YouTube?";
+
+"SbWhitelist" = "Whitelist";
+"SbAddToWhitelist" = "Add to the whitelist";
+"Sb.Whitelisted" = "Added to the whitelist";
+"SbRemoveFromWhitelist" = "Remove from the whitelist";
+"Sb.Whitelist" = "Whitelisted channels";
+"Sb.Channels" = "Channels";
+"Sb.ChannelsHere" = "Whitelisted channels appear here";
+"SortType" = "Sort type";
+"Sb.Newest" = "Newest first";
+"Sb.Oldest" = "Oldest first";
+"Sb.Alphabetical" = "Alphabetical (A-Z)";
+"Sb.AlphabeticalRev" = "Reverse (Z-A)";
+
 "Welcome.Download" = "Tải xuống nội dung";
 "Welcome.DownloadDesc" = "Tự do tải nội dung mà bạn yêu thích. Từ video thường đến video ngắn, âm thanh của video hay ảnh hồ sơ. Sao chép các bài viết và bình luận thú vị hoặc lưu dưới dạng hình ảnh";
 "Welcome.Content" = "Tùy biến giao diện";
@@ -590,3 +633,16 @@
 "Conflicts.CloseYT" = "Thoát YouTube";
 
 "DonationReminder" = "Sự hỗ trợ của bạn sẽ giúp YouTube Plus ngày một tốt hơn.\n\nBạn có thể chọn quyên góp ngay hoặc tắt thông báo này trong cài đặt YouTube Plus. Cảm ơn bạn💜";
+
+/* Old localizations (commented out for reference)
+"TabIsHidden" = "Không thể chọn tab đã ẩn làm trang khởi động";
+"TabIsStartupTab" = "Không thể ẩn tab đã chọn làm trang khởi động";
+"PreserveSpeed" = "Giữ tốc độ đã điều chỉnh";
+"PreserveSpeedDesc" = "Duy trì tốc độ đã điều chỉnh sau khi thực hiện cử chỉ.";
+"sb_poi_highlight" = "phân đoạn nổi bật";
+"SegmentDetected" = "Đã phát hiện %@";
+"SegmentSkipped" = "Đã bỏ qua %@";
+"SkippedToSegment" = "Đã chuyển đến %@";
+"SkipSegment" = "Bỏ qua";
+"SkipToSegment" = "Đến phần nổi bật";
+"SpeedPreserved" = "Đã giữ tốc độ";

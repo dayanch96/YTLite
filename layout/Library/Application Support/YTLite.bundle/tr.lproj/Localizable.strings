@@ -21,6 +21,7 @@
 "PostDownloadDesc" = "Seçilen eylem, video indirme işlemi başarılı bir şekilde tamamlandığında gerçekleştirilecektir.";
 "SaveToPhotos" = "Fotoğraflara kaydet";
 "Share" = "Paylaş";
+"Copy" = "Kopyala";
 "Ask" = "Sor";
 "DownloadCompleted" = "İndirme tamamlandı";
 
@@ -91,13 +92,17 @@
 /* Player options */
 "Player" = "Oynatıcı";
 "PlaybackQualityOnWiFi" = "WiFi'da oynatma kalitesi";
+"PlaybackQualityOnWiFiDesc" = "Automatically applies the selected quality when streaming over Wi-Fi";
 "PlaybackQualityOnCellular" = "Hücresel bağlantıda oynatma kalitesi";
+"PlaybackQualityOnCellularDesc" = "Automatically applies the selected quality when streaming over mobile data";
 
 "PreferredCaptions" = "Tercih edilen altyazılar";
 "Original" = "Orijinal";
 "Custom" = "Elle seç";
 "CustomAudioTrack" = "Seçilen ses parçası";
+"CustomAudioTrackDesc" = "Specifies the preferred audio track language to use for playback, if available";
 "CustomCaptions" = "Seçilen altyazılar";
+"CustomCaptionsDesc" = "Specifies the preferred captions language to display, if available";
 "AutoGenCaps" = "Otomatik oluşturulan altyazılar";
 "AutoGenCapsDesc" = "Seçilen altyazılar bulunamazsa, YouTube Plus orijinal altyazıların çevirisini veya otomatik oluşturulan altyazıların çevirisini seçmeye çalışacaktır.";
 
@@ -182,6 +187,7 @@
 
 "Player.Actions" = "Eylemler";
 "DefaultPlaybackRate" = "Varsayılan oynatma hızı";
+"DefaultPlaybackRateDesc" = "Overrides the default playback speed";
 "BackgroundPlayback" = "Arka planda oynatma";
 "BackgroundPlaybackDesc" = "Arka planda oynatmayı etkinleştirir.";
 "Miniplayer" = "Mini oynatıcıyı etkinleştir";
@@ -200,15 +206,20 @@
 "ExitFullscreenDesc" = "Video oynatımı sonunda tam ekran modundan çıkar.";
 
 "Player.Gestures" = "Hareketle kontroller";
+"CompactToast" = "Compact toast";
+"CompactToastDesc" = "Displays a compact-style toast for player gestures";
 "LeftSideGesture" = "Sol taraf için hareket";
+"LeftSideGestureDesc" = "Adjusts the selected setting by swiping vertically on the left side of the screen";
 "RightSideGesture" = "Sağ taraf için hareket";
+"RightSideGestureDesc" = "Adjusts the selected setting by swiping vertically on the right side of the screen";
 "ActivationAreaWidth" = "Tanıma bölgesinin genişliği";
 "ActivationAreaWidthDesc" = "Bu değer, ekranın sol ve sağ taraflarındaki jest tanıma bölgesinin genişliğini piksel cinsinden belirler.\n\nİzin verilen maksimum değer, ekran genişliğinin üçte biridir.\n\nBunun ayarlanması, oynatıcıyı küçültmeye veya genişletmeye çalışırken yanlışlıkla etkinleştirmeyi önlemek için yararlıdır.";
 "HoldToSpeed" = "Hızlandırmak için basılı tut";
+"HoldToSpeedDesc" = "Sets the playback speed triggered by a long press on the player";
 "AdjustWithFinger" = "Hareketlerle hız ayarla";
 "AdjustWithFingerDesc" = "Oynatıcıda uzun süre basılı tutarak ve parmağınızı yukarı ve aşağı hareket ettirerek oynatma hızını ayarlamanıza olanak tanır";
-"PreserveSpeed" = "Hızı koru";
-"PreserveSpeedDesc" = "Hareket tamamlandıktan sonra ayarlanan hızı korur";
+"PreserveSpeed" = "Lock speed";
+"PreserveSpeedDesc" = "Locks at adjusted speed after gesture completion.";
 "SeekAnywhere" = "Kaydırarak sarma";
 "SeekAnywhereDesc" = "Oynatmayı, parmağınızı sola ve sağa kaydırarak sarmanıza olanak tanır.";
 "SeekMethod" = "Sarma yöntemi";
@@ -296,6 +307,7 @@
 "HideShortsSource" = "No source link button";
 "HideShortsSourceDesc" = "Removes the button that navigates to the full video or another Short video.";
 "HideShortsAudio" = "No audio indicator";
+"HideShortsAudioDesc" = "Removes the line indicating the audio used in the Shorts.";
 
 /* Tab bar options */
 "Tabbar" = "Sekme çubuğu";
@@ -316,10 +328,9 @@
 
 "ActiveTabs" = "Aktif sekmeler";
 "InactiveTabs" = "Pasif sekmeler";
-"HideLibraryFooter" = "Kütüphane sekmesi, sekme çubuğundaki ilk sekmeye uzun basılarak gizlenebilir veya gösterilebilir.";
+"HideLibraryFooter" = "Tab settings are also accessible by long-pressing the first tab in the tab bar.";
 "Warning" = "Uyarı";
-"TabIsHidden" = "Gizli sekme başlangıç sayfası olarak seçilemez";
-"TabIsStartupTab" = "Başlangıç sayfası olarak seçilen sekme gizlenemez";
+"AtLeastOneTab" = "At least one tab must remain active";
 "TabsCountRestricted" = "En fazla altı sekme ekleyebilirsiniz";
 
 /* Interface options */
@@ -350,9 +361,13 @@
 "MiniplayerStyleDesc" = "Yüzen stile geçmek/çıkmak için uygulamanın yeniden başlatılması gerekir.";
 "Floating" = "Yüzen";
 
-"ContextMenu" = "Bağlam menüsü";
+"Other" = "Other";
 "NoShareChunk" = "Paylaşım tanımlayıcısını kaldır";
 "NoShareChunkDesc" = "Paylaşılacak bağlantılardan \"si=identifier\" parametresini kaldırır. YouTube, paylaşım menüsünü geliştirmeye devam ettiği sebebiyle, \"Yerel paylaşım sayfası\" seçeneğine iyi bir alternatiftir.";
+"AutoCheckLinks" = "Auto-check clipboard";
+"AutoCheckLinksDesc" = "Check clipboard for YouTube-related links each time the app is opened.\nFor proper functionality, go to iOS Settings → YouTube → Paste from other apps and select \"Allow\"";
+
+"ContextMenu" = "Bağlam menüsü";
 "NativeShare" = "Yerel paylaşım sayfası";
 "NativeShareDesc" = "Medya paylaşmak için sistem paylaşım sayfasını kullanır";
 "RemoveCommentGuidelines" = "Yönergeleri kaldır";
@@ -373,10 +388,16 @@
 "RemoveDontRecommendMenuDesc" = "Menüden \"Kanalı önerme\" seçeneğini kaldırır.";
 "RemoveReportMenu" = "\"Bildir\"i kaldır";
 "RemoveReportMenuDesc" = "Menüden \"Bildir\" seçeneğini kaldırır.";
+"RemoveRemixMenu" = "Remove \"Remix\"";
+"RemoveRemixMenuDesc" = "Removes \"Remix\" option from menu.";
+"RemoveYTMMenu" = "Remove \"YouTube Music\"";
+"RemoveYTMMenuDesc" = "Removes \"Listen with YouTube Music\" option from menu.";
 
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "Etkinleştir";
 "EnableSponsorBlockDesc" = "SponsorBlock eklentisini etkinleştirir.";
+"SbPlayerButton" = "Display button in overlay";
+"SbPlayerButtonDesc" = "Adds SponsorBlock button in players overlay.";
 "ShowNotifications" = "Bildirimleri göster";
 "ShowNotificationsDesc" = "Otomatik olarak atlanan kısımlar için bildirimler gösterir. Manuel olarak atlama gerektiren kısımlar için bildirimler her zaman görüntülenir.";
 "SegmentsInFeedPlayer" = "Akışta göster";
@@ -426,6 +447,13 @@
 "Sb.Ask" = "Sor";
 "Sb.Display" = "Oynatıcıda göster";
 
+"PublicUserID" = "Public UserID";
+"PrivateUserID" = "Private UserID";
+"TapToReveal" = "Tap to reveal";
+"Save" = "Save";
+"Error.SbPublicID" = "The public user ID must contain exactly 64 characters";
+"Error.SbPrivateID" = "The private (local) user ID must contain at least 32 characters";
+
 "sb_sponsor" = "Sponsor kısmı";
 "sb_intro" = "Giriş kısmı";
 "sb_outro" = "Bitiş kartları kısmı";
@@ -433,14 +461,14 @@
 "sb_selfpromo" = "Kendini reklamlama kısmı";
 "sb_music_offtopic" = "Müzik dışı kısmı";
 "sb_preview" = "Önizleme kısmı";
-"sb_poi_highlight" = "Öne çıkan nokta";
+"sb_poi_highlight" = "Highlight";
 "sb_filler" = "Doldurma/Şaka kısmı";
 
-"SegmentDetected" = "%@ bulundu";
-"SegmentSkipped" = "%@ atlandı";
-"SkippedToSegment" = "%@na atlandı";
-"SkipSegment" = "Atla";
-"SkipToSegment" = "Göster";
+"SegmentDetected" = "%@ detected.\n%@";
+"SegmentSkipped" = "%@ has been skipped";
+"SkippedToSegment" = "Jumped to %@";
+"SkipSegment" = "Would you like to skip the segment?";
+"SkipToSegment" = "Would you like to jump to the highlight?";
 "Unskip" = "Geri atla";
 
 /* Developer section */
@@ -512,7 +540,7 @@
 "Disable" = "Devre dışı bırak";
 "Disabled" = "Devre dışı";
 "PlaybackSpeed" = "Oynatma Hızı";
-"SpeedPreserved" = "Hız korundu";
+"SpeedPreserved" = "Speed locked at %@";
 "ResetSpeed" = "Sıfırla";
 
 "Toast.Brightness" = "Parlaklık";
@@ -571,6 +599,22 @@
 "RetryLogin" = "Geçici çözüm etkinleştirildi.\n\nLütfen tekrar deneyin.";
 "LoginInfo" = "Google hesabınıza başarılı bir şekilde giriş yaptıktan sonra uygulama yeniden başlatılmalıdır";
 
+"OpenLink" = "Open link";
+"LinkDetected" = "A YouTube-related link was detected. Would you like to open it in YouTube?";
+
+"SbWhitelist" = "Whitelist";
+"SbAddToWhitelist" = "Add to the whitelist";
+"Sb.Whitelisted" = "Added to the whitelist";
+"SbRemoveFromWhitelist" = "Remove from the whitelist";
+"Sb.Whitelist" = "Whitelisted channels";
+"Sb.Channels" = "Channels";
+"Sb.ChannelsHere" = "Whitelisted channels appear here";
+"SortType" = "Sort type";
+"Sb.Newest" = "Newest first";
+"Sb.Oldest" = "Oldest first";
+"Sb.Alphabetical" = "Alphabetical (A-Z)";
+"Sb.AlphabeticalRev" = "Reverse (Z-A)";
+
 "Welcome.Download" = "Medya İndir";
 "Welcome.DownloadDesc" = "En sevdiğiniz içerikleri indirin, ister Videolar, Shorts, Sesler, ister Profil fotoğrafları olsun. İlginç gönderileri ve yorumları kopyalayın veya görüntü olarak kaydedin";
 "Welcome.Content" = "Arayüzü Ayarla";
@@ -589,3 +633,7 @@
 "Conflicts.CloseYT" = "YouTube'u Kapat";
 
 "DonationReminder" = "Desteğiniz, YouTube Plus'ı daha da iyi hale getirmeme yardımcı oluyor.\n\nDoğrudan katkıda bulunabilir veya bu bildirimleri YouTube Plus ayarlarında devre dışı bırakabilirsiniz. Teşekkürler💜";
+
+/* Old localizations (commented out for reference)
+"TabIsHidden" = "Gizli sekme başlangıç sayfası olarak seçilemez";
+"TabIsStartupTab" = "Başlangıç sayfası olarak seçilen sekme gizlenemez";
