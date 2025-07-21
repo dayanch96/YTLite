@@ -8,7 +8,6 @@ body:
       description: Describe the feature or enhancement in detail here. Include any relevant context or background information. Be clear and concise.
       placeholder: |
         Enter your description here
-      render: yaml
     validations:
       required: true
 
