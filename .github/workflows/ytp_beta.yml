@@ -84,21 +84,25 @@ jobs:
 
       - name: Hide sensitive inputs
         uses: levibostian/action-hide-sensitive-inputs@v1
+        with:
+          exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_youpip,enable_yq,enable_ytuhd,info_note
 
-      - name: Validate IPA URL
+      - name: Download and validate IPA
         run: |
-          curl -L -r 0-1023 -o sample.part "${{ inputs.ipa_url }}" > /dev/null 2>&1
-          file_type=$(file --mime-type -b sample.part)
+          wget "${{ inputs.ipa_url }}" --no-verbose -O ${{ github.workspace }}/youtube.ipa
+
+          file_type=$(file --mime-type -b ${{ github.workspace }}/youtube.ipa)
 
           if [[ "$file_type" != "application/x-ios-app" && "$file_type" != "application/zip" ]]; then
-            echo "::error::Validation failed: The file is not a valid IPA file. Detected type: $file_type."
+            echo "::error::Validation failed: The downloaded file is not a valid IPA. Detected type: $file_type."
             exit 1
           fi
 
-      - name: Validate Tweak URL
+      - name: Download and validate tweak
         run: |
-          curl -L -r 0-1023 -o sample.part "${{ inputs.tweak_url }}" > /dev/null 2>&1
-          file_type=$(file --mime-type -b sample.part)
+          wget "${{ inputs.tweak_url }}" --no-verbose -O ${{ github.workspace }}/ytplus.deb
+
+          file_type=$(file --mime-type -b ${{ github.workspace }}/ytplus.deb)
 
           if [[ "$file_type" != "application/vnd.debian.binary-package" ]]; then
             echo "::error::Validation failed: The file is not a valid DEB file. Detected type: $file_type."
@@ -144,14 +148,6 @@ jobs:
       - name: Install cyan
         run: pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
 
-      - name: Download YouTube
-        id: download_youtube
-        run: wget "${{ inputs.ipa_url }}" --no-verbose -O ${{ github.workspace }}/youtube.ipa
-
-      - name: Download YouTube Plus
-        id: download_ytp
-        run: wget "${{ inputs.tweak_url }}" --no-verbose -O ${{ github.workspace }}/ytplus.deb
-
       - name: Clone Open in YouTube (Safari extension)
         run: |
           git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/CokePokes/YoutubeExtensions/
@@ -170,6 +166,12 @@ jobs:
             echo "YouTubeHeader does not exist. Cloning repository..."
             cd $THEOS/include
             git clone --quiet --depth=1 https://github.com/PoomSmart/YouTubeHeader.git
+          fi
+
+          if [ "${{ inputs.enable_demc }}" = "true" ]; then
+            echo "Copying YouTubeHeader to YTHeaders..."
+            rm -rf "$THEOS/include/YTHeaders"
+            cp -r "$THEOS/include/YouTubeHeader" "$THEOS/include/YTHeaders"
           fi
         env:
           THEOS: ${{ github.workspace }}/theos
@@ -308,6 +310,7 @@ jobs:
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v2.0.1
         with:
+          tag_name: ytp-beta-${{ github.run_number }}
           name: YouTubePlus Beta (${{ github.run_number }})
           files: YouTubePlus_Beta.ipa
           draft: true
