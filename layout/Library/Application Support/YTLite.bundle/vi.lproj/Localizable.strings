@@ -271,11 +271,11 @@
 "HideShortsLogo" = "Ẩn biểu tượng Shorts";
 "HideShortsLogoDesc" = "Ẩn biểu tượng Shorts ở góc trên bên trái màn hình.";
 "HideShortsSearch" = "Ẩn nút Tìm kiếm";
-"HideShortsSearchDesc" = "Ẩn nút tìm kiếm nội dung ở thanh trên.";
+"HideShortsSearchDesc" = "Ẩn nút tìm kiếm nội dung ở cạnh trên.";
 "HideShortsCamera" = "Ẩn nút Máy ảnh";
-"HideShortsCameraDesc" = "Ẩn nút mở máy ảnh để tạo nội dung ở thanh trên.";
+"HideShortsCameraDesc" = "Ẩn nút mở máy ảnh để tạo nội dung ở cạnh trên.";
 "HideShortsMore" = "Ẩn nút Thêm (⋮)";
-"HideShortsMoreDesc" = "Ẩn nút mở menu tùy chọn bổ sung ở thanh trên. Bạn vẫn có thể truy cập menu này bằng cách nhấn giữ vào màn hình.";
+"HideShortsMoreDesc" = "Ẩn nút mở menu tùy chọn bổ sung ở cạnh trên. Bạn vẫn có thể truy cập menu này bằng cách nhấn giữ vào màn hình.";
 
 "HideCarouselSub" = "Ẩn nút Kênh đăng ký";
 "HideCarouselSubDesc" = "Không hiển thị nút mở các video của kênh đăng ký khi tạm dừng.";
@@ -399,7 +399,7 @@
 "SbPlayerButton" = "Hiện nút trong trình phát";
 "SbPlayerButtonDesc" = "Hiển thị nút SponsorBlock trong trình phát video.";
 "ShowNotifications" = "Hiện thông báo";
-"ShowNotificationsDesc" = "Hiển thị thông báo với các phân đoạn được bỏ qua tự động. Thông báo của các phân đoạn được bỏ qua thủ công sẽ luôn hiển thị.";
+"ShowNotificationsDesc" = "Hiển thị thông báo khi phân đoạn được bỏ qua tự động. Không ảnh hưởng đến thông báo khi bỏ qua thủ công.";
 "SegmentsInFeedPlayer" = "Hiện phân đoạn trong trang xem";
 "SegmentsInFeedPlayerDesc" = "Hiển thị các phân đoạn trên thanh tiến trình của video được phát khi chưa nhấn xem.";
 "SegmentsInMiniPlayer" = "Hiện phân đoạn trong trình phát thu nhỏ";
@@ -476,7 +476,7 @@
 "FollowMe" = "Theo dõi tôi trên X";
 "SupportDevelopment" = "Hỗ trợ nhà phát triển";
 "DonateDesc" = "Mọi hỗ trợ của bạn đều có ý nghĩa rất lớn";
-"SupportDevelopmentDesc" = "Nếu bạn thích YTPlus và muốn đóng góp đôi chút vào quá trình phát triển, bạn có thể thực hiện bằng một trong các cách dưới đây.\nXin cảm ơn❤";
+"SupportDevelopmentDesc" = "Nếu bạn thích YTPlus và muốn đóng góp đôi chút vào quá trình phát triển, bạn có thể thực hiện bằng một trong các cách dưới đây.\nXin cảm ơn ❤";
 "VisitGithub" = "Kho lưu trữ Github";
 "VisitGithubDesc" = "Gắn sao repo, yêu cầu tính năng hoặc báo lỗi";
 "VisitTelegram" = "Kênh Telegram của tôi";
@@ -538,7 +538,7 @@
 "Best" = "Tốt nhất";
 "Show" = "Hiển thị";
 "Disable" = "Tắt";
-"Disabled" = "Đã tắt";
+"Disabled" = "Tắt";
 "PlaybackSpeed" = "Tốc độ phát";
 "SpeedPreserved" = "Đã đặt tốc độ phát thành %@";
 "ResetSpeed" = "Đặt lại";
