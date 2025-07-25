@@ -1,6 +1,16 @@
 # YouTube Plus (ex. YTLite)
 A flexible enhancer for YouTube on iOS, featuring over hundred customizable options.
 
+## Table of Contents
+- [Screenshots](#screenshots)
+- [Main Features](#main-features)
+- [FAQ](#faq)
+- [Reviews](#reviews)
+- [How to build a YouTube Plus app using GitHub Actions](#how-to-build-a-youtube-plus-app-using-github-actions)
+- [Supported YouTube Version](#supported-youtube-version)
+- [Tweak Integration Details](#tweak-integration-details)
+- [FAQ (Frequently Asked Questions)](#faq-frequently-asked-questions)
+
 ## Screenshots
 <table>
    <tr>
@@ -40,9 +50,11 @@ A flexible enhancer for YouTube on iOS, featuring over hundred customizable opti
 **YouTube Plus preferences can be found in the YouTube Settings**
 
 **All contributors are listed in the Contributors section**
-
 **Used open-source libraries are listed in the Open Source Libraries section**
 
+## FAQ
+- [🇺🇸 English FAQ](FAQs/FAQ_EN.md)
+- [🇷🇺 ЧаВо на Русском](FAQs/FAQ_RU.md)
 
 ## Reviews
 Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbreak.com/blog/youtube-plus/
