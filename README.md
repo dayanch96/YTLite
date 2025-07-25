@@ -90,10 +90,13 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
 
 ## Supported YouTube Version
 <ul>
-   <li><strong>Latest confirmed:</strong> <em>20.29.3</em></li>
+   <li><strong>Latest confirmed:</strong> <em>20.29.3*</em></li>
    <li><strong>Date tested:</strong> <em>July 25, 2025</em></li>
    <li><strong>YouTube Plus:</strong> <em>5.2 beta 2</em></li>
 </ul>
+
+> [!NOTE]
+> <p>*If you want to use cast function (watch on tv, AirPlay etc.) you should choose a YouTube version no higher than <strong>20.14.1</strong></p>
 
 ## Tweak Integration Details
 <details>
