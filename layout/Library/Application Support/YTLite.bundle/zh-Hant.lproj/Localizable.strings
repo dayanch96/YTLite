@@ -386,11 +386,13 @@
 "RemoveNotInterestedMenuDesc" = "從選單移除「不感興趣」選項";
 "RemoveDontRecommendMenu" = "移除「不要推薦這個頻道」";
 "RemoveDontRecommendMenuDesc" = "從選單移除「不要推薦這個頻道」選項";
+"RemoveFeedbackMenu" = "移除「回饋」";
+"RemoveFeedbackMenuDesc" = "從選單移除「回饋」選項";
 "RemoveReportMenu" = "移除「檢舉」";
 "RemoveReportMenuDesc" = "從選單移除「檢舉」選項";
 "RemoveRemixMenu" = "移除「Remix」";
 "RemoveRemixMenuDesc" = "從選單移除「Remix」選項";
-"RemoveYTMMenu" = "從選單移除「YouTube Music」選項";
+"RemoveYTMMenu" = "從選單移除「YouTube Music」";
 "RemoveYTMMenuDesc" = "從選單移除「使用 YouTube Music 聆聽」選項";
 
 /* SponsorBlock settings */
@@ -464,7 +466,7 @@
 "sb_poi_highlight" = "精彩片段";
 "sb_filler" = "填充片段";
 
-"SegmentDetected" = "%@ 檢測到\n%@";
+"SegmentDetected" = "%@ 偵測到\n%@";
 "SegmentSkipped" = "%@ 已被跳過";
 "SkippedToSegment" = "已跳到 %@";
 "SkipSegment" = "您想跳過這個片段嗎?";
@@ -600,7 +602,7 @@
 "LoginInfo" = "成功登錄Google帳戶後需要重新啟動應用程式";
 
 "OpenLink" = "開啟連結";
-"LinkDetected" = "檢測到 YouTube 相關連結。是否要在 YouTube 中開啟?";
+"LinkDetected" = "偵測到 YouTube 相關連結。是否要在 YouTube 中開啟?";
 
 "SbWhitelist" = "白名單";
 "SbAddToWhitelist" = "新增至白名單";
