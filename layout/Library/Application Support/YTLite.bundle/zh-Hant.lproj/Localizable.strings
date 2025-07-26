@@ -392,8 +392,8 @@
 "RemoveReportMenuDesc" = "從選單移除「檢舉」選項";
 "RemoveRemixMenu" = "移除「Remix」";
 "RemoveRemixMenuDesc" = "從選單移除「Remix」選項";
-"RemoveYTMMenu" = "從選單移除「YouTube Music」";
-"RemoveYTMMenuDesc" = "從選單移除「使用 YouTube Music 聆聽」選項";
+"RemoveYTMMenu" = "移除「YouTube Music」";
+"RemoveYTMMenuDesc" = "從選單移除「用 YouTube Music 聽音樂」選項";
 
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "啟用";
