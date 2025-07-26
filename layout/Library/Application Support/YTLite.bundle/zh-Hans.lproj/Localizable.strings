@@ -372,8 +372,8 @@
 "NativeShareDesc" = "使用系统原生分享菜单来分享媒体。";
 "RemoveCommentGuidelines" = "删除指南";
 "RemoveCommentGuidelinesDesc" = "从评论板块删除固定指南。";
-"RemovePlayNext" = "删除“播放队列中的下一个”";
-"RemovePlayNextDesc" = "从菜单中删除“播放队列中的下一个”选项。";
+"RemovePlayNext" = "删除“加入队列，接下来就播放”";
+"RemovePlayNextDesc" = "从菜单中删除“加入队列，接下来就播放”选项。";
 "RemoveDownloadMenu" = "删除“下载”";
 "RemoveDownloadMenuDesc" = "从菜单中删除“下载”选项。";
 "RemoveWatchLaterMenu" = "删除“保存到稍后观看”";
@@ -386,8 +386,8 @@
 "RemoveNotInterestedMenuDesc" = "从菜单中删除“不感兴趣”选项。";
 "RemoveDontRecommendMenu" = "删除“不推荐此频道”";
 "RemoveDontRecommendMenuDesc" = "从菜单中删除“不推荐此频道”选项。";
-"RemoveFeedbackMenu" = "删除“反馈”";
-"RemoveFeedbackMenuDesc" = "从菜单中删除“反馈”选项。";
+"RemoveFeedbackMenu" = "删除“发送反馈”";
+"RemoveFeedbackMenuDesc" = "从菜单中删除“发送反馈”选项。";
 "RemoveReportMenu" = "删除“举报”";
 "RemoveReportMenuDesc" = "从菜单中删除“举报”选项。";
 "RemoveRemixMenu" = "删除“混剪”";
