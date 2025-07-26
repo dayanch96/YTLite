@@ -372,8 +372,8 @@
 "NativeShareDesc" = "使用系統分享選單分享媒體";
 "RemoveCommentGuidelines" = "移除社群規範";
 "RemoveCommentGuidelinesDesc" = "移除留言區置頂的社群規範";
-"RemovePlayNext" = "移除\"播放下一個\"";
-"RemovePlayNextDesc" = "從選單移除\"播放下一個\"";
+"RemovePlayNext" = "移除\"加入待播清單接著播放\"";
+"RemovePlayNextDesc" = "從選單移除\"加入待播清單接著播放\"";
 "RemoveDownloadMenu" = "移除\"下載影片\"";
 "RemoveDownloadMenuDesc" = "從選單移除\"下載影片\"選項";
 "RemoveWatchLaterMenu" = "移除\"儲存至「稍後觀看」清單\"";
