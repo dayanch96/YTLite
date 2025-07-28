@@ -188,9 +188,11 @@ jobs:
 
       - name: Clone YTUHD
         if: ${{ inputs.enable_ytuhd }}
-        run: |
-          cd ${{ github.workspace }}
-          git clone --quiet --depth=1 https://github.com/PoomSmart/YTUHD.git
+        uses: actions/checkout@v4.1.7
+        with:
+          repository: PoomSmart/YTUHD
+          ref: 0f59b38817d554ab692a0053456319847a6ab1a1
+          path: ${{ github.workspace }}/YTUHD
 
       - name: Clone Return-YouTube-Dislikes
         if: ${{ inputs.enable_ryd }}
@@ -303,11 +305,11 @@ jobs:
         run: |
           mkdir -p ytp_tf
 
-          for deb in ytplus.deb youpip.deb ytuhd.deb ryd.deb ygs.deb yq.deb ytvo.deb demc.deb; do
-            if [ -f "$deb" ]; then
-              echo "Extracting $deb..."
+          for f in *.deb; do
+            if [ -f "$f" ]; then
+              echo "Extracting $f..."
               mkdir -p tmp_deb
-              dpkg-deb -x "$deb" tmp_deb
+              dpkg-deb -x "$f" tmp_deb
               find tmp_deb -type f -name "*.dylib" -exec cp -R {} ytp_tf/ \;
               find tmp_deb -type d -name "*.bundle" -exec cp -R {} ytp_tf/ \;
               rm -rf tmp_deb
