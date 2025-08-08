@@ -1,6 +1,6 @@
 # ЧаВо (Часто задаваемые вопросы)
 
-[🇺🇸 English FAQ](FAQ_EN.md) | [✓] 🇷🇺 ЧаВо на Русском | [🇮🇹 FAQ in Italiano](FAQ_IT.md)
+[🇺🇸 English FAQ](FAQ_EN.md) | [✓] 🇷🇺 ЧаВо на Русском | [🇮🇹 FAQ in Italiano](FAQ_IT.md) | [🇵🇱 FAQ po polsku](FAQ_PL.md) 
 
 <details>
   <summary>Какие версии iOS поддерживает YouTube Plus?</summary>
