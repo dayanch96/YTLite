@@ -55,6 +55,7 @@ A flexible enhancer for YouTube on iOS, featuring over hundred customizable opti
 - [🇺🇸 English FAQ](FAQs/FAQ_EN.md)
 - [🇷🇺 ЧаВо на Русском](FAQs/FAQ_RU.md)
 - [🇮🇹 FAQ in Italiano](FAQs/FAQ_IT.md)
+- [🇵🇱 FAQ po polsku](FAQs/FAQ_PL.md)
 
 ## Reviews
 Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbreak.com/blog/youtube-plus/
