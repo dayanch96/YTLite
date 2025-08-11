@@ -187,7 +187,7 @@
 
 "Player.Actions" = "Acciones";
 "DefaultPlaybackRate" = "Velocidad de reproducción predeterminada";
-"DefaultPlaybackRateDesc" = "Overrides the default playback speed";
+"DefaultPlaybackRateDesc" = "Anula la velocidad de reproducción predeterminada";
 "BackgroundPlayback" = "Reproducción en segundo plano";
 "BackgroundPlaybackDesc" = "Permite la reproducción en segundo plano.";
 "Miniplayer" = "Activar mini reproductor";
