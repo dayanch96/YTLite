@@ -19,7 +19,7 @@
 </details>
 <br>
 <details>
-  <summary>La riproduzione non funziona più su YouTube Plus sideloaded. Cosa dovrei fare?</summary>
+  <summary>Il Cast non funziona più su YouTube Plus sideloaded. Cosa dovrei fare?</summary>
     <p>Finché non si risolve il problema, è consigliato usare YouTube 20.14.1 o inferiori.</p>
 </details>
 <br>
