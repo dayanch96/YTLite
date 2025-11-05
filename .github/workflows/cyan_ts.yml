@@ -48,7 +48,7 @@ on:
 
       tweak_version:
         description: "The version of the tweak to use. Enter the version manually from dayanch96/YTLite/releases or leave default"
-        default: "5.2b3"
+        default: "5.2b4"
         required: true
         type: string
 
