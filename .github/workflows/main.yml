@@ -156,13 +156,13 @@ jobs:
         if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_demc }}
         run: |
           if [ -d "$THEOS/include/YouTubeHeader" ]; then
-            echo "YouTubeHeader exists. Pulling latest changes..."
-            cd $THEOS/include/YouTubeHeader
-            git pull
+            echo "YouTubeHeader exists."
           else
             echo "YouTubeHeader does not exist. Cloning repository..."
             cd $THEOS/include
             git clone --quiet --depth=1 https://github.com/PoomSmart/YouTubeHeader.git
+            cd YouTubeHeader
+            git checkout 854a92b
           fi
 
           if [ "${{ inputs.enable_demc }}" = "true" ]; then
