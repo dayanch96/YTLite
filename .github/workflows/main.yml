@@ -198,8 +198,8 @@ jobs:
         if: ${{ inputs.enable_ytuhd }}
         uses: actions/checkout@v4.1.7
         with:
-          repository: PoomSmart/YTUHD
-          ref: 0f59b38817d554ab692a0053456319847a6ab1a1
+          repository: Tonwalter888/YTUHD
+          ref: 44535466ad464d8b4c3338a289f1b729bb7d1e4a
           path: ${{ github.workspace }}/YTUHD
 
       - name: Clone Return-YouTube-Dislikes
