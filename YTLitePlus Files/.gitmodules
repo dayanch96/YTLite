@@ -54,7 +54,7 @@
 	url = https://github.com/therealFoxster/YTHeaders
 [submodule "Tweaks/YouTimeStamp"]
 	path = Tweaks/YouTimeStamp
-	url = https://github.com/aricloverALT/YouTimeStamp.git
+	url = https://github.com/Sohday823/YouTimeStamp.git
 [submodule "Tweaks/YouLoop"]
 	path = Tweaks/YouLoop
 	url = https://github.com/bhackel/YouLoop

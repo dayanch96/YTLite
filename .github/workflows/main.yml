@@ -234,7 +234,7 @@ jobs:
         if: ${{ inputs.enable_youtimestamp }}
         run: |
           cd ${{ github.workspace }}
-          git clone --quiet --depth=1 https://github.com/arichornlover/YouTimeStamp.git
+          git clone --quiet --depth=1 https://github.com/Sohday823/YouTimeStamp.git
 
       - name: Apply YouTimeStamp fix
         if: ${{ inputs.enable_youtimestamp }}
