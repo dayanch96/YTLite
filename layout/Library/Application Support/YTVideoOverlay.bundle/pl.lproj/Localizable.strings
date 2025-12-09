@@ -1,0 +1,11 @@
+"VIDEO_OVERLAY" = "Nakładka odtwarzacza";
+"TOP" = "Góra";
+"TOP_DESC" = "W prawym górnym rogu gdzie znajdują się napisy, rozwijane menu itp.";
+"BOTTOM" = "Dół";
+"BOTTOM_DESC" = "W prawym dolnym rogu, tam gdzie znajduje się przycisk pełnego ekranu.";
+"ORDER" = "Kolejność";
+"ORDER_NONE" = "Nieustawione";
+
+"GLOBAL_SETTINGS" = "Ustawienia globalne";
+"ENABLE_FROSTED_GLASS_BOTTOM" = "Matowe szkło na dole";
+"ENABLE_FROSTED_GLASS_BOTTOM_DESC" = "Dodaje efekt matowego szkła do dolnych przycisków po włączeniu.";

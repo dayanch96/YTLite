@@ -1,0 +1,11 @@
+"VIDEO_OVERLAY" = "Oynatıcı Kaplaması.";
+"TOP" = "Üst";
+"TOP_DESC" = "Sağ üstte, otomatik oynatma, altyazılar, yayınlama ve taşma menüsünün bulunduğu yer.";
+"BOTTOM" = "Alt";
+"BOTTOM_DESC" = "Sağ altta, tam ekran düğmesinin olduğu yer.";
+"ORDER" = "Sıra";
+"ORDER_NONE" = "Belirtilmemiş";
+
+"GLOBAL_SETTINGS" = "Genel ayarlar";
+"ENABLE_FROSTED_GLASS_BOTTOM" = "Alt buzlu cam";
+"ENABLE_FROSTED_GLASS_BOTTOM_DESC" = "Etkinleştirildiğinde alt düğmelere buzlu cam efekti ekler.";

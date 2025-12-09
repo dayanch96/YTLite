@@ -1380,7 +1380,460 @@ static NSURL *newCoverURL(NSURL *originalURL) {
 // }
 // %end
 
+// ============================================================================
+// YTVideoOverlay + YouTimeStamp Integration
+// ============================================================================
+
+#define OVERLAY_BUTTON_SIZE 24
+
+NSMutableDictionary <NSString *, NSDictionary *> *tweaksMetadata;
+NSMutableArray <NSString *> *topButtons;
+NSMutableArray <NSString *> *bottomButtons;
+
+static NSString *EnabledKey(NSString *name) {
+    return [NSString stringWithFormat:@"YTVideoOverlay-%@-Enabled", name];
+}
+
+static BOOL TweakEnabled(NSString *name) {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:EnabledKey(name)];
+}
+
+static NSString *PositionKey(NSString *name) {
+    return [NSString stringWithFormat:@"YTVideoOverlay-%@-Position", name];
+}
+
+static int ButtonPosition(NSString *name) {
+    return [[NSUserDefaults standardUserDefaults] integerForKey:PositionKey(name)];
+}
+
+static NSString *OrderKey(NSString *name) {
+    return [NSString stringWithFormat:@"YTVideoOverlay-%@-Order", name];
+}
+
+static int ButtonOrder(NSString *name) {
+    return [[NSUserDefaults standardUserDefaults] integerForKey:OrderKey(name)];
+}
+
+static BOOL UseTopButton(NSString *name) {
+    return TweakEnabled(name) && ButtonPosition(name) == 0;
+}
+
+static BOOL UseBottomButton(NSString *name) {
+    return TweakEnabled(name) && ButtonPosition(name) == 1;
+}
+
+// YouTimeStamp specific code
+@interface YTPlayerViewController (YouTimeStamp)
+- (void)didPressYouTimeStamp;
+@end
+
+@interface YTMainAppControlsOverlayView (YouTimeStamp)
+@property (retain, nonatomic) NSMutableDictionary <NSString *, YTQTMButton *> *overlayButtons;
+- (UIImage *)buttonImage:(NSString *)tweakId;
+- (void)didPressYouTimeStamp:(id)arg;
+@end
+
+@interface YTInlinePlayerBarContainerView (YouTimeStamp)
+@property (retain, nonatomic) NSMutableDictionary <NSString *, YTQTMButton *> *overlayButtons;
+@property (retain, nonatomic) NSMutableDictionary <NSString *, id> *overlayGlasses;
+- (UIImage *)buttonImage:(NSString *)tweakId;
+- (void)didPressYouTimeStamp:(id)arg;
+@end
+
+@interface YTInlinePlayerBarController : NSObject
+@end
+
+@interface GOOHUDMessageAction : NSObject
+- (void)setTitle:(NSString *)title;
+- (void)setHandler:(void (^)(id))handler;
+@end
+
+@interface GOOHUDManagerInternal : NSObject
+- (void)showMessageMainThread:(id)message;
++ (id)sharedInstance;
+@end
+
+@interface YTHUDMessage : NSObject
++ (id)messageWithText:(id)text;
+- (void)setAction:(id)action;
+@end
+
+NSBundle *YouTimeStampBundle() {
+    static NSBundle *bundle = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *tweakBundlePath = [[NSBundle mainBundle] pathForResource:@"YouTimeStamp" ofType:@"bundle"];
+        if (tweakBundlePath)
+            bundle = [NSBundle bundleWithPath:tweakBundlePath];
+        else
+            bundle = [NSBundle bundleWithPath:@"/Library/Application Support/YouTimeStamp.bundle"];
+    });
+    return bundle;
+}
+
+static UIImage *timestampImage(NSString *qualityLabel) {
+    return [%c(QTMIcon) tintImage:[UIImage imageNamed:[NSString stringWithFormat:@"Timestamp@%@", qualityLabel] inBundle: YouTimeStampBundle() compatibleWithTraitCollection:nil] color:[%c(YTColor) white1]];
+}
+
+%hook YTPlayerViewController
+%new
+- (void)didPressYouTimeStamp {
+    CGFloat currentTime = self.mediaTime;
+    NSInteger timeInterval = (NSInteger)currentTime;
+
+    if (self.videoID) {
+        NSString *videoId = [NSString stringWithFormat:@"https://youtu.be/%@", self.videoID];
+        NSString *timestampString = [NSString stringWithFormat:@"?t=%ld", (long)timeInterval];
+
+        NSString *modifiedURL = [videoId stringByAppendingString:timestampString];
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        [pasteboard setString:modifiedURL];
+        [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"URL copied to clipboard"]];
+    }
+}
+%end
+
+static void sortButtons(NSMutableArray <NSString *> *buttons) {
+    [buttons sortUsingComparator:^NSComparisonResult (NSString *a, NSString *b) {
+        int orderA = ButtonOrder(a);
+        int orderB = ButtonOrder(b);
+        if (orderA == 0 && orderB == 0)
+            return [a caseInsensitiveCompare:b];
+        if (orderA == 0)
+            return NSOrderedDescending;
+        if (orderB == 0)
+            return NSOrderedAscending;
+        return orderA < orderB ? NSOrderedAscending : NSOrderedDescending;
+    }];
+}
+
+static NSMutableArray *topControls(YTMainAppControlsOverlayView *self, NSMutableArray *controls) {
+    for (NSString *name in topButtons) {
+        if (UseTopButton(name))
+            [controls insertObject:self.overlayButtons[name] atIndex:0];
+    }
+    return controls;
+}
+
+static void setDefaultTextStyle(YTQTMButton *button) {
+    button.customTitleColor = [%c(YTColor) white1];
+    id defaultTypeStyle = [%c(YTTypeStyle) defaultTypeStyle];
+    UIFont *font = [defaultTypeStyle respondsToSelector:@selector(ytSansFontOfSize:weight:)]
+        ? [defaultTypeStyle ytSansFontOfSize:10 weight:UIFontWeightSemibold]
+        : [defaultTypeStyle fontOfSize:9.5 weight:UIFontWeightSemibold];
+    button.titleLabel.font = font;
+    button.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [button yt_setWidth:OVERLAY_BUTTON_SIZE];
+}
+
+static YTQTMButton *createButtonTop(BOOL isText, YTMainAppControlsOverlayView *self, NSString *buttonId, NSString *accessibilityLabel, SEL selector) {
+    if (!self) return nil;
+    CGFloat padding = [[self class] topButtonAdditionalPadding];
+    YTQTMButton *button;
+    if (isText) {
+        button = [%c(YTQTMButton) textButton];
+        button.accessibilityLabel = accessibilityLabel;
+        button.verticalContentPadding = padding;
+        setDefaultTextStyle(button);
+    } else {
+        UIImage *image = [self buttonImage:buttonId];
+        button = [self buttonWithImage:image accessibilityLabel:accessibilityLabel verticalContentPadding:padding];
+    }
+    button.hidden = YES;
+    button.alpha = 0;
+    [button addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
+    if (![topButtons containsObject:buttonId])
+        [topButtons addObject:buttonId];
+    @try {
+        [[self valueForKey:@"_topControlsAccessibilityContainerView"] addSubview:button];
+    } @catch (id ex) {
+        [self addSubview:button];
+    }
+    return button;
+}
+
+static YTQTMButton *createButtonBottom(BOOL isText, YTInlinePlayerBarContainerView *self, NSString *buttonId, NSString *accessibilityLabel, SEL selector) {
+    if (!self) return nil;
+    YTQTMButton *button;
+    if (isText) {
+        button = [%c(YTQTMButton) textButton];
+        button.accessibilityLabel = accessibilityLabel;
+        setDefaultTextStyle(button);
+    } else {
+        UIImage *image = [self buttonImage:buttonId];
+        button = [%c(YTQTMButton) iconButton];
+        [button setImage:image forState:UIControlStateNormal];
+        [button sizeToFit];
+    }
+    button.hidden = YES;
+    button.exclusiveTouch = YES;
+    button.alpha = 0;
+    button.minHitTargetSize = 60;
+    button.accessibilityLabel = accessibilityLabel;
+    [button addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
+    if (![bottomButtons containsObject:buttonId])
+        [bottomButtons addObject:buttonId];
+    [self addSubview:button];
+    return button;
+}
+
+static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOOL isTop, id self) {
+    NSMutableDictionary <NSString *, YTQTMButton *> *overlayButtons = [NSMutableDictionary dictionary];
+    NSMutableDictionary <NSString *, id> *overlayGlasses = isTop ? nil : [NSMutableDictionary dictionary];
+    for (NSString *name in [tweaksMetadata allKeys]) {
+        NSDictionary *metadata = tweaksMetadata[name];
+        SEL selector = NSSelectorFromString(metadata[@"selector"]);
+        BOOL asText = [metadata[@"asText"] boolValue];
+        NSString *accessibilityLabel = metadata[@"accessibilityLabel"];
+        YTQTMButton *button;
+        if (isTop)
+            button = createButtonTop(asText, (YTMainAppControlsOverlayView *)self, name, accessibilityLabel, selector);
+        else
+            button = createButtonBottom(asText, (YTInlinePlayerBarContainerView *)self, name, accessibilityLabel, selector);
+        overlayButtons[name] = button;
+    }
+    if (!isTop)
+        ((YTInlinePlayerBarContainerView *)self).overlayGlasses = overlayGlasses;
+    return overlayButtons;
+}
+
+%hook YTMainAppVideoPlayerOverlayViewController
+
+- (void)updateTopRightButtonAvailability {
+    %orig;
+    YTMainAppVideoPlayerOverlayView *v = [self videoPlayerOverlayView];
+    YTMainAppControlsOverlayView *c = [v valueForKey:@"_controlsOverlayView"];
+    for (NSString *name in topButtons)
+        c.overlayButtons[name].hidden = !UseTopButton(name);
+    [c setNeedsLayout];
+}
+
+%end
+
+%hook YTMainAppControlsOverlayView
+
+%property (retain, nonatomic) NSMutableDictionary *overlayButtons;
+
+- (id)initWithDelegate:(id)delegate {
+    self = %orig;
+    self.overlayButtons = createOverlayButtons(YES, self);
+    sortButtons(topButtons);
+    return self;
+}
+
+- (id)initWithDelegate:(id)delegate autoplaySwitchEnabled:(BOOL)autoplaySwitchEnabled {
+    self = %orig;
+    self.overlayButtons = createOverlayButtons(YES, self);
+    sortButtons(topButtons);
+    return self;
+}
+
+%new(@@:@)
+- (UIImage *)buttonImage:(NSString *)tweakId {
+    if ([tweakId isEqualToString:@"YouTimeStamp"]) {
+        return timestampImage(@"3");
+    }
+    return nil;
+}
+
+- (NSMutableArray *)topButtonControls {
+    return topControls(self, %orig);
+}
+
+- (NSMutableArray *)topControls {
+    return topControls(self, %orig);
+}
+
+- (void)setTopOverlayVisible:(BOOL)visible isAutonavCanceledState:(BOOL)canceledState {
+    CGFloat alpha = canceledState || !visible ? 0.0 : 1.0;
+    for (NSString *name in topButtons) {
+        YTQTMButton *button = self.overlayButtons[name];
+        button.alpha = UseTopButton(name) ? alpha : 0;
+        if (tweaksMetadata[name][@"updateImageOnVisible"])
+            [button setImage:[self buttonImage:name] forState:UIControlStateNormal];
+    }
+    %orig;
+}
+
+%new(v@:@)
+- (void)didPressYouTimeStamp:(id)arg {
+    YTMainAppVideoPlayerOverlayView *mainOverlayView = (YTMainAppVideoPlayerOverlayView *)self.superview;
+    YTMainAppVideoPlayerOverlayViewController *mainOverlayController = (YTMainAppVideoPlayerOverlayViewController *)mainOverlayView.delegate;
+    YTPlayerViewController *playerViewController = mainOverlayController.parentViewController;
+    if (playerViewController) {
+        [playerViewController didPressYouTimeStamp];
+    }
+}
+
+%end
+
+%hook YTInlinePlayerBarContainerView
+
+%property (retain, nonatomic) NSMutableDictionary *overlayButtons;
+%property (retain, nonatomic) NSMutableDictionary *overlayGlasses;
+
+- (id)init {
+    self = %orig;
+    self.overlayButtons = createOverlayButtons(NO, self);
+    sortButtons(bottomButtons);
+    return self;
+}
+
+%new(@@:@)
+- (UIImage *)buttonImage:(NSString *)tweakId {
+    if ([tweakId isEqualToString:@"YouTimeStamp"]) {
+        return timestampImage(@"3");
+    }
+    return nil;
+}
+
+- (NSMutableArray *)rightIcons {
+    NSMutableArray *icons = %orig;
+    for (NSString *name in bottomButtons) {
+        if (UseBottomButton(name)) {
+            YTQTMButton *button = self.overlayButtons[name];
+            [icons insertObject:button atIndex:0];
+        }
+    }
+    return icons;
+}
+
+- (void)updateIconVisibility {
+    %orig;
+    for (NSString *name in bottomButtons) {
+        if (UseBottomButton(name)) {
+            YTQTMButton *button = self.overlayButtons[name];
+            button.hidden = NO;
+            if (tweaksMetadata[name][@"updateImageOnVisible"])
+                [button setImage:[self buttonImage:name] forState:UIControlStateNormal];
+        }
+    }
+}
+
+- (void)updateIconsHiddenAttribute {
+    %orig;
+    for (NSString *name in bottomButtons) {
+        if (UseBottomButton(name)) {
+            YTQTMButton *button = self.overlayButtons[name];
+            button.hidden = NO;
+            if (tweaksMetadata[name][@"updateImageOnVisible"])
+                [button setImage:[self buttonImage:name] forState:UIControlStateNormal];
+        }
+    }
+}
+
+- (void)hideScrubber {
+    %orig;
+    for (NSString *name in bottomButtons) {
+        if (UseBottomButton(name))
+            self.overlayButtons[name].alpha = 0;
+    }
+}
+
+- (void)setPeekableViewVisible:(BOOL)visible {
+    %orig;
+    CGFloat alpha = visible ? 1 : 0;
+    for (NSString *name in bottomButtons) {
+        if (UseBottomButton(name))
+            self.overlayButtons[name].alpha = alpha;
+    }
+}
+
+- (void)setPeekableViewVisible:(BOOL)visible fullscreenButtonVisibleShouldMatchPeekableView:(BOOL)match {
+    %orig;
+    for (NSString *name in bottomButtons) {
+        if (UseBottomButton(name))
+            self.overlayButtons[name].alpha = visible ? 1 : 0;
+    }
+}
+
+- (void)peekWithShowScrubber:(BOOL)scrubber setControlsAbovePlayerBarVisible:(BOOL)visible {
+    %orig;
+    for (NSString *name in bottomButtons) {
+        if (UseBottomButton(name))
+            self.overlayButtons[name].alpha = visible ? 1 : 0;
+    }
+}
+
+- (void)layoutSubviews {
+    %orig;
+    CGFloat multiFeedWidth = [self respondsToSelector:@selector(multiFeedElementView)] ? [self multiFeedElementView].frame.size.width : 0;
+    YTQTMButton *enter = [self enterFullscreenButton];
+    CGFloat cornerRadius = enter.layer.cornerRadius;
+    CGFloat fullscreenButtonWidth = 0;
+    CGFloat fullscreenImageWidth = 0;
+    CGRect frame = CGRectZero;
+    if ([enter yt_isVisible]) {
+        frame = enter.frame;
+        fullscreenButtonWidth = frame.size.width;
+        fullscreenImageWidth = enter.currentImage.size.width;
+    } else {
+        YTQTMButton *exit = [self exitFullscreenButton];
+        if ([exit yt_isVisible]) {
+            cornerRadius = exit.layer.cornerRadius;
+            frame = exit.frame;
+            fullscreenButtonWidth = frame.size.width;
+            fullscreenImageWidth = exit.currentImage.size.width;
+        }
+    }
+    if (CGRectIsEmpty(frame) || frame.origin.x <= 0 || frame.origin.y < -4) return;
+    CGFloat gap = fullscreenButtonWidth > fullscreenImageWidth ? 12 : fullscreenButtonWidth;
+    frame.origin.x -= gap + multiFeedWidth + fullscreenButtonWidth;
+    UIView *peekableView = [self peekableView];
+    for (NSString *name in bottomButtons) {
+        if (UseBottomButton(name)) {
+            YTQTMButton *button = self.overlayButtons[name];
+            if (self.layout == 3 && button.superview == self) {
+                [button removeFromSuperview];
+                [peekableView addSubview:button];
+            }
+            if (self.layout != 3 && button.superview == peekableView) {
+                [button removeFromSuperview];
+                [self addSubview:button];
+            }
+            button.layer.cornerRadius = cornerRadius;
+            button.frame = frame;
+            frame.origin.x -= frame.size.width + gap;
+            if (frame.origin.x < 0) frame.origin.x = 0;
+        }
+    }
+}
+
+%new(v@:@)
+- (void)didPressYouTimeStamp:(id)arg {
+    YTInlinePlayerBarController *delegate = self.delegate;
+    YTMainAppVideoPlayerOverlayViewController *_delegate = [delegate valueForKey:@"_delegate"];
+    YTPlayerViewController *parentViewController = _delegate.parentViewController;
+    if (parentViewController) {
+        [parentViewController didPressYouTimeStamp];
+    }
+}
+
+%end
+
+// ============================================================================
+// End YTVideoOverlay + YouTimeStamp Integration
+// ============================================================================
+
 %ctor {
+    // Initialize YouTimeStamp
+    tweaksMetadata = [NSMutableDictionary dictionary];
+    topButtons = [NSMutableArray array];
+    bottomButtons = [NSMutableArray array];
+
+    tweaksMetadata[@"YouTimeStamp"] = @{
+        @"accessibilityLabel": @"Copy Timestamp",
+        @"selector": @"didPressYouTimeStamp:",
+    };
+
+    // Enable by default, position at bottom (1)
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"YTVideoOverlay-YouTimeStamp-Enabled"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"YTVideoOverlay-YouTimeStamp-Enabled"];
+    }
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"YTVideoOverlay-YouTimeStamp-Position"]) {
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"YTVideoOverlay-YouTimeStamp-Position"];
+    }
+
     if (ytlBool(@"shortsOnlyMode") && (ytlBool(@"removeShorts") || ytlBool(@"reExplore"))) {
         ytlSetBool(NO, @"removeShorts");
         ytlSetBool(NO, @"reExplore");

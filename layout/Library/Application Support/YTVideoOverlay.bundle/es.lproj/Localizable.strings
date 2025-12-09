@@ -1,0 +1,11 @@
+"VIDEO_OVERLAY" = "Superposición de video";
+"TOP" = "Arriba";
+"TOP_DESC" = "En la parte superior derecha, donde están la reproducción automática, los subtítulos, el reparto y el menú de desbordamiento.";
+"BOTTOM" = "Abajo";
+"BOTTOM_DESC" = "En la parte inferior derecha, donde está el botón de pantalla completa.";
+"ORDER" = "Orden";
+"ORDER_NONE" = "No establecido";
+
+"GLOBAL_SETTINGS" = "Configuración global";
+"ENABLE_FROSTED_GLASS_BOTTOM" = "Vidrio esmerilado inferior";
+"ENABLE_FROSTED_GLASS_BOTTOM_DESC" = "Añade un efecto de vidrio esmerilado a los botones inferiores cuando está activado.";
