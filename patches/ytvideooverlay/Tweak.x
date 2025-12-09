@@ -95,13 +95,21 @@ static void maybeApplyToView(YTFrostedGlassView *frostedGlassView, UIView *view)
         [frostedGlassView maybeApplyToView:view];
         return;
     }
-    if (!frostedGlassView || !view || frostedGlassView.superview == view) return;
-    UIColor *backgroundColor = [%c(YTColor) blackPureAlpha0];
-    view.layer.backgroundColor = backgroundColor.CGColor;
+    if (!frostedGlassView || !view) return;
+
+    // Always update cornerRadius and frame to stay in sync with button
+    // This fixes the square background issue where frosted glass was applied
+    // before the button's cornerRadius was updated from the reference button
     frostedGlassView.cornerRadius = view.layer.cornerRadius;
     frostedGlassView.frame = view.bounds;
-    frostedGlassView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [view insertSubview:frostedGlassView atIndex:0];
+
+    // Only insert subview and set properties if not already attached
+    if (frostedGlassView.superview != view) {
+        UIColor *backgroundColor = [%c(YTColor) blackPureAlpha0];
+        view.layer.backgroundColor = backgroundColor.CGColor;
+        frostedGlassView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [view insertSubview:frostedGlassView atIndex:0];
+    }
 }
 
 static void setDefaultTextStyle(YTQTMButton *button) {
