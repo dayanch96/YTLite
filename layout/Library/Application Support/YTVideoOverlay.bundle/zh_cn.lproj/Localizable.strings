@@ -1,0 +1,11 @@
+"VIDEO_OVERLAY" = "视频覆盖";
+"TOP" = "顶部";
+"TOP_DESC" = "在右上角，自动播放、字幕等按钮所在位置。";
+"BOTTOM" = "底部";
+"BOTTOM_DESC" = "在右下角，全屏按钮所在的位置。";
+"ORDER" = "顺序";
+"ORDER_NONE" = "未设置";
+
+"GLOBAL_SETTINGS" = "全局设置";
+"ENABLE_FROSTED_GLASS_BOTTOM" = "底部毛玻璃";
+"ENABLE_FROSTED_GLASS_BOTTOM_DESC" = "启用后为底部按钮添加毛玻璃效果。";
