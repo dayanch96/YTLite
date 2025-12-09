@@ -1599,8 +1599,12 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
         else
             button = createButtonBottom(asText, (YTInlinePlayerBarContainerView *)self, name, accessibilityLabel, selector);
         overlayButtons[name] = button;
-        if (!isTop)
-            overlayGlasses[name] = createFallbackOverlayBackground();
+        if (!isTop) {
+            UIView *overlayBackground = [[UIView alloc] initWithFrame:CGRectZero];
+            overlayBackground.userInteractionEnabled = NO;
+            overlayBackground.backgroundColor = [%c(YTColor) blackPureAlpha0];
+            overlayGlasses[name] = overlayBackground;
+        }
     }
     if (!isTop)
         ((YTInlinePlayerBarContainerView *)self).overlayGlasses = overlayGlasses;
