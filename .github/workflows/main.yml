@@ -236,6 +236,12 @@ jobs:
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/arichornlover/YouTimeStamp.git
 
+      - name: Apply YouTimeStamp patch
+        if: ${{ inputs.enable_youtimestamp }}
+        run: |
+          cd ${{ github.workspace }}
+          patch -p1 < main/patches/youtimestamp-fix.patch
+
       - name: Clone DontEatMyContent
         if: ${{ inputs.enable_demc }}
         run: |

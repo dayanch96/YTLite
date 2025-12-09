@@ -1,0 +1,121 @@
+--- a/YouTimeStamp/Tweak.x
++++ b/YouTimeStamp/Tweak.x
+@@ -4,10 +4,11 @@
+
+ #import "../YTVideoOverlay/Header.h"
+ #import "../YTVideoOverlay/Init.x"
+-#import "../YouTubeHeader/YTColor.h"
+-#import "../YouTubeHeader/YTMainAppVideoPlayerOverlayViewController.h"
+-#import "../YouTubeHeader/YTMainAppControlsOverlayView.h"
+-#import "../YouTubeHeader/YTPlayerViewController.h"
++#import <YouTubeHeader/YTColor.h>
++#import <YouTubeHeader/QTMIcon.h>
++#import <YouTubeHeader/YTMainAppVideoPlayerOverlayViewController.h>
++#import <YouTubeHeader/YTMainAppVideoPlayerOverlayView.h>
++#import <YouTubeHeader/YTMainAppControlsOverlayView.h>
++#import <YouTubeHeader/YTPlayerViewController.h>
+
+ #define TweakKey @"YouTimeStamp"
+
+@@ -17,6 +18,10 @@
+ @property (nonatomic, assign) YTPlayerViewController *parentViewController;
+ @end
+
++@interface YTMainAppVideoPlayerOverlayView (YouTimeStamp)
++@property (nonatomic, weak, readwrite) YTMainAppVideoPlayerOverlayViewController *delegate;
++@end
++
+ @interface YTPlayerViewController (YouTimeStamp)
+ @property (nonatomic, assign) CGFloat currentVideoMediaTime;
+ @property (nonatomic, assign) NSString *currentVideoID;
+@@ -24,21 +29,15 @@
+ @end
+
+ @interface YTMainAppControlsOverlayView (YouTimeStamp)
+-@property (retain, nonatomic) YTQTMButton *timestampButton;
+ @property (nonatomic, assign) YTPlayerViewController *playerViewController;
+ - (void)didPressYouTimeStamp:(id)arg;
+ @end
+
+ @interface YTInlinePlayerBarController : NSObject
+ @end
+
+ @interface YTInlinePlayerBarContainerView (YouTimeStamp)
+-@property (retain, nonatomic) YTQTMButton *timestampButton;
+ @property (nonatomic, strong) YTInlinePlayerBarController *delegate;
+ - (void)didPressYouTimeStamp:(id)arg;
+ @end
+
+@@ -105,28 +104,11 @@
+ %group Top
+ %hook YTMainAppControlsOverlayView
+-%property (retain, nonatomic) YTQTMButton *timestampButton;
+
+-// Modify the initializers to add the custom timestamp button
+-- (id)initWithDelegate:(id)delegate {
+-    self = %orig;
+-    self.timestampButton = [self createButton:TweakKey accessibilityLabel:@"Copy Timestamp" selector:@selector(didPressYouTimeStamp:)];
+-    return self;
+-}
+-- (id)initWithDelegate:(id)delegate autoplaySwitchEnabled:(BOOL)autoplaySwitchEnabled {
+-    self = %orig;
+-    self.timestampButton = [self createButton:TweakKey accessibilityLabel:@"Copy Timestamp" selector:@selector(didPressYouTimeStamp:)];
+-    return self;
+-}
+-
+-// Modify methods that retrieve a button from an ID to return our custom button
+-- (YTQTMButton *)button:(NSString *)tweakId {
+-    return [tweakId isEqualToString:TweakKey] ? self.timestampButton : %orig;
+-}
+ - (UIImage *)buttonImage:(NSString *)tweakId {
+     return [tweakId isEqualToString:TweakKey] ? timestampImage(@"3") : %orig;
+ }
+
+ // Custom method to handle the timestamp button press
+ %new(v@:@)
+ - (void)didPressYouTimeStamp:(id)arg {
+-    // Call our custom method in the YTPlayerViewController class - this is
++    // Call our custom method in the YTPlayerViewController class - this is
+-    // directly accessible in the self.playerViewController property
+-    YTPlayerViewController *playerViewController = self.playerViewController;
++    // directly accessible in the self.playerViewController property
++    YTMainAppVideoPlayerOverlayView *mainOverlayView = (YTMainAppVideoPlayerOverlayView *)self.superview;
++    YTMainAppVideoPlayerOverlayViewController *mainOverlayController = (YTMainAppVideoPlayerOverlayViewController *)mainOverlayView.delegate;
++    YTPlayerViewController *playerViewController = mainOverlayController.parentViewController;
+     if (playerViewController) {
+         [playerViewController didPressYouTimeStamp];
+     }
+@@ -145,21 +127,9 @@
+ %group Bottom
+ %hook YTInlinePlayerBarContainerView
+-%property (retain, nonatomic) YTQTMButton *timestampButton;
+
+-// Modify the initializer to add the custom timestamp button
+-- (id)init {
+-    self = %orig;
+-    self.timestampButton = [self createButton:TweakKey accessibilityLabel:@"Copy Timestamp" selector:@selector(didPressYouTimeStamp:)];
+-    return self;
+-}
+-
+-// Modify methods that retrieve a button from an ID to return our custom button
+-- (YTQTMButton *)button:(NSString *)tweakId {
+-    return [tweakId isEqualToString:TweakKey] ? self.timestampButton : %orig;
+-}
+ - (UIImage *)buttonImage:(NSString *)tweakId {
+     return [tweakId isEqualToString:TweakKey] ? timestampImage(@"3") : %orig;
+ }
+
+ // Custom method to handle the timestamp button press
+ %new(v@:@)
+@@ -179,7 +149,10 @@
+ %end
+
+ %ctor {
+-    initYTVideoOverlay(TweakKey);
++    initYTVideoOverlay(TweakKey, @{
++        AccessibilityLabelKey: @"Copy Timestamp",
++        SelectorKey: @"didPressYouTimeStamp:",
++    });
+     %init(Main);
+     %init(Top);
+     %init(Bottom);
