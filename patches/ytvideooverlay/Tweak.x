@@ -306,6 +306,8 @@ static void sortButtons(NSMutableArray <NSString *> *buttons) {
                 [button setImage:[self buttonImage:name] forState:UIControlStateNormal];
         }
     }
+    // PATCH: Force layout update to ensure proper positioning
+    [self setNeedsLayout];
 }
 
 - (void)updateIconsHiddenAttribute {
@@ -318,6 +320,8 @@ static void sortButtons(NSMutableArray <NSString *> *buttons) {
                 [button setImage:[self buttonImage:name] forState:UIControlStateNormal];
         }
     }
+    // PATCH: Force layout update to ensure proper positioning
+    [self setNeedsLayout];
 }
 
 - (void)hideScrubber {
@@ -335,6 +339,8 @@ static void sortButtons(NSMutableArray <NSString *> *buttons) {
         if (UseBottomButton(name))
             self.overlayButtons[name].alpha = alpha;
     }
+    // PATCH: Force layout update to fix button position after fullscreen state changes
+    [self setNeedsLayout];
 }
 
 - (void)setPeekableViewVisible:(BOOL)visible fullscreenButtonVisibleShouldMatchPeekableView:(BOOL)match {
@@ -343,6 +349,8 @@ static void sortButtons(NSMutableArray <NSString *> *buttons) {
         if (UseBottomButton(name))
             self.overlayButtons[name].alpha = visible ? 1 : 0;
     }
+    // PATCH: Force layout update to fix button position after fullscreen state changes
+    [self setNeedsLayout];
 }
 
 - (void)peekWithShowScrubber:(BOOL)scrubber setControlsAbovePlayerBarVisible:(BOOL)visible {
@@ -351,29 +359,45 @@ static void sortButtons(NSMutableArray <NSString *> *buttons) {
         if (UseBottomButton(name))
             self.overlayButtons[name].alpha = visible ? 1 : 0;
     }
+    // PATCH: Force layout update to fix button position after visibility changes
+    [self setNeedsLayout];
 }
 
 - (void)layoutSubviews {
     %orig;
-    CGFloat multiFeedWidth = [self respondsToSelector:@selector(multiFeedElementView)] ? [self multiFeedElementView].frame.size.width : 0;
-    YTQTMButton *enter = [self enterFullscreenButton];
-    CGFloat cornerRadius = enter.layer.cornerRadius;
-    CGFloat fullscreenButtonWidth = 0;
-    CGFloat fullscreenImageWidth = 0;
-    CGRect frame = CGRectZero;
-    if ([enter yt_isVisible]) {
-        frame = enter.frame;
-        fullscreenButtonWidth = frame.size.width;
-        fullscreenImageWidth = enter.currentImage.size.width;
-    } else {
-        YTQTMButton *exit = [self exitFullscreenButton];
-        if ([exit yt_isVisible]) {
-            cornerRadius = exit.layer.cornerRadius;
-            frame = exit.frame;
-            fullscreenButtonWidth = frame.size.width;
-            fullscreenImageWidth = exit.currentImage.size.width;
+
+    // PATCH: Apply frosted glass early, before position calculations
+    // This ensures the frosted glass background is visible even before entering fullscreen
+    for (NSString *name in bottomButtons) {
+        if (UseBottomButton(name)) {
+            YTQTMButton *button = self.overlayButtons[name];
+            YTFrostedGlassView *frostedGlassView = self.overlayGlasses[name];
+            if (frostedGlassView && button && button.bounds.size.width > 0) {
+                maybeApplyToView(frostedGlassView, button);
+            }
         }
     }
+
+    CGFloat multiFeedWidth = [self respondsToSelector:@selector(multiFeedElementView)] ? [self multiFeedElementView].frame.size.width : 0;
+    YTQTMButton *enter = [self enterFullscreenButton];
+    YTQTMButton *exit = [self exitFullscreenButton];
+
+    // PATCH: Use a single reference button approach to fix positioning issues
+    // Prefer enter button, fall back to exit button if enter is not visible
+    YTQTMButton *referenceButton = nil;
+    if ([enter yt_isVisible]) {
+        referenceButton = enter;
+    } else if ([exit yt_isVisible]) {
+        referenceButton = exit;
+    }
+
+    if (!referenceButton) return;
+
+    CGRect frame = referenceButton.frame;
+    CGFloat cornerRadius = referenceButton.layer.cornerRadius;
+    CGFloat fullscreenButtonWidth = frame.size.width;
+    CGFloat fullscreenImageWidth = referenceButton.currentImage.size.width;
+
     if (CGRectIsEmpty(frame) || frame.origin.x <= 0 || frame.origin.y < -4) return;
     CGFloat gap = fullscreenButtonWidth > fullscreenImageWidth ? 12 : fullscreenButtonWidth;
     frame.origin.x -= gap + multiFeedWidth + fullscreenButtonWidth;
@@ -393,7 +417,7 @@ static void sortButtons(NSMutableArray <NSString *> *buttons) {
                 [self addSubview:button];
             }
             button.layer.cornerRadius = cornerRadius;
-            // PATCH: Always apply frosted glass if it exists
+            // PATCH: Apply frosted glass again after superview changes
             if (frostedGlassView) {
                 maybeApplyToView(frostedGlassView, button);
             }
