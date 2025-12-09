@@ -149,5 +149,5 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
   <p>YouTimeStamp is a tweak developed by <a href="https://github.com/arichornlover">arichornlover</a> that adds a timestamp button to the video player, allowing you to quickly copy timestamped YouTube links to your clipboard.</p>
   <p>The button appears in the video player overlay controls. When tapped, it copies a URL in the format <code>https://youtu.be/VIDEO_ID?t=SECONDS</code> to the clipboard.</p>
   <p><strong>YouTimeStamp is enabled by default</strong> and appears at the <strong>bottom position</strong> next to the fullscreen button.</p>
-  <p>Source code and additional information are available <a href="https://github.com/arichornlover/YouTimeStamp">in arichornlover's GitHub repository</a>.</p>
+  <p>Source code and additional information are available <a href="https://github.com/Sohday823/YouTimeStamp">in Sohday823's GitHub repository</a>.</p>
 </details>
