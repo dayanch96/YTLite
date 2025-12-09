@@ -236,10 +236,10 @@ jobs:
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/Sohday823/YouTimeStamp.git
 
-      - name: Fix YouTimeStamp import paths for THEOS
+      - name: Apply YouTimeStamp fix
         if: ${{ inputs.enable_youtimestamp }}
         run: |
-          sed -i 's|#import "../YouTubeHeader/|#import <YouTubeHeader/|g' ${{ github.workspace }}/YouTimeStamp/Tweak.x
+          cp main/patches/youtimestamp/Tweak.x ${{ github.workspace }}/YouTimeStamp/Tweak.x
 
       - name: Clone DontEatMyContent
         if: ${{ inputs.enable_demc }}
