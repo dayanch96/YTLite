@@ -1591,6 +1591,12 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
         else
             button = createButtonBottom(asText, (YTInlinePlayerBarContainerView *)self, name, accessibilityLabel, selector);
         overlayButtons[name] = button;
+        if (!isTop) {
+            UIView *overlayBackground = [[UIView alloc] initWithFrame:CGRectZero];
+            overlayBackground.userInteractionEnabled = NO;
+            overlayBackground.backgroundColor = [%c(YTColor) blackPureAlpha0];
+            overlayGlasses[name] = overlayBackground;
+        }
     }
     if (!isTop)
         ((YTInlinePlayerBarContainerView *)self).overlayGlasses = overlayGlasses;
@@ -1737,6 +1743,7 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
         if (UseBottomButton(name))
             self.overlayButtons[name].alpha = alpha;
     }
+    [self setNeedsLayout];
 }
 
 - (void)setPeekableViewVisible:(BOOL)visible fullscreenButtonVisibleShouldMatchPeekableView:(BOOL)match {
@@ -1745,6 +1752,7 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
         if (UseBottomButton(name))
             self.overlayButtons[name].alpha = visible ? 1 : 0;
     }
+    [self setNeedsLayout];
 }
 
 - (void)peekWithShowScrubber:(BOOL)scrubber setControlsAbovePlayerBarVisible:(BOOL)visible {
@@ -1753,6 +1761,7 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
         if (UseBottomButton(name))
             self.overlayButtons[name].alpha = visible ? 1 : 0;
     }
+    [self setNeedsLayout];
 }
 
 - (void)layoutSubviews {
@@ -1783,16 +1792,28 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
     for (NSString *name in bottomButtons) {
         if (UseBottomButton(name)) {
             YTQTMButton *button = self.overlayButtons[name];
+            UIView *overlayBackground = self.overlayGlasses[name];
             if (self.layout == 3 && button.superview == self) {
                 [button removeFromSuperview];
+                [overlayBackground removeFromSuperview];
                 [peekableView addSubview:button];
             }
             if (self.layout != 3 && button.superview == peekableView) {
                 [button removeFromSuperview];
+                [overlayBackground removeFromSuperview];
                 [self addSubview:button];
             }
+            button.clipsToBounds = YES;
+            button.layer.masksToBounds = YES;
             button.layer.cornerRadius = cornerRadius;
             button.frame = frame;
+            if (overlayBackground) {
+                overlayBackground.frame = button.bounds;
+                overlayBackground.layer.cornerRadius = button.layer.cornerRadius;
+                if (overlayBackground.superview != button) {
+                    [button insertSubview:overlayBackground atIndex:0];
+                }
+            }
             frame.origin.x -= frame.size.width + gap;
             if (frame.origin.x < 0) frame.origin.x = 0;
         }
