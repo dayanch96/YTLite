@@ -424,12 +424,14 @@ static void sortButtons(NSMutableArray <NSString *> *buttons) {
                 [frostedGlassView removeFromSuperview];
                 [self addSubview:button];
             }
+            button.clipsToBounds = YES;
+            button.layer.masksToBounds = YES;
             button.layer.cornerRadius = cornerRadius;
-            // PATCH: Apply frosted glass again after superview changes
+            button.frame = frame;
+            // PATCH: Apply frosted glass AFTER frame is set so it gets correct bounds
             if (frostedGlassView) {
                 maybeApplyToView(frostedGlassView, button);
             }
-            button.frame = frame;
             frame.origin.x -= frame.size.width + gap;
             if (frame.origin.x < 0) frame.origin.x = 0;
         }
