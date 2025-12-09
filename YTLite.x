@@ -1515,6 +1515,14 @@ static NSMutableArray *topControls(YTMainAppControlsOverlayView *self, NSMutable
     return controls;
 }
 
+static UIView *createFallbackOverlayBackground(void) {
+    UIView *overlayBackground = [[UIView alloc] initWithFrame:CGRectZero];
+    overlayBackground.userInteractionEnabled = NO;
+    overlayBackground.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.45];
+    overlayBackground.layer.masksToBounds = YES;
+    return overlayBackground;
+}
+
 static void setDefaultTextStyle(YTQTMButton *button) {
     button.customTitleColor = [%c(YTColor) white1];
     id defaultTypeStyle = [%c(YTTypeStyle) defaultTypeStyle];

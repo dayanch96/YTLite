@@ -90,25 +90,32 @@ static YTFrostedGlassView *createFrostedGlassView() {
     }
 }
 
-static void maybeApplyToView(YTFrostedGlassView *frostedGlassView, UIView *view) {
-    if ([frostedGlassView respondsToSelector:@selector(maybeApplyToView:)]) {
-        [frostedGlassView maybeApplyToView:view];
+static UIView *createFallbackOverlayBackground(void) {
+    UIView *overlayBackground = [[UIView alloc] initWithFrame:CGRectZero];
+    overlayBackground.userInteractionEnabled = NO;
+    overlayBackground.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.45];
+    overlayBackground.layer.masksToBounds = YES;
+    return overlayBackground;
+}
+
+static void maybeApplyToView(UIView *overlayBackground, UIView *view) {
+    if ([overlayBackground respondsToSelector:@selector(maybeApplyToView:)]) {
+        [(YTFrostedGlassView *)overlayBackground maybeApplyToView:view];
         return;
     }
-    if (!frostedGlassView || !view) return;
+    if (!overlayBackground || !view) return;
 
     // Always update cornerRadius and frame to stay in sync with button
     // This fixes the square background issue where frosted glass was applied
     // before the button's cornerRadius was updated from the reference button
-    frostedGlassView.cornerRadius = view.layer.cornerRadius;
-    frostedGlassView.frame = view.bounds;
+    overlayBackground.layer.cornerRadius = view.layer.cornerRadius;
+    overlayBackground.frame = view.bounds;
 
     // Only insert subview and set properties if not already attached
-    if (frostedGlassView.superview != view) {
-        UIColor *backgroundColor = [%c(YTColor) blackPureAlpha0];
-        view.layer.backgroundColor = backgroundColor.CGColor;
-        frostedGlassView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [view insertSubview:frostedGlassView atIndex:0];
+    if (overlayBackground.superview != view) {
+        view.layer.backgroundColor = [[UIColor clearColor] CGColor];
+        overlayBackground.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [view insertSubview:overlayBackground atIndex:0];
     }
 }
 
@@ -191,7 +198,7 @@ static YTQTMButton *createButtonBottom(BOOL isText, YTInlinePlayerBarContainerVi
 
 static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOOL isTop, id self) {
     NSMutableDictionary <NSString *, YTQTMButton *> *overlayButtons = [NSMutableDictionary dictionary];
-    NSMutableDictionary <NSString *, YTFrostedGlassView *> *overlayGlasses = isTop ? nil : [NSMutableDictionary dictionary];
+    NSMutableDictionary <NSString *, UIView *> *overlayGlasses = isTop ? nil : [NSMutableDictionary dictionary];
     for (NSString *name in [tweaksMetadata allKeys]) {
         NSDictionary *metadata = tweaksMetadata[name];
         SEL selector = NSSelectorFromString(metadata[SelectorKey]);
@@ -203,10 +210,11 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
         else
             button = createButtonBottom(asText, (YTInlinePlayerBarContainerView *)self, name, accessibilityLabel, selector);
         overlayButtons[name] = button;
-        // PATCH: Always create frosted glass for bottom buttons if available
-        if (!isTop && hasFrostedGlass) {
-            YTFrostedGlassView *frostedGlassView = createFrostedGlassView();
-            overlayGlasses[name] = frostedGlassView;
+        // PATCH: Always create backgrounds for bottom buttons.
+        // Prefer frosted glass when available, otherwise fall back to an opaque overlay.
+        if (!isTop) {
+            UIView *overlayBackground = hasFrostedGlass ? (UIView *)createFrostedGlassView() : createFallbackOverlayBackground();
+            overlayGlasses[name] = overlayBackground;
         }
     }
     if (!isTop)
@@ -312,6 +320,10 @@ static void sortButtons(NSMutableArray <NSString *> *buttons) {
             button.hidden = NO;
             if (tweaksMetadata[name][UpdateImageOnVisibleKey])
                 [button setImage:[self buttonImage:name] forState:UIControlStateNormal];
+            UIView *overlayBackground = self.overlayGlasses[name];
+            if (overlayBackground) {
+                maybeApplyToView(overlayBackground, button);
+            }
         }
     }
     // PATCH: Force layout update to ensure proper positioning
@@ -326,6 +338,10 @@ static void sortButtons(NSMutableArray <NSString *> *buttons) {
             button.hidden = NO;
             if (tweaksMetadata[name][UpdateImageOnVisibleKey])
                 [button setImage:[self buttonImage:name] forState:UIControlStateNormal];
+            UIView *overlayBackground = self.overlayGlasses[name];
+            if (overlayBackground) {
+                maybeApplyToView(overlayBackground, button);
+            }
         }
     }
     // PATCH: Force layout update to ensure proper positioning
@@ -379,9 +395,9 @@ static void sortButtons(NSMutableArray <NSString *> *buttons) {
     for (NSString *name in bottomButtons) {
         if (UseBottomButton(name)) {
             YTQTMButton *button = self.overlayButtons[name];
-            YTFrostedGlassView *frostedGlassView = self.overlayGlasses[name];
-            if (frostedGlassView && button && button.bounds.size.width > 0) {
-                maybeApplyToView(frostedGlassView, button);
+            UIView *overlayBackground = self.overlayGlasses[name];
+            if (overlayBackground && button && button.bounds.size.width > 0) {
+                maybeApplyToView(overlayBackground, button);
             }
         }
     }
@@ -401,7 +417,10 @@ static void sortButtons(NSMutableArray <NSString *> *buttons) {
 
     if (!referenceButton) return;
 
-    CGRect frame = referenceButton.frame;
+    UIView *referenceSuperview = referenceButton.superview ?: self;
+    CGRect frame = referenceSuperview == self
+        ? referenceButton.frame
+        : [referenceSuperview convertRect:referenceButton.frame toView:self];
     CGFloat cornerRadius = referenceButton.layer.cornerRadius;
     CGFloat fullscreenButtonWidth = frame.size.width;
     CGFloat fullscreenImageWidth = referenceButton.currentImage.size.width;
@@ -413,7 +432,7 @@ static void sortButtons(NSMutableArray <NSString *> *buttons) {
     for (NSString *name in bottomButtons) {
         if (UseBottomButton(name)) {
             YTQTMButton *button = self.overlayButtons[name];
-            YTFrostedGlassView *frostedGlassView = self.overlayGlasses[name];
+            UIView *frostedGlassView = self.overlayGlasses[name];
             if (self.layout == 3 && button.superview == self) {
                 [button removeFromSuperview];
                 [frostedGlassView removeFromSuperview];
