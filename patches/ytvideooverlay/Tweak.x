@@ -154,6 +154,9 @@ static YTQTMButton *createButtonBottom(BOOL isText, YTInlinePlayerBarContainerVi
         [button setImage:image forState:UIControlStateNormal];
         [button sizeToFit];
     }
+    button.clipsToBounds = YES;
+    button.layer.masksToBounds = YES;
+    button.layer.cornerRadius = 12;
     button.hidden = YES;
     button.exclusiveTouch = YES;
     button.alpha = 0;
