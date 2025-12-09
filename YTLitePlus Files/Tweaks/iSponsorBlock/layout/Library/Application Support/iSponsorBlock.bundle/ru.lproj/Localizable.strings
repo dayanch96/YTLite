@@ -1,0 +1,88 @@
+/* iSponsorBlock Settings */
+"Enabled" = "Активировать iSponsorBlock";
+"RestartFooter" = "Для применения настроек перезапустите YouTube";
+
+"Sponsor" = "Спонсорская реклама";
+"Intermission/IntroAnimation" = "Вступление/Интервалы";
+"Intermission" = "Вступление";
+"Endcards/Credits" = "Конечные заставки/Титры";
+"Outro" = "Концовка";
+"InteractionReminder" = "Взаимодействие (Подписаться)";
+"InteractionReminder_Subcribe/Like" = "Взаимодействие (Лайк/Подписка)";
+"Interaction" = "Взаимодействие";
+"Unpaid/SelfPromotion" = "Самореклама";
+"SelfPromo" = "Самореклама";
+"Non-MusicSection" = "Музыка: Сегмент без музыки";
+"Non-Music" = "Сегмент без музыки";
+"Preview" = "Preview";
+"SponsorBlockUserID" = "Идентификатор SponsorBlock";
+"SponsorBlockAPIInstance" = "Используемый API";
+
+"Disable" = "Выкл";
+"AutoSkip" = "Перематывать";
+"ShowInSeekBar" = "Игнорировать";
+"ManualSkip" = "Вручную";
+"SetColorToShowInSeekBar" = "Цвет сегмента, отображаемый в плеере";
+
+"UserID" = "Ваш ID:";
+"UserIDFooter" = "Если вы хотите использовать другой идентификатор пользователя SponsorBlock, то можете ввести его в окне выше. Если же вы не знаете, что это такое, то оставьте как есть.";
+"API_URL" = "Ссылка на API:";
+"APIFooter" = "Если вы хотите использовать альтернативый API, то можете ввести его в окне выше. Если же вы не знаете, что это такое, то оставьте адрес по умолчанию. Адрес по умолчанию: https://sponsor.ajay.app/api";
+"MinimumSegmentDuration" = "Минимальная длина рекламы:";
+"HowLongNoticeWillAppear" = "Длительность уведомлений:";
+"ShowSkipNotice" = "Отображать уведомления о перемотке";
+"ShowButtonsInPlayer" = "Отображать кнопки твика в плеере";
+"HideStartEndButtonInPlayer" = "Скрыть кнопку создания меток";
+"ShowModifiedTime" = "Отображать сокращенное время в плеере";
+"AudioNotificationOnSkip" = "Аудиоуведомление о перемотке";
+"AudioFooter" = "Недоступно в беззвучном режиме";
+"EnableSkipCountTracking" = "Включить подсчет пропущенной рекламы";
+"DonateOnVenmo" = "Задонатить в Venmo";
+"DonateOnPayPal" = "Задонатить в PayPal";
+
+/* Segments stuff */
+"SegmentStartsNow" = "Начало сегмента";
+"SegmentEndsNow" = "Конец сегмента";
+"WhitelistChannel" = "В белый список";
+"SegmentsInDatabase" = "Сегменты в базе данных:";
+"YourSegments" = "Ваши сегменты:";
+"SubmitSegments" = "Отправить";
+"SuccessfullySubmittedSegments" = "Успешно отправлено";
+"EndTimeLessThanStartTime" = "Выбранное вами время конца сегмента находится раньше начала сегмента. Выберите время после"; //Example: ..., Please Select a Time After 10:15
+"UnfinishedSegments" = "Имеются неполноценные сегменты.\nУбедитесь, что вы выбрали категорию и/или время окончания сегмента";
+"EditStartTime" = "Изменить начало сегмента";
+"EditStartTime_Desc" = "Время начала: (Например: 1:15)";
+"EditEndTime" = "Изменить окончание сегмента";
+"EditEndTime_Desc" = "Время окончания: (Например: 1:15)";
+"From" = "С"; // Time. Example: From 1:15 to 3:00. If you dont need it, just leave empty
+"to" = "по"; // Time. Example: From 1:15 to 3:00
+"EditCategory" = "Изменить категорию";
+"EditSegment" = "Изменить сегмент";
+"Edit" = "Изменить";
+"Error" = "Ошибка";
+"ErrorCode" = "Код ошибки";
+"Success" = "Готово";
+"OK" = "OK";
+"Cancel" = "Отмена";
+"Delete" = "Удалить";
+"Upvote" = "Проголосовать за";
+"Downvote" = "Проголосовать против";
+"VoteToChangeCategory" = "Проголосовать за смену категории";
+"VoteOnSegment" = "Проголосовать за сегмент";
+"SuccessfullyVoted" = "Голос отправлен";
+"ErrorVoting" = "Ошибка голосования";
+
+/* Pop-ups*/
+"ManuallySkipReminder" = "Перемотать %@ с %ld:%02ld до %ld:%02ld?";
+"Skip" = "Да";
+"SkippedSegment" = "Перемотан\n%@";
+"Unskip" = "Отмена";
+
+/* Segments in pop-ups*/
+"sponsor" = "спонсорский\nсегмент";
+"intro" = "сегмент со\nвступлением";
+"outro" = "сегмент\nс титрами";
+"interaction" = "сегмент со\nвзаимодействием";
+"selfpromo" = "сегмент с\nсаморекламой";
+"music_offtopic" = "сегмент\nбез музыки";
+"preview" = "preview";

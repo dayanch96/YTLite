@@ -1,0 +1,193 @@
+// Settings
+"VERSION" = "نسخة YTLitePlus: %@";
+"VERSION_CHECK" = "انقر للتحقق من وجود تحديث";
+
+"COPY_SETTINGS" = "Copy Settings";
+"COPY_SETTINGS_DESC" = "Copy all current settings to the clipboard";
+"PASTE_SETTINGS" = "Paste Settings";
+"PASTE_SETTINGS_DESC" = "Paste settings from clipboard and apply";
+"PASTE_SETTINGS_ALERT" = "Apply settings from clipboard?";
+"EXPORT_SETTINGS" = "Export Settings";
+"EXPORT_SETTINGS_DESC" = "Exports all current settings into a .txt file";
+"IMPORT_SETTINGS" = "Import Settings";
+"IMPORT_SETTINGS_DESC" = "Press to import settings (.txt)";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "Replace 'Copy Settings' & 'Paste Settings' Buttons";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Replaces the Buttons to 'Export Settings' and 'Import Settings'";
+
+"VIDEO_PLAYER" = "Video Player (Beta)";
+"VIDEO_PLAYER_DESC" = "Open a downloaded video in the Apple player";
+
+// Player Gestures
+"PLAYER_GESTURES_TOGGLE" = "Enable Player Gestures";
+"VOLUME" = "Volume";
+"BRIGHTNESS" = "Brightness";
+"SEEK" = "Seek";
+"DISABLED" = "Disabled";
+"DEADZONE" = "Deadzone";
+"DEADZONE_DESC" = "Minimum distance to move before a gesture is recognized";
+"SENSITIVITY" = "Sensitivity";
+"SENSITIVITY_DESC" = "Multiplier on volume and brightness gestures";
+"PLAYER_GESTURES_TITLE" = "Player Gestures";
+"PLAYER_GESTURES_DESC" = "Configure horizontal pan gestures for the player";
+"TOP_SECTION" = "Top Section";
+"MIDDLE_SECTION" = "Middle Section";
+"BOTTOM_SECTION" = "Bottom Section";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Enable Haptic Feedback";
+
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "خيارات تراكب ضوابط الفيديو";
+
+"ENABLE_SHARE_BUTTON" = "Enable Share Button";
+"ENABLE_SHARE_BUTTON_DESC" = "Enable the Share Button in video controls overlay.";
+
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Enable 'Save To Playlist' Button";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Enable the 'Save To Playlist' Button in video controls overlay.";
+
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "Hide Shadow Overlay Buttons";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Hide the Shadow Overlay on the Play/Pause, Previous, Next, Forward & Rewind Buttons.";
+
+"HIDE_RIGHT_PANEL" = "إخفاء اللوحة اليمنى في وضع ملء الشاشة";
+"HIDE_RIGHT_PANEL_DESC" = "مطلوب إعادة تشغيل التطبيق";
+
+"HIDE_HEATWAVES" = "إخفاء موجات الحر";
+"HIDE_HEATWAVES_DESC" = "يخفي موجات الحر في مشغل الفيديو. مطلوب إعادة تشغيل التطبيق.";
+
+"DISABLE_AMBIENT_PORTRAIT" = "Disable Ambient Mode (Portrait)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "Disable lighting surrounding video title";
+
+"DISABLE_AMBIENT_FULLSCREEN" = "Disable Ambient Mode (Fullscreen)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Disable lighting surrouding video player";
+
+"FULLSCREEN_TO_THE_RIGHT" = "Fullscreen to the Right";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "Always enter fullscreen with home button on the right side.";
+
+"SEEK_ANYWHERE" = "Seek Anywhere Gesture";
+"SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
+
+"ENABLE_TAP_TO_SEEK" = "Enable Tap To Seek";
+"ENABLE_TAP_TO_SEEK_DESC" = "Jump to anywhere in a video by single-tapping the seek bar";
+
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Disable pull-to-fullscreen gesture";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Disable the drag gesture to enter vertical fullscreen. Only applies to landscape videos.";
+
+"ALWAYS_USE_REMAINING_TIME" = "Always use remaining time";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "Change the default to show time remaining in the player bar.";
+
+"DISABLE_TOGGLE_TIME_REMAINING" = "Disable toggle time remaining";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Disables changing time elapsed to time remaining. Use with other setting to always show remaining time.";
+
+"DISABLE_ENGAGEMENT_OVERLAY" = "Disable fullscreen engagement overlay";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Disable the swipe-up gesture and suggested videos list in fullscreen";
+
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Hide Comment previews under player";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Hide comment spoiler in comments button";
+
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
+
+"HIDE_HUD_MESSAGES" = "إخفاء رسائل المعلومات";
+"HIDE_HUD_MESSAGES_DESC" = "مثلاً: تم إيقاف الترجمة...";
+
+"HIDE_COLLAPSE_BUTTON" = "Hide Collapse Button";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Hides the Arrow Collapse Button that was shown in the Top Left of the Video Player.";
+
+"HIDE_SPEED_TOAST" = "Hide Speed Toast";
+"HIDE_SPEED_TOAST_DESC" = "Hide the 2X Speed popup when holding the player";
+
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "App Settings Overlay Options";
+
+"HIDE_ACCOUNT_SECTION" = "Hide \"Account\" Section";
+"HIDE_AUTOPLAY_SECTION" = "Hide \"Autoplay\" Section";
+"HIDE_TRYNEWFEATURES_SECTION" = "Hide \"Try New Features\" Section";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Hide \"Video quality preferences\" Section";
+"HIDE_NOTIFICATIONS_SECTION" = "Hide \"Notifications\" Section";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Hide \"Manage all history\" Section";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Hide \"Your data in YouTube\" Section";
+"HIDE_PRIVACY_SECTION" = "Hide \"Privacy\" Section";
+"HIDE_LIVECHAT_SECTION" = "Hide \"Live Chat\" Section";
+
+// Theme
+"THEME_OPTIONS" = "Theme Options";
+
+"OLED_DARK_THEME" = "مظهر OLED الداكن (تجريبي)";
+"OLED_DARK_THEME_2" = "موضوع OLED الداكن";
+"OLED_DARK_THEME_DESC" = "مظهر مظلم حقيقي. قد لا يعمل بشكل صحيح في بعض الحالات. يلزم إعادة تشغيل التطبيق بعد تمكين / تعطيل هذا الخيار";
+
+"OLD_DARK_THEME" = "مظهر مظلم قديم";
+"OLD_DARK_THEME_DESC" = "مظهر YouTube القديم الداكن (مظهر رمادي). مطلوب إعادة تشغيل التطبيق";
+
+"DEFAULT_THEME" = "تقصير";
+"DEFAULT_THEME_DESC" = "المظهر الافتراضي الداكن (إيه) لموقع YouTube. مطلوب إعادة تشغيل التطبيق";
+
+"OLED_KEYBOARD" = "لوحة مفاتيح OLED (تجريبية)";
+"OLED_KEYBOARD_DESC" = "قد لا يعمل بشكل صحيح في بعض الحالات. مطلوب إعادة تشغيل التطبيق";
+
+"LOW_CONTRAST_MODE" = "وضع التباين المنخفض";
+"LOW_CONTRAST_MODE_DESC" = "سيؤدي ذلك إلى ظهور نصوص وأزرار منخفضة التباين تمامًا مثل واجهة YouTube القديمة. مطلوب إعادة تشغيل التطبيق";
+"LCM_SELECTOR" = "Low contrast mode selection";
+"DEFAULT_LOWCONTRASTMODE" = "(Default) LowContrastMode";
+"CUSTOM_LOWCONTRASTMODE" = "(Custom Color) LowContrastMode";
+
+// Miscellaneous
+"MISCELLANEOUS" = "متنوع";
+
+"PLAYBACK_IN_FEEDS" = "Playback in feeds";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Always on";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Wi-Fi only";
+"PLAYBACK_IN_FEEDS_OFF" = "Off";
+
+"NEW_SETTINGS_UI" = "New Settings UI";
+"NEW_SETTINGS_UI_DESC" = "Use new grouped settings UI. May hide some settings";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "Enable YouTube startup animation";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"HIDE_MODERN_INTERFACE" = "إخفاء الواجهة الحديثة (YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "قم بتبديل هذا الخيار لإخفاء أي عنصر حديث أضافه YouTube. يزيل الوضع المحيط والتصميم المستدير والمزيد. مطلوب إعادة تشغيل التطبيق";
+
+"IPAD_LAYOUT" = "تخطيط iPad";
+"IPAD_LAYOUT_DESC" = "استخدم هذا فقط إذا كنت ترغب في الحصول على iPad Layout على جهاز iPhone / iPod الحالي. مطلوب إعادة تشغيل التطبيق";
+
+"IPHONE_LAYOUT" = "تخطيط iPhone";
+"IPHONE_LAYOUT_DESC" = "استخدم هذا فقط إذا كنت ترغب في الحصول على iPhone Layout على جهاز iPad الحالي. مطلوب إعادة تشغيل التطبيق";
+
+"CAST_CONFIRM" = "تأكيد التنبيه قبل الإرسال (YTCastConfirm)";
+"CAST_CONFIRM_DESC" = "أظهر تنبيه تأكيد قبل الإرسال لمنع اختطاف التلفزيون عن طريق الخطأ";
+"CASTING" = "المسبوكات";
+"MSG_ARE_YOU_SURE" = "هل أنت متأكد أنك تريد بدء الإرسال؟";
+"MSG_YES" = "نعم";
+"MSG_CANCEL" = "يلغي";
+
+"NEW_MINIPLAYER_STYLE" = "نمط شريط miniplayer جديد (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE_DESC" = "مطلوب إعادة تشغيل التطبيق";
+
+"HIDE_CAST_BUTTON" = "Hide Cast Button";
+"HIDE_CAST_BUTTON_DESC" = "مطلوب إعادة تشغيل التطبيق";
+
+"VIDEO_PLAYER_BUTTON" = "Video Player Button";
+"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "Hide iSponsorBlock button in the Navigation bar";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
+
+"HIDE_HOME_TAB" = "Hide Home Tab";
+"HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
+
+"FIX_CASTING" = "Fix Casting";
+"FIX_CASTING_DESC" = "Changes some AB flags to fix casting";
+
+"ENABLE_FLEX" = "تمكين FLEX";
+"ENABLE_FLEX_DESC" = "تمكين FLEX للتصحيح (غير مستحسن). اترك هذا إلا إذا كنت تعرف ما تفعله";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "Enable App Version Spoofer (Lite)";
+"APP_VERSION_SPOOFER_LITE_DESC" = "Enable this to use the Version Spoofer (Lite) and select your perferred version below. App restart is required.";
+"VERSION_SPOOFER_TITLE" = "Version Spoofer Picker";
+
+// Other Localization
+"APP_RESTART_DESC" = "App restart is required.";
+"CHANGE_APP_ICON" = "Change App Icon";
+
+// Newly added strings
+"HIDE_CAST_BUTTON" = "HIDE_CAST_BUTTON";

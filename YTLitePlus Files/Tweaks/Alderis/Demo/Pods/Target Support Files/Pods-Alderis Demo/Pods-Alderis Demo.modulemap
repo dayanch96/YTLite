@@ -1,0 +1,6 @@
+module Pods_Alderis_Demo {
+  umbrella header "Pods-Alderis Demo-umbrella.h"
+
+  export *
+  module * { export * }
+}

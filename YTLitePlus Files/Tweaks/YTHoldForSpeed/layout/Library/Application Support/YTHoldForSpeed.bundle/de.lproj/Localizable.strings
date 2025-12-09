@@ -1,0 +1,13 @@
+"HOLD_FOR_SPEED" = "Halten für Geschwindigkeit";
+"NORMAL" = "Normal";
+"X_SECONDS" = "%@ Sekunden";
+"HOLD_GESTURE" = "Haltegeste";
+"HOLD_GESTURE_DESC" = "Tippen Sie auf eine beliebige Stelle im Videoplayer und halten Sie sie gedrückt, um die Wiedergabegeschwindigkeit zwischen \"Normal\" (d. h. 1,0x) und der ausgewählten Umschaltgeschwindigkeit umzuschalten.\n\nBitte beachten Sie, dass durch die Aktivierung dieser Funktion die standardmäßige Geste \"Überall suchen\" deaktiviert wird.";
+"AUTO_APPLY_SPEED" = "Automatisch Geschwindigkeit anwenden";
+"AUTO_APPLY_SPEED_DESC" = "Wenn diese Option aktiviert ist, wird die ausgewählte Wiedergabegeschwindigkeit automatisch angewendet, wenn ein neuer Videoplayer gestartet wird..";
+"TOGGLE_SPEED" = "Geschwindigkeit umschalten";
+"TOGGLE_SPEED_DESC" = "Die Geschwindigkeit, zwischen der der Videoplayer umschaltet, wenn die Haltegeste aufgerufen wird.";
+"HOLD_DURATION" = "Haltedauer";
+"HOLD_DURATION_DESC" = "Die Zeitspanne (in Sekunden), die die Haltegeste benötigt, um die Geschwindigkeit des Videoplayers zu ändern.";
+"HAPTIC_FEEDBACK" = "Haptisches Feedback";
+"HAPTIC_FEEDBACK_DESC" = "Verwenden Sie haptisches Feedback, um anzuzeigen, dass die Geschwindigkeit des Videoplayers umgeschaltet wurde.";

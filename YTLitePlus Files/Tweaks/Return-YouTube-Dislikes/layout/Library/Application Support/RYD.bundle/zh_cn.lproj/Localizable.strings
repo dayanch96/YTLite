@@ -1,0 +1,13 @@
+"SETTINGS_TITLE" = "Return YouTube Dislike";
+
+"ENABLED" = "启用";
+"ENABLE_VOTE_SUBMIT" = "上传顶/踩数据";
+"ENABLE_VOTE_SUBMIT_DESC" = "允许将您的唯一匿名ID和顶/踩数据上传至 %@。";
+"EXACT_LIKE_NUMBER" = "显示完整的“顶”计数";
+"EXACT_DISLIKE_NUMBER" = "显示完整的“踩”计数";
+"EXACT_DISLIKE_NUMBER_DESC" = "以未经缩写的，精确到个位数的方式显示“踩”的数量。示例：%@ -> %@。";
+"RAW_DATA" = "原始踩数据";
+"RAW_DATA_DESC" = "仅使用使用RYD浏览器扩展或此调整的人的踩数据。";
+
+// On app launch
+"WANT_TO_ENABLE" = "您想将您的顶/踩数据上传到 %@ 吗？您可随时通过“设置 > %@ > %@”关闭数据上传。";

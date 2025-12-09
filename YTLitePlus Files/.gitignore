@@ -1,0 +1,9 @@
+.theos
+.DS_Store
+packages/
+tmp/
+Tweaks/YTLite/*
+!Tweaks/YTLite/.gitkeep
+Resources/
+*.ipa
+.vscode

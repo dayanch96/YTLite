@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Color Picker  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Section/Color Picker" class="dashAnchor"></a>
+    <a title="Color Picker  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">Alderis 1.2 Docs</a></p>
+        <p class="header-right"><a href="https://github.com/hbang/Alderis"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fhbang.github.io%2FAlderis%2Fdocsets%2FAlderis.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
+        <div class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">Alderis Reference</a>
+        <img id="carat" src="img/carat.png" alt=""/>
+        Color Picker  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="preference-bundles.html">Preference Bundles</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="migrating-to-11.html">Migrating to 1.1</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Color%20Picker.html">Color Picker</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/ColorPickerViewController.html">ColorPickerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ColorPickerConfiguration.html">ColorPickerConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ColorPickerDelegate.html">ColorPickerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/ColorPickerTab.html">ColorPickerTab</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="UI%20Components.html">UI Components</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/ColorWell.html">ColorWell</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/UIColor.html">UIColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions.html#/s:7Alderis22ColorPropertyListValueP">ColorPropertyListValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions.html#/s:SS">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions.html#/s:Sa">Array</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Deprecated.html">Deprecated</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Deprecated.html#/c:@M@Alderis@objc(cs)HBColorPickerCircleView">ColorPickerCircleView</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Color Picker</h1>
+            
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Alderis@objc(cs)HBColorPickerViewController"></a>
+                    <a name="//apple_ref/swift/Class/ColorPickerViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Alderis@objc(cs)HBColorPickerViewController">ColorPickerViewController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provides the Color Picker user interface.</p>
+
+<p>Present this view controller to display the color picker. Do not push it onto a navigation
+controller stack. In horizontally and vertically regular size class environments, for instance
+on iPad and Mac, the picker will be presented as a popover. This means that you must set
+<code>sourceView</code> or other similar properties on the view controller’s <code>popoverPresentationController</code>
+before presentation.</p>
+
+<p>To review examples of <code>ColorPickerViewController</code> in use, run <code>pod try Alderis</code>.</p>
+
+                        <a href="Classes/ColorPickerViewController.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="kt">HBColorPickerViewController</span><span class="p">)</span>
+<span class="kd">open</span> <span class="kd">class</span> <span class="kt">ColorPickerViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Alderis@objc(cs)HBColorPickerConfiguration"></a>
+                    <a name="//apple_ref/swift/Class/ColorPickerConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Alderis@objc(cs)HBColorPickerConfiguration">ColorPickerConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>ColorPickerConfiguration is used to configure an instance of <code><a href="Classes/ColorPickerViewController.html">ColorPickerViewController</a></code>.</p>
+
+                        <a href="Classes/ColorPickerConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="kt">HBColorPickerConfiguration</span><span class="p">)</span>
+<span class="kd">open</span> <span class="kd">class</span> <span class="kt">ColorPickerConfiguration</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Alderis@objc(pl)HBColorPickerDelegate"></a>
+                    <a name="//apple_ref/swift/Protocol/ColorPickerDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Alderis@objc(pl)HBColorPickerDelegate">ColorPickerDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Use <code>ColorPickerDelegate</code> to handle the user’s response to <code><a href="Classes/ColorPickerViewController.html">ColorPickerViewController</a></code>.</p>
+
+                        <a href="Protocols/ColorPickerDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="kt">HBColorPickerDelegate</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ColorPickerDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Alderis@E@HBColorPickerTab"></a>
+                    <a name="//apple_ref/swift/Enum/ColorPickerTab" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Alderis@E@HBColorPickerTab">ColorPickerTab</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An enumeration of the tabs <code><a href="Classes/ColorPickerViewController.html">ColorPickerViewController</a></code> features. Use these enumeration values to
+set tab-related settings on <code><a href="Classes/ColorPickerConfiguration.html">ColorPickerConfiguration</a></code>.</p>
+
+                        <a href="Enums/ColorPickerTab.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="kt">HBColorPickerTab</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ColorPickerTab</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">CaseIterable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2022 <a class="link" href="https://hbang.github.io/" target="_blank" rel="external noopener">HASHBANG Productions</a>. All rights reserved. (Last updated: 2022-05-23)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

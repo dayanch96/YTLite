@@ -1,0 +1,88 @@
+/* iSponsorBlock Settings */
+"Enabled" = "Diaktifkan";
+"RestartFooter" = "Mulai ulang YouTube agar perubahan dapat diterapkan";
+
+"Sponsor" = "Sponsor";
+"Intermission/IntroAnimation" = "Animasi intermission / intro";
+"Intermission" = "Intro";
+"Endcards/Credits" = "Kartu akhir / kredit";
+"Outro" = "Outro";
+"InteractionReminder" = "Pengingat interaksi (subscribe)";
+"InteractionReminder_Subcribe/Like" = "Pengingat interaksi (subscrib / suka)";
+"Interaction" = "Interaksi";
+"Unpaid/SelfPromotion" = "Promosi tidak dibayar / promosi diri sendiri";
+"SelfPromo" = "Promosi diri sendiri";
+"Non-MusicSection" = "Musik: bagian non-musik";
+"Non-Music" = "Non-musik";
+"Preview" = "Preview";
+"SponsorBlockUserID" = "ID pengguna SponsorBlock";
+"SponsorBlockAPIInstance" = "Instansi API SponsorBlock";
+
+"Disable" = "Nonaktifkan";
+"AutoSkip" = "Lewati otomatis";
+"ShowInSeekBar" = "Tampilkan di seek bar";
+"ManualSkip" = "Lewati manual";
+"SetColorToShowInSeekBar" = "Atur warna untuk ditampilkan di seek bar";
+
+"UserID" = "ID pengguna:";
+"UserIDFooter" = "Jika anda ingin menggunakan ID pengguna SponsorBlock kustom, anda dapat memasukkannya di sini. Jika anda tidak tahu apa ini, biarkan sebagai default.";
+"API_URL" = "URL API:";
+"APIFooter" = "Jika anda ingin menggunakan instansi API SponsorBlock kustom, anda dapat memasukkannya di sini. Jika anda tidak tahu apa ini, biarkan sebagai default. Contoh: https://sponsor.ajay.app/api";
+"MinimumSegmentDuration" = "Atur durasi segmen minimum:";
+"HowLongNoticeWillAppear" = "Atur berapa lama pemberitahuan lewati akan muncul:";
+"ShowSkipNotice" = "Tampilkan pemberitahuan lewati";
+"ShowButtonsInPlayer" = "Tampilkan tombol iSponsorBlock di pemutar video";
+"HideStartEndButtonInPlayer" = "Sembunyikan tombol awal / akhir di pemutar video";
+"ShowModifiedTime" = "Tampilkan waktu yang dimodifikasi di seek bar";
+"AudioNotificationOnSkip" = "Notifikasi audio saat melewati";
+"AudioFooter" = "Tidak tersedia dalam mode senyap";
+"EnableSkipCountTracking" = "Aktifkan pelacakan jumlah lewati";
+"DonateOnVenmo" = "Donasi di venmo";
+"DonateOnPayPal" = "Donasi di paypal";
+
+/* Segments stuff */
+"SegmentStartsNow" = "Segmen dimulai sekarang";
+"SegmentEndsNow" = "Segmen berakhir sekarang";
+"WhitelistChannel" = "Daftar putih channel";
+"SegmentsInDatabase" = "Sudah ada segmen dalam basis data:";
+"YourSegments" = "Segmen anda:";
+"SubmitSegments" = "Kirim segmen";
+"SuccessfullySubmittedSegments" = "Segmen berhasil dikirim";
+"EndTimeLessThanStartTime" = "Waktu akhir yang anda atur kurang dari waktu mulai, silakan pilih waktu setelah"; //Contoh: ..., silakan pilih waktu setelah 10:15
+"UnfinishedSegments" = "Anda memiliki segmen yang belum selesai\nSilakan tambahkan kategori dan/atau waktu akhir ke segmen anda";
+"EditStartTime" = "Edit waktu mulai";
+"EditStartTime_Desc" = "Edit waktu mulai: (mis. ketik 1:15)";
+"EditEndTime" = "Edit waktu akhir";
+"EditEndTime_Desc" = "Edit waktu akhir: (mis. ketik 1:15)";
+"From" = "Dari"; // Waktu. Contoh: dari 1:15 hingga 3:00. Jika anda tidak membutuhkannya, biarkan kosong
+"to" = "ke"; // Waktu. Contoh: dari 1:15 hingga 3:00
+"EditCategory" = "Edit kategori";
+"EditSegment" = "Edit segmen";
+"Edit" = "Edit";
+"Error" = "Kesalahan";
+"ErrorCode" = "Kode kesalahan";
+"Success" = "Berhasil";
+"OK" = "OK";
+"Cancel" = "Batal";
+"Delete" = "Hapus";
+"Upvote" = "Upvote";
+"Downvote" = "Downvote";
+"VoteToChangeCategory" = "Voting untuk mengubah kategori";
+"VoteOnSegment" = "Voting pada segmen";
+"SuccessfullyVoted" = "Berhasil memberikan voting";
+"ErrorVoting" = "Kesalahan saat memberikan voting";
+
+/* Pop-up */
+"ManuallySkipReminder" = "Lewati %@ segmen\n dari %ld:%02ld ke %ld:%02ld?";
+"Skip" = "Lewati";
+"SkippedSegment" = "Segmen %@ dilewati";
+"Unskip" = "Batalkan lewati";
+
+/* Segments in pop-ups*/
+"sponsor" = "sponsor";
+"intro" = "intro";
+"outro" = "outro";
+"interaction" = "interaksi";
+"selfpromo" = "promosi diri sendiri";
+"music_offtopic" = "non-musik";
+"preview" = "preview";

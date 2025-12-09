@@ -1,0 +1,6 @@
+module Alderis {
+  umbrella header "Alderis-umbrella.h"
+
+  export *
+  module * { export * }
+}

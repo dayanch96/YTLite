@@ -1,0 +1,14 @@
+"ENABLED" = "Show speed button";
+"POSITION" = "Speed button position";
+
+"PLAYBACK_SPEED" = "Playback speed";
+"CHOOSE_FROM_ORIGINAL" = "Choose from original";
+
+"YSMS_KEY" = "More speeds";
+"YSMS_KEY_DESC" = "Adds more video playback rates to the list. App restart is required.";
+
+"YSFNS_KEY" = "More speeds for native speed selector";
+"YSFNS_KEY_DESC" = "Replaces YouTube's default video speed selector with the primitive one where all custom speeds can be listed. App restart is required.";
+
+"YSSS_KEY" = "Playback speed slider";
+"YSSS_KEY_DESC" = "Replaces YouTube's primitive video speed selector with a slider.";

@@ -1,0 +1,88 @@
+/* iSponsorBlock Settings */
+"Enabled" = "Açık";
+"RestartFooter" = "YT'u yeniden başlat";
+
+"Sponsor" = "Sponsor";
+"Intermission/IntroAnimation" = "Ara/Giriş Anim.";
+"Intermission" = "Ara";
+"Endcards/Credits" = "Bitiş Kart./Jenerik";
+"Outro" = "Bitiş";
+"InteractionReminder" = "Etk. Hatırlat (Abone Ol)";
+"InteractionReminder_Subcribe/Like" = "Etk. Hatırlat (Abone/Beğen)";
+"Interaction" = "Etk.";
+"Unpaid/SelfPromotion" = "Ücretsiz/Kendi Rek.";
+"SelfPromo" = "Kendi Rek.";
+"Non-MusicSection" = "Müzik Dışı Bölüm";
+"Non-Music" = "Müzik Dışı";
+"Preview" = "Preview";
+"SponsorBlockUserID" = "SponsorBlock Kullanıcı Adı:";
+"SponsorBlockAPIInstance" = "SponsorBlock API Örneği";
+
+"Disable" = "Kapat";
+"AutoSkip" = "Oto. Geç";
+"ShowInSeekBar" = "İlrm Çub. Göster";
+"ManualSkip" = "Elle Geç";
+"SetColorToShowInSeekBar" = "İlrm Çub. Renk Seç";
+
+"UserID" = "Kullanıcı Adı:";
+"UserIDFooter" = "Özel SB kullanıcı adı istiyorsan buraya gir. Bilmiyorsan varsayılan bırak.";
+"API_URL" = "API Bağlantı:";
+"APIFooter" = "Özel SB API için gir. Bilmiyorsan varsayılan bırak. Örnek: https://sponsor.ajay.app/api";
+"MinimumSegmentDuration" = "Min. Bölüm Süresi Ayarla:";
+"HowLongNoticeWillAppear" = "Atlama Uyarı Süresi Ayarla:";
+"ShowSkipNotice" = "Atlama Uyarısını Göster";
+"ShowButtonsInPlayer" = "iSB Düğm. Oynatıcıda Göster";
+"HideStartEndButtonInPlayer" = "Oynatıcıda Başlat/Bitiş Düğm. Gizle";
+"ShowModifiedTime" = "Değ. Zamanını Göster";
+"AudioNotificationOnSkip" = "Geçiş Snrsı Sesli Bild.";
+"AudioFooter" = "Sessiz modda yok";
+"EnableSkipCountTracking" = "Geçiş Say. Takibini Aç";
+"DonateOnVenmo" = "Venmo'dan bağış yap";
+"DonateOnPayPal" = "PayPal'dan bağış yap";
+
+/* Segments stuff */
+"SegmentStartsNow" = "Bölüm Başlıyor";
+"SegmentEndsNow" = "Bölüm Bitiyor";
+"WhitelistChannel" = "Kanala İzin Ver";
+"SegmentsInDatabase" = "Veritabanında Bölüm Var:";
+"YourSegments" = "Bölümler:";
+"SubmitSegments" = "Bölüm Gönder";
+"SuccessfullySubmittedSegments" = "Başarıyla Gönderildi";
+"EndTimeLessThanStartTime" = "Bitiş Başlangıçtan Önce, Snr Düzelt"; //Örnek: ..., Lütfen 10:15'ten Snr olan Bir Zaman Seç.
+"UnfinishedSegments" = "Tamamlanmamış Bölümler. Kategori/Bitiş Zamanı Ekle";
+"EditStartTime" = "Başlangıç Zamanı Düzenle";
+"EditStartTime_Desc" = "Başlangıç Zamanı Düzenle: (ör. 1:15 yaz)";
+"EditEndTime" = "Bitiş Zamanı Düzenle";
+"EditEndTime_Desc" = "Bitiş Zamanı Düzenle: (ör. 1:15 yaz)";
+"From" = "Başlangıç"; // Time. Example: From 1:15 to 3:00. If you dont need it, just leave empty
+"to" = "Bitiş"; // Time. Example: From 1:15 to 3:00
+"EditCategory" = "Kategori Düzenle";
+"EditSegment" = "Bölüm Düzenle";
+"Edit" = "Düzenle";
+"Error" = "Hata";
+"ErrorCode" = "Hata Kodu";
+"Success" = "Başarılı";
+"OK" = "Tamam";
+"Cancel" = "İptal";
+"Delete" = "Sil";
+"Upvote" = "Olumlu Oy";
+"Downvote" = "Olumsuz Oy";
+"VoteToChangeCategory" = "Kategori Değ. Oy Ver";
+"VoteOnSegment" = "Bölüme Oy Ver";
+"SuccessfullyVoted" = "Oy Verildi";
+"ErrorVoting" = "Oylama Hatası";
+
+/* Pop-ups*/
+"ManuallySkipReminder" = "Elle Geç %@ Bölüm %ld:%02ld 'den %ld:%02ld? 'e";
+"Skip" = "Geç";
+"SkippedSegment" = "Bölüm %@ Geçildi";
+"Unskip" = "Geçme";
+
+/* Segments in pop-ups*/
+"sponsor" = "Sponsor";
+"intro" = "Giriş";
+"outro" = "Bitiş";
+"interaction" = "Etk.";
+"selfpromo" = "Kendi Rek.";
+"music_offtopic" = "Müzik Dışı";
+"preview" = "preview";

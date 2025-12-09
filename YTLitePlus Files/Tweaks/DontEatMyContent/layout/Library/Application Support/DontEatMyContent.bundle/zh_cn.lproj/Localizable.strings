@@ -1,0 +1,38 @@
+"SETTINGS_TITLE" = "DontEatMyContent";
+
+"ENABLED" = "启用";
+"TWEAK_DESC" = "改进部分机型的刘海区域或灵动岛在 2:1 比例视频中引发的遮挡问题。";
+
+"SAFE_AREA_CONST" =  "安全区数值";
+"SAFE_AREA_CONST_DESC" = "视频与刘海区域或灵动岛之间的距离。此数值越大，视频离刘海区域或灵动岛越远。";
+"DEFAULT" = "默认";
+"CHANGES_SAVED_DISMISS_VIDEO" = "设置已保存，将在下次播放视频时生效";
+
+"COLOR_VIEWS" = "调试色块";
+"COLOR_VIEWS_DESC" = "用实色背景突出显示以下组件：渲染视图（rendering view）显示为红色，渲染视图容器（rendering view container）显示为绿色，播放器视图（player view）显示为蓝色。";
+
+"REPORT_ISSUE" = "问题反馈";
+"SOURCE_CODE" = "查看源码";
+
+"CHANGES_SAVED" = "设置已保存";
+
+"EXIT" = "立即重启";
+"LATER" = "稍后重启";
+"EXIT_YT_DESC" = "请重启 YouTube 来应用设置。";
+
+"UNSUPPORTED_DEVICE" = "当前机型不支持此插件（仅支持arm64架构的机型）";
+
+"DISABLE_AMBIENT_MODE" = "禁用全屏氛围模式";
+"VERSION" = "版本";
+
+"LIMIT_ZOOM_TO_FILL" = "拉伸至安全区（测试功能）";
+"LIMIT_ZOOM_TO_FILL_DESC" = "启用后，使用“拉伸至全屏”时内容边界将不会越过刘海区域或灵动岛。";
+
+"ADD_TITLE" = "请在此处添加标题…";
+
+"ADVANCED" = "高级";
+
+"ENABLE_FOR_ALL_VIDEOS" = "为所有视频启用（测试功能）";
+"ENABLE_FOR_ALL_VIDEOS_DESC" = "将安全区数值应用于所有视频。启用后可能会出现非预期结果。启用前请先反馈问题。";
+
+"ABOUT" = "About";

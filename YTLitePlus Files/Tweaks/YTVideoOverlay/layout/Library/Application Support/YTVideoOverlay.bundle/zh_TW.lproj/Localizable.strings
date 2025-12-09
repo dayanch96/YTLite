@@ -1,0 +1,11 @@
+"VIDEO_OVERLAY" = "播放器按鈕";
+"TOP" = "頂部";
+"TOP_DESC" = "在右上方，即為自動播放、字幕、投放和選項所在的位置。";
+"BOTTOM" = "底部";
+"BOTTOM_DESC" = "在右下方，也就是全螢幕按鈕所在的位置。";
+"ORDER" = "排序";
+"ORDER_NONE" = "未設定";
+
+"GLOBAL_SETTINGS" = "全域設定";
+"ENABLE_FROSTED_GLASS_BOTTOM" = "底部毛玻璃";
+"ENABLE_FROSTED_GLASS_BOTTOM_DESC" = "啟用後為底部按鈕添加毛玻璃效果。";

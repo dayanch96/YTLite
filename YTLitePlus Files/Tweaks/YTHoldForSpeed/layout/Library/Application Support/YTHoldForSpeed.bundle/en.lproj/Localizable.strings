@@ -1,0 +1,15 @@
+"HOLD_FOR_SPEED" = "Hold for speed";
+"NORMAL" = "Normal";
+"X_SECONDS" = "%@ seconds";
+"HOLD_GESTURE" = "Hold gesture";
+"HOLD_GESTURE_DESC" = "Tap and hold anywhere in the video player to toggle the playback speed between \"Normal\" (i.e. 1.0x) and the selected toggle speed.\n\nPlease be aware that by enabling this feature, the stock tap and hold gesture will be disabled.";
+"DISABLE_STOCK_GESTURES" = "Disable stock gestures";
+"DISABLE_STOCK_GESTURES_DESC" = "Disable the stock tap and hold gestures in the video player.\n\nPlease be aware that if the hold gesture is enabled, the stock gestures will automatically be disabled.";
+"AUTO_APPLY_SPEED" = "Automatically apply speed";
+"AUTO_APPLY_SPEED_DESC" = "When enabled, the selected playback speed will automatically be applied when a new video player is launched.";
+"TOGGLE_SPEED" = "Toggle speed";
+"TOGGLE_SPEED_DESC" = "The speed that the video player will toggle between when the hold gesture is invoked.";
+"HOLD_DURATION" = "Hold duration";
+"HOLD_DURATION_DESC" = "The amount of time (in seconds) that is required for the hold gesture to toggle the speed of the video player.";
+"HAPTIC_FEEDBACK" = "Haptic feedback";
+"HAPTIC_FEEDBACK_DESC" = "Use haptic feedback to indicate that the speed of the video player was toggled.";

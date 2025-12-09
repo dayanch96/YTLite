@@ -1,0 +1,9 @@
+[submodule "libflex/FLEX"]
+	path = libflex/FLEX
+	url = https://github.com/FLEXTool/FLEX
+	branch = master
+
+[submodule "libreflex/Reflex"]
+	path = libreflex/Reflex
+	url = https://github.com/FLEXTool/Reflex
+	branch = master

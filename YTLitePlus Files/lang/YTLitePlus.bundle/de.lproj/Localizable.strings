@@ -1,0 +1,197 @@
+// Settings
+"VERSION" = "YTLitePlus's version: %@";
+"VERSION_CHECK" = "Tippe hier, um nach Updates zu suchen!";
+
+"COPY_SETTINGS" = "Copy Settings";
+"COPY_SETTINGS_DESC" = "Copy all current settings to the clipboard";
+"PASTE_SETTINGS" = "Paste Settings";
+"PASTE_SETTINGS_DESC" = "Paste settings from clipboard and apply";
+"PASTE_SETTINGS_ALERT" = "Apply settings from clipboard?";
+"EXPORT_SETTINGS" = "Export Settings";
+"EXPORT_SETTINGS_DESC" = "Exports all current settings into a .txt file";
+"IMPORT_SETTINGS" = "Import Settings";
+"IMPORT_SETTINGS_DESC" = "Press to import settings (.txt)";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "Replace 'Copy Settings' & 'Paste Settings' Buttons";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Replaces the Buttons to 'Export Settings' and 'Import Settings'";
+
+"VIDEO_PLAYER" = "Video Player (Beta)";
+"VIDEO_PLAYER_DESC" = "Open a downloaded video in the Apple player";
+
+// Player Gestures
+"PLAYER_GESTURES_TOGGLE" = "Enable Player Gestures";
+"VOLUME" = "Volume";
+"BRIGHTNESS" = "Brightness";
+"SEEK" = "Seek";
+"DISABLED" = "Disabled";
+"DEADZONE" = "Deadzone";
+"DEADZONE_DESC" = "Minimum distance to move before a gesture is recognized";
+"SENSITIVITY" = "Sensitivity";
+"SENSITIVITY_DESC" = "Multiplier on volume and brightness gestures";
+"PLAYER_GESTURES_TITLE" = "Player Gestures";
+"PLAYER_GESTURES_DESC" = "Configure horizontal pan gestures for the player";
+"TOP_SECTION" = "Top Section";
+"MIDDLE_SECTION" = "Middle Section";
+"BOTTOM_SECTION" = "Bottom Section";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Enable Haptic Feedback";
+
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Overlay-Optionen für Videosteuerungen";
+
+"ENABLE_SHARE_BUTTON" = "Schaltfläche \"Teilen\" aktivieren";
+"ENABLE_SHARE_BUTTON_DESC" = "Die Schaltfläche \"Teilen\" im Overlay der Videosteuerung aktivieren.";
+
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Schaltfläche \"In Playlist speichern\" aktivieren";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Die Schaltfläche \"In Playlist speichern\" im Overlay der Videosteuerung aktivieren.";
+
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "Schattenüberlagerung ausblenden";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Blende die Schattenüberlagerung auf den Schaltflächen \"Wiedergabe/Pause\", \"Zurück\", \"Weiter\", \"Vorwärts\" & \"Rücklauf\" aus.";
+
+"HIDE_RIGHT_PANEL" = "Rechtes Bedienfeld im Vollbildmodus ausbleden";
+"HIDE_RIGHT_PANEL_DESC" = "Blende das rechte Bedienfeld im Vollbildmodus aus. Ein Neustart der App ist erforderlich.";
+
+"HIDE_HEATWAVES" = "Hitzewellen ausblenden";
+"HIDE_HEATWAVES_DESC" = "Versteckt die Hitzewellen im Videoplayer. Ein Neustart der App ist erforderlich.";
+
+"DISABLE_AMBIENT_PORTRAIT" = "Disable Ambient Mode (Portrait)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "Disable lighting surrounding video title";
+
+"DISABLE_AMBIENT_FULLSCREEN" = "Disable Ambient Mode (Fullscreen)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Disable lighting surrouding video player";
+
+"FULLSCREEN_TO_THE_RIGHT" = "Fullscreen to the Right";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "Always enter fullscreen with home button on the right side.";
+
+"SEEK_ANYWHERE" = "Seek Anywhere Gesture";
+"SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
+
+"ENABLE_TAP_TO_SEEK" = "Enable Tap To Seek";
+"ENABLE_TAP_TO_SEEK_DESC" = "Jump to anywhere in a video by single-tapping the seek bar";
+
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Disable pull-to-fullscreen gesture";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Disable the drag gesture to enter vertical fullscreen. Only applies to landscape videos.";
+
+"ALWAYS_USE_REMAINING_TIME" = "Always use remaining time";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "Change the default to show time remaining in the player bar.";
+
+"DISABLE_TOGGLE_TIME_REMAINING" = "Disable toggle time remaining";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Disables changing time elapsed to time remaining. Use with other setting to always show remaining time.";
+
+"DISABLE_ENGAGEMENT_OVERLAY" = "Disable fullscreen engagement overlay";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Disable the swipe-up gesture and suggested videos list in fullscreen";
+
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Hide Comment previews under player";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Hide comment spoiler in comments button";
+
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
+
+"HIDE_HUD_MESSAGES" = "HUD-Nachrichten ausblenden";
+"HIDE_HUD_MESSAGES_DESC" = "z.B.: Untertitel sind aktiviert/deaktiviert, Videoschleife ist an, ...";
+
+"HIDE_COLLAPSE_BUTTON" = "Hide Collapse Button";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Hides the Arrow Collapse Button that was shown in the Top Left of the Video Player.";
+
+"HIDE_SPEED_TOAST" = "Hide Speed Toast";
+"HIDE_SPEED_TOAST_DESC" = "Hide the 2X Speed popup when holding the player";
+
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "Overlay-Optionen für App-Einstellungen";
+
+"HIDE_ACCOUNT_SECTION" = "Verstecke \"Konto\"";
+"HIDE_AUTOPLAY_SECTION" = "Verstecke \"Autoplay\"";
+"HIDE_TRYNEWFEATURES_SECTION" = "Verstecke \"Neue Testfunktionen ausprobieren\"";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Verstecke \"Einstellungen für Videoqualität\"";
+"HIDE_NOTIFICATIONS_SECTION" = "Verstecke \"Benachrichtigungen\"";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Verstecke \"Verlauf verwalten\"";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Verstecke \"Meine Daten auf YouTube\"";
+"HIDE_PRIVACY_SECTION" = "Verstecke \"Datenschutz\"";
+"HIDE_LIVECHAT_SECTION" = "Verstecke \"Livechat\"";
+
+// Theme
+"THEME_OPTIONS" = "Darstellungs Optionen";
+
+"OLED_DARK_THEME" = "OLED dunkles Design";
+"OLED_DARK_THEME_2" = "OLED dunkles Design";
+"OLED_DARK_THEME_DESC" = "Wirklich dunkles Design. Funktioniert in manchen Fällen nicht richtig. Nachdem du diese Option aktiviert/deaktiviert hast, ist ein Neustart der App erforderlich.";
+
+"OLD_DARK_THEME" = "Altes dunkles design";
+"OLD_DARK_THEME_DESC" = "Das dunkle Design des alten YouTube's (graues Design). Ein Neustart der App ist erforderlich.";
+
+"DEFAULT_THEME" = "Standard";
+"DEFAULT_THEME_DESC" = "Dunkles Standardthema von YouTube. Ein Neustart der App ist erforderlich.";
+
+"OLED_KEYBOARD" = "OLED Tastatur";
+"OLED_KEYBOARD_DESC" = "Funktioniert in manchen Fällen nicht richtig. Ein Neustart der App ist erforderlich.";
+
+"LOW_CONTRAST_MODE" = "Geringer Kontrast Modus";
+"LOW_CONTRAST_MODE_DESC" = "Diese Option führt zu einem niedrigen Kontrast der Texte und Schaltflächen, genau wie bei der alten YouTube-Benutzeroberfläche. Ein Neustart der App ist erforderlich.";
+"LCM_SELECTOR" = "Auswahl des Modus für niedrigen Kontrast";
+"DEFAULT_LOWCONTRASTMODE" = "(Standard) LowContrastMode";
+"CUSTOM_LOWCONTRASTMODE" = "(Benutzerdefinierte Farbe) LowContrastMode";
+
+// Miscellaneous
+"MISCELLANEOUS" = "Verschiedenes";
+
+"PLAYBACK_IN_FEEDS" = "Playback in feeds";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Always on";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Wi-Fi only";
+"PLAYBACK_IN_FEEDS_OFF" = "Off";
+
+"NEW_SETTINGS_UI" = "New Settings UI";
+"NEW_SETTINGS_UI_DESC" = "Use new grouped settings UI. May hide some settings";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "YouTube-Startanimation aktivieren";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"HIDE_MODERN_INTERFACE" = "Moderne Interfaces ausblenden";
+"HIDE_MODERN_INTERFACE_DESC" = "(YTNoModernUI) Schalte diese Option ein, um alle von YouTube hinzugefügten modernen Elemente auszublenden. Entfernt den Umgebungsmodus, das abgerundete Design & mehr. Ein Neustart der App ist erforderlich.";
+
+"IPAD_LAYOUT" = "iPad Layout";
+"IPAD_LAYOUT_DESC" = "Verwende dies nur, wenn du das iPad-Layout auf deinem aktuellen iPhone/iPod haben möchtest. Ein Neustart der App ist erforderlich.";
+
+"IPHONE_LAYOUT" = "iPhone Layout";
+"IPHONE_LAYOUT_DESC" = "Verwende dies nur, wenn du das iPhone-Layout auf deinem aktuellen iPad haben möchtest. Ein Neustart der App ist erforderlich.";
+
+"CAST_CONFIRM" = "Warnung vor dem Casting";
+"CAST_CONFIRM_DESC" = "(YTCastConfirm) Zeige vor dem nutzen von Google-Cast eine Bestätigungswarnung an, um zu verhindern, dass versehentlich auf Fernsehgeräte gestreamt wird.";
+"CASTING" = "Castings";
+"MSG_ARE_YOU_SURE" = "Bist du dir sicher, dass du mit dem Casting beginnen möchtest?";
+"MSG_YES" = "Ja";
+"MSG_CANCEL" = "Abbrechen";
+
+"NEW_MINIPLAYER_STYLE" = "Neuer Mini-Player-Leistenstil";
+"NEW_MINIPLAYER_STYLE_DESC" = "(BigYTMiniPlayer) Ein Neustart der App ist erforderlich.";
+
+"HIDE_CAST_BUTTON" = "Cast button verstecken";
+"HIDE_CAST_BUTTON_DESC" = "Google-Cast Button verstecken. Ein Neustart der App ist erforderlich.";
+
+"VIDEO_PLAYER_BUTTON" = "Video Player Button";
+"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "iSponsorBlock ausblenden";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "Blende die iSponsorBlock-Schaltfläche in der Navigationsleiste aus";
+
+"HIDE_HOME_TAB" = "Hide Home Tab";
+"HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
+
+"FIX_CASTING" = "Fix Casting";
+"FIX_CASTING_DESC" = "Changes some AB flags to fix casting";
+
+"ENABLE_FLEX" = "FLEX aktivieren";
+"ENABLE_FLEX_DESC" = "Aktiviere FLEX zum Debuggen (nicht empfohlen). Lass diese Option deaktiviert, es sei denn, du weißt, was du tust.";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "App-Version-Spoofer aktivieren (Lite)";
+"APP_VERSION_SPOOFER_LITE_DESC" = "Aktiviere dies, um den Version-Spoofer (Lite) zu verwenden, und wähle unten deine bevorzugte Version aus. Ein Neustart der App ist erforderlich.";
+"VERSION_SPOOFER_TITLE" = "Version-Spoofer-Auswahl";
+
+// Other Localization
+"APP_RESTART_DESC" = "Ein Neustart der App ist erforderlich.";
+"CHANGE_APP_ICON" = "App-Symbol ändern";
+
+// Newly added strings
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "HIDE_SHADOW_OVERLAY_BUTTONS_DESC";
+"ENABLE_SHARE_BUTTON_DESC" = "ENABLE_SHARE_BUTTON_DESC";
+"ENABLE_SHARE_BUTTON" = "ENABLE_SHARE_BUTTON";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "ENABLE_SAVE_TO_PLAYLIST_BUTTON";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC";

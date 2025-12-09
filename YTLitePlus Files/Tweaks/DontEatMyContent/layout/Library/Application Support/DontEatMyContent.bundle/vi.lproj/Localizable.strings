@@ -1,0 +1,38 @@
+"SETTINGS_TITLE" = "DontEatMyContent";
+
+"ENABLED" = "Kích hoạt";
+"TWEAK_DESC" = "Ngăn không cho notch/Dynamic Island cắt thành video 2:1 (ví dụ: video của MKBHD)";
+
+"SAFE_AREA_CONST" =  "Vùng an toàn không đổi";
+"SAFE_AREA_CONST_DESC" = "Tùy chỉnh này để đẩy video đến gần hoặc xa hơn khỏi notch/Dynamic Island. Số càng lớn thì video sẽ càng gần với notch/Dynamic Island và ngược lại";
+"DEFAULT" = "mặc định";
+"CHANGES_SAVED_DISMISS_VIDEO" = "Thay đổi của bạn đã được lưu. Nếu một video hiện đang phát, hãy tắt video đó để thay đổi có hiệu lực";
+
+"COLOR_VIEWS" = "Chế độ xem màu để gỡ lỗi";
+"COLOR_VIEWS_DESC" = "Đặt nền màu đỏ cho chế độ xem kết xuất, màu xanh lục cho vùng chứa chế độ xem kết xuất và màu xanh lam cho chế độ xem trình phát";
+
+"REPORT_ISSUE" = "Báo cáo lỗi";
+"SOURCE_CODE" = "Xem mã nguồn";
+
+"CHANGES_SAVED" = "Thay đổi của bạn đã được lưu";
+
+"EXIT" = "Thoát";
+"LATER" = "Later";
+"EXIT_YT_DESC" = "Khởi chạy lại YouTube để áp dụng thay đổi";
+
+"UNSUPPORTED_DEVICE" = "Thiết bị này không được hỗ trợ";
+
+"DISABLE_AMBIENT_MODE" = "Tắt chế độ môi trường xung quanh ở chế độ ngang";
+"VERSION" = "Phiên bản";
+
+"LIMIT_ZOOM_TO_FILL" = "Thu phóng tới mức gần như lấp đầy (thử nghiệm)";
+"LIMIT_ZOOM_TO_FILL_DESC" = "Giới hạn thu phóng để lấp đầy phần notch/Dynamic Island";
+
+"ADD_TITLE" = "Thêm tiêu đề của bạn vào đây...";
+
+"ADVANCED" = "Nâng cao";
+
+"ENABLE_FOR_ALL_VIDEOS" = "Bật cho tất cả video (thử nghiệm)";
+"ENABLE_FOR_ALL_VIDEOS_DESC" = "Bật giới hạn vùng an toàn cho tất cả video. Điều này có thể gây ra những tác dụng không mong muốn. Vui lòng gửi báo cáo lỗi trước khi bật tùy chọn này";
+
+"ABOUT" = "Giới thiệu";

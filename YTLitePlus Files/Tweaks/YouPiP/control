@@ -1,0 +1,14 @@
+Package: com.ps.youpip
+Name: YouPiP
+Depends: mobilesubstrate, com.ps.ytvideooverlay (>= 2.0.0), firmware (>= 11.0), firmware (>= 14.0) | gsc.ipad | com.ps.forceinpicture (>= 1.0.1)
+Version: 1.12.10
+Architecture: iphoneos-arm
+Description: Enables native PiP in iOS YouTube app.
+Maintainer: PoomSmart
+Author: PoomSmart
+Section: Tweaks
+Replaces: com.spicat.youpip
+Provides: com.spicat.youpip
+Conflicts: com.spicat.youpip
+Depiction: https://poomsmart.github.io/repo/depictions/youpip.html
+SileoDepiction: https://poomsmart.github.io/repo/sileodepictions/youpip.json

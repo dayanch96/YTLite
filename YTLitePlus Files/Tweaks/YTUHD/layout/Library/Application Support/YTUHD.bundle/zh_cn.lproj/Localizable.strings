@@ -1,0 +1,16 @@
+"USE_VP9" = "使用 VP9 编码";
+"USE_VP9_DESC" = "启用最高支持 4K 分辨率的 VP9 编解码器。推荐使用搭载 A12 芯片或以上的机型（如：iPhone 8/X 或以上）。更改本设置后需要重启 App。";
+"HW_VP9_SUPPORT" = "硬件 VP9 编码支持状态";
+
+"ALL_VP9" = "始终首选 VP9";
+"ALL_VP9_DESC" = "使用 VP9 编解码器播放任何分辨率的视频。建议在使用支持硬件 VP9 编解码器的机型（搭载 A12 芯片或以上）并且 YouTube App 拥有 VP9 权限时启用。请参考“硬件 VP9 编码支持状态”。";
+
+"DECODE_THREADS" = "解码线程";
+"DECODE_THREADS_DESC" = "用于 VP9 视频解码的线程数。较高的值可能会提高视频播放性能，但也可能会增加电池消耗。";
+"DECODE_THREADS_DEFAULT_VALUE" = "默认值";
+
+"SKIP_LOOP_FILTER" = "Skip loop filter";
+
+"LOOP_FILTER_OPTIMIZATION" = "Loop filter optimization";
+
+"ROW_THREADING" = "Row threading";

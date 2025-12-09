@@ -1,0 +1,9 @@
+Package: com.arichornlover.youtimestamp
+Name: YouTimeStamp
+Version: 1.1.0
+Architecture: iphoneos-arm
+Description: copies the video url with the timestamp included.
+Maintainer: arichornlover
+Author: arichornlover
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 11.0), com.ps.ytvideooverlay (>= 2.0.0)

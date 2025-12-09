@@ -1,0 +1,11 @@
+Package: com.ps.ytabconfig
+Name: YTABConfig
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Configures A/B features in iOS YouTube app.
+Maintainer: PoomSmart
+Author: PoomSmart
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 11.0)
+Depiction: https://poomsmart.github.io/repo/depictions/ytabconfig.html
+SileoDepiction: https://poomsmart.github.io/repo/sileodepictions/ytabconfig.json

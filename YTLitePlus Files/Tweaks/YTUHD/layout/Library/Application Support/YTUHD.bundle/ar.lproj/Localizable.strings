@@ -1,0 +1,16 @@
+"USE_VP9" = "استخدام VP9";
+"USE_VP9_DESC" = "تفعيل كوديك VP9 والذي يدعم الأبعاد حتى 4K. يعمل بكفاءة أكثر في الأجهزة ذات معالج A12 فأعلى. يتطلب إعادة تشغيل التطبيق.";
+"HW_VP9_SUPPORT" = "دعم العتاد لكوديك VP9 المطلوب";
+
+"ALL_VP9" = "VP9 للجميع";
+"ALL_VP9_DESC" = "استخدام كوديك VP9 لجميع دقات الفيديو. يُوصى بتمكين هذا للأجهزة التي تدعم العتاد لكوديك VP9 (A12 فأعلى) وعندما يكون لتطبيق YouTube حق استخدام VP9.";
+
+"DECODE_THREADS" = "خيوط فك التشفير";
+"DECODE_THREADS_DESC" = "عدد الخيوط المستخدمة في فك تشفير فيديو VP9. قد تؤدي القيم الأعلى إلى تحسين أداء تشغيل الفيديو ولكنها قد تزيد أيضًا من استهلاك البطارية.";
+"DECODE_THREADS_DEFAULT_VALUE" = "القيمة الافتراضية";
+
+"SKIP_LOOP_FILTER" = "Skip loop filter";
+
+"LOOP_FILTER_OPTIMIZATION" = "Loop filter optimization";
+
+"ROW_THREADING" = "Row threading";

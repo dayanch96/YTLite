@@ -1,0 +1,9 @@
+Package: me.foxster.donteatmycontent
+Name: DontEatMyContent
+Version: 1.1.11
+Architecture: iphoneos-arm
+Description: Prevent the notch/Dynamic Island from munching on 2:1 video content in YouTube
+Maintainer: Foxster
+Author: Foxster
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0)

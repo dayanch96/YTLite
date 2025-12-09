@@ -1,0 +1,204 @@
+
+// Settings
+"VERSION" = "YTLitePlus 版本：%@";
+"VERSION_CHECK" = "檢查更新";
+
+"COPY_SETTINGS" = "Copy Settings";
+"COPY_SETTINGS_DESC" = "Copy all current settings to the clipboard";
+"PASTE_SETTINGS" = "Paste Settings";
+"PASTE_SETTINGS_DESC" = "Paste settings from clipboard and apply";
+"PASTE_SETTINGS_ALERT" = "Apply settings from clipboard?";
+"EXPORT_SETTINGS" = "Export Settings";
+"EXPORT_SETTINGS_DESC" = "Exports all current settings into a .txt file";
+"IMPORT_SETTINGS" = "Import Settings";
+"IMPORT_SETTINGS_DESC" = "Press to import settings (.txt)";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "Replace 'Copy Settings' & 'Paste Settings' Buttons";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Replaces the Buttons to 'Export Settings' and 'Import Settings'";
+
+"VIDEO_PLAYER" = "Video Player (Beta)";
+"VIDEO_PLAYER_DESC" = "Open a downloaded video in the Apple player";
+
+// Player Gestures
+"PLAYER_GESTURES_TOGGLE" = "Enable Player Gestures";
+"VOLUME" = "Volume";
+"BRIGHTNESS" = "Brightness";
+"SEEK" = "Seek";
+"DISABLED" = "Disabled";
+"DEADZONE" = "Deadzone";
+"DEADZONE_DESC" = "Minimum distance to move before a gesture is recognized";
+"SENSITIVITY" = "Sensitivity";
+"SENSITIVITY_DESC" = "Multiplier on volume and brightness gestures";
+"PLAYER_GESTURES_TITLE" = "Player Gestures";
+"PLAYER_GESTURES_DESC" = "Configure horizontal pan gestures for the player";
+"TOP_SECTION" = "Top Section";
+"MIDDLE_SECTION" = "Middle Section";
+"BOTTOM_SECTION" = "Bottom Section";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Enable Haptic Feedback";
+
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "影片區覆蓋按鈕設定";
+
+"ENABLE_SHARE_BUTTON" = "顯示分享按鈕";
+"ENABLE_SHARE_BUTTON_DESC" = "在影片覆蓋按鈕區域中顯示分享按鈕";
+
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "顯示「儲存至播放清單」按鈕";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "在播放器覆蓋按鈕區域中顯示「儲存至播放清單」";
+
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "停用按鈕影子效果";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "隱藏播放/暫停、上一首、下一首、快轉和倒轉按鈕影子。";
+
+"HIDE_RIGHT_PANEL" = "在全螢幕中隱藏右面板";
+"HIDE_RIGHT_PANEL_DESC" = "需要重新啟動應用程式";
+
+"HIDE_HEATWAVES" = "隱藏熱浪";
+"HIDE_HEATWAVES_DESC" = "在播放器中隱藏熱浪";
+
+"DISABLE_AMBIENT_PORTRAIT" = "Disable Ambient Mode (Portrait)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "Disable lighting surrounding video title";
+
+"DISABLE_AMBIENT_FULLSCREEN" = "Disable Ambient Mode (Fullscreen)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Disable lighting surrouding video player";
+
+"FULLSCREEN_TO_THE_RIGHT" = "Fullscreen to the Right";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "Always enter fullscreen with home button on the right side.";
+
+"SEEK_ANYWHERE" = "Seek Anywhere Gesture";
+"SEEK_ANYWHERE_DESC" = "Hold and drag on the video player to seek. You must disable YTLite - Hold to speed";
+
+"ENABLE_TAP_TO_SEEK" = "Enable Tap To Seek";
+"ENABLE_TAP_TO_SEEK_DESC" = "Jump to anywhere in a video by single-tapping the seek bar";
+
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Disable pull-to-fullscreen gesture";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Disable the drag gesture to enter vertical fullscreen. Only applies to landscape videos.";
+
+"ALWAYS_USE_REMAINING_TIME" = "Always use remaining time";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "Change the default to show time remaining in the player bar.";
+
+"DISABLE_TOGGLE_TIME_REMAINING" = "Disable toggle time remaining";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Disables changing time elapsed to time remaining. Use with other setting to always show remaining time.";
+
+"DISABLE_ENGAGEMENT_OVERLAY" = "Disable fullscreen engagement overlay";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Disable the swipe-up gesture and suggested videos list in fullscreen";
+
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Hide Comment previews under player";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Hide comment spoiler in comments button";
+
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Hide autoplay mini preview";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Hide the small suggested video box near the title in fullscreen";
+
+"HIDE_HUD_MESSAGES" = "隱藏 HUD 訊息";
+"HIDE_HUD_MESSAGES_DESC" = "例如：CC字幕、開啟/關閉、影片循環開啟等...";
+
+"HIDE_COLLAPSE_BUTTON" = "Hide Collapse Button";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Hides the Arrow Collapse Button that was shown in the Top Left of the Video Player.";
+
+"HIDE_SPEED_TOAST" = "Hide Speed Toast";
+"HIDE_SPEED_TOAST_DESC" = "Hide the 2X Speed popup when holding the player";
+
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "應用程式設定隱藏項目";
+
+"HIDE_ACCOUNT_SECTION" = "購買會員與會員資格";
+"HIDE_AUTOPLAY_SECTION" = "自動播放";
+"HIDE_TRYNEWFEATURES_SECTION" = "";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "影片畫質偏好設定";
+"HIDE_NOTIFICATIONS_SECTION" = "通知";
+"HIDE_MANAGEALLHISTORY_SECTION" = "管理所有紀錄";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "已連結的應用程式";
+"HIDE_PRIVACY_SECTION" = "隱私設定";
+"HIDE_LIVECHAT_SECTION" = "聊天室";
+
+// Theme
+"THEME_OPTIONS" = "外觀";
+
+"OLED_DARK_THEME" = "OLED 暗黑主題";
+"OLED_DARK_THEME_2" = "OLED 暗黑主題";
+"OLED_DARK_THEME_DESC" = "全黑主題。此功能不穩定。重新啟動應用程式以套用變更。";
+
+"OLD_DARK_THEME" = "懷舊亮灰主題";
+"OLD_DARK_THEME_DESC" = "YouTube 亮灰懷舊暗黑主題。重新啟動應用程式以套用變更。";
+
+"DEFAULT_THEME" = "預設主題";
+"DEFAULT_THEME_DESC" = "";
+
+"OLED_KEYBOARD" = "OLED 鍵盤";
+"OLED_KEYBOARD_DESC" = "此功能不穩定。重新啟動應用程式以套用變更。";
+
+"LOW_CONTRAST_MODE" = "低對比模式";
+"LOW_CONTRAST_MODE_DESC" = "模擬舊式 YouTube。重新啟動應用程式以套用變更。";
+"LCM_SELECTOR" = "低對比模式樣是";
+"DEFAULT_LOWCONTRASTMODE" = "（預設）LowContrastMode";
+"CUSTOM_LOWCONTRASTMODE" = "（自訂顏色）LowContrastMode";
+
+// Miscellaneous
+"MISCELLANEOUS" = "更多";
+
+"PLAYBACK_IN_FEEDS" = "Playback in feeds";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Always on";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Wi-Fi only";
+"PLAYBACK_IN_FEEDS_OFF" = "Off";
+
+"NEW_SETTINGS_UI" = "New Settings UI";
+"NEW_SETTINGS_UI_DESC" = "Use new grouped settings UI. May hide some settings";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "啟用 Youtube 歡迎動畫";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"HIDE_MODERN_INTERFACE" = "懷舊 YouTube 介面（YTNoModernUI）";
+"HIDE_MODERN_INTERFACE_DESC" = "可移除微光效果、曲線按鈕邊緣等等。重新啟動應用程式以套用變更。";
+
+"IPAD_LAYOUT" = "iPad 排版";
+"IPAD_LAYOUT_DESC" = "重新啟動應用程式以套用變更";
+
+"IPHONE_LAYOUT" = "iPhone 排版";
+"IPHONE_LAYOUT_DESC" = "重新啟動應用程式以套用變更。";
+
+"CAST_CONFIRM" = "在投放前確認（YTCastConfirm）";
+"CAST_CONFIRM_DESC" = "再三確認以避免被家人訐譙";
+"CASTING" = "投放";
+"MSG_ARE_YOU_SURE" = "是否投放影片？";
+"MSG_YES" = "確認";
+"MSG_CANCEL" = "取消";
+
+"NEW_MINIPLAYER_STYLE" = "啟用應用程式內的新迷你播放器（BigYTMiniPlayer）";
+"NEW_MINIPLAYER_STYLE_DESC" = "重新啟動應用程式以套用變更。";
+
+"HIDE_CAST_BUTTON" = "隱藏投放按鈕";
+"HIDE_CAST_BUTTON_DESC" = "重新啟動應用程式以套用變更。";
+
+"VIDEO_PLAYER_BUTTON" = "Video Player Button";
+"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "隱藏 iSponsorBlock 按鈕";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
+
+"HIDE_HOME_TAB" = "Hide Home Tab";
+"HIDE_HOME_TAB_DESC" = "Be careful when hiding all tabs";
+
+"FIX_CASTING" = "Fix Casting";
+"FIX_CASTING_DESC" = "Changes some AB flags to fix casting";
+
+"ENABLE_FLEX" = "啟用 FLEX（不建議使用）";
+"ENABLE_FLEX_DESC" = "如果不知道這是什麼，請勿啟用";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "改變應用程式版本";
+"APP_VERSION_SPOOFER_LITE_DESC" = "請在底下選擇版本。重新啟動應用程式以套用變更。";
+"VERSION_SPOOFER_TITLE" = "版本選擇器";
+
+// Other Localization
+"APP_RESTART_DESC" = "重新啟動應用程式以套用變更。";
+"CHANGE_APP_ICON" = "Change App Icon";
+
+// Newly added strings
+"ENABLE_TAP_TO_SEEK_DESC" = "ENABLE_TAP_TO_SEEK_DESC";
+"ENABLE_TAP_TO_SEEK" = "ENABLE_TAP_TO_SEEK";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC";
+"ALWAYS_USE_REMAINING_TIME" = "ALWAYS_USE_REMAINING_TIME";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "DISABLE_PULL_TO_FULLSCREEN_GESTURE";
+"DISABLE_TOGGLE_TIME_REMAINING" = "DISABLE_TOGGLE_TIME_REMAINING";
+"DISABLE_ENGAGEMENT_OVERLAY" = "DISABLE_ENGAGEMENT_OVERLAY";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "DISABLE_TOGGLE_TIME_REMAINING_DESC";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "DISABLE_ENGAGEMENT_OVERLAY_DESC";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "ALWAYS_USE_REMAINING_TIME_DESC";
+"DEFAULT_THEME_DESC" = "DEFAULT_THEME_DESC";

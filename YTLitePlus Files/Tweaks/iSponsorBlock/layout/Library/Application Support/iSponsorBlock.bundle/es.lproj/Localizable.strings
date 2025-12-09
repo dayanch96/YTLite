@@ -1,0 +1,88 @@
+/* iSponsorBlock Settings */
+"Enabled" = "Activado";
+"RestartFooter" = "Reinicia YouTube para que los cambios surtan efecto";
+
+"Sponsor" = "Patrocinador";
+"Intermission/IntroAnimation" = "Intermisión/Animación de introducción";
+"Intermission" = "Intermisión";
+"Endcards/Credits" = "Tarjetas Finales/Créditos";
+"Outro" = "Final";
+"InteractionReminder" = "Recordatorio de interacción (Suscribir)";
+"InteractionReminder_Subcribe/Like" = "Recordatorio de interacción (Suscribir/Dar Me Gusta)";
+"Interaction" = "Interacción";
+"Unpaid/SelfPromotion" = "Promoción no remunerada/Auto promoción";
+"SelfPromo" = "Auto promoción";
+"Non-MusicSection" = "Música: sección sin música";
+"Non-Music" = "Sin música";
+"Preview" = "Preview";
+"SponsorBlockUserID" = "ID usuario de SponsorBlock";
+"SponsorBlockAPIInstance" = "Instancia API de SponsorBlock";
+
+"Disable" = "No";
+"AutoSkip" = "Auto";
+"ShowInSeekBar" = "En la barra";
+"ManualSkip" = "Manual";
+"SetColorToShowInSeekBar" = "Establecer color para mostrar en la barra";
+
+"UserID" = "ID de Usuario:";
+"UserIDFooter" = "Si deseas usar un ID de usuario personalizado de SponsorBlock, puedes ingresarlo aquí. Si no sabes qué es esto, déjalo en su valor predeterminado.";
+"API_URL" = "URL de la API:";
+"APIFooter" = "Si deseas usar una instancia de API personalizada de SponsorBlock, puedes ingresarla aquí. Si no sabes qué es esto, déjalo en su valor predeterminado. Ejemplo: https://sponsor.ajay.app/api";
+"MinimumSegmentDuration" = "Duración mínima del segmento:";
+"HowLongNoticeWillAppear" = "Duración del aviso de salto:";
+"ShowSkipNotice" = "Mostrar aviso de salto";
+"ShowButtonsInPlayer" = "Botones de iSponsorBlock en el reproductor";
+"HideStartEndButtonInPlayer" = "Ocultar botón de Inicio/Fin en el reproductor";
+"ShowModifiedTime" = "Mostrar tiempo modificado en la barra";
+"AudioNotificationOnSkip" = "Notificación de Audio al saltar";
+"AudioFooter" = "No disponible en modo silencioso";
+"EnableSkipCountTracking" = "Habilitar el seguimiento de cuenta de saltos";
+"DonateOnVenmo" = "Donar en Venmo";
+"DonateOnPayPal" = "Donar en PayPal";
+
+/* Segments stuff */
+"SegmentStartsNow" = "Comenzar segmento";
+"SegmentEndsNow" = "Terminar segmento";
+"WhitelistChannel" = "Canal en lista blanca";
+"SegmentsInDatabase" = "Ya existen segmentos en la base de datos:";
+"YourSegments" = "Tus segmentos:";
+"SubmitSegments" = "Enviar segmentos";
+"SuccessfullySubmittedSegments" = "Segmentos enviados exitosamente";
+"EndTimeLessThanStartTime" = "El Tiempo de finalización que estableciste es menor que el tiempo de inicio, por favor selecciona un tiempo después de";
+"UnfinishedSegments" = "Tienes segmentos incompletos\n por favor agrega una categoría y/o tiempo de finalización a tus segmentos";
+"EditStartTime" = "Editar tiempo de inicio";
+"EditStartTime_Desc" = "Editar tiempo de inicio: (por ej. escribe 1:15)";
+"EditEndTime" = "Editar tiempo de finalización";
+"EditEndTime_Desc" = "Editar tiempo de finalización: (por ej. escribe 1:15)";
+"From" = "Desde";
+"to" = "hasta";
+"EditCategory" = "Editar categoría";
+"EditSegment" = "Editar segmento";
+"Edit" = "Editar";
+"Error" = "Error";
+"ErrorCode" = "Código de error";
+"Success" = "Éxito";
+"OK" = "Aceptar";
+"Cancel" = "Cancelar";
+"Delete" = "Eliminar";
+"Upvote" = "Voto positivo";
+"Downvote" = "Voto negativo";
+"VoteToChangeCategory" = "Votar para cambiar la categoría";
+"VoteOnSegment" = "Votar en el segmento";
+"SuccessfullyVoted" = "Votación exitosa";
+"ErrorVoting" = "Error en la votación";
+
+/* Pop-ups*/
+"ManuallySkipReminder" = "¿Saltar manualmente el segmento %@\nde %ld:%02ld a %ld:%02ld?";
+"Skip" = "Saltar";
+"SkippedSegment" = "Segmento %@ Saltado";
+"Unskip" = "Deshacer salto";
+
+/* Segments in pop-ups*/
+"sponsor" = "patrocinador";
+"intro" = "introducción";
+"outro" = "final";
+"interaction" = "interacción";
+"selfpromo" = "auto promoción";
+"music_offtopic" = "no musical";
+"preview" = "preview";

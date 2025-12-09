@@ -1,0 +1,38 @@
+"SETTINGS_TITLE" = "DontEatMyContent";
+
+"ENABLED" = "Etkin";
+"TWEAK_DESC" = "Çentiğin/Dinamik Ada'nın 2:1 videoları (ör. MKBHD'nin videoları) kesmesini engeller";
+
+"SAFE_AREA_CONST" =  "Güvenli alan sabiti";
+"SAFE_AREA_CONST_DESC" = "Videoyu çentiğe/Dinamik Ada'ya yaklaştırmak veya uzaklaştırmak için bu sabiti özelleştir. Sabit ne kadar büyük olursa video çentik/Dinamik Ada'ya o kadar yakın olur ve bunun tersi de geçerlidir.";
+"DEFAULT" = "Varsayılan";
+"CHANGES_SAVED_DISMISS_VIDEO" = "Değişiklikler kaydedildi. Şu anda bir video oynatılıyorsa, değişikliklerin geçerli olması için kapat";
+
+"COLOR_VIEWS" = "Renkli görünümler";
+"COLOR_VIEWS_DESC" = "İşleme görünümü için kırmızı, işleme görünümü kabı için yeşil ve oynatıcı görünümü için mavi bir arka plan ayarlar; hata ayıklama için yararlı";
+
+"REPORT_ISSUE" = "Sorun Bildir";
+"SOURCE_CODE" = "Kaynak kodunu görüntüle";
+
+"CHANGES_SAVED" = "Değişikliklerin kaydedildi";
+
+"EXIT" = "Çıkış";
+"LATER" = "Sonra";
+"EXIT_YT_DESC" = "Değişiklikleri uygulamak için YouTube'u yeniden başlat";
+
+"UNSUPPORTED_DEVICE" = "Bu cihaz uyumlu değil";
+
+"DISABLE_AMBIENT_MODE" = "Ambiyans modunu devre dışı bırak";
+"VERSION" = "Sürüm";
+
+"LIMIT_ZOOM_TO_FILL" = "Neredeyse ekranın tamamını kaplamak için yakınlaştır (deneysel)";
+"LIMIT_ZOOM_TO_FILL_DESC" = "Yakınlaştırmayı Çentik/Dinamik Ada ile sınırlar";
+
+"ADD_TITLE" = "Başlığınızı buraya ekleyin...";
+
+"ADVANCED" = "Gelişmiş";
+
+"ENABLE_FOR_ALL_VIDEOS" = "Tüm videolar için etkinleştir (deneysel)";
+"ENABLE_FOR_ALL_VIDEOS_DESC" = "Tüm videolar için güvenli alan kısıtlamalarını etkinleştir. Bu istenmeyen etkilere neden olabilir. Bu seçeneği etkinleştirmeden önce lütfen bir hata raporu gönder.";
+
+"ABOUT" = "Hakkında";

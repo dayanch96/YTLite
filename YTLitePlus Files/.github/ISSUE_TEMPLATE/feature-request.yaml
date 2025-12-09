@@ -1,0 +1,32 @@
+name: Feature Request
+description: Request a new feature to be added
+title: "[Request] Replace with your question"
+labels: enhancement
+body:
+- type: checkboxes
+  attributes:
+    label: Is there an existing issue for this?
+    options:
+    - label: I have searched the existing issues
+      required: true
+
+- type: dropdown
+  attributes:
+    label: Do you use YouTube Premium?
+    options:
+      - ❌ No, I don't use YouTube Premium
+      - ✅ Yes, I do use YouTube Premium
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: My feature request
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Additional context
+  validations:
+    required: false

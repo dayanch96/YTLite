@@ -1,0 +1,38 @@
+"SETTINGS_TITLE" = "DontEatMyContent";
+
+"ENABLED" = "Aktiviert";
+"TWEAK_DESC" = "Verhindert, dass die Notch/Dynamic Island in 2:1-Videos geschnitten wird (z. B. in den Videos von MKBHD)";
+
+"SAFE_AREA_CONST" =  "Konstanter sicherer Bereich";
+"SAFE_AREA_CONST_DESC" = "Passen Sie diese Variable an, um das Video näher an die Notch/Dynamic Island heranzuführen oder sich von ihr zu entfernen. Je größer die Variable ist, desto näher ist das Video an der Notch/Dynamic Island und umgekehrt.";
+"DEFAULT" = "Standard";
+"CHANGES_SAVED_DISMISS_VIDEO" = "Ihre Änderungen wurden gespeichert. Wenn gerade ein Video abgespielt wird, beenden Sie es, damit die Änderungen wirksam werden";
+
+"COLOR_VIEWS" = "Farbige Ansichten zur Fehlersuche";
+"COLOR_VIEWS_DESC" = "Legt einen roten Hintergrund für die Rendering-Ansicht, einen grünen für den Container der Rendering-Ansicht und einen blauen für die Player-Ansicht fest";
+
+"REPORT_ISSUE" = "Ein Problem melden";
+"SOURCE_CODE" = "Quellcode anzeigen";
+
+"CHANGES_SAVED" = "Ihre Änderungen wurden gespeichert";
+
+"EXIT" = "Verlassen";
+"LATER" = "Später";
+"EXIT_YT_DESC" = "YouTube neu starten, um Änderungen zu übernehmen";
+
+"UNSUPPORTED_DEVICE" = "Dieses Gerät wird nicht unterstützt";
+
+"DISABLE_AMBIENT_MODE" = "Ambiente-Modus im Querformat deaktivieren";
+"VERSION" = "Version";
+
+"LIMIT_ZOOM_TO_FILL" = "Fast vollständiges Zoomen (experimentell)";
+"LIMIT_ZOOM_TO_FILL_DESC" = "Begrenzt den Zoom auf das Ausfüllen der Notch/Dynamic Island";
+
+"ADD_TITLE" = "Fügen Sie hier Ihren Titel ein...";
+
+"ADVANCED" = "Erweitert";
+
+"ENABLE_FOR_ALL_VIDEOS" = "Aktivieren für alle Videos (experimentell)";
+"ENABLE_FOR_ALL_VIDEOS_DESC" = "Aktivieren Sie die Einschränkung des sicheren Bereichs für alle Videos. Dies kann zu unbeabsichtigten Effekten führen. Bitte melden Sie einen Fehler, bevor Sie diese Option aktivieren.";
+
+"ABOUT" = "About";

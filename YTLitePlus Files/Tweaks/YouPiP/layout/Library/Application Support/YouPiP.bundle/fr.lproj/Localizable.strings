@@ -1,0 +1,25 @@
+"SETTINGS_TITLE" = "YouPiP";
+
+"ENABLED" = "Enabled";
+"ENABLED_DESC" = "Le redémarrage de l'application est nécessaire.";
+
+"USE_PIP_BUTTON" = "Utiliser le bouton PiP";
+"USE_PIP_BUTTON_DESC" = "Ajoute un bouton PiP sur la superposition de contrôle vidéo pour activer le PiP au lieu de quitter l'application";
+
+"USE_TAB_BAR_PIP_BUTTON" = "Utilise le bouton PiP de la barre d'onglets vidéo";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "Ajoute un bouton PiP dans la barre d'onglets vidéo pour activer le PiP au lieu de quitter l'application. Le redémarrage de l'application est nécessaire.";
+
+"USE_ALL_PIP" = "Activation PiP sans restriction";
+"USE_ALL_PIP_DESC" = "Permettre l'activation du PiP en appuyant sur le bouton PiP de la superposition de contrôle vidéo, le bouton PiP de la barre d'onglets vidéo, ou simplement en quittant l'application en même temps.";
+
+"DISABLE_PIP_MINI_PLAYER" = "Désactive le PiP pour le Mini Player";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "Désactive le PiP pendant la lecture d'une vidéo dans le mini-lecteur";
+
+"LEGACY_PIP" = "PiP hérité";
+"LEGACY_PIP_DESC" = "Utilise AVPlayerLayer pour le PiP. Cela corrige apparemment le bug d'accélération. Un redémarrage de l'application est nécessaire.";
+
+"NON_BACKGROUNDABLE_PIP" = "PiP non rétroactif";
+"NON_BACKGROUNDABLE_PIP_DESC" = "Active le PiP pour les vidéos qui ne sont pas en arrière-plan";
+
+// Overlay
+"POSITION" = "Position du bouton PiP";

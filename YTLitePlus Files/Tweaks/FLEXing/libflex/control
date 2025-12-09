@@ -1,0 +1,12 @@
+Package: libflex
+Name: libFLEX
+Pre-Depends: firmware (>= 9.0)
+Depends: 
+Version: 4.7.0~b4
+Architecture: iphoneos-arm
+Description: A library for Flipboard Explorer.
+Maintainer: Tanner Bennett <tannerbennett@me.com>
+Author: Tanner Bennett <tannerbennett@me.com>
+Section: Tweaks
+Depiction: https://nscake.github.io/package.html?package=libflex
+SileoDepiction: https://nscake.github.io/depictions/libflex.sileo.json

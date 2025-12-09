@@ -1,0 +1,13 @@
+"SETTINGS_TITLE" = "Przywróć łapki w dół";
+
+"ENABLED" = "Włączone";
+"ENABLE_VOTE_SUBMIT" = "Włącz przesyłanie głosów";
+"ENABLE_VOTE_SUBMIT_DESC" = "Zezwól na przesyłanie Twojego unikalnego anonimowego identyfikatora oraz danych o polubieniach/niepolubieniach filmów/shortów do %@.";
+"EXACT_LIKE_NUMBER" = "Dokładna liczba polubień";
+"EXACT_DISLIKE_NUMBER" = "Dokładna liczba niepolubień";
+"EXACT_DISLIKE_NUMBER_DESC" = "Wyświetla dokładną liczbę niepolubień. Dla przykładu: %@ jest zamieniane na %@.";
+"RAW_DATA" = "Surowe dane o niepolubieniach";
+"RAW_DATA_DESC" = "Używaj danych o niepolubieniach tylko od osób, które używają rozszerzenia przeglądarki RYD lub tego tweaku.";
+
+// On app launch
+"WANT_TO_ENABLE" = "Czy chcesz teraz włączyć przesyłanie danych polubień/niepolubień do %@? Możesz to później wyłączyć w Ustawieniach > %@ > %@.";

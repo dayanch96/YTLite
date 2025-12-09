@@ -1,0 +1,2 @@
+@protocol YTCollectionViewCellProtocol
+@end

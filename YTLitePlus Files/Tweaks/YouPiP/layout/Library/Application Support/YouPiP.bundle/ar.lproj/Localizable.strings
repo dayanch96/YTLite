@@ -1,0 +1,25 @@
+"SETTINGS_TITLE" = "YouPiP";
+
+"ENABLED" = "مفعَّل";
+"ENABLED_DESC" = "يجب إعادة تشغيل التطبيق.";
+
+"USE_PIP_BUTTON" = "استخدم زر PiP";
+"USE_PIP_BUTTON_DESC" = "إضافة زر PiP مع الأزرار على الفيديو لتفعيل PiP عند الخروج من التطبيق.";
+
+"USE_TAB_BAR_PIP_BUTTON" = "إضافة زر PiP أسفل الفيديو";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "إضافة زر PiP مع شريط الأزرار أسفل الفيديو لتفعيل PiP عند الخروج من التطبيق. يجب إعادة تشغيل التطبيق لتفعيل الميزة.";
+
+"USE_ALL_PIP" = "تفعيل PiP غير مقيد";
+"USE_ALL_PIP_DESC" = "السماح بتفعيل PiP عن طريق النقر على زر PiP في واجهة التحكم بالفيديو، أو زر PiP في شريط الفيديو، أو ببساطة عن طريق إغلاق التطبيق في نفس الوقت.";
+
+"DISABLE_PIP_MINI_PLAYER" = "منع PiP في المشغّل المصغر";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "منع PiP من العمل أثناء تشغيل فيديو عبرالمشغّل المصغّر.";
+
+"LEGACY_PIP" = "نمط PiP القديم";
+"LEGACY_PIP_DESC" = "استخدام AVPlayerLayer لـ PiP. هذا يُصلح مشكلة التسريع حسب التقارير. إعادة تشغيل التطبيق مطلوبة.";
+
+"NON_BACKGROUNDABLE_PIP" = "PiP للفيديوهات التي لا تعمل في الخلفية";
+"NON_BACKGROUNDABLE_PIP_DESC" = "تفعيل PiP للفيديوهات التي لا تعمل في الخلفية.";
+
+// Overlay
+"POSITION" = "موضع زر PiP";

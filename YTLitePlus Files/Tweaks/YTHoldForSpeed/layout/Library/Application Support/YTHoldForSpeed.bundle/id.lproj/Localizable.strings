@@ -1,0 +1,15 @@
+"HOLD_FOR_SPEED" = "Tahan untuk kecepatan";
+"NORMAL" = "Normal";
+"X_SECONDS" = "%@ detik";
+"HOLD_GESTURE" = "Gestur tahan";
+"HOLD_GESTURE_DESC" = "Ketuk dan tahan di mana saja di pemutar video untuk mengalihkan kecepatan pemutaran antara \"normal\" (yaitu 1.0x) dan kecepatan toggle yang dipilih.\n\nHarap diingat bahwa dengan mengaktifkan fitur ini, gestur ketuk dan tahan standar akan dinonaktifkan.";
+"DISABLE_STOCK_GESTURES" = "Nonaktifkan gestur standar";
+"DISABLE_STOCK_GESTURES_DESC" = "Menonaktifkan gestur ketuk dan tahan standar di pemutar video.\n\nHarap diingat bahwa jika gestur tahan diaktifkan, gestur standar akan otomatis dinonaktifkan.";
+"AUTO_APPLY_SPEED" = "Terapkan kecepatan secara otomatis";
+"AUTO_APPLY_SPEED_DESC" = "Saat diaktifkan, kecepatan pemutaran yang dipilih akan otomatis diterapkan saat pemutar video baru diluncurkan.";
+"TOGGLE_SPEED" = "Alihkan kecepatan";
+"TOGGLE_SPEED_DESC" = "Kecepatan yang akan dialihkan pemutar video ketika gestur tahan diaktifkan.";
+"HOLD_DURATION" = "Durasi tahan";
+"HOLD_DURATION_DESC" = "Jumlah waktu (dalam detik) yang diperlukan untuk gestur tahan agar dapat mengalihkan kecepatan pemutar video.";
+"HAPTIC_FEEDBACK" = "Umpan balik haptik";
+"HAPTIC_FEEDBACK_DESC" = "Menggunakan umpan balik haptik untuk menunjukkan bahwa kecepatan pemutar video telah dialihkan.";

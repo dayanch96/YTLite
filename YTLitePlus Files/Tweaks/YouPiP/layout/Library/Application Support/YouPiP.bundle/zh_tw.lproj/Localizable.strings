@@ -1,0 +1,25 @@
+﻿"SETTINGS_TITLE" = "YouPiP";
+
+"ENABLED" = "啟用";
+"ENABLED_DESC" = "需要重新啟動應用程式。";
+
+"USE_PIP_BUTTON" = "使用子母畫面按鈕";
+"USE_PIP_BUTTON_DESC" = "在影片控制層上增加子母畫面按鈕以啟用子母畫面而不是關閉應用程式。";
+
+"USE_TAB_BAR_PIP_BUTTON" = "使用影片標籤欄子母畫面按鈕";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "在影片標籤欄中增加子母畫面按鈕以啟用子母畫面而不是關閉應用程式。需要重新啟動應用程式。";
+
+"USE_ALL_PIP" = "無限制的子母畫面啟用";
+"USE_ALL_PIP_DESC" = "允許通過點擊影片控制層上的子母畫面按鈕、影片標籤欄上的子母畫面按鈕或僅僅關閉應用程式來啟用子母畫面。";
+
+"DISABLE_PIP_MINI_PLAYER" = "為迷你播放器停用子母畫面";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "在迷你播放器中播放影片時停用子母畫面。";
+
+"LEGACY_PIP" = "傳統子母畫面（不建議使用）";
+"LEGACY_PIP_DESC" = "使用 AVPlayerLayer 進行子母畫面。據報告這修復了加速錯誤。需要重新啟動應用程式。";
+
+"NON_BACKGROUNDABLE_PIP" = "非背景子母畫面";
+"NON_BACKGROUNDABLE_PIP_DESC" = "為非背景影片啟用子母畫面。";
+
+// Overlay
+"POSITION" = "子母畫面按鈕位置";

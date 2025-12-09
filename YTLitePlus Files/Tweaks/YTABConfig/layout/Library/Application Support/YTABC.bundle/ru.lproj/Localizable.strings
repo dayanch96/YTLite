@@ -1,0 +1,40 @@
+"ENABLED" = "Активировать";
+"ENABLED_DESC" = "Активируйте для отображения настроек твика.";
+"GROUPED" = "Группировать по префиксам";
+"RESET_KILL" = "Сбросить настройки";
+"RESET_KILL_DESC" = "Нажмите для сброса всех изменений.";
+"COPY_CURRENT_SETTINGS" = "Копировать настройки";
+"COPY_CURRENT_SETTINGS_DESC" = "Нажмите, чтобы скопировать текущие настройки в буфер обмена.";
+"VIEW_MODIFIED_SETTINGS" = "Отобразить изменения";
+"VIEW_MODIFIED_SETTINGS_DESC" = "Нажмите, чтобы увидеть примененные вами изменения.";
+"IMPORT_SETTINGS" = "Импорт настроек";
+"IMPORT_SETTINGS_DESC" = "Импортируйте настройки из буфера обмена.\nКаждая настройка должна быть в формате: %@";
+"NOTHING_TO_IMPORT" = "Ничего не найдено в буфере обмена или изменений после импорта не будет.";
+"SETTINGS_TO_IMPORT" = "Настройки для импорта";
+"SETTINGS_TO_IMPORT_DESC" = "Найдено %ld допустимых настроек для импорта.";
+"IMPORT" = "Импорт";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "Настройки";
+"TOTAL_MODIFIED_SETTINGS" = "Всего: %ld";
+
+// Quit app alert
+"WARNING" = "Внимание";
+"APPLY_DESC" = "Данное действие приведет к принудительному закрытию YouTube. Продолжить?";
+
+"OPEN_MEGATHREAD" = "Дискуссии и рекомендации";
+"OPEN_MEGATHREAD_DESC" = "Перенаправит вас на страницу дискуссий и рекомендаций по YTABConfig на GitHub, где вы можете обсудить настройки и поделиться своим опытом о настройках твика.";
+"SETTINGS_START_WITH" = "Настройки, начинающиеся на";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "Скопировать в буфер обмена";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "Скопировано в буфер обмена";
+
+"REMOVED" = "(Удалено)";
+
+"REMOVE_REMOVED_SETTINGS" = "Удалить удалённые настройки";
+"REMOVE_REMOVED_SETTINGS_DESC" = "Будет удалено %ld настроек, которые больше не доступны в YouTube.";

@@ -1,0 +1,13 @@
+"HOLD_FOR_SPEED" = "Mantener para velocidad";
+"NORMAL" = "Normal";
+"X_SECONDS" = "%@ segundos";
+"HOLD_GESTURE" = "Mantener gesto";
+"HOLD_GESTURE_DESC" = "Mantenga pulsado cualquier lugar del reproductor de vídeo para alternar la velocidad de reproducción entre \"Normal\" (es decir, 1,0x) y la velocidad de alternancia seleccionada.\n\nTenga en cuenta que, al activar esta función, se desactivará el gesto \"buscar en cualquier lugar\"";
+"AUTO_APPLY_SPEED" = "Aplicar velocidad automáticamente";
+"AUTO_APPLY_SPEED_DESC" = "Si se activa, la velocidad de reproducción seleccionada se aplicará automáticamente al iniciar un nuevo reproductor de vídeo";
+"TOGGLE_SPEED" = "Alternar velocidad";
+"TOGGLE_SPEED_DESC" = "Velocidad entre la que alternará el reproductor de vídeo cuando se invoque el gesto de retención";
+"HOLD_DURATION" = "Duración de la retención";
+"HOLD_DURATION_DESC" = "La cantidad de tiempo (en segundos) que se necesita para que el gesto de retención conmute la velocidad del reproductor de vídeo";
+"HAPTIC_FEEDBACK" = "Retroalimentación háptica";
+"HAPTIC_FEEDBACK_DESC" = "Utilizar respuesta háptica para indicar que se ha cambiado la velocidad del reproductor de vídeo";

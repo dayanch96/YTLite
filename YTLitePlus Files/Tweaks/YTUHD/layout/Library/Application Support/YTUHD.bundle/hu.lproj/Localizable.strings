@@ -1,0 +1,16 @@
+"USE_VP9" = "Használja a VP9-et";
+"USE_VP9_DESC" = "Engedélyezze az akár 4K felbontást támogató VP9 kodeket. A legjobban az Apple CPU A12 vagy újabb CPU-val rendelkező eszközökkel működik. Az alkalmazás újraindítása szükséges.";
+"HW_VP9_SUPPORT" = "Hardveres VP9 támogatás";
+
+"ALL_VP9" = "VP9 mindenhez";
+"ALL_VP9_DESC" = "Használja a VP9 kodeket minden videófelbontáshoz. Ajánlott engedélyezni hardveres VP9 támogatott eszközökön (A12 és újabb) ÉS amikor a YouTube alkalmazás rendelkezik VP9 jogosultsággal.";
+
+"DECODE_THREADS" = "Dekódoló szálak";
+"DECODE_THREADS_DESC" = "A VP9 videó dekódolásához használt szálak száma. A magasabb értékek javíthatják a videólejátszás teljesítményét, de növelhetik az akkumulátor fogyasztását is.";
+"DECODE_THREADS_DEFAULT_VALUE" = "Alapértelmezett érték";
+
+"SKIP_LOOP_FILTER" = "Skip loop filter";
+
+"LOOP_FILTER_OPTIMIZATION" = "Loop filter optimization";
+
+"ROW_THREADING" = "Row threading";

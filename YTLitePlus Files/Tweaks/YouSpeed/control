@@ -1,0 +1,12 @@
+Package: com.ps.youspeed
+Name: YouSpeed
+Version: 1.6.2
+Architecture: iphoneos-arm
+Description: Views/changes video speed in iOS YouTube app faster, and more speed options.
+Maintainer: PoomSmart
+Author: PoomSmart
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 11.0), com.ps.ytvideooverlay (>= 2.2.0)
+Conflicts: com.lyvendia.ytspeed
+Depiction: https://poomsmart.github.io/repo/depictions/youspeed.html
+SileoDepiction: https://poomsmart.github.io/repo/sileodepictions/youspeed.json

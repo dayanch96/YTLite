@@ -1,0 +1,11 @@
+Package: com.galacticdev.isponsorblock
+Name: iSponsorBlock
+Version: 1.2.13
+Architecture: iphoneos-arm
+Description: SponsorBlock port for iOS
+Maintainer: Galactic Dev
+Author: Galactic Dev
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), ws.hbang.alderis (>= 1.1), firmware (>= 13.0)
+Icon: https://raw.githubusercontent.com/ajayyy/SponsorBlock/master/public/icons/LogoSponsorBlocker64px.png
+Depiction: https://galacticdev.me/iSponsorBlock

@@ -1,0 +1,25 @@
+"SETTINGS_TITLE" = "YouPiP";
+
+"ENABLED" = "เปิดใช้งาน";
+"ENABLED_DESC" = "ต้องรีสตาร์ทแอป";
+
+"USE_PIP_BUTTON" = "ใช้ปุ่ม PiP";
+"USE_PIP_BUTTON_DESC" = "เพิ่มปุ่ม PiP บนวิดีโอคอนโทรลโอเวอร์เลย์เพื่อเปิดใช้งาน PiP แทนการปิดแอป";
+
+"USE_TAB_BAR_PIP_BUTTON" = "ใช้ปุ่ม PiP ในแถบวิดีโอด้านล่าง";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "เพิ่มปุ่ม PiP ในแถบวิดีโอเพื่อเปิดใช้งาน PiP แทนการปิดแอป ต้องรีสตาร์ทแอป";
+
+"USE_ALL_PIP" = "เปิดใช้งาน PiP ได้ไม่จำกัด";
+"USE_ALL_PIP_DESC" = "อนุญาตให้เปิดใช้งาน PiP โดยการแตะที่ปุ่ม PiP บนวิดีโอคอนโทรลโอเวอร์เลย์ ปุ่ม PiP ในแถบวิดีโอ หรือเพียงแค่ปิดแอปในเวลาเดียวกัน";
+
+"DISABLE_PIP_MINI_PLAYER" = "ปิดใช้งาน PiP สำหรับมินิเพลเยอร์";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "ปิดใช้งาน PiP ขณะเล่นวิดีโอในมินิเพลเยอร์";
+
+"LEGACY_PIP" = "PiP แบบเก่า";
+"LEGACY_PIP_DESC" = "ใช้ AVPlayerLayer สำหรับ PiP ซึ่งรายงานว่าแก้ไขบั๊กความเร็ว ต้องรีสตาร์ทแอป";
+
+"NON_BACKGROUNDABLE_PIP" = "PiP ที่ไม่สามารถทำงานเบื้องหลังได้";
+"NON_BACKGROUNDABLE_PIP_DESC" = "เปิดใช้งาน PiP สำหรับวิดีโอที่ไม่สามารถทำงานเบื้องหลังได้";
+
+// Overlay
+"POSITION" = "ตำแหน่งปุ่ม PiP";

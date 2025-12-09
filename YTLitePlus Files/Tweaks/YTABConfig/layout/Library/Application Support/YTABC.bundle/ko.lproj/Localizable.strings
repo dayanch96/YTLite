@@ -1,0 +1,40 @@
+"ENABLED" = "활성화";
+"ENABLED_DESC" = "A/B 설정 표시를 활성화합니다.";
+"GROUPED" = "접두사별로 그룹화된 설정";
+"RESET_KILL" = "재설정 후 종료";
+"RESET_KILL_DESC" = "모든 변경 사항을 실행 취소하고 앱을 종료하려면 탭하세요.";
+"COPY_CURRENT_SETTINGS" = "현재 설정 복사";
+"COPY_CURRENT_SETTINGS_DESC" = "현재 설정을 클립보드로 복사하려면 탭하세요.";
+"VIEW_MODIFIED_SETTINGS" = "수정된 설정 보기";
+"VIEW_MODIFIED_SETTINGS_DESC" = "수동으로 변경한 모든 내용을 보려면 탭하세요.";
+"IMPORT_SETTINGS" = "설정 가져오기";
+"IMPORT_SETTINGS_DESC" = "클립보드에서 설정을 가져옵니다.\n각 설정은 다음 형식이어야 합니다: %@";
+"NOTHING_TO_IMPORT" = "클립보드에서 찾을 수 없거나 가져온 후 변경 사항이 없습니다.";
+"SETTINGS_TO_IMPORT" = "가져올 설정";
+"SETTINGS_TO_IMPORT_DESC" = "가져올 유효한 설정 %ld개를 찾았습니다.";
+"IMPORT" = "가져오기";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "변경 사항";
+"TOTAL_MODIFIED_SETTINGS" = "총합: %ld";
+
+// Quit app alert
+"WARNING" = "경고";
+"APPLY_DESC" = "이 작업은 YouTube를 종료합니다. 계속하시겠습니까?";
+
+"OPEN_MEGATHREAD" = "메가스레드 열기";
+"OPEN_MEGATHREAD_DESC" = "GitHub에서 YTABConfig 메가스레드를 열어 각 플래그가 활성화 또는 비활성화되는 효과를 공유하고 논의할 수 있습니다.";
+"SETTINGS_START_WITH" = "다음 글자로 시작하는 설정들 : ";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "클립보드에 복사";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "클립보드에 복사됨.";
+
+"REMOVED" = "(제거됨)";
+
+"REMOVE_REMOVED_SETTINGS" = "제거된 설정 삭제";
+"REMOVE_REMOVED_SETTINGS_DESC" = "YouTube에서 더 이상 사용할 수 없는 %ld개의 설정을 삭제합니다.";

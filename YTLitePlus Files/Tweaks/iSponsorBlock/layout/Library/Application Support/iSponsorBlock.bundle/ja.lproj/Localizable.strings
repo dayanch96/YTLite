@@ -1,0 +1,88 @@
+/* iSponsorBlock Settings */
+"Enabled" = "有効";
+"RestartFooter" = "変更を適用するためにYouTubeを再起動してください";
+
+"Sponsor" = "スポンサー";
+"Intermission/IntroAnimation" = "合間/導入アニメ";
+"Intermission" = "合間";
+"Endcards/Credits" = "終了画面/クレジット";
+"Outro" = "終了画面";
+"InteractionReminder" = "行動のお願い(登録)";
+"InteractionReminder_Subcribe/Like" = "行動のお願い (高評価/チャンネル登録)";
+"Interaction" = "行動のお願い";
+"Unpaid/SelfPromotion" = "無報酬/自己宣伝";
+"SelfPromo" = "自己宣伝";
+"Non-MusicSection" = "音楽: 音楽以外のセクション";
+"Non-Music" = "音楽以外";
+"Preview" = "Preview";
+"SponsorBlockUserID" = "SponsorBlockユーザーID";
+"SponsorBlockAPIInstance" = "SponsorBlock APIインスタンス";
+
+"Disable" = "無効";
+"AutoSkip" = "自動スキップ";
+"ShowInSeekBar" = "シークバーに表示";
+"ManualSkip" = "手動スキップ";
+"SetColorToShowInSeekBar" = "シークバーに表示する色を設定";
+
+"UserID" = "ユーザーID:";
+"UserIDFooter" = "カスタムされたSponsorBlockユーザーIDを使用する場合はここに入力します。わからない場合はデフォルトのままにしてください。";
+"API_URL" = "API URL:";
+"APIFooter" = "カスタムのSponsorBlock APIインスタンスを使用する場合はここに入力します。わからない場合はデフォルトのままにしてください。例:https://sponsor.ajay.app/api";
+"MinimumSegmentDuration" = "最小セグメント期間を設定:";
+"HowLongNoticeWillAppear" = "スキップ通知が表示される時間を設定:";
+"ShowSkipNotice" = "スキップ通知を表示";
+"ShowButtonsInPlayer" = "ビデオプレイヤーにiSponsorBlockボタンを表示";
+"HideStartEndButtonInPlayer" = "ビデオプレイヤーの開始/終了ボタンを非表示";
+"ShowModifiedTime" = "シークバーに修正時間を表示";
+"AudioNotificationOnSkip" = "スキップ時の音声通知";
+"AudioFooter" = "無音モードでは使用できません";
+"EnableSkipCountTracking" = "スキップ回数のトラッキングを有効にする";
+"DonateOnVenmo" = "Venmoで寄付する";
+"DonateOnPayPal" = "PayPalで寄付する";
+
+/* Segments stuff */
+"SegmentStartsNow" = "セグメントが開始されました";
+"SegmentEndsNow" = "セグメントが終了しました";
+"WhitelistChannel" = "ホワイトリストチャンネル";
+"SegmentsInDatabase" = "データベースにすでにセグメントがあります:";
+"YourSegments" = "あなたのセグメント:";
+"SubmitSegments" = "セグメントを登録";
+"SuccessfullySubmittedSegments" = "セグメントは正常に登録されました";
+"EndTimeLessThanStartTime" = "設定した終了時間が開始時間よりも前のため、それ以降の時間を選択してください"; //例: ..., 終了時間を10:15より後に設定してください
+"UnfinishedSegments" = "未完成のセグメントがあります。\nセグメントにカテゴリまたは終了時間を追加してください";
+"EditStartTime" = "開始時間を編集";
+"EditStartTime_Desc" = "開始時間を編集: (例. 1:15と入力してください)";
+"EditEndTime" = "終了時間を編集";
+"EditEndTime_Desc" = "終了時間を編集: (例. 1:15と入力してください)";
+"From" = "From"; // 時間. 例: 1:15から3:00まで。必要ない場合は空白のままにしてください
+"to" = "to"; // 時間. 例: 1:15から3:00まで
+"EditCategory" = "カテゴリを編集";
+"EditSegment" = "セグメントを編集";
+"Edit" = "編集";
+"Error" = "エラー";
+"ErrorCode" = "エラーコード";
+"Success" = "成功";
+"OK" = "OK";
+"Cancel" = "キャンセル";
+"Delete" = "削除";
+"Upvote" = "支持する";
+"Downvote" = "反対する";
+"VoteToChangeCategory" = "カテゴリの変更を投票";
+"VoteOnSegment" = "セグメントに投票";
+"SuccessfullyVoted" = "投票に成功しました";
+"ErrorVoting" = "投票中にエラーが発生しました";
+
+/* Pop-ups*/
+"ManuallySkipReminder" = "%@セグメントを手動でスキップします。\n%ld:%02ldから%ld:%02ldまで?";
+"Skip" = "スキップ";
+"SkippedSegment" = "%@セグメントをスキップしました";
+"Unskip" = "スキップを解除";
+
+/* Segments in pop-ups*/
+"sponsor" = "スポンサー";
+"intro" = "合間/導入アニメ";
+"outro" = "終了画面/クレジット";
+"interaction" = "行動のお願い";
+"selfpromo" = "自己宣伝";
+"music_offtopic" = "音楽以外";
+"preview" = "preview";

@@ -1,0 +1,16 @@
+"USE_VP9" = "Użyj VP9";
+"USE_VP9_DESC" = "Włącza kodek VP9, który wspiera rodzielczość do 4K. Działa najlepiej z urządzeniami Apple z CPU A12 i nowszymi. Wymagane jest ponowne uruchomienie aplikacji.";
+"HW_VP9_SUPPORT" = "Sprzętowe wsparcie VP9";
+
+"ALL_VP9" = "VP9 do wszystkiego";
+"ALL_VP9_DESC" = "Używa kodeku VP9 dla wszystkich rozdzielczości filmów. Zaleca się włączenie tej opcji na urządzeniach obsługujących sprzętowe wsparcie VP9 (CPU A12 i nowsze) ORAZ gdy aplikacja YouTube ma uprawnienia do obsługi VP9.";
+
+"DECODE_THREADS" = "Wątki dekodowania";
+"DECODE_THREADS_DESC" = "Liczba wątków używanych do dekodowania wideo VP9. Wyższe wartości mogą poprawić wydajność odtwarzania wideo, ale mogą również zwiększyć zużycie baterii.";
+"DECODE_THREADS_DEFAULT_VALUE" = "Wartość domyślna";
+
+"SKIP_LOOP_FILTER" = "Pomiń Loop Filter";
+
+"LOOP_FILTER_OPTIMIZATION" = "Optymalizuj Loop Filter";
+
+"ROW_THREADING" = "Row Threading";

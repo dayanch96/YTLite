@@ -1,0 +1,34 @@
+name: Question
+description: Have question(s)?
+title: "[Questions] Replace with your question"
+labels: question
+body:
+- type: checkboxes
+  attributes:
+    label: Is there an existing issue for this?
+    options:
+    - label: I have searched the existing issues
+      required: true
+
+- type: dropdown
+  attributes:
+    label: Do you think this is a bug?
+    description: _If so, please use the bug template_
+    multiple: false
+    options:
+      - ✅ Yes, I believe this is a bug. I will open a new issue with the bug template
+      - ❌ No, I don't think this is a bug. I will explain below
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: My question
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Additional context
+  validations:
+    required: false

@@ -1,0 +1,40 @@
+"ENABLED" = "เปิดใช้งาน";
+"ENABLED_DESC" = "เปิดใช้งานเพื่อแสดงการตั้งค่า A/B";
+"GROUPED" = "จัดกลุ่มการตั้งค่าตามคำนำหน้า";
+"RESET_KILL" = "รีเซ็ตและปิด";
+"RESET_KILL_DESC" = "แตะเพื่อยกเลิกการเปลี่ยนแปลงทั้งหมดของคุณและปิดแอป";
+"COPY_CURRENT_SETTINGS" = "คัดลอกการตั้งค่าปัจจุบัน";
+"COPY_CURRENT_SETTINGS_DESC" = "แตะเพื่อคัดลอกการตั้งค่าปัจจุบันไปยังคลิปบอร์ด";
+"VIEW_MODIFIED_SETTINGS" = "ดูการตั้งค่าที่แก้ไข";
+"VIEW_MODIFIED_SETTINGS_DESC" = "แตะเพื่อดูการเปลี่ยนแปลงทั้งหมดที่คุณทำด้วยตนเอง";
+"IMPORT_SETTINGS" = "นำเข้าการตั้งค่า";
+"IMPORT_SETTINGS_DESC" = "นำเข้าการตั้งค่าจากคลิปบอร์ด\nการตั้งค่าแต่ละรายการต้องอยู่ในรูปแบบนี้: %@";
+"NOTHING_TO_IMPORT" = "ไม่พบสิ่งใดจากคลิปบอร์ดหรือจะไม่มีการเปลี่ยนแปลงหลังจากนำเข้า";
+"SETTINGS_TO_IMPORT" = "การตั้งค่าที่จะนำเข้า";
+"SETTINGS_TO_IMPORT_DESC" = "พบการตั้งค่าที่ถูกต้อง %ld รายการที่จะนำเข้า";
+"IMPORT" = "นำเข้า";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "การเปลี่ยนแปลง";
+"TOTAL_MODIFIED_SETTINGS" = "รวม: %ld";
+
+// Quit app alert
+"WARNING" = "คำเตือน";
+"APPLY_DESC" = "การดำเนินการนี้จะปิด YouTube คุณแน่ใจหรือว่าต้องการดำเนินการต่อ?";
+
+"OPEN_MEGATHREAD" = "เปิดเมกะเธรด";
+"OPEN_MEGATHREAD_DESC" = "เปิดเมกะเธรด YTABConfig บน GitHub ที่คุณสามารถแชร์และพูดคุยเกี่ยวกับผลของการเปิดหรือปิดแต่ละการตั้งค่า";
+"SETTINGS_START_WITH" = "การตั้งค่าเริ่มต้นด้วย";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "คัดลอกไปยังคลิปบอร์ด";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "คัดลอกไปยังคลิปบอร์ดแล้ว";
+
+"REMOVED" = "(ถูกลบออก)";
+
+"REMOVE_REMOVED_SETTINGS" = "ลบการตั้งค่าที่ถูกลบออก";
+"REMOVE_REMOVED_SETTINGS_DESC" = "การดำเนินการนี้จะลบการตั้งค่า %ld รายการที่ไม่มีใน YouTube อีกต่อไป";

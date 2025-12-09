@@ -1,0 +1,73 @@
+#import "../YTVideoOverlay/Header.h"
+#import "../YTVideoOverlay/Init.x"
+
+#define TweakKey @"TweakKey"
+
+@interface YTInlinePlayerBarContainerView (Tweak)
+- (void)didPressTweak:(id)arg;
+@end
+
+@interface YTMainAppControlsOverlayView (Tweak)
+- (void)didPressTweak:(id)arg;
+@end
+
+%group Top
+
+%hook YTMainAppControlsOverlayView
+
+// Remove this method if your button is a text button
+- (UIImage *)buttonImage:(NSString *)tweakId {
+    return [tweakId isEqualToString:TweakKey] ? <Your Tweak Button Image> : %orig;
+}
+
+%new(v@:@)
+- (void)didPressTweak:(id)arg {
+    // Do stuff
+    [self.overlayButtons[TweakKey] setImage:<Another Tweak Button Image> forState:UIControlStateNormal];
+}
+
+%end
+
+%end
+
+%group Bottom
+
+%hook YTInlinePlayerBarContainerView
+
+// Remove this method if your button is a text button
+- (UIImage *)buttonImage:(NSString *)tweakId {
+    return [tweakId isEqualToString:TweakKey] ? <Your Tweak Button Image> : %orig;
+}
+
+%new(v@:@)
+- (void)didPressTweak:(id)arg {
+    // Do stuff
+    [self.overlayButtons[TweakKey] setImage:<Another Tweak Button Image> forState:UIControlStateNormal];
+}
+
+%end
+
+%end
+
+%ctor {
+    initYTVideoOverlay(TweakKey, @{
+        AccessibilityLabelKey: @"Tweak",
+        SelectorKey: @"didPressTweak:",
+        /* If yes, the button is rendered as a text button */
+        // AsTextKey: @YES,
+
+        /* If yes, the toggle setting is hidden from YTVideoOverlay settings */
+        // ToggleKey: @YES,
+
+        /* If yes, the button image is assigned again when the button is visible */
+        // UpdateImageOnVisibleKey: @YES,
+
+        /**
+         * Provide the keys of extra boolean settings for this tweak
+         * For localization, the setting title is in "{SETTING}_KEY" format and the setting description is in "{SETTING}_KEY_DESC" format
+         */
+        // ExtraBooleanKeys: @[SettingKey1, SettingKey2, ...],
+    });
+    %init(Top);
+    %init(Bottom);
+}

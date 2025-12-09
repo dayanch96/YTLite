@@ -1,0 +1,15 @@
+"HOLD_FOR_SPEED" = "Hold for speed";
+"NORMAL" = "正常";
+"X_SECONDS" = "%@ 秒";
+"HOLD_GESTURE" = "長按手勢";
+"HOLD_GESTURE_DESC" = "在影片播放器的任意位置長按，可切換播放速度，介於「正常」（即 1.0倍）與您選擇的速度之間。\n\n請注意，啟用此功能後，將會停用原生的長按手勢功能。";
+"DISABLE_STOCK_GESTURES" = "停用原生手勢";
+"DISABLE_STOCK_GESTURES_DESC" = "停用影片播放器中原生的長按手勢。\n\n請注意，若啟用長按手勢，原生手勢將自動停用。";
+"AUTO_APPLY_SPEED" = "自動套用速度";
+"AUTO_APPLY_SPEED_DESC" = "啟用後，當開啟新的影片播放器時，將自動套用所選的播放速度。";
+"TOGGLE_SPEED" = "切換播放速度";
+"TOGGLE_SPEED_DESC" = "長按手勢啟動時，影片播放器將切換的速度。";
+"HOLD_DURATION" = "長按持續時間";
+"HOLD_DURATION_DESC" = "長按手勢所需持續的時間（以秒為單位），以切換影片播放器的速度。";
+"HAPTIC_FEEDBACK" = "觸覺回饋";
+"HAPTIC_FEEDBACK_DESC" = "當影片播放速度被切換時，使用觸覺回饋來提醒。";

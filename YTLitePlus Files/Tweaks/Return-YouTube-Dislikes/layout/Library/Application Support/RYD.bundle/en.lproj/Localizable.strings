@@ -1,0 +1,13 @@
+"SETTINGS_TITLE" = "Return YouTube Dislike";
+
+"ENABLED" = "Enabled";
+"ENABLE_VOTE_SUBMIT" = "Enable vote submission";
+"ENABLE_VOTE_SUBMIT_DESC" = "Allow your unique anonymous ID and videos/shorts likes/dislikes data to be submitted to %@.";
+"EXACT_LIKE_NUMBER" = "Exact like numbers";
+"EXACT_DISLIKE_NUMBER" = "Exact dislike numbers";
+"EXACT_DISLIKE_NUMBER_DESC" = "Display exact number of dislikes. For example: %@ -> %@.";
+"RAW_DATA" = "Raw dislike data";
+"RAW_DATA_DESC" = "Use the dislike data only from the people that use the RYD browser extension or this tweak.";
+
+// On app launch
+"WANT_TO_ENABLE" = "Do you want to enable submission of your likes/dislikes data to %@ now? You may disable it later from Settings > %@ > %@.";

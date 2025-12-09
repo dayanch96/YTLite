@@ -1,0 +1,25 @@
+"SETTINGS_TITLE" = "YouPiP";
+
+"ENABLED" = "Enabled";
+"ENABLED_DESC" = "App restart is required.";
+
+"USE_PIP_BUTTON" = "Use PiP Button";
+"USE_PIP_BUTTON_DESC" = "Add a PiP button over the video control overlay to activate PiP instead of dismissing the app.";
+
+"USE_TAB_BAR_PIP_BUTTON" = "Use Video Tab Bar PiP Button";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "Add a PiP button in video tab bar to activate PiP instead of dismissing the app. App restart is required.";
+
+"USE_ALL_PIP" = "Unrestricted PiP Activation";
+"USE_ALL_PIP_DESC" = "Allow PiP to be activated by tapping on the video control overlay PiP button, the video tab bar PiP button, or simply by dismissing the app at the same time.";
+
+"DISABLE_PIP_MINI_PLAYER" = "Disable PiP for Mini Player";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "Disable PiP while playing a video in the mini player.";
+
+"LEGACY_PIP" = "Legacy PiP";
+"LEGACY_PIP_DESC" = "Use AVPlayerLayer for PiP. This reportedly fixes speedup bug. App restart is required.";
+
+"NON_BACKGROUNDABLE_PIP" = "Non-backgroundable PiP";
+"NON_BACKGROUNDABLE_PIP_DESC" = "Enable PiP for non-backgroundable video.";
+
+// Overlay
+"POSITION" = "PiP button position";

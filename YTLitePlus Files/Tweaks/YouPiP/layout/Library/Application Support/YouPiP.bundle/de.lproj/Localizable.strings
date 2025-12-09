@@ -1,0 +1,25 @@
+"SETTINGS_TITLE" = "YouPiP";
+
+"ENABLED" = "Aktiviert";
+"ENABLED_DESC" = "App-Neustart erforderlich!";
+
+"USE_PIP_BUTTON" = "PiP-Taste im Video anzeigen";
+"USE_PIP_BUTTON_DESC" = "Fügt im Videoplayer eine PiP-Taste hinzu, um PiP auch ohne verlassen der App zu verwenden.";
+
+"USE_TAB_BAR_PIP_BUTTON" = "PiP-Taste unter dem Video anzeigen";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "Fügt unter dem Video eine PiP-Taste hinzu, um PiP auch ohne verlassen der App zu verwenden. App-Neustart erforderlich!";
+
+"USE_ALL_PIP" = "Uneingeschränkte PiP-Aktivierung";
+"USE_ALL_PIP_DESC" = "Ermöglicht die Aktivierung von PiP durch Tippen auf die PiP-Taste im Video-Steuerungs-Overlay, die PiP-Taste in der Video-Tab-Leiste oder einfach durch Verlassen der App zur gleichen Zeit.";
+
+"DISABLE_PIP_MINI_PLAYER" = "PiP für Miniplayer deaktivieren";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "Deaktiviert PiP während videos im Miniplayer laufen.";
+
+"LEGACY_PIP" = "Legacy PiP";
+"LEGACY_PIP_DESC" = "Verwendet AVPlayerLayer für PiP. Dies behebt angeblich den Geschwindigkeitsfehler. App-Neustart erforderlich!";
+
+"NON_BACKGROUNDABLE_PIP" = "Nicht-hintergrundfähiges PiP";
+"NON_BACKGROUNDABLE_PIP_DESC" = "Aktiviert PiP für nicht im Hintergrund laufende Videos.";
+
+// Overlay
+"POSITION" = "PiP-Tastenposition";

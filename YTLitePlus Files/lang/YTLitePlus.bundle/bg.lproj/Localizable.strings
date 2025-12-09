@@ -1,0 +1,190 @@
+// Settings
+"VERSION" = "Версия на YTLitePlus: %@";
+"VERSION_CHECK" = "Докоснете, за да проверите за актуализация!";
+
+"COPY_SETTINGS" = "Копиране на настройки";
+"COPY_SETTINGS_DESC" = "Копиране на всички текущи настройки в клипборда";
+"PASTE_SETTINGS" = "Поставяне на настройки";
+"PASTE_SETTINGS_DESC" = "Поставяне на настройки от клипборда и прилагане";
+"PASTE_SETTINGS_ALERT" = "Apply settings from clipboard?";
+"EXPORT_SETTINGS" = "Експортиране на настройки";
+"EXPORT_SETTINGS_DESC" = "Експортиране на всички текущи настройки в .txt файл";
+"IMPORT_SETTINGS" = "Импортиране на настройки";
+"IMPORT_SETTINGS_DESC" = "Натиснете, за да импортирате настройки (.txt)";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "Заменете бутоните 'Копиране на настройки' и 'Поставяне на настройки'";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Заменете бутоните с 'Експортиране на настройки' и 'Импортиране на настройки'";
+
+"VIDEO_PLAYER" = "Video Player (Beta)";
+"VIDEO_PLAYER_DESC" = "Open a downloaded video in the Apple player";
+
+// Player Gestures
+"PLAYER_GESTURES_TOGGLE" = "Enable Player Gestures";
+"VOLUME" = "Volume";
+"BRIGHTNESS" = "Brightness";
+"SEEK" = "Seek";
+"DISABLED" = "Disabled";
+"DEADZONE" = "Deadzone";
+"DEADZONE_DESC" = "Minimum distance to move before a gesture is recognized";
+"SENSITIVITY" = "Sensitivity";
+"SENSITIVITY_DESC" = "Multiplier on volume and brightness gestures";
+"PLAYER_GESTURES_TITLE" = "Player Gestures";
+"PLAYER_GESTURES_DESC" = "Configure horizontal pan gestures for the player";
+"TOP_SECTION" = "Top Section";
+"MIDDLE_SECTION" = "Middle Section";
+"BOTTOM_SECTION" = "Bottom Section";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Enable Haptic Feedback";
+
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Опции за контрол на видеото";
+
+"ENABLE_SHARE_BUTTON" = "Активирайте бутона за споделяне";
+"ENABLE_SHARE_BUTTON_DESC" = "Активирайте бутона за споделяне в контролите на видеото.";
+
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Активирайте бутона 'Запази в плейлист'";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Активирайте бутона 'Запази в плейлист' в контролите на видеото.";
+
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "Скрийте бутоните с сенчест слой";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Скрийте сенчестия слой на бутоните за възпроизвеждане/пауза, предишен, следващ, напред и въртене назад.";
+
+"HIDE_RIGHT_PANEL" = "Скрийте дясната панел в режим на цял екран";
+"HIDE_RIGHT_PANEL_DESC" = "Необходим е рестарт на приложението.";
+
+"HIDE_HEATWAVES" = "Скрийте топлинните вълни";
+"HIDE_HEATWAVES_DESC" = "Скрийте топлинните вълни в видеоплеъра. Необходим е рестарт на приложението.";
+
+"DISABLE_AMBIENT_PORTRAIT" = "Деактивирайте Ambient Mode (Портрет)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "Деактивирайте осветлението около заглавието на видеото";
+
+"DISABLE_AMBIENT_FULLSCREEN" = "Деактивирайте Ambient Mode (Цял екран)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Деактивирайте осветлението около видеоплеъра";
+
+"FULLSCREEN_TO_THE_RIGHT" = "Цял екран вдясно";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "Винаги влизайте в режим на цял екран с бутона за начало от дясната страна.";
+
+"SEEK_ANYWHERE" = "Търсене навсякъде жест";
+"SEEK_ANYWHERE_DESC" = "Задръжте и плъзнете върху видеоплеъра, за да търсите. Трябва да деактивирате YTLite - Задръжте, за да увеличите скоростта";
+
+"ENABLE_TAP_TO_SEEK" = "Активирайте докосване за търсене";
+"ENABLE_TAP_TO_SEEK_DESC" = "Скочете навсякъде в видео, като докоснете един път лентата за търсене";
+
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Деактивирайте жеста за плъзгане до цял екран";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Деактивирайте жеста за плъзгане, за да влезете в вертикален режим на цял екран. Приложимо само за видеа в ландшафтен режим.";
+
+"ALWAYS_USE_REMAINING_TIME" = "Винаги използвайте оставащото време";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "Променете настройката по подразбиране да показва оставащото време в лентата на плейъра.";
+
+"DISABLE_TOGGLE_TIME_REMAINING" = "Деактивирайте превключването на оставащото време";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Деактивирайте променянето на изминалото време на оставащото време. Използвайте с друга настройка, за да показвате винаги оставащото време.";
+
+"DISABLE_ENGAGEMENT_OVERLAY" = "Деактивирайте ангажиращия слой в режим на цял екран";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Деактивирайте жеста за плъзгане нагоре и списъка с предложени видеа в режим на цял екран";
+
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Скрийте прегледите на коментари под плейъра";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Скрийте спойлера на коментарите в бутона за коментари";
+
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Скрийте мини прегледа за автоматично възпроизвеждане";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Скрийте малкия прозорец с предложени видеа близо до заглавието в режим на цял екран";
+
+"HIDE_HUD_MESSAGES" = "Скрийте съобщенията на HUD";
+"HIDE_HUD_MESSAGES_DESC" = "Скрийте съобщенията, които се показват за определени действия (напр. CC включен/изключен)";
+
+"HIDE_COLLAPSE_BUTTON" = "Скрийте бутона за свиване";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Скрийте бутона за свиване на стрелка, който беше показан в горния ляв ъгъл на видеоплеъра.";
+
+"HIDE_SPEED_TOAST" = "Скрийте съобщението за скорост";
+"HIDE_SPEED_TOAST_DESC" = "Скрийте изскачащото съобщение за 2X скорост при задържане на плейъра";
+
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "Опции за настройки на приложението";
+
+"HIDE_ACCOUNT_SECTION" = "Скрийте секцията \"Акаунт\"";
+"HIDE_AUTOPLAY_SECTION" = "Скрийте секцията \"Автоматично възпроизвеждане\"";
+"HIDE_TRYNEWFEATURES_SECTION" = "Скрийте секцията \"Опитайте нови функции\"";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Скрийте секцията \"Предпочитания за качество на видеото\"";
+"HIDE_NOTIFICATIONS_SECTION" = "Скрийте секцията \"Уведомления\"";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Скрийте секцията \"Управление на цялата история\"";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Скрийте секцията \"Вашите данни в YouTube\"";
+"HIDE_PRIVACY_SECTION" = "Скрийте секцията \"Поверителност\"";
+"HIDE_LIVECHAT_SECTION" = "Скрийте секцията \"Жив чат\"";
+
+// Theme
+"THEME_OPTIONS" = "Опции за тема";
+
+"OLED_DARK_THEME" = "OLED тъмен режим";
+"OLED_DARK_THEME_2" = "OLED тъмен режим";
+"OLED_DARK_THEME_DESC" = "Истински тъмен режим. Може да не работи правилно в някои случаи. Необходим е рестарт на приложението след включване/изключване на тази опция.";
+
+"OLD_DARK_THEME" = "Стар тъмен режим";
+"OLD_DARK_THEME_DESC" = "Старият тъмен режим на YouTube (сив режим). Необходим е рестарт на приложението.";
+
+"DEFAULT_THEME" = "По подразбиране";
+"DEFAULT_THEME_DESC" = "Тъмен(и) режим(и) по подразбиране на YouTube. Необходим е рестарт на приложението.";
+
+"OLED_KEYBOARD" = "OLED клавиатура";
+"OLED_KEYBOARD_DESC" = "Може да не работи правилно в някои случаи. Необходим е рестарт на приложението.";
+
+"LOW_CONTRAST_MODE" = "Режим с нисък контраст";
+"LOW_CONTRAST_MODE_DESC" = "Тази опция ще намали контраста на текстовете и бутоните, както беше в стария интерфейс на YouTube. Необходим е рестарт на приложението.";
+"LCM_SELECTOR" = "Избор на режим с нисък контраст";
+"DEFAULT_LOWCONTRASTMODE" = "(По подразбиране) Режим с нисък контраст";
+"CUSTOM_LOWCONTRASTMODE" = "(Персонализиран цвят) Режим с нисък контраст";
+
+// Miscellaneous
+"MISCELLANEOUS" = "Разни";
+
+"PLAYBACK_IN_FEEDS" = "Възпроизвеждане в новините";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Винаги включено";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Само Wi-Fi";
+"PLAYBACK_IN_FEEDS_OFF" = "Изключено";
+
+"NEW_SETTINGS_UI" = "Нов потребителски интерфейс на настройките";
+"NEW_SETTINGS_UI_DESC" = "Използвайте новия групиран потребителски интерфейс за настройки. Може да скрие някои настройки";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "Активирайте анимацията при стартиране на YouTube";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"HIDE_MODERN_INTERFACE" = "Скрийте съвременния интерфейс (YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "Включете това, за да скриете съвременните елементи, добавени от YouTube. Премахва Ambient Mode, закръглен дизайн и други. Необходим е рестарт на приложението.";
+
+"IPAD_LAYOUT" = "Оформление за iPad";
+"IPAD_LAYOUT_DESC" = "Използвайте това, само ако искате да имате оформлението за iPad на текущия си iPhone/iPod. Необходим е рестарт на приложението.";
+
+"IPHONE_LAYOUT" = "Оформление за iPhone";
+"IPHONE_LAYOUT_DESC" = "Използвайте това, само ако искате да имате оформлението за iPhone на текущия си iPad. Необходим е рестарт на приложението.";
+
+"CAST_CONFIRM" = "Потвърдете предупреждението преди стрийминг (YTCastConfirm)";
+"CAST_CONFIRM_DESC" = "Показвайте потвърдително предупреждение преди стрийминг, за да предотвратите случайно преекспониране на TV.";
+"CASTING" = "Стрийминг";
+"MSG_ARE_YOU_SURE" = "Сигурни ли сте, че искате да започнете стрийминг?";
+"MSG_YES" = "Да";
+"MSG_CANCEL" = "Отказ";
+
+"NEW_MINIPLAYER_STYLE" = "Нов стил на мини плейъра (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE_DESC" = "Необходим е рестарт на приложението.";
+
+"HIDE_CAST_BUTTON" = "Скрийте бутона за стрийминг";
+"HIDE_CAST_BUTTON_DESC" = "Необходим е рестарт на приложението.";
+
+"VIDEO_PLAYER_BUTTON" = "Video Player Button";
+"VIDEO_PLAYER_BUTTON_DESC" = "Show a button in the navigation bar to open downloaded videos in the Apple player";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "Скрийте бутона за iSponsorBlock в навигационната лента";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
+
+"HIDE_HOME_TAB" = "Скрийте таба \"Начало\"";
+"HIDE_HOME_TAB_DESC" = "Бъдете внимателни при скриване на всички табове";
+
+"FIX_CASTING" = "Поправете стрийминг";
+"FIX_CASTING_DESC" = "Променя някои AB флагове, за да поправи стрийминг";
+
+"ENABLE_FLEX" = "Активирайте FLEX";
+"ENABLE_FLEX_DESC" = "Активирайте FLEX за отстраняване на проблеми (не се препоръчва). Оставете това изключено, освен ако не знаете какво правите.";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "Активирайте Промяна на версията на приложението (Lite)";
+"APP_VERSION_SPOOFER_LITE_DESC" = "Активирайте това, за да използвате Промяната на версията (Lite) и изберете предпочитаната версия по-долу. Необходим е рестарт на приложението.";
+"VERSION_SPOOFER_TITLE" = "Избор на Промяна на версията";
+
+// Other Localization
+"APP_RESTART_DESC" = "Необходим е рестарт на приложението.";
+"CHANGE_APP_ICON" = "Промяна на иконата на приложението";

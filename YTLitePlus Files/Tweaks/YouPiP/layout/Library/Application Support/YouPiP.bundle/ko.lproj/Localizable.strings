@@ -1,0 +1,25 @@
+"SETTINGS_TITLE" = "YouPiP";
+
+"ENABLED" = "활성화";
+"ENABLED_DESC" = "앱 재시작이 필요합니다.";
+
+"USE_PIP_BUTTON" = "PiP 버튼 사용";
+"USE_PIP_BUTTON_DESC" = "영상 제어 오버레이 위에 PiP 버튼을 직접 추가하여 기존 PiP 방식과는 다른 방법으로 PiP를 활성화합니다.";
+
+"USE_TAB_BAR_PIP_BUTTON" = "비디오 툴바 PiP 버튼 사용";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "앱을 해제하는 대신 PiP를 활성화하기 위해 영상 탭 표시줄에 PiP 버튼을 추가합니다. 앱 재시작이 필요합니다.";
+
+"USE_ALL_PIP" = "제한 없는 PiP 활성화";
+"USE_ALL_PIP_DESC" = "영상 제어 오버레이 PiP 버튼, 영상 탭 바 PiP 버튼을 탭하거나 앱을 해제하여 PiP를 활성화할 수 있습니다.";
+
+"DISABLE_PIP_MINI_PLAYER" = "미니플레이어 PiP 비활성화";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "미니 플레이어에서 영상을 재생하고 있는동안 PiP를 비활성화 합니다.";
+
+"LEGACY_PIP" = "레거시 PiP";
+"LEGACY_PIP_DESC" = "PiP용 AVPlayerLayer를 사용합니다. 이는 속도 향상 버그를 수정한다고 보고되었습니다. 앱 재시작이 필요합니다.";
+
+"NON_BACKGROUNDABLE_PIP" = "강제 백그라운드 PiP";
+"NON_BACKGROUNDABLE_PIP_DESC" = "백그라운드가 되지 않는 영상에 PiP를 활성화합니다.";
+
+// Overlay
+"POSITION" = "PiP 버튼 위치";

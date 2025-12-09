@@ -1,0 +1,9 @@
+Package: com.joshuaseltzer.ytholdforspeed
+Name: YTHoldForSpeed
+Version: 1.2.3
+Architecture: iphoneos-arm
+Description: Tap and hold on the YouTube video player to toggle a selected playback speed. Preferences for the tweak are configured within the YouTube app.
+Maintainer: Joshua Seltzer <joshua.seltzer90@gmail.com>
+Author: Joshua Seltzer <joshua.seltzer90@gmail.com>
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000)

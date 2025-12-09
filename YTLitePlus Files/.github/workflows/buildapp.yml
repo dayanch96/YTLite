@@ -1,0 +1,269 @@
+# Original idea by @ISnackable. Many thanks to him for handling the most hardest parts!
+# https://github.com/ISnackable/CercubePlus/blob/main/.github/workflows/Build.yml
+
+name: Build and Release YTLitePlus
+
+on:
+  workflow_dispatch:
+    inputs:
+      sdk_version:
+        description: "iOS SDK Version"
+        default: "17.5"
+        required: true
+        type: string
+      decrypted_youtube_url:
+        description: "Direct URL of the decrypted YouTube ipa"
+        default: ""
+        required: true
+        type: string
+      bundle_id:
+        description: "Modify the bundle ID"
+        default: "com.google.ios.youtube"
+        required: true
+        type: string
+      app_name:
+        description: "Modify the app name"
+        default: "YouTube"
+        required: true
+        type: string
+      commit_id:
+        description: "(Optional) Commit ID to build at"
+        default: ""
+        required: false
+        type: string
+      upload_artifact:
+        description: "Upload iPA as artifact (Public)"
+        default: false
+        required: false
+        type: boolean
+      catbox_upload:
+        description: "Upload iPA to Catbox.moe (URL)"
+        default: true
+        required: false
+        type: boolean
+      create_release:
+        description: "Create a draft release (Private)"
+        default: false
+        required: false
+        type: boolean
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build YTLitePlus
+    runs-on: macos-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Main
+        uses: actions/checkout@v4
+        with:
+          path: main
+          ref: ${{ github.event.inputs.commit_id || github.ref }}
+          submodules: recursive
+
+      - name: Install Dependencies
+        run: brew install ldid dpkg make
+
+      - name: Download Theos
+        uses: actions/checkout@v4
+        with:
+          repository: theos/theos
+          ref: master
+          path: theos
+          submodules: recursive
+
+      - name: iOS SDK Caching
+        id: SDK
+        uses: actions/cache@v4
+        env:
+          cache-name: iOS-${{ inputs.sdk_version }}-SDK
+        with:
+          path: theos/sdks/
+          key: ${{ env.cache-name }}
+          restore-keys: ${{ env.cache-name }}
+
+      - name: Download iOS SDK
+        if: steps.SDK.outputs.cache-hit != 'true'
+        run: |
+          # Only download the specific SDK version
+          git clone -n --depth=1 --filter=tree:0 https://github.com/aricloverALT/sdks/
+          cd sdks
+          git sparse-checkout set --no-cone iPhoneOS${{ inputs.sdk_version }}.sdk
+          git checkout
+          mv *.sdk $THEOS/sdks
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
+      - name: Download Theos Jailed
+        uses: actions/checkout@v4
+        with:
+          repository: qnblackcat/theos-jailed
+          ref: master
+          path: theos-jailed
+          submodules: recursive
+
+      - name: Install Theos Jailed
+        run: |
+          ./theos-jailed/install
+        env:
+          THEOS: ${{ github.workspace }}/theos
+        
+      - name: Fix Compiling
+        run: |
+          # Update GNU Make to allow for faster building
+          echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
+          (echo export PATH="/usr/local/opt/make/libexec/gnubin:$PATH" >> ~/.bash_profile)
+          source ~/.bash_profile
+
+      - name: Hash YT ipa url
+        run: |
+          URL_YT="$(jq -r '.inputs.decrypted_youtube_url' $GITHUB_EVENT_PATH)"
+          echo ::add-mask::$URL_YT
+          echo URL_YT=$URL_YT >> $GITHUB_ENV
+
+      - name: Prepare YouTube iPA
+        run: |
+          # Download and unzip iPA
+          wget "$YOUTUBE_URL" --quiet --no-verbose -O main/YouTube.ipa
+          unzip -q main/YouTube.ipa -d main/tmp
+          # Get the version number of the YouTube app and store it
+          echo "YT_VERSION=$(grep -A 1 '<key>CFBundleVersion</key>' main/tmp/Payload/YouTube.app/Info.plist | grep '<string>' | awk -F'[><]' '{print $3}')" >> $GITHUB_ENV
+          # Get the version number of the latest release
+          wget -qO- https://github.com/dayanch96/YTLite/releases/latest > main/tmp/release_page.html
+          YTLITE_VERSION=$(grep -o -E '/tag/v[^"]+' main/tmp/release_page.html | head -n 1 | sed 's/\/tag\/v//')
+          echo "YTLITE_VERSION=5.0.1" >> $GITHUB_ENV
+          echo $YTLITE_VERSION
+          # Remove contents in the iPA that interfere with sideloading
+          rm -rf main/tmp/Payload/YouTube.app/_CodeSignature/CodeResources
+          rm -rf main/tmp/Payload/YouTube.app/PlugIns/*
+          # Modify Info.plist to remove UISupportedDevices (Python script)
+          python - <<EOF
+          import plistlib
+          def remove_uisupporteddevices(filepath):
+              with open(filepath, 'rb') as f:
+                  plist = plistlib.load(f)
+
+              if 'UISupportedDevices' in plist:
+                  del plist['UISupportedDevices']
+
+              with open(filepath, 'wb') as f:
+                  plistlib.dump(plist, f)
+
+          filepath = 'main/tmp/Payload/YouTube.app/Info.plist'
+          remove_uisupporteddevices(filepath)
+          EOF
+          # Manually install the Open in YouTube extension
+          cp -R main/Extensions/*.appex main/tmp/Payload/YouTube.app/PlugIns
+        env:
+          THEOS: ${{ github.workspace }}/theos
+          YOUTUBE_URL: ${{ env.URL_YT }}
+
+      - name: Build Package
+        id: build_package
+        run: |
+          cd ${{ github.workspace }}/main
+          # Replace lines in Makefile based on inputs
+          sed -i '' "s/^BUNDLE_ID.*$/BUNDLE_ID = ${{ env.BUNDLE_ID }}/" Makefile
+          sed -i '' "s/^DISPLAY_NAME.*$/DISPLAY_NAME = ${{ env.APP_NAME }}/" Makefile
+          sed -i '' "s/^PACKAGE_VERSION.*$/PACKAGE_VERSION = ${{ env.YT_VERSION }}-5.0.1/" Makefile
+          sed -i '' "s/^export TARGET.*$/export TARGET = iphone:clang:${{ inputs.sdk_version }}:14.0/" Makefile
+          sed -i '' "s/^export SDK_PATH.*$/export SDK_PATH = \$(THEOS)\/sdks\/iPhoneOS${{ inputs.sdk_version }}.sdk\//" Makefile
+          # Build the package
+          make package THEOS_PACKAGE_SCHEME=rootless FINALPACKAGE=1
+          # Rename the package based on the version
+          (mv "packages/$(ls -t packages | head -n1)" "packages/YTLitePlus_${{ env.YT_VERSION }}_5.0.1.ipa")
+          # Pass package name to the upload step
+          echo "package=$(ls -t packages | head -n1)" >> $GITHUB_OUTPUT
+          # Print out the hash and bundle ID
+          echo -e "==> \033[1mSHASUM256: $(shasum -a 256 packages/*.ipa | cut -f1 -d' ')\033[0m"
+          echo -e "==> \033[1mBundle ID: ${{ env.BUNDLE_ID }}\033[0m"
+        env:
+          THEOS: ${{ github.workspace }}/theos
+          BUNDLE_ID: ${{ inputs.bundle_id }}
+          APP_NAME: ${{ inputs.app_name }}
+
+      - name: Upload Artifact
+        if: ${{ inputs.upload_artifact }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: YTLitePlus_${{ env.YT_VERSION }}_${{ env.YTLITE_VERSION }}
+          path: ${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}
+          if-no-files-found: error
+          
+      - name: Upload Artifact to Catbox and update AltStore repo
+        if: ${{ inputs.catbox_upload }}
+        run: |
+          RESPONSE=$(curl -F "reqtype=fileupload" -F "fileToUpload=@${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}" https://catbox.moe/user/api.php)
+          CATBOX_URL=$(echo $RESPONSE | grep -o -E 'https://files.catbox.moe/[^"]*')
+          echo "Uploaded artifact to $CATBOX_URL"
+          CATBOX_FILE=$(echo $CATBOX_URL | sed 's|https://files.catbox.moe/||')
+          # Pass Catbox URL to the release steps
+          echo "CATBOX_FILE=$CATBOX_FILE" >> $GITHUB_ENV
+          echo "CATBOX_URL=$CATBOX_URL" >> $GITHUB_ENV
+      
+      - name: Prepare Release Notes
+        if: ${{ inputs.create_release }}
+        run: |
+          export TODAY=$(date '+%Y-%m-%d')
+          sed "s/%ytliteplus_version%/${{ env.YTLITE_VERSION }}/g; s/%youtube_version%/5.0.1/g; s/%catbox_url%/${{ env.CATBOX_FILE }}/g; s/%date%/$TODAY/g" \
+          main/.github/RELEASE_TEMPLATE/Release.md > ${{ github.workspace }}/release_notes.md
+
+      - name: Create Draft Release
+        if: ${{ inputs.create_release }}
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ env.YT_VERSION }}-5.0.1
+          name: v${{ env.YT_VERSION }}-5.0.1 - YTLitePlus
+          files: main/packages/*.ipa
+          draft: true
+          body_path: ${{ github.workspace }}/release_notes.md
+
+      - name: Update Altstore Source with latest release
+        if: ${{ inputs.catbox_upload }}
+        run: |
+          curl --location --request POST 'https://api.github.com/repos/Balackburn/YTLitePlusAltstore/actions/workflows/update_source.yml/dispatches' \
+          --header 'Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}' \
+          --header 'Content-Type: application/json' \
+          --data-raw '{
+            "ref": "main",
+            "inputs": {
+              "yt_lite_plus_url": "${{ env.CATBOX_URL }}",
+              "yt_lite_plus_version": "${{ env.YTLITE_VERSION }}",
+              "yt_version": "${{ env.YT_VERSION }}"
+            }
+          }'
+
+      - name: Job Summary
+        run: |
+          echo -e '### 📺 Build Complete' >> $GITHUB_STEP_SUMMARY
+
+      - name: Job Summary - Artifact Upload
+        if: ${{ inputs.upload_artifact }}
+        run: |
+          echo -e '### 📦 Artifact Upload\n\nThe artifact was uploaded successfully! Refresh and [scroll down](#artifacts) to view the artifact. Note that you must be signed in to GitHub to download it.' >> $GITHUB_STEP_SUMMARY
+
+      - name: Job Summary - Catbox Upload
+        if: ${{ inputs.catbox_upload}}
+        run: |
+          echo -e '### 🐱 Catbox Upload\n\nThe Catbox upload was successful! Here is a permanent shareable link: '$CATBOX_URL >> $GITHUB_STEP_SUMMARY
+
+      - name: Job Summary - Draft Release
+        if: ${{ inputs.create_release }}
+        run: |
+          REPO_URL="https://github.com/${{ github.repository }}"
+          RELEASES_URL="$REPO_URL/releases"
+          echo -e '### 🚀 Draft Release\n\nThe release draft has been created successfully! You can view your releases here: '$RELEASES_URL >> $GITHUB_STEP_SUMMARY
+
+      - name: Job Summary - Link to remove GitHub Action runs
+        run: |
+          REPO_URL="https://github.com/${{ github.repository }}"
+          DELETE_RUNS_URL="$REPO_URL/actions/workflows/delete-workflow-runs.yml"
+          echo -e '### 🧹 Cleanup\n\nYou can remove previous GitHub Action runs here: '$DELETE_RUNS_URL >> $GITHUB_STEP_SUMMARY

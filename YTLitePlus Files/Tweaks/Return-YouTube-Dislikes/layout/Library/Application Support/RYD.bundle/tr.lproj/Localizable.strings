@@ -1,0 +1,13 @@
+"SETTINGS_TITLE" = "Return YouTube Dislike";
+
+"ENABLED" = "Etkinleştir";
+"ENABLE_VOTE_SUBMIT" = "Oy gönderimini etkinleştir";
+"ENABLE_VOTE_SUBMIT_DESC" = "Benzersiz anonim kimliğinin ve video/short beğeni/beğenmeme verilerinin şu adrese gönderilmesine izin ver %@.";
+"EXACT_LIKE_NUMBER" = "Tam beğeni sayıları";
+"EXACT_DISLIKE_NUMBER" = "Tam beğenmeme sayıları";
+"EXACT_DISLIKE_NUMBER_DESC" = "Toplam beğenmeme sayısını gösterir. Örneğin: %@ -> %@.";
+"RAW_DATA" = "Ham beğenmeme verisi";
+"RAW_DATA_DESC" = "Yalnızca RYD tarayıcı uzantısını veya bu tweak'i kullanan kişilerin beğenmeme verilerini kullan.";
+
+// On app launch
+"WANT_TO_ENABLE" = "Beğenme/beğenmeme verilerinin %@'ye gönderilmesini şimdi etkinleştirmek istiyor musun? Bunu daha sonra Ayarlar > %@ > %@ bölümünden devre dışı bırakabilirsin.";

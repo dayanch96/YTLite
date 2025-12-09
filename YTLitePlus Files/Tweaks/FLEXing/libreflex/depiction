@@ -1,0 +1,3 @@
+A dynamically loadable library to add Swift introspection support to FLEX. Requires a loader, such as FLEXing.
+
+<a href="https://github.com/FLEXTool/Reflex/releases">Changelog</a>

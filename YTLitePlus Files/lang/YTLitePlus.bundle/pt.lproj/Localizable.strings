@@ -1,0 +1,191 @@
+// Settings
+"VERSION" = "Versão do YTLitePlus: %@";
+"VERSION_CHECK" = "Toque para verificar se há atualização!";
+
+"COPY_SETTINGS" = "Copiar Configurações";
+"COPY_SETTINGS_DESC" = "Copia todas as configurações atuais para a área de transferência";
+"PASTE_SETTINGS" = "Colar Configurações";
+"PASTE_SETTINGS_DESC" = "Cola as configurações da área de transferência e aplica";
+"PASTE_SETTINGS_ALERT" = "Aplicar configurações da área de transferência?";
+"EXPORT_SETTINGS" = "Exportar Configurações";
+"EXPORT_SETTINGS_DESC" = "Exporta todas as configurações atuais para um arquivo .txt";
+"IMPORT_SETTINGS" = "Importar Configurações";
+"IMPORT_SETTINGS_DESC" = "Pressione para importar as configurações (.txt)";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "Substituir os Botões 'Copiar Configurações' e 'Colar Configurações'";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Substitui os Botões 'Exportar Configurações' e 'Importar Configurações'";
+
+"VIDEO_PLAYER" = "Reprodutor de Vídeo (Beta)";
+"VIDEO_PLAYER_DESC" = "Abra um vídeo baixado no Reprodutor de video da Apple";
+
+// Player Gestures
+"PLAYER_GESTURES_TOGGLE" = "Habilitar Gestos no Reprodutor de video";
+"VOLUME" = "Volume";
+"BRIGHTNESS" = "Brilho";
+"SEEK" = "Busca";
+"DISABLED" = "Desabilitado";
+"DEADZONE" = "Zona morta";
+"DEADZONE_DESC" = "Distância mínima a percorrer antes de um gesto ser reconhecido";
+"SENSITIVITY" = "Sensibilidade";
+"SENSITIVITY_DESC" = "Multiplicador em gestos de volume e brilho";
+"PLAYER_GESTURES_TITLE" = "Gestos do Reprodutor de video";
+"PLAYER_GESTURES_DESC" = "Configurar gestos panorâmicos horizontal para o player";
+"TOP_SECTION" = "Seção Superior";
+"MIDDLE_SECTION" = "Seção do Meio";
+"BOTTOM_SECTION" = "Seção Inferior";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Habilitar Feedback Tátil";
+
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Opções de Sobreposição de Controles de Vídeo";
+
+"ENABLE_SHARE_BUTTON" = "Ativar o botão 'Compartilhar'";
+"ENABLE_SHARE_BUTTON_DESC" = "Ativa o botão Compartilhar na sobreposição de controles de vídeo.";
+
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Ativar o botão 'Salvar'";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Ativa o botão 'Salvar' na sobreposição de controles de vídeo.";
+
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "Ocultar Sombras nos Botões de Sobreposição";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Oculta as sombras nos botões de sobreposição Reproduzir/Pausar, Anterior, Próximo, Avançar e Retroceder.";
+
+"HIDE_RIGHT_PANEL" = "Ocultar o painel direito no modo de tela cheia";
+"HIDE_RIGHT_PANEL_DESC" = "A reinicialização do app é necessária.";
+
+"HIDE_HEATWAVES" = "Ocultar Ondas de calor";
+"HIDE_HEATWAVES_DESC" = "Oculta as Ondas de calor no player de vídeo. A reinicialização do app é necessária.";
+
+"DISABLE_AMBIENT_PORTRAIT" = "Desativar Iluminação cinematográfica (Retrato)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "Desativa a iluminação ao redor do título do vídeo";
+
+"DISABLE_AMBIENT_FULLSCREEN" = "Desativar Iluminação cinematográfica (Tela cheia)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Desativa a iluminação ao redor do player de vídeo";
+
+"FULLSCREEN_TO_THE_RIGHT" = "Tela cheia para a direita";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "Sempre entre em tela cheia com o botão home no lado direito.";
+
+"SEEK_ANYWHERE" = "Gesto de Busca em qualquer lugar";
+"SEEK_ANYWHERE_DESC" = "Segure e arraste o player de vídeo para buscar. Você deve desativar o YTLite - Segurar para velocidade (Hold for speed)";
+
+"ENABLE_TAP_TO_SEEK" = "Ativar Toque para Buscar";
+"ENABLE_TAP_TO_SEEK_DESC" = "Vá para qualquer lugar em um vídeo tocando uma vez na barra de busca";
+
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Desativar gesto de puxar para tela cheia";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Desativa o gesto de arrastar para entrar em tela cheia vertical. Aplica-se apenas a vídeos em paisagem.";
+
+"ALWAYS_USE_REMAINING_TIME" = "Sempre usar o tempo restante";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "Altera o padrão para mostrar o tempo restante na barra do player.";
+
+"DISABLE_TOGGLE_TIME_REMAINING" = "Desativar alternar tempo restante";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Desativa a alteração do tempo decorrido para o tempo restante. Use com outra configuração para mostrar sempre o tempo restante.";
+
+"DISABLE_ENGAGEMENT_OVERLAY" = "Desativar sobreposição de engajamento em tela cheia";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Desativa o gesto de deslizar para cima e a lista de vídeos sugeridos em tela cheia";
+
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Ocultar Visualizações de comentários sob o player";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Oculta a Prévia de comentário no botão de comentários";
+
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Ocultar mini visualização de reprodução automática";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Oculta a pequena caixa de vídeo sugerida perto do título em tela cheia";
+
+"HIDE_HUD_MESSAGES" = "Ocultar Mensagens do HUD";
+"HIDE_HUD_MESSAGES_DESC" = "Exemplo: Legendas/CC ativadas/desativadas, A repetição do vídeo está ativada,...";
+
+"HIDE_COLLAPSE_BUTTON" = "Ocultar Botão de Recolhimento";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Oculta o botão de seta para recolher que era exibido no canto superior esquerdo do player de vídeo.";
+
+"HIDE_SPEED_TOAST" = "Ocultar Toast de Velocidade";
+"HIDE_SPEED_TOAST_DESC" = "Ocultar o popup de Velocidade 2X ao segurar o player";
+
+
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "Configurações do Aplicativo";
+
+"HIDE_ACCOUNT_SECTION" = "Ocultar a sessão \"Conta\"";
+"HIDE_AUTOPLAY_SECTION" = "Ocultar a sessão \"Reprodução automática\"";
+"HIDE_TRYNEWFEATURES_SECTION" = "Ocultar a sessão \"Experimente novos recursos\"";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Ocultar a sessão \"Preferências de qualidade de vídeo\"";
+"HIDE_NOTIFICATIONS_SECTION" = "Ocultar a sessão \"Notificações\"";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Ocultar a sessão \"Gerencie todo o histórico\"";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Ocultar a sessão \"Seus dados no YouTube\"";
+"HIDE_PRIVACY_SECTION" = "Ocultar a sessão \"Privacidade\"";
+"HIDE_LIVECHAT_SECTION" = "Ocultar a sessão \"Chat ao vivo\"";
+
+// Theme
+"THEME_OPTIONS" = "Opções de Temas";
+
+"OLED_DARK_THEME" = "Modo escuro OLED";
+"OLED_DARK_THEME_2" = "Modo escuro OLED";
+"OLED_DARK_THEME_DESC" = "Verdadeiro tema escuro. Pode não funcionar corretamente em alguns casos. App restart is required after you enable/disable this option.";
+
+"OLD_DARK_THEME" = "Antigo tema escuro";
+"OLD_DARK_THEME_DESC" = "Tema escuro do YouTube antigo (tema cinza). A reinicialização do app é necessária.";
+
+"DEFAULT_THEME" = "Padrão";
+"DEFAULT_THEME_DESC" = "Tema escuro padrão do YouTube. A reinicialização do app é necessária.";
+
+"OLED_KEYBOARD" = "Teclado OLED";
+"OLED_KEYBOARD_DESC" = "Pode não funcionar corretamente em alguns casos. A reinicialização do app é necessária.";
+
+"LOW_CONTRAST_MODE" = "Modo de Baixo Contraste";
+"LOW_CONTRAST_MODE_DESC" = "Esta opção terá baixo contraste dos textos e botões, assim como era a antiga interface do YouTube. A reinicialização do app é necessária.";
+"LCM_SELECTOR" = "Seleção do modo de baixo contraste";
+"DEFAULT_LOWCONTRASTMODE" = "(Padrão) LowContrastMode";
+"CUSTOM_LOWCONTRASTMODE" = "(Cor Personalizada) LowContrastMode";
+
+// Miscellaneous
+"MISCELLANEOUS" = "Diversos";
+
+"PLAYBACK_IN_FEEDS" = "Reprodução nos feeds";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Sempre ativada";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Somente Wi-Fi";
+"PLAYBACK_IN_FEEDS_OFF" = "Desativada";
+
+"NEW_SETTINGS_UI" = "Nova Interface de Configurações";
+"NEW_SETTINGS_UI_DESC" = "Usa a nova Interface de configurações agrupadas. Pode ocultar algumas configurações";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "Ative a animação de inicialização do YouTube";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"HIDE_MODERN_INTERFACE" = "Ocultar Interface Moderna (YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "Ative esta opção para ocultar qualquer elemento moderno adicionado pelo YouTube. Remove a iluminação cinematogrática, design arredondado e muito mais. A reinicialização do app é necessária.";
+
+"IPAD_LAYOUT" = "Layout do iPad";
+"IPAD_LAYOUT_DESC" = "Use isso apenas se quiser ter o layout do iPad no seu iPhone/iPod atual. A reinicialização do app é necessária.";
+
+"IPHONE_LAYOUT" = "Layout do iPhone";
+"IPHONE_LAYOUT_DESC" = "Use isso apenas se quiser ter o layout do iPhone no seu iPad atual. A reinicialização do app é necessária.";
+
+"CAST_CONFIRM" = "Alerta de confirmação antes de transmitir (YTCastConfirm)";
+"CAST_CONFIRM_DESC" = "Mostra um alerta de confirmação antes da transmissão para evitar o sequestro acidental da TV.";
+"CASTING" = "Transmissão";
+"MSG_ARE_YOU_SURE" = "Tem certeza de que deseja começar a transmitir?";
+"MSG_YES" = "Sim";
+"MSG_CANCEL" = "Cancelar";
+
+"NEW_MINIPLAYER_STYLE" = "Novo estilo de barra de miniplayer (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE_DESC" = "A reinicialização do app é necessária.";
+
+"HIDE_CAST_BUTTON" = "Ocultar o botão Transmitir";
+"HIDE_CAST_BUTTON_DESC" = "A reinicialização do app é necessária.";
+
+"VIDEO_PLAYER_BUTTON" = "Botão do Reprodutor de Vídeo";
+"VIDEO_PLAYER_BUTTON_DESC" = "Mostra um botão na barra de navegação para abrir vídeos baixados no Reprodutor de video da Apple";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "Ocultar o botão iSponsorBlock na barra de navegação";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
+
+"HIDE_HOME_TAB" = "Ocultar guia Início";
+"HIDE_HOME_TAB_DESC" = "Tenha cuidado ao ocultar todas as guias";
+
+"FIX_CASTING" = "Corrigir Transmissão";
+"FIX_CASTING_DESC" = "Altera alguns sinalizadores AB para corrigir a transmissão";
+
+"ENABLE_FLEX" = "Ativar FLEX";
+"ENABLE_FLEX_DESC" = "Ativa o FLEX para depuração (não recomendado). Deixe isso desligado, a menos que você saiba o que está fazendo.";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "Ativar Falsificação da Versão do App (Lite)";
+"APP_VERSION_SPOOFER_LITE_DESC" = "Ative isto para usar a Falsificação de Versão (Lite) e selecione sua versão preferida abaixo. A reinicialização do app é necessária.";
+"VERSION_SPOOFER_TITLE" = "Selecionar Versão Falsa";
+
+// Other Localization
+"APP_RESTART_DESC" = "A reinicialização do app é necessária.";
+"CHANGE_APP_ICON" = "Mudar o Ícone do Aplicativo";

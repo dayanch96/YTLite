@@ -1,0 +1,13 @@
+"SETTINGS_TITLE" = "Return YouTube Dislike";
+
+"ENABLED" = "Ativado";
+"ENABLE_VOTE_SUBMIT" = "Ativar envio de votos";
+"ENABLE_VOTE_SUBMIT_DESC" = "Permite que seu único ID anônimo e dados de curtidas/não curtidas de vídeos/shorts sejam enviados para %@.";
+"EXACT_LIKE_NUMBER" = "Números exatos de gostei";
+"EXACT_DISLIKE_NUMBER" = "Números exatos de não gostei";
+"EXACT_DISLIKE_NUMBER_DESC" = "Exibe o número exato de não gostei. Por exemplo: %@ -> %@.";
+"RAW_DATA" = "Dados brutos de não gostei";
+"RAW_DATA_DESC" = "Use apenas os dados de não gostei das pessoas que usam a extensão do navegador RYD ou este ajuste.";
+
+// On app launch
+"WANT_TO_ENABLE" = "Você deseja ativar o envio de seus dados de curtidas/não curtidas para %@ agora? Você pode desativá-lo mais tarde em Configurações > %@ > %@.";

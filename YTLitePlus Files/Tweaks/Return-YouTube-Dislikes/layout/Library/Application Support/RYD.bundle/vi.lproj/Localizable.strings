@@ -1,0 +1,13 @@
+"SETTINGS_TITLE" = "Return YouTube Dislike";
+
+"ENABLED" = "Kích hoạt";
+"ENABLE_VOTE_SUBMIT" = "Chia sẻ dữ liệu về lượt thích/không thích";
+"ENABLE_VOTE_SUBMIT_DESC" = "Cho phép sử dụng ID ẩn danh ngẫu nhiên để chia sẻ dữ liệu về các lượt thích/không thích của bạn với các Video/Shorts tới %@.";
+"EXACT_LIKE_NUMBER" = "Hiển thị chính xác số lượt thích";
+"EXACT_DISLIKE_NUMBER" = "Hiển thị chính xác số lượt không thích";
+"EXACT_DISLIKE_NUMBER_DESC" = "Hiển thị chính xác số lượt không thích. Ví dụ: %@ -> %@.";
+"RAW_DATA" = "Dữ liệu không thích thô";
+"RAW_DATA_DESC" = "Sử dụng dữ liệu không thích chỉ từ những người sử dụng tiện ích mở rộng trình duyệt RYD hoặc tinh chỉnh này.";
+
+// On app launch
+"WANT_TO_ENABLE" = "Bạn có muốn chia sẻ dữ liệu về các lượt thích/không thích của bạn tới %@ bây giờ không? Bạn có thể tắt tùy chọn này trong Cài đặt của YouTube > %@ > %@.";

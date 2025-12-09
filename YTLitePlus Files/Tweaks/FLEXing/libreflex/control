@@ -1,0 +1,11 @@
+Package: libreflex
+Name: libReflex
+Pre-Depends: firmware (>= 13.0)
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: A FLEX extension for Swift object introspection.
+Maintainer: Tanner Bennett <thepantsthief@me.com>
+Author: Tanner Bennett <thepantsthief@me.com>
+Section: Tweaks
+Depiction: https://nscake.github.io/package.html?package=libflex
+SileoDepiction: https://nscake.github.io/depictions/libflex.sileo.json

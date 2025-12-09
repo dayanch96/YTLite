@@ -1,0 +1,25 @@
+"SETTINGS_TITLE" = "YouPiP";
+
+"ENABLED" = "Enabled";
+"ENABLED_DESC" = "App herstart is vereist.";
+
+"USE_PIP_BUTTON" = "Gebruik PiP Knop";
+"USE_PIP_BUTTON_DESC" = "Voegt een PiP knop toe aan de Video Control Overlay om PiP te activeren in plaats van de app af te sluiten.";
+
+"USE_TAB_BAR_PIP_BUTTON" = "Gebruik de knop PiP van de Video-tabbalk";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "Voegt een PiP-knop toe in de videotabbalk om PiP te activeren in plaats van de app af te sluiten. App herstart is vereist.";
+
+"USE_ALL_PIP" = "Onbeperkte PiP-activatie";
+"USE_ALL_PIP_DESC" = "Sta PiP toe om te worden geactiveerd door op de PiP-knop van de videobedieningsoverlay te tikken, de PiP-knop van de videotabbalk, of simpelweg door de app tegelijkertijd te sluiten.";
+
+"DISABLE_PIP_MINI_PLAYER" = "Schakel PiP uit voor Mini Player";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "Schakelt PiP uit tijdens het afspelen van een video in de minispeler.";
+
+"LEGACY_PIP" = "Verouderd PiP";
+"LEGACY_PIP_DESC" = "Gebruik AVPlayerLayer voor PiP. Dit lost naar verluidt de versnellingsfout op. App herstart is vereist.";
+
+"NON_BACKGROUNDABLE_PIP" = "Niet-achtergrondgebonden PiP";
+"NON_BACKGROUNDABLE_PIP_DESC" = "Schakelt PiP in voor niet-achtergrondgebonden video.";
+
+// Overlay
+"POSITION" = "Positie van de PiP-knop";

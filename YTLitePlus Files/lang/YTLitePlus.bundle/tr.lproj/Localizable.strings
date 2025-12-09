@@ -1,0 +1,190 @@
+// Settings
+"VERSION" = "YTLitePlus'ın sürümü: %@";
+"VERSION_CHECK" = "Güncelleme kontrolü için dokun!";
+
+"COPY_SETTINGS" = "Ayarları Kopyala";
+"COPY_SETTINGS_DESC" = "Tüm mevcut ayarları panoya kopyala";
+"PASTE_SETTINGS" = "Ayarları Yapıştır";
+"PASTE_SETTINGS_DESC" = "Panodaki ayarları yapıştır ve uygula";
+"PASTE_SETTINGS_ALERT" = "Panodan ayarları uygulamak istiyor musun?";
+"EXPORT_SETTINGS" = "Ayarları Dışa Aktar";
+"EXPORT_SETTINGS_DESC" = "Tüm mevcut ayarları bir .txt dosyasına dışa aktarır";
+"IMPORT_SETTINGS" = "Ayarları İçe Aktar";
+"IMPORT_SETTINGS_DESC" = "Ayarları içe aktarmak için basın (.txt)";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "'Ayarları Kopyala' ve 'Ayarları Yapıştır' Düğmelerini Değiştir";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Düğmeleri 'Ayarları Dışa Aktar' ve 'Ayarları İçe Aktar' ile değiştirir";
+
+"VIDEO_PLAYER" = "Video Oynatıcı (Beta)";
+"VIDEO_PLAYER_DESC" = "İndirilen bir videoyu Apple oynatıcısında aç";
+
+// Player Gestures
+"PLAYER_GESTURES_TOGGLE" = "Oynatıcı Hareketlerini Etkinleştir";
+"VOLUME" = "Ses";
+"BRIGHTNESS" = "Parlaklık";
+"SEEK" = "Arama";
+"DISABLED" = "Devre Dışı";
+"DEADZONE" = "Ölü Bölge";
+"DEADZONE_DESC" = "Bir hareketin tanınması için minimum mesafe";
+"SENSITIVITY" = "Hassasiyet";
+"SENSITIVITY_DESC" = "Ses ve parlaklık hareketleri için çarpan";
+"PLAYER_GESTURES_TITLE" = "Oynatıcı Hareketleri";
+"PLAYER_GESTURES_DESC" = "Oynatıcı için yatay kaydırma hareketlerini yapılandır";
+"TOP_SECTION" = "Üst Bölüm";
+"MIDDLE_SECTION" = "Orta Bölüm";
+"BOTTOM_SECTION" = "Alt Bölüm";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Haptik(titreşim) Geri Bildirimi Etkinleştir";
+
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Video Kontrol Seç.";
+
+"ENABLE_SHARE_BUTTON" = "Paylaş Butonunu Aç";
+"ENABLE_SHARE_BUTTON_DESC" = "Video kontrolünde Paylaş Butonunu aç.";
+
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "'Listeye Kaydet' Butonunu Aç";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Video kontrolünde 'Listeye Kaydet' Butonunu aç.";
+
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "Gölge Düğmelerini Gizle";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Oynat/Duraklat, Önceki, Sonraki, İleri/Geri Düğmelerindeki gölgeyi gizle.";
+
+"HIDE_RIGHT_PANEL" = "Tam ekranda sağ paneli gizle";
+"HIDE_RIGHT_PANEL_DESC" = "Uyg. yeniden başlatılmalı.";
+
+"HIDE_HEATWAVES" = "Sıcak Dalgaları Gizle";
+"HIDE_HEATWAVES_DESC" = "Sıcak Dalgaları gizler. Uyg. yeniden başlatılmalı.";
+
+"DISABLE_AMBIENT_PORTRAIT" = "Ortam Modunu Kapat (Dikey)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "Video başlığı çevresindeki aydınlatmayı kapat";
+
+"DISABLE_AMBIENT_FULLSCREEN" = "Ortam Modunu Kapat (Tam Ekran)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Video oynatıcının çevresindeki aydınlatmayı kapat";
+
+"FULLSCREEN_TO_THE_RIGHT" = "Tam Ekran Sağda";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "Tam ekrana sağda ev düğmesi ile gir.";
+
+"SEEK_ANYWHERE" = "Her Yerde Ara";
+"SEEK_ANYWHERE_DESC" = "Video oynatıcıda basılı tutarak sürükleyin. YTLite - Hızlandırmak için basılı tutmayı kapatmanız gerek.";
+
+"ENABLE_TAP_TO_SEEK" = "Dokunarak Ara";
+"ENABLE_TAP_TO_SEEK_DESC" = "Arama çubuğuna tek dokunarak videonun herhangi bir yerine git";
+
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Tam ekran çekme hareketini kapat";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Dikey tam ekrana geçmek için çekme hareketini kapat. Sadece yatay videolar için geçerli.";
+
+"ALWAYS_USE_REMAINING_TIME" = "Her zaman kalan süreyi göster";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "Oynatıcı çubuğunda kalan süreyi gösterir.";
+
+"DISABLE_TOGGLE_TIME_REMAINING" = "Kalan zamanı değiştirmeyi kapat";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Geçen zamanı kalan zamanla değiştirmeyi kapatır.";
+
+"DISABLE_ENGAGEMENT_OVERLAY" = "Tam ekranda kaplamayı kapat";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Tam ekranda yukarı kaydırma hareketini ve önerilen videoları kapat";
+
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Oynatıcının Altındaki Yorum Önizlemelerini Gizle";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Video oynatıcının altındaki yorum önizlemelerini gizler.";
+
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Otomatik Oynatma Mini Önizlemesini Gizle";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Tam ekranda başlık yakınındaki küçük önerilen video kutusunu gizle";
+
+"HIDE_HUD_MESSAGES" = "HUD mesajlarını gizle";
+"HIDE_HUD_MESSAGES_DESC" = "Belirli işlemler için görüntülenen bildirim çubuklarını gizler (ör. CC açıldı/kapandı)";
+
+"HIDE_COLLAPSE_BUTTON" = "Daraltma Düğmesini Gizle";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Video oynatıcıda sol üstte görünen ok ile daraltma düğmesini gizler.";
+
+"HIDE_SPEED_TOAST" = "Hız Bildirimini Gizle";
+"HIDE_SPEED_TOAST_DESC" = "Oynatıcıya basılı tutarken 2X Hız bildirimini gizle";
+
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "Uyg. Ayarları Kaplama Seç.";
+
+"HIDE_ACCOUNT_SECTION" = "\"Hesap\" Bölümünü Gizle";
+"HIDE_AUTOPLAY_SECTION" = "\"Otomatik Oynatma\" Bölümünü Gizle";
+"HIDE_TRYNEWFEATURES_SECTION" = "\"Yeni Özellikler\" Bölümünü Gizle";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "\"Video Kalite\" Bölümünü Gizle";
+"HIDE_NOTIFICATIONS_SECTION" = "\"Bildirimler\" Bölümünü Gizle";
+"HIDE_MANAGEALLHISTORY_SECTION" = "\"Tüm Geçmişi Yönet\" Bölümünü Gizle";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "\"YouTube Verileriniz\" Bölümünü Gizle";
+"HIDE_PRIVACY_SECTION" = "\"Gizlilik\" Bölümünü Gizle";
+"HIDE_LIVECHAT_SECTION" = "\"Canlı Sohbet\" Bölümünü Gizle";
+
+// Theme
+"THEME_OPTIONS" = "Tema Seç";
+
+"OLED_DARK_THEME" = "OLED koyu tema";
+"OLED_DARK_THEME_2" = "OLED koyu tema";
+"OLED_DARK_THEME_DESC" = "Gerçek koyu tema. Bazı durumlarda düzgün çalışmayabilir. Yeniden başlatılmalı.";
+
+"OLD_DARK_THEME" = "Eski koyu tema";
+"OLD_DARK_THEME_DESC" = "Eski YouTube koyu teması. Yeniden başlatılmalı.";
+
+"DEFAULT_THEME" = "Varsayılan";
+"DEFAULT_THEME_DESC" = "YouTube'un varsayılan koyu teması. Yeniden başlatılmalı.";
+
+"OLED_KEYBOARD" = "OLED Klavye (Deneysel)";
+"OLED_KEYBOARD_DESC" = "Bazı durumlarda düzgün çalışmayabilir. Yeniden başlatılmalı.";
+
+"LOW_CONTRAST_MODE" = "Düşük Kontrast Modu";
+"LOW_CONTRAST_MODE_DESC" = "Metinlerin ve düğmelerin kontrastını düşürür. Yeniden başlatılmalı.";
+"LCM_SELECTOR" = "Düşük kontrast modu seçimi";
+"DEFAULT_LOWCONTRASTMODE" = "(Varsayılan) DüşükKontrastModu";
+"CUSTOM_LOWCONTRASTMODE" = "(Özel Renk) DüşükKontrastModu";
+
+// Miscellaneous
+"MISCELLANEOUS" = "Diğer";
+
+"PLAYBACK_IN_FEEDS" = "Akışlarda Oto Oynatma";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Her zaman açık";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Yalnızca Wi-Fi";
+"PLAYBACK_IN_FEEDS_OFF" = "Kapalı";
+
+"NEW_SETTINGS_UI" = "Yeni Ayarlar Arayüzü";
+"NEW_SETTINGS_UI_DESC" = "Yeni gruplandırılmış ayarlar arayüzünü kullan. Bazı ayarları gizleyebilir.";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "YouTube açılış animasyonunu aç";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"HIDE_MODERN_INTERFACE" = "Modern Arayüzü Gizle (YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "YouTube'un eklediği Modern Öğeleri gizlemek için aç. Yeniden başlatılmalı.";
+
+"IPAD_LAYOUT" = "iPad Düzeni";
+"IPAD_LAYOUT_DESC" = "Mevcut iPhone/iPod'unuzda iPad Düzenini kullanmak için aç. Yeniden başlatılmalı.";
+
+"IPHONE_LAYOUT" = "iPhone Düzeni";
+"IPHONE_LAYOUT_DESC" = "Mevcut iPad'inizde iPhone Düzenini kullanmak için aç. Yeniden başlatılmalı.";
+
+"CAST_CONFIRM" = "Yayın öncesi onay (YTCastConfirm)";
+"CAST_CONFIRM_DESC" = "TV'yi yanlışlıkla kontrol etmeyi önlemek için yayın öncesi onay göster.";
+"CASTING" = "Yayınlar";
+"MSG_ARE_YOU_SURE" = "Yayın başlatmak istediğinizden emin misiniz?";
+"MSG_YES" = "Evet";
+"MSG_CANCEL" = "İptal";
+
+"NEW_MINIPLAYER_STYLE" = "Yeni mini oynatıcı çubuğu (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE_DESC" = "Yeniden başlatılmalı.";
+
+"HIDE_CAST_BUTTON" = "Yayınla düğmesini gizle";
+"HIDE_CAST_BUTTON_DESC" = "Yeniden başlatılmalı.";
+
+"VIDEO_PLAYER_BUTTON" = "Video Oynatıcı Butonu";
+"VIDEO_PLAYER_BUTTON_DESC" = "İndirilen videoları Apple oynatıcısında açmak için gezinme çubuğunda bir buton göster";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "Gezinme çubuğunda iSponsorBlock düğmesini gizle";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
+
+"HIDE_HOME_TAB" = "Ana Sekmeyi Gizle";
+"HIDE_HOME_TAB_DESC" = "Tüm sekmeleri gizlerken dikkatli olun";
+
+"FIX_CASTING" = "Yayınlamayı Düzelt";
+"FIX_CASTING_DESC" = "Yayınlamayı düzeltmek için bazı ayarları değiştirir";
+
+"ENABLE_FLEX" = "FLEX'i Aç";
+"ENABLE_FLEX_DESC" = "Hata ayıklama için FLEX'i aç (tavsiye edilmez). Ne yaptığınızı bilmiyorsanız kapalı tutun.";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "Uyg. Sürüm Spoofer'ını Aç (Lite)";
+"APP_VERSION_SPOOFER_LITE_DESC" = "Sürüm Spoofer (Lite) kullanmak için açın ve sürümü seçin. Yeniden başlatılmalı.";
+"VERSION_SPOOFER_TITLE" = "Sürüm Seçici";
+
+// Other Localization
+"APP_RESTART_DESC" = "Uyg. yeniden başlatılmalı.";
+"CHANGE_APP_ICON" = "Uyg. Simgesini Değiştir";

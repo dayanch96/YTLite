@@ -1,0 +1,40 @@
+"ENABLED" = "Etkinleştir";
+"ENABLED_DESC" = "A/B ayarlarını aç.";
+"GROUPED" = "Gruplandırılmış ayarlar";
+"RESET_KILL" = "Sıfırla ve Kapat";
+"RESET_KILL_DESC" = "Değişiklikleri geri al ve uyg. kapat.";
+"COPY_CURRENT_SETTINGS" = "Ayarları kopyala";
+"COPY_CURRENT_SETTINGS_DESC" = "Mevcut ayarları panoya kopyala.";
+"VIEW_MODIFIED_SETTINGS" = "Değişiklikleri görüntüle";
+"VIEW_MODIFIED_SETTINGS_DESC" = "El ile yaptığın değişiklikleri görüntüle.";
+"IMPORT_SETTINGS" = "Ayarları İçe Aktar";
+"IMPORT_SETTINGS_DESC" = "Panodan ayarları içe aktar.\nHer ayar şu formatta olmalı: %@";
+"NOTHING_TO_IMPORT" = "Panoda içe aktarılacak bir şey yok veya değişiklik olmayacak.";
+"SETTINGS_TO_IMPORT" = "İçe aktarılacak ayarlar";
+"SETTINGS_TO_IMPORT_DESC" = "%ld geçerli ayar bulundu.";
+"IMPORT" = "İçe Aktar";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "Değişiklikler";
+"TOTAL_MODIFIED_SETTINGS" = "Toplam: %ld";
+
+// Quit app alert
+"WARNING" = "Uyarı";
+"APPLY_DESC" = "Bu işlem YouTube'u kapatacak. Devam etmek istiyor musun?";
+
+"OPEN_MEGATHREAD" = "Megabaşlığı Aç";
+"OPEN_MEGATHREAD_DESC" = "YTABConfig megabaşlığını GitHub'da açar.";
+"SETTINGS_START_WITH" = "Yazılan ile başlayan ayarlar";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "Panoya kopyala";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "Panoya kopyalandı.";
+
+"REMOVED" = "(Kaldırıldı)";
+
+"REMOVE_REMOVED_SETTINGS" = "Kaldırılan ayarları sil";
+"REMOVE_REMOVED_SETTINGS_DESC" = "Bu, YouTube'da artık mevcut olmayan %ld ayarı kaldıracak.";

@@ -1,0 +1,38 @@
+"SETTINGS_TITLE" = "DontEatMyContent";
+
+"ENABLED" = "已啟用";
+"TWEAK_DESC" = "防止影片因為瀏海或動態島而被遮蔽（例如 MKBHD 的影片）";
+
+"SAFE_AREA_CONST" =  "固定安全區域";
+"SAFE_AREA_CONST_DESC" = "設定全螢幕影片播放寬度";
+"DEFAULT" = "預設";
+"CHANGES_SAVED_DISMISS_VIDEO" = "已儲存設定如果要套用設定請將目前播放的影片關閉";
+
+"COLOR_VIEWS" = "彩色區域";
+"COLOR_VIEWS_DESC" = "在播放器空白處顯示各種顏色：紅色為 rendering view 綠色為 rendering view container，藍色為播放器 view；在除錯時很好用";
+
+"REPORT_ISSUE" = "回報錯誤";
+"SOURCE_CODE" = "檢視原始碼";
+
+"CHANGES_SAVED" = "已儲存設定";
+
+"EXIT" = "確認";
+"LATER" = "取消";
+"EXIT_YT_DESC" = "是否重新啟動YouTube來套用設定？";
+
+"UNSUPPORTED_DEVICE" = "不支援此裝置";
+
+"DISABLE_AMBIENT_MODE" = "Disable ambient mode in landscape";
+"VERSION" = "Version";
+
+"LIMIT_ZOOM_TO_FILL" = "Zoom to almost fill (experimental)";
+"LIMIT_ZOOM_TO_FILL_DESC" = "Limits zoom to fill to the notch/Dynamic Island";
+
+"ADD_TITLE" = "Add your title here...";
+
+"ADVANCED" = "Advanced";
+
+"ENABLE_FOR_ALL_VIDEOS" = "Enable for all videos (experimental)";
+"ENABLE_FOR_ALL_VIDEOS_DESC" = "Enable safe area constraints for all videos. This might cause unintended effects. Please file a bug report before enabling this option";
+
+"ABOUT" = "About";

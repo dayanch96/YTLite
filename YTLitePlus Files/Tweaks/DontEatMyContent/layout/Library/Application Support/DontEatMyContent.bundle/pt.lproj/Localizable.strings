@@ -1,0 +1,38 @@
+"SETTINGS_TITLE" = "DontEatMyContent";
+
+"ENABLED" = "Ativado";
+"TWEAK_DESC" = "Impede que o entalhe/Ilha Dinâmica corte vídeos 2:1 (por exemplo, vídeos MKBHD)";
+
+"SAFE_AREA_CONST" =  "Constante de área segura";
+"SAFE_AREA_CONST_DESC" = "Personalize esta constante para aproximar ou afastar o vídeo do entalhe/Ilha dinâmica. Quanto maior a constante, mais próximo o vídeo estará do entalhe/Ilha Dinâmica e vice-versa";
+"DEFAULT" = "padrão";
+"CHANGES_SAVED_DISMISS_VIDEO" = "Suas alterações foram salvas. Se um vídeo estiver sendo reproduzido, ignore-o para que as alterações tenham efeito";
+
+"COLOR_VIEWS" = "Visualizações de cores para depuração";
+"COLOR_VIEWS_DESC" = "Define um fundo vermelho para a visualização de renderização, verde para o contêiner da visualização de renderização e azul para a visualização do player";
+
+"REPORT_ISSUE" = "Informar um problema";
+"SOURCE_CODE" = "Ver código-fonte";
+
+"CHANGES_SAVED" = "Suas alterações foram salvas";
+
+"EXIT" = "Sair";
+"LATER" = "Mais tarde";
+"EXIT_YT_DESC" = "Reinicie o YouTube para aplicar as alterações";
+
+"UNSUPPORTED_DEVICE" = "Este dispositivo não é compatível";
+
+"DISABLE_AMBIENT_MODE" = "Desativar a iluminação cinematográfica no modo paisagem";
+"VERSION" = "Versão";
+
+"LIMIT_ZOOM_TO_FILL" = "Zoom para quase preencher (experimental)";
+"LIMIT_ZOOM_TO_FILL_DESC" = "Limita o zoom para preencher o entalhe/Ilha Dinâmica";
+
+"ADD_TITLE" = "Adicione seu título aqui...";
+
+"ADVANCED" = "Avançado";
+
+"ENABLE_FOR_ALL_VIDEOS" = "Ativar para todos os vídeos (experimental)";
+"ENABLE_FOR_ALL_VIDEOS_DESC" = "Ative restrições de área segura para todos os vídeos. Isto pode causar efeitos indesejados. Por favor, envie um relatório de bug antes de ativar esta opção";
+
+"ABOUT" = "Sobre";

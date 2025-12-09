@@ -1,0 +1,11 @@
+Package: com.ps.youquality
+Name: YouQuality
+Version: 1.3.6
+Architecture: iphoneos-arm
+Description: Views/changes video quality in iOS YouTube app faster.
+Maintainer: PoomSmart
+Author: PoomSmart
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 11.0), com.ps.ytvideooverlay (>= 2.1.1)
+Depiction: https://poomsmart.github.io/repo/depictions/youquality.html
+SileoDepiction: https://poomsmart.github.io/repo/sileodepictions/youquality.json

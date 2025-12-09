@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UIColor Extension Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Extension/UIColor" class="dashAnchor"></a>
+    <a title="UIColor Extension Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Alderis 1.2 Docs</a></p>
+        <p class="header-right"><a href="https://github.com/hbang/Alderis"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fhbang.github.io%2FAlderis%2Fdocsets%2FAlderis.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Alderis Reference</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        UIColor Extension Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../preference-bundles.html">Preference Bundles</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../migrating-to-11.html">Migrating to 1.1</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Color%20Picker.html">Color Picker</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ColorPickerViewController.html">ColorPickerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ColorPickerConfiguration.html">ColorPickerConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ColorPickerDelegate.html">ColorPickerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ColorPickerTab.html">ColorPickerTab</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../UI%20Components.html">UI Components</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ColorWell.html">ColorWell</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor.html">UIColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/s:7Alderis22ColorPropertyListValueP">ColorPropertyListValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/s:SS">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/s:Sa">Array</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Deprecated.html">Deprecated</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Deprecated.html#/c:@M@Alderis@objc(cs)HBColorPickerCircleView">ColorPickerCircleView</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>UIColor</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">extension</span> <span class="kt">UIColor</span></code></pre>
+
+                </div>
+              </div>
+            <p>Alderis provides extensions to <code>UIColor</code> for the purpose of serializing and deserializing colors
+into representations that can be stored in property lists, JSON, and similar formats.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So7UIColorC7AlderisE17propertyListValueABSgAC013ColorPropertydE0_pSg_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(propertyListValue:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So7UIColorC7AlderisE17propertyListValueABSgAC013ColorPropertydE0_pSg_tcfc">init(propertyListValue:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes and returns a color object using data from the specified object.</p>
+
+<p>The value is expected to be one of:</p>
+
+<ul>
+<li>An array of 3 or 4 integer RGB or RGBA color components, with values between 0 and 255 (e.g.
+<code>[218, 192, 222]</code>)</li>
+<li>A CSS-style hex string, with an optional alpha component (e.g. <code>#DAC0DE</code> or <code>#DACODE55</code>)</li>
+<li>A short CSS-style hex string, with an optional alpha component (e.g. <code>#DC0</code> or <code>#DC05</code>)</li>
+</ul>
+
+<p>Use <code>-[UIColor initWithHbcp_propertyListValue:]</code> to access this method from Objective-C.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <code><a href="../Extensions/UIColor.html#/c:@CM@Alderis@@objc(cs)UIColor(py)hbcp_propertyListValue">propertyListValue</a></code>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@nonobjc</span>
+<span class="kd">convenience</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">propertyListValue</span><span class="p">:</span> <span class="kt"><a href="../Extensions.html#/s:7Alderis22ColorPropertyListValueP">ColorPropertyListValue</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The object to retrieve data from. See the discussion for the supported object
+types.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An initialized color object, or nil if the value does not conform to the expected
+type. The color information represented by this object is in the device RGB colorspace.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Alderis@@objc(cs)UIColor(im)initWithHbcp_propertyListValue:"></a>
+                    <a name="//apple_ref/swift/Method/init(_propertyListValueObjC:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Alderis@@objc(cs)UIColor(im)initWithHbcp_propertyListValue:">init(_propertyListValueObjC:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Maps <code><a href="../Extensions/UIColor.html#/s:So7UIColorC7AlderisE17propertyListValueABSgAC013ColorPropertydE0_pSg_tcfc">init(propertyListValue:)</a></code> to Objective-C due to Swift limitations. This is an
+implementation detail. Ignore this and use <code>UIColor(propertyListValue:)</code> or
+<code>-[UIColor initWithHbcp_propertyListValue:]</code> as per usual.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <code><a href="../Extensions/UIColor.html#/s:So7UIColorC7AlderisE17propertyListValueABSgAC013ColorPropertydE0_pSg_tcfc">init(propertyListValue:)</a></code>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="nv">initWithHbcp_propertyListValue</span><span class="p">:)</span>
+<span class="kd">convenience</span> <span class="nf">init</span><span class="p">?(</span><span class="n">_propertyListValueObjC</span> <span class="nv">propertyListValue</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The object to retrieve data from. See the discussion for the supported
+object types.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An initialized color object, or nil if the value does not conform to the expected
+type. The color information represented by this object is in the device RGB colorspace.
+device RGB colorspace.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Alderis@@objc(cs)UIColor(py)hbcp_propertyListValue"></a>
+                    <a name="//apple_ref/swift/Property/propertyListValue" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Alderis@@objc(cs)UIColor(py)hbcp_propertyListValue">propertyListValue</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a string that represents the color.</p>
+
+<p>The output is a string in the format <code>#AABBCC:0.5</code>, where the initial <code>#AABBCC</code> portion is a
+6-character CSS-style hex string, and the final <code>:0.5</code> portion represents the alpha value. If
+the color’s alpha value is <code>1</code>, the alpha portion is excluded.</p>
+
+<p>If the color is dynamic, for instance if it is a UIKit system color, or initialised via
+<code>UIColor(dynamicProvider:)</code>, the color that matches the current trait collection is used.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <code><a href="../Extensions/UIColor.html#/s:So7UIColorC7AlderisE17propertyListValueABSgAC013ColorPropertydE0_pSg_tcfc">init(propertyListValue:)</a></code>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="n">hbcp_propertyListValue</span><span class="p">)</span>
+<span class="k">var</span> <span class="nv">propertyListValue</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A string representing the color, in the format discussed above.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Alderis@@objc(cs)UIColor(py)hbcp_hexString"></a>
+                    <a name="//apple_ref/swift/Property/hexString" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Alderis@@objc(cs)UIColor(py)hbcp_hexString">hexString</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a hexadecimal string that represents the color.</p>
+
+<p>The output is a string in the format <code>#AABBCCDD</code>, where the initial <code>#AABBCC</code> portion is a
+6-character CSS-style hex string, and the final <code>DD</code> portion is the hexadecimal representation
+of the alpha value, supported by <a href="https://caniuse.com/css-rrggbbaa">recent web browsers</a>.</p>
+
+<p>If the color is dynamic, for instance if it is a UIKit system color, or initialised via
+<code>UIColor(dynamicProvider:)</code>, the color that matches the current trait collection is used.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="n">hbcp_hexString</span><span class="p">)</span>
+<span class="k">var</span> <span class="nv">hexString</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A string representing the color, in the format discussed above.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Alderis@@objc(cs)UIColor(py)hbcp_rgbString"></a>
+                    <a name="//apple_ref/swift/Property/rgbString" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Alderis@@objc(cs)UIColor(py)hbcp_rgbString">rgbString</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an RGB string that represents the color.</p>
+
+<p>The output is a string in the format of <code>rgba(170, 187, 204, 0.5)</code>, or <code>rgb(170, 187, 204)</code> if
+the color’s alpha value is <code>1</code>.</p>
+
+<p>If the color is dynamic, for instance if it is a UIKit system color, or initialised via
+<code>UIColor(dynamicProvider:)</code>, the color that matches the current trait collection is used.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="n">hbcp_rgbString</span><span class="p">)</span>
+<span class="k">var</span> <span class="nv">rgbString</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A string representing the color, in the format discussed above.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Alderis@@objc(cs)UIColor(py)hbcp_hslString"></a>
+                    <a name="//apple_ref/swift/Property/hslString" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Alderis@@objc(cs)UIColor(py)hbcp_hslString">hslString</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an HSL string that represents the color.</p>
+
+<p>The output is a string in the format of <code>hsla(170, 187, 204, 0.5)</code>, or <code>hsl(170, 187, 204)</code> if
+the color’s alpha value is <code>1</code>.</p>
+
+<p>If the color is dynamic, for instance if it is a UIKit system color, or initialised via
+<code>UIColor(dynamicProvider:)</code>, the color that matches the current trait collection is used.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="n">hbcp_hslString</span><span class="p">)</span>
+<span class="k">var</span> <span class="nv">hslString</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A string representing the color, in the format discussed above.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Alderis@@objc(cs)UIColor(py)hbcp_objcString"></a>
+                    <a name="//apple_ref/swift/Property/objcString" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Alderis@@objc(cs)UIColor(py)hbcp_objcString">objcString</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an Objective-C UIColor string that represents the color.</p>
+
+<p>The output is a string in the format of
+<code>[UIColor colorWithRed:0.667 green:0.733 blue:0.800 alpha:1.00]</code>.</p>
+
+<p>If the color is dynamic, for instance if it is a UIKit system color, or initialised via
+<code>UIColor(dynamicProvider:)</code>, the color that matches the current trait collection is used.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="n">hbcp_objcString</span><span class="p">)</span>
+<span class="k">var</span> <span class="nv">objcString</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A string representing the color, in the format discussed above.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@Alderis@@objc(cs)UIColor(py)hbcp_swiftString"></a>
+                    <a name="//apple_ref/swift/Property/swiftString" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@Alderis@@objc(cs)UIColor(py)hbcp_swiftString">swiftString</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a Swift UIColor string that represents the color.</p>
+
+<p>The output is a string in the format of
+<code>UIColor(red: 0.667, green: 0.733, blue: 0.800, alpha: 1.00)</code>.</p>
+
+<p>If the color is dynamic, for instance if it is a UIKit system color, or initialised via
+<code>UIColor(dynamicProvider:)</code>, the color that matches the current trait collection is used.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span><span class="p">(</span><span class="n">hbcp_swiftString</span><span class="p">)</span>
+<span class="k">var</span> <span class="nv">swiftString</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A string representing the color, in the format discussed above.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2022 <a class="link" href="https://hbang.github.io/" target="_blank" rel="external noopener">HASHBANG Productions</a>. All rights reserved. (Last updated: 2022-05-23)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

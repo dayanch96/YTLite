@@ -1,0 +1,16 @@
+"USE_VP9" = "VP9 사용";
+"USE_VP9_DESC" = "VP9 코덱을 활성화하면 최대 4K 해상도를 지원합니다. Apple CPU A12 이상이 탑재된 기기에서 가장 잘 작동합니다. 앱 재시작이 필요합니다.";
+"HW_VP9_SUPPORT" = "VP9 하드웨어 지원";
+
+"ALL_VP9" = "모든 해상도에서 VP9 사용";
+"ALL_VP9_DESC" = "모든 비디오 해상도에 VP9 코덱을 사용합니다. VP9 하드웨어를 지원하는 기기(A12 이상)와 YouTube 앱이 VP9 권한을 가진 경우 활성화하는 것이 좋습니다.";
+
+"DECODE_THREADS" = "디코드 스레드";
+"DECODE_THREADS_DESC" = "VP9 비디오 디코딩에 사용되는 스레드 수. 값이 높을수록 비디오 재생 성능이 향상될 수 있지만 배터리 소모도 증가할 수 있습니다.";
+"DECODE_THREADS_DEFAULT_VALUE" = "기본 값";
+
+"SKIP_LOOP_FILTER" = "Skip loop filter";
+
+"LOOP_FILTER_OPTIMIZATION" = "Loop filter optimization";
+
+"ROW_THREADING" = "Row threading";

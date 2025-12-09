@@ -1,0 +1,40 @@
+"ENABLED" = "有効";
+"ENABLED_DESC" = "A/B設定を表示するには有効にします";
+"GROUPED" = "接頭語で設定をグループ化";
+"RESET_KILL" = "リセットして終了";
+"RESET_KILL_DESC" = "タップすると変更を全てリセットしてアプリを終了します";
+"COPY_CURRENT_SETTINGS" = "現在の設定をコピー";
+"COPY_CURRENT_SETTINGS_DESC" = "タップすると現在の設定をクリップボードにコピーします";
+"VIEW_MODIFIED_SETTINGS" = "変更された設定を表示";
+"VIEW_MODIFIED_SETTINGS_DESC" = "タップすると手動で変更された設定を全て表示します";
+"IMPORT_SETTINGS" = "設定をインポート";
+"IMPORT_SETTINGS_DESC" = "リップボードから設定をインポートします。\n各設定は次の形式である必要があります: %@";
+"NOTHING_TO_IMPORT" = "クリップボードから何も見つからないか、インポート後も変更点はありません";
+"SETTINGS_TO_IMPORT" = "インポートする設定";
+"SETTINGS_TO_IMPORT_DESC" = "インポートできる有効な設定が%ld個見つかりました";
+"IMPORT" = "インポート";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "変更点";
+"TOTAL_MODIFIED_SETTINGS" = "合計: %ld";
+
+// Quit app alert
+"WARNING" = "警告";
+"APPLY_DESC" = "この操作によりYouTubeアプリが終了します。本当に続けますか？";
+
+"OPEN_MEGATHREAD" = "メガスレッドを開く";
+"OPEN_MEGATHREAD_DESC" = "GitHub上のYTABConfigメガスレッドを開きます。各フラグの有効/無効の効果について共有および議論できます。";
+"SETTINGS_START_WITH" = "次の接頭語で始まる設定";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "クリップボードにコピー";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "クリップボードにコピーしました";
+
+"REMOVED" = "(削除済み)";
+
+"REMOVE_REMOVED_SETTINGS" = "削除された設定を削除";
+"REMOVE_REMOVED_SETTINGS_DESC" = "YouTubeで利用できなくなった%ld個の設定を削除します。";

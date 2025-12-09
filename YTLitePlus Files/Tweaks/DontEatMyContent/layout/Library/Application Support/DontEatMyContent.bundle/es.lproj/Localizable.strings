@@ -1,0 +1,38 @@
+"SETTINGS_TITLE" = "DontEatMyContent";
+
+"ENABLED" = "Habilitado";
+"TWEAK_DESC" = "Evita que la Muesca/Isla dinámica corte los vídeos 2:1 (por ejemplo, los vídeos de MKBHD)";
+
+"SAFE_AREA_CONST" =  "Zona segura constante";
+"SAFE_AREA_CONST_DESC" = "Personalice esta constante para acercar o alejar el vídeo de la Muesca/Isla dinámica. Cuanto mayor sea la constante, más cerca estará el vídeo de la Muesca/Isla dinámica, y viceversa.";
+"DEFAULT" = "por defecto";
+"CHANGES_SAVED_DISMISS_VIDEO" = "Los cambios se han guardado. Si se está reproduciendo un vídeo, paralo para que los cambios surtan efecto.";
+
+"COLOR_VIEWS" = "Vistas coloreadas";
+"COLOR_VIEWS_DESC" = "Establece un fondo rojo para la vista de renderizado, verde para el contenedor de la vista de renderizado y azul para la vista del reproductor; útil para depuración.";
+
+"REPORT_ISSUE" = "Informar de un problema";
+"SOURCE_CODE" = "Ver código fuente";
+
+"CHANGES_SAVED" = "Tus cambios se han guardado";
+
+"EXIT" = "Salir";
+"LATER" = "Más tarde";
+"EXIT_YT_DESC" = "Reinicia YouTube para aplicar los cambios";
+
+"UNSUPPORTED_DEVICE" = "Este dispositivo no es compatible";
+
+"DISABLE_AMBIENT_MODE" = "Desactivar el modo ambiente en horizontal";
+"VERSION" = "Versión";
+
+"LIMIT_ZOOM_TO_FILL" = "Zoom a casi relleno (experimental)";
+"LIMIT_ZOOM_TO_FILL_DESC" = "Limita el zoom para llenar hasta la Muesca/Isla Dinámica";
+
+"ADD_TITLE" = "Añada aquí su título...";
+
+"ADVANCED" = "Avanzado";
+
+"ENABLE_FOR_ALL_VIDEOS" = "Activar para todos los vídeos (experimental)";
+"ENABLE_FOR_ALL_VIDEOS_DESC" = "Activar las restricciones de zona segura para todos los vídeos. Esto podría causar efectos no deseados. Envíe un informe de error antes de activar esta opción.";
+
+"ABOUT" = "Acerca de";

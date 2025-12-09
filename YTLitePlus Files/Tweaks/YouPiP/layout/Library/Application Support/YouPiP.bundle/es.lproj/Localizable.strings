@@ -1,0 +1,25 @@
+"SETTINGS_TITLE" = "YouPiP";
+
+"ENABLED" = "Activado";
+"ENABLED_DESC" = "Es necesario reiniciar la aplicación";
+
+"USE_PIP_BUTTON" = "Utilizar botón PiP";
+"USE_PIP_BUTTON_DESC" = "Añade un botón PiP sobre la superposición de control de vídeo para activar PiP en lugar de cerrar la aplicación";
+
+"USE_TAB_BAR_PIP_BUTTON" = "Utiliza el botón PiP de la barra de pestañas de vídeo";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "Añade un botón PiP en la barra de pestañas de vídeo para activar PiP en lugar de cerrar la aplicación. Es necesario reiniciar la aplicación";
+
+"USE_ALL_PIP" = "Activación de PiP sin restricciones";
+"USE_ALL_PIP_DESC" = "Permitir que PiP se active tocando el botón PiP de la superposición de control de vídeo, el botón PiP de la barra de pestañas de vídeo o simplemente cerrando la aplicación al mismo tiempo.";
+
+"DISABLE_PIP_MINI_PLAYER" = "Desactiva PiP para Mini Player";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "Desactiva PiP mientras se reproduce un vídeo en el minirreproductor";
+
+"LEGACY_PIP" = "PiP heredado";
+"LEGACY_PIP_DESC" = "Utiliza AVPlayerLayer para PiP. Esto supuestamente corrige el error de velocidad. Es necesario reiniciar la aplicación";
+
+"NON_BACKGROUNDABLE_PIP" = "PiP sin segundo plano";
+"NON_BACKGROUNDABLE_PIP_DESC" = "Habilita PiP para videos sin segundo plano.";
+
+// Overlay
+"POSITION" = "Posición del botón PiP";

@@ -1,0 +1,9 @@
+Package: com.bhackel.youloop
+Name: YouLoop
+Version: 1.1.0
+Architecture: iphoneos-arm
+Description: Adds a player button to enable/disable looping on the current video.
+Maintainer: bhackel
+Author: bhackel
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 11.0), com.ps.ytvideooverlay (>= 2.0.0)

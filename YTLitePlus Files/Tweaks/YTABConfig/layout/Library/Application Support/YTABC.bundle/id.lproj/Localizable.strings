@@ -1,0 +1,40 @@
+"ENABLED" = "Diaktifkan";
+"ENABLED_DESC" = "Aktifkan untuk menampilkan pengaturan A/B.";
+"GROUPED" = "Pengaturan dikelompokkan berdasarkan prefiks";
+"RESET_KILL" = "Setel ulang dan tutup";
+"RESET_KILL_DESC" = "Ketuk untuk membatalkan semua perubahan Anda dan menutup aplikasi.";
+"COPY_CURRENT_SETTINGS" = "Salin pengaturan saat ini";
+"COPY_CURRENT_SETTINGS_DESC" = "Ketuk untuk menyalin pengaturan saat ini ke papan klip.";
+"VIEW_MODIFIED_SETTINGS" = "Lihat pengaturan yang dimodifikasi";
+"VIEW_MODIFIED_SETTINGS_DESC" = "Ketuk untuk melihat semua perubahan yang Anda buat secara manual.";
+"IMPORT_SETTINGS" = "Impor pengaturan";
+"IMPORT_SETTINGS_DESC" = "Impor pengaturan dari papan klip.\nSetiap pengaturan harus dalam format ini: %@";
+"NOTHING_TO_IMPORT" = "Tidak ada yang ditemukan dari papan klip atau tidak ada perubahan setelah mengimpornya.";
+"SETTINGS_TO_IMPORT" = "Pengaturan untuk diimpor";
+"SETTINGS_TO_IMPORT_DESC" = "Ditemukan %ld pengaturan valid untuk diimpor.";
+"IMPORT" = "Impor";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "Perubahan";
+"TOTAL_MODIFIED_SETTINGS" = "Total: %ld";
+
+// Quit app alert
+"WARNING" = "Peringatan";
+"APPLY_DESC" = "Tindakan ini akan menutup YouTube. Apakah Anda yakin ingin melanjutkan?";
+
+"OPEN_MEGATHREAD" = "Buka megathread";
+"OPEN_MEGATHREAD_DESC" = "Membuka megathread YTABConfig di GitHub di mana Anda dapat berbagi dan mendiskusikan efek dari setiap flag yang diaktifkan atau dinonaktifkan.";
+"SETTINGS_START_WITH" = "Pengaturan yang dimulai dengan";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "Salin ke papan klip";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "Disalin ke papan klip.";
+
+"REMOVED" = "(Dihapus)";
+
+"REMOVE_REMOVED_SETTINGS" = "Hapus pengaturan yang dihapus";
+"REMOVE_REMOVED_SETTINGS_DESC" = "Ini akan menghapus %ld pengaturan yang tidak lagi tersedia di YouTube.";

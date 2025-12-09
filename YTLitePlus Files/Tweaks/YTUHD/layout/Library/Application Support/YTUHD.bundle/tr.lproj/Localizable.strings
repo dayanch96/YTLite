@@ -1,0 +1,16 @@
+"USE_VP9" = "VP9'u aç";
+"USE_VP9_DESC" = "4K çözünürlüğe kadar VP9 kodeğini aç. Apple A12 ve üstü cihazlarla en iyi çalışır. Uyg. yeniden başlatılmalı.";
+"HW_VP9_SUPPORT" = "Donanımsal VP9 Desteği";
+
+"ALL_VP9" = "Tüm videolar için VP9";
+"ALL_VP9_DESC" = "Tüm video çözünürlüklerinde VP9 kodeğini kullan. Donanım VP9 destekli cihazlar (A12 ve üstü) ve YouTube uygulaması VP9 yetkisine sahip olduğunda önerilir.";
+
+"DECODE_THREADS" = "Kod Çözme İş Parçacıkları";
+"DECODE_THREADS_DESC" = "VP9 video kod çözme için kullanılan iş parçacığı sayısı. Daha yüksek değerler video oynatma performansını artırabilir ancak pil tüketimini de artırabilir.";
+"DECODE_THREADS_DEFAULT_VALUE" = "Varsayılan değer";
+
+"SKIP_LOOP_FILTER" = "Skip loop filter";
+
+"LOOP_FILTER_OPTIMIZATION" = "Loop filter optimization";
+
+"ROW_THREADING" = "Row threading";

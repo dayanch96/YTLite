@@ -1,0 +1,190 @@
+// Settings
+"VERSION" = "Versiune YTLitePlus: %@";
+"VERSION_CHECK" = "Căutați actualizări";
+
+"COPY_SETTINGS" = "Copiere setări";
+"COPY_SETTINGS_DESC" = "Copie toate setările curente în clipboard";
+"PASTE_SETTINGS" = "Lipire setări";
+"PASTE_SETTINGS_DESC" = "Lipire și aplicare setări din clipboard";
+"PASTE_SETTINGS_ALERT" = "Aplicați setările din clipboard?";
+"EXPORT_SETTINGS" = "Exportă setări";
+"EXPORT_SETTINGS_DESC" = "Exportă toate setările curente într-un fișier .txt";
+"IMPORT_SETTINGS" = "Importă setări";
+"IMPORT_SETTINGS_DESC" = "Apasă pentru a importa setările (.txt)";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "Înlocuire butoane 'Copiere setări' & 'Lipire setări'";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Înlocuiește butoanele cu 'Exportă setări' și 'Importă setări'";
+
+"VIDEO_PLAYER" = "Player Video (Beta)";
+"VIDEO_PLAYER_DESC" = "Deschide un video descărcat în player-ul Apple";
+
+// Player Gestures
+"PLAYER_GESTURES_TOGGLE" = "Activare gesturi Player";
+"VOLUME" = "Volum";
+"BRIGHTNESS" = "Luminozitate";
+"SEEK" = "Derulare";
+"DISABLED" = "Dezactivat";
+"DEADZONE" = "Deadzone";
+"DEADZONE_DESC" = "Distanță minimă mișcare pentru recunoașterea gesturilor";
+"SENSITIVITY" = "Sensibilitate";
+"SENSITIVITY_DESC" = "Multiplicator gesturi volum și luminozitate";
+"PLAYER_GESTURES_TITLE" = "Gesturi Player";
+"PLAYER_GESTURES_DESC" = "Configurare gesturi orizontale pentru player";
+"TOP_SECTION" = "Secțiune Sus";
+"MIDDLE_SECTION" = "Secțiune Mijloc";
+"BOTTOM_SECTION" = "Secțiune Jos";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Activare Feedback Haptic";
+
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Opțiuni Overlay Controale Video";
+
+"ENABLE_SHARE_BUTTON" = "Activare buton Partajare";
+"ENABLE_SHARE_BUTTON_DESC" = "Activați pentru a adăuga butonul Partajare la controalele video.";
+
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Activare buton 'Salvează în Playlist'";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Activați pentru a adăuga butonul 'Salvează în Playlist' la controalele video.";
+
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "Ascunde umbră butoane Overlay";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Ascunde umbra butoanelor Play/Pauză, Înapoi, Înainte și derulare Înainte/Înapoi.";
+
+"HIDE_RIGHT_PANEL" = "Ascunde panoul lateral în modul ecran complet";
+"HIDE_RIGHT_PANEL_DESC" = "Este necesară repornirea aplicației.";
+
+"HIDE_HEATWAVES" = "Ascunde Heatwaves";
+"HIDE_HEATWAVES_DESC" = "Ascundere Heatwaves în player-ul video. Este necesară repornirea aplicației.";
+
+"DISABLE_AMBIENT_PORTRAIT" = "Dezactivare Mod Ambiental (Portret)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "Dezactivare iluminare în jurul titlului";
+
+"DISABLE_AMBIENT_FULLSCREEN" = "Dezactivare Mod Ambiental (Fullscreen)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Dezactivare iluminare în jurul player-ului";
+
+"FULLSCREEN_TO_THE_RIGHT" = "Ecran complet la dreapta";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "Ecran complet mereu cu butonul home în partea dreaptă";
+
+"SEEK_ANYWHERE" = "Gest Derulare Oriunde";
+"SEEK_ANYWHERE_DESC" = "Ține apăsat și glisează pe player pentru derulare. Trebuie dezactivată opțiunea YTLite - Hold to speed";
+
+"ENABLE_TAP_TO_SEEK" = "Activare Apasă Pentru Derulare";
+"ENABLE_TAP_TO_SEEK_DESC" = "Sari oriunde în video prin apăsarea bării de derulare";
+
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Dezactivare gest intrare fullscreen";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Dezactivează gestul de tragere în jos pentru a intra în fullscreen. Se aplică doar videoclipurilor în mod landscape";
+
+"ALWAYS_USE_REMAINING_TIME" = "Utilizează mereu timp rămas";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "Modifică setarea implicită pentru a arăta timpul rămas în bara player-ului";
+
+"DISABLE_TOGGLE_TIME_REMAINING" = "Dezactivare comutator timp rămas";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Dezactivează schimbarea afișării timpului scurs la timp rămas. Utilizați cu setarea 'Utilizează mereu timp rămas' pentru a arăta mereu timpul rămas";
+
+"DISABLE_ENGAGEMENT_OVERLAY" = "Dezactivare secțiune 'Mai multe videoclipuri'";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Dezactivare gestul de glisare în sus și clipurile sugerate în fullscreen";
+
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Ascundere comentarii sub player";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Ascunde comentariile ce apar în butonul pentru secțiunea de comentarii";
+
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Ascundere mini preview redare automată";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Ascunde secțiunea 'Urmează' din apropierea titlului în fullscreen";
+
+"HIDE_HUD_MESSAGES" = "Ascundere Mesaje HUD";
+"HIDE_HUD_MESSAGES_DESC" = "Exemplu: Subtitrările sunt activate/dezactivate, Redarea în buclă este activată,...";
+
+"HIDE_COLLAPSE_BUTTON" = "Ascundere Buton Collapse";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Ascunde butonul de minimizare Player Video din colțul dreapta sus";
+
+"HIDE_SPEED_TOAST" = "Ascundere Notificare Viteză";
+"HIDE_SPEED_TOAST_DESC" = "Ascunde notificarea de viteză 2X la menținerea ecranului apăsat în timpul redării";
+
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "Opțiuni Overlay Setări Aplicație";
+
+"HIDE_ACCOUNT_SECTION" = "Ascunde secțiunea \"Cont\"";
+"HIDE_AUTOPLAY_SECTION" = "Ascunde secțiunea \"Redare automată\"";
+"HIDE_TRYNEWFEATURES_SECTION" = "Ascunde secțiunea \"Încearcă funcții noi\"";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Ascunde secțiunea \"Preferințe privind calitatea video\"";
+"HIDE_NOTIFICATIONS_SECTION" = "Ascunde secțiunea \"Notificări\"";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Ascunde secțiunea \"Gestionează întregul istoric\"";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Ascunde secțiunea \"Datele tale din YouTube\"";
+"HIDE_PRIVACY_SECTION" = "Ascunde secțiunea \"Confidențialitate\"";
+"HIDE_LIVECHAT_SECTION" = "Ascunde secțiunea \"Chat live\"";
+
+// Theme
+"THEME_OPTIONS" = "Opțiuni temă";
+
+"OLED_DARK_THEME" = "Mod Întunecat OLED";
+"OLED_DARK_THEME_2" = "Mod Întunecat OLED";
+"OLED_DARK_THEME_DESC" = "Este posibil să nu funcționeze corect în anumite cazuri. Este necesară repornirea aplicației după ce această opțiune este activată/dezactivată.";
+
+"OLD_DARK_THEME" = "Mod întunecat vechi";
+"OLD_DARK_THEME_DESC" = "Tema întunecată veche (gri) a YouTube-ului. Este necesară repornirea aplicației.";
+
+"DEFAULT_THEME" = "Temă implicită";
+"DEFAULT_THEME_DESC" = "Tema întunecată implicită a YouTube-ului. Este necesară repornirea aplicației.";
+
+"OLED_KEYBOARD" = "Tastatură OLED";
+"OLED_KEYBOARD_DESC" = "Este posibil să nu funcționeze corect în anumite cazuri. Este necesară repornirea aplicației.";
+
+"LOW_CONTRAST_MODE" = "Mod Contrast Scăzut";
+"LOW_CONTRAST_MODE_DESC" = "Această opțiune va scădea contrastul textului și butoanelor, similar cu interfața veche YouTube. Este necesară repornirea aplicației.";
+"LCM_SELECTOR" = "Selecție Mod Contrast Scăzut";
+"DEFAULT_LOWCONTRASTMODE" = "(Implicit) LowContrastMode";
+"CUSTOM_LOWCONTRASTMODE" = "(Culoare personalizată) LowContrastMode";
+
+// Miscellaneous
+"MISCELLANEOUS" = "Diverse";
+
+"PLAYBACK_IN_FEEDS" = "Redare în feeduri";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Activat mereu";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Numai prin Wi-Fi";
+"PLAYBACK_IN_FEEDS_OFF" = "Dezactivat";
+
+"NEW_SETTINGS_UI" = "Interfață Nouă Setări";
+"NEW_SETTINGS_UI_DESC" = "Utilizează noua interfață pentru setări. Este posibil ca unele setări să fie ascunse";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "Activare animație de pornire YouTube";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"HIDE_MODERN_INTERFACE" = "Ascundere Interfață Modernă (YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "Activați pentru a ascunde orice Element Modern adăugat de YouTube. Șterge Mod Ambiental, Design Rotunjit, etc. Este necesară repornirea aplicației.";
+
+"IPAD_LAYOUT" = "Aspect iPad";
+"IPAD_LAYOUT_DESC" = "Activați doar dacă doriți să aveți aspectul de pe iPad pe iPhone/iPod-ul dvs. Este necesară repornirea aplicației.";
+
+"IPHONE_LAYOUT" = "Aspect iPhone";
+"IPHONE_LAYOUT_DESC" = "Activați doar dacă doriți să aveți aspectul de pe iPhone pe iPad-ul dvs. Este necesară repornirea aplicației.";
+
+"CAST_CONFIRM" = "Alertă de confirmare înainte de proiectare (YTCastConfirm)";
+"CAST_CONFIRM_DESC" = "Afișează o alertă de confirmare înainte de a proiecta, pentru a preveni deturnarea accidentală a TV-ului.";
+"CASTING" = "Proiectare";
+"MSG_ARE_YOU_SURE" = "Sunteți sigur că doriți să proiectați?";
+"MSG_YES" = "Da";
+"MSG_CANCEL" = "Anulare";
+
+"NEW_MINIPLAYER_STYLE" = "Stil nou bară Miniplayer (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE_DESC" = "Este necesară repornirea aplicației.";
+
+"HIDE_CAST_BUTTON" = "Ascundere buton Proiectare";
+"HIDE_CAST_BUTTON_DESC" = "Este necesară repornirea aplicației.";
+
+"VIDEO_PLAYER_BUTTON" = "Buton Player Video";
+"VIDEO_PLAYER_BUTTON_DESC" = "Arată un buton în bara de navigație pentru a deschide videoul descărcat în player-ul Apple";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "Ascundere buton iSponsorBlock în bara de navigație";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
+
+"HIDE_HOME_TAB" = "Ascunde Tabul Acasă";
+"HIDE_HOME_TAB_DESC" = "Ai grijă să nu ascunzi toate taburile";
+
+"FIX_CASTING" = "Repară Casting";
+"FIX_CASTING_DESC" = "Modifică unii parametri A/B pentru a repara castingul";
+
+"ENABLE_FLEX" = "Activare FLEX";
+"ENABLE_FLEX_DESC" = "Activați FLEX pentru depanare (nerecomandat). Lăsați această opțiune dezactivată dacă nu știți ce faceți.";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "Activare Spoofer Versiune Aplicație (Lite)";
+"APP_VERSION_SPOOFER_LITE_DESC" = "Activați pentru a utiliza Version Spoofer (Lite) și alegeți versiunea preferată. Este necesară repornirea aplicației.";
+"VERSION_SPOOFER_TITLE" = "Version Spoofer Picker";
+
+// Other Localization
+"APP_RESTART_DESC" = "Este necesară repornirea aplicației.";
+"CHANGE_APP_ICON" = "Schimbă iconița aplicației";

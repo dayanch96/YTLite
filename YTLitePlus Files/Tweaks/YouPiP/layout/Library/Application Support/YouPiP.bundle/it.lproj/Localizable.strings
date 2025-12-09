@@ -1,0 +1,25 @@
+"SETTINGS_TITLE" = "YouPiP";
+
+"ENABLED" = "Enabled";
+"ENABLED_DESC" = "È richiesto un riavvio dell'app.";
+
+"USE_PIP_BUTTON" = "Usa Bottone PiP";
+"USE_PIP_BUTTON_DESC" = "Aggiunge un bottone PiP tra i controlli in sovrimpressione al video per attivare il PiP invece di chiudere l'app.";
+
+"USE_TAB_BAR_PIP_BUTTON" = "Usa Bottone PiP nella Barra dei Tab";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "Aggiunge un bottone PiP nella Barra dei Tab per attivare il PiP invece di chiudere l'app. È richiesto un riavvio dell'app.";
+
+"USE_ALL_PIP" = "Attivazione PiP senza restrizioni";
+"USE_ALL_PIP_DESC" = "Consenti di attivare PiP toccando il pulsante PiP nella sovrimpressione dei controlli video, il pulsante PiP nella barra dei tab video o semplicemente chiudendo l'app contemporaneamente.";
+
+"DISABLE_PIP_MINI_PLAYER" = "Disattiva PiP per Mini Player";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "Disattiva PiP durante la riproduzione nel mini player.";
+
+"LEGACY_PIP" = "Legacy PiP";
+"LEGACY_PIP_DESC" = "Usa AVPlayerLayer per PiP. Questo presumibilmente risolve il bug di accelerazione. È richiesto un riavvio dell'app.";
+
+"NON_BACKGROUNDABLE_PIP" = "Non sullo sfondo PiP";
+"NON_BACKGROUNDABLE_PIP_DESC" = "Attiva PiP per i video che non possono essere messi sullo sfondo.";
+
+// Overlay
+"POSITION" = "Posizione del bottone PiP";

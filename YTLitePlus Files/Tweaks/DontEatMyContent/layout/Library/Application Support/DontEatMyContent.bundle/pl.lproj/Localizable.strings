@@ -1,0 +1,38 @@
+"SETTINGS_TITLE" = "Nie ograniczaj widoku";
+
+"ENABLED" = "Włączone";
+"TWEAK_DESC" = "Zapobiega wcięciu (dynamicznej wyspy) dla filmów w formacie 2:1 (np. filmy MKBHD)";
+
+"SAFE_AREA_CONST" =  "Rozmiar wykluczonego obszaru";
+"SAFE_AREA_CONST_DESC" = "Dostosuj wartość aby przesunąć wideo niżej lub wyżej od góry ekranu. Im większa wartość tym bliżej góry będzie wideo";
+"DEFAULT" = "domyślnie";
+"CHANGES_SAVED_DISMISS_VIDEO" = "Twoje zmiany zostały zapisane. Jeśli wideo jest aktualnie odtwarzane, zamknij je aby zmiany zostały zastosowane";
+
+"COLOR_VIEWS" = "Pokaż kolorowe tło do debugowania";
+"COLOR_VIEWS_DESC" = "Ustawia czerwone tło dla widoku renderowania, zielone dla kontenera widoku renderowania i niebieskie dla widoku odtwarzacza";
+
+"REPORT_ISSUE" = "Zgłoś błąd";
+"SOURCE_CODE" = "Zobacz kod źródłowy";
+
+"CHANGES_SAVED" = "Twoje zmiany zostały zapisane";
+
+"EXIT" = "Wyjdź";
+"LATER" = "Później";
+"EXIT_YT_DESC" = "Uruchom ponownie aplikację aby wprowadzić zmiany";
+
+"UNSUPPORTED_DEVICE" = "To urządzenie nie jest obsługiwane";
+
+"DISABLE_AMBIENT_MODE" = "Wyłącz tryb ambient w poziomym odtwarzaczu";
+"VERSION" = "Wersja";
+
+"LIMIT_ZOOM_TO_FILL" = "Powiększ do prawie pełnego (eksperymentalne)";
+"LIMIT_ZOOM_TO_FILL_DESC" = "Ogranicza powiększenie do wypełnienia (Dynamicznej Wyspy)";
+
+"ADD_TITLE" = "Dodaj swój tytuł tutaj...";
+
+"ADVANCED" = "Zaawansowane";
+
+"ENABLE_FOR_ALL_VIDEOS" = "Włącz dla wszystkich filmów (eksperymentalne)";
+"ENABLE_FOR_ALL_VIDEOS_DESC" = "Włącz ograniczenia bezpiecznego obszaru dla wszystkich filmów. Może to spowodować niezamierzone efekty. Przed włączeniem tej opcji zgłoś błąd";
+
+"ABOUT" = "O dodatku";

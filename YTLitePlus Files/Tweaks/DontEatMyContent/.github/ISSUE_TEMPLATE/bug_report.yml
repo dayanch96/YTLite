@@ -1,0 +1,78 @@
+name: Bug report
+description: Report a bug
+title: "[v<TWEAK_VERSION>] <TITLE>"
+labels: bug
+
+body:
+
+- type: checkboxes
+  attributes:
+    label: Have you checked existing issues?
+    description: "**⚠️ IMPORTANT:** Please review [existing issues](https://github.com/therealFoxster/DontEatMyContent/issues) before filing this report. You might find workarounds/solutions to the issue you're facing there too! **Duplicated issues will be closed without further explanation!**"
+    options:
+    - label: Yes, I've checked existing issues.
+      required: true
+
+- type: input
+  attributes:
+    label: iOS version
+    description: Settings > About > iOS Version
+    placeholder: e.g., 18.5
+  validations:
+    required: true
+
+- type: input
+  attributes:
+    label: YouTube app version
+    description: YouTube > Settings > About > Version
+    placeholder: e.g., 19.21.3
+  validations:
+    required: true
+
+# - type: input
+#   id: tweak_version
+#   attributes:
+#     label: DontEatMyContent version
+#     description:
+#     placeholder: e.g., 1.1.10
+#   validations:
+#     required: true
+
+# - type: textarea
+#   attributes:
+#     label: IPA source
+#     description: How did you get the YouTube IPA?
+#   validations:
+#     required: true
+
+- type: textarea
+  attributes:
+    label: Description
+    description: Describe the issue
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Steps to reproduce
+    description: Please attach videos or screenshots if possible
+    value: |
+        1. 
+        2. 
+  validations:
+    required: true
+
+- type: textarea
+  id: logs
+  attributes:
+    label: Crash log
+    description: If the app crashes, **please provide the crash log**. It can be found in Settings > Privacy & Security > Analytics & Improvements > Analytics Data > Youtube-YYYY-MM-DD-hhmmss.ips
+    render: shell
+  validations:
+    required: false
+
+- type: textarea
+  attributes:
+    label: Additional context
+  validations:
+    required: false

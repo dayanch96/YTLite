@@ -1,0 +1,16 @@
+"USE_VP9" = "使用 VP9 編碼";
+"USE_VP9_DESC" = "支援 4K 解析度的 VP9 編解碼器並且建議使用 A12 晶片（含）以上的機型。需重新啟動應用程式。";
+"HW_VP9_SUPPORT" = "硬體 VP9 編碼支援狀態";
+
+"ALL_VP9" = "所有解析度使用 VP9";
+"ALL_VP9_DESC" = "所有影片解析度使用 VP9 編解碼器。建議在硬體支援 VP9 的裝置（A12 及以上）且 YouTube 應用程式具有 VP9 權限時啟用。";
+
+"DECODE_THREADS" = "解碼執行緒";
+"DECODE_THREADS_DESC" = "用於 VP9 視頻解碼的執行緒數量。較高的值可能會提高視頻播放性能，但也可能增加電池消耗。";
+"DECODE_THREADS_DEFAULT_VALUE" = "預設值";
+
+"SKIP_LOOP_FILTER" = "Skip loop filter";
+
+"LOOP_FILTER_OPTIMIZATION" = "Loop filter optimization";
+
+"ROW_THREADING" = "Row threading";

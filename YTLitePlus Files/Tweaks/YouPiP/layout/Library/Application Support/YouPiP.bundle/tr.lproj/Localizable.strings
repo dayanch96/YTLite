@@ -1,0 +1,25 @@
+"SETTINGS_TITLE" = "YouPiP";
+
+"ENABLED" = "Etkinleştir";
+"ENABLED_DESC" = "Uygulamanın yeniden başlatılması gerekir.";
+
+"USE_PIP_BUTTON" = "PiP Düğmesini Kullan";
+"USE_PIP_BUTTON_DESC" = "Uygulamayı kapatmak yerine PiP'yi etkinleştirmek için video kontrol katmanının üzerine bir PiP düğmesi ekler.";
+
+"USE_TAB_BAR_PIP_BUTTON" = "Video Sekme Çubuğu PiP Düğmesini Kullan";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "Uygulamayı arkaplana almak yerine PiP'yi etkinleştirmek için video sekme çubuğuna bir PiP düğmesi ekler. Uygulamanın yeniden başlatılması gerekir.";
+
+"USE_ALL_PIP" = "Sınırsız PiP Etkinleştirme";
+"USE_ALL_PIP_DESC" = "PiP'yi video kontrol katmanı PiP düğmesine, video sekme çubuğu PiP düğmesine dokunarak veya uygulamayı kapatarak aynı anda etkinleştirmeye izin verir.";
+
+"DISABLE_PIP_MINI_PLAYER" = "Mini Oynatıcı için PiP'yi Devre Dışı Bırak";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "Mini oynatıcıda video oynatırken PiP'yi devre dışı bırakır.";
+
+"LEGACY_PIP" = "Eski PiP";
+"LEGACY_PIP_DESC" = "PiP için AVPlayerLayer kullanır. Bu, hızlandırma hatasını düzelttiği bildirilmektedir. Uygulamanın yeniden başlatılması gerekir.";
+
+"NON_BACKGROUNDABLE_PIP" = "Arkaplansız PiP";
+"NON_BACKGROUNDABLE_PIP_DESC" = "Arkaplansız video için PiP'yi etkinleştirir.";
+
+// Overlay
+"POSITION" = "PiP düğme konumu";

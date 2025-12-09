@@ -1,0 +1,15 @@
+"HOLD_FOR_SPEED" = "Hold for speed";
+"NORMAL" = "標準";
+"X_SECONDS" = "%@ 秒";
+"HOLD_GESTURE" = "ホールドジェスチャー";
+"HOLD_GESTURE_DESC" = "動画プレーヤーをタップし続けると、再生速度が「標準」(1.0倍)と選択した切り替え速度の間で切り替わります。\n\nこの機能を有効にすると、標準の長押しジェスチャーが無効になることに注意してください。";
+"DISABLE_STOCK_GESTURES" = "標準のジェスチャーを無効化";
+"DISABLE_STOCK_GESTURES_DESC" = "動画プレーヤー標準の長押しジェスチャーを無効化します。\n\nホールドジェスチャーが有効な場合、標準のジェスチャーは自動的に無効化されます。";
+"AUTO_APPLY_SPEED" = "再生速度を自動的に適用";
+"AUTO_APPLY_SPEED_DESC" = "新しく動画プレーヤーが起動した時に、選択した再生速度が自動で適用されます。";
+"TOGGLE_SPEED" = "再生速度の切り替え";
+"TOGGLE_SPEED_DESC" = "ホールドジェスチャーした時に動画プレーヤーが切り替える再生速度です。";
+"HOLD_DURATION" = "長押しの時間";
+"HOLD_DURATION_DESC" = "動画プレーヤーが再生速度を切り替えるために必要な長押し時間(秒)です。";
+"HAPTIC_FEEDBACK" = "触覚フィードバック";
+"HAPTIC_FEEDBACK_DESC" = "再生速度が切り替わったことを示す際に触覚フィードバックを使用します。";

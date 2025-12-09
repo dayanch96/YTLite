@@ -1,0 +1,88 @@
+/* iSponsorBlock Settings */
+"Enabled" = "启用";
+"RestartFooter" = "请重启 YouTube 来应用更改。";
+
+"Sponsor" = "赞助商广告";
+"Intermission/IntroAnimation" = "中场/开场动画";
+"Intermission" = "过场";
+"Endcards/Credits" = "片尾卡片/名单";
+"Outro" = "片尾";
+"InteractionReminder" = "观众互动（订阅）";
+"InteractionReminder_Subcribe/Like" = "观众互动（订阅/点赞）";
+"Interaction" = "互动";
+"Unpaid/SelfPromotion" = "无偿/自我宣传";
+"SelfPromo" = "自我宣传";
+"Non-MusicSection" = "音乐视频：非音乐时段";
+"Non-Music" = "非音乐时段";
+"Preview" = "Preview";
+"SponsorBlockUserID" = "SponsorBlock 用户 ID";
+"SponsorBlockAPIInstance" = "SponsorBlock API";
+
+"Disable" = "不跳过";
+"AutoSkip" = "自动跳过";
+"ShowInSeekBar" = "在进度条中显示";
+"ManualSkip" = "手动跳过";
+"SetColorToShowInSeekBar" = "进度条指示颜色";
+
+"UserID" = "用户 ID：";
+"UserIDFooter" = "请在此输入您想使用的自定义 SponsorBlock 用户 ID。如果您不熟悉此功能，请使用默认设置。";
+"API_URL" = "API 地址：";
+"APIFooter" = "请在此输入您想使用的自定义 SponsorBlock API 地址。如果您不熟悉此功能，请使用默认设置。示例：https://sponsor.ajay.app/api。";
+"MinimumSegmentDuration" = "最短可跳过时段时长（秒）：";
+"HowLongNoticeWillAppear" = "跳过提示窗显示时长（秒）：";
+"ShowSkipNotice" = "跳过提示窗";
+"ShowButtonsInPlayer" = "在视频播放器中显示 iSponsorBlock 按钮";
+"HideStartEndButtonInPlayer" = "隐藏视频播放器中的时段开始/结束按钮";
+"ShowModifiedTime" = "显示缩短后视频时长";
+"AudioNotificationOnSkip" = "跳过提示音";
+"AudioFooter" = "静音模式下不可用。";
+"EnableSkipCountTracking" = "记录已跳过次数";
+"DonateOnVenmo" = "在 Venmo 上捐助";
+"DonateOnPayPal" = "在 PayPal 上捐助";
+
+/* Segments stuff */
+"SegmentStartsNow" = "时段开始";
+"SegmentEndsNow" = "时段结束";
+"WhitelistChannel" = "本频道不跳过";
+"SegmentsInDatabase" = "以下时段已在数据库中：";
+"YourSegments" = "您的时段：";
+"SubmitSegments" = "提交时段";
+"SuccessfullySubmittedSegments" = "提交时段成功";
+"EndTimeLessThanStartTime" = "结束时间不可设置在开始时间之前。请将结束时间调整到此时间戳之后："; //Example: ..., Please Select a Time After 10:15
+"UnfinishedSegments" = "您有尚未完成的时段，\n请确认是否已设置分类和结束时间。";
+"EditStartTime" = "调整开始时间";
+"EditStartTime_Desc" = "请输入开始时间（示例：1:15）";
+"EditEndTime" = "调整结束时间";
+"EditEndTime_Desc" = "请输入结束时间（示例：1:15）";
+"From" = ""; // Time. Example: From 1:15 to 3:00. If you dont need it, just leave empty
+"to" = "至"; // Time. Example: From 1:15 to 3:00
+"EditCategory" = "更改分类";
+"EditSegment" = "编辑时段";
+"Edit" = "编辑";
+"Error" = "错误";
+"ErrorCode" = "错误代码";
+"Success" = "成功";
+"OK" = "确定";
+"Cancel" = "取消";
+"Delete" = "删除";
+"Upvote" = "好评";
+"Downvote" = "差评";
+"VoteToChangeCategory" = "投票纠正分类";
+"VoteOnSegment" = "为时段评分";
+"SuccessfullyVoted" = "投票成功";
+"ErrorVoting" = "投票出错";
+
+/* Pop-ups*/
+"ManuallySkipReminder" = "点击跳过%@时段：%ld:%02ld 至 %ld:%02ld";
+"Skip" = "跳过";
+"SkippedSegment" = "已自动跳过%@时段";
+"Unskip" = "撤消跳过";
+
+/* Segments in pop-ups*/
+"sponsor" = "广告";
+"intro" = "开场";
+"outro" = "片尾";
+"interaction" = "互动";
+"selfpromo" = "自我宣传";
+"music_offtopic" = "非音乐";
+"preview" = "preview";

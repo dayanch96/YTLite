@@ -1,0 +1,40 @@
+"ENABLED" = "Engedélyezve";
+"ENABLED_DESC" = "Engedélyezze az A/B beállítások megjelenítését.";
+"GROUPED" = "A beállítások előtagok szerint csoportosítva";
+"RESET_KILL" = "Visszaállítás és Leállítás";
+"RESET_KILL_DESC" = "Koppintson az összes módosítás visszavonásához és az alkalmazás leállításához.";
+"COPY_CURRENT_SETTINGS" = "Az aktuális beállítások másolása";
+"COPY_CURRENT_SETTINGS_DESC" = "Érintse meg az aktuális beállítások vágólapra másolásához.";
+"VIEW_MODIFIED_SETTINGS" = "A módosított beállítások megtekintése";
+"VIEW_MODIFIED_SETTINGS_DESC" = "Érintse meg az összes manuális módosítás megtekintéséhez.";
+"IMPORT_SETTINGS" = "Beállítások importálása";
+"IMPORT_SETTINGS_DESC" = "Importálja a beállításokat a vágólapról.\nMinden beállításnak ebben a formátumban kell lennie: %@";
+"NOTHING_TO_IMPORT" = "Nem található semmi a vágólapon, vagy nem lesz változás az importálás után.";
+"SETTINGS_TO_IMPORT" = "Importálandó beállítások";
+"SETTINGS_TO_IMPORT_DESC" = "Talált %ld érvényes beállítást az importáláshoz.";
+"IMPORT" = "Importálás";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "Változtatások";
+"TOTAL_MODIFIED_SETTINGS" = "Teljes: %ld";
+
+// Quit app alert
+"WARNING" = "Figyelem";
+"APPLY_DESC" = "Ez a művelet kilépteti a YouTube-ot. Biztosan folytatni szeretné?";
+
+"OPEN_MEGATHREAD" = "Megaszál megnyitása";
+"OPEN_MEGATHREAD_DESC" = "Nyissa meg az YTABConfig megaszálat a GitHubon, ahol megoszthatja és megvitathatja az egyes jelzők engedélyezésének vagy letiltásának hatását.";
+"SETTINGS_START_WITH" = "A következővel kezdődő beállítások:";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "Másolás a vágólapra";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "Vágólapra másolva.";
+
+"REMOVED" = "(Eltávolítva)";
+
+"REMOVE_REMOVED_SETTINGS" = "Eltávolított beállítások törlése";
+"REMOVE_REMOVED_SETTINGS_DESC" = "Ez törölni fogja a(z) %ld beállítást, amelyek már nem érhetők el a YouTube-ban.";

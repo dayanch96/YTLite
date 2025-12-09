@@ -1,0 +1,13 @@
+"SETTINGS_TITLE" = "Return YouTube Dislike";
+
+"ENABLED" = "啟用";
+"ENABLE_VOTE_SUBMIT" = "將按下\"讚/爛\"上傳";
+"ENABLE_VOTE_SUBMIT_DESC" = "允許將您在影片/Shorts中按下的 \"讚/爛\" 資料使用匿名ID上傳至 %@。";
+"EXACT_LIKE_NUMBER" = "顯示精確\"讚\"數字";
+"EXACT_DISLIKE_NUMBER" = "顯示精確\"爛\"數字";
+"EXACT_DISLIKE_NUMBER_DESC" = "將\"爛\"的數字加上千位分隔符號. 例如: %@ -> %@.";
+"RAW_DATA" = "原始爛數據";
+"RAW_DATA_DESC" = "僅使用來自使用RYD瀏覽器擴展或此調整的人的爛數據。";
+
+// On app launch
+"WANT_TO_ENABLE" = "您願意將按下的\"讚/爛\"資料上傳到 %@ 嗎? 您稍後可以在設定中關閉 > %@ > %@.";

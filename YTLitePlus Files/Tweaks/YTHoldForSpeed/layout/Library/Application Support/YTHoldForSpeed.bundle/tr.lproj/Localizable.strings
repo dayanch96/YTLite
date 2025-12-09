@@ -1,0 +1,17 @@
+// Settings
+
+"HOLD_FOR_SPEED" = "Hız için basılı tut";
+"NORMAL" = "Normal";
+"X_SECONDS" = "%@ saniye";
+"HOLD_GESTURE" = "Basılı tutma hareketi";
+"HOLD_GESTURE_DESC" = "Video oynatıcıda herhangi bir yere dokun ve basılı tut, oynatma hızını \"Normal\" (1.0x) ve seçilen hız arasında değiştir.\n\nBu özelliği açtığında, varsayılan basılı tutma hareketi devre dışı kalır.";
+"DISABLE_STOCK_GESTURES" = "Varsayılan hareketleri devre dışı bırak";
+"DISABLE_STOCK_GESTURES_DESC" = "Video oynatıcıdaki varsayılan basılı tutma hareketlerini devre dışı bırak.\n\nBasılı tutma hareketi etkinse, varsayılan hareketler otomatik olarak devre dışı kalır.";
+"AUTO_APPLY_SPEED" = "Hızı otomatik uygula";
+"AUTO_APPLY_SPEED_DESC" = "Etkinleştirildiğinde, seçilen oynatma hızı yeni bir video oynatıcı açıldığında otomatik olarak uygulanır.";
+"TOGGLE_SPEED" = "Hız değiştir";
+"TOGGLE_SPEED_DESC" = "Basılı tutma hareketi çağrıldığında, video oynatıcının hızını değiştireceği hız.";
+"HOLD_DURATION" = "Basılı tutma süresi";
+"HOLD_DURATION_DESC" = "Video oynatıcının hızını değiştirmek için gerekli olan basılı tutma süresi (saniye).";
+"HAPTIC_FEEDBACK" = "Haptik geri bildirim";
+"HAPTIC_FEEDBACK_DESC" = "Video oynatıcının hızının değiştirildiğini belirtmek için haptik geri bildirim kullan.";

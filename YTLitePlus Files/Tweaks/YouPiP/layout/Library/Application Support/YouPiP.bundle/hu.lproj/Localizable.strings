@@ -1,0 +1,25 @@
+"SETTINGS_TITLE" = "YouPiP";
+
+"ENABLED" = "Engedélyezve";
+"ENABLED_DESC" = "Az alkalmazás újraindítása szükséges.";
+
+"USE_PIP_BUTTON" = "Használja a PiP gombot";
+"USE_PIP_BUTTON_DESC" = "Adjon hozzá egy PiP gombot a videovezérlő fedvényéhez, hogy aktiválja a kép a képben funkciót az alkalmazás elvetése helyett.";
+
+"USE_TAB_BAR_PIP_BUTTON" = "Használja a Video Tab Bar PiP gombot";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "Hozzáad egy PiP gombot a videó lap sávjához a kép a képben funkció aktiválásához az alkalmazás elvetése helyett. Az alkalmazás újraindítása szükséges.";
+
+"USE_ALL_PIP" = "Korlátlan PiP aktiválás";
+"USE_ALL_PIP_DESC" = "Engedélyezze a PiP aktiválását a videovezérlő fedvény PiP gombjának megérintésével, a videó lap sáv PiP gombjával, vagy egyszerűen az alkalmazás elvetésével egyidejűleg.";
+
+"DISABLE_PIP_MINI_PLAYER" = "A PiP letiltása a Mini Player számára";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "Letiltja a PiP-t videó lejátszása közben a minilejátszóban.";
+
+"LEGACY_PIP" = "Legacy PiP";
+"LEGACY_PIP_DESC" = "AVPlayerLayer használata PiP-hez. Ez állítólag javítja a gyorsítási hibát. Az alkalmazás újraindítása szükséges.";
+
+"NON_BACKGROUNDABLE_PIP" = "Háttérben nem használható PiP";
+"NON_BACKGROUNDABLE_PIP_DESC" = "Engedélyezi a PiP-t a nem háttérrel ellátott videókhoz.";
+
+// Overlay
+"POSITION" = "PiP gomb pozíciója";

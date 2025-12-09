@@ -1,0 +1,13 @@
+"SETTINGS_TITLE" = "Return YouTube Dislike";
+
+"ENABLED" = "Engedélyezve";
+"ENABLE_VOTE_SUBMIT" = "Szavazatküldés engedélyezése";
+"ENABLE_VOTE_SUBMIT_DESC" = "Engedélyezze egyedi névtelen azonosítójának és videóinak/rövidfilmjének tetszésnyilvánítási/nemtetszési adatainak elküldését a %@ címre.";
+"EXACT_LIKE_NUMBER" = "Pontos like számok";
+"EXACT_DISLIKE_NUMBER" = "Pontos dislike számok";
+"EXACT_DISLIKE_NUMBER_DESC" = "A pontos dislike számok megjelenítése. Például: %@ -> %@.";
+"RAW_DATA" = "Nyers dislike adatok";
+"RAW_DATA_DESC" = "Csak azoknak az embereknek a dislike adatait használja, akik az RYD böngészőbővítményt vagy ezt a tweak-et használják.";
+
+// On app launch
+"WANT_TO_ENABLE" = "Engedélyezi a tetszésnyilvánítási/nemtetszésnyilvánítási adatok elküldését a %@ számára? Később letilthatja a Beállítások > %@ > %@ menüpontban.";

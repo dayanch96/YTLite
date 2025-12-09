@@ -1,0 +1,3 @@
+[submodule "YTHeaders"]
+	path = YTHeaders
+	url = https://github.com/therealFoxster/YTHeaders

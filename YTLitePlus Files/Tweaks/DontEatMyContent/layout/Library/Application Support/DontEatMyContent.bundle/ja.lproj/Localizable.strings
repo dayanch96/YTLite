@@ -1,0 +1,38 @@
+"SETTINGS_TITLE" = "DontEatMyContent";
+
+"ENABLED" = "有効";
+"TWEAK_DESC" = "ノッチやダイナミックアイランドが2:1の動画(例:MKBHDの動画)に干渉しないようにします。";
+
+"SAFE_AREA_CONST" =  "安全領域の定数";
+"SAFE_AREA_CONST_DESC" = "この定数をカスタマイズして、動画をノッチやダイナミックアイランドからより近づけるかより離れさせることができます。\n定数が大きいほど動画はノッチやダイナミックアイランドに近くなります。逆に、定数が小さいほど動画はより遠くに配置されます。";
+"DEFAULT" = "デフォルト";
+"CHANGES_SAVED_DISMISS_VIDEO" = "変更が保存されました。動画を再生中の場合、変更を反映させるために動画を閉じてください。";
+
+"COLOR_VIEWS" = "カラー付きビュー";
+"COLOR_VIEWS_DESC" = "レンダリングビューには赤色、レンダリングビューコンテナには緑色、プレーヤービューには青色の背景を設定します。デバッグに便利です。";
+
+"REPORT_ISSUE" = "問題を報告する";
+"SOURCE_CODE" = "ソースコードを表示";
+
+"CHANGES_SAVED" = "変更が保存されました";
+
+"EXIT" = "終了する";
+"LATER" = "後で";
+"EXIT_YT_DESC" = "変更を適用するためにYouTubeを再起動します";
+
+"UNSUPPORTED_DEVICE" = "このデバイスはサポートされていません";
+
+"DISABLE_AMBIENT_MODE" = "横向き時のアンビエントモードを無効にする";
+"VERSION" = "Version";
+
+"LIMIT_ZOOM_TO_FILL" = "ほぼいっぱいにズーム (実験的)";
+"LIMIT_ZOOM_TO_FILL_DESC" = "ズームをノッチ/ダイナミックアイランドまで制限します";
+
+"ADD_TITLE" = "ここにタイトルを追加...";
+
+"ADVANCED" = "詳細";
+
+"ENABLE_FOR_ALL_VIDEOS" = "すべての動画で有効にする (実験的)";
+"ENABLE_FOR_ALL_VIDEOS_DESC" = "すべての動画で安全領域の制約を有効にします。意図しない影響が生じる可能性があります。\nこのオプションを有効にする前に、バグレポートを提出してください。";
+
+"ABOUT" = "About";

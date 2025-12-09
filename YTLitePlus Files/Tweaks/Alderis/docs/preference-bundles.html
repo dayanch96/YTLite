@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Preference Bundles  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a title="Preference Bundles  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">Alderis 1.2 Docs</a></p>
+        <p class="header-right"><a href="https://github.com/hbang/Alderis"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fhbang.github.io%2FAlderis%2Fdocsets%2FAlderis.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
+        <div class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">Alderis Reference</a>
+        <img id="carat" src="img/carat.png" alt=""/>
+        Preference Bundles  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="preference-bundles.html">Preference Bundles</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="migrating-to-11.html">Migrating to 1.1</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Color%20Picker.html">Color Picker</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/ColorPickerViewController.html">ColorPickerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ColorPickerConfiguration.html">ColorPickerConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ColorPickerDelegate.html">ColorPickerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/ColorPickerTab.html">ColorPickerTab</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="UI%20Components.html">UI Components</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/ColorWell.html">ColorWell</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/UIColor.html">UIColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions.html#/s:7Alderis22ColorPropertyListValueP">ColorPropertyListValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions.html#/s:SS">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions.html#/s:Sa">Array</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Deprecated.html">Deprecated</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Deprecated.html#/c:@M@Alderis@objc(cs)HBColorPickerCircleView">ColorPickerCircleView</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h2 id='alderis-with-preference-bundles' class='heading'>Alderis with Preference Bundles</h2>
+
+<p>Alderis acts as a drop-in replacement for <a href="https://github.com/atomikpanda/libcolorpicker">libcolorpicker</a>, an abandoned but still very popular color picker library on jailbroken iOS. Packages can simply change their dependencies list to replace <code>org.thebigboss.libcolorpicker</code> with <code>ws.hbang.alderis (&gt;= 1.1)</code> to switch the color picker to Alderis. No other changes required!</p>
+
+<p>Alderis also provides a replacement, cleaner interface for preference bundles. Example usage:</p>
+<pre class="highlight xml"><code><span class="nt">&lt;dict&gt;</span>
+    <span class="nt">&lt;key&gt;</span>cell<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>PSLinkCell<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>cellClass<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>HBColorPickerTableCell<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>defaults<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>com.example.myawesomething<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>default<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>#33b5e5<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>label<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>Tint Color<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>showAlphaSlider<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;true/&gt;</span>
+    <span class="nt">&lt;key&gt;</span>PostNotification<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>com.example.myawesomething/ReloadPrefs<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;/dict&gt;</span>
+</code></pre>
+
+<p>Compared to libcolorpicker’s API design, this leans on the fundamentals of Preferences.framework, including using the framework’s built-in preference value getters/setters system. In fact, the only two distinct parts are the <code>cellClass</code> and the <code>showAlphaSlider</code> key. The rest should seem natural to typical Preference specifier plist usage.</p>
+
+<p>Remember to link against the <code>libcolorpicker</code> library from the preference bundle. With Theos, this might look like:</p>
+<pre class="highlight make"><code><span class="nv">MyAwesomeThing_LIBRARIES</span> <span class="o">=</span> colorpicker
+</code></pre>
+
+<p>The functionality described in this section is only available in the jailbreak package for Alderis, specifically in the <code>libcolorpicker.dylib</code> binary (<a href="https://github.com/hbang/Alderis/tree/main/lcpshim">lcpshim</a>), and is not included in the App Store (CocoaPods/Carthage) version.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2022 <a class="link" href="https://hbang.github.io/" target="_blank" rel="external noopener">HASHBANG Productions</a>. All rights reserved. (Last updated: 2022-05-23)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

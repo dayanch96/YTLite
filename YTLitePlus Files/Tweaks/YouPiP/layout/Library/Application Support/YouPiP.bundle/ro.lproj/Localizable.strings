@@ -1,0 +1,25 @@
+"SETTINGS_TITLE" = "YouPiP";
+
+"ENABLED" = "Enabled";
+"ENABLED_DESC" = "Este necesară repornirea aplicației.";
+
+"USE_PIP_BUTTON" = "Utilizare buton PiP";
+"USE_PIP_BUTTON_DESC" = "Adaugă un buton PiP deasupra controalelor video pentru a activa PiP, în loc să închideți aplicația.";
+
+"USE_TAB_BAR_PIP_BUTTON" = "Utilizare buton PiP în bara filei video";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "Adaugă un buton PiP în bara filei video pentru a activa PiP, în loc să închideți aplicația. Este necesară repornirea aplicației.";
+
+"USE_ALL_PIP" = "Activare PiP nelimitată";
+"USE_ALL_PIP_DESC" = "Permite activarea PiP prin apăsarea butonului PiP de pe suprapunerea de control video, butonul PiP din bara filei video sau pur și simplu prin închiderea aplicației în același timp.";
+
+"DISABLE_PIP_MINI_PLAYER" = "Dezactivare PiP pentru Mini Player";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "Dezactivează PiP în timp ce este redat un videoclip în mini player.";
+
+"LEGACY_PIP" = "PiP Legacy";
+"LEGACY_PIP_DESC" = "Utilizează AVPlayerLayer pentru PiP. Acesta rezolvă bug-ul de accelerare. Este necesară repornirea aplicației.";
+
+"NON_BACKGROUNDABLE_PIP" = "PiP neredabil în fundal";
+"NON_BACKGROUNDABLE_PIP_DESC" = "Activează PiP pentru videoclipuri ce nu pot fi redate în fundal.";
+
+// Overlay
+"POSITION" = "Poziția butonului PiP";

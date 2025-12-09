@@ -1,0 +1,13 @@
+"SETTINGS_TITLE" = "Return YouTube Dislike";
+
+"ENABLED" = "Enabled";
+"ENABLE_VOTE_SUBMIT" = "Attiva invio voti";
+"ENABLE_VOTE_SUBMIT_DESC" = "Permette l'invio dei dati relativi al tuo ID univoco anonimizzato e ai mi piace/non mi piace sui video/shorts a %@.";
+"EXACT_LIKE_NUMBER" = "Numero esatto di mi piace";
+"EXACT_DISLIKE_NUMBER" = "Numero esatto di non mi piace";
+"EXACT_DISLIKE_NUMBER_DESC" = "Mostra il numero esatto di non mi piace. Per esempio: %@ -> %@.";
+"RAW_DATA" = "Dati grezzi dei non mi piace";
+"RAW_DATA_DESC" = "Usa solo i dati dei non mi piace delle persone che utilizzano l'estensione del browser RYD o questo tweak.";
+
+// On app launch
+"WANT_TO_ENABLE" = "Vuoi abilitare ora l'invio dei dati relativi ai tuoi mi piace/non mi piace a %@? Puoi disabilitarlo in seguito in Impostazioni > %@ > %@.";

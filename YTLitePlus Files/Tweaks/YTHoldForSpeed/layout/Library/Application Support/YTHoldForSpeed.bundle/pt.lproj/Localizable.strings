@@ -1,0 +1,15 @@
+"HOLD_FOR_SPEED" = "Segurar para velocidade";
+"NORMAL" = "Normal";
+"X_SECONDS" = "%@ segundos";
+"HOLD_GESTURE" = "Gesto de segurar";
+"HOLD_GESTURE_DESC" = "Toque e segure em qualquer lugar do player de vídeo para alternar a velocidade de reprodução entre \"Normal\" (ou seja 1.0x) e a velocidade de alternância selecionada.\n\nEsteja ciente de que, ao ativar esse recurso, o gesto de tocar e segurar padrão será desativado.";
+"DISABLE_STOCK_GESTURES" = "Desativar gesto padrão";
+"DISABLE_STOCK_GESTURES_DESC" = "Desativa o gesto de tocar e segurar padrão no player de vídeo.\n\nEsteja ciente de que se o gesto de segurar estiver ativado, o gesto padrão será desativado automaticamente.";
+"AUTO_APPLY_SPEED" = "Aplicar velocidade automaticamente";
+"AUTO_APPLY_SPEED_DESC" = "Quando ativado, a velocidade de reprodução selecionada será aplicada automaticamente quando um novo player de vídeo for iniciado.";
+"TOGGLE_SPEED" = "Velocidade de alternância";
+"TOGGLE_SPEED_DESC" = "A velocidade que o player de vídeo alternará quando o gesto de segurar for invocado.";
+"HOLD_DURATION" = "Tempo segurando";
+"HOLD_DURATION_DESC" = "A quantidade de tempo (em segundos) necessária para que o gesto de segurar alterne a velocidade do player de vídeo.";
+"HAPTIC_FEEDBACK" = "Resposta tátil";
+"HAPTIC_FEEDBACK_DESC" = "Usa a resposta tátil para indicar que a velocidade do player de vídeo foi alterada.";

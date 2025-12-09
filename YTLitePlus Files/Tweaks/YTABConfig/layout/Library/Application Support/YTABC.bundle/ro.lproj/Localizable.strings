@@ -1,0 +1,40 @@
+"ENABLED" = "Activat";
+"ENABLED_DESC" = "Activați pentru a afișa setările A/B.";
+"GROUPED" = "Setări grupate după prefix";
+"RESET_KILL" = "Resetare și Oprire Aplicație";
+"RESET_KILL_DESC" = "Apăsați pentru a anula toate modificările și închideți aplicația.";
+"COPY_CURRENT_SETTINGS" = "Copiere setări curente";
+"COPY_CURRENT_SETTINGS_DESC" = "Apăsați pentru a copia setările curente în clipboard.";
+"VIEW_MODIFIED_SETTINGS" = "Vizualizare setări modificate";
+"VIEW_MODIFIED_SETTINGS_DESC" = "Apăsați pentru a vizualiza toate modificările efectuate.";
+"IMPORT_SETTINGS" = "Importare setări";
+"IMPORT_SETTINGS_DESC" = "Importă setările din clipboard.\nFiecare setare trebuie să fie în acest format: %@";
+"NOTHING_TO_IMPORT" = "Nu a fost găsit nimic în clipboard sau nu va apărea nicio schimbare în urma importului.";
+"SETTINGS_TO_IMPORT" = "Setări de importat";
+"SETTINGS_TO_IMPORT_DESC" = "Au fost găsite %ld setări valide pentru a fi importate.";
+"IMPORT" = "Import";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "Schimbări";
+"TOTAL_MODIFIED_SETTINGS" = "Total: %ld";
+
+// Quit app alert
+"WARNING" = "Avertizare";
+"APPLY_DESC" = "Această acțiune va închide YouTube. Sunteți sigur că doriți să continuați?";
+
+"OPEN_MEGATHREAD" = "Deschidere megathread";
+"OPEN_MEGATHREAD_DESC" = "Deschidere megathread YTABConfig pe GitHub, unde puteți împărtăși și discuta efectele activării/dezactivării fiecărui steag.";
+"SETTINGS_START_WITH" = "Setări începând cu";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "Copiere în clipboard";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "Copiat în clipboard.";
+
+"REMOVED" = "(Eliminat)";
+
+"REMOVE_REMOVED_SETTINGS" = "Eliminare setări eliminate";
+"REMOVE_REMOVED_SETTINGS_DESC" = "Aceasta va elimina %ld setări care nu mai sunt disponibile în YouTube.";

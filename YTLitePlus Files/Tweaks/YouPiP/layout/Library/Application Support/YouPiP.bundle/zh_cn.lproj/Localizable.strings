@@ -1,0 +1,25 @@
+"SETTINGS_TITLE" = "YouPiP";
+
+"ENABLED" = "启用";
+"ENABLED_DESC" = "更改本设置后需要重启App。";
+
+"USE_PIP_BUTTON" = "使用画中画按钮";
+"USE_PIP_BUTTON_DESC" = "在视频播放器控制界面上显示用于手动启动画中画的按钮。开启本设置后，返回主屏幕时将不会启动画中画。";
+
+"USE_TAB_BAR_PIP_BUTTON" = "使用视频标签栏画中画按钮";
+"USE_TAB_BAR_PIP_BUTTON_DESC" = "在视频标签栏处显示用于手动启动画中画的按钮。开启本设置后，返回主屏幕时将不会启动画中画。";
+
+"USE_ALL_PIP" = "无限制画中画激活";
+"USE_ALL_PIP_DESC" = "允许通过点击视频控制覆盖层的画中画按钮、视频标签栏的画中画按钮或直接退出应用来激活画中画。";
+
+"DISABLE_PIP_MINI_PLAYER" = "禁用迷你播放器画中画";
+"DISABLE_PIP_MINI_PLAYER_DESC" = "在使用迷你播放器时禁用画中画。";
+
+"LEGACY_PIP" = "使用传统视频框架";
+"LEGACY_PIP_DESC" = "使用 AVPlayerLayer 进行画中画。据报告这可以修复加速播放错误。需要重启App。";
+
+"NON_BACKGROUNDABLE_PIP" = "强制画中画";
+"NON_BACKGROUNDABLE_PIP_DESC" = "为不支持后台播放的视频启用画中画。";
+
+// Overlay
+"POSITION" = "画中画按钮位置";

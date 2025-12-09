@@ -1,0 +1,4 @@
+#import "YTSlimVideoScrollableActionBarCellControllerDelegate.h"
+
+@interface YTSlimVideoMetadataExpandingBehavior : NSObject <YTSlimVideoScrollableActionBarCellControllerDelegate>
+@end

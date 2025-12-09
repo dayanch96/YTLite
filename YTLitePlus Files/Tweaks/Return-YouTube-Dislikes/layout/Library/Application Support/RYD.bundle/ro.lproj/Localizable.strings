@@ -1,0 +1,13 @@
+"SETTINGS_TITLE" = "Return YouTube Dislike";
+
+"ENABLED" = "Enabled";
+"ENABLE_VOTE_SUBMIT" = "Activați trimiterea voturilor";
+"ENABLE_VOTE_SUBMIT_DESC" = "Permiteți ca ID-ul dvs. unic anonim și datele despre apreciez/nu apreciez și video/shorts să fie trimise către %@.";
+"EXACT_LIKE_NUMBER" = "Număr exact de aprecieri";
+"EXACT_DISLIKE_NUMBER" = "Număr exact de nu aprecieri";
+"EXACT_DISLIKE_NUMBER_DESC" = "Afișați numărul exact de nu aprecieri. De Exemplu: %@ -> %@.";
+"RAW_DATA" = "Date brute despre nu aprecieri";
+"RAW_DATA_DESC" = "Utilizați datele despre nu aprecieri doar de la persoanele care folosesc extensia de browser RYD sau acest tweak.";
+
+// On app launch
+"WANT_TO_ENABLE" = "Doriți să activați acum trimiterea datelor dvs. despre apreciez/nu apreciez către %@? Puteți să-l dezactivați mai târziu din Setări > %@ > %@.";

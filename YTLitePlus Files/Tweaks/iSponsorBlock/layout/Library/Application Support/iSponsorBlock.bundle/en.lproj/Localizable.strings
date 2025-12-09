@@ -1,0 +1,88 @@
+/* iSponsorBlock Settings */
+"Enabled" = "Enabled";
+"RestartFooter" = "Restart YouTube for changes to take effect";
+
+"Sponsor" = "Sponsor";
+"Intermission/IntroAnimation" = "Intermission/Intro Animation";
+"Intermission" = "Intermission";
+"Endcards/Credits" = "Endcards/Credits";
+"Outro" = "Outro";
+"InteractionReminder" = "Interaction Reminder (Subscribe)";
+"InteractionReminder_Subcribe/Like" = "Interaction Reminder (Subscribe/Like)";
+"Interaction" = "Interaction";
+"Unpaid/SelfPromotion" = "Unpaid/Self Promotion";
+"SelfPromo" = "Self Promo";
+"Non-MusicSection" = "Music: Non-Music Section";
+"Non-Music" = "Non-Music";
+"Preview" = "Preview";
+"SponsorBlockUserID" = "SponsorBlock User ID";
+"SponsorBlockAPIInstance" = "SponsorBlock API Instance";
+
+"Disable" = "Disable";
+"AutoSkip" = "Auto Skip";
+"ShowInSeekBar" = "Show in Seek Bar";
+"ManualSkip" = "Manual Skip";
+"SetColorToShowInSeekBar" = "Set Color To Show in Seek Bar";
+
+"UserID" = "User ID:";
+"UserIDFooter" = "If you want to use a custom SponsorBlock user ID, you can enter it here. If you don't know what this is, leave it as default.";
+"API_URL" = "API URL:";
+"APIFooter" = "If you want to use a custom SponsorBlock API instance, you can enter it here. If you don't know what this is, leave it as default. Example:https://sponsor.ajay.app/api";
+"MinimumSegmentDuration" = "Set Minimum Segment Duration:";
+"HowLongNoticeWillAppear" = "Set How Long Skip Notice Will Appear:";
+"ShowSkipNotice" = "Show Skip Notice";
+"ShowButtonsInPlayer" = "Show iSponsorBlock Buttons in Video Player";
+"HideStartEndButtonInPlayer" = "Hide Start/End Button in Video Player";
+"ShowModifiedTime" = "Show Modified Time in Seek Bar";
+"AudioNotificationOnSkip" = "Audio Notification on Skip";
+"AudioFooter" = "Unavailable in silent mode";
+"EnableSkipCountTracking" = "Enable Skip Count Tracking";
+"DonateOnVenmo" = "Donate on Venmo";
+"DonateOnPayPal" = "Donate on PayPal";
+
+/* Segments stuff */
+"SegmentStartsNow" = "Segment Starts Now";
+"SegmentEndsNow" = "Segment Ends Now";
+"WhitelistChannel" = "Whitelist Channel";
+"SegmentsInDatabase" = "There are already segments in the database:";
+"YourSegments" = "Your Segments:";
+"SubmitSegments" = "Submit Segments";
+"SuccessfullySubmittedSegments" = "Successfully Submitted Segments";
+"EndTimeLessThanStartTime" = "End Time That You Set Was Less Than the Start Time, Please Select a Time After"; //Example: ..., Please Select a Time After 10:15
+"UnfinishedSegments" = "You Have Unfinished Segments\n Please Add a Category and/or End Time to Your Segments";
+"EditStartTime" = "Edit Start Time";
+"EditStartTime_Desc" = "Edit Start Time: (ex. type 1:15)";
+"EditEndTime" = "Edit End Time";
+"EditEndTime_Desc" = "Edit End Time: (ex. type 1:15)";
+"From" = "From"; // Time. Example: From 1:15 to 3:00. If you dont need it, just leave empty
+"to" = "to"; // Time. Example: From 1:15 to 3:00
+"EditCategory" = "Edit Category";
+"EditSegment" = "Edit Segment";
+"Edit" = "Edit";
+"Error" = "Error";
+"ErrorCode" = "Error Code";
+"Success" = "Success";
+"OK" = "OK";
+"Cancel" = "Cancel";
+"Delete" = "Delete";
+"Upvote" = "Upvote";
+"Downvote" = "Downvote";
+"VoteToChangeCategory" = "Vote to Change Category";
+"VoteOnSegment" = "Vote on Segment";
+"SuccessfullyVoted" = "Successfully Voted";
+"ErrorVoting" = "Error Voting";
+
+/* Pop-ups*/
+"ManuallySkipReminder" = "Manually Skip %@ segment\nfrom %ld:%02ld to %ld:%02ld?";
+"Skip" = "Skip";
+"SkippedSegment" = "Skipped %@ Segment";
+"Unskip" = "Unskip";
+
+/* Segments in pop-ups*/
+"sponsor" = "sponsor";
+"intro" = "intro";
+"outro" = "outro";
+"interaction" = "interaction";
+"selfpromo" = "self promo";
+"music_offtopic" = "non-music";
+"preview" = "preview";

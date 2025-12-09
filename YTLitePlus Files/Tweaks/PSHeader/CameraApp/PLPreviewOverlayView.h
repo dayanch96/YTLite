@@ -1,0 +1,2 @@
+@interface PLPreviewOverlayView : UIView
+@end

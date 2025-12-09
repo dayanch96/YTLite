@@ -1,0 +1,40 @@
+"ENABLED" = "Ativado";
+"ENABLED_DESC" = "Ative para mostrar as configurações A/B.";
+"GROUPED" = "Configurações agrupadas por prefixos";
+"RESET_KILL" = "Redefinir e Encerrar";
+"RESET_KILL_DESC" = "Toque para desfazer todas as suas alterações e encerrar o app.";
+"COPY_CURRENT_SETTINGS" = "Copiar configurações atuais";
+"COPY_CURRENT_SETTINGS_DESC" = "Toque para copiar as configurações atuais para a área de transferência.";
+"VIEW_MODIFIED_SETTINGS" = "Ver configurações modificadas";
+"VIEW_MODIFIED_SETTINGS_DESC" = "Toque para ver todas as alterações feitas manualmente.";
+"IMPORT_SETTINGS" = "Importar configurações";
+"IMPORT_SETTINGS_DESC" = "Importe as configurações da área de transferência.\nCada configuração deve estar neste formato: %@";
+"NOTHING_TO_IMPORT" = "Nada encontrado na área de transferência ou não haverá mudanças após a importação.";
+"SETTINGS_TO_IMPORT" = "Configurações para importar";
+"SETTINGS_TO_IMPORT_DESC" = "Encontradas %ld configurações válidas para serem importadas.";
+"IMPORT" = "Importar";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "Mudanças";
+"TOTAL_MODIFIED_SETTINGS" = "Total: %ld";
+
+// Quit app alert
+"WARNING" = "Aviso";
+"APPLY_DESC" = "Esta ação encerrará o YouTube. Você tem certeza que quer continuar?";
+
+"OPEN_MEGATHREAD" = "Abrir discussão";
+"OPEN_MEGATHREAD_DESC" = "Abre a discussão do YTABConfig no GitHub, onde você pode compartilhar e discutir o efeito de cada sinalizador(flag) sendo habilitado ou desabilitado.";
+"SETTINGS_START_WITH" = "Configurações começando com";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "Copiar para a área de transferência";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "Copiado para a área de transferência.";
+
+"REMOVED" = "(Removido)";
+
+"REMOVE_REMOVED_SETTINGS" = "Remover configurações removidas";
+"REMOVE_REMOVED_SETTINGS_DESC" = "Isso removerá %ld configurações que não estão mais disponíveis no YouTube.";

@@ -1,0 +1,191 @@
+// Settings
+"VERSION" = "YTLitePlusのバージョン: %@";
+"VERSION_CHECK" = "タップして更新をチェック!";
+
+"COPY_SETTINGS" = "設定をコピー";
+"COPY_SETTINGS_DESC" = "現在のすべての設定をクリップボードにコピーします";
+"PASTE_SETTINGS" = "設定を貼り付け";
+"PASTE_SETTINGS_DESC" = "クリップボードから設定を貼り付けて適用します";
+"PASTE_SETTINGS_ALERT" = "クリップボードから設定を貼り付けますか？";
+"EXPORT_SETTINGS" = "設定をエクスポート";
+"EXPORT_SETTINGS_DESC" = "現在のすべての設定を.txtファイルにエクスポートします";
+"IMPORT_SETTINGS" = "設定をインポート";
+"IMPORT_SETTINGS_DESC" = "設定(.txt)をインポートするには押してください";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "「設定のコピー」と「設定の貼り付け」ボタンを置き換える";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "「設定のエクスポート」と「設定のインポート」のボタンを置き換えます";
+
+"VIDEO_PLAYER" = "ビデオプレイヤー(ベータ版)";
+"VIDEO_PLAYER_DESC" = "ダウンロードしたビデオをAppleプレイヤーで開く";
+
+// Player Gestures
+"PLAYER_GESTURES_TOGGLE" = "プレイヤーのジェスチャーを有効にする";
+"VOLUME" = "音量";
+"BRIGHTNESS" = "明るさ";
+"SEEK" = "シーク";
+"DISABLED" = "無効";
+"DEADZONE" = "デッドゾーン";
+"DEADZONE_DESC" = "ジェスチャーが認識されるまでに移動する最小距離";
+"SENSITIVITY" = "感度";
+"SENSITIVITY_DESC" = "音量と明るさのジェスチャーの乗数";
+"PLAYER_GESTURES_TITLE" = "プレイヤージェスチャー";
+"PLAYER_GESTURES_DESC" = "プレイヤーの水平パンのジェスチャを設定する";
+"TOP_SECTION" = "上部セクション";
+"MIDDLE_SECTION" = "中間セクション";
+"BOTTOM_SECTION" = "下部セクション";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "触覚フィードバックを有効化";
+
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "動画コントロールオーバーレイの設定";
+
+"ENABLE_SHARE_BUTTON" = "共有ボタンを有効化";
+"ENABLE_SHARE_BUTTON_DESC" = "動画コントロールオーバーレイの共有ボタンを有効にします。";
+
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "再生リストに保存ボタンを有効化";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "動画コントロールオーバーレイの「再生リストに保存」ボタンを有効にします。";
+
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "シャドウオーバーレイボタンを非表示";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "再生/一時停止,前へ/次へ,早送り/巻き戻しボタンのシャドウオーバーレイを非表示にします。";
+
+"HIDE_RIGHT_PANEL" = "フルスクリーンモードで右パネルを非表示";
+"HIDE_RIGHT_PANEL_DESC" = "アプリの再起動が必要です。";
+
+"HIDE_HEATWAVES" = "ヒートウェーブを非表示";
+"HIDE_HEATWAVES_DESC" = "動画プレイヤーのヒートウェーブを非表示にします。アプリの再起動が必要です。";
+
+"DISABLE_AMBIENT_PORTRAIT" = "アンビエントモードを無効化 (縦向き)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "動画タイトル周囲の照明を無効化";
+
+"DISABLE_AMBIENT_FULLSCREEN" = "アンビエントモードを無効化 (全画面)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "動画プレイヤー周囲の照明を無効化";
+
+"FULLSCREEN_TO_THE_RIGHT" = "全画面を右側に";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "ホームボタンが右側にある状態で全画面表示にする";
+
+"SEEK_ANYWHERE" = "どこでもシークジェスチャー";
+"SEEK_ANYWHERE_DESC" = "動画プレイヤー上で長押し＆ドラッグでシーク。YTLite - 長押しで速度変更を無効にする必要があります";
+
+"ENABLE_TAP_TO_SEEK" = "タップでシークを有効化";
+"ENABLE_TAP_TO_SEEK_DESC" = "シークバーをタップして任意の位置に移動";
+
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "引き下げで全画面化を無効化";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "縦向き全画面にするドラッグジェスチャーを無効化 (横向き動画にのみ適用)";
+
+"ALWAYS_USE_REMAINING_TIME" = "常に残り時間を表示";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "プレイヤーバーのデフォルト表示を経過時間ではなく残り時間に変更";
+
+"DISABLE_TOGGLE_TIME_REMAINING" = "残り時間の切り替えを無効化";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "経過時間と残り時間の切り替えを無効化。他の設定と併用して常に残り時間を表示";
+
+"DISABLE_ENGAGEMENT_OVERLAY" = "全画面のエンゲージメントオーバーレイを無効化";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "スワイプアップジェスチャーや全画面時のおすすめ動画リストを無効化";
+
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "プレイヤー下のコメントプレビューを隠す";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "コメントボタン内のコメントプレビューを非表示にします。";
+
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "自動再生ミニプレビューを非表示";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "全画面時にタイトル付近に表示される小さなおすすめ動画ボックスを非表示";
+
+
+"HIDE_HUD_MESSAGES" = "HUDメッセージを非表示";
+"HIDE_HUD_MESSAGES_DESC" = "特定のアクション後に表示されるスナックバーを非表示にします。(例: 字幕がオン/オフになりました など)";
+
+"HIDE_COLLAPSE_BUTTON" = "折りたたみボタンを隠す";
+"HIDE_COLLAPSE_BUTTON_DESC" = "プレイヤー左上の折りたたみボタンを非表示にします。";
+
+"HIDE_SPEED_TOAST" = "速度トーストを非表示";
+"HIDE_SPEED_TOAST_DESC" = "プレイヤーを長押しした際に表示される2倍速のポップアップを非表示";
+
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "アプリの設定オーバーレイの設定";
+
+"HIDE_ACCOUNT_SECTION" = "「アカウント」を非表示にする";
+"HIDE_AUTOPLAY_SECTION" = "「自動再生」を非表示にする";
+"HIDE_TRYNEWFEATURES_SECTION" = "「試験運用版の新機能を試す」を非表示にする";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "「動画の画質設定」を非表示にする";
+"HIDE_NOTIFICATIONS_SECTION" = "「通知」を非表示にする";
+"HIDE_MANAGEALLHISTORY_SECTION" = "「すべての履歴を管理」を非表示にする";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "「YouTubeでのデータ」を非表示にする";
+"HIDE_PRIVACY_SECTION" = "「プライバシー」を非表示にする";
+"HIDE_LIVECHAT_SECTION" = "「チャット」を非表示にする";
+
+// Theme
+"THEME_OPTIONS" = "テーマの設定";
+
+"OLED_DARK_THEME" = "OLEDダークテーマ(実験的)";
+"OLED_DARK_THEME_2" = "OLEDダークテーマ";
+"OLED_DARK_THEME_DESC" = "真のダークテーマです。\n正しく動作しない場合があります。アプリの再起動が必要です。";
+
+"OLD_DARK_THEME" = "古いダークモード";
+"OLD_DARK_THEME_DESC" = "以前のダークモードです(グレー) アプリの再起動が必要です。";
+
+"DEFAULT_THEME" = "通常";
+"DEFAULT_THEME_DESC" = "通常のダークモードです。アプリの再起動が必要です。";
+
+"OLED_KEYBOARD" = "OLEDキーボード(実験的)";
+"OLED_KEYBOARD_DESC" = "正しく動作しない場合があります。アプリの再起動が必要です。";
+
+"LOW_CONTRAST_MODE" = "低コントラストモード";
+"LOW_CONTRAST_MODE_DESC" = "このオプションは、テキストとボタンのコントラストを以前のYouTubeインターフェイスのように低くします。アプリの再起動が必要です。";
+"LCM_SELECTOR" = "低コントラストモードの選択";
+"DEFAULT_LOWCONTRASTMODE" = "低コントラストモード(デフォルト)";
+"CUSTOM_LOWCONTRASTMODE" = "低コントラストモード(カスタムカラー)";
+
+// Miscellaneous
+"MISCELLANEOUS" = "その他";
+
+"PLAYBACK_IN_FEEDS" = "フィード内再生";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "常にオン";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Wi-Fi接続時のみ";
+"PLAYBACK_IN_FEEDS_OFF" = "オフ";
+
+"NEW_SETTINGS_UI" = "新しい設定UI";
+"NEW_SETTINGS_UI_DESC" = "新しいグループ化された設定UIを使用。一部の設定が非表示になる可能性があります";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "YouTube起動時のアニメーションを有効化";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"HIDE_MODERN_INTERFACE" = "モダンインターフェイスを非表示 (YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "YouTubeによって追加されたモダンな要素を非表示にします。アンビエントモード,丸みを帯びたデザインなどを削除します。アプリの再起動が必要です。";
+
+"IPAD_LAYOUT" = "iPadレイアウト";
+"IPAD_LAYOUT_DESC" = "現在使用しているiPhone/iPodでiPadのレイアウトを使用したい場合にのみ使用して下さい。アプリの再起動が必要です。";
+
+"IPHONE_LAYOUT" = "iPhoneレイアウト";
+"IPHONE_LAYOUT_DESC" = "現在使用しているiPadでiPhoneのレイアウトを使用したい場合にのみ使用して下さい。アプリの再起動が必要です。";
+
+"CAST_CONFIRM" = "キャストする前に確認する (YTCastConfirm)";
+"CAST_CONFIRM_DESC" = "誤ってテレビにキャストしないように、確認の警告を表示します。";
+"CASTING" = "キャスト";
+"MSG_ARE_YOU_SURE" = "本当にキャストを開始しますか";
+"MSG_YES" = "はい";
+"MSG_CANCEL" = "いいえ";
+
+"NEW_MINIPLAYER_STYLE" = "新しいミニプレイヤーバー (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE_DESC" = "アプリの再起動が必要です。";
+
+"HIDE_CAST_BUTTON" = "キャストボタンを非表示";
+"HIDE_CAST_BUTTON_DESC" = "アプリの再起動が必要です。";
+
+"VIDEO_PLAYER_BUTTON" = "ビデオプレイヤーボタン";
+"VIDEO_PLAYER_BUTTON_DESC" = "ナビゲーションバーにボタンを表示し、ダウンロードした動画をAppleのプレイヤーで開く";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "ナビゲーションバーのiSponsorBlockボタンを非表示";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
+
+"HIDE_HOME_TAB" = "ホームタブを非表示";
+"HIDE_HOME_TAB_DESC" = "すべてのタブを非表示にすると問題が発生する可能性があります。注意してください";
+
+"FIX_CASTING" = "キャストの修正";
+"FIX_CASTING_DESC" = "一部のABフラグを変更してキャスト機能を修正";
+
+"ENABLE_FLEX" = "FLEXを有効化";
+"ENABLE_FLEX_DESC" = "デバッグ用のFLEXを有効化します(推奨しません) \n何をやっているのか分からない場合はオフにしてください。";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "アプリのバージョン偽装(Lite)を有効にする";
+"APP_VERSION_SPOOFER_LITE_DESC" = "バージョン偽装(Lite)を使用するにはこれを有効にし、以下でお好みのバージョンを選択してください。アプリの再起動が必要です。";
+"VERSION_SPOOFER_TITLE" = "偽装バージョンの選択";
+
+// Other Localization
+"APP_RESTART_DESC" = "アプリの再起動が必要です。";
+"CHANGE_APP_ICON" = "アプリアイコンを変更";

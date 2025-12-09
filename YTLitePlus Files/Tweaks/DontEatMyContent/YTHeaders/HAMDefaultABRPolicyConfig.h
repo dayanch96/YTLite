@@ -1,0 +1,36 @@
+#import <Foundation/Foundation.h>
+#import "HAMSoftwareStreamFilter.h"
+
+typedef struct HAMDefaultABRPolicyConfig {
+    double maxMediaSecondsPerRequest;
+    float downshiftScalar;
+    float downshiftConstant;
+    float upshiftScalar;
+    float upshiftConstant;
+    double maxDownshiftReadahead;
+    double localMaxBitrateReadahead;
+    double minReadaheadForAverageBitrate;
+    double syncReadahead;
+    double stunDuration;
+    bool useHighReplicationFormatsWhileStunned;
+    bool disableHDRInLowPowerMode;
+    bool padByte;
+    bool padByte2;
+    int maxConsecutiveErrors;
+    double minUpshiftReplaceChunksReadahead;
+    double bufferTrimBefore;
+    double bufferTrimAfter;
+    float oversendFactor;
+    float higherPictureQualityOversendFactor;
+    NSInteger bufferMaxSizeBytes;
+    NSInteger lowMemoryWarnBufferSizeBytes;
+    NSInteger lowMemoryCriticalBufferSizeBytes;
+    double lowMemoryBufferSizeCoolDown;
+    double stallMaxBufferReadahead;
+    double stallMinBufferReadahead;
+    float stallBandwidthTweakScalar;
+    int stallBandwidthTweakConstant;
+    HAMSoftwareStreamFilter softwareAV1Filter;
+    HAMSoftwareStreamFilter softwareVP9Filter;
+    bool failIfAllFormatsAreFiltered;
+} HAMDefaultABRPolicyConfig;

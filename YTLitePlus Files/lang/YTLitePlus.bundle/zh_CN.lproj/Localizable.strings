@@ -1,0 +1,194 @@
+// Settings
+"VERSION" = "YTLitePlus版本: %@";
+"VERSION_CHECK" = "点击检查更新!";
+
+"COPY_SETTINGS" = "复制设置";
+"COPY_SETTINGS_DESC" = "将当前所有设置复制到剪贴板";
+"PASTE_SETTINGS" = "粘贴设置";
+"PASTE_SETTINGS_DESC" = "从剪贴板粘贴设置并应用";
+"PASTE_SETTINGS_ALERT" = "应用剪贴板中的设置？";
+"EXPORT_SETTINGS" = "导出设置";
+"EXPORT_SETTINGS_DESC" = "将当前所有设置导出为txt文件";
+"IMPORT_SETTINGS" = "导入设置";
+"IMPORT_SETTINGS_DESC" = "从txt文件导入设置";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "替换「复制设置」和「粘贴设置」按钮";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "将按钮替换为「导出设置」和「导入设置」";
+
+"VIDEO_PLAYER" = "视频播放器(测试版)";
+"VIDEO_PLAYER_DESC" = "使用系统自带播放器打开下载的视频";
+
+// Player Gestures
+"PLAYER_GESTURES_TOGGLE" = "启用播放器手势";
+"VOLUME" = "音量";
+"BRIGHTNESS" = "亮度";
+"SEEK" = "快进";
+"DISABLED" = "禁用";
+"DEADZONE" = "盲区";
+"DEADZONE_DESC" = "识别手势前需要移动的最小距离";
+"SENSITIVITY" = "灵敏度";
+"SENSITIVITY_DESC" = "对音量和亮度手势的倍数";
+"PLAYER_GESTURES_TITLE" = "播放器手势";
+"PLAYER_GESTURES_DESC" = "配置播放器的水平滑动手势";
+"TOP_SECTION" = "顶部区域";
+"MIDDLE_SECTION" = "中间区域";
+"BOTTOM_SECTION" = "底部区域";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "启用触觉反馈";
+
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "视频控件覆盖选项";
+
+"ENABLE_SHARE_BUTTON" = "启用分享按钮";
+"ENABLE_SHARE_BUTTON_DESC" = "在播放器覆盖按钮区域中启用分享按钮";
+
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "启用「保存到播放列表」按钮";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "在播放器覆盖按钮区域中启用「保存到播放列表」按钮";
+
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "隐藏按钮阴影效果";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "隐藏播放/暂停、上一个、下一个、前进和后退按钮上的阴影效果";
+
+"HIDE_RIGHT_PANEL" = "隐藏全屏模式中的右侧面板";
+"HIDE_RIGHT_PANEL_DESC" = "需要重启应用";
+
+"HIDE_HEATWAVES" = "隐藏Heatwaves";
+"HIDE_HEATWAVES_DESC" = "隐藏视频播放器中的Heatwaves，需要重启应用";
+
+"DISABLE_AMBIENT_PORTRAIT" = "禁用环境模式(纵向)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "禁用视频标题周围的光效";
+
+"DISABLE_AMBIENT_FULLSCREEN" = "禁用环境模式(全屏)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "禁用视频播放器周围的光效";
+
+"FULLSCREEN_TO_THE_RIGHT" = "全屏向右";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "进入全屏时始终使主页按钮在右侧";
+
+"SEEK_ANYWHERE" = "任意位置快进手势";
+"SEEK_ANYWHERE_DESC" = "按住并拖动视频播放器以快进，您必须禁用YTLite的「Hold to speed（按住加速）」功能";
+
+"ENABLE_TAP_TO_SEEK" = "启用点击快进";
+"ENABLE_TAP_TO_SEEK_DESC" = "通过单击进度条跳转到视频的任意位置";
+
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "禁用拉动全屏手势";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "禁用拖动手势进入垂直全屏，仅适用于横向视频";
+
+"ALWAYS_USE_REMAINING_TIME" = "始终使用剩余时间";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "将默认设置为在播放器栏中显示剩余时间";
+
+"DISABLE_TOGGLE_TIME_REMAINING" = "禁用切换剩余时间";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "禁用将已用时间更改为剩余时间，与其他设置一起使用以始终显示剩余时间";
+
+"DISABLE_ENGAGEMENT_OVERLAY" = "禁用全屏参与覆盖";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "禁用上滑手势和全屏模式中的建议视频列表";
+
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "隐藏播放器下方的评论预览";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "隐藏评论按钮中的评论预览";
+
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "隐藏自动播放迷你预览";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "隐藏全屏模式下标题附近的小型建议视频框";
+
+"HIDE_HUD_MESSAGES" = "隐藏HUD消息";
+"HIDE_HUD_MESSAGES_DESC" = "隐藏某些操作(如开启/关闭字幕)时显示的通知";
+
+"HIDE_COLLAPSE_BUTTON" = "隐藏折叠按钮";
+"HIDE_COLLAPSE_BUTTON_DESC" = "隐藏显示在视频播放器左上角的箭头折叠按钮";
+
+"HIDE_SPEED_TOAST" = "隐藏速度提示";
+"HIDE_SPEED_TOAST_DESC" = "隐藏按住播放器时显示的2X速度弹窗";
+
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "隐藏设置中的选项";
+
+"HIDE_ACCOUNT_SECTION" = "隐藏「帐户」";
+"HIDE_AUTOPLAY_SECTION" = "隐藏「自动播放」";
+"HIDE_TRYNEWFEATURES_SECTION" = "隐藏「试用新功能」";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "隐藏「视频画质偏好」";
+"HIDE_NOTIFICATIONS_SECTION" = "隐藏「通知」";
+"HIDE_MANAGEALLHISTORY_SECTION" = "隐藏「管理所有历史记录」";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "隐藏「YouTube个人数据管理」";
+"HIDE_PRIVACY_SECTION" = "隐藏「隐私设置」";
+"HIDE_LIVECHAT_SECTION" = "隐藏「实时聊天」";
+
+// Theme
+"THEME_OPTIONS" = "主题选项";
+
+"OLED_DARK_THEME" = "OLED暗色主题";
+"OLED_DARK_THEME_2" = "OLED暗色主题";
+"OLED_DARK_THEME_DESC" = "真正的暗色主题，在某些情况下可能无法正常工作，启用/禁用此选项后需要重启应用";
+
+"OLD_DARK_THEME" = "旧暗色主题";
+"OLD_DARK_THEME_DESC" = "旧版YouTube的暗色主题(灰色主题)，启用后需要重启应用";
+
+"DEFAULT_THEME" = "默认";
+"DEFAULT_THEME_DESC" = "YouTube的默认深色主题，启用后需要重启应用";
+
+"OLED_KEYBOARD" = "OLED键盘";
+"OLED_KEYBOARD_DESC" = "在某些情况下可能无法正常工作，启用后需要重启应用";
+
+"LOW_CONTRAST_MODE" = "低对比度模式";
+"LOW_CONTRAST_MODE_DESC" = "此选项将降低文本和按钮的对比度，就像旧的YouTube界面一样，启用后需要重启应用";
+"LCM_SELECTOR" = "低对比度模式选择";
+"DEFAULT_LOWCONTRASTMODE" = "(默认) 低对比度模式";
+"CUSTOM_LOWCONTRASTMODE" = "(自定义颜色) 低对比度模式";
+
+// Miscellaneous
+"MISCELLANEOUS" = "其它";
+
+"PLAYBACK_IN_FEEDS" = "Feeds后台播放";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "始终开启";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "仅限Wi-Fi";
+"PLAYBACK_IN_FEEDS_OFF" = "关闭";
+
+"NEW_SETTINGS_UI" = "新的设置界面";
+"NEW_SETTINGS_UI_DESC" = "使用新的分组设置界面，可能会隐藏某些设置";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "启用YouTube启动动画";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"HIDE_MODERN_INTERFACE" = "禁用现代YouTube界面(YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "这会将YouTube应用恢复到v17.38.10之前的传统设计，此操作还会移除某些圆角元素、环境模式和其他现代功能，启用后需要重启应用";
+
+"IPAD_LAYOUT" = "iPad 布局";
+"IPAD_LAYOUT_DESC" = "仅当您希望在当前的 iPhone/iPod 上使用 iPad 布局时使用，需要重新启动应用程序";
+
+"IPHONE_LAYOUT" = "iPhone 布局";
+"IPHONE_LAYOUT_DESC" = "仅当您希望在当前的 iPad 上使用 iPhone 布局时使用，需要重新启动应用程序";
+
+"CAST_CONFIRM" = "投屏前确认警告 (YTCastConfirm)";
+"CAST_CONFIRM_DESC" = "投屏前显示确认警告，以防止意外劫持电视";
+"CASTING" = "投屏";
+"MSG_ARE_YOU_SURE" = "您确定要开始投屏吗？";
+"MSG_YES" = "确定";
+"MSG_CANCEL" = "取消";
+
+"NEW_MINIPLAYER_STYLE" = "新的迷你播放器样式 (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE_DESC" = "需要重新启动应用程序";
+
+"HIDE_CAST_BUTTON" = "隐藏投屏按钮";
+"HIDE_CAST_BUTTON_DESC" = "需要重新启动应用程序";
+
+"VIDEO_PLAYER_BUTTON" = "视频播放器按钮";
+"VIDEO_PLAYER_BUTTON_DESC" = "在导航栏中显示按钮，以便在系统自带播放器中打开已下载的视频";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "隐藏导航栏中的 iSponsorBlock 按钮";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
+
+"HIDE_HOME_TAB" = "隐藏首页标签栏";
+"HIDE_HOME_TAB_DESC" = "隐藏所有标签栏时请小心";
+
+"FIX_CASTING" = "修复投屏";
+"FIX_CASTING_DESC" = "更改一些 AB 标志以修复投屏功能";
+
+"ENABLE_FLEX" = "启用 FLEX";
+"ENABLE_FLEX_DESC" = "启用 FLEX 进行调试（不推荐），除非您了解操作，否则请保持关闭状态";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "修改应用程序版本";
+"APP_VERSION_SPOOFER_LITE_DESC" = "要修改YouTube版本，请在下方选择您偏好的版本号，重新启动应用程序生效";
+"VERSION_SPOOFER_TITLE" = "版本选择器";
+
+// Other Localization
+"APP_RESTART_DESC" = "需要重新启动应用程序";
+"CHANGE_APP_ICON" = "更改应用程序图标";
+
+
+
+

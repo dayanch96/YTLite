@@ -1,0 +1,36 @@
+clean: true
+author: HASHBANG Productions
+author_url: https://hbang.github.io/
+github_url: https://github.com/hbang/Alderis
+root_url: https://hbang.github.io/Alderis/
+dash_url: https://hbang.github.io/Alderis/docsets/Alderis.xml
+documentation: info/*.md
+hide_documentation_coverage: true
+
+custom_categories:
+  - name: "Guides"
+    children:
+      - "Preference Bundles"
+      - "Migrating to 1.1"
+
+  - name: "Color Picker"
+    children:
+      - ColorPickerViewController
+      - ColorPickerConfiguration
+      - ColorPickerDelegate
+      - ColorPickerTab
+  
+  - name: "UI Components"
+    children:
+      - ColorWell
+
+  - name: "Extensions"
+    children:
+      - UIColor
+      - ColorPropertyListValue
+      - String
+      - Array
+
+  - name: "Deprecated"
+    children:
+      - ColorPickerCircleView

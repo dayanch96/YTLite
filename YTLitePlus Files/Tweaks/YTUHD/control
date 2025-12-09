@@ -1,0 +1,11 @@
+Package: com.ps.ytuhd
+Name: YTUHD
+Version: 1.6.6
+Architecture: iphoneos-arm
+Description: Unlocks 1440p and 2160p resolutions in iOS YouTube app.
+Maintainer: PoomSmart
+Author: PoomSmart
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 11.0)
+Depiction: https://poomsmart.github.io/repo/depictions/ytuhd.html
+SileoDepiction: https://poomsmart.github.io/repo/sileodepictions/ytuhd.json

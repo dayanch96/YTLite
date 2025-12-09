@@ -1,0 +1,190 @@
+// Settings
+"VERSION" = "YTLitePlus 버전: %@";
+"VERSION_CHECK" = "업데이트를 확인하려면 탭하세요!";
+
+"COPY_SETTINGS" = "설정 복사";
+"COPY_SETTINGS_DESC" = "현재 설정을 모두 클립보드에 복사합니다";
+"PASTE_SETTINGS" = "설정 붙여넣기";
+"PASTE_SETTINGS_DESC" = "클립보드에서 설정을 붙여넣고 적용합니다";
+"PASTE_SETTINGS_ALERT" = "클립보드에서 설정을 적용할까요?";
+"EXPORT_SETTINGS" = "설정 내보내기";
+"EXPORT_SETTINGS_DESC" = "현재 설정을 .txt 파일로 내보냅니다";
+"IMPORT_SETTINGS" = "설정 가져오기";
+"IMPORT_SETTINGS_DESC" = "설정(.txt)을 가져오려면 누르세요";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "'설정 복사' & '설정 붙여넣기' 버튼 교체";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "버튼을 '설정 내보내기'와 '설정 가져오기'로 교체합니다";
+
+"VIDEO_PLAYER" = "동영상 플레이어 (베타)";
+"VIDEO_PLAYER_DESC" = "다운로드한 동영상을 Apple 기본 플레이어에서 재생하기";
+
+// Player Gestures
+"PLAYER_GESTURES_TOGGLE" = "플레이어 제스처 활성화";
+"VOLUME" = "음량";
+"BRIGHTNESS" = "밝기";
+"SEEK" = "탐색";
+"DISABLED" = "비활성화됨";
+"DEADZONE" = "데드존";
+"DEADZONE_DESC" = "제스처 인식을 위한 최소 이동 거리";
+"SENSITIVITY" = "민감도";
+"SENSITIVITY_DESC" = "음량 및 밝기 제스처의 민감도 조정";
+"PLAYER_GESTURES_TITLE" = "플레이어 제스처";
+"PLAYER_GESTURES_DESC" = "플레이어 좌우 스와이프 제스처 설정";
+"TOP_SECTION" = "상단";
+"MIDDLE_SECTION" = "중앙";
+"BOTTOM_SECTION" = "하단";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "햅틱 피드백 활성화";
+
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "동영상 컨트롤 오버레이";
+
+"ENABLE_SHARE_BUTTON" = "공유 버튼 활성화";
+"ENABLE_SHARE_BUTTON_DESC" = "동영상 컨트롤 오버레이에 공유 버튼 활성화";
+
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "'저장' 버튼 활성화";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "동영상 컨트롤 오버레이에 '저장' 버튼 활성화";
+
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "그림자 오버레이 버튼 숨기기";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "재생/일시정지, 이전, 다음, 앞으로/뒤로 버튼의 그림자 오버레이를 숨깁니다.";
+
+"HIDE_RIGHT_PANEL" = "전체화면 모드에서 오른쪽 패널 숨기기";
+"HIDE_RIGHT_PANEL_DESC" = "앱 재시작이 필요합니다.";
+
+"HIDE_HEATWAVES" = "히트 웨이브 숨기기";
+"HIDE_HEATWAVES_DESC" = "동영상 플레이어에서 히트 웨이브를 숨깁니다. 앱 재시작이 필요합니다.";
+
+"DISABLE_AMBIENT_PORTRAIT" = "앰비언트 모드 비활성화 (세로)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "동영상 제목 주변의 조명 효과를 비활성화합니다.";
+
+"DISABLE_AMBIENT_FULLSCREEN" = "앰비언트 모드 비활성화 (전체화면)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "동영상 주변의 조명 효과를 비활성화합니다.";
+
+"FULLSCREEN_TO_THE_RIGHT" = "오른쪽으로 전체화면 전환";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "항상 기기 하단이 오른쪽에 있는 전체화면으로 전환합니다.";
+
+"SEEK_ANYWHERE" = "아무 곳에서나 밀어서 탐색";
+"SEEK_ANYWHERE_DESC" = "동영상에서 드래그하여 탐색합니다. You must disable YTLite - Hold to speed";
+
+"ENABLE_TAP_TO_SEEK" = "탭해서 탐색 활성화";
+"ENABLE_TAP_TO_SEEK_DESC" = "재생 바에서 한 번만 탭해서 원하는 위치로 이동합니다.";
+
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "확대하여 전체화면 비활성화";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "확대하여 세로 전체화면으로 전환하는 제스처를 비활성화합니다. 가로 동영상에만 적용됩니다.";
+
+"ALWAYS_USE_REMAINING_TIME" = "항상 남은 시간 표시";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "재생 바에서 남은 시간을 기본 설정으로 표시하도록 변경합니다.";
+
+"DISABLE_TOGGLE_TIME_REMAINING" = "남은 시간 토글 비활성화";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "경과 시간과 남은 시간을 변경하는 기능을 비활성화합니다. 항상 남은 시간을 표시하는 다른 설정과 함께 사용하세요.";
+
+"DISABLE_ENGAGEMENT_OVERLAY" = "전체화면 오버레이 비활성화";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "전체화면에서 위로 스와이프 제스처와 추천 동영상 목록을 비활성화합니다.";
+
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "플레이어 하단 댓글 미리보기 숨기기";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "댓글 구역에서 댓글 미리보기를 숨깁니다.";
+
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "자동 재생 미리보기 숨기기";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "전체화면에서 제목 근처의 추천 동영상 상자를 숨깁니다.";
+
+"HIDE_HUD_MESSAGES" = "HUD 메세지 숨기기";
+"HIDE_HUD_MESSAGES_DESC" = "특정 동작 시 표시되는 메시지를 숨깁니다. (예: 자막 켜짐/꺼짐)";
+
+"HIDE_COLLAPSE_BUTTON" = "축소 버튼 숨기기";
+"HIDE_COLLAPSE_BUTTON_DESC" = "동영상 플레이어 왼쪽 상단에 표시된 화살표 축소 버튼을 숨깁니다.";
+
+"HIDE_SPEED_TOAST" = "재생 속도 팝업 숨기기";
+"HIDE_SPEED_TOAST_DESC" = "플레이어를 홀드할 때 나타나는 2배속 팝업을 숨깁니다.";
+
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "설정 오버레이";
+
+"HIDE_ACCOUNT_SECTION" = "\"계정 전환\" 숨기기";
+"HIDE_AUTOPLAY_SECTION" = "\"자동 재생\" 숨기기";
+"HIDE_TRYNEWFEATURES_SECTION" = "\"새 실험 기능 사용해보기\" 숨기기";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "\"동영상 화질 환경설정\" 숨기기";
+"HIDE_NOTIFICATIONS_SECTION" = "\"알림\" 숨기기";
+"HIDE_MANAGEALLHISTORY_SECTION" = "\"전체 기록 관리\" 숨기기";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "\"YouTube의 내 데이터\" 숨기기";
+"HIDE_PRIVACY_SECTION" = "\"공개 설정\" 숨기기";
+"HIDE_LIVECHAT_SECTION" = "\"실시간 채팅\" 숨기기";
+
+// Theme
+"THEME_OPTIONS" = "어두운 테마 설정";
+
+"OLED_DARK_THEME" = "OLED 다크 테마";
+"OLED_DARK_THEME_2" = "OLED 다크 테마";
+"OLED_DARK_THEME_DESC" = "진정한 다크 테마입니다. 일부 상황에서는 올바르게 작동하지 않을 수 있습니다. 이 옵션을 켜거나 끈 후에는 앱을 재시작해야 합니다.";
+
+"OLD_DARK_THEME" = "구형 어두운 테마";
+"OLD_DARK_THEME_DESC" = "예전 유튜브의 어두운 테마(회색 테마). 앱 재시작이 필요합니다.";
+
+"DEFAULT_THEME" = "기본";
+"DEFAULT_THEME_DESC" = "유튜브의 기본 어두운 테마입니다. 앱 재시작이 필요합니다.";
+
+"OLED_KEYBOARD" = "OLED 키보드";
+"OLED_KEYBOARD_DESC" = "일부 상황에서 올바르게 작동하지 않을 수 있습니다. 앱 재시작이 필요합니다.";
+
+"LOW_CONTRAST_MODE" = "저대비 모드";
+"LOW_CONTRAST_MODE_DESC" = "텍스트와 버튼의 대비를 낮춥니다. 예전 유튜브 인터페이스처럼 보일 수 있습니다. 앱 재시작이 필요합니다.";
+"LCM_SELECTOR" = "저대비 모드 선택";
+"DEFAULT_LOWCONTRASTMODE" = "(기본) 저대비 모드";
+"CUSTOM_LOWCONTRASTMODE" = "(사용자 지정 색상) 저대비 모드";
+
+// Miscellaneous
+"MISCELLANEOUS" = "기타";
+
+"PLAYBACK_IN_FEEDS" = "피드에서 재생";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "항상 사용";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Wi-Fi 전용";
+"PLAYBACK_IN_FEEDS_OFF" = "사용 안함";
+
+"NEW_SETTINGS_UI" = "새로운 설정 UI";
+"NEW_SETTINGS_UI_DESC" = "새로운 그룹화된 설정 UI를 사용합니다. 일부 설정이 숨겨질 수 있습니다.";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "유튜브 시작 애니메이션 활성화";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "";
+
+"HIDE_MODERN_INTERFACE" = "새로운 인터페이스 비활성화 (YTNoModernUI)";
+"HIDE_MODERN_INTERFACE_DESC" = "17.38.10 이전의 전통적인 디자인으로 되돌립니다. 일부 둥근 요소, 앰비언트 모드 및 새로운 기능도 제거됩니다. 앱 재시작이 필요합니다.";
+
+"IPAD_LAYOUT" = "iPad 레이아웃";
+"IPAD_LAYOUT_DESC" = "iPhone/iPod에서 iPad 레이아웃을 사용하려면 이 옵션을 켜세요. 앱 재시작이 필요합니다.";
+
+"IPHONE_LAYOUT" = "iPhone 레이아웃";
+"IPHONE_LAYOUT_DESC" = "iPad에서 iPhone 레이아웃을 사용하려면 이 옵션을 켜세요. 앱 재시작이 필요합니다.";
+
+"CAST_CONFIRM" = "TV로 시청하기 전 확인 (YTCastConfirm)";
+"CAST_CONFIRM_DESC" = "실수로 TV에 영상을 띄우지 않도록 시청 전에 확인 메세지를 표시합니다.";
+"CASTING" = "TV로 시청하기";
+"MSG_ARE_YOU_SURE" = "TV로 시청하시겠습니까?";
+"MSG_YES" = "확인";
+"MSG_CANCEL" = "취소";
+
+"NEW_MINIPLAYER_STYLE" = "새로운 미니 플레이어 스타일 (BigYTMiniPlayer)";
+"NEW_MINIPLAYER_STYLE_DESC" = "앱 재시작이 필요합니다.";
+
+"HIDE_CAST_BUTTON" = "TV로 시청하기 버튼 숨기기";
+"HIDE_CAST_BUTTON_DESC" = "앱 재시작이 필요합니다.";
+
+"VIDEO_PLAYER_BUTTON" = "동영상 플레이어 버튼";
+"VIDEO_PLAYER_BUTTON_DESC" = "다운로드한 동영상를 Apple 기본 플레이어에서 열 수 있는 버튼을 네비게이션 바에 표시합니다.";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "네비게이션 바에서 iSponsorBlock 버튼 숨기기";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "";
+
+"HIDE_HOME_TAB" = "홈 탭 숨기기";
+"HIDE_HOME_TAB_DESC" = "모든 탭을 숨길 때는 주의하세요";
+
+"FIX_CASTING" = "TV로 시청하기 수정";
+"FIX_CASTING_DESC" = "일부 AB 플래그를 변경하여 TV로 시청하기 문제를 해결합니다.";
+
+"ENABLE_FLEX" = "FLEX 활성화";
+"ENABLE_FLEX_DESC" = "디버깅을 위해 FLEX를 활성화합니다(권장하지 않음). 이 동작에 대해 잘 아는 경우에만 사용하세요.";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "앱 버전 변조 활성화 (Lite)";
+"APP_VERSION_SPOOFER_LITE_DESC" = "버전 변조(Lite)를 사용하려면 이 옵션을 켜고 아래에서 원하는 버전을 선택하세요. 앱 재시작이 필요합니다.";
+"VERSION_SPOOFER_TITLE" = "버전 변조 선택";
+
+// Other Localization
+"APP_RESTART_DESC" = "앱 재시작이 필요합니다.";
+"CHANGE_APP_ICON" = "앱 아이콘 변경";

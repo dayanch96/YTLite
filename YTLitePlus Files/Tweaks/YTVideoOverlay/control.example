@@ -1,0 +1,9 @@
+Package: com.yourcompany.tweak
+Name: Awesome YouTube Video Overlay Button
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Awesome YouTube Video Overlay Button.
+Maintainer: You
+Author: You
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 11.0), com.ps.ytvideooverlay (>= 2.0.0)

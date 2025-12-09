@@ -1,0 +1,11 @@
+Package: com.ps.youmute
+Name: YouMute
+Version: 1.3.3
+Architecture: iphoneos-arm
+Description: Mutes/unmutes videos in YouTube directly.
+Maintainer: PoomSmart
+Author: PoomSmart
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 11.0), com.ps.ytvideooverlay (>= 2.3.2)
+Depiction: https://poomsmart.github.io/repo/depictions/youmute.html
+SileoDepiction: https://poomsmart.github.io/repo/sileodepictions/youmute.json

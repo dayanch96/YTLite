@@ -1,0 +1,11 @@
+"VIDEO_OVERLAY" = "動画のオーバーレイ";
+"TOP" = "上部";
+"TOP_DESC" = "右上。自動再生、キャプション、キャスト、オーバーフローメニューがある位置。";
+"BOTTOM" = "下部";
+"BOTTOM_DESC" = "右下。フルスクリーンボタンがある位置。";
+"ORDER" = "順序";
+"ORDER_NONE" = "未設定";
+
+"GLOBAL_SETTINGS" = "グローバル設定";
+"ENABLE_FROSTED_GLASS_BOTTOM" = "下部のすりガラス";
+"ENABLE_FROSTED_GLASS_BOTTOM_DESC" = "有効にすると、下部のボタンにすりガラス効果を追加します。";

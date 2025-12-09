@@ -1,0 +1,40 @@
+"ENABLED" = "Enabled";
+"ENABLED_DESC" = "Enable to show A/B settings.";
+"GROUPED" = "Grouped settings by prefixes";
+"RESET_KILL" = "Reset and Kill";
+"RESET_KILL_DESC" = "Tap to undo all of your changes and kill the app.";
+"COPY_CURRENT_SETTINGS" = "Copy current settings";
+"COPY_CURRENT_SETTINGS_DESC" = "Tap to copy the current settings to the clipboard.";
+"VIEW_MODIFIED_SETTINGS" = "View modified settings";
+"VIEW_MODIFIED_SETTINGS_DESC" = "Tap to view all the changes you made manually.";
+"IMPORT_SETTINGS" = "Import settings";
+"IMPORT_SETTINGS_DESC" = "Import the settings from the clipboard.\nEach setting must be in this format: %@";
+"NOTHING_TO_IMPORT" = "Nothing found from the clipboard or there will be no changes after importing it.";
+"SETTINGS_TO_IMPORT" = "Settings to import";
+"SETTINGS_TO_IMPORT_DESC" = "Found %ld valid settings to be imported.";
+"IMPORT" = "Import";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "Changes";
+"TOTAL_MODIFIED_SETTINGS" = "Total: %ld";
+
+// Quit app alert
+"WARNING" = "Warning";
+"APPLY_DESC" = "This action will quit YouTube. Are you sure you want to continue?";
+
+"OPEN_MEGATHREAD" = "Open megathread";
+"OPEN_MEGATHREAD_DESC" = "Open YTABConfig megathread on GitHub where you can share and discuss the effect of each setting being enabled or disabled.";
+"SETTINGS_START_WITH" = "Settings starting with";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "Copy to clipboard";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "Copied to clipboard.";
+
+"REMOVED" = "(Removed)";
+
+"REMOVE_REMOVED_SETTINGS" = "Remove removed settings";
+"REMOVE_REMOVED_SETTINGS_DESC" = "This will remove %ld settings that are no longer available in YouTube.";

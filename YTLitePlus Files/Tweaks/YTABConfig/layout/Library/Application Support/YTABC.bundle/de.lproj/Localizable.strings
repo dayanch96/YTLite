@@ -1,0 +1,40 @@
+"ENABLED" = "Aktiviert";
+"ENABLED_DESC" = "Aktivieren, um A/B-Einstellungen zu sehen.";
+"GROUPED" = "Gruppierte Einstellungen bei Prefix";
+"RESET_KILL" = "Zurücksetzen und crashen";
+"RESET_KILL_DESC" = "Tippe hier, um alle Einstellungen zurückzusetzen und um YouTube zum Abstürzen zu bringen.";
+"COPY_CURRENT_SETTINGS" = "Aktuelle Einstellungen kopieren";
+"COPY_CURRENT_SETTINGS_DESC" = "Tippe hier, um alle Einstellungen in die Zwischenablage zu kopieren.";
+"VIEW_MODIFIED_SETTINGS" = "Modifizierte Einstellungen anzeigen";
+"VIEW_MODIFIED_SETTINGS_DESC" = "Tippe hier, um alle manuelle Änderungen zu sehen.";
+"IMPORT_SETTINGS" = "Einstellungen importieren";
+"IMPORT_SETTINGS_DESC" = "Importiere die Einstellungen aus der Zwischenablage.\nJede Einstellung muss in diesem Format sein: %@";
+"NOTHING_TO_IMPORT" = "Nichts aus der Zwischenablage gefunden oder es werden keine Änderungen nach dem Importieren vorgenommen.";
+"SETTINGS_TO_IMPORT" = "Zu importierende Einstellungen";
+"SETTINGS_TO_IMPORT_DESC" = "%ld gültige Einstellungen zum Importieren gefunden.";
+"IMPORT" = "Importieren";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "Änderungen";
+"TOTAL_MODIFIED_SETTINGS" = "Total: %ld";
+
+// Quit app alert
+"WARNING" = "Warnung";
+"APPLY_DESC" = "Diese Aktion wird YouTube beenden. Sind Sie sicher, dass Sie fortfahren möchten?";
+
+"OPEN_MEGATHREAD" = "Megathread öffnen";
+"OPEN_MEGATHREAD_DESC" = "Öffne den YTABConfig Megathread auf GitHub, in dem Sie sich über die Auswirkungen der Aktivierung bzw. Deaktivierung der einzelnen Einstellungen austauschen und diskutieren können.";
+"SETTINGS_START_WITH" = "Einstellungen beginnend mit";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "In die Zwischenablage kopieren";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "In die Zwischenablage kopiert.";
+
+"REMOVED" = "(Entfernt)";
+
+"REMOVE_REMOVED_SETTINGS" = "Entfernte Einstellungen löschen";
+"REMOVE_REMOVED_SETTINGS_DESC" = "Dies wird %ld Einstellungen entfernen, die in YouTube nicht mehr verfügbar sind.";

@@ -1,0 +1,13 @@
+"HOLD_FOR_SPEED" = "Maintenir pour la vitesse";
+"NORMAL" = "Normal";
+"X_SECONDS" = "%@ secondes";
+"HOLD_GESTURE" = "Geste de maintien";
+"HOLD_GESTURE_DESC" = "Appuyez et maintenez n'importe où dans le lecteur vidéo pour basculer la vitesse de lecture entre \"Normal\" (c'est-à-dire 1,0x) et la vitesse de basculement sélectionnée.\n\nVeuillez noter qu'en activant cette fonction, le geste \"recherche n'importe où\" par défaut sera désactivé.";
+"AUTO_APPLY_SPEED" = "Appliquer automatiquement la vitesse";
+"AUTO_APPLY_SPEED_DESC" = "Lorsqu'elle est activée, la vitesse de lecture sélectionnée sera automatiquement appliquée lorsqu'un nouveau lecteur vidéo est lancé.";
+"TOGGLE_SPEED" = "Basculer la vitesse";
+"TOGGLE_SPEED_DESC" = "La vitesse à laquelle le lecteur vidéo basculera lorsque le geste de maintien est invoqué.";
+"HOLD_DURATION" = "Durée de maintien";
+"HOLD_DURATION_DESC" = "La durée (en secondes) nécessaire pour que le geste de maintien bascule la vitesse du lecteur vidéo.";
+"HAPTIC_FEEDBACK" = "Retour haptique";
+"HAPTIC_FEEDBACK_DESC" = "Utilisez un retour haptique pour indiquer que la vitesse du lecteur vidéo a été changée.";

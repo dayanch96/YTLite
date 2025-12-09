@@ -1,0 +1,40 @@
+"ENABLED" = "启用";
+"ENABLED_DESC" = "显示和应用 A/B 测试选项。";
+"GROUPED" = "按首字母或前缀词分组";
+"RESET_KILL" = "恢复默认并退出";
+"RESET_KILL_DESC" = "将所有选项重置为默认值并关闭 App。";
+"COPY_CURRENT_SETTINGS" = "复制当前设置";
+"COPY_CURRENT_SETTINGS_DESC" = "将当前所有设置复制到剪贴板。";
+"VIEW_MODIFIED_SETTINGS" = "查看已改动的选项";
+"VIEW_MODIFIED_SETTINGS_DESC" = "查看您已手动更改的选项。";
+"IMPORT_SETTINGS" = "导入设置";
+"IMPORT_SETTINGS_DESC" = "从剪贴板导入设置。\n每个设置必须是这种格式：%@";
+"NOTHING_TO_IMPORT" = "剪贴板中没有找到内容或导入后不会有任何更改。";
+"SETTINGS_TO_IMPORT" = "要导入的设置";
+"SETTINGS_TO_IMPORT_DESC" = "找到 %ld 个有效的设置可以导入。";
+"IMPORT" = "导入";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "已改动的选项";
+"TOTAL_MODIFIED_SETTINGS" = "共计：%ld项";
+
+// Quit app alert
+"WARNING" = "警告";
+"APPLY_DESC" = "执行此操作需要关闭 YouTube，是否继续？";
+
+"OPEN_MEGATHREAD" = "进入集中讨论贴";
+"OPEN_MEGATHREAD_DESC" = "前往 GitHub 上的 YTABConfig 集中讨论贴来与其他用户分享和讨论各个选项的效果。";
+"SETTINGS_START_WITH" = "查看以此开头的选项：";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "复制到剪贴板";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "已复制到剪贴板。";
+
+"REMOVED" = "(已移除)";
+
+"REMOVE_REMOVED_SETTINGS" = "删除已移除的设置";
+"REMOVE_REMOVED_SETTINGS_DESC" = "这将删除 %ld 个在 YouTube 中已不可用的设置。";

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Migrating to 1.1  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a title="Migrating to 1.1  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">Alderis 1.2 Docs</a></p>
+        <p class="header-right"><a href="https://github.com/hbang/Alderis"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fhbang.github.io%2FAlderis%2Fdocsets%2FAlderis.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
+        <div class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">Alderis Reference</a>
+        <img id="carat" src="img/carat.png" alt=""/>
+        Migrating to 1.1  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="preference-bundles.html">Preference Bundles</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="migrating-to-11.html">Migrating to 1.1</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Color%20Picker.html">Color Picker</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/ColorPickerViewController.html">ColorPickerViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ColorPickerConfiguration.html">ColorPickerConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ColorPickerDelegate.html">ColorPickerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/ColorPickerTab.html">ColorPickerTab</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="UI%20Components.html">UI Components</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/ColorWell.html">ColorWell</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/UIColor.html">UIColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions.html#/s:7Alderis22ColorPropertyListValueP">ColorPropertyListValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions.html#/s:SS">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions.html#/s:Sa">Array</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Deprecated.html">Deprecated</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Deprecated.html#/c:@M@Alderis@objc(cs)HBColorPickerCircleView">ColorPickerCircleView</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h2 id='migrating-to-1-1' class='heading'>Migrating to 1.1</h2>
+<h3 id='colorpickerconfiguration' class='heading'>ColorPickerConfiguration</h3>
+
+<p>A variety of configuration options have been added, configured on a new <code><a href="Classes/ColorPickerConfiguration.html">ColorPickerConfiguration</a></code> class.</p>
+
+<p>Code that looks like this:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">colorPicker</span> <span class="o">=</span> <span class="kt">ColorPickerViewController</span><span class="p">()</span>
+<span class="n">colorPicker</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="p">(</span><span class="nv">red</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">green</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">blue</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nf">present</span><span class="p">(</span><span class="n">colorPicker</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</code></pre>
+
+<p>Should now become:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">configuration</span> <span class="o">=</span> <span class="kt">ColorPickerConfiguration</span><span class="p">(</span><span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">(</span><span class="nv">red</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">green</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">blue</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span>
+<span class="c1">// Do any other configuration you want here…</span>
+<span class="k">let</span> <span class="nv">colorPicker</span> <span class="o">=</span> <span class="kt">ColorPickerViewController</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="n">configuration</span><span class="p">)</span>
+<span class="nf">present</span><span class="p">(</span><span class="n">colorPicker</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</code></pre>
+<h3 id='delegate-changes' class='heading'>Delegate changes</h3>
+
+<p><code><a href="Protocols/ColorPickerDelegate.html#/c:@M@Alderis@objc(pl)HBColorPickerDelegate(im)colorPicker:didSelectColor:">ColorPickerDelegate.colorPicker(_:didSelect:)</a></code> is now fired with every change made within the color picker interface. Ensure any work done in this method does not assume the value is the user’s final selection. You might use this to update your user interface based on the current selection. If there is nothing useful you can do to improve the user experience, don’t implement this method.</p>
+
+<p>The new <code><a href="Protocols/ColorPickerDelegate.html#/c:@M@Alderis@objc(pl)HBColorPickerDelegate(im)colorPicker:didAcceptColor:">ColorPickerDelegate.colorPicker(_:didAccept:)</a></code> method is now used to signal the user dismissing the color picker with a positive response, by tapping the Done button or dismissing the popover.</p>
+
+<p>For compatibility, if the color is set via the deprecated <code><a href="Classes/ColorPickerViewController.html#/c:@M@Alderis@objc(cs)HBColorPickerViewController(py)color">ColorPickerViewController.color</a></code> API, the delegate behaves as it did in Alderis 1.0.</p>
+<h3 id='popover-style' class='heading'>Popover style</h3>
+
+<p>Alderis now uses popovers, providing a more integrated interface design on iPad and Mac Catalyst. In order to support this, some popover presentation parameters must be set. If they are not set, UIKit throws an exception on presenting the view controller.</p>
+
+<p>For example:</p>
+<pre class="highlight swift"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">presentColorPicker</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">configuration</span> <span class="o">=</span> <span class="kt">ColorPickerConfiguration</span><span class="p">(</span><span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">(</span><span class="nv">red</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">green</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">blue</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="k">let</span> <span class="nv">colorPicker</span> <span class="o">=</span> <span class="kt">ColorPickerViewController</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="n">configuration</span><span class="p">)</span>
+    <span class="n">colorPicker</span><span class="o">.</span><span class="n">popoverPresentationController</span><span class="p">?</span><span class="o">.</span><span class="n">sourceView</span> <span class="o">=</span> <span class="n">sender</span>
+    <span class="nf">present</span><span class="p">(</span><span class="n">colorPicker</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2022 <a class="link" href="https://hbang.github.io/" target="_blank" rel="external noopener">HASHBANG Productions</a>. All rights reserved. (Last updated: 2022-05-23)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

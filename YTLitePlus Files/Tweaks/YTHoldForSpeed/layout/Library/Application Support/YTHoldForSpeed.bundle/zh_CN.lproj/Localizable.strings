@@ -1,0 +1,15 @@
+"AUTO_APPLY_SPEED" = "自动应用速度";
+"AUTO_APPLY_SPEED_DESC" = "启用后，下次视频播放器启动时，将自动应用所选的播放速度。";
+"HAPTIC_FEEDBACK" = "振动反馈";
+"HAPTIC_FEEDBACK_DESC" = "使用振动反馈来指示视频播放器的速度已切换。";
+"HOLD_DURATION" = "长按手势的持续时间";
+"HOLD_DURATION_DESC" = "长按手势切换视频播放器速度所需的时间（秒）。";
+"DISABLE_STOCK_GESTURES" = "禁用原生手势";
+"DISABLE_STOCK_GESTURES_DESC" = "禁用视频播放器中的原生的点击和长按手势。\n\n请注意，如果启用了长按手势，则原生手势将自动禁用。";
+"HOLD_FOR_SPEED" = "长按控制速度";
+"HOLD_GESTURE" = "长按手势";
+"HOLD_GESTURE_DESC" = "点击并按住视频播放器中的任意位置，在“正常”（1.0x）和所选的播放速度之间切换。\r\n\r\n请注意，启用此功能后，默认“长按任意处调整进度”手势将被禁用，并可能和其他插件的长按功能冲突。";
+"NORMAL" = "正常";
+"TOGGLE_SPEED" = "切换速度";
+"TOGGLE_SPEED_DESC" = "视频播放器在调用长按手势时切换的速度。";
+"X_SECONDS" = "%@ 秒";

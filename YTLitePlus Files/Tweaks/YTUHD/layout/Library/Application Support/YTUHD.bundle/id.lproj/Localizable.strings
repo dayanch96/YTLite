@@ -1,0 +1,16 @@
+"USE_VP9" = "Gunakan VP9";
+"USE_VP9_DESC" = "Mengaktifkan codec VP9 yang mendukung hingga resolusi 4K. Bekerja paling baik dengan perangkat yang menggunakan CPU Apple A12 dan yang lebih baru. Mulai ulang aplikasi diperlukan.";
+"HW_VP9_SUPPORT" = "Dukungan hardware VP9";
+
+"ALL_VP9" = "VP9 untuk semua";
+"ALL_VP9_DESC" = "Gunakan codec VP9 untuk semua resolusi video. Ini disarankan untuk diaktifkan untuk perangkat yang mendukung hardware VP9 (A12 dan lebih tinggi) dan ketika aplikasi YouTube memiliki hak VP9.";
+
+"DECODE_THREADS" = "Threads decode";
+"DECODE_THREADS_DESC" = "Jumlah threads yang digunakan untuk decoding video VP9. Nilai yang lebih tinggi dapat meningkatkan kinerja pemutaran video tetapi juga dapat meningkatkan konsumsi baterai.";
+"DECODE_THREADS_DEFAULT_VALUE" = "Nilai default";
+
+"SKIP_LOOP_FILTER" = "Skip loop filter";
+
+"LOOP_FILTER_OPTIMIZATION" = "Loop filter optimization";
+
+"ROW_THREADING" = "Row threading";

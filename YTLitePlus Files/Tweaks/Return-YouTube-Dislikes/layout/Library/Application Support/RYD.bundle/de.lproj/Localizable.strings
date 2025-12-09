@@ -1,0 +1,13 @@
+"SETTINGS_TITLE" = "Return YouTube Dislike";
+
+"ENABLED" = "Aktiviert";
+"ENABLE_VOTE_SUBMIT" = "Bewertungen übermitteln";
+"ENABLE_VOTE_SUBMIT_DESC" = "Erlaubt, dass Ihre eindeutige, aber anonyme ID und Ihre Like-/Dislike-Bewertungen auf Videos/Shorts an %@ übermittelt werden.";
+"EXACT_LIKE_NUMBER" = "Exakte Like-Zahlen";
+"EXACT_DISLIKE_NUMBER" = "Exakte Dislike-Zahlen";
+"EXACT_DISLIKE_NUMBER_DESC" = "Exakte Anzahl der Dislikes anzeigen. Zum Beispiel: %@ -> %@.";
+"RAW_DATA" = "Rohdaten der Dislikes";
+"RAW_DATA_DESC" = "Verwenden Sie nur die Dislike-Daten von Personen, die die RYD-Browsererweiterung oder diesen Tweak verwenden.";
+
+// On app launch
+"WANT_TO_ENABLE" = "Möchten Sie die Übermittlung Ihrer Like-/Dislike-Bewertungen an %@ nun genehmigen? Sie können dies jederzeit in den Einstellungen > %@ > %@ wieder deaktivieren.";

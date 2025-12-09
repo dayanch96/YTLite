@@ -1,0 +1,88 @@
+/* iSponsorBlock Settings */
+"Enabled" = "Bật";
+"RestartFooter" = "Khởi động lại YouTube để các thay đổi có hiệu lực";
+
+"Sponsor" = "Người tài trợ";
+"Intermission/IntroAnimation" = "Tạm dừng/Giới thiệu";
+"Intermission" = "Tạm ngừng";
+"Endcards/Credits" = "Màn hình kết thúc/Danh đề";
+"Outro" = "Kết thúc";
+"InteractionReminder" = "Nhắc tương tác (Đăng ký)";
+"InteractionReminder_Subcribe/Like" = "Nhắc tương tác (Đăng ký/Thích)";
+"Interaction" = "Tương tác";
+"Unpaid/SelfPromotion" = "Quảng cáo không trả phí/Tự quảng cáo";
+"SelfPromo" = "Tự giới thiệu";
+"Non-MusicSection" = "Nhạc: Phần không nhạc";
+"Non-Music" = "Không có nhạc";
+"Preview" = "Preview";
+"SponsorBlockUserID" = "ID người dùng SponsorBlock";
+"SponsorBlockAPIInstance" = "Phiên bản API SponsorBlock";
+
+"Disable" = "Tắt";
+"AutoSkip" = "Tự động";
+"ShowInSeekBar" = "Hiển thị ở thanh tua";
+"ManualSkip" = "Thủ công";
+"SetColorToShowInSeekBar" = "Chọn màu hiển thị (thanh tua)";
+
+"UserID" = "ID Người dùng:";
+"UserIDFooter" = "Nếu bạn muốn sử dụng một ID người dùng SponsorBlock tùy chỉnh, bạn có thể nhập nó ở đây. Nếu bạn không biết đây là gì, hãy để mặc định.";
+"API_URL" = "Đường dẫn API:";
+"APIFooter" = "Nếu bạn muốn sử dụng một phiên bản API SponsorBlock tùy chỉnh, bạn có thể nhập nó ở đây. Nếu bạn không biết đây là gì, hãy để mặc định. Ví dụ: https://sponsor.ajay.app/api";
+"MinimumSegmentDuration" = "Thời gian phân đoạn tối thiểu:";
+"HowLongNoticeWillAppear" = "Thời gian hiển thị thông báo:";
+"ShowSkipNotice" = "Hiển thị thông báo bỏ qua";
+"ShowButtonsInPlayer" = "Hiển thị nút iSponsorBlock trong trình phát video";
+"HideStartEndButtonInPlayer" = "Ẩn nút Bắt đầu/Kết thúc trong trình phát video";
+"ShowModifiedTime" = "Hiển thị thời gian đã chỉnh sửa ở thanh tua";
+"AudioNotificationOnSkip" = "Phát âm thanh khi bỏ qua";
+"AudioFooter" = "Không khả dụng trong chế độ im lặng";
+"EnableSkipCountTracking" = "Bật tính năng theo dõi số phân đoạn đã bỏ qua";
+"DonateOnVenmo" = "Ủng hộ qua Venmo";
+"DonateOnPayPal" = "Ủng hộ qua PayPal";
+
+/* Segments stuff */
+"SegmentStartsNow" = "Bắt đầu phân đoạn";
+"SegmentEndsNow" = "Dừng phân đoạn";
+"WhitelistChannel" = "Đưa kênh vào danh sách không chặn";
+"SegmentsInDatabase" = "Phân đoạn đã có trong cơ sở dữ liệu:";
+"YourSegments" = "Phân đoạn của bạn:";
+"SubmitSegments" = "Gửi phân đoạn";
+"SuccessfullySubmittedSegments" = "Gửi thành công";
+"EndTimeLessThanStartTime" = "Thời gian kết thúc nhỏ hơn thời gian bắt đầu. Vui lòng chọn lại.";
+"UnfinishedSegments" = "Bạn có các phân đoạn chưa hoàn thành\n Vui lòng thêm danh mục và/hoặc thời gian kết thúc cho các phân đoạn của bạn";
+"EditStartTime" = "Sửa thời gian bắt đầu";
+"EditStartTime_Desc" = "Chỉnh sửa thời gian bắt đầu: (ví dụ: nhập 1:15)";
+"EditEndTime" = "Sửa thời gian kết thúc";
+"EditEndTime_Desc" = "Chỉnh sửa thời gian kết thúc: (ví dụ: nhập 1:15)";
+"From" = "Từ";
+"to" = "đến";
+"EditCategory" = "Sửa danh mục";
+"EditSegment" = "Sửa phân đoạn";
+"Edit" = "Sửa";
+"Error" = "Lỗi";
+"ErrorCode" = "Mã lỗi";
+"Success" = "Thành công";
+"OK" = "Ok";
+"Cancel" = "Hủy";
+"Delete" = "Xóa";
+"Upvote" = "Bình chọn";
+"Downvote" = "Phản đối";
+"VoteToChangeCategory" = "Bỏ phiếu để thay đổi danh mục";
+"VoteOnSegment" = "Bỏ phiếu trên phân đoạn";
+"SuccessfullyVoted" = "Đã bỏ phiếu thành công";
+"ErrorVoting" = "Lỗi khi bỏ phiếu";
+
+/* Pop-ups */
+"ManuallySkipReminder" = "Bỏ qua phân đoạn %@ từ %ld:%02ld đến %ld:%02ld?";
+"Skip" = "Bỏ qua";
+"SkippedSegment" = "Đã bỏ qua phân đoạn %@";
+"Unskip" = "Hủy bỏ qua";
+
+/* Segments in pop-ups */
+"sponsor" = "người tài trợ";
+"intro" = "mở đầu";
+"outro" = "kết thúc";
+"interaction" = "tương tác";
+"selfpromo" = "tự giới thiệu";
+"music_offtopic" = "không có nhạc";
+"preview" = "preview";

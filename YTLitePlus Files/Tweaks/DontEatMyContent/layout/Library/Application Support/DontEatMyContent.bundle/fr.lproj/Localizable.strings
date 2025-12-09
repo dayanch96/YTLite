@@ -1,0 +1,38 @@
+"SETTINGS_TITLE" = "DontEatMyContent";
+
+"ENABLED" = "Activé";
+"TWEAK_DESC" = "Empêche l'encoche/Dynamic Island de couper les vidéos en 2:1 (par exemple, les vidéos de MKBHD)";
+
+"SAFE_AREA_CONST" =  "Constante de zone sûre";
+"SAFE_AREA_CONST_DESC" = "Personnalisez cette constante pour rapprocher ou éloigner la vidéo de l'encoche/Dynamic Island. Plus la constante est grande, plus la vidéo sera proche de l'encoche/Dynamic Island, et vice versa";
+"DEFAULT" = "par défaut";
+"CHANGES_SAVED_DISMISS_VIDEO" = "Vos modifications ont été enregistrées. Si une vidéo est en cours de lecture, fermez-la pour que les modifications prennent effet";
+
+"COLOR_VIEWS" = "Vues colorées";
+"COLOR_VIEWS_DESC" = "Définit un arrière-plan rouge pour la vue de rendu, vert pour le conteneur de la vue de rendu et bleu pour la vue du lecteur; utile pour le débogage";
+
+"REPORT_ISSUE" = "Signaler un problème";
+"SOURCE_CODE" = "Voir le code source";
+
+"CHANGES_SAVED" = "Vos modifications ont été enregistrées";
+
+"EXIT" = "Quitter";
+"LATER" = "Plus tard";
+"EXIT_YT_DESC" = "Relancez YouTube pour appliquer les modifications";
+
+"UNSUPPORTED_DEVICE" = "Cet appareil n'est pas pris en charge";
+
+"DISABLE_AMBIENT_MODE" = "Disable ambient mode in landscape";
+"VERSION" = "Version";
+
+"LIMIT_ZOOM_TO_FILL" = "Zoom to almost fill (experimental)";
+"LIMIT_ZOOM_TO_FILL_DESC" = "Limits zoom to fill to the notch/Dynamic Island";
+
+"ADD_TITLE" = "Add your title here...";
+
+"ADVANCED" = "Advanced";
+
+"ENABLE_FOR_ALL_VIDEOS" = "Enable for all videos (experimental)";
+"ENABLE_FOR_ALL_VIDEOS_DESC" = "Enable safe area constraints for all videos. This might cause unintended effects. Please file a bug report before enabling this option";
+
+"ABOUT" = "About";

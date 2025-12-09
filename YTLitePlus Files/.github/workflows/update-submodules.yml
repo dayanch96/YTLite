@@ -1,0 +1,35 @@
+name: Update Submodules
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 0 * * *'
+
+jobs:
+  update-submodules:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Git
+        run: |
+            git config --global user.email "actions@github.com"
+            git config --global user.name "GitHub Actions"
+
+      - name: Update submodules
+        run: |
+          git submodule update --init --recursive --remote
+          git add .
+          git commit -m "updated submodules"
+          git push origin
+        continue-on-error: true
+
+      - name: Check exit code
+        run: |
+          exit_code=$?
+          if [ $exit_code -ne 0 ]; then
+            echo "Submodule update failed with exit code $exit_code"
+            exit 1
+          fi

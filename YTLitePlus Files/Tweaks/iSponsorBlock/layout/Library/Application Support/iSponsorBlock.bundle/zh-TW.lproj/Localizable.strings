@@ -1,0 +1,88 @@
+/* iSponsorBlock Settings */
+"Enabled" = "啟用";
+"RestartFooter" = "重新啟動Youtube以套用更變";
+
+"Sponsor" = "贊助商";
+"Intermission/IntroAnimation" = "中場/開場動畫";
+"Intermission" = "中場";
+"Endcards/Credits" = "結尾資訊/致謝";
+"Outro" = "其他";
+"InteractionReminder" = "訂閱推廣";
+"InteractionReminder_Subcribe/Like" = "訂閱/按讚推廣";
+"Interaction" = "推廣";
+"Unpaid/SelfPromotion" = "免費/自薦";
+"SelfPromo" = "自薦";
+"Non-MusicSection" = "音樂: 非音樂片段";
+"Non-Music" = "非音樂片段";
+"Preview" = "Preview";
+"SponsorBlockUserID" = "SponsorBlock 使用者 ID";
+"SponsorBlockAPIInstance" = "SponsorBlock API 範例";
+
+"Disable" = "停用";
+"AutoSkip" = "自動跳過";
+"ShowInSeekBar" = "顯示在進度欄";
+"ManualSkip" = "手動跳過";
+"SetColorToShowInSeekBar" = "設定在進度欄顯示的顏色";
+
+"UserID" = "使用者 ID:";
+"UserIDFooter" = "如果您想使用自訂的 SponsorBlock 使用者 ID, 您可以在此輸入. 如果您不清楚這是什麼, 請維持預設值.";
+"API_URL" = "API 超連結:";
+"APIFooter" = "如果您想使用自訂的 SponsorBlock API, 您可以在此輸入. 如果您不清楚這是什麼, 請維持預設值. 範例:https://sponsor.ajay.app/api";
+"MinimumSegmentDuration" = "設定片段最小長度:";
+"HowLongNoticeWillAppear" = "設定跳過通知顯示的時間:";
+"ShowSkipNotice" = "顯示跳過通知";
+"ShowButtonsInPlayer" = "在影片播放器中顯示 iSponsorBlock 按鈕";
+"HideStartEndButtonInPlayer" = "在影片播放器中隱藏 開始/結束 按鈕";
+"ShowModifiedTime" = "在進度欄顯示修改時間";
+"AudioNotificationOnSkip" = "在跳過時使用音效提示";
+"AudioFooter" = "在靜音模式下沒有效果";
+"EnableSkipCountTracking" = "啟用追蹤跳過計數器";
+"DonateOnVenmo" = "透過 Venmo 贊助";
+"DonateOnPayPal" = "透過 PayPal 贊助";
+
+/* Segments stuff */
+"SegmentStartsNow" = "片段現在開始";
+"SegmentEndsNow" = "片段現在結束";
+"WhitelistChannel" = "頻道白名單";
+"SegmentsInDatabase" = "資料庫中已存在片段:";
+"YourSegments" = "您的片段:";
+"SubmitSegments" = "送出片段";
+"SuccessfullySubmittedSegments" = "成功送出片段";
+"EndTimeLessThanStartTime" = "您設定的結束時間小於開始時間, 請選擇大於的時間"; //Example: ..., Please Select a Time After 10:15
+"UnfinishedSegments" = "您尚未完成片段\n 請新增分類 並/或 結束時間至您的片段";
+"EditStartTime" = "編輯開始時間";
+"EditStartTime_Desc" = "編輯開始時間: (範例. 輸入 1:15)";
+"EditEndTime" = "編輯結束時間";
+"EditEndTime_Desc" = "編輯結束時間: (範例. 輸入 1:15)";
+"From" = "從"; // Time. Example: From 1:15 to 3:00. If you dont need it, just leave empty
+"to" = "到"; // Time. Example: From 1:15 to 3:00
+"EditCategory" = "編輯分類";
+"EditSegment" = "編輯片段";
+"Edit" = "編輯";
+"Error" = "錯誤";
+"ErrorCode" = "錯誤碼";
+"Success" = "成功";
+"OK" = "好";
+"Cancel" = "取消";
+"Delete" = "刪除";
+"Upvote" = "讚";
+"Downvote" = "爛";
+"VoteToChangeCategory" = "投票來更改分類";
+"VoteOnSegment" = "對片段進行投票";
+"SuccessfullyVoted" = "投票成功";
+"ErrorVoting" = "投票錯誤";
+
+/* Pop-ups*/
+"ManuallySkipReminder" = "手動跳過 %@ 片段\n從 %ld:%02ld 到 %ld:%02ld?";
+"Skip" = "跳過";
+"SkippedSegment" = "已跳過 %@ 片段";
+"Unskip" = "取消跳過";
+
+/* Segments in pop-ups*/
+"sponsor" = "贊助商";
+"intro" = "開場";
+"outro" = "結尾";
+"interaction" = "推廣頻道";
+"selfpromo" = "自薦";
+"music_offtopic" = "非音樂";
+"preview" = "preview";

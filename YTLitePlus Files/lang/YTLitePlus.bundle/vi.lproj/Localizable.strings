@@ -1,0 +1,190 @@
+// Settings
+"VERSION" = "Phiên bản YTLitePlus: %@";
+"VERSION_CHECK" = "Nhấn để kiểm tra cập nhật!";
+
+"COPY_SETTINGS" = "Sao chép cài đặt";
+"COPY_SETTINGS_DESC" = "Sao chép cài đặt hiện tại vào bảng nhớ tạm";
+"PASTE_SETTINGS" = "Dán cài đặt";
+"PASTE_SETTINGS_DESC" = "Dán cài đặt từ bảng nhớ tạm và áp dụng";
+"PASTE_SETTINGS_ALERT" = "Áp dụng các cài đặt?";
+"EXPORT_SETTINGS" = "Xuất cài đặt";
+"EXPORT_SETTINGS_DESC" = "Xuất tất cài đặt hiện tại vào tệp .txt";
+"IMPORT_SETTINGS" = "Nhập cài đặt";
+"IMPORT_SETTINGS_DESC" = "Nhấn để nhập cài đặt (.txt)";
+"REPLACE_COPY_AND_PASTE_BUTTONS" = "Thay thế nút 'Sao chép cài đặt' và 'Dán cài đặt'";
+"REPLACE_COPY_AND_PASTE_BUTTONS_DESC" = "Thay thế các nút thành 'Xuất cài đặt' và 'Nhập cài đặt'";
+
+"VIDEO_PLAYER" = "Trình phát video (Beta)";
+"VIDEO_PLAYER_DESC" = "Mở video đã tải xuống trong trình phát Apple";
+
+// Player Gestures
+"PLAYER_GESTURES_TOGGLE" = "Bật cử chỉ trình phát";
+"VOLUME" = "Âm lượng";
+"BRIGHTNESS" = "Độ sáng";
+"SEEK" = "Tua";
+"DISABLED" = "Vô hiệu hóa";
+"DEADZONE" = "Vùng chết";
+"DEADZONE_DESC" = "Khoảng cách tối thiểu để nhận diện cử chỉ";
+"SENSITIVITY" = "Độ nhạy";
+"SENSITIVITY_DESC" = "Hệ số nhân cho cử chỉ âm lượng và độ sáng";
+"PLAYER_GESTURES_TITLE" = "Cử chỉ trình phát";
+"PLAYER_GESTURES_DESC" = "Cấu hình cử chỉ vuốt ngang cho trình phát";
+"TOP_SECTION" = "Phần trên";
+"MIDDLE_SECTION" = "Phần giữa";
+"BOTTOM_SECTION" = "Phần dưới";
+"PLAYER_GESTURES_HAPTIC_FEEDBACK" = "Bật phản hồi xúc giác";
+
+// Video controls overlay options
+"VIDEO_CONTROLS_OVERLAY_OPTIONS" = "Lớp phủ video";
+
+"ENABLE_SHARE_BUTTON" = "Bật nút chia sẻ";
+"ENABLE_SHARE_BUTTON_DESC" = "Thêm nút chia sẻ trong trình phát video.";
+
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON" = "Bật nút 'Lưu vào danh sách phát'";
+"ENABLE_SAVE_TO_PLAYLIST_BUTTON_DESC" = "Thêm nút 'Lưu vào danh sách phát' trong trình phát video.";
+
+"HIDE_SHADOW_OVERLAY_BUTTONS" = "Ẩn bóng các nút";
+"HIDE_SHADOW_OVERLAY_BUTTONS_DESC" = "Ẩn bóng các nút Phát/Tạm dừng, Trước/Tiếp theo, Tua tới/Tua lại.";
+
+"HIDE_RIGHT_PANEL" = "Ẩn bảng bên phải ở chế độ toàn màn hình";
+"HIDE_RIGHT_PANEL_DESC" = "Điều nãy sẽ khiến bạn không thể xem nội dung mô tả, bình luận, v.v ở chế độ toàn màn hình. Cần khởi động lại ứng dụng.";
+
+"HIDE_HEATWAVES" = "Ẩn sóng nhiệt";
+"HIDE_HEATWAVES_DESC" = "Ẩn sóng nhiệt khỏi trình phát video. Cần khởi động lại ứng dụng.";
+
+"DISABLE_AMBIENT_PORTRAIT" = "Tắt chế độ môi trường  (Chân dung)";
+"DISABLE_AMBIENT_PORTRAIT_DESC" = "Tắt ánh sáng xung quanh tiêu đề video";
+
+"DISABLE_AMBIENT_FULLSCREEN" = "Tắt chế độ môi trường (Toàn màn hình)";
+"DISABLE_AMBIENT_FULLSCREEN_DESC" = "Tắt ánh sáng xung quanh trình phát video";
+
+"FULLSCREEN_TO_THE_RIGHT" = "Toàn màn hình bên phải";
+"FULLSCREEN_TO_THE_RIGHT_DESC" = "Luôn vào chế độ toàn màn hình với nút home ở bên phải.";
+
+"SEEK_ANYWHERE" = "Tua ở mọi nơi";
+"SEEK_ANYWHERE_DESC" = "Giữ và kéo bất kỳ đâu trên trình phát video để tua. Bạn phải tắt tùy chỉnh YTLite - Giữ để tua";
+
+"ENABLE_TAP_TO_SEEK" = "Nhấn để tua";
+"ENABLE_TAP_TO_SEEK_DESC" = "Nhấn một lần vào thanh tua để tua đến bất kỳ vị trí nào trong video";
+
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE" = "Tắt cử chỉ kéo để vào toàn màn hình";
+"DISABLE_PULL_TO_FULLSCREEN_GESTURE_DESC" = "Tắt cử chỉ kéo để vào toàn màn hình dọc. Chỉ áp dụng cho video ngang.";
+
+"ALWAYS_USE_REMAINING_TIME" = "Hiển thị thời gian còn lại";
+"ALWAYS_USE_REMAINING_TIME_DESC" = "Luôn hiển thị thời gian còn lại trên thanh trình phát video.";
+
+"DISABLE_TOGGLE_TIME_REMAINING" = "Tắt chuyển đổi thời gian còn lại";
+"DISABLE_TOGGLE_TIME_REMAINING_DESC" = "Tắt chức năng chuyển đổi từ thời gian đã phát sang thời gian còn lại. Sử dụng với cài đặt khác để luôn hiển thị thời gian còn lại.";
+
+"DISABLE_ENGAGEMENT_OVERLAY" = "Tắt lớp phủ tương tác toàn màn hình";
+"DISABLE_ENGAGEMENT_OVERLAY_DESC" = "Tắt cử chỉ vuốt lên để xem video gợi ý ở chế độ toàn màn hình";
+
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER" = "Ẩn bản xem trước bình luận dưới trình phát";
+"HIDE_COMMENT_PREVIEWS_UNDER_PLAYER_DESC" = "Ngăn tiết lộ nội dung bình luận trong nút bình luận";
+
+"HIDE_AUTOPLAY_MINI_PREVIEW" = "Ẩn bản xem trước tự động phát nhỏ";
+"HIDE_AUTOPLAY_MINI_PREVIEW_DESC" = "Ẩn hộp gợi ý video nhỏ gần tiêu đề ở chế độ toàn màn hình";
+
+"HIDE_HUD_MESSAGES" = "Ẩn thông báo HUD";
+"HIDE_HUD_MESSAGES_DESC" = "Ẩn các thông báo xuất hiện khi thực hiện các hành động (ví dụ: bật/tắt CC)";
+
+"HIDE_COLLAPSE_BUTTON" = "Ẩn nút thu gọn";
+"HIDE_COLLAPSE_BUTTON_DESC" = "Ẩn nút thu gọn (mũi tên) xuất hiện ở góc trái trên của trình phát Video.";
+
+"HIDE_SPEED_TOAST" = "Ẩn thông báo tốc độ";
+"HIDE_SPEED_TOAST_DESC" = "Ẩn thông báo tốc độ 2X khi giữ trình phát video";
+
+// App settings overlay options
+"APP_SETTINGS_OVERLAY_OPTIONS" = "Lớp phủ cài đặt";
+
+"HIDE_ACCOUNT_SECTION" = "Ẩn cài đặt \"Chuyển đổi tài khoản\"";
+"HIDE_AUTOPLAY_SECTION" = "Ẩn cài đặt \"Tự động phát\"";
+"HIDE_TRYNEWFEATURES_SECTION" = "Ẩn cài đặt \"Thử các tính năng mới\"";
+"HIDE_VIDEOQUALITYPREFERENCES_SECTION" = "Ẩn cài đặt \"Lựa chọn ưu tiên về chất lượng video\"";
+"HIDE_NOTIFICATIONS_SECTION" = "Ẩn cài đặt \"Thông báo\"";
+"HIDE_MANAGEALLHISTORY_SECTION" = "Ẩn cài đặt \"Quản lý toàn bộ nhật ký hoạt động\"";
+"HIDE_YOURDATAINYOUTUBE_SECTION" = "Ẩn cài đặt \"Dữ liệu của bạn trong YouTube\"";
+"HIDE_PRIVACY_SECTION" = "Ẩn cài đặt \"Quyền riêng tư\"";
+"HIDE_LIVECHAT_SECTION" = "Ẩn cài đặt \"Trò chuyện trực tiếp\"";
+
+// Theme
+"THEME_OPTIONS" = "Tùy chọn giao diện";
+
+"OLED_DARK_THEME" = "Giao diện tối OLED";
+"OLED_DARK_THEME_2" = "Giao diện tối OLED";
+"OLED_DARK_THEME_DESC" = "Giao diện tối thực sự. Có thể không hoạt động đúng trong một số trường hợp. Cần khởi động lại ứng dụng sau khi bạn bật/tắt tùy chọn này.";
+
+"OLD_DARK_THEME" = "Giao diện tối cũ";
+"OLD_DARK_THEME_DESC" = "Giao diện tối cũ của YouTube (giao diện xám). Cần khởi động lại ứng dụng.";
+
+"DEFAULT_THEME" = "Mặc định";
+"DEFAULT_THEME_DESC" = "Giao diện mặc định của YouTube. Cần khởi động lại ứng dụng.";
+
+"OLED_KEYBOARD" = "Bàn phím OLED";
+"OLED_KEYBOARD_DESC" = "Có thể hoạt động không đúng trong một số trường hợp. Cần khởi động lại ứng dụng.";
+
+"LOW_CONTRAST_MODE" = "Chế độ tương phản thấp";
+"LOW_CONTRAST_MODE_DESC" = "Tùy chọn này sẽ giảm tương phản của văn bản và nút giống như giao diện YouTube cũ. Cần khởi động lại ứng dụng.";
+"LCM_SELECTOR" = "Chọn chế độ tương phản thấp";
+"DEFAULT_LOWCONTRASTMODE" = "(Mặc định) Chế độ tương phản thấp";
+"CUSTOM_LOWCONTRASTMODE" = "(Màu tùy chỉnh) Chế độ tương phản thấp";
+
+// Miscellaneous
+"MISCELLANEOUS" = "Tùy chọn khác";
+
+"PLAYBACK_IN_FEEDS" = "Phát trong các trang danh sách video";
+"PLAYBACK_IN_FEEDS_ALWAYS_ON" = "Luôn bật";
+"PLAYBACK_IN_FEEDS_WIFI_ONLY" = "Chỉ Wi-Fi";
+"PLAYBACK_IN_FEEDS_OFF" = "Tắt";
+
+"NEW_SETTINGS_UI" = "Giao diện cài đặt mới";
+"NEW_SETTINGS_UI_DESC" = "Nhóm các giao diện cài đặt. Một số cài đặt có thể bị ẩn";
+
+"ENABLE_YT_STARTUP_ANIMATION" = "Hoạt ảnh khởi động YouTube";
+"ENABLE_YT_STARTUP_ANIMATION_DESC" = "Hiển thị hoạt ảnh khi mở YouTube";
+
+"HIDE_MODERN_INTERFACE" = "Giao diện YouTube cũ";
+"HIDE_MODERN_INTERFACE_DESC" = "Đưa giao diện cũ của YouTube trở lại từ phiên bản v17.38.10. Loại bỏ một số yếu tố bo tròn, chế độ môi trường, và các tính năng hiện đại khác. Cần khởi động lại ứng dụng.";
+
+"IPAD_LAYOUT" = "Bố cục iPad";
+"IPAD_LAYOUT_DESC" = "Chỉ sử dụng nếu muốn có bố cục iPad trên iPhone/iPod của mình. Cần khởi động lại ứng dụng.";
+
+"IPHONE_LAYOUT" = "Bố cục iPhone";
+"IPHONE_LAYOUT_DESC" = "Chỉ sử dụng nếu muốn có bố cục iPhone trên iPad của mình. Cần khởi động lại ứng dụng.";
+
+"CAST_CONFIRM" = "Xác nhận trước khi truyền";
+"CAST_CONFIRM_DESC" = "Hiển thị thông báo xác nhận trước khi truyền.";
+"CASTING" = "Truyền";
+"MSG_ARE_YOU_SURE" = "Bạn có chắc chắn muốn bắt đầu truyền không?";
+"MSG_YES" = "Có";
+"MSG_CANCEL" = "Không";
+
+"NEW_MINIPLAYER_STYLE" = "Trình phát thu nhỏ kiểu mới";
+"NEW_MINIPLAYER_STYLE_DESC" = "Thay thế trình phát thu nhỏ mặc định thành (BigYTMiniPlayer). Cần khởi động lại ứng dụng.";
+
+"HIDE_CAST_BUTTON" = "Ẩn nút truyền";
+"HIDE_CAST_BUTTON_DESC" = "Cần khởi động lại ứng dụng.";
+
+"VIDEO_PLAYER_BUTTON" = "Nút Trình phát video";
+"VIDEO_PLAYER_BUTTON_DESC" = "Hiển thị nút trong thanh điều hướng để mở video đã tải xuống trong trình phát Apple";
+
+"HIDE_SPONSORBLOCK_BUTTON" = "Ẩn nút iSponsorBlock";
+"HIDE_SPONSORBLOCK_BUTTON_DESC" = "Ẩn cài đặt iSponsorBlock trên thanh điều hướng";
+
+"HIDE_HOME_TAB" = "Ẩn tab Trang chủ";
+"HIDE_HOME_TAB_DESC" = "Hãy cẩn thận khi ẩn tất cả các tab";
+
+"FIX_CASTING" = "Sửa truyền";
+"FIX_CASTING_DESC" = "Thay đổi một số cờ AB để sửa truyền";
+
+"ENABLE_FLEX" = "Bật FLEX";
+"ENABLE_FLEX_DESC" = "Bật FLEX để gỡ lỗi (không khuyến khích). Để tùy chọn này tắt trừ khi bạn biết rõ bạn đang làm gì.";
+
+// Version Spoofer
+"APP_VERSION_SPOOFER_LITE" = "Giả mạo phiên bản ứng dụng (Lite)";
+"APP_VERSION_SPOOFER_LITE_DESC" = "Bật tính năng này để làm giả phiên bản YouTube (Lite). Chọn phiên bản bạn ưa thích bên dưới. Cần khởi động lại ứng dụng.";
+"VERSION_SPOOFER_TITLE" = "Chọn phiên bản giả mạo";
+
+// Other Localization
+"APP_RESTART_DESC" = "Cần khởi động lại ứng dụng.";
+"CHANGE_APP_ICON" = "Đổi biểu tượng ứng dụng";

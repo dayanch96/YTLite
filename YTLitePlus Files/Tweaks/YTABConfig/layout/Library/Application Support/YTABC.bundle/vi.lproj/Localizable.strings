@@ -1,0 +1,40 @@
+"ENABLED" = "Kích hoạt";
+"ENABLED_DESC" = "Kích hoạt tinh chỉnh để hiện cài đặt của các thử nghiệm A/B.";
+"GROUPED" = "Gộp các cài đặt lại theo vần";
+"RESET_KILL" = "Khôi phục các thay đổi";
+"RESET_KILL_DESC" = "Chạm để khôi phục các thay đổi và đóng ứng dụng.";
+"COPY_CURRENT_SETTINGS" = "Sao chép các thay đổi";
+"COPY_CURRENT_SETTINGS_DESC" = "Sao chép các thay đổi hiện tại của bạn vào bảng nhớ tạm.";
+"VIEW_MODIFIED_SETTINGS" = "Xem các thay đổi";
+"VIEW_MODIFIED_SETTINGS_DESC" = "Chạm để xem tất cả các thay đổi mà bạn đã áp dụng.";
+"IMPORT_SETTINGS" = "Nhập cài đặt";
+"IMPORT_SETTINGS_DESC" = "Nhập cài đặt từ bảng nhớ tạm.\nMỗi cài đặt phải ở định dạng sau: %@";
+"NOTHING_TO_IMPORT" = "Không tìm thấy gì từ bảng nhớ tạm hoặc sẽ không có thay đổi nào sau khi nhập bảng nhớ tạm.";
+"SETTINGS_TO_IMPORT" = "Cài đặt để nhập";
+"SETTINGS_TO_IMPORT_DESC" = "Đã tìm thấy %ld cài đặt hợp lệ cần được nhập.";
+"IMPORT" = "Nhập";
+
+// Shown in alert
+"MODIFIED_SETTINGS_TITLE" = "Các thay đổi";
+"TOTAL_MODIFIED_SETTINGS" = "Tổng cộng: %ld";
+
+// Quit app alert
+"WARNING" = "Chú ý";
+"APPLY_DESC" = "Áp dụng thay đổi này sẽ khởi động lại YouTube. Bạn có muốn tiếp tục không?";
+
+"OPEN_MEGATHREAD" = "Mở diễn đàn";
+"OPEN_MEGATHREAD_DESC" = "Mở diễn đàn của YTABConfig trên Github, nơi bạn có thể chia sẻ và thảo luận về công dụng của các cờ khi bật/tắt.";
+"SETTINGS_START_WITH" = "Cài đặt bắt đầu với";
+
+// Clipboard
+
+// Shown in alert
+"COPY_TO_CLIPBOARD" = "Sao chép vào bảng nhớ tạm";
+
+// Shown in toast
+"COPIED_TO_CLIPBOARD" = "Đã sao chép vào bảng nhớ tạm.";
+
+"REMOVED" = "(Đã xóa)";
+
+"REMOVE_REMOVED_SETTINGS" = "Xóa các cài đặt đã bị xóa";
+"REMOVE_REMOVED_SETTINGS_DESC" = "Thao tác này sẽ xóa %ld cài đặt không còn khả dụng trong YouTube.";
