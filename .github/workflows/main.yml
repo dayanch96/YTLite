@@ -8,13 +8,13 @@ on:
         description: "Integrate YouPiP"
         type: boolean
         required: true
-        default: false
+        default: true
 
       enable_ytuhd:
         description: "Integrate YTUHD"
         type: boolean
         required: true
-        default: false
+        default: true
 
       enable_yq:
         description: "Integrate YouQuality"
@@ -26,19 +26,19 @@ on:
         description: "Integrate Return YouTube Dislikes"
         type: boolean
         required: true
-        default: false
+        default: true
 
       enable_demc:
         description: "Integrate DontEatMyContent"
         type: boolean
         required: true
-        default: false
+        default: true
 
       enable_youtimestamp:
         description: "Integrate YouTimeStamp"
         type: boolean
         required: true
-        default: false
+        default: true
 
       ipa_url:
         description: "URL to the decrypted IPA file"
@@ -65,8 +65,8 @@ on:
         type: string
 
       info_note:
-        description: "TIP: Learn more about integrations in the README via the link below"
-        default: "https://github.com/dayanch96/YTLite#tweak-integration-details"
+        description: "https://github.com/Sohday823/YTLiteRed#tweak-integration-details"
+        default: "https://github.com/Sohday823/YTLiteRed#tweak-integration-details"
         type: string
         required: false
 
@@ -234,7 +234,7 @@ jobs:
         if: ${{ inputs.enable_youtimestamp }}
         run: |
           cd ${{ github.workspace }}
-          git clone --quiet --depth=1 https://github.com/PoomSmart/YouTimeStamp.git
+          git clone --quiet --depth=1 https://github.com/arichornlover/YouTimeStamp.git
 
       - name: Clone DontEatMyContent
         if: ${{ inputs.enable_demc }}
