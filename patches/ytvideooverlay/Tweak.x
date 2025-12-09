@@ -355,33 +355,16 @@ static void sortButtons(NSMutableArray <NSString *> *buttons) {
 
 - (void)layoutSubviews {
     %orig;
-    CGFloat multiFeedWidth = [self respondsToSelector:@selector(multiFeedElementView)] ? [self multiFeedElementView].frame.size.width : 0;
-    YTQTMButton *enter = [self enterFullscreenButton];
-    CGFloat cornerRadius = enter.layer.cornerRadius;
-    CGFloat fullscreenButtonWidth = 0;
-    CGFloat fullscreenImageWidth = 0;
-    CGRect frame = CGRectZero;
-    if ([enter yt_isVisible]) {
-        frame = enter.frame;
-        fullscreenButtonWidth = frame.size.width;
-        fullscreenImageWidth = enter.currentImage.size.width;
-    } else {
-        YTQTMButton *exit = [self exitFullscreenButton];
-        if ([exit yt_isVisible]) {
-            cornerRadius = exit.layer.cornerRadius;
-            frame = exit.frame;
-            fullscreenButtonWidth = frame.size.width;
-            fullscreenImageWidth = exit.currentImage.size.width;
-        }
-    }
-    if (CGRectIsEmpty(frame) || frame.origin.x <= 0 || frame.origin.y < -4) return;
-    CGFloat gap = fullscreenButtonWidth > fullscreenImageWidth ? 12 : fullscreenButtonWidth;
-    frame.origin.x -= gap + multiFeedWidth + fullscreenButtonWidth;
+
+    // PATCH: First, ensure frosted glass is applied to all bottom buttons regardless of layout state
+    // This fixes the issue where frosted glass wasn't visible before entering fullscreen
     UIView *peekableView = [self peekableView];
     for (NSString *name in bottomButtons) {
         if (UseBottomButton(name)) {
             YTQTMButton *button = self.overlayButtons[name];
             YTFrostedGlassView *frostedGlassView = self.overlayGlasses[name];
+
+            // Handle button superview changes based on layout
             if (self.layout == 3 && button.superview == self) {
                 [button removeFromSuperview];
                 [frostedGlassView removeFromSuperview];
@@ -392,12 +375,52 @@ static void sortButtons(NSMutableArray <NSString *> *buttons) {
                 [frostedGlassView removeFromSuperview];
                 [self addSubview:button];
             }
-            button.layer.cornerRadius = cornerRadius;
-            // PATCH: Always apply frosted glass if it exists
+
+            // Apply frosted glass early to ensure it's visible from the start
             if (frostedGlassView) {
                 maybeApplyToView(frostedGlassView, button);
             }
+        }
+    }
+
+    // Now calculate positions
+    CGFloat multiFeedWidth = [self respondsToSelector:@selector(multiFeedElementView)] ? [self multiFeedElementView].frame.size.width : 0;
+    YTQTMButton *enter = [self enterFullscreenButton];
+    YTQTMButton *exit = [self exitFullscreenButton];
+
+    // Determine which fullscreen button to use as reference
+    YTQTMButton *referenceButton = nil;
+    if ([enter yt_isVisible]) {
+        referenceButton = enter;
+    } else if ([exit yt_isVisible]) {
+        referenceButton = exit;
+    }
+
+    // If no valid reference button, return early
+    if (!referenceButton) return;
+
+    CGRect frame = referenceButton.frame;
+    if (CGRectIsEmpty(frame) || frame.origin.x <= 0 || frame.origin.y < -4) return;
+
+    CGFloat cornerRadius = referenceButton.layer.cornerRadius;
+    CGFloat fullscreenButtonWidth = frame.size.width;
+    CGFloat fullscreenImageWidth = referenceButton.currentImage.size.width;
+    CGFloat gap = fullscreenButtonWidth > fullscreenImageWidth ? 12 : fullscreenButtonWidth;
+
+    // Position buttons to the left of the fullscreen button
+    frame.origin.x -= gap + multiFeedWidth + fullscreenButtonWidth;
+
+    for (NSString *name in bottomButtons) {
+        if (UseBottomButton(name)) {
+            YTQTMButton *button = self.overlayButtons[name];
+
+            // Set corner radius to match fullscreen button
+            button.layer.cornerRadius = cornerRadius;
+
+            // Set button frame - this ensures proper vertical alignment
             button.frame = frame;
+
+            // Move to the left for the next button
             frame.origin.x -= frame.size.width + gap;
             if (frame.origin.x < 0) frame.origin.x = 0;
         }
