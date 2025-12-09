@@ -1390,6 +1390,43 @@ NSMutableDictionary <NSString *, NSDictionary *> *tweaksMetadata;
 NSMutableArray <NSString *> *topButtons;
 NSMutableArray <NSString *> *bottomButtons;
 
+// Frosted glass support
+Class YTFrostedGlassViewClass;
+BOOL hasFrostedGlass = NO;
+
+static UIView *createFrostedGlassView(void) {
+    if (!hasFrostedGlass) return nil;
+    NSInteger blurEffectStyle = [YTFrostedGlassViewClass respondsToSelector:@selector(frostedGlassBlurEffectStyle)]
+        ? [YTFrostedGlassViewClass frostedGlassBlurEffectStyle]
+        : 17;
+    @try {
+        return [[YTFrostedGlassViewClass alloc] initWithBlurEffectStyle:blurEffectStyle alpha:1];
+    } @catch (id ex) {
+        return [[YTFrostedGlassViewClass alloc] initWithBlurEffectStyle:blurEffectStyle];
+    }
+}
+
+static void maybeApplyFrostedGlass(UIView *frostedGlassView, UIView *view) {
+    if (!frostedGlassView || !view) return;
+
+    // If it's a real YTFrostedGlassView, use its native method
+    if ([frostedGlassView respondsToSelector:@selector(maybeApplyToView:)]) {
+        [frostedGlassView performSelector:@selector(maybeApplyToView:) withObject:view];
+        return;
+    }
+
+    // Always update frame and cornerRadius to stay in sync with button
+    frostedGlassView.layer.cornerRadius = view.layer.cornerRadius;
+    frostedGlassView.frame = view.bounds;
+
+    // Only insert subview if not already attached
+    if (frostedGlassView.superview != view) {
+        view.layer.backgroundColor = [[UIColor clearColor] CGColor];
+        frostedGlassView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [view insertSubview:frostedGlassView atIndex:0];
+    }
+}
+
 static NSString *EnabledKey(NSString *name) {
     return [NSString stringWithFormat:@"YTVideoOverlay-%@-Enabled", name];
 }
@@ -1579,7 +1616,7 @@ static YTQTMButton *createButtonBottom(BOOL isText, YTInlinePlayerBarContainerVi
 
 static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOOL isTop, id self) {
     NSMutableDictionary <NSString *, YTQTMButton *> *overlayButtons = [NSMutableDictionary dictionary];
-    NSMutableDictionary <NSString *, id> *overlayGlasses = isTop ? nil : [NSMutableDictionary dictionary];
+    NSMutableDictionary <NSString *, UIView *> *overlayGlasses = isTop ? nil : [NSMutableDictionary dictionary];
     for (NSString *name in [tweaksMetadata allKeys]) {
         NSDictionary *metadata = tweaksMetadata[name];
         SEL selector = NSSelectorFromString(metadata[@"selector"]);
@@ -1591,6 +1628,13 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
         else
             button = createButtonBottom(asText, (YTInlinePlayerBarContainerView *)self, name, accessibilityLabel, selector);
         overlayButtons[name] = button;
+        // Create frosted glass views for bottom buttons
+        if (!isTop && hasFrostedGlass) {
+            UIView *frostedGlassView = createFrostedGlassView();
+            if (frostedGlassView) {
+                overlayGlasses[name] = frostedGlassView;
+            }
+        }
     }
     if (!isTop)
         ((YTInlinePlayerBarContainerView *)self).overlayGlasses = overlayGlasses;
@@ -1708,6 +1752,8 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
                 [button setImage:[self buttonImage:name] forState:UIControlStateNormal];
         }
     }
+    // Force layout update to ensure proper positioning
+    [self setNeedsLayout];
 }
 
 - (void)updateIconsHiddenAttribute {
@@ -1720,6 +1766,8 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
                 [button setImage:[self buttonImage:name] forState:UIControlStateNormal];
         }
     }
+    // Force layout update to ensure proper positioning
+    [self setNeedsLayout];
 }
 
 - (void)hideScrubber {
@@ -1737,6 +1785,8 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
         if (UseBottomButton(name))
             self.overlayButtons[name].alpha = alpha;
     }
+    // Force layout update to fix button position after fullscreen state changes
+    [self setNeedsLayout];
 }
 
 - (void)setPeekableViewVisible:(BOOL)visible fullscreenButtonVisibleShouldMatchPeekableView:(BOOL)match {
@@ -1745,6 +1795,8 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
         if (UseBottomButton(name))
             self.overlayButtons[name].alpha = visible ? 1 : 0;
     }
+    // Force layout update to fix button position after fullscreen state changes
+    [self setNeedsLayout];
 }
 
 - (void)peekWithShowScrubber:(BOOL)scrubber setControlsAbovePlayerBarVisible:(BOOL)visible {
@@ -1753,29 +1805,44 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
         if (UseBottomButton(name))
             self.overlayButtons[name].alpha = visible ? 1 : 0;
     }
+    // Force layout update to fix button position after visibility changes
+    [self setNeedsLayout];
 }
 
 - (void)layoutSubviews {
     %orig;
-    CGFloat multiFeedWidth = [self respondsToSelector:@selector(multiFeedElementView)] ? [self multiFeedElementView].frame.size.width : 0;
-    YTQTMButton *enter = [self enterFullscreenButton];
-    CGFloat cornerRadius = enter.layer.cornerRadius;
-    CGFloat fullscreenButtonWidth = 0;
-    CGFloat fullscreenImageWidth = 0;
-    CGRect frame = CGRectZero;
-    if ([enter yt_isVisible]) {
-        frame = enter.frame;
-        fullscreenButtonWidth = frame.size.width;
-        fullscreenImageWidth = enter.currentImage.size.width;
-    } else {
-        YTQTMButton *exit = [self exitFullscreenButton];
-        if ([exit yt_isVisible]) {
-            cornerRadius = exit.layer.cornerRadius;
-            frame = exit.frame;
-            fullscreenButtonWidth = frame.size.width;
-            fullscreenImageWidth = exit.currentImage.size.width;
+
+    // Apply frosted glass early, before position calculations
+    // This ensures the background is visible even before entering fullscreen
+    for (NSString *name in bottomButtons) {
+        if (UseBottomButton(name)) {
+            YTQTMButton *button = self.overlayButtons[name];
+            UIView *frostedGlassView = self.overlayGlasses[name];
+            if (frostedGlassView && button && button.bounds.size.width > 0) {
+                maybeApplyFrostedGlass(frostedGlassView, button);
+            }
         }
     }
+
+    CGFloat multiFeedWidth = [self respondsToSelector:@selector(multiFeedElementView)] ? [self multiFeedElementView].frame.size.width : 0;
+    YTQTMButton *enter = [self enterFullscreenButton];
+    YTQTMButton *exit = [self exitFullscreenButton];
+
+    // Use a single reference button approach to fix positioning issues
+    YTQTMButton *referenceButton = nil;
+    if ([enter yt_isVisible]) {
+        referenceButton = enter;
+    } else if ([exit yt_isVisible]) {
+        referenceButton = exit;
+    }
+
+    if (!referenceButton) return;
+
+    CGRect frame = referenceButton.frame;
+    CGFloat cornerRadius = referenceButton.layer.cornerRadius;
+    CGFloat fullscreenButtonWidth = frame.size.width;
+    CGFloat fullscreenImageWidth = referenceButton.currentImage.size.width;
+
     if (CGRectIsEmpty(frame) || frame.origin.x <= 0 || frame.origin.y < -4) return;
     CGFloat gap = fullscreenButtonWidth > fullscreenImageWidth ? 12 : fullscreenButtonWidth;
     frame.origin.x -= gap + multiFeedWidth + fullscreenButtonWidth;
@@ -1783,15 +1850,26 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
     for (NSString *name in bottomButtons) {
         if (UseBottomButton(name)) {
             YTQTMButton *button = self.overlayButtons[name];
+            UIView *frostedGlassView = self.overlayGlasses[name];
+            // Handle fullscreen mode (layout 3) - move button to peekableView
             if (self.layout == 3 && button.superview == self) {
                 [button removeFromSuperview];
+                [frostedGlassView removeFromSuperview];
                 [peekableView addSubview:button];
             }
+            // Handle non-fullscreen mode - move button back to self
             if (self.layout != 3 && button.superview == peekableView) {
                 [button removeFromSuperview];
+                [frostedGlassView removeFromSuperview];
                 [self addSubview:button];
             }
             button.layer.cornerRadius = cornerRadius;
+            button.clipsToBounds = YES;
+            button.layer.masksToBounds = YES;
+            // Apply frosted glass after superview changes and frame is set
+            if (frostedGlassView) {
+                maybeApplyFrostedGlass(frostedGlassView, button);
+            }
             button.frame = frame;
             frame.origin.x -= frame.size.width + gap;
             if (frame.origin.x < 0) frame.origin.x = 0;
@@ -1820,6 +1898,10 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
     tweaksMetadata = [NSMutableDictionary dictionary];
     topButtons = [NSMutableArray array];
     bottomButtons = [NSMutableArray array];
+
+    // Initialize frosted glass support
+    YTFrostedGlassViewClass = objc_getClass("YTFrostedGlassView");
+    hasFrostedGlass = YTFrostedGlassViewClass != nil;
 
     tweaksMetadata[@"YouTimeStamp"] = @{
         @"accessibilityLabel": @"Copy Timestamp",
