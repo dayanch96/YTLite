@@ -143,6 +143,13 @@ jobs:
       - name: Install cyan
         run: pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
 
+      - name: Copy protobuf headers to Theos
+        run: |
+          mkdir -p $THEOS/include/protobuf
+          cp -r "${{ github.workspace }}/main/YTLitePlus archive/Tweaks/protobuf/objectivec" $THEOS/include/protobuf/
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
       - name: Build YouTube Plus from source
         id: build_ytp
         run: |
