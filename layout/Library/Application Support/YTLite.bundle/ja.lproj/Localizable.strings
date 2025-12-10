@@ -15,7 +15,8 @@
 "YtlButtonPosition" = "ダウンロードボタンの配置";
 "UnderPlayer" = "プレーヤー下部";
 "Overlay" = "オーバーレイ";
-"Both" = "両方";
+"NewButton" = "新しいボタン";
+"NewButtonDesc" = "動画の下にダウンロードアイコン付きの保存ボタンを追加します";
 
 "PostDownloadAction" = "ダウンロード後の動作";
 "PostDownloadDesc" = "選択した動作は、動画のダウンロードが正常に完了すると実行されます。";
@@ -260,6 +261,9 @@
 "SpeedByLongTap" = "ショートの再生速度を上げる";
 "SpeedByLongTapDesc" = "画面の特定の部分を長押しすることで再生速度を上げることができます。";
 "SpeedLocation" = "再生速度の高速化の起動位置";
+"LeftSide" = "左側";
+"RightSide" = "右側";
+"BothSides" = "両側";
 "PinchToFullscreenShorts" = "ピンチして全画面表示";
 "PinchToFullscreenShortsDesc" = "ピンチインおよびピンチアウトジェスチャーでオーバーレイの表示/非表示を管理し、ショートを全画面で表示します。";
 "ShortsToRegular" = "通常のプレーヤーでショートを再生";

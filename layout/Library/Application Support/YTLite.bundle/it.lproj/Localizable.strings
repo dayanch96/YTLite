@@ -15,7 +15,8 @@
 "YtlButtonPosition" = "Posizione del tasto Download";
 "UnderPlayer" = "Sotto il player";
 "Overlay" = "Overlay";
-"Both" = "Entrambi";
+"NewButton" = "Nuovo pulsante";
+"NewButtonDesc" = "Aggiunge un pulsante Salva sotto il video con l'icona di download";
 
 "PostDownloadAction" = "Comportamento dopo il download";
 "PostDownloadDesc" = "L'azione selezionata verrà eseguita una volta completato il download di un video.";
@@ -260,6 +261,9 @@
 "SpeedByLongTap" = "Aumenta la velocità di riproduzione degli Shorts";
 "SpeedByLongTapDesc" = "Consente di aumentare la velocità di riproduzione tenendo premuto una certa zona dello schermo.";
 "SpeedLocation" = "Zona di attivazione della velocizzazione";
+"LeftSide" = "Lato sinistro";
+"RightSide" = "Lato destro";
+"BothSides" = "Entrambi i lati";
 "PinchToFullscreenShorts" = "Pizzica per fullscreen";
 "PinchToFullscreenShortsDesc" = "Gestisce la visione dell'overlay con le gesture di pinch in e pinch out, mostrando gli Shorts in fullscreen.";
 "ShortsToRegular" = "Shorts come video normali";

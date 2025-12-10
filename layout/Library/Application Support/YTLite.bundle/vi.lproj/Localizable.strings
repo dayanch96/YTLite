@@ -15,7 +15,8 @@
 "YtlButtonPosition" = "Vị trí nút tải xuống";
 "UnderPlayer" = "Dưới trình phát";
 "Overlay" = "Trong trình phát";
-"Both" = "Cả hai";
+"NewButton" = "Nút mới";
+"NewButtonDesc" = "Thêm nút Lưu bên dưới video với biểu tượng tải xuống";
 
 "PostDownloadAction" = "Sau khi tải xuống";
 "PostDownloadDesc" = "Chọn tác vụ để thực hiện sau khi tải video hoàn tất.";
@@ -260,6 +261,9 @@
 "SpeedByLongTap" = "Nhấn giữ để tăng tốc độ phát";
 "SpeedByLongTapDesc" = "Cho phép tăng tốc độ phát bằng cách nhấn giữ vào một khu vực trên màn hình.";
 "SpeedLocation" = "Vị trí khu vực thao tác";
+"LeftSide" = "Bên trái";
+"RightSide" = "Bên phải";
+"BothSides" = "Cả hai bên";
 "PinchToFullscreenShorts" = "Cử chỉ thu phóng để bật toàn màn hình";
 "PinchToFullscreenShortsDesc" = "Sử dụng cử chỉ phóng to để hiển thị video ngắn ở chế độ toàn màn hình, thu nhỏ để quay lại chế độ thông thường.";
 "ShortsToRegular" = "Mở dưới dạng video thông thường";

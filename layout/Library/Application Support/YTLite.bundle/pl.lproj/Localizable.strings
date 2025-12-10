@@ -15,7 +15,8 @@
 "YtlButtonPosition" = "Umiejscowienie przycisku pobierania";
 "UnderPlayer" = "Pod odtwarzaczem";
 "Overlay" = "Nakładka";
-"Both" = "Oba";
+"NewButton" = "Nowy przycisk";
+"NewButtonDesc" = "Dodaje przycisk Zapisz pod filmem z ikoną pobierania";
 
 "PostDownloadAction" = "Akcja po pobraniu";
 "PostDownloadDesc" = "Wybrana akcja zostanie wykonana po pomyślnym zakończeniu pobierania wideo.";
@@ -260,6 +261,9 @@
 "SpeedByLongTap" = "Zwiększ prędkość odtwarzania Shorts";
 "SpeedByLongTapDesc" = "Umożliwia przyspieszenie odtwarzania poprzez długie naciśnięcie na określonej części ekranu.";
 "SpeedLocation" = "Miejsce aktywacji przyspieszenia";
+"LeftSide" = "Lewa strona";
+"RightSide" = "Prawa strona";
+"BothSides" = "Obie strony";
 "PinchToFullscreenShorts" = "Uszczypnij, aby przejść do pełnego ekranu";
 "PinchToFullscreenShortsDesc" = "Zarządza widocznością nakładki gestami uszczypnięcia i rozszerzenia, wyświetlając Shorts w trybie pełnoekranowym.";
 "ShortsToRegular" = "Shorts jako regularne filmy";

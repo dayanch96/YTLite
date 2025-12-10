@@ -15,7 +15,8 @@
 "YtlButtonPosition" = "다운로드 버튼 배치";
 "UnderPlayer" = "플레이어 아래";
 "Overlay" = "오버레이";
-"Both" = "둘 다";
+"NewButton" = "새 버튼";
+"NewButtonDesc" = "동영상 아래에 다운로드 아이콘이 있는 저장 버튼을 추가합니다";
 
 "PostDownloadAction" = "다운로드 후 동작";
 "PostDownloadDesc" = "동영상 다운로드가 성공적으로 완료되면 선택된 동작이 수행됩니다.";
@@ -260,6 +261,9 @@
 "SpeedByLongTap" = "Shorts 재생 속도 향상";
 "SpeedByLongTapDesc" = "화면의 특정 부분을 길게 탭하여 재생 속도 향상";
 "SpeedLocation" = "활성화 위치 속도 향상";
+"LeftSide" = "왼쪽";
+"RightSide" = "오른쪽";
+"BothSides" = "양쪽";
 "PinchToFullscreenShorts" = "핀치하여 전체 화면으로 확대";
 "PinchToFullscreenShortsDesc" = "핀치 인 및 핀치 아웃 제스처로 오버레이의 가시성을 관리하여 Shorts를 전체 화면 모드로 표시합니다.";
 "ShortsToRegular" = "Shorts 동영상을 일반 동영상으로 전환";

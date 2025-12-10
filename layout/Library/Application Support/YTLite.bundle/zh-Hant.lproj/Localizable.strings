@@ -15,7 +15,8 @@
 "YtlButtonPosition" = "下載按鈕位置";
 "UnderPlayer" = "播放器下方";
 "Overlay" = "播放介面";
-"Both" = "兩者皆有";
+"NewButton" = "新按鈕";
+"NewButtonDesc" = "在影片下方新增一個帶有下載圖示的儲存按鈕";
 
 "PostDownloadAction" = "下載後動作";
 "PostDownloadDesc" = "影片成功下載完成後，執行選定的動作";
@@ -260,6 +261,9 @@
 "SpeedByLongTap" = "加快Shorts播放速度";
 "SpeedByLongTapDesc" = "允許透過長按螢幕的某個部分位置來加快播放速度";
 "SpeedLocation" = "觸發位置";
+"LeftSide" = "左側";
+"RightSide" = "右側";
+"BothSides" = "兩側";
 "PinchToFullscreenShorts" = "捏合切換全螢幕";
 "PinchToFullscreenShortsDesc" = "透過兩指縮放手勢，控制覆蓋層的顯示，讓Shorts以全螢幕模式播放";
 "ShortsToRegular" = "Shorts轉為一般影片";

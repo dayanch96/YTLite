@@ -1815,6 +1815,199 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
 // End YTVideoOverlay + YouTimeStamp Integration
 // ============================================================================
 
+// ============================================================================
+// Save Button Under Video (New Button option for download placement)
+// When buttonPositionIndex == 2 (NewButton), add a Save button under the video
+// ============================================================================
+
+@interface YTPlayerViewController (SaveButton)
+- (void)ytlred_showDownloadManager;
+@end
+
+@interface YTWatchController : NSObject
+@property (nonatomic, weak, readonly) YTPlayerViewController *playerViewController;
+@end
+
+@interface YTWatchLayerController : NSObject
+@property (nonatomic, weak, readonly) YTWatchController *watchController;
+@end
+
+@interface YTWatchNextResultsViewController : UIViewController
+@property (nonatomic, weak, readwrite) YTWatchLayerController *watchLayerController;
+@end
+
+// Hook to add Save button under the video when NewButton placement is selected
+%hook YTSlimVideoScrollableActionBarCellController
+
+- (void)updateCell {
+    %orig;
+
+    // buttonPositionIndex: 0 = Under Player, 1 = Overlay, 2 = New Button
+    if (ytlInt(@"buttonPositionIndex") == 2) {
+        // Add Save button after cell updates
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIView *containerView = [self valueForKey:@"_containerView"];
+            if (!containerView) return;
+
+            // Check if we already added the save button
+            if ([containerView viewWithTag:99887]) return;
+
+            // Find the action bar scroll view
+            for (UIView *subview in containerView.subviews) {
+                if ([subview isKindOfClass:[UIScrollView class]]) {
+                    UIScrollView *scrollView = (UIScrollView *)subview;
+
+                    // Create Save button
+                    YTQTMButton *saveButton = [%c(YTQTMButton) iconButton];
+                    saveButton.tag = 99887;
+
+                    // Use download icon
+                    UIImage *downloadIcon = [UIImage systemImageNamed:@"arrow.down.to.line"];
+                    if (!downloadIcon) {
+                        downloadIcon = [UIImage imageNamed:@"yt_outline_download_arrow_24pt"];
+                    }
+                    [saveButton setImage:downloadIcon forState:UIControlStateNormal];
+                    saveButton.tintColor = [UIColor labelColor];
+
+                    // Set title
+                    [saveButton setTitle:LOC(@"Save") forState:UIControlStateNormal];
+                    saveButton.titleLabel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightMedium];
+                    [saveButton setTitleColor:[UIColor labelColor] forState:UIControlStateNormal];
+
+                    // Configure button layout
+                    saveButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+                    saveButton.titleEdgeInsets = UIEdgeInsetsMake(24, -24, 0, 0);
+                    saveButton.imageEdgeInsets = UIEdgeInsetsMake(-8, 12, 8, 0);
+
+                    // Size the button
+                    saveButton.frame = CGRectMake(8, 0, 64, 64);
+
+                    // Add target action
+                    [saveButton addTarget:self action:@selector(ytlred_saveButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+
+                    // Add to scroll view at the beginning
+                    [scrollView addSubview:saveButton];
+
+                    // Adjust content inset to make room
+                    UIEdgeInsets insets = scrollView.contentInset;
+                    insets.left += 72;
+                    scrollView.contentInset = insets;
+
+                    break;
+                }
+            }
+        });
+    }
+}
+
+%new
+- (void)ytlred_saveButtonPressed:(YTQTMButton *)sender {
+    // Trigger download manager
+    YTPlayerViewController *playerVC = nil;
+
+    // Try to find the player view controller
+    UIResponder *responder = sender;
+    while (responder) {
+        if ([responder isKindOfClass:%c(YTWatchViewController)]) {
+            YTWatchViewController *watchVC = (YTWatchViewController *)responder;
+            playerVC = watchVC.playerViewController;
+            break;
+        }
+        responder = [responder nextResponder];
+    }
+
+    if (playerVC && [playerVC respondsToSelector:@selector(ytlred_showDownloadManager)]) {
+        [playerVC ytlred_showDownloadManager];
+    } else {
+        // Fallback - show toast that download was triggered
+        [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"DownloadVideo") firstResponder:sender] send];
+    }
+}
+
+%end
+
+// ============================================================================
+// Both Sides Speed Location for Shorts
+// When speedLocationIndex == 2 (BothSides), respond to long press on either side
+// ============================================================================
+
+%hook YTReelContentView
+
+- (void)layoutSubviews {
+    %orig;
+
+    // speedLocationIndex: 0 = Left, 1 = Right, 2 = Both
+    NSInteger speedLocation = ytlInt(@"speedLocationIndex");
+
+    // Only add gesture if speed feature is enabled and Both sides is selected
+    if (ytlBool(@"speedByLongTap") && speedLocation == 2) {
+        // Check if we already added the gesture
+        BOOL hasGesture = NO;
+        for (UIGestureRecognizer *gesture in self.gestureRecognizers) {
+            if ([gesture isKindOfClass:[UILongPressGestureRecognizer class]] && gesture.view.tag == 99886) {
+                hasGesture = YES;
+                break;
+            }
+        }
+
+        if (!hasGesture) {
+            self.tag = 99886;
+            UILongPressGestureRecognizer *speedGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(ytlred_handleBothSidesSpeed:)];
+            speedGesture.minimumPressDuration = 0.3;
+            [self addGestureRecognizer:speedGesture];
+        }
+    }
+}
+
+%new
+- (void)ytlred_handleBothSidesSpeed:(UILongPressGestureRecognizer *)gesture {
+    // Get the touch point
+    CGPoint location = [gesture locationInView:self];
+    CGFloat screenWidth = self.bounds.size.width;
+
+    // Check if touch is on left third or right third of screen
+    BOOL isOnSide = (location.x < screenWidth / 3.0) || (location.x > screenWidth * 2.0 / 3.0);
+
+    if (!isOnSide) return;
+
+    // Find the player and apply speed
+    YTReelPlayerViewController *reelPlayerVC = nil;
+    UIResponder *responder = self;
+    while (responder) {
+        if ([responder isKindOfClass:%c(YTReelPlayerViewController)] || [responder isKindOfClass:%c(YTShortsPlayerViewController)]) {
+            reelPlayerVC = (YTReelPlayerViewController *)responder;
+            break;
+        }
+        responder = [responder nextResponder];
+    }
+
+    if (!reelPlayerVC || !reelPlayerVC.player) return;
+
+    YTPlayerViewController *playerVC = reelPlayerVC.player;
+    static CGFloat originalRate = 1.0;
+
+    NSArray *speedLabels = @[@0, @2.0, @0.25, @0.5, @0.75, @1.0, @1.25, @1.5, @1.75, @2.0, @3.0, @4.0, @5.0];
+    CGFloat targetSpeed = [speedLabels[ytlInt(@"speedIndex")] floatValue];
+
+    if (gesture.state == UIGestureRecognizerStateBegan) {
+        originalRate = playerVC.activeVideo.playbackRate;
+        [playerVC setPlaybackRate:targetSpeed];
+
+        // Show speed indicator
+        NSString *speedText = [NSString stringWithFormat:@"%@: %.2f×", LOC(@"PlaybackSpeed"), targetSpeed];
+        [[%c(YTToastResponderEvent) eventWithMessage:speedText firstResponder:self] send];
+    }
+    else if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled) {
+        [playerVC setPlaybackRate:originalRate];
+    }
+}
+
+%end
+
+// ============================================================================
+// End Custom Modifications
+// ============================================================================
+
 %ctor {
     // Initialize YouTimeStamp
     tweaksMetadata = [NSMutableDictionary dictionary];

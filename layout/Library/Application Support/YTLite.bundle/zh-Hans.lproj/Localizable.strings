@@ -15,7 +15,8 @@
 "YtlButtonPosition" = "下载按钮位置";
 "UnderPlayer" = "播放器下方";
 "Overlay" = "播放界面";
-"Both" = "两者";
+"NewButton" = "新按钮";
+"NewButtonDesc" = "在视频下方添加一个带有下载图标的保存按钮";
 
 "PostDownloadAction" = "下载后操作";
 "PostDownloadDesc" = "视频下载成功完成后将执行所选操作。";
@@ -260,6 +261,9 @@
 "SpeedByLongTap" = "加快短视频播放速度";
 "SpeedByLongTapDesc" = "允许通过长按屏幕的某个部分来加快播放速度。";
 "SpeedLocation" = "激活位置";
+"LeftSide" = "左侧";
+"RightSide" = "右侧";
+"BothSides" = "两侧";
 "PinchToFullscreenShorts" = "捏合至全屏";
 "PinchToFullscreenShortsDesc" = "通过捏合和捏合手势管理播放界面，以全屏模式显示短视频。";
 "ShortsToRegular" = "常规短视频";
