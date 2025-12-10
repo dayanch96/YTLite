@@ -97,16 +97,16 @@ static void maybeApplyToView(YTFrostedGlassView *frostedGlassView, UIView *view)
     }
     if (!frostedGlassView || !view) return;
 
-    // Always update cornerRadius and frame to stay in sync with button
-    // This fixes the square background issue where frosted glass was applied
-    // before the button's cornerRadius was updated from the reference button
+    // PATCH: Always update corner radius and frame, even if already a subview
+    // This fixes the issue where frosted glass appears as a square on initial load
+    // because it was applied before the button had its corner radius set
+    UIColor *backgroundColor = [%c(YTColor) blackPureAlpha0];
+    view.layer.backgroundColor = backgroundColor.CGColor;
     frostedGlassView.cornerRadius = view.layer.cornerRadius;
     frostedGlassView.frame = view.bounds;
 
-    // Only insert subview and set properties if not already attached
+    // Only insert as subview if not already added
     if (frostedGlassView.superview != view) {
-        UIColor *backgroundColor = [%c(YTColor) blackPureAlpha0];
-        view.layer.backgroundColor = backgroundColor.CGColor;
         frostedGlassView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [view insertSubview:frostedGlassView atIndex:0];
     }
@@ -162,9 +162,6 @@ static YTQTMButton *createButtonBottom(BOOL isText, YTInlinePlayerBarContainerVi
         [button setImage:image forState:UIControlStateNormal];
         [button sizeToFit];
     }
-    button.clipsToBounds = YES;
-    button.layer.masksToBounds = YES;
-    button.layer.cornerRadius = 12;
     button.hidden = YES;
     button.exclusiveTouch = YES;
     button.alpha = 0;
