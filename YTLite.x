@@ -1390,6 +1390,10 @@ NSMutableDictionary <NSString *, NSDictionary *> *tweaksMetadata;
 NSMutableArray <NSString *> *topButtons;
 NSMutableArray <NSString *> *bottomButtons;
 
+@class YTFrostedGlassView;
+Class YTFrostedGlassViewClass;
+BOOL hasFrostedGlass = NO;
+
 static NSString *EnabledKey(NSString *name) {
     return [NSString stringWithFormat:@"YTVideoOverlay-%@-Enabled", name];
 }
@@ -1422,6 +1426,36 @@ static BOOL UseBottomButton(NSString *name) {
     return TweakEnabled(name) && ButtonPosition(name) == 1;
 }
 
+@interface YTFrostedGlassView : UIView
+@property (nonatomic) CGFloat cornerRadius;
+- (instancetype)initWithBlurEffectStyle:(NSInteger)style;
+- (instancetype)initWithBlurEffectStyle:(NSInteger)style alpha:(CGFloat)alpha;
+- (void)maybeApplyToView:(UIView *)view;
+@end
+
+static YTFrostedGlassView *createFrostedGlassView() {
+    NSInteger blurEffectStyle = [YTFrostedGlassViewClass respondsToSelector:@selector(frostedGlassBlurEffectStyle)] ? [YTFrostedGlassViewClass frostedGlassBlurEffectStyle] : 17;
+    @try {
+        return [[YTFrostedGlassViewClass alloc] initWithBlurEffectStyle:blurEffectStyle alpha:1];
+    } @catch (id ex) {
+        return [[YTFrostedGlassViewClass alloc] initWithBlurEffectStyle:blurEffectStyle];
+    }
+}
+
+static void maybeApplyToView(YTFrostedGlassView *frostedGlassView, UIView *view) {
+    if ([frostedGlassView respondsToSelector:@selector(maybeApplyToView:)]) {
+        [frostedGlassView maybeApplyToView:view];
+        return;
+    }
+    if (!frostedGlassView || !view || frostedGlassView.superview == view) return;
+    UIColor *backgroundColor = [%c(YTColor) blackPureAlpha0];
+    view.layer.backgroundColor = backgroundColor.CGColor;
+    frostedGlassView.cornerRadius = view.layer.cornerRadius;
+    frostedGlassView.frame = view.bounds;
+    frostedGlassView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [view insertSubview:frostedGlassView atIndex:0];
+}
+
 // YouTimeStamp specific code
 @interface YTPlayerViewController (YouTimeStamp)
 - (void)didPressYouTimeStamp;
@@ -1435,7 +1469,7 @@ static BOOL UseBottomButton(NSString *name) {
 
 @interface YTInlinePlayerBarContainerView (YouTimeStamp)
 @property (retain, nonatomic) NSMutableDictionary <NSString *, YTQTMButton *> *overlayButtons;
-@property (retain, nonatomic) NSMutableDictionary <NSString *, id> *overlayGlasses;
+@property (retain, nonatomic) NSMutableDictionary <NSString *, YTFrostedGlassView *> *overlayGlasses;
 - (UIImage *)buttonImage:(NSString *)tweakId;
 - (void)didPressYouTimeStamp:(id)arg;
 @end
@@ -1579,7 +1613,7 @@ static YTQTMButton *createButtonBottom(BOOL isText, YTInlinePlayerBarContainerVi
 
 static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOOL isTop, id self) {
     NSMutableDictionary <NSString *, YTQTMButton *> *overlayButtons = [NSMutableDictionary dictionary];
-    NSMutableDictionary <NSString *, id> *overlayGlasses = isTop ? nil : [NSMutableDictionary dictionary];
+    NSMutableDictionary <NSString *, YTFrostedGlassView *> *overlayGlasses = isTop ? nil : [NSMutableDictionary dictionary];
     for (NSString *name in [tweaksMetadata allKeys]) {
         NSDictionary *metadata = tweaksMetadata[name];
         SEL selector = NSSelectorFromString(metadata[@"selector"]);
@@ -1591,6 +1625,11 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
         else
             button = createButtonBottom(asText, (YTInlinePlayerBarContainerView *)self, name, accessibilityLabel, selector);
         overlayButtons[name] = button;
+        if (!isTop && hasFrostedGlass) {
+            YTFrostedGlassView *frostedGlassView = createFrostedGlassView();
+            if (frostedGlassView)
+                overlayGlasses[name] = frostedGlassView;
+        }
     }
     if (!isTop)
         ((YTInlinePlayerBarContainerView *)self).overlayGlasses = overlayGlasses;
@@ -1708,6 +1747,7 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
                 [button setImage:[self buttonImage:name] forState:UIControlStateNormal];
         }
     }
+    [self setNeedsLayout];
 }
 
 - (void)updateIconsHiddenAttribute {
@@ -1720,6 +1760,7 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
                 [button setImage:[self buttonImage:name] forState:UIControlStateNormal];
         }
     }
+    [self setNeedsLayout];
 }
 
 - (void)hideScrubber {
@@ -1737,6 +1778,7 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
         if (UseBottomButton(name))
             self.overlayButtons[name].alpha = alpha;
     }
+    [self setNeedsLayout];
 }
 
 - (void)setPeekableViewVisible:(BOOL)visible fullscreenButtonVisibleShouldMatchPeekableView:(BOOL)match {
@@ -1745,6 +1787,7 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
         if (UseBottomButton(name))
             self.overlayButtons[name].alpha = visible ? 1 : 0;
     }
+    [self setNeedsLayout];
 }
 
 - (void)peekWithShowScrubber:(BOOL)scrubber setControlsAbovePlayerBarVisible:(BOOL)visible {
@@ -1753,29 +1796,37 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
         if (UseBottomButton(name))
             self.overlayButtons[name].alpha = visible ? 1 : 0;
     }
+    [self setNeedsLayout];
 }
 
 - (void)layoutSubviews {
     %orig;
-    CGFloat multiFeedWidth = [self respondsToSelector:@selector(multiFeedElementView)] ? [self multiFeedElementView].frame.size.width : 0;
-    YTQTMButton *enter = [self enterFullscreenButton];
-    CGFloat cornerRadius = enter.layer.cornerRadius;
-    CGFloat fullscreenButtonWidth = 0;
-    CGFloat fullscreenImageWidth = 0;
-    CGRect frame = CGRectZero;
-    if ([enter yt_isVisible]) {
-        frame = enter.frame;
-        fullscreenButtonWidth = frame.size.width;
-        fullscreenImageWidth = enter.currentImage.size.width;
-    } else {
-        YTQTMButton *exit = [self exitFullscreenButton];
-        if ([exit yt_isVisible]) {
-            cornerRadius = exit.layer.cornerRadius;
-            frame = exit.frame;
-            fullscreenButtonWidth = frame.size.width;
-            fullscreenImageWidth = exit.currentImage.size.width;
+    for (NSString *name in bottomButtons) {
+        if (UseBottomButton(name)) {
+            YTQTMButton *button = self.overlayButtons[name];
+            YTFrostedGlassView *frostedGlassView = self.overlayGlasses[name];
+            if (frostedGlassView && button && button.bounds.size.width > 0) {
+                maybeApplyToView(frostedGlassView, button);
+            }
         }
     }
+    CGFloat multiFeedWidth = [self respondsToSelector:@selector(multiFeedElementView)] ? [self multiFeedElementView].frame.size.width : 0;
+    YTQTMButton *enter = [self enterFullscreenButton];
+    YTQTMButton *exit = [self exitFullscreenButton];
+    YTQTMButton *referenceButton = nil;
+    if ([enter yt_isVisible]) {
+        referenceButton = enter;
+    } else if ([exit yt_isVisible]) {
+        referenceButton = exit;
+    }
+
+    if (!referenceButton) return;
+
+    CGRect frame = referenceButton.frame;
+    CGFloat cornerRadius = referenceButton.layer.cornerRadius;
+    CGFloat fullscreenButtonWidth = frame.size.width;
+    CGFloat fullscreenImageWidth = referenceButton.currentImage.size.width;
+
     if (CGRectIsEmpty(frame) || frame.origin.x <= 0 || frame.origin.y < -4) return;
     CGFloat gap = fullscreenButtonWidth > fullscreenImageWidth ? 12 : fullscreenButtonWidth;
     frame.origin.x -= gap + multiFeedWidth + fullscreenButtonWidth;
@@ -1783,15 +1834,21 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
     for (NSString *name in bottomButtons) {
         if (UseBottomButton(name)) {
             YTQTMButton *button = self.overlayButtons[name];
+            YTFrostedGlassView *frostedGlassView = self.overlayGlasses[name];
             if (self.layout == 3 && button.superview == self) {
                 [button removeFromSuperview];
+                [frostedGlassView removeFromSuperview];
                 [peekableView addSubview:button];
             }
             if (self.layout != 3 && button.superview == peekableView) {
                 [button removeFromSuperview];
+                [frostedGlassView removeFromSuperview];
                 [self addSubview:button];
             }
             button.layer.cornerRadius = cornerRadius;
+            if (frostedGlassView) {
+                maybeApplyToView(frostedGlassView, button);
+            }
             button.frame = frame;
             frame.origin.x -= frame.size.width + gap;
             if (frame.origin.x < 0) frame.origin.x = 0;
@@ -1820,6 +1877,8 @@ static NSMutableDictionary <NSString *, YTQTMButton *> *createOverlayButtons(BOO
     tweaksMetadata = [NSMutableDictionary dictionary];
     topButtons = [NSMutableArray array];
     bottomButtons = [NSMutableArray array];
+    YTFrostedGlassViewClass = NSClassFromString(@"YTFrostedGlassView");
+    hasFrostedGlass = YTFrostedGlassViewClass != nil;
 
     tweaksMetadata[@"YouTimeStamp"] = @{
         @"accessibilityLabel": @"Copy Timestamp",
