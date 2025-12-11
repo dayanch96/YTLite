@@ -296,7 +296,7 @@ static UIImage *YTImageNamed(NSString *imageName) {
 
     if (self.endTimeString && ![self.durationLabel.text containsString:self.endTimeString]) {
         self.durationLabel.text = [self.durationLabel.text stringByAppendingString:[NSString stringWithFormat:@" • %@", self.endTimeString]];
-        [self.durationLabel.sizeToFit];
+        [self.durationLabel sizeToFit];
     }
 }
 %end
@@ -1826,9 +1826,6 @@ static NSURL *newCoverURL(NSURL *originalURL) {
 - (void)ytlred_showDownloadManager;
 @end
 
-@interface YTWatchController : NSObject
-@property (nonatomic, weak, readonly) YTPlayerViewController *playerViewController;
-@end
 
 @interface YTWatchLayerController : NSObject
 @property (nonatomic, weak, readonly) YTWatchController *watchController;
@@ -2011,23 +2008,23 @@ static NSURL *newCoverURL(NSURL *originalURL) {
 // ============================================================================
 
 %ctor {
-    // Initialize YouTimeStamp
-    tweaksMetadata = [NSMutableDictionary dictionary];
-    topButtons = [NSMutableArray array];
-    bottomButtons = [NSMutableArray array];
-
-    tweaksMetadata[@"YouTimeStamp"] = @{
-        @"accessibilityLabel": @"Copy Timestamp",
-        @"selector": @"didPressYouTimeStamp:",
-    };
-
-    // Enable by default, position at bottom (1)
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"YTVideoOverlay-YouTimeStamp-Enabled"]) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"YTVideoOverlay-YouTimeStamp-Enabled"];
-    }
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"YTVideoOverlay-YouTimeStamp-Position"]) {
-        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"YTVideoOverlay-YouTimeStamp-Position"];
-    }
+//     // Initialize YouTimeStamp
+//     tweaksMetadata = [NSMutableDictionary dictionary];
+//     topButtons = [NSMutableArray array];
+//     bottomButtons = [NSMutableArray array];
+// 
+//     tweaksMetadata[@"YouTimeStamp"] = @{
+//         @"accessibilityLabel": @"Copy Timestamp",
+//         @"selector": @"didPressYouTimeStamp:",
+//     };
+// 
+//     // Enable by default, position at bottom (1)
+//     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"YTVideoOverlay-YouTimeStamp-Enabled"]) {
+//         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"YTVideoOverlay-YouTimeStamp-Enabled"];
+//     }
+//     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"YTVideoOverlay-YouTimeStamp-Position"]) {
+//         [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"YTVideoOverlay-YouTimeStamp-Position"];
+//     }
 
     if (ytlBool(@"shortsOnlyMode") && (ytlBool(@"removeShorts") || ytlBool(@"reExplore"))) {
         ytlSetBool(NO, @"removeShorts");
