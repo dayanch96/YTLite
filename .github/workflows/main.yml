@@ -129,7 +129,7 @@ jobs:
         run: |
           git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/xybp888/ios-sdks/ sdks
           cd sdks
-          git sparse-checkout set --no-cone iPhoneOS16.5.sdk
+          git sparse-checkout set --no-cone iPhoneOS26.2.sdk
           git checkout
           mv *.sdk $THEOS/sdks
         env:
