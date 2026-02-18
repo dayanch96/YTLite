@@ -122,8 +122,13 @@
 @property (nonatomic, assign, readonly) CGFloat time;
 @end
 
+@interface YTActivePlaybackRateModel : NSObject
+@property (nonatomic, assign, readonly) float activeRate;
+@end
+
 @interface YTSingleVideoController : NSObject
 @property (nonatomic, assign, readonly) float playbackRate;
+@property (nonatomic, assign, readonly) YTActivePlaybackRateModel *activePlaybackRateModel;
 @property (nonatomic, assign, readonly) CGFloat totalMediaTime;
 @property (nonatomic, assign, readonly) NSArray *selectableVideoFormats;
 - (void)setVideoFormatConstraint:(MLQuickMenuVideoQualitySettingFormatConstraint *)formatConstraint;
