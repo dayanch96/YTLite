@@ -1,8 +1,20 @@
-name: '[BETA] Create YouTube Plus app'
+name: Generate TrollFools/Cyan files
 
 on:
   workflow_dispatch:
     inputs:
+
+      create_cyan:
+        description: "Generate .cyan file"
+        type: boolean
+        required: true
+        default: true
+
+      create_tf:
+        description: "Generate .zip for TrollFools"
+        type: boolean
+        required: true
+        default: true
 
       enable_youpip:
         description: "Integrate YouPiP"
@@ -34,15 +46,9 @@ on:
         required: true
         default: false
 
-      ipa_url:
-        description: "URL to the decrypted IPA file"
-        default: ""
-        required: true
-        type: string
-
-      tweak_url:
-        description: "URL to the YouTube Plus tweak file"
-        default: ""
+      tweak_version:
+        description: "The version of the tweak to use. Enter the version manually from dayanch96/YTLite/releases or leave default"
+        default: "5.2b4"
         required: true
         type: string
 
@@ -57,12 +63,6 @@ on:
         default: "com.google.ios.youtube"
         required: true
         type: string
-
-      info_note:
-        description: "TIP: Learn more about integrations in the README via the link below"
-        default: "https://github.com/dayanch96/YTLite#tweak-integration-details"
-        type: string
-        required: false
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -82,35 +82,14 @@ jobs:
           path: main
           submodules: recursive
 
-      - name: Hide sensitive inputs
-        uses: levibostian/action-hide-sensitive-inputs@v1
-        with:
-          exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_youpip,enable_yq,enable_ytuhd,info_note
-
-      - name: Download and validate IPA
+      - name: Check Inputs
+        if: ${{ !inputs.create_cyan && !inputs.create_tf }}
         run: |
-          wget "${{ inputs.ipa_url }}" --no-verbose -O ${{ github.workspace }}/youtube.ipa
-
-          file_type=$(file --mime-type -b ${{ github.workspace }}/youtube.ipa)
-
-          if [[ "$file_type" != "application/x-ios-app" && "$file_type" != "application/zip" ]]; then
-            echo "::error::Validation failed: The downloaded file is not a valid IPA. Detected type: $file_type."
-            exit 1
-          fi
-
-      - name: Download and validate tweak
-        run: |
-          wget "${{ inputs.tweak_url }}" --no-verbose -O ${{ github.workspace }}/ytplus.deb
-
-          file_type=$(file --mime-type -b ${{ github.workspace }}/ytplus.deb)
-
-          if [[ "$file_type" != "application/vnd.debian.binary-package" ]]; then
-            echo "::error::Validation failed: The file is not a valid DEB file. Detected type: $file_type."
-            exit 1
-          fi
+          echo "No output format selected."
+          exit 0
 
       - name: Install Dependencies
-        run: brew install make ldid
+        run: brew install make ldid dpkg
 
       - name: Set PATH environment variable
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
@@ -147,9 +126,17 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Install cyan
+        if: ${{ inputs.create_cyan }}
         run: pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
 
+      - name: Download YouTube Plus
+        id: download_ytp
+        run: |
+          deb_url="https://github.com/dayanch96/YTLite/releases/download/v${{ inputs.tweak_version }}/com.dvntm.ytlite_${{ inputs.tweak_version }}_iphoneos-arm.deb"
+          wget "$deb_url" --no-verbose -O ${{ github.workspace }}/ytplus.deb
+
       - name: Clone Open in YouTube (Safari extension)
+        if: ${{ inputs.create_cyan }}
         run: |
           git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/CokePokes/YoutubeExtensions/
           cd YoutubeExtensions
@@ -298,24 +285,61 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
-      - name: Inject tweaks into IPA
+      - name: Generate .cyan file
+        if: ${{ inputs.create_cyan }}
         run: |
           tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
 
-          for f in *.deb; do
-            if [ -f "$f" ]; then
-              tweaks="$tweaks $f"
+          for deb in youpip.deb ytuhd.deb ryd.deb ygs.deb yq.deb ytvo.deb demc.deb; do
+            if [ -f "$deb" ]; then
+              tweaks="$tweaks $deb"
             fi
           done
 
-          cyan -i youtube.ipa -o YouTubePlus_Beta.ipa -uwef $tweaks -n "${{ inputs.display_name }}" -b ${{ inputs.bundle_id }}
+          cgen -uwef $tweaks -n "${{ inputs.display_name }}" -b ${{ inputs.bundle_id }} -o cyan_YouTubePlus_${{ inputs.tweak_version }}.cyan
+
+      - name: Generate .zip file for TrollFools
+        if: ${{ inputs.create_tf }}
+        run: |
+          mkdir -p ytp_tf
+
+          for f in *.deb; do
+            if [ -f "$f" ]; then
+              echo "Extracting $f..."
+              mkdir -p tmp_deb
+              dpkg-deb -x "$f" tmp_deb
+              find tmp_deb -type f -name "*.dylib" -exec cp -R {} ytp_tf/ \;
+              find tmp_deb -type d -name "*.bundle" -exec cp -R {} ytp_tf/ \;
+              rm -rf tmp_deb
+            fi
+          done
+
+          echo "Zipping..."
+          cd ytp_tf
+          zip -r "../TrollFools_YouTubePlus_${{ inputs.tweak_version }}.zip" .
+          cd ..
+          rm -rf ytp_tf
+
+      - name: Set output file list
+        id: filelist
+        run: |
+          files=""
+          if [ "${{ inputs.create_cyan }}" = "true" ]; then
+            files="${files}cyan_YouTubePlus_${{ inputs.tweak_version }}.cyan"$'\n'
+          fi
+          if [ "${{ inputs.create_tf }}" = "true" ]; then
+            files="${files}TrollFools_YouTubePlus_${{ inputs.tweak_version }}.zip"$'\n'
+          fi
+          echo -e "files<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$files" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v2.0.1
         with:
-          tag_name: ytp-beta-${{ github.run_number }}
-          name: YouTubePlus Beta (${{ github.run_number }})
-          files: YouTubePlus_Beta.ipa
+          tag_name: ytp-${{ github.run_number }}
+          name: YouTubePlus v${{ inputs.tweak_version }}_cyan_trollfools (${{ github.run_number }})
+          files: ${{ steps.filelist.outputs.files }}
           draft: true
 
       - name: Output Release URL

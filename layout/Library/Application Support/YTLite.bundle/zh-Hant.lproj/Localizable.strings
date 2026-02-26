@@ -21,6 +21,7 @@
 "PostDownloadDesc" = "影片成功下載完成後，執行選定的動作";
 "SaveToPhotos" = "儲存至照片App";
 "Share" = "分享";
+"Copy" = "複製";
 "Ask" = "詢問";
 "DownloadCompleted" = "下載完成";
 
@@ -90,14 +91,18 @@
 
 /* Player options */
 "Player" = "播放器";
-"PlaybackQualityOnWiFi" = "使用Wi-Fi時的影片畫質";
+"PlaybackQualityOnWiFi" = "使用 Wi-Fi 時的影片畫質";
+"PlaybackQualityOnWiFiDesc" = "透過 Wi-Fi 連線時自動套用所選畫質";
 "PlaybackQualityOnCellular" = "使用行動網路時的影片畫質";
+"PlaybackQualityOnCellularDesc" = "透過行動網路連線時自動套用所選畫質";
 
 "PreferredCaptions" = "偏好字幕";
 "Original" = "原始";
 "Custom" = "手動選擇";
 "CustomAudioTrack" = "選擇音軌";
+"CustomAudioTrackDesc" = "指定播放時優先使用的音軌語言（如果可用）";
 "CustomCaptions" = "選擇字幕";
+"CustomCaptionsDesc" = "指定播放時優先顯示的字幕語言（如果可用）";
 "AutoGenCaps" = "自動產生字幕";
 "AutoGenCapsDesc" = "若找不到選定的字幕，YouTube Plus會嘗試選擇原始字幕的翻譯或自動產生字幕的翻譯版本";
 
@@ -182,6 +187,7 @@
 
 "Player.Actions" = "操作";
 "DefaultPlaybackRate" = "預設播放速度";
+"DefaultPlaybackRateDesc" = "修改預設播放速度";
 "BackgroundPlayback" = "背景播放";
 "BackgroundPlaybackDesc" = "啟用背景播放";
 "Miniplayer" = "啟用迷你播放器";
@@ -200,15 +206,20 @@
 "ExitFullscreenDesc" = "影片播放結束時退出全螢幕模式";
 
 "Player.Gestures" = "手勢";
+"CompactToast" = "簡潔提示";
+"CompactToastDesc" = "為播放器操作顯示簡潔風格的提示";
 "LeftSideGesture" = "左邊手勢";
+"LeftSideGestureDesc" = "透過在螢幕左邊垂直滑動來調整選擇的設定";
 "RightSideGesture" = "右邊手勢";
+"RightSideGestureDesc" = "透過在螢幕右邊垂直滑動來調整選擇的設定";
 "ActivationAreaWidth" = "手勢啟動寬度";
 "ActivationAreaWidthDesc" = "此值決定螢幕左右兩側的手勢識別區域（單位:像素）\n\n最大值允許為螢幕寬度的三分之一\n\n調整此設定有助於防止在嘗試最小化或展開播放器時意外啟動";
 "HoldToSpeed" = "按住加速";
+"HoldToSpeedDesc" = "設定長按播放器時觸發的播放速度";
 "AdjustWithFinger" = "調整速度";
 "AdjustWithFingerDesc" = "透過在播放器上長按並上下滑動手指來調整播放速度";
-"PreserveSpeed" = "保持速度";
-"PreserveSpeedDesc" = "手勢完成後保持調整後的速度";
+"PreserveSpeed" = "鎖定速度";
+"PreserveSpeedDesc" = "在手勢完成後鎖定調整後的速度";
 "SeekAnywhere" = "滑動快轉/倒轉";
 "SeekAnywhereDesc" = "允許透過左右滑動來控制播放進度";
 "SeekMethod" = "快轉/倒轉方式";
@@ -319,8 +330,7 @@
 "InactiveTabs" = "隱藏標籤頁";
 "HideLibraryFooter" = "長按首頁標籤可以顯示或隱藏\"個人中心\"";
 "Warning" = "警告";
-"TabIsHidden" = "無法將隱藏的標籤頁選為啟動頁面";
-"TabIsStartupTab" = "選擇為啟動頁面的標籤，無法隱藏";
+"AtLeastOneTab" = "必須至少保持一個標籤頁為啟用狀態";
 "TabsCountRestricted" = "最多只能設定顯示六個標籤頁";
 
 /* Interface options */
@@ -351,33 +361,45 @@
 "MiniplayerStyleDesc" = "切換到/離開浮動模式，需要重新啟動應用程式。";
 "Floating" = "浮動";
 
-"ContextMenu" = "上下文選單";
+"Other" = "Other";
 "NoShareChunk" = "移除分享識別碼";
 "NoShareChunkDesc" = "從分享連結中移除\"si=identifier\"參數。這是一個替代「原生分享選單」的好選擇，因為YouTube不斷改善其分享選單。";
+"AutoCheckLinks" = "自動檢查剪貼簿";
+"AutoCheckLinksDesc" = "每次開啟應用程式時，檢查剪貼簿中的 YouTube 相關連結。\n為確保正常運作，請前往 iOS 設定 → YouTube → 從其他App貼上，並選擇「允許」";
+
+"ContextMenu" = "上下文選單";
 "NativeShare" = "原生分享選單";
 "NativeShareDesc" = "使用系統分享選單分享媒體";
 "RemoveCommentGuidelines" = "移除社群規範";
 "RemoveCommentGuidelinesDesc" = "移除留言區置頂的社群規範";
-"RemovePlayNext" = "移除「播放下一個」";
-"RemovePlayNextDesc" = "從選單移除「播放下一個」";
-"RemoveDownloadMenu" = "移除「下載影片」";
-"RemoveDownloadMenuDesc" = "從選單移除「下載影片」選項";
-"RemoveWatchLaterMenu" = "移除「儲存至稍後觀看清單」";
-"RemoveWatchLaterMenuDesc" = "從選單移除「儲存至稍後觀看清單」選項";
-"RemoveSaveToPlaylistMenu" = "移除「儲存至播放清單」";
-"RemoveSaveToPlaylistMenuDesc" = "從選單移除「儲存至播放清單」選項";
-"RemoveShareMenu" = "移除「分享」";
-"RemoveShareMenuDesc" = "從選單移除「分享」選項";
-"RemoveNotInterestedMenu" = "移除「不感興趣」";
-"RemoveNotInterestedMenuDesc" = "從選單移除「不感興趣」選項";
-"RemoveDontRecommendMenu" = "移除「不要推薦這個頻道」";
-"RemoveDontRecommendMenuDesc" = "從選單移除「不要推薦這個頻道」選項";
-"RemoveReportMenu" = "移除「檢舉」";
-"RemoveReportMenuDesc" = "從選單移除「檢舉」選項";
+"RemovePlayNext" = "移除\"加入待播清單接著播放\"";
+"RemovePlayNextDesc" = "從選單移除\"加入待播清單接著播放\"";
+"RemoveDownloadMenu" = "移除\"下載影片\"";
+"RemoveDownloadMenuDesc" = "從選單移除\"下載影片\"選項";
+"RemoveWatchLaterMenu" = "移除\"儲存至「稍後觀看」清單\"";
+"RemoveWatchLaterMenuDesc" = "從選單移除\"儲存至「稍後觀看」清單\"選項";
+"RemoveSaveToPlaylistMenu" = "移除\"儲存至播放清單\"";
+"RemoveSaveToPlaylistMenuDesc" = "從選單移除\"儲存至播放清單\"選項";
+"RemoveShareMenu" = "移除\"分享\"";
+"RemoveShareMenuDesc" = "從選單移除\"分享\"選項";
+"RemoveNotInterestedMenu" = "移除\"不感興趣\"";
+"RemoveNotInterestedMenuDesc" = "從選單移除\"不感興趣\"選項";
+"RemoveDontRecommendMenu" = "移除\"不要推薦這個頻道\"";
+"RemoveDontRecommendMenuDesc" = "從選單移除\"不要推薦這個頻道\"選項";
+"RemoveFeedbackMenu" = "移除\"提供意見\"";
+"RemoveFeedbackMenuDesc" = "從選單移除\"提供意見\"選項";
+"RemoveReportMenu" = "移除\"檢舉\"";
+"RemoveReportMenuDesc" = "從選單移除\"檢舉\"選項";
+"RemoveRemixMenu" = "移除\"Remix\"";
+"RemoveRemixMenuDesc" = "從選單移除\"Remix\"選項";
+"RemoveYTMMenu" = "移除\"YouTube Music\"";
+"RemoveYTMMenuDesc" = "從選單移除\"用 YouTube Music 聽音樂\"選項";
 
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "啟用";
 "EnableSponsorBlockDesc" = "SponsorBlock擴充功能";
+"SbPlayerButton" = "顯示按鈕";
+"SbPlayerButtonDesc" = "在播放器中新增 SponsorBlock 按鈕";
 "ShowNotifications" = "顯示通知";
 "ShowNotificationsDesc" = "顯示自動跳過片段的通知。需要手動跳過的類別通知會始終顯示。";
 "SegmentsInFeedPlayer" = "播放器中顯示片段";
@@ -427,6 +449,13 @@
 "Sb.Ask" = "詢問";
 "Sb.Display" = "在播放器中顯示";
 
+"PublicUserID" = "公開使用者 ID";
+"PrivateUserID" = "私人使用者 ID";
+"TapToReveal" = "點擊顯示";
+"Save" = "儲存";
+"Error.SbPublicID" = "公開使用者 ID 必須正好包含 64 個字元";
+"Error.SbPrivateID" = "私人（本機）使用者 ID 必須至少包含 32 個字元";
+
 "sb_sponsor" = "贊助片段";
 "sb_intro" = "開場片段";
 "sb_outro" = "片尾片段";
@@ -434,14 +463,14 @@
 "sb_selfpromo" = "自我推廣片段";
 "sb_music_offtopic" = "非音樂片段";
 "sb_preview" = "預覽片段";
-"sb_poi_highlight" = "重點片段";
+"sb_poi_highlight" = "精彩片段";
 "sb_filler" = "填充片段";
 
-"SegmentDetected" = "偵測到 %@";
+"SegmentDetected" = "%@ 偵測到\n%@";
 "SegmentSkipped" = "%@ 已被跳過";
-"SkippedToSegment" = "跳到 %@";
-"SkipSegment" = "跳過";
-"SkipToSegment" = "跳到重點";
+"SkippedToSegment" = "已跳到 %@";
+"SkipSegment" = "您想跳過這個片段嗎?";
+"SkipToSegment" = "您想跳轉到精彩片段嗎？";
 "Unskip" = "取消跳過";
 
 /* Developer section */
@@ -513,7 +542,7 @@
 "Disable" = "停用";
 "Disabled" = "已停用";
 "PlaybackSpeed" = "播放速度";
-"SpeedPreserved" = "保持速度";
+"SpeedPreserved" = "速度鎖定在 %@";
 "ResetSpeed" = "重置播放速度";
 
 "Toast.Brightness" = "亮度";
@@ -572,6 +601,22 @@
 "RetryLogin" = "已啟用登入權限修復\n\n請再次登入";
 "LoginInfo" = "成功登錄Google帳戶後需要重新啟動應用程式";
 
+"OpenLink" = "開啟連結";
+"LinkDetected" = "偵測到 YouTube 相關連結。是否要在 YouTube 中開啟?";
+
+"SbWhitelist" = "白名單";
+"SbAddToWhitelist" = "新增至白名單";
+"Sb.Whitelisted" = "已新增至白名單";
+"SbRemoveFromWhitelist" = "從白名單中移除";
+"Sb.Whitelist" = "白名單頻道";
+"Sb.Channels" = "頻道";
+"Sb.ChannelsHere" = "白名單頻道將在此顯示";
+"SortType" = "排序方式";
+"Sb.Newest" = "最新優先";
+"Sb.Oldest" = "最舊優先";
+"Sb.Alphabetical" = "依字母順序 (A-Z)";
+"Sb.AlphabeticalRev" = "依字母倒序 (Z-A)";
+
 "Welcome.Download" = "下載媒體";
 "Welcome.DownloadDesc" = "下載您喜愛的內容，不論是影片、Shorts、音訊或個人檔案照片。複製有趣的貼文和留言，或將它們儲存為圖片。";
 "Welcome.Content" = "介面調整";
@@ -590,3 +635,16 @@
 "Conflicts.CloseYT" = "關閉YouTube";
 
 "DonationReminder" = "您的支持有助於讓YouTube Plus變得更好。\n\n你可以在YouTube Plus的設定裡面，選擇捐款或關閉這些通知。謝謝你💜";
+
+/* Old localizations (commented out for reference)
+"TabIsHidden" = "無法將隱藏的標籤頁選為啟動頁面";
+"TabIsStartupTab" = "選擇為啟動頁面的標籤，無法隱藏";
+"PreserveSpeed" = "保持速度";
+"PreserveSpeedDesc" = "手勢完成後保持調整後的速度";
+"sb_poi_highlight" = "重點片段";
+"SegmentDetected" = "偵測到 %@";
+"SegmentSkipped" = "%@ 已被跳過";
+"SkippedToSegment" = "跳到 %@";
+"SkipSegment" = "跳過";
+"SkipToSegment" = "跳到重點";
+"SpeedPreserved" = "保持速度";

@@ -8,7 +8,6 @@ body:
       description: Describe the issue in detail here, including any relevant context or background information. Be clear and concise.
       placeholder: |
         Enter your description here
-      render: yaml
     validations:
       required: true
 
@@ -22,7 +21,6 @@ body:
         1. Go to Main tab
         2. Tap to the video
         3. See error
-      render: yaml
     validations:
       required: true
 

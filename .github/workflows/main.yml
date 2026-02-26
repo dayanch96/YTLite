@@ -8,7 +8,7 @@ on:
         description: "Integrate DontEatMyContent (If your iDevice has a home button, uncheck this box)"
         type: boolean
         required: true
-        default: true
+        default: false
 
       ipa_url:
         description: "URL to the decrypted IPA file"
@@ -60,6 +60,8 @@ jobs:
 
       - name: Hide sensitive inputs
         uses: levibostian/action-hide-sensitive-inputs@v1
+        with:
+          exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_youpip,enable_yq,enable_ytuhd,info_note,tweak_version
 
       - name: Download and validate YouTube IPA
         run: |
@@ -79,6 +81,7 @@ jobs:
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
 
       - name: Cache Theos
+        if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_demc }}
         id: theos
         uses: actions/cache@v4
         env:
@@ -89,7 +92,7 @@ jobs:
           restore-keys: ${{ env.cache-name }}
 
       - name: Setup Theos
-        if: steps.theos.outputs.cache-hit != 'true'
+        if: ${{ (inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_demc) && steps.theos.outputs.cache-hit != 'true' }}
         uses: actions/checkout@v4.1.7
         with:
           repository: theos/theos
@@ -98,7 +101,7 @@ jobs:
           submodules: recursive
 
       - name: Download iOS SDK
-        if: steps.theos.outputs.cache-hit != 'true'
+        if: ${{ (inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_demc) && steps.theos.outputs.cache-hit != 'true' }}
         run: |
           git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/theos/sdks/
           cd sdks
@@ -126,6 +129,7 @@ jobs:
           mv *.appex ${{ github.workspace }}
 
       - name: Clone YouTubeHeader
+        if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_demc }}
         run: |
           if [ -d "$THEOS/include/YouTubeHeader" ]; then
             echo "YouTubeHeader exists. Pulling latest changes..."
@@ -136,10 +140,17 @@ jobs:
             cd $THEOS/include
             git clone --quiet --depth=1 https://github.com/PoomSmart/YouTubeHeader.git
           fi
+
+          if [ "${{ inputs.enable_demc }}" = "true" ]; then
+            echo "Copying YouTubeHeader to YTHeaders..."
+            rm -rf "$THEOS/include/YTHeaders"
+            cp -r "$THEOS/include/YouTubeHeader" "$THEOS/include/YTHeaders"
+          fi
         env:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Clone PSHeader
+        if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_demc }}
         run: |
           if [ -d "$THEOS/include/PSHeader" ]; then
             echo "PSHeader exists. Pulling latest changes..."
@@ -161,13 +172,13 @@ jobs:
       - name: Clone YTUHD
         run: |
           cd ${{ github.workspace }}
-          git clone --quiet --depth=1 https://github.com/PoomSmart/YTUHD.git
-
+          git clone --quiet --depth=1 https://github.com/Tonwalter888/YTUHD.git
+          
       - name: Clone Return-YouTube-Dislikes
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/Return-YouTube-Dislikes.git
-
+ 
       - name: Clone YouGroupSettings
         if: ${{ inputs.enable_demc }}
         run: |
