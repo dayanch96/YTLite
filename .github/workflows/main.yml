@@ -4,8 +4,32 @@ on:
   workflow_dispatch:
     inputs:
 
+      enable_youpip:
+        description: "Integrate YouPiP"
+        type: boolean
+        required: true
+        default: false
+
+      enable_ytuhd:
+        description: "Integrate YTUHD"
+        type: boolean
+        required: true
+        default: false
+
+      enable_yq:
+        description: "Integrate YouQuality"
+        type: boolean
+        required: true
+        default: false
+
+      enable_ryd:
+        description: "Integrate Return YouTube Dislikes"
+        type: boolean
+        required: true
+        default: false
+
       enable_demc:
-        description: "Integrate DontEatMyContent (If your iDevice has a home button, uncheck this box)"
+        description: "Integrate DontEatMyContent"
         type: boolean
         required: true
         default: false
@@ -18,7 +42,7 @@ on:
 
       tweak_version:
         description: "The version of the tweak to use. Enter the version manually from dayanch96/YTLite/releases or leave default"
-        default: "5.2b2"
+        default: "5.2b4"
         required: true
         type: string
 
@@ -63,7 +87,7 @@ jobs:
         with:
           exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_youpip,enable_yq,enable_ytuhd,info_note,tweak_version
 
-      - name: Download and validate YouTube IPA
+      - name: Download and validate IPA
         run: |
           wget "${{ inputs.ipa_url }}" --no-verbose -O ${{ github.workspace }}/youtube.ipa
 
@@ -165,16 +189,21 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Clone YouPiP
+        if: ${{ inputs.enable_youpip }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouPiP.git
 
       - name: Clone YTUHD
-        run: |
-          cd ${{ github.workspace }}
-          git clone --quiet --depth=1 https://github.com/Tonwalter888/YTUHD.git
+        if: ${{ inputs.enable_ytuhd }}
+        uses: actions/checkout@v4.1.7
+        with:
+          repository: PoomSmart/YTUHD
+          ref: cf4657d2567425ce53b2d6bb15ff17a4923bcd65
+          path: ${{ github.workspace }}/YTUHD
           
       - name: Clone Return-YouTube-Dislikes
+        if: ${{ inputs.enable_ryd }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/Return-YouTube-Dislikes.git
@@ -186,24 +215,16 @@ jobs:
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouGroupSettings.git
 
       - name: Clone YouQuality
+        if: ${{ inputs.enable_yq }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouQuality.git
 
       - name: Clone YTVideoOverlay
+        if: ${{ inputs.enable_yq || inputs.enable_youpip }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YTVideoOverlay.git
-
-      - name: Clone YTABConfig 
-        run: |
-          cd ${{ github.workspace }}
-          git clone --quiet --depth=1 https://github.com/PoomSmart/YTABConfig.git
-
-      - name: Clone NoYTPremium 
-        run: |
-          cd ${{ github.workspace }}
-          git clone --quiet --depth=1 https://github.com/PoomSmart/NoYTPremium.git
 
       - name: Clone DontEatMyContent
         if: ${{ inputs.enable_demc }}
@@ -211,7 +232,18 @@ jobs:
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 --recurse-submodules https://github.com/therealFoxster/DontEatMyContent.git
 
+      - name: Clone YTABConfig 
+        run: |
+          cd ${{ github.workspace }}
+          git clone --quiet --depth=1 https://github.com/PoomSmart/YTABConfig.git 
+
+      - name: Clone NoYTPremium 
+        run: |
+          cd ${{ github.workspace }}
+          git clone --quiet --depth=1 https://github.com/PoomSmart/NoYTPremium.git  
+
       - name: Build YouPiP
+        if: ${{ inputs.enable_youpip }}
         run: |
           cd ${{ github.workspace }}/YouPiP
           make clean package DEBUG=0 FINALPACKAGE=1
@@ -220,6 +252,7 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Build YTUHD
+        if: ${{ inputs.enable_ytuhd }}
         run: |
           cd ${{ github.workspace }}/YTUHD
           make clean package DEBUG=0 FINALPACKAGE=1
@@ -228,6 +261,7 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Build Return-YouTube-Dislikes
+        if: ${{ inputs.enable_ryd }}
         run: |
           cd ${{ github.workspace }}/Return-YouTube-Dislikes
           make clean package DEBUG=0 FINALPACKAGE=1
@@ -245,6 +279,7 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Build YouQuality
+        if: ${{ inputs.enable_yq }}
         run: |
           cd ${{ github.workspace }}/YouQuality
           make clean package DEBUG=0 FINALPACKAGE=1
@@ -253,6 +288,7 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Build YTVideoOverlay
+        if: ${{ inputs.enable_yq || inputs.enable_youpip }}
         run: |
           cd ${{ github.workspace }}/YTVideoOverlay
           make clean package DEBUG=0 FINALPACKAGE=1
@@ -289,9 +325,9 @@ jobs:
         run: |
           tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
 
-          for deb in youpip.deb ytuhd.deb ryd.deb ygs.deb yq.deb ytvo.deb ytab.deb noytpm.deb demc.deb; do
-            if [ -f "$deb" ]; then
-              tweaks="$tweaks $deb"
+          for f in *.deb; do
+            if [ -f "$f" ]; then
+              tweaks="$tweaks $f"
             fi
           done
 
