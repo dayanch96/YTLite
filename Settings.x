@@ -340,12 +340,12 @@ static NSString *GetCacheSize() {
         YTSettingsSectionItem *speed = [YTSettingsSectionItemClass itemWithTitle:LOC(@"HoldToSpeed")
         accessibilityIdentifier:@"YTLiteSectionItem"
         detailTextBlock:^NSString *() {
-            NSArray *speedLabels = @[LOC(@"Disabled"), LOC(@"Default"), @"0.25×", @"0.5×", @"0.75×", @"1.0×", @"1.25×", @"1.5×", @"1.75×", @"2.0×", @"3.0×", @"4.0×", @"5.0×"];
+            NSArray *speedLabels = @[LOC(@"Disabled"), LOC(@"Default"), @"0.25×", @"0.5×", @"0.75×", @"1.0×", @"1.25×", @"1.5×", @"1.75×", @"2.0×", @"2.5x", @"3.0×", @"4.0×", @"5.0×"];
             return speedLabels[ytlInt(@"speedIndex")];
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             NSMutableArray <YTSettingsSectionItem *> *rows = [NSMutableArray array];
-            NSArray *speedLabels = @[LOC(@"Disable"), LOC(@"Default"), @"0.25×", @"0.5×", @"0.75×", @"1.0×", @"1.25×", @"1.5×", @"1.75×", @"2.0×", @"3.0×", @"4.0×", @"5.0×"];
+            NSArray *speedLabels = @[LOC(@"Disable"), LOC(@"Default"), @"0.25×", @"0.5×", @"0.75×", @"1.0×", @"1.25×", @"1.5×", @"1.75×", @"2.0×", @"2.5x", @"3.0×", @"4.0×", @"5.0×"];
 
             for (NSUInteger i = 0; i < speedLabels.count; i++) {
                 NSString *title = speedLabels[i];
@@ -368,12 +368,12 @@ static NSString *GetCacheSize() {
         YTSettingsSectionItem *autoSpeed = [YTSettingsSectionItemClass itemWithTitle:LOC(@"DefaultPlaybackRate")
         accessibilityIdentifier:@"YTLiteSectionItem"
         detailTextBlock:^NSString *() {
-            NSArray *speedLabels = @[@"0.25×", @"0.5×", @"0.75×", @"1.0×", @"1.25×", @"1.5×", @"1.75×", @"2.0×", @"3.0×", @"4.0×", @"5.0×"];
+            NSArray *speedLabels = @[@"0.25×", @"0.5×", @"0.75×", @"1.0×", @"1.25×", @"1.5×", @"1.75×", @"2.0×", @"2.5x", @"3.0×", @"4.0×", @"5.0×"];
             return speedLabels[ytlInt(@"autoSpeedIndex")];
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             NSMutableArray <YTSettingsSectionItem *> *rows = [NSMutableArray array];
-            NSArray *speedLabels = @[@"0.25×", @"0.5×", @"0.75×", @"1.0×", @"1.25×", @"1.5×", @"1.75×", @"2.0×", @"3.0×", @"4.0×", @"5.0×"];
+            NSArray *speedLabels = @[@"0.25×", @"0.5×", @"0.75×", @"1.0×", @"1.25×", @"1.5×", @"1.75×", @"2.0×", @"2.5x", @"3.0×", @"4.0×", @"5.0×"];
 
             for (NSUInteger i = 0; i < speedLabels.count; i++) {
                 NSString *title = speedLabels[i];

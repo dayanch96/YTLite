@@ -465,7 +465,7 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
         && [self.view.superview isKindOfClass:NSClassFromString(@"YTWatchView")]) {
         YTMainAppVideoPlayerOverlayViewController *overlayVC = (YTMainAppVideoPlayerOverlayViewController *)self.activeVideoPlayerOverlay;
 
-        NSArray *speedLabels = @[@0.25, @0.5, @0.75, @1.0, @1.25, @1.5, @1.75, @2.0, @3.0, @4.0, @5.0];
+        NSArray *speedLabels = @[@0.25, @0.5, @0.75, @1.0, @1.25, @1.5, @1.75, @2.0, @2.5, @3.0, @4.0, @5.0];
         [overlayVC setPlaybackRate:[speedLabels[ytlInt(@"autoSpeedIndex")] floatValue]];
     }
 }
@@ -1301,7 +1301,7 @@ BOOL isTabSelected = NO;
 CGFloat rateBeforeSpeedmaster = 1.0;
 
 static void manageSpeedmasterYTLite(UILongPressGestureRecognizer *gesture, YTMainAppVideoPlayerOverlayViewController *delegate, YTInlinePlayerScrubUserEducationView *edu) {
-    NSArray *speedLabels = @[@0, @2.0, @0.25, @0.5, @0.75, @1.0, @1.25, @1.5, @1.75, @2.0, @3.0, @4.0, @5.0];
+    NSArray *speedLabels = @[@0, @2.0, @0.25, @0.5, @0.75, @1.0, @1.25, @1.5, @1.75, @2.0, @2.5, @3.0, @4.0, @5.0];
 
     YTLabel *label = [edu valueForKey:@"_userEducationLabel"];
     edu.labelType = 1;
