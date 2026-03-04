@@ -337,8 +337,8 @@
 "Interface" = "Interfejs";
 "OledTheme" = "Motyw OLED";
 "OledThemeDesc" = "Zamienia wszystkie ciemne kolory na czarne";
-"OledKeyboard" = "Klawiatura oled";
-"OledKeyboardDesc" = "Stosuje czarny motyw oled dla ciemnej klawiatury";
+"OledKeyboard" = "Klawiatura OLED";
+"OledKeyboardDesc" = "Stosuje czarny motyw OLED dla ciemnej klawiatury";
 "NoSearchHistory" = "Ukryj historię wyszukiwania";
 "NoSearchHistoryDesc" = "Wizualnie ukrywa historię wyszukiwania i sugestie. Uwaga: Twoja historia wyszukiwania będzie nadal dostępna w innych klientach YouTube.";
 "StickSortComments" = "Przypnij nagłówek komentarzy";

@@ -335,10 +335,10 @@
 
 /* Interface options */
 "Interface" = "Arayüz";
-"OledTheme" = "Oled teması";
+"OledTheme" = "OLED teması";
 "OledThemeDesc" = "Tüm koyu renkleri siyaha çevirir";
-"OledKeyboard" = "Oled klavye";
-"OledKeyboardDesc" = "Koyu klavye için oled temayı uygular";
+"OledKeyboard" = "OLED klavye";
+"OledKeyboardDesc" = "Koyu klavye için OLED temayı uygular";
 "NoSearchHistory" = "Arama geçmişini gizle";
 "NoSearchHistoryDesc" = "Arama geçmişini ve önerileri görsel olarak gizler. Not: Arama geçmişiniz diğer YouTube istemcilerinizde hala erişilebilir olacaktır.";
 "StickSortComments" = "Yorum başlığını sabitle";

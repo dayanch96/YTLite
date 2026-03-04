@@ -335,10 +335,10 @@
 
 /* Interface options */
 "Interface" = "Interface";
-"OledTheme" = "Oled theme";
+"OledTheme" = "OLED theme";
 "OledThemeDesc" = "Turns all dark colors to black";
-"OledKeyboard" = "Oled keyboard";
-"OledKeyboardDesc" = "Applies oled black theme for dark keyboard";
+"OledKeyboard" = "OLED keyboard";
+"OledKeyboardDesc" = "Applies OLED black theme for dark keyboard";
 "NoSearchHistory" = "Hide search history";
 "NoSearchHistoryDesc" = "Visually hides search history and suggestions. Note: Your search history will still be accessible in your other YouTube clients.";
 "StickSortComments" = "Stick comments header";

@@ -335,10 +335,10 @@
 
 /* Interface options */
 "Interface" = "Interfaz";
-"OledTheme" = "Tema Oled";
+"OledTheme" = "Tema OLED";
 "OledThemeDesc" = "Convierte todos los colores oscuros en negro";
-"OledKeyboard" = "Teclado Oled";
-"OledKeyboardDesc" = "Aplica el tema negro oled al teclado oscuro";
+"OledKeyboard" = "Teclado OLED";
+"OledKeyboardDesc" = "Aplica el tema negro OLED al teclado oscuro";
 "NoSearchHistory" = "Ocultar el historial de búsqueda";
 "NoSearchHistoryDesc" = "Oculta visualmente el historial de búsqueda y las sugerencias. Nota: El historial de búsqueda seguirá siendo accesible en otros clientes de YouTube.";
 "StickSortComments" = "Pegar cabecera de comentarios";
