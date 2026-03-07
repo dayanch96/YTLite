@@ -337,8 +337,8 @@
 "Interface" = "واجهة المستخدم";
 "OledTheme" = "ثيم OLED";
 "OledThemeDesc" = "يحول جميع الألوان الداكنة إلى الأسود.";
-"OledKeyboard" = "لوحة مفاتيح Oled";
-"OledKeyboardDesc" = "يطبق سمة oled السوداء على لوحة المفاتيح المظلمة";
+"OledKeyboard" = "لوحة مفاتيح OLED";
+"OledKeyboardDesc" = "يطبق سمة OLED السوداء على لوحة المفاتيح المظلمة";
 "NoSearchHistory" = "إخفاء سجل البحث";
 "NoSearchHistoryDesc" = "يخفي سجل البحث والاقتراحات بصريًا. ملاحظة: سيظل سجل البحث الخاص بك متاحًا في عملاء YouTube الآخرين.";
 "StickSortComments" = "تثبيت رأس التعليقات";

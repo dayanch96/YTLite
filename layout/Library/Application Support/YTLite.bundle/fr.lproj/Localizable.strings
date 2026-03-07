@@ -337,8 +337,8 @@
 "Interface" = "Interface";
 "OledTheme" = "Thème OLED";
 "OledThemeDesc" = "Change toutes les couleurs sombres en noir OLED";
-"OledKeyboard" = "Oled keyboard";
-"OledKeyboardDesc" = "Applies oled black theme for dark keyboard";
+"OledKeyboard" = "OLED keyboard";
+"OledKeyboardDesc" = "Applies OLED black theme for dark keyboard";
 "NoSearchHistory" = "Masquer l'historique de recherche";
 "NoSearchHistoryDesc" = "Masque visuellement l'historique de recherche et les suggestions. Note : Votre historique de recherche sera toujours accessible dans vos autres clients YouTube.";
 "StickSortComments" = "Épingler l'en-tête des commentaires";
