@@ -1,4 +1,4 @@
-name: Generate TrollFools/Cyan files
+﻿name: Generate TrollFools/Cyan files
 
 on:
   workflow_dispatch:
@@ -77,7 +77,7 @@ jobs:
 
     steps:
       - name: Checkout Main
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v6.0.2
         with:
           path: main
           submodules: recursive
@@ -97,7 +97,7 @@ jobs:
       - name: Cache Theos
         if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_demc }}
         id: theos
-        uses: actions/cache@v4
+        uses: actions/cache@v5.0.3
         env:
           cache-name: theos_cache_67db2ab
         with:
@@ -107,7 +107,7 @@ jobs:
 
       - name: Setup Theos
         if: ${{ (inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_demc) && steps.theos.outputs.cache-hit != 'true' }}
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v6.0.2
         with:
           repository: theos/theos
           ref: 67db2ab8d950910161730de77c322658ea3e6b44
@@ -335,7 +335,7 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Upload to GitHub Releases
-        uses: softprops/action-gh-release@v2.0.1
+        uses: softprops/action-gh-release@v2.5.0
         with:
           tag_name: ytp-${{ github.run_number }}
           name: YouTubePlus v${{ inputs.tweak_version }}_cyan_trollfools (${{ github.run_number }})
