@@ -1,4 +1,4 @@
-name: '[BETA] Create YouTube Plus app'
+﻿name: '[BETA] Create YouTube Plus app'
 
 on:
   workflow_dispatch:
@@ -77,13 +77,13 @@ jobs:
 
     steps:
       - name: Checkout Main
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v6.0.2
         with:
           path: main
           submodules: recursive
 
       - name: Hide sensitive inputs
-        uses: levibostian/action-hide-sensitive-inputs@v1
+        uses: levibostian/action-hide-sensitive-inputs@v1.1.1
         with:
           exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_youpip,enable_yq,enable_ytuhd,info_note
 
@@ -118,7 +118,7 @@ jobs:
       - name: Cache Theos
         if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_demc }}
         id: theos
-        uses: actions/cache@v4
+        uses: actions/cache@v5.0.3
         env:
           cache-name: theos_cache_67db2ab
         with:
@@ -128,7 +128,7 @@ jobs:
 
       - name: Setup Theos
         if: ${{ (inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_demc) && steps.theos.outputs.cache-hit != 'true' }}
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v6.0.2
         with:
           repository: theos/theos
           ref: 67db2ab8d950910161730de77c322658ea3e6b44
@@ -311,7 +311,7 @@ jobs:
           cyan -i youtube.ipa -o YouTubePlus_Beta.ipa -uwef $tweaks -n "${{ inputs.display_name }}" -b ${{ inputs.bundle_id }}
 
       - name: Upload to GitHub Releases
-        uses: softprops/action-gh-release@v2.0.1
+        uses: softprops/action-gh-release@v2.5.0
         with:
           tag_name: ytp-beta-${{ github.run_number }}
           name: YouTubePlus Beta (${{ github.run_number }})
