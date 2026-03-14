@@ -293,7 +293,7 @@ jobs:
         run: |
           tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
 
-          for deb in youpip.deb ytuhd.deb ryd.deb ygs.deb yq.deb ytvo.deb demc.deb; do
+          for deb in *.deb; do
             if [ -f "$deb" ]; then
               tweaks="$tweaks $deb"
             fi
