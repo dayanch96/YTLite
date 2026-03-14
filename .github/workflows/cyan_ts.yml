@@ -74,10 +74,6 @@ jobs:
     runs-on: macos-latest
     permissions:
       contents: write
-    # Force Node.js 24 (Temporary fix for the Github Releases Node.js 20 deprecated warnings)
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-      ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
 
     steps:
       - name: Checkout Main
