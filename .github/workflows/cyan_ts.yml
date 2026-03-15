@@ -1,4 +1,4 @@
-name: Generate TrollFools/Cyan files
+﻿name: Generate TrollFools/Cyan files
 
 on:
   workflow_dispatch:
