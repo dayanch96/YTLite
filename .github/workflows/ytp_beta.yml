@@ -75,7 +75,7 @@ jobs:
 
     steps:
       - name: Hide sensitive inputs
-        uses: levibostian/action-hide-sensitive-inputs@v1.1.1
+        uses: levibostian/action-hide-sensitive-inputs@v1
         with:
           exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_youpip,enable_yq,enable_ytuhd,info_note
 
