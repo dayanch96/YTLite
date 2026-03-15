@@ -220,7 +220,7 @@ jobs:
         if: ${{ inputs.enable_demc }}
         run: |
           cd ${{ github.workspace }}
-          git clone --quiet --depth=1 --recurse-submodules https://github.com/therealFoxster/DontEatMyContent.git
+          git clone --quiet --depth=1 https://github.com/therealFoxster/DontEatMyContent.git
 
       - name: Build YouPiP
         if: ${{ inputs.enable_youpip }}
