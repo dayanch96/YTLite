@@ -1,9 +1,7 @@
 ﻿name: '[BETA] Create YouTube Plus app'
-
 on:
   workflow_dispatch:
     inputs:
-
       enable_youpip:
         description: "Integrate YouPiP"
         type: boolean
@@ -76,12 +74,6 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout Main
-        uses: actions/checkout@v6.0.2
-        with:
-          path: main
-          submodules: recursive
-
       - name: Hide sensitive inputs
         uses: levibostian/action-hide-sensitive-inputs@v1.1.1
         with:
@@ -110,9 +102,11 @@ jobs:
           fi
 
       - name: Install Dependencies
+        if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_demc }}
         run: brew install make ldid
 
       - name: Set PATH environment variable
+        if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_demc }}
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
 
       - name: Setup Theos
