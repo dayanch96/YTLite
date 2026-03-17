@@ -130,7 +130,7 @@ jobs:
 
       - name: Clone YTUHD
         if: ${{ inputs.enable_ytuhd }}
-        run: git clone --quiet --depth=1 https://github.com/Tonwalter888/YTUHD.git
+        run: git clone --quiet --depth=1 https://github.com/PoomSmart/YTUHD.git
 
       - name: Clone Return-YouTube-Dislikes
         if: ${{ inputs.enable_ryd }}
@@ -165,7 +165,7 @@ jobs:
       - name: Build YTUHD
         if: ${{ inputs.enable_ytuhd }}
         run: |
-          cd YTUHD && make clean package DEBUG=0 FINALPACKAGE=1 ARCHS=arm64
+          cd YTUHD && make clean package DEBUG=0 SIDELOAD=1 FINALPACKAGE=1 ARCHS=arm64
           mv packages/*.deb ../ytuhd.deb
 
       - name: Build Return-YouTube-Dislikes
