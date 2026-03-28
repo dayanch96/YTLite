@@ -128,6 +128,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create "ytp-${{ github.run_number }}" \
+            --repo "${{ github.repository }}" \
             --title "YouTubePlus v${{ github.event.inputs.tweak_version }} (${{ github.run_number }})" \
             --draft \
             "YouTubePlus_${{ github.event.inputs.tweak_version }}.ipa"
