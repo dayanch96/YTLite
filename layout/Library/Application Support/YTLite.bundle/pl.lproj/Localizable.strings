@@ -629,81 +629,81 @@
 
 "DonationReminder" = "Twoje wsparcie pomaga uczynić YouTube Plus jeszcze lepszym.\n\nMożesz wesprzeć lub wybrać wyłączenie tych powiadomień w ustawieniach YouTube Plus. Dziękuję💜";
 
-"BothSides" = "Both sides";
+"BothSides" = "Obie strony";
 
-"CastingAction" = "Settings";
-"CastingErrorMessage" = "You're most likely seeing this because your certificate doesn't have Multicast permission.\nWithout Multicast, Casting works on version 20.14.1 and below.";
-"CastingErrorTitle" = "Wait a minute...";
+"CastingAction" = "Ustawienia";
+"CastingErrorMessage" = "Najprawdopodobniej widzisz to, ponieważ Twój certyfikat nie ma uprawnienia Multicast.\nBez Multicast przesyłanie działa w wersji 20.14.1 i starszych.";
+"CastingErrorTitle" = "Chwileczkę...";
 
-"Extended" = "Extended";
+"Extended" = "Rozszerzone";
 "FEhype_leaderboard" = "Hype";
-"FEnotifications_inbox" = "Notifications";
-"FloatingKeyboard" = "Floating keyboard";
-"FloatingKeyboardDesc" = "Force-enables the floating keyboard. Useful for iPhones with iPad style spoofing. Note: Works ONLY when iPad style is selected.";
-"ForceBestQuality" = "Force quality";
-"ForceBestQualityDesc" = "Disables Shorts quality selection, allowing the player to automatically pick the most suitable quality.";
+"FEnotifications_inbox" = "Powiadomienia";
+"FloatingKeyboard" = "Pływająca klawiatura";
+"FloatingKeyboardDesc" = "Wymusza włączenie pływającej klawiatury. Przydatne na iPhone'ach ze spoofingiem stylu iPada. Uwaga: działa TYLKO po wybraniu stylu iPada.";
+"ForceBestQuality" = "Wymuś jakość";
+"ForceBestQualityDesc" = "Wyłącza wybór jakości Shorts, pozwalając odtwarzaczowi automatycznie wybrać najbardziej odpowiednią jakość.";
 
-"HideShortsAudioButton" = "No Audio button";
-"HideShortsAudioButtonDesc" = "Removes the Audio button from the action bar.";
-"HideShortsCommentBar" = "No comment bar";
-"HideShortsCommentBarDesc" = "Removes the comment bar in Shorts played from a user's profile.";
-"HideShortsProducts" = "Hide products";
-"HideShortsProductsDesc" = "Hides product stickers added by the author.";
+"HideShortsAudioButton" = "Brak przycisku Audio";
+"HideShortsAudioButtonDesc" = "Ukrywa przycisk Audio z paska akcji.";
+"HideShortsCommentBar" = "Brak paska komentarza";
+"HideShortsCommentBarDesc" = "Ukrywa pasek komentarza w Shorts odtwarzanych z profilu użytkownika.";
+"HideShortsProducts" = "Ukryj produkty";
+"HideShortsProductsDesc" = "Ukrywa naklejki produktów dodane przez autora.";
 
-"IgnoreAutoDub" = "Ignore auto-dubbed tracks";
-"IgnoreAutoDubDesc" = "Skips manual selection if the preferred language track is auto-dubbed.";
-"Language" = "Language";
+"IgnoreAutoDub" = "Ignoruj ścieżki z automatycznym dubbingiem";
+"IgnoreAutoDubDesc" = "Pomija ręczny wybór, jeśli ścieżka w preferowanym języku ma automatyczny dubbing.";
+"Language" = "Język";
 
-"LeftSide" = "Left side";
-"RightSide" = "Right side";
+"LeftSide" = "Lewa strona";
+"RightSide" = "Prawa strona";
 "Standard" = "Standard";
 
-"LogoImage" = "Logo image";
-"LogoImageDesc" = "Replaces the YouTube logo with the one selected in the navigation bar.";
-"NoHudMsgs" = "Disable snackbars";
-"NoHudMsgsDesc" = "Prevents YouTube from showing on-screen HUD messages.";
-"NoLinkTracking" = "Disable link tracking";
-"NoLinkTrackingDesc" = "Prevents tracking information from being sent when tapping links. Opens links directly instead of going through Google redirects.";
-"NoLogo" = "Remove logo";
-"OpenSettings" = "Open settings";
+"LogoImage" = "Zmiana logo";
+"LogoImageDesc" = "Zastępuje logo YouTube tym wybranym na pasku nawigacji.";
+"NoHudMsgs" = "Wyłącz komunikaty ekranowe";
+"NoHudMsgsDesc" = "Zapobiega wyświetlaniu przez YouTube komunikatów HUD na ekranie.";
+"NoLinkTracking" = "Wyłącz śledzenie linków";
+"NoLinkTrackingDesc" = "Zapobiega wysyłaniu informacji śledzących po skopiowaniu linków. Otwiera bezpośrednio film zamiast kierować przez przekierowania Google.";
+"NoLogo" = "Usuń logo";
+"OpenSettings" = "Otwórz ustawienia";
 
-"Player.ControlCenter" = "Control Center";
-"PlayerNoHype" = "Remove \"Hype\" button";
-"PlayerNoHypeDesc" = "Removes \"Hype\" button under player.";
-"PlayerNoStopAds" = "Remove \"Stop ads\" button";
-"PlayerNoStopAdsDesc" = "Removes \"Stop ads\" button under player.";
-"RcSkipBackward" = "Skip backward";
-"RcSkipBackwardDesc" = "Replaces the previous track button in Control Center with a skip backward button by a set number of seconds.";
-"RcSkipForward" = "Skip forward";
-"RcSkipForwardDesc" = "Replaces the next track button in Control Center with a skip forward button by a set number of seconds.";
+"Player.ControlCenter" = "Centrum sterowania";
+"PlayerNoHype" = "Usuń przycisk \"Hype\"";
+"PlayerNoHypeDesc" = "Usuwa przycisk \"Hype\" pod odtwarzaczem.";
+"PlayerNoStopAds" = "Usuń przycisk \"Zatrzymaj reklamy\"";
+"PlayerNoStopAdsDesc" = "Usuwa przycisk \"Zatrzymaj reklamy\" pod odtwarzaczem.";
+"RcSkipBackward" = "Przewiń do tyłu";
+"RcSkipBackwardDesc" = "Zastępuje przycisk poprzedniego utworu w Centrum sterowania przyciskiem przewijania do tyłu o określoną liczbę sekund.";
+"RcSkipForward" = "Przewiń do przodu";
+"RcSkipForwardDesc" = "Zastępuje przycisk następnego utworu w Centrum sterowania przyciskiem przewijania do przodu o określoną liczbę sekund.";
 
-"RemoveFeedbackMenu" = "Remove \"Feedback\"";
-"RemoveFeedbackMenuDesc" = "Removes \"Feedback\" option from menu.";
-"RemoveShortsPosts" = "Remove posts";
-"RemoveShortsPostsDesc" = "Removes posts from the feed.";
+"RemoveFeedbackMenu" = "Usuń \"Prześlij opinię\"";
+"RemoveFeedbackMenuDesc" = "Usuwa opcję \"Prześlij opinię\" z menu.";
+"RemoveShortsPosts" = "Usuń posty";
+"RemoveShortsPostsDesc" = "Usuwa posty z kanału.";
 
-"SleepTimer" = "Sleep timer";
-"SleepTimer.Dismiss" = "Dismiss";
-"SleepTimer.EndAt" = "End at...";
-"SleepTimer.EndOfVideo" = "End of video";
-"SleepTimer.Message" = "What would you like to do?";
-"SleepTimer.SelectNewTime" = "Select new time";
-"SleepTimer.SelectTime" = "Select time";
-"SleepTimer.Start" = "Start";
-"SleepTimer.StopMessage" = "Sleep timer ended. Playback has been paused.";
-"SleepTimer.TurnOff" = "Turn off";
-"SleepTimerDesc" = "Displays sleep timer button on the overlay and to the tab bar long-press menu.";
+"SleepTimer" = "Wyłącznik czasowy";
+"SleepTimer.Dismiss" = "Odrzuć";
+"SleepTimer.EndAt" = "Zakończ o...";
+"SleepTimer.EndOfVideo" = "Na końcu filmu";
+"SleepTimer.Message" = "Co chcesz zrobić?";
+"SleepTimer.SelectNewTime" = "Wybierz nowy czas";
+"SleepTimer.SelectTime" = "Wybierz czas";
+"SleepTimer.Start" = "Uruchom";
+"SleepTimer.StopMessage" = "Wyłącznik czasowy zakończył działanie. Odtwarzanie zostało wstrzymane.";
+"SleepTimer.TurnOff" = "Wyłącz";
+"SleepTimerDesc" = "Wyświetla przycisk wyłącznika czasowego na nakładce oraz w menu po długim naciśnięciu na pasku kart.";
 
-"TapToSeek" = "Tap to seek";
-"TapToSeekDesc" = "Quickly jump to any point by tapping the progress bar.";
-"Translate" = "Translate";
-"TranslateComment" = "Translate comment";
-"TranslatePost" = "Translate post";
-"Translating" = "Translating...";
-"Translation" = "Translation";
+"TapToSeek" = "Dotknij, aby przewinąć";
+"TapToSeekDesc" = "Szybko przeskakuje do dowolnego miejsca po dotknięciu paska postępu.";
+"Translate" = "Tłumacz";
+"TranslateComment" = "Przetłumacz komentarz";
+"TranslatePost" = "Przetłumacz post";
+"Translating" = "Tłumaczenie...";
+"Translation" = "Tłumaczenie";
 
-"UC-9-kyTW8ZkZNDHQJ6FgpwQ" = "Music";
-"UC4R8DWoMoI7CAwX8_LjQHig" = "Live";
-"UCEgdi0XIXXZ-qJOFPf4JSKw" = "Sports";
-"UCOpNcN46UbXVtpKMrmU4Abg" = "Gaming";
-"WhatIsMulticast?" = "What is Multicast?";
+"UC-9-kyTW8ZkZNDHQJ6FgpwQ" = "Muzyka";
+"UC4R8DWoMoI7CAwX8_LjQHig" = "Na żywo";
+"UCEgdi0XIXXZ-qJOFPf4JSKw" = "Sport";
+"UCOpNcN46UbXVtpKMrmU4Abg" = "Gry";
+"WhatIsMulticast?" = "Czym jest Multicast?";
