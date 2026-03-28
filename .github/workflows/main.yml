@@ -100,10 +100,8 @@ jobs:
           path: ${{ github.workspace }}
 
       - name: Hide sensitive inputs
-        uses: levibostian/action-hide-sensitive-inputs@v1
-        with:
-          exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_ytabc,enable_youpip,enable_yq,enable_ytuhd,info_note,tweak_version
-
+        run: echo "::add-mask::${{ github.event.inputs.ipa_url }}"
+        
       - name: Download and validate IPA
         run: |
           wget "${{ github.event.inputs.ipa_url }}" --no-verbose -O youtube.ipa
