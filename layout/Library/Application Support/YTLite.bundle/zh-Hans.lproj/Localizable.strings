@@ -61,10 +61,6 @@
 "StickyNavbarDesc" = "固定导航栏，使其在向下滚动时保持可见。";
 "NoSubbar" = "隐藏子栏";
 "NoSubbarDesc" = "隐藏导航栏下的子栏（全部、新内容、实时等）。";
-"NoYTLogo" = "删除“YouTube”Logo";
-"NoYTLogoDesc" = "删除导航栏中的“YouTube”Logo。";
-"PremiumYTLogo" = "设置“Premium”Logo";
-"PremiumYTLogoDesc" = "在导航栏中设置“Premium”Logo。";
 
 /* Feed options */
 "Feed" = "视频流";
@@ -259,7 +255,6 @@
 "ShortsProgressDesc" = "在短视频播放器中显示进度条。";
 "SpeedByLongTap" = "加快短视频播放速度";
 "SpeedByLongTapDesc" = "允许通过长按屏幕的某个部分来加快播放速度。";
-"SpeedLocation" = "激活位置";
 "PinchToFullscreenShorts" = "捏合至全屏";
 "PinchToFullscreenShortsDesc" = "通过捏合和捏合手势管理播放界面，以全屏模式显示短视频。";
 "ShortsToRegular" = "常规短视频";
@@ -386,8 +381,6 @@
 "RemoveNotInterestedMenuDesc" = "从菜单中删除“不感兴趣”选项。";
 "RemoveDontRecommendMenu" = "删除“不推荐此频道”";
 "RemoveDontRecommendMenuDesc" = "从菜单中删除“不推荐此频道”选项。";
-"RemoveFeedbackMenu" = "删除“发送反馈”";
-"RemoveFeedbackMenuDesc" = "从菜单中删除“发送反馈”选项。";
 "RemoveReportMenu" = "删除“举报”";
 "RemoveReportMenuDesc" = "从菜单中删除“举报”选项。";
 "RemoveRemixMenu" = "删除“混剪”";
@@ -636,15 +629,81 @@
 
 "DonationReminder" = "您的支持能让“YouTube Plus”变得更好。\n\n您可以在“YouTube Plus”设置中选择捐赠或选择关闭这些通知。谢谢💜";
 
-/* Old localizations (commented out for reference)
-"TabIsHidden" = "无法选择隐藏标签页作为启动页。";
-"TabIsStartupTab" = "选定为“启动页”的标签页无法隐藏";
-"PreserveSpeed" = "保持速度";
-"PreserveSpeedDesc" = "手势完成后保持调整后的速度。";
-"sb_poi_highlight" = "精彩片段";
-"SegmentDetected" = "检测到 %@";
-"SegmentSkipped" = "%@ 已被跳过";
-"SkippedToSegment" = "已跳过 %@";
-"SkipSegment" = "跳过";
-"SkipToSegment" = "跳到重点";
-"SpeedPreserved" = "速度保持";
+"BothSides" = "Both sides";
+
+"CastingAction" = "Settings";
+"CastingErrorMessage" = "You're most likely seeing this because your certificate doesn't have Multicast permission.\nWithout Multicast, Casting works on version 20.14.1 and below.";
+"CastingErrorTitle" = "Wait a minute...";
+
+"Extended" = "Extended";
+"FEhype_leaderboard" = "Hype";
+"FEnotifications_inbox" = "Notifications";
+"FloatingKeyboard" = "Floating keyboard";
+"FloatingKeyboardDesc" = "Force-enables the floating keyboard. Useful for iPhones with iPad style spoofing. Note: Works ONLY when iPad style is selected.";
+"ForceBestQuality" = "Force quality";
+"ForceBestQualityDesc" = "Disables Shorts quality selection, allowing the player to automatically pick the most suitable quality.";
+
+"HideShortsAudioButton" = "No Audio button";
+"HideShortsAudioButtonDesc" = "Removes the Audio button from the action bar.";
+"HideShortsCommentBar" = "No comment bar";
+"HideShortsCommentBarDesc" = "Removes the comment bar in Shorts played from a user's profile.";
+"HideShortsProducts" = "Hide products";
+"HideShortsProductsDesc" = "Hides product stickers added by the author.";
+
+"IgnoreAutoDub" = "Ignore auto-dubbed tracks";
+"IgnoreAutoDubDesc" = "Skips manual selection if the preferred language track is auto-dubbed.";
+"Language" = "Language";
+
+"LeftSide" = "Left side";
+"RightSide" = "Right side";
+"Standard" = "Standard";
+
+"LogoImage" = "Logo image";
+"LogoImageDesc" = "Replaces the YouTube logo with the one selected in the navigation bar.";
+"NoHudMsgs" = "Disable snackbars";
+"NoHudMsgsDesc" = "Prevents YouTube from showing on-screen HUD messages.";
+"NoLinkTracking" = "Disable link tracking";
+"NoLinkTrackingDesc" = "Prevents tracking information from being sent when tapping links. Opens links directly instead of going through Google redirects.";
+"NoLogo" = "Remove logo";
+"OpenSettings" = "Open settings";
+
+"Player.ControlCenter" = "Control Center";
+"PlayerNoHype" = "Remove \"Hype\" button";
+"PlayerNoHypeDesc" = "Removes \"Hype\" button under player.";
+"PlayerNoStopAds" = "Remove \"Stop ads\" button";
+"PlayerNoStopAdsDesc" = "Removes \"Stop ads\" button under player.";
+"RcSkipBackward" = "Skip backward";
+"RcSkipBackwardDesc" = "Replaces the previous track button in Control Center with a skip backward button by a set number of seconds.";
+"RcSkipForward" = "Skip forward";
+"RcSkipForwardDesc" = "Replaces the next track button in Control Center with a skip forward button by a set number of seconds.";
+
+"RemoveFeedbackMenu" = "删除“发送反馈”";
+"RemoveFeedbackMenuDesc" = "从菜单中删除“发送反馈”选项。";
+"RemoveShortsPosts" = "Remove posts";
+"RemoveShortsPostsDesc" = "Removes posts from the feed.";
+
+"SleepTimer" = "Sleep timer";
+"SleepTimer.Dismiss" = "Dismiss";
+"SleepTimer.EndAt" = "End at...";
+"SleepTimer.EndOfVideo" = "End of video";
+"SleepTimer.Message" = "What would you like to do?";
+"SleepTimer.SelectNewTime" = "Select new time";
+"SleepTimer.SelectTime" = "Select time";
+"SleepTimer.Start" = "Start";
+"SleepTimer.StopMessage" = "Sleep timer ended. Playback has been paused.";
+"SleepTimer.TurnOff" = "Turn off";
+"SleepTimerDesc" = "Displays sleep timer button on the overlay and to the tab bar long-press menu.";
+
+"TapToSeek" = "Tap to seek";
+"TapToSeekDesc" = "Quickly jump to any point by tapping the progress bar.";
+"Translate" = "Translate";
+"TranslateComment" = "Translate comment";
+"TranslatePost" = "Translate post";
+"Translating" = "Translating...";
+"Translation" = "Translation";
+
+"UC-9-kyTW8ZkZNDHQJ6FgpwQ" = "Music";
+"UC4R8DWoMoI7CAwX8_LjQHig" = "Live";
+"UCEgdi0XIXXZ-qJOFPf4JSKw" = "Sports";
+"UCOpNcN46UbXVtpKMrmU4Abg" = "Gaming";
+"WhatIsMulticast?" = "What is Multicast?";

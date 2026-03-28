@@ -61,10 +61,6 @@
 "StickyNavbarDesc" = "Mantiene fija la barra de navegación para que permanezca visible al desplazarse hacia abajo.";
 "NoSubbar" = "Ocultar subbarra";
 "NoSubbarDesc" = "Oculta la subbarra (Todo, Novedades para ti, En directo, etc.) debajo de la barra de navegación.";
-"NoYTLogo" = "Eliminar el logo de YouTube";
-"NoYTLogoDesc" = "Elimina el logo de YouTube de la barra de navegación.";
-"PremiumYTLogo" = "Establece el logotipo Premium de YouTube";
-"PremiumYTLogoDesc" = "Establece el logotipo de YouTube Premium en la barra de navegación.";
 
 /* Feed options */
 "Feed" = "Feed";
@@ -259,7 +255,6 @@
 "ShortsProgressDesc" = "Muestra una barra de progreso en la superposición de Shorts.";
 "SpeedByLongTap" = "Aumentar la velocidad de reproducción de los Shorts";
 "SpeedByLongTapDesc" = "Permite acelerar la reproducción pulsando durante mucho tiempo una determinada parte de la pantalla.";
-"SpeedLocation" = "Ubicación de activación";
 "PinchToFullscreenShorts" = "Pellizcar para pantalla completa";
 "PinchToFullscreenShortsDesc" = "Gestiona la visibilidad de la superposición con gestos de pellizcar para acercar y pellizcar para alejar, mostrando Shorts en modo de pantalla completa.";
 "ShortsToRegular" = "De Shorts a vídeos normales";
@@ -634,15 +629,81 @@
 
 "DonationReminder" = "Tu apoyo ayuda a mejorar YouTube Plus.\n\nPuedes contribuir o elegir desactivar estas notificaciones en los ajustes de YouTube Plus. ¡Gracias💜!";
 
-/* Old localizations (commented out for reference)
-"TabIsHidden" = "No se puede seleccionar una pestaña oculta como página de inicio";
-"TabIsStartupTab" = "La pestaña seleccionada como página de inicio no puede estar oculta";
-"PreserveSpeed" = "Preservar la velocidad";
-"PreserveSpeedDesc" = "Conserva la velocidad ajustada después de completar el gesto";
-"sb_poi_highlight" = "Segmento destacado";
-"SegmentDetected" = "%@ detectado";
-"SegmentSkipped" = "%@ ha sido omitido";
-"SkippedToSegment" = "Saltado al %@";
-"SkipSegment" = "Omitir";
-"SkipToSegment" = "Para destacar";
-"SpeedPreserved" = "Velocidad conservada";
+"BothSides" = "Both sides";
+
+"CastingAction" = "Settings";
+"CastingErrorMessage" = "You're most likely seeing this because your certificate doesn't have Multicast permission.\nWithout Multicast, Casting works on version 20.14.1 and below.";
+"CastingErrorTitle" = "Wait a minute...";
+
+"Extended" = "Extended";
+"FEhype_leaderboard" = "Hype";
+"FEnotifications_inbox" = "Notifications";
+"FloatingKeyboard" = "Floating keyboard";
+"FloatingKeyboardDesc" = "Force-enables the floating keyboard. Useful for iPhones with iPad style spoofing. Note: Works ONLY when iPad style is selected.";
+"ForceBestQuality" = "Force quality";
+"ForceBestQualityDesc" = "Disables Shorts quality selection, allowing the player to automatically pick the most suitable quality.";
+
+"HideShortsAudioButton" = "No Audio button";
+"HideShortsAudioButtonDesc" = "Removes the Audio button from the action bar.";
+"HideShortsCommentBar" = "No comment bar";
+"HideShortsCommentBarDesc" = "Removes the comment bar in Shorts played from a user's profile.";
+"HideShortsProducts" = "Hide products";
+"HideShortsProductsDesc" = "Hides product stickers added by the author.";
+
+"IgnoreAutoDub" = "Ignore auto-dubbed tracks";
+"IgnoreAutoDubDesc" = "Skips manual selection if the preferred language track is auto-dubbed.";
+"Language" = "Language";
+
+"LeftSide" = "Left side";
+"RightSide" = "Right side";
+"Standard" = "Standard";
+
+"LogoImage" = "Logo image";
+"LogoImageDesc" = "Replaces the YouTube logo with the one selected in the navigation bar.";
+"NoHudMsgs" = "Disable snackbars";
+"NoHudMsgsDesc" = "Prevents YouTube from showing on-screen HUD messages.";
+"NoLinkTracking" = "Disable link tracking";
+"NoLinkTrackingDesc" = "Prevents tracking information from being sent when tapping links. Opens links directly instead of going through Google redirects.";
+"NoLogo" = "Remove logo";
+"OpenSettings" = "Open settings";
+
+"Player.ControlCenter" = "Control Center";
+"PlayerNoHype" = "Remove \"Hype\" button";
+"PlayerNoHypeDesc" = "Removes \"Hype\" button under player.";
+"PlayerNoStopAds" = "Remove \"Stop ads\" button";
+"PlayerNoStopAdsDesc" = "Removes \"Stop ads\" button under player.";
+"RcSkipBackward" = "Skip backward";
+"RcSkipBackwardDesc" = "Replaces the previous track button in Control Center with a skip backward button by a set number of seconds.";
+"RcSkipForward" = "Skip forward";
+"RcSkipForwardDesc" = "Replaces the next track button in Control Center with a skip forward button by a set number of seconds.";
+
+"RemoveFeedbackMenu" = "Remove \"Feedback\"";
+"RemoveFeedbackMenuDesc" = "Removes \"Feedback\" option from menu.";
+"RemoveShortsPosts" = "Remove posts";
+"RemoveShortsPostsDesc" = "Removes posts from the feed.";
+
+"SleepTimer" = "Sleep timer";
+"SleepTimer.Dismiss" = "Dismiss";
+"SleepTimer.EndAt" = "End at...";
+"SleepTimer.EndOfVideo" = "End of video";
+"SleepTimer.Message" = "What would you like to do?";
+"SleepTimer.SelectNewTime" = "Select new time";
+"SleepTimer.SelectTime" = "Select time";
+"SleepTimer.Start" = "Start";
+"SleepTimer.StopMessage" = "Sleep timer ended. Playback has been paused.";
+"SleepTimer.TurnOff" = "Turn off";
+"SleepTimerDesc" = "Displays sleep timer button on the overlay and to the tab bar long-press menu.";
+
+"TapToSeek" = "Tap to seek";
+"TapToSeekDesc" = "Quickly jump to any point by tapping the progress bar.";
+"Translate" = "Translate";
+"TranslateComment" = "Translate comment";
+"TranslatePost" = "Translate post";
+"Translating" = "Translating...";
+"Translation" = "Translation";
+
+"UC-9-kyTW8ZkZNDHQJ6FgpwQ" = "Music";
+"UC4R8DWoMoI7CAwX8_LjQHig" = "Live";
+"UCEgdi0XIXXZ-qJOFPf4JSKw" = "Sports";
+"UCOpNcN46UbXVtpKMrmU4Abg" = "Gaming";
+"WhatIsMulticast?" = "What is Multicast?";
