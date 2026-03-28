@@ -124,12 +124,13 @@ jobs:
           cyan -i youtube.ipa -o YouTubePlus_${{ github.event.inputs.tweak_version }}.ipa -uwef $tweaks -n "${{ github.event.inputs.display_name }}" -b ${{ github.event.inputs.bundle_id }}
 
       - name: Upload to GitHub Releases
-        uses: softprops/action-gh-release@v2.5.0
-        with:
-          tag_name: ytp-${{ github.run_number }}
-          name: YouTubePlus v${{ github.event.inputs.tweak_version }} (${{ github.run_number }})
-          files: YouTubePlus_${{ github.event.inputs.tweak_version }}.ipa
-          draft: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "ytp-${{ github.run_number }}" \
+            --title "YouTubePlus v${{ github.event.inputs.tweak_version }} (${{ github.run_number }})" \
+            --draft \
+            "YouTubePlus_${{ github.event.inputs.tweak_version }}.ipa"
 
       - name: Output Release URL
         run: |
