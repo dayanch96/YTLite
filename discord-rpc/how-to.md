@@ -56,3 +56,5 @@ Show what you're watching on YouTube in your Discord status. In real time
 | No activity showing in Discord | Check that both devices are on the same Wi-Fi network |
 | "Please enable local network permission" on iPhone | Go to **iOS Settings → YouTube → Local Network** and enable it |
 | "Please start the server" on iPhone | Make sure YouTube Plus RPC is running on your desktop |
+| RPC not working even on the same Wi-Fi | On Windows, disable any virtual network adapters (VMware, VPN adapters, TAP adapters, and similar). These can interfere with local network discovery and prevent your iPhone from reaching the desktop server |
+| "app is damaged" on macOS | Run `xattr -cr "/Applications/YouTube Plus RPC.app"` in Terminal |
