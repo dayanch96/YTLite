@@ -101,7 +101,7 @@
 "Custom" = "Tự chọn";
 "CustomAudioTrack" = "Bản âm thanh đã chọn";
 "CustomAudioTrackDesc" = "Ưu tiên sử dụng ngôn ngữ bản âm thanh đã chọn nếu khả dụng";
-"IgnoreAutoDub" = "Bỏ qua bản âm thanh tự động Ignore auto-dubbed tracks";
+"IgnoreAutoDub" = "Bỏ qua bản âm thanh tự động";
 "IgnoreAutoDubDesc" = "Bỏ qua lựa chọn thủ công nếu ngôn ngữ bản âm thanh đã chọn được tạo tự động.";
 "CustomCaptions" = "Phụ đề đã chọn";
 "CustomCaptionsDesc" = "Ưu tiên sử dụng ngôn ngữ phụ đề đã chọn nếu khả dụng";
