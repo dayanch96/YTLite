@@ -1,6 +1,6 @@
 /* Main section */
 "Main" = "Główne";
-"Search" = "Search";
+"Search" = "Szukaj";
 
 /* Downloading options */
 "Downloading" = "Pobieranie";
@@ -22,7 +22,7 @@
 "PostDownloadDesc" = "Wybrana akcja zostanie wykonana po pomyślnym zakończeniu pobierania wideo.";
 "SaveToPhotos" = "Zapisz do zdjęć";
 "Share" = "Udostępnij";
-"Copy" = "Copy";
+"Copy" = "Kopiuj";
 "Ask" = "Pytaj";
 "DownloadCompleted" = "Pobieranie zakończone";
 
@@ -62,9 +62,9 @@
 "StickyNavbarDesc" = "Przypina pasek nawigacji, aby pozostał widoczny podczas przewijania w dół.";
 "NoSubbar" = "Ukryj pasek podrzędny";
 "NoSubbarDesc" = "Ukrywa pasek podrzędny (Wszystkie, Nowe dla Ciebie, Na żywo itp.) pod paskiem nawigacji.";
-"LogoImage" = "Logo image";
-"LogoImageDesc" = "Replaces the YouTube logo with the one selected in the navigation bar.";
-"NoLogo" = "Remove logo";
+"LogoImage" = "Obraz logo";
+"LogoImageDesc" = "Zastępuje logo YouTube wybranym wariantem na pasku nawigacji.";
+"NoLogo" = "Usuń logo";
 
 /* Feed options */
 "Feed" = "Kanał";
@@ -92,33 +92,33 @@
 /* Player options */
 "Player" = "Odtwarzacz";
 "PlaybackQualityOnWiFi" = "Jakość odtwarzania w sieci Wi-Fi";
-"PlaybackQualityOnWiFiDesc" = "Automatically applies the selected quality when streaming over Wi-Fi";
+"PlaybackQualityOnWiFiDesc" = "Automatycznie stosuje wybraną jakość podczas odtwarzania przez Wi‑Fi.";
 "PlaybackQualityOnCellular" = "Jakość odtwarzania w sieci komórkowej";
-"PlaybackQualityOnCellularDesc" = "Automatically applies the selected quality when streaming over mobile data";
+"PlaybackQualityOnCellularDesc" = "Automatycznie stosuje wybraną jakość podczas odtwarzania przez dane komórkowe.";
 
 "PreferredCaptions" = "Preferowane napisy";
 "Original" = "Oryginalne";
 "Custom" = "Wybierz ręcznie";
 "CustomAudioTrack" = "Wybrana ścieżka dźwiękowa";
-"CustomAudioTrackDesc" = "Specifies the preferred audio track language to use for playback, if available";
-"IgnoreAutoDub" = "Ignore auto-dubbed tracks";
-"IgnoreAutoDubDesc" = "Skips manual selection if the preferred language track is auto-dubbed.";
+"CustomAudioTrackDesc" = "Określa preferowany język ścieżki dźwiękowej do odtwarzania, jeśli jest dostępny.";
+"IgnoreAutoDub" = "Ignoruj automatycznie dubbingowane ścieżki";
+"IgnoreAutoDubDesc" = "Pomija ręczny wybór, jeśli ścieżka w preferowanym języku jest automatycznie zdubbingowana.";
 "CustomCaptions" = "Wybrane napisy";
-"CustomCaptionsDesc" = "Specifies the preferred captions language to display, if available";
+"CustomCaptionsDesc" = "Określa preferowany język napisów do wyświetlania, jeśli jest dostępny.";
 "AutoGenCaps" = "Automatycznie wygenerowane napisy";
 "AutoGenCapsDesc" = "Jeśli wybrane napisy nie zostaną znalezione, YouTube Plus spróbuje wybrać tłumaczenie oryginalnych napisów lub tłumaczenie automatycznie wygenerowanych napisów.";
 
 "Player.Interface" = "Interfejs";
-"SleepTimer" = "Sleep timer";
-"SleepTimerDesc" = "Displays sleep timer button on the overlay and to the tab bar long-press menu.";
+"SleepTimer" = "Wyłącznik czasowy";
+"SleepTimerDesc" = "Wyświetla przycisk wyłącznika czasowego na nakładce oraz w menu długiego naciśnięcia paska kart.";
 "SpeedControls" = "Kontrolki prędkości";
 "SpeedControlsDesc" = "Wyświetla przyciski kontroli prędkości na nakładce.";
 "MuteButton" = "Przycisk wyciszenia";
 "MuteButtonDesc" = "Wyświetla przycisk wyciszania lub włączania dźwięku w nakładce.";
 "LockButton" = "Przycisk zablokuj";
 "LockButtonDesc" = "Wyświetla przycisk umożliwiający zablokowanie orientacji ekranu i przełącza do trybu pełnoekranowego.";
-"HideOverlayTitle" = "Hide video title";
-"HideOverlayTitleDesc" = "Hides the video title in fullscreen overlay.";
+"HideOverlayTitle" = "Ukryj tytuł filmu";
+"HideOverlayTitleDesc" = "Ukrywa tytuł filmu w nakładce pełnoekranowej.";
 "HideAutoplay" = "Ukryj przełącznik Autoodtwarzania";
 "HideAutoplayDesc" = "Ukrywa przełącznik Autoodtwarzania z nakładki.";
 "HideSubs" = "Ukryj przycisk Napisów";
@@ -143,8 +143,8 @@
 "NoAutonavEndScreenCardsDesc" = "Ukrywa ekran, który pokazuje, co można odtworzyć dalej po zakończeniu odtwarzania. Wyłączenie tej opcji również wyłącza autoodtwarzanie.";
 "NoFullscreenActions" = "Wyłącz akcje w trybie pełnoekranowym";
 "NoFullscreenActionsDesc" = "Wyłącza panel akcji w trybie pełnoekranowym.";
-"NoHudMsgs" = "Disable snackbars";
-"NoHudMsgsDesc" = "Prevents YouTube from showing on-screen HUD messages.";
+"NoHudMsgs" = "Wyłącz komunikaty ekranowe";
+"NoHudMsgsDesc" = "Zapobiega wyświetlaniu przez YouTube komunikatów HUD na ekranie.";
 "PersistentProgressBar" = "Stały pasek postępu";
 "PersistentProgressBarDesc" = "Zawsze pokazuje pasek postępu w odtwarzaczu.";
 "RedProgressBar" = "Czerwony pasek postępu";
@@ -183,10 +183,10 @@
 "PlayerNoSaveDesc" = "Usuwa przycisk \"Zapisz\"pod odtwarzaczem.";
 "PlayerNoReport" = "Usuń przycisk \"Zgłoś\"";
 "PlayerNoReportDesc" = "Usuwa przycisk \"Zgłoś\"pod odtwarzaczem.";
-"PlayerNoHype" = "Remove \"Hype\" button";
-"PlayerNoHypeDesc" = "Removes \"Hype\" button under player.";
-"PlayerNoStopAds" = "Remove \"Stop ads\" button";
-"PlayerNoStopAdsDesc" = "Removes \"Stop ads\" button under player.";
+"PlayerNoHype" = "Usuń przycisk \"Hype\"";
+"PlayerNoHypeDesc" = "Usuwa przycisk \"Hype\" pod odtwarzaczem.";
+"PlayerNoStopAds" = "Usuń przycisk \"Zatrzymaj reklamy\"";
+"PlayerNoStopAdsDesc" = "Usuwa przycisk \"Zatrzymaj reklamy\" pod odtwarzaczem.";
 
 "ProgressBarStyle" = "Wygląd paska postępu";
 "SolidColor" = "Kolor jednolity";
@@ -197,7 +197,7 @@
 
 "Player.Actions" = "Akcje";
 "DefaultPlaybackRate" = "Domyślna prędkość odtwarzania";
-"DefaultPlaybackRateDesc" = "Overrides the default playback speed";
+"DefaultPlaybackRateDesc" = "Nadpisuje domyślną prędkość odtwarzania.";
 "BackgroundPlayback" = "Odtwarzanie w tle";
 "BackgroundPlaybackDesc" = "Umożliwia odtwarzanie w tle.";
 "Miniplayer" = "Włącz mini odtwarzacz";
@@ -215,25 +215,25 @@
 "ExitFullscreen" = "Wyjdź z trybu pełnoekranowego po zakończeniu";
 "ExitFullscreenDesc" = "Wyłącza tryb pełnoekranowy na końcu odtwarzania filmu.";
 
-"Player.ControlCenter" = "Control Center";
-"RcSkipBackward" = "Skip backward";
-"RcSkipBackwardDesc" = "Replaces the previous track button in Control Center with a skip backward button by a set number of seconds.";
-"RcSkipForward" = "Skip forward";
-"RcSkipForwardDesc" = "Replaces the next track button in Control Center with a skip forward button by a set number of seconds.";
+"Player.ControlCenter" = "Centrum sterowania";
+"RcSkipBackward" = "Przewiń wstecz";
+"RcSkipBackwardDesc" = "Zastępuje przycisk poprzedniego utworu w Centrum sterowania przyciskiem cofania o określoną liczbę sekund.";
+"RcSkipForward" = "Przewiń do przodu";
+"RcSkipForwardDesc" = "Zastępuje przycisk następnego utworu w Centrum sterowania przyciskiem przewijania do przodu o określoną liczbę sekund.";
 
 "Player.Gestures" = "Gesty";
-"CompactToast" = "Compact toast";
-"CompactToastDesc" = "Displays a compact-style toast for player gestures";
+"CompactToast" = "Kompaktowy komunikat";
+"CompactToastDesc" = "Wyświetla kompaktowy komunikat dla gestów odtwarzacza.";
 "LeftSideGesture" = "Gest dla lewej strony";
-"LeftSideGestureDesc" = "Adjusts the selected setting by swiping vertically on the left side of the screen";
+"LeftSideGestureDesc" = "Reguluje wybrane ustawienie przez pionowe przesuwanie po lewej stronie ekranu.";
 "RightSideGesture" = "Gest dla prawej strony";
-"RightSideGestureDesc" = "Adjusts the selected setting by swiping vertically on the right side of the screen";
+"RightSideGestureDesc" = "Reguluje wybrane ustawienie przez pionowe przesuwanie po prawej stronie ekranu.";
 "ActivationAreaWidth" = "Szerokość obszaru aktywacji gestu";
 "ActivationAreaWidthDesc" = "Ta wartość określa strefę rozpoznawania gestów w pikselach dla lewej i prawej strony ekranu.\n\nMaksymalna dozwolona wartość to jedna trzecia szerokości ekranu.\n\nDostosowanie tego ustawienia jest przydatne, aby zapobiec przypadkowej aktywacji podczas próby minimalizacji lub rozszerzenia odtwarzacza.";
 "HoldToSpeed" = "Przytrzymaj, aby zmienić prędkość";
-"HoldToSpeedDesc" = "Sets the playback speed triggered by a long press on the player.\n\nStandard: 0.25×–5× with fixed steps\nExtended: 0.25×–10× with 0.05× steps";
+"HoldToSpeedDesc" = "Ustawia prędkość odtwarzania uruchamianą długim naciśnięciem odtwarzacza.\n\nStandard: 0.25×–5× ze stałymi krokami\nRozszerzony: 0.25×–10× z krokiem 0.05×";
 "Standard" = "Standard";
-"Extended" = "Extended";
+"Extended" = "Rozszerzony";
 "AdjustWithFinger" = "Reguluj prędkość gestami";
 "AdjustWithFingerDesc" = "Umożliwia regulację prędkości odtwarzania poprzez długie naciśnięcie na odtwarzaczu i przesuwanie palcem w górę i w dół.";
 "PreserveSpeed" = "Zachowaj prędkość";
@@ -245,8 +245,8 @@
 "Independent" = "Niezależna";
 "DurationBased" = "Oparta na czasie";
 "SeekSensitivity" = "Czułość przewijania";
-"TapToSeek" = "Tap to seek";
-"TapToSeekDesc" = "Quickly jump to any point by tapping the progress bar.";
+"TapToSeek" = "Stuknij, aby przewinąć";
+"TapToSeekDesc" = "Szybko przechodź do dowolnego miejsca, stukając pasek postępu.";
 "TwoFingerTapToPause" = "Pauzuj dwoma palcami";
 "TwoFingerTapToPauseDesc" = "Pauzuj/Wznów odtwarzanie, stukając w ekran dwoma palcami.";
 "TwoFingerPanToBrightness" = "Reguluj jasność";
@@ -271,8 +271,8 @@
 "ScrollToNext" = "Przewiń do następnego";
 "Stop" = "Zatrzymaj";
 "AutoSkipShorts" = "Automatyczne pomijanie Shorts";
-"ForceBestQuality" = "Force quality";
-"ForceBestQualityDesc" = "Disables Shorts quality selection, allowing the player to automatically pick the most suitable quality.";
+"ForceBestQuality" = "Wymuś jakość";
+"ForceBestQualityDesc" = "Wyłącza wybór jakości Shorts, pozwalając odtwarzaczowi automatycznie wybrać najbardziej odpowiednią jakość.";
 "ShortsOnlyMode" = "Tryb tylko Shorts";
 "ShortsOnlyModeDesc" = "Ogranicza funkcjonalność YouTube do oglądania tylko Shorts.";
 "RestrictShorts" = "Ogranicz Shorts";
@@ -281,21 +281,21 @@
 "ShortsProgressDesc" = "Wyświetla pasek postępu w nakładce Shorts.";
 "SpeedByLongTap" = "Zwiększ prędkość odtwarzania Shorts";
 "SpeedByLongTapDesc" = "Umożliwia przyspieszenie odtwarzania poprzez długie naciśnięcie na określonej części ekranu.";
-"LeftSide" = "Left side";
-"RightSide" = "Right side";
-"BothSides" = "Both sides";
+"LeftSide" = "Lewa strona";
+"RightSide" = "Prawa strona";
+"BothSides" = "Obie strony";
 "PinchToFullscreenShorts" = "Uszczypnij, aby przejść do pełnego ekranu";
 "PinchToFullscreenShortsDesc" = "Zarządza widocznością nakładki gestami uszczypnięcia i rozszerzenia, wyświetlając Shorts w trybie pełnoekranowym.";
 "ShortsToRegular" = "Shorts jako regularne filmy";
 "ShortsToRegularDesc" = "Otwiera filmy Shorts jako regularne filmy.";
-"RemoveShortsPosts" = "Remove posts";
-"RemoveShortsPostsDesc" = "Removes posts from the feed.";
+"RemoveShortsPosts" = "Usuń posty";
+"RemoveShortsPostsDesc" = "Usuwa posty z kanału.";
 "RemoveShortsLive" = "Usuń filmy na żywo";
 "RemoveShortsLiveDesc" = "Usuwa filmy na żywo z kanału.";
 
 "ShortsInterface" = "Interfejs";
-"HideShortsProducts" = "Hide products";
-"HideShortsProductsDesc" = "Hides product stickers added by the author.";
+"HideShortsProducts" = "Ukryj produkty";
+"HideShortsProductsDesc" = "Ukrywa naklejki produktów dodane przez autora.";
 "HideShortsLogo" = "Ukryj logo Shorts";
 "HideShortsLogoDesc" = "Ukrywa logo Shorts w lewym górnym rogu.";
 "HideShortsSearch" = "Ukryj przycisk Szukaj";
@@ -324,8 +324,8 @@
 "HideShortsShareDesc" = "Usuwa przycisk Udostępnij z paska akcji.";
 "HideShortsRemix" = "Brak przycisku Remix";
 "HideShortsRemixDesc" = "Usuwa przycisk Remix z paska akcji.";
-"HideShortsAudioButton" = "No Audio button";
-"HideShortsAudioButtonDesc" = "Removes the Audio button from the action bar.";
+"HideShortsAudioButton" = "Brak przycisku Audio";
+"HideShortsAudioButtonDesc" = "Usuwa przycisk Audio z paska akcji.";
 "HideShortsSuggestion" = "Brak sugestii";
 "HideShortsSuggestionDesc" = "Usuwa przycisk z sugestiami, takimi jak Dodaj do playlisty, Super podziękowania itp.";
 "HideShortsSubscribe" = "Brak przycisku subskrypcji";
@@ -338,8 +338,8 @@
 "HideShortsSourceDesc" = "Usuwa przycisk, który przechodzi do pełnego filmu lub innego Shorta.";
 "HideShortsAudio" = "Brak wskaźnika audio";
 "HideShortsAudioDesc" = "Usuwa linię wskazującą dźwięk używany w Shorts.";
-"HideShortsCommentBar" = "No comment bar";
-"HideShortsCommentBarDesc" = "Removes the comment bar in Shorts played from a user's profile.";
+"HideShortsCommentBar" = "Brak paska komentarzy";
+"HideShortsCommentBarDesc" = "Usuwa pasek komentarzy w Shorts odtwarzanych z profilu użytkownika.";
 
 /* Tab bar options */
 "Tabbar" = "Pasek kart";
@@ -354,11 +354,11 @@
 "FEpost_home" = "Posty";
 "VLWL" = "Do obejrzenia";
 "FEhype_leaderboard" = "Hype";
-"UC-9-kyTW8ZkZNDHQJ6FgpwQ" = "Music";
+"UC-9-kyTW8ZkZNDHQJ6FgpwQ" = "Muzyka";
 "UC4R8DWoMoI7CAwX8_LjQHig" = "Live";
 "UCOpNcN46UbXVtpKMrmU4Abg" = "Gaming";
-"UCEgdi0XIXXZ-qJOFPf4JSKw" = "Sports";
-"FEnotifications_inbox" = "Notifications";
+"UCEgdi0XIXXZ-qJOFPf4JSKw" = "Sport";
+"FEnotifications_inbox" = "Powiadomienia";
 
 "TranslucentBar" = "Przezroczysty pasek zakładek";
 "RemoveLabels" = "Usuń etykiety kart";
@@ -368,7 +368,7 @@
 "InactiveTabs" = "Nieaktywne karty";
 "HideLibraryFooter" = "Karta Biblioteka może być ukryta lub pokazana poprzez długie naciśnięcie pierwszej karty paska kart.";
 "Warning" = "Ostrzeżenie";
-"AtLeastOneTab" = "At least one tab must remain active";
+"AtLeastOneTab" = "Co najmniej jedna karta musi pozostać aktywna";
 "TabsCountRestricted" = "Możesz mieć tylko do sześciu aktywnych kart";
 
 /* Interface options */
@@ -377,8 +377,8 @@
 "OledThemeDesc" = "Zamienia wszystkie ciemne kolory na czarne";
 "OledKeyboard" = "Klawiatura OLED";
 "OledKeyboardDesc" = "Stosuje czarny motyw OLED dla ciemnej klawiatury";
-"FloatingKeyboard" = "Floating keyboard";
-"FloatingKeyboardDesc" = "Force-enables the floating keyboard. Useful for iPhones with iPad style spoofing. Note: Works ONLY when iPad style is selected.";
+"FloatingKeyboard" = "Pływająca klawiatura";
+"FloatingKeyboardDesc" = "Wymusza włączenie pływającej klawiatury. Przydatne dla iPhone'ów ze spoofingiem stylu iPada. Uwaga: działa TYLKO przy wybranym stylu iPada.";
 "NoSearchHistory" = "Ukryj historię wyszukiwania";
 "NoSearchHistoryDesc" = "Wizualnie ukrywa historię wyszukiwania i sugestie. Uwaga: Twoja historia wyszukiwania będzie nadal dostępna w innych klientach YouTube.";
 "StickSortComments" = "Przypnij nagłówek komentarzy";
@@ -401,13 +401,13 @@
 "MiniplayerStyleDesc" = "Przełączanie do/z trybu pływającego wymaga ponownego uruchomienia aplikacji.";
 "Floating" = "Pływający";
 
-"Other" = "Other";
-"NoLinkTracking" = "Disable link tracking";
-"NoLinkTrackingDesc" = "Prevents tracking information from being sent when tapping links. Opens links directly instead of going through Google redirects.";
+"Other" = "Inne";
+"NoLinkTracking" = "Wyłącz śledzenie linków";
+"NoLinkTrackingDesc" = "Zapobiega wysyłaniu informacji śledzących podczas otwierania linków. Otwiera linki bezpośrednio zamiast przez przekierowania Google.";
 "NoShareChunk" = "Usuń identyfikator udostępniania";
 "NoShareChunkDesc" = "Usuwa parametr \"si=identifier\" z udostępnianych linków. Dobra alternatywa dla opcji \"Native share sheet\", ponieważ YouTube nadal ulepsza swoje menu udostępniania.";
-"AutoCheckLinks" = "Auto-check clipboard";
-"AutoCheckLinksDesc" = "Check clipboard for YouTube-related links each time the app is opened.\nFor proper functionality, go to iOS Settings → YouTube → Paste from other apps and select \"Allow\"";
+"AutoCheckLinks" = "Automatycznie sprawdzaj schowek";
+"AutoCheckLinksDesc" = "Sprawdza schowek pod kątem linków związanych z YouTube przy każdym uruchomieniu aplikacji.\nAby działało poprawnie, przejdź do Ustawienia iOS → YouTube → Wklejanie z innych aplikacji i wybierz \"Zezwól\".";
 
 "ContextMenu" = "Menu kontekstowe";
 "NativeShare" = "Natywny arkusz udostępniania";
@@ -428,20 +428,20 @@
 "RemoveNotInterestedMenuDesc" = "Usuwa opcję \"Nie interesuje mnie to\" z menu.";
 "RemoveDontRecommendMenu" = "Usuń \"Nie polecaj kanału\"";
 "RemoveDontRecommendMenuDesc" = "Usuwa opcję \"Nie polecaj kanału\" z menu.";
-"RemoveFeedbackMenu" = "Remove \"Feedback\"";
-"RemoveFeedbackMenuDesc" = "Removes \"Feedback\" option from menu.";
+"RemoveFeedbackMenu" = "Usuń \"Opinię\"";
+"RemoveFeedbackMenuDesc" = "Usuwa opcję \"Opinia\" z menu.";
 "RemoveReportMenu" = "Usuń \"Zgłoś\"";
 "RemoveReportMenuDesc" = "Usuwa opcję \"Zgłoś\" z menu.";
-"RemoveRemixMenu" = "Remove \"Remix\"";
-"RemoveRemixMenuDesc" = "Removes \"Remix\" option from menu.";
-"RemoveYTMMenu" = "Remove \"YouTube Music\"";
-"RemoveYTMMenuDesc" = "Removes \"Listen with YouTube Music\" option from menu.";
+"RemoveRemixMenu" = "Usuń \"Remix\"";
+"RemoveRemixMenuDesc" = "Usuwa opcję \"Remix\" z menu.";
+"RemoveYTMMenu" = "Usuń \"YouTube Music\"";
+"RemoveYTMMenuDesc" = "Usuwa opcję \"Słuchaj w YouTube Music\" z menu.";
 
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "Włącz";
 "EnableSponsorBlockDesc" = "Aktywuje rozszerzenie SponsorBlock.";
-"SbPlayerButton" = "Display button in overlay";
-"SbPlayerButtonDesc" = "Adds SponsorBlock button in players overlay.";
+"SbPlayerButton" = "Pokaż przycisk w nakładce";
+"SbPlayerButtonDesc" = "Dodaje przycisk SponsorBlock do nakładki odtwarzacza.";
 "ShowNotifications" = "Pokaż powiadomienia";
 "ShowNotificationsDesc" = "Wyświetla powiadomienia dla automatycznie pominiętych segmentów. Powiadomienia dla kategorii wymagających ręcznego pomijania są zawsze wyświetlane.";
 "SegmentsInFeedPlayer" = "Wyświetl segmenty w kanale";
@@ -490,12 +490,12 @@
 "Sb.Ask" = "Pytaj";
 "Sb.Display" = "Wyświetl w odtwarzaczu";
 
-"PublicUserID" = "Public UserID";
-"PrivateUserID" = "Private UserID";
-"TapToReveal" = "Tap to reveal";
-"Save" = "Save";
-"Error.SbPublicID" = "The public user ID must contain exactly 64 characters";
-"Error.SbPrivateID" = "The private (local) user ID must contain at least 32 characters";
+"PublicUserID" = "Publiczny UserID";
+"PrivateUserID" = "Prywatny UserID";
+"TapToReveal" = "Stuknij, aby odsłonić";
+"Save" = "Zapisz";
+"Error.SbPublicID" = "Publiczny identyfikator użytkownika musi zawierać dokładnie 64 znaki";
+"Error.SbPrivateID" = "Prywatny (lokalny) identyfikator użytkownika musi zawierać co najmniej 32 znaki";
 
 "sb_sponsor" = "Segment sponsora";
 "sb_intro" = "Segment intro";
@@ -515,36 +515,36 @@
 "Unskip" = "Cofnij pomijanie";
 
 /* Discord RPC */
-"DiscordRPC" = "Discord RPC Integration";
-"EnableDiscordRPC" = "Enable Discord RPC";
-"EnableDiscordRPCDesc" = "Show what you're watching in your Discord status.";
-"RPC.OverlayButton" = "Show button in player overlay";
-"RPC.OverlayButtonDesc" = "Adds a Discord RPC toggle button to the video player overlay.";
-"RPC.DisableServerAlerts" = "Disable server reminders";
-"RPC.DisableServerAlertsDesc" = "Suppresses alerts when the desktop server is unreachable.";
-"RPC.Address" = "Server Address";
-"RPC.AddressDesc" = "Enter the address shown in the YouTube Plus RPC app on your desktop.";
+"DiscordRPC" = "Integracja Discord RPC";
+"EnableDiscordRPC" = "Włącz Discord RPC";
+"EnableDiscordRPCDesc" = "Pokazuje, co oglądasz, w Twoim statusie Discord.";
+"RPC.OverlayButton" = "Pokaż przycisk na nakładce odtwarzacza";
+"RPC.OverlayButtonDesc" = "Dodaje przycisk przełączania Discord RPC do nakładki odtwarzacza.";
+"RPC.DisableServerAlerts" = "Wyłącz przypomnienia o serwerze";
+"RPC.DisableServerAlertsDesc" = "Wycisza alerty, gdy serwer desktopowy jest niedostępny.";
+"RPC.Address" = "Adres serwera";
+"RPC.AddressDesc" = "Wpisz adres wyświetlany w aplikacji YouTube Plus RPC na komputerze.";
 
-"RPC.Information" = "Server Configuration";
-"RPC.HowTo" = "How to set up (tutorial)";
+"RPC.Information" = "Konfiguracja serwera";
+"RPC.HowTo" = "Jak skonfigurować (poradnik)";
 
-"RPC.MissingServerAddress" = "Please enter the server address in Discord RPC settings.";
-"RPC.LocalPermissionRequired" = "Local Network access is required. Please enable it in Settings → YouTube.";
-"RPC.DesktopServerRequired" = "Desktop server is not reachable. Make sure YouTube Plus RPC is running on your computer and both devices are on the same Wi-Fi network.";
-"RPC.OpenSettings" = "Open Settings";
+"RPC.MissingServerAddress" = "Wprowadź adres serwera w ustawieniach Discord RPC.";
+"RPC.LocalPermissionRequired" = "Wymagany jest dostęp do sieci lokalnej. Włącz go w Ustawienia → YouTube.";
+"RPC.DesktopServerRequired" = "Serwer desktopowy jest nieosiągalny. Upewnij się, że YouTube Plus RPC działa na komputerze i oba urządzenia są w tej samej sieci Wi‑Fi.";
+"RPC.OpenSettings" = "Otwórz ustawienia";
 
 /* Sleep Timer */
-"SleepTimer.Message" = "What would you like to do?";
-"SleepTimer.StopMessage" = "Sleep timer ended. Playback has been paused.";
+"SleepTimer.Message" = "Co chcesz zrobić?";
+"SleepTimer.StopMessage" = "Wyłącznik czasowy zakończył działanie. Odtwarzanie zostało wstrzymane.";
 
-"SleepTimer.TurnOff" = "Turn off";
-"SleepTimer.SelectNewTime" = "Select new time";
-"SleepTimer.Dismiss" = "Dismiss";
+"SleepTimer.TurnOff" = "Wyłącz";
+"SleepTimer.SelectNewTime" = "Wybierz nowy czas";
+"SleepTimer.Dismiss" = "Zamknij";
 
-"SleepTimer.EndOfVideo" = "End of video";
-"SleepTimer.EndAt" = "End at...";
-"SleepTimer.SelectTime" = "Select time";
-"SleepTimer.Start" = "Start";
+"SleepTimer.EndOfVideo" = "Koniec filmu";
+"SleepTimer.EndAt" = "Zakończ o...";
+"SleepTimer.SelectTime" = "Wybierz czas";
+"SleepTimer.Start" = "Rozpocznij";
 
 /* Developer section */
 "Developer" = "Deweloper";
@@ -638,14 +638,14 @@
 "PlayInVLC" = "Odtwórz w VLC";
 "PlayerNotFound" = "Nie znaleziono odtwarzacza";
 "OpenAsRegularVideo" = "Otwórz jako regularne wideo";
-"TranslatePost" = "Translate post";
+"TranslatePost" = "Przetłumacz post";
 "CopyPostText" = "Kopiuj tekst posta";
 "SaveCurrentImage" = "Zapisz bieżący obraz";
 "ShowCurrentImage" = "Pokaż bieżący obraz";
 "CopyCurrentImage" = "Kopiuj bieżący obraz";
 "SavePostAsImage" = "Zapisz post jako obraz";
 "CopyPostAsImage" = "Kopiuj post jako obraz";
-"TranslateComment" = "Translate comment";
+"TranslateComment" = "Przetłumacz komentarz";
 "CopyCommentText" = "Kopiuj tekst komentarza";
 "SaveCommentAsImage" = "Zapisz komentarz jako obraz";
 "CopyCommentAsImage" = "Kopiuj komentarz jako obraz";
@@ -676,26 +676,26 @@
 "RetryLogin" = "Obejście aktywowane.\n\nSpróbuj ponownie.";
 "LoginInfo" = "Wymagane ponowne uruchomienie aplikacji po pomyślnym zalogowaniu się na konto Google";
 
-"OpenLink" = "Open link";
-"LinkDetected" = "A YouTube-related link was detected. Would you like to open it in YouTube?";
+"OpenLink" = "Otwórz link";
+"LinkDetected" = "Wykryto link związany z YouTube. Czy chcesz otworzyć go w YouTube?";
 
-"Translation" = "Translation";
-"Language" = "Language";
-"Translate" = "Translate";
-"Translating" = "Translating...";
+"Translation" = "Tłumaczenie";
+"Language" = "Język";
+"Translate" = "Przetłumacz";
+"Translating" = "Tłumaczenie...";
 
-"SbWhitelist" = "Whitelist";
-"SbAddToWhitelist" = "Add to the whitelist";
-"Sb.Whitelisted" = "Added to the whitelist";
-"SbRemoveFromWhitelist" = "Remove from the whitelist";
-"Sb.Whitelist" = "Whitelisted channels";
-"Sb.Channels" = "Channels";
-"Sb.ChannelsHere" = "Whitelisted channels appear here";
-"SortType" = "Sort type";
-"Sb.Newest" = "Newest first";
-"Sb.Oldest" = "Oldest first";
-"Sb.Alphabetical" = "Alphabetical (A-Z)";
-"Sb.AlphabeticalRev" = "Reverse (Z-A)";
+"SbWhitelist" = "Biała lista";
+"SbAddToWhitelist" = "Dodaj do białej listy";
+"Sb.Whitelisted" = "Dodano do białej listy";
+"SbRemoveFromWhitelist" = "Usuń z białej listy";
+"Sb.Whitelist" = "Kanały na białej liście";
+"Sb.Channels" = "Kanały";
+"Sb.ChannelsHere" = "Tutaj pojawią się kanały z białej listy";
+"SortType" = "Typ sortowania";
+"Sb.Newest" = "Najnowsze najpierw";
+"Sb.Oldest" = "Najstarsze najpierw";
+"Sb.Alphabetical" = "Alfabetycznie (A-Z)";
+"Sb.AlphabeticalRev" = "Odwrotnie (Z-A)";
 
 "Welcome.Download" = "Pobieraj multimedia";
 "Welcome.DownloadDesc" = "Pobieraj ulubione treści, takie jak wideo, Shorts, audio czy zdjęcia profilowe. Kopiuj interesujące posty i komentarze lub zapisuj je jako obrazy";
@@ -719,11 +719,11 @@
 /* Old localizations (commented out for reference)
 "ExtraSpeedOptions" = "Dodatkowe opcje prędkości";
 "ExtraSpeedOptionsDesc" = "Dodaje więcej opcji prędkości odtwarzania wideo do menu odtwarzacza.";
-"CastingErrorTitle" = "Wait a minute...";
-"CastingErrorMessage" = "You're most likely seeing this because your certificate doesn't have Multicast permission.";
-"CastingAction" = "Settings";
-"OpenSettings" = "Open settings";
-"WhatIsMulticast?" = "What is Multicast?";
+"CastingErrorTitle" = "Poczekaj chwilę...";
+"CastingErrorMessage" = "Najprawdopodobniej widzisz to, ponieważ Twój certyfikat nie ma uprawnień Multicast.";
+"CastingAction" = "Ustawienia";
+"OpenSettings" = "Otwórz ustawienia";
+"WhatIsMulticast?" = "Czym jest Multicast?";
 "NoYTLogo" = "Usuń logo YouTube";
 "NoYTLogoDesc" = "Usuwa logo YouTube z paska nawigacji.";
 "PremiumYTLogo" = "Ustaw logo YouTube Premium";
