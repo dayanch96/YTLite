@@ -1,5 +1,6 @@
 /* Main section */
 "Main" = "主功能";
+"Search" = "Search";
 
 /* Downloading options */
 "Downloading" = "下载器";
@@ -61,10 +62,9 @@
 "StickyNavbarDesc" = "固定导航栏，使其在向下滚动时保持可见。";
 "NoSubbar" = "隐藏子栏";
 "NoSubbarDesc" = "隐藏导航栏下的子栏（全部、新内容、实时等）。";
-"NoYTLogo" = "删除“YouTube”Logo";
-"NoYTLogoDesc" = "删除导航栏中的“YouTube”Logo。";
-"PremiumYTLogo" = "设置“Premium”Logo";
-"PremiumYTLogoDesc" = "在导航栏中设置“Premium”Logo。";
+"LogoImage" = "Logo image";
+"LogoImageDesc" = "Replaces the YouTube logo with the one selected in the navigation bar.";
+"NoLogo" = "Remove logo";
 
 /* Feed options */
 "Feed" = "视频流";
@@ -101,18 +101,24 @@
 "Custom" = "手动选择";
 "CustomAudioTrack" = "已选音轨";
 "CustomAudioTrackDesc" = "指定播放时使用的首选音轨语言（如果可用）。";
+"IgnoreAutoDub" = "Ignore auto-dubbed tracks";
+"IgnoreAutoDubDesc" = "Skips manual selection if the preferred language track is auto-dubbed.";
 "CustomCaptions" = "已选字幕";
 "CustomCaptionsDesc" = "指定播放时要显示的首选字幕语言（如果可用）";
 "AutoGenCaps" = "自动生成字幕";
 "AutoGenCapsDesc" = "如果找不到所选的字幕，“YouTube Plus”将尝试选择原始字幕的翻译或自动生成的字幕的翻译。";
 
 "Player.Interface" = "界面";
+"SleepTimer" = "Sleep timer";
+"SleepTimerDesc" = "Displays sleep timer button on the overlay and to the tab bar long-press menu.";
 "SpeedControls" = "速度控制";
 "SpeedControlsDesc" = "在播放界面显示速度控制按钮。";
 "MuteButton" = "静音按钮";
 "MuteButtonDesc" = "在播放界面显示“静音”按钮。";
 "LockButton" = "锁定按钮";
 "LockButtonDesc" = "在播放界面显示一个按钮来快速锁定屏幕并切换到全屏模式。";
+"HideOverlayTitle" = "Hide video title";
+"HideOverlayTitleDesc" = "Hides the video title in fullscreen overlay.";
 "HideAutoplay" = "隐藏自动播放开关";
 "HideAutoplayDesc" = "从播放界面隐藏自动播放开关。";
 "HideSubs" = "隐藏字幕按钮";
@@ -129,8 +135,6 @@
 "PortraitFullscreenDesc" = "启用竖屏全屏模式支持。";
 "ClassicQuality" = "经典视频质量";
 "ClassicQualityDesc" = "加回经典的视频质量选择菜单。";
-"ExtraSpeedOptions" = "扩展速度选项";
-"ExtraSpeedOptionsDesc" = "在播放器菜单中添加更多视频播放速度的选项。";
 "NoDarkBg" = "删除深色背景";
 "NoDarkBgDesc" = "删除播放界面的深色背景。";
 "NoEndScreenCards" = "隐藏片尾画面";
@@ -139,6 +143,8 @@
 "NoAutonavEndScreenCardsDesc" = "播放结束后隐藏接下来可播放的内容，禁用此选项也会禁用自动播放。";
 "NoFullscreenActions" = "禁用全屏操作";
 "NoFullscreenActionsDesc" = "在全屏模式下禁用操作面板。";
+"NoHudMsgs" = "Disable snackbars";
+"NoHudMsgsDesc" = "Prevents YouTube from showing on-screen HUD messages.";
 "PersistentProgressBar" = "持续进度条";
 "PersistentProgressBarDesc" = "始终在播放器中显示进度条。";
 "RedProgressBar" = "红色进度条";
@@ -177,6 +183,10 @@
 "PlayerNoSaveDesc" = "删除播放器下方的“保存”按钮。";
 "PlayerNoReport" = "删除“举报”按钮";
 "PlayerNoReportDesc" = "删除播放器下方的“举报”按钮。";
+"PlayerNoHype" = "Remove \"Hype\" button";
+"PlayerNoHypeDesc" = "Removes \"Hype\" button under player.";
+"PlayerNoStopAds" = "Remove \"Stop ads\" button";
+"PlayerNoStopAdsDesc" = "Removes \"Stop ads\" button under player.";
 
 "ProgressBarStyle" = "进度条样式";
 "SolidColor" = "纯色";
@@ -205,6 +215,12 @@
 "ExitFullscreen" = "完成后退出全屏模式";
 "ExitFullscreenDesc" = "在视频播放结束时退出全屏模式。";
 
+"Player.ControlCenter" = "Control Center";
+"RcSkipBackward" = "Skip backward";
+"RcSkipBackwardDesc" = "Replaces the previous track button in Control Center with a skip backward button by a set number of seconds.";
+"RcSkipForward" = "Skip forward";
+"RcSkipForwardDesc" = "Replaces the next track button in Control Center with a skip forward button by a set number of seconds.";
+
 "Player.Gestures" = "手势";
 "CompactToast" = "紧凑型提示";
 "CompactToastDesc" = "显示紧凑胶囊风格的提示，用于提示播放器手势。";
@@ -215,11 +231,13 @@
 "ActivationAreaWidth" = "手势激活宽度";
 "ActivationAreaWidthDesc" = "此值决定了屏幕左侧和右侧的手势识别区域（以像素为单位）\n\n允许的最大值为屏幕宽度的三分之一。\n\n调整此值有助于防止在尝试“最小化或展开”播放器时意外激活。";
 "HoldToSpeed" = "长按变更速度";
-"HoldToSpeedDesc" = "设置长按播放器触发的播放速度。";
+"HoldToSpeedDesc" = "Sets the playback speed triggered by a long press on the player.\n\nStandard: 0.25×–5× with fixed steps\nExtended: 0.25×–10× with 0.05× steps";
+"Standard" = "Standard";
+"Extended" = "Extended";
 "AdjustWithFinger" = "调整速度";
 "AdjustWithFingerDesc" = "允许长按播放器并上下滑动手指来调整播放速度。";
-"PreserveSpeed" = "锁定速度";
-"PreserveSpeedDesc" = "手势完成后锁定已调整的速度。";
+"PreserveSpeed" = "保持速度";
+"PreserveSpeedDesc" = "手势完成后保持调整后的速度。";
 "SeekAnywhere" = "滑动控制进度";
 "SeekAnywhereDesc" = "允许通过左右滑动来控制播放进度。";
 "SeekMethod" = "进度方式";
@@ -227,6 +245,8 @@
 "Independent" = "独立";
 "DurationBased" = "基于视频时长";
 "SeekSensitivity" = "进度灵敏度";
+"TapToSeek" = "Tap to seek";
+"TapToSeekDesc" = "Quickly jump to any point by tapping the progress bar.";
 "TwoFingerTapToPause" = "使用双指暂停";
 "TwoFingerTapToPauseDesc" = "用双指点击屏幕即可“暂停/恢复”播放。";
 "TwoFingerPanToBrightness" = "调整亮度";
@@ -251,6 +271,8 @@
 "ScrollToNext" = "播放下一个";
 "Stop" = "停止";
 "AutoSkipShorts" = "自动播放";
+"ForceBestQuality" = "Force quality";
+"ForceBestQualityDesc" = "Disables Shorts quality selection, allowing the player to automatically pick the most suitable quality.";
 "ShortsOnlyMode" = "仅短视频模式";
 "ShortsOnlyModeDesc" = "将 YouTube 功能限制为只能观看短视频。";
 "RestrictShorts" = "短视频限流";
@@ -259,15 +281,21 @@
 "ShortsProgressDesc" = "在短视频播放器中显示进度条。";
 "SpeedByLongTap" = "加快短视频播放速度";
 "SpeedByLongTapDesc" = "允许通过长按屏幕的某个部分来加快播放速度。";
-"SpeedLocation" = "激活位置";
+"LeftSide" = "Left side";
+"RightSide" = "Right side";
+"BothSides" = "Both sides";
 "PinchToFullscreenShorts" = "捏合至全屏";
 "PinchToFullscreenShortsDesc" = "通过捏合和捏合手势管理播放界面，以全屏模式显示短视频。";
 "ShortsToRegular" = "常规短视频";
 "ShortsToRegularDesc" = "像打开普通视频一样打开短视频。";
+"RemoveShortsPosts" = "Remove posts";
+"RemoveShortsPostsDesc" = "Removes posts from the feed.";
 "RemoveShortsLive" = "删除视频直播";
 "RemoveShortsLiveDesc" = "从视频流中删除直播视频。";
 
 "ShortsInterface" = "界面";
+"HideShortsProducts" = "Hide products";
+"HideShortsProductsDesc" = "Hides product stickers added by the author.";
 "HideShortsLogo" = "隐藏短视频 Logo";
 "HideShortsLogoDesc" = "隐藏左上角的短视频 Logo。";
 "HideShortsSearch" = "隐藏搜索按钮";
@@ -296,6 +324,8 @@
 "HideShortsShareDesc" = "从操作栏中删除分享按钮。";
 "HideShortsRemix" = "删除混剪按钮";
 "HideShortsRemixDesc" = "从操作栏中删除混剪按钮。";
+"HideShortsAudioButton" = "No Audio button";
+"HideShortsAudioButtonDesc" = "Removes the Audio button from the action bar.";
 "HideShortsSuggestion" = "隐藏建议按钮";
 "HideShortsSuggestionDesc" = "删除带有建议的按钮，例如“添加到播放列表”、“超级感谢”等。";
 "HideShortsSubscribe" = "隐藏关注按钮";
@@ -308,6 +338,8 @@
 "HideShortsSourceDesc" = "删除导航至完整视频或其他短视频的按钮。";
 "HideShortsAudio" = "无音频指示器";
 "HideShortsAudioDesc" = "删除短视频中使用的音频引用指示。";
+"HideShortsCommentBar" = "No comment bar";
+"HideShortsCommentBarDesc" = "Removes the comment bar in Shorts played from a user's profile.";
 
 /* Tab bar options */
 "Tabbar" = "标签栏";
@@ -321,6 +353,12 @@
 "FEhistory" = "历史";
 "FEpost_home" = "帖子";
 "VLWL" = "稍后观看";
+"FEhype_leaderboard" = "Hype";
+"UC-9-kyTW8ZkZNDHQJ6FgpwQ" = "Music";
+"UC4R8DWoMoI7CAwX8_LjQHig" = "Live";
+"UCOpNcN46UbXVtpKMrmU4Abg" = "Gaming";
+"UCEgdi0XIXXZ-qJOFPf4JSKw" = "Sports";
+"FEnotifications_inbox" = "Notifications";
 
 "TranslucentBar" = "半透明标签栏";
 "RemoveLabels" = "移除标签";
@@ -339,6 +377,8 @@
 "OledThemeDesc" = "将所有深色变为黑色。";
 "OledKeyboard" = "OLED 键盘";
 "OledKeyboardDesc" = "为深色键盘应用OLED黑色主题。";
+"FloatingKeyboard" = "Floating keyboard";
+"FloatingKeyboardDesc" = "Force-enables the floating keyboard. Useful for iPhones with iPad style spoofing. Note: Works ONLY when iPad style is selected.";
 "NoSearchHistory" = "隐藏搜索历史记录";
 "NoSearchHistoryDesc" = "直观地隐藏搜索历史记录和建议。注意：搜索历史记录仍然可以在其他 YouTube 客户端中访问。";
 "StickSortComments" = "固定评论排序";
@@ -362,6 +402,8 @@
 "Floating" = "悬浮";
 
 "Other" = "其他";
+"NoLinkTracking" = "Disable link tracking";
+"NoLinkTrackingDesc" = "Prevents tracking information from being sent when tapping links. Opens links directly instead of going through Google redirects.";
 "NoShareChunk" = "移除分享标识符";
 "NoShareChunkDesc" = "删除分享链接中的“si=identifier”参数；作为“原生分享菜单”选项的不错的替代方案，将继续改进其分享功能。";
 "AutoCheckLinks" = "自动检查剪贴板";
@@ -372,8 +414,8 @@
 "NativeShareDesc" = "使用系统原生分享菜单来分享媒体。";
 "RemoveCommentGuidelines" = "删除指南";
 "RemoveCommentGuidelinesDesc" = "从评论板块删除固定指南。";
-"RemovePlayNext" = "删除“加入队列，接下来就播放”";
-"RemovePlayNextDesc" = "从菜单中删除“加入队列，接下来就播放”选项。";
+"RemovePlayNext" = "删除“播放队列中的下一个”";
+"RemovePlayNextDesc" = "从菜单中删除“播放队列中的下一个”选项。";
 "RemoveDownloadMenu" = "删除“下载”";
 "RemoveDownloadMenuDesc" = "从菜单中删除“下载”选项。";
 "RemoveWatchLaterMenu" = "删除“保存到稍后观看”";
@@ -386,8 +428,8 @@
 "RemoveNotInterestedMenuDesc" = "从菜单中删除“不感兴趣”选项。";
 "RemoveDontRecommendMenu" = "删除“不推荐此频道”";
 "RemoveDontRecommendMenuDesc" = "从菜单中删除“不推荐此频道”选项。";
-"RemoveFeedbackMenu" = "删除“发送反馈”";
-"RemoveFeedbackMenuDesc" = "从菜单中删除“发送反馈”选项。";
+"RemoveFeedbackMenu" = "删除“反馈”";
+"RemoveFeedbackMenuDesc" = "从菜单中删除“反馈”选项。";
 "RemoveReportMenu" = "删除“举报”";
 "RemoveReportMenuDesc" = "从菜单中删除“举报”选项。";
 "RemoveRemixMenu" = "删除“混剪”";
@@ -410,7 +452,6 @@
 "SegmentSkipAudioDesc" = "跳过某个片段时播放音频通知。";
 "DurationWithoutSegments" = "显示新的持续时间";
 "DurationWithoutSegmentsDesc" = "显示不包含片段的总时长。";
-
 "SkipAlertDuration" = "跳过警报持续时间";
 "UnskipAlertDuration" = "取消跳过警报持续时间";
 
@@ -466,12 +507,44 @@
 "sb_poi_highlight" = "精彩片段";
 "sb_filler" = "灌水片段";
 
-"SegmentDetected" = "%@ 检测到\n%@";
+"SegmentDetected" = "检测到 %@";
 "SegmentSkipped" = "%@ 已被跳过";
-"SkippedToSegment" = "跳过 %@";
-"SkipSegment" = "想跳过该片段吗？";
-"SkipToSegment" = "想跳到精彩部分吗？";
+"SkippedToSegment" = "已跳过 %@";
+"SkipSegment" = "跳过";
+"SkipToSegment" = "跳到重点";
 "Unskip" = "不跳过";
+
+/* Discord RPC */
+"DiscordRPC" = "Discord RPC Integration";
+"EnableDiscordRPC" = "Enable Discord RPC";
+"EnableDiscordRPCDesc" = "Show what you're watching in your Discord status.";
+"RPC.OverlayButton" = "Show button in player overlay";
+"RPC.OverlayButtonDesc" = "Adds a Discord RPC toggle button to the video player overlay.";
+"RPC.DisableServerAlerts" = "Disable server reminders";
+"RPC.DisableServerAlertsDesc" = "Suppresses alerts when the desktop server is unreachable.";
+"RPC.Address" = "Server Address";
+"RPC.AddressDesc" = "Enter the address shown in the YouTube Plus RPC app on your desktop.";
+
+"RPC.Information" = "Server Configuration";
+"RPC.HowTo" = "How to set up (tutorial)";
+
+"RPC.MissingServerAddress" = "Please enter the server address in Discord RPC settings.";
+"RPC.LocalPermissionRequired" = "Local Network access is required. Please enable it in Settings → YouTube.";
+"RPC.DesktopServerRequired" = "Desktop server is not reachable. Make sure YouTube Plus RPC is running on your computer and both devices are on the same Wi-Fi network.";
+"RPC.OpenSettings" = "Open Settings";
+
+/* Sleep Timer */
+"SleepTimer.Message" = "What would you like to do?";
+"SleepTimer.StopMessage" = "Sleep timer ended. Playback has been paused.";
+
+"SleepTimer.TurnOff" = "Turn off";
+"SleepTimer.SelectNewTime" = "Select new time";
+"SleepTimer.Dismiss" = "Dismiss";
+
+"SleepTimer.EndOfVideo" = "End of video";
+"SleepTimer.EndAt" = "End at...";
+"SleepTimer.SelectTime" = "Select time";
+"SleepTimer.Start" = "Start";
 
 /* Developer section */
 "Developer" = "开发者";
@@ -542,7 +615,7 @@
 "Disable" = "禁用";
 "Disabled" = "已禁用";
 "PlaybackSpeed" = "播放速度";
-"SpeedPreserved" = "速度锁定于 %@";
+"SpeedPreserved" = "速度保持";
 "ResetSpeed" = "重置";
 
 "Toast.Brightness" = "亮度";
@@ -565,12 +638,14 @@
 "PlayInVLC" = "用 VLC 播放";
 "PlayerNotFound" = "未找到播放器";
 "OpenAsRegularVideo" = "像普通视频一样打开";
+"TranslatePost" = "Translate post";
 "CopyPostText" = "复制帖子文本";
 "SaveCurrentImage" = "保存当前图片";
 "ShowCurrentImage" = "显示当前图片";
 "CopyCurrentImage" = "复制当前图片";
 "SavePostAsImage" = "帖子另存为图片";
 "CopyPostAsImage" = "帖子作为图片复制";
+"TranslateComment" = "Translate comment";
 "CopyCommentText" = "复制评论文本";
 "SaveCommentAsImage" = "评论另存为图片";
 "CopyCommentAsImage" = "评论作为图片复制";
@@ -603,6 +678,11 @@
 
 "OpenLink" = "打开链接";
 "LinkDetected" = "检测到与 YouTube 相关的链接。想在 YouTube 中打开它吗？";
+
+"Translation" = "Translation";
+"Language" = "Language";
+"Translate" = "Translate";
+"Translating" = "Translating...";
 
 "SbWhitelist" = "白名单";
 "SbAddToWhitelist" = "添加到白名单";
@@ -637,14 +717,17 @@
 "DonationReminder" = "您的支持能让“YouTube Plus”变得更好。\n\n您可以在“YouTube Plus”设置中选择捐赠或选择关闭这些通知。谢谢💜";
 
 /* Old localizations (commented out for reference)
+"ExtraSpeedOptions" = "扩展速度选项";
+"ExtraSpeedOptionsDesc" = "在播放器菜单中添加更多视频播放速度的选项。";
+"CastingErrorTitle" = "Wait a minute...";
+"CastingErrorMessage" = "You're most likely seeing this because your certificate doesn't have Multicast permission.";
+"CastingAction" = "Settings";
+"OpenSettings" = "Open settings";
+"WhatIsMulticast?" = "What is Multicast?";
+"NoYTLogo" = "删除“YouTube”Logo";
+"NoYTLogoDesc" = "删除导航栏中的“YouTube”Logo。";
+"PremiumYTLogo" = "设置“Premium”Logo";
+"PremiumYTLogoDesc" = "在导航栏中设置“Premium”Logo。";
+"SpeedLocation" = "激活位置";
 "TabIsHidden" = "无法选择隐藏标签页作为启动页。";
 "TabIsStartupTab" = "选定为“启动页”的标签页无法隐藏";
-"PreserveSpeed" = "保持速度";
-"PreserveSpeedDesc" = "手势完成后保持调整后的速度。";
-"sb_poi_highlight" = "精彩片段";
-"SegmentDetected" = "检测到 %@";
-"SegmentSkipped" = "%@ 已被跳过";
-"SkippedToSegment" = "已跳过 %@";
-"SkipSegment" = "跳过";
-"SkipToSegment" = "跳到重点";
-"SpeedPreserved" = "速度保持";

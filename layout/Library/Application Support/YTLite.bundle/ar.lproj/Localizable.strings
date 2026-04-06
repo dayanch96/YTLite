@@ -1,5 +1,6 @@
 /* Main section */
 "Main" = "رئيسي";
+"Search" = "Search";
 
 /* Downloading options */
 "Downloading" = "الحفظ";
@@ -61,10 +62,9 @@
 "StickyNavbarDesc" = "يثبت شريط التنقل بحيث يظل مرئيًا عند التمرير لأسفل.";
 "NoSubbar" = "إخفاء شريط الاشتراكات";
 "NoSubbarDesc" = "يخفي شريط الاشتراكات (الكل، جديد لك، مباشر إلخ) أسفل شريط التنقل.";
-"NoYTLogo" = "إزالة شعار YouTube";
-"NoYTLogoDesc" = "يزيل شعار YouTube من شريط التنقل.";
-"PremiumYTLogo" = "تعيين شعار YouTube Premium";
-"PremiumYTLogoDesc" = "يضيف شعار YouTube Premium في شريط التنقل.";
+"LogoImage" = "Logo image";
+"LogoImageDesc" = "Replaces the YouTube logo with the one selected in the navigation bar.";
+"NoLogo" = "Remove logo";
 
 /* Feed options */
 "Feed" = "المنشورات";
@@ -101,18 +101,24 @@
 "Custom" = "اختر يدويًا";
 "CustomAudioTrack" = "المسار الصوتي المحدد";
 "CustomAudioTrackDesc" = "Specifies the preferred audio track language to use for playback, if available";
+"IgnoreAutoDub" = "Ignore auto-dubbed tracks";
+"IgnoreAutoDubDesc" = "Skips manual selection if the preferred language track is auto-dubbed.";
 "CustomCaptions" = "الترجمة المحددة";
 "CustomCaptionsDesc" = "Specifies the preferred captions language to display, if available";
 "AutoGenCaps" = "الترجمة الذي تم إنشاؤها تلقائيًا";
 "AutoGenCapsDesc" = "إذا لم يتم العثور على الترجمة المحددة، فسيحاول YouTube Plus تحديد إما ترجمة للتسميات التوضيحية الأصلية أو ترجمة التسميات التوضيحية التي يتم إنشاؤها تلقائيًا.";
 
 "Player.Interface" = "واجهة المستخدم";
+"SleepTimer" = "Sleep timer";
+"SleepTimerDesc" = "Displays sleep timer button on the overlay and to the tab bar long-press menu.";
 "SpeedControls" = "أزرار التحكم في السرعة";
 "SpeedControlsDesc" = "يعرض أزرار التحكم في السرعة على مشغل الفديو.";
 "MuteButton" = "زر الكتم";
 "MuteButtonDesc" = "يعرض زرًا لكتم الصوت أو إلغائه على الواجهة.";
 "LockButton" = "زر القفل";
 "LockButtonDesc" = "يعرض زرًا لقفل شاشة الواجهه بسرعة والتبديل إلى وضع الشاشة الكاملة.";
+"HideOverlayTitle" = "Hide video title";
+"HideOverlayTitleDesc" = "Hides the video title in fullscreen overlay.";
 "HideAutoplay" = "إخفاء زر التشغيل التلقائي";
 "HideAutoplayDesc" = "يخفي زر التشغيل التلقائي من مشغل الفديو.";
 "HideSubs" = "إخفاء زر الترجمة";
@@ -129,8 +135,6 @@
 "PortraitFullscreenDesc" = "يتيح دعم وضع ملء الشاشة العمودي.";
 "ClassicQuality" = "جودة الفيديو الكلاسيكية";
 "ClassicQualityDesc" = "يعيد قائمة اختيار جودة الفيديو الكلاسيكية.";
-"ExtraSpeedOptions" = "خيارات السرعة الإضافية";
-"ExtraSpeedOptionsDesc" = "يضيف المزيد من خيارات سرعة تشغيل الفيديو إلى قائمة المشغل.";
 "NoDarkBg" = "إزالة الخلفية الداكنة";
 "NoDarkBgDesc" = "يزيل الطبقة الخلفية الداكنة.";
 "NoEndScreenCards" = "إخفاء بطاقات نهاية الشاشة";
@@ -139,6 +143,8 @@
 "NoAutonavEndScreenCardsDesc" = "يخفي الشاشة التي تعرض ما يمكن تشغيله بعد انتهاء التشغيل. تعطيل هذا الخيار يعطل أيضًا التشغيل التلقائي";
 "NoFullscreenActions" = "تعطيل إجراءات ملء الشاشة";
 "NoFullscreenActionsDesc" = "يعطل لوحة الإجراءات في وضع ملء الشاشة.";
+"NoHudMsgs" = "Disable snackbars";
+"NoHudMsgsDesc" = "Prevents YouTube from showing on-screen HUD messages.";
 "PersistentProgressBar" = "شريط التقدم المستمر";
 "PersistentProgressBarDesc" = "يظهر شريط التقدم دائمًا في المشغل.";
 "RedProgressBar" = "شريط التقدم الأحمر";
@@ -177,6 +183,10 @@
 "PlayerNoSaveDesc" = "يزيل زر \"الحفظ\" الموجود أسفل المشغل.";
 "PlayerNoReport" = "إزالة زر \"الإبلاغ\"";
 "PlayerNoReportDesc" = "يزيل زر \"الإبلاغ\" الموجود أسفل المشغل.";
+"PlayerNoHype" = "Remove \"Hype\" button";
+"PlayerNoHypeDesc" = "Removes \"Hype\" button under player.";
+"PlayerNoStopAds" = "Remove \"Stop ads\" button";
+"PlayerNoStopAdsDesc" = "Removes \"Stop ads\" button under player.";
 
 "ProgressBarStyle" = "شكل شريط التقدم";
 "SolidColor" = "لون ثابت";
@@ -205,6 +215,12 @@
 "ExitFullscreen" = "الخروج من وضع ملء الشاشة عند الانتهاء";
 "ExitFullscreenDesc" = "يخرج من وضع ملء الشاشة في نهاية تشغيل الفيديو.";
 
+"Player.ControlCenter" = "Control Center";
+"RcSkipBackward" = "Skip backward";
+"RcSkipBackwardDesc" = "Replaces the previous track button in Control Center with a skip backward button by a set number of seconds.";
+"RcSkipForward" = "Skip forward";
+"RcSkipForwardDesc" = "Replaces the next track button in Control Center with a skip forward button by a set number of seconds.";
+
 "Player.Gestures" = "الإيماءات";
 "CompactToast" = "Compact toast";
 "CompactToastDesc" = "Displays a compact-style toast for player gestures";
@@ -215,11 +231,13 @@
 "ActivationAreaWidth" = "عرض منطقة الإيماءات";
 "ActivationAreaWidthDesc" = "تحدد هذه القيمة منطقة التعرف على الإيماءات بالبكسل للجانبين الأيسر والأيمن من الشاشة.\n\nالحد الأقصى للقيمة المسموح به هو ثلث عرض الشاشة.\n\nيعد ضبط هذا الإعداد مفيدا لمنع التنشيط العرضي عند محاولة تصغير المشغل أو توسيعه.";
 "HoldToSpeed" = "اضغط مع الاستمرار للسرعة";
-"HoldToSpeedDesc" = "Sets the playback speed triggered by a long press on the player";
+"HoldToSpeedDesc" = "Sets the playback speed triggered by a long press on the player.\n\nStandard: 0.25×–5× with fixed steps\nExtended: 0.25×–10× with 0.05× steps";
+"Standard" = "Standard";
+"Extended" = "Extended";
 "AdjustWithFinger" = "ضبط السرعة بالإيماءات";
 "AdjustWithFingerDesc" = "يسمح بضبط سرعة التشغيل عن طريق الضغط المطول على المشغل وتحريك الإصبع لأعلى ولأسفل.";
-"PreserveSpeed" = "Lock speed";
-"PreserveSpeedDesc" = "Locks at adjusted speed after gesture completion.";
+"PreserveSpeed" = "الاحتفاظ بالسرعة";
+"PreserveSpeedDesc" = "يحافظ على السرعة المعدلة بعد اكتمال الإيماءة.";
 "SeekAnywhere" = "أسحب للبحث";
 "SeekAnywhereDesc" = "يسمح بالتحكم في التقديم والإرجاع أثناء التشغيل عن طريق السحب لليسار ولليمين.";
 "SeekMethod" = "طريقة البحث";
@@ -227,6 +245,8 @@
 "Independent" = "مستقل";
 "DurationBased" = "على أساس المدة";
 "SeekSensitivity" = "حساسية التمرير";
+"TapToSeek" = "Tap to seek";
+"TapToSeekDesc" = "Quickly jump to any point by tapping the progress bar.";
 "TwoFingerTapToPause" = "إيقاف التشغيل باستخدام إصبعين";
 "TwoFingerTapToPauseDesc" = "إيقاف تشغيل/استئناف التشغيل عن طريق الضغط على الشاشة باستخدام إصبعين.";
 "TwoFingerPanToBrightness" = "ضبط السطوع";
@@ -251,6 +271,8 @@
 "ScrollToNext" = "التمرير إلى التالي";
 "Stop" = "إيقاف التشغيل";
 "AutoSkipShorts" = "تخطي الفيديوهات القصيرة تلقائيًا";
+"ForceBestQuality" = "Force quality";
+"ForceBestQualityDesc" = "Disables Shorts quality selection, allowing the player to automatically pick the most suitable quality.";
 "ShortsOnlyMode" = "وضع الفيديوهات القصيرة";
 "ShortsOnlyModeDesc" = "يحد من وظائف الـYouTube لمشاهدة الفيديوهات القصيرة (Shorts) فقط.";
 "RestrictShorts" = "الحد من المقاطع القصيرة";
@@ -259,15 +281,21 @@
 "ShortsProgressDesc" = "يعرض شريط التقدم في مشغل الفيديوهات القصيرة (Shorts).";
 "SpeedByLongTap" = "زيادة سرعة تشغيل الفيديوهات القصيرة بالضغط المطول";
 "SpeedByLongTapDesc" = "يسمح بتسريع التشغيل عن طريق الضغط المطول على جزء معين من الشاشة.";
-"SpeedLocation" = "موقع التنشيط";
+"LeftSide" = "Left side";
+"RightSide" = "Right side";
+"BothSides" = "Both sides";
 "PinchToFullscreenShorts" = "تكبير إلى ملء الشاشة";
 "PinchToFullscreenShortsDesc" = "يدير ظهور مشغل الفديو بإيماءات التكبير والتصغير، لعرض الفيديوهات القصيرة (Shorts) في وضع ملء الشاشة.";
 "ShortsToRegular" = "الفيديوهات القصيرة إلى الفيديوهات العادية";
 "ShortsToRegularDesc" = "يفتح الفيديوهات القصيرة (Shorts) كفيديوهات عادية.";
+"RemoveShortsPosts" = "Remove posts";
+"RemoveShortsPostsDesc" = "Removes posts from the feed.";
 "RemoveShortsLive" = "إزالة مقاطع الفيديو المباشرة";
 "RemoveShortsLiveDesc" = "إزالة مقاطع الفيديو المباشرة من الخلاصة.";
 
 "ShortsInterface" = "واجهة المقاطع القصيرة";
+"HideShortsProducts" = "Hide products";
+"HideShortsProductsDesc" = "Hides product stickers added by the author.";
 "HideShortsLogo" = "إخفاء شعار Shorts";
 "HideShortsLogoDesc" = "يخفي شعار Shorts في الزاوية العلوية اليسرى، الذي موجود في مشغل الفيديوهات القصيرة (Shorts).";
 "HideShortsSearch" = "إخفاء زر البحث";
@@ -296,6 +324,8 @@
 "HideShortsShareDesc" = "يزيل زر \"المشاركة\" من شريط الأدوات.";
 "HideShortsRemix" = "إخفاء زر \"ريمكس\"";
 "HideShortsRemixDesc" = "يزيل زر \"ريمكس\" من شريط الأدوات.";
+"HideShortsAudioButton" = "No Audio button";
+"HideShortsAudioButtonDesc" = "Removes the Audio button from the action bar.";
 "HideShortsSuggestion" = "إخفاء زر \"الاقتراحات\"";
 "HideShortsSuggestionDesc" = "يزيل زر الاقتراحات مثل \"إضافة إلى قائمة التشغيل\"، و\"Super Thanks\"، وغيرها.";
 "HideShortsSubscribe" = "إخفاء زر \"المتابعة\"";
@@ -308,6 +338,8 @@
 "HideShortsSourceDesc" = "يزيل الزر الذي يوجه إلى الفيديو الكامل أو فيديو قصير آخر.";
 "HideShortsAudio" = "إخفاء مؤشر الصوت";
 "HideShortsAudioDesc" = "يزيل الخط الذي يشير إلى الصوت المستخدم في الفيديوهات القصيرة.";
+"HideShortsCommentBar" = "No comment bar";
+"HideShortsCommentBarDesc" = "Removes the comment bar in Shorts played from a user's profile.";
 
 /* Tab bar options */
 "Tabbar" = "شريط التبويبات";
@@ -321,6 +353,12 @@
 "FEhistory" = "السجل";
 "FEpost_home" = "منشورات";
 "VLWL" = "المشاهدة لاحقًا";
+"FEhype_leaderboard" = "Hype";
+"UC-9-kyTW8ZkZNDHQJ6FgpwQ" = "Music";
+"UC4R8DWoMoI7CAwX8_LjQHig" = "Live";
+"UCOpNcN46UbXVtpKMrmU4Abg" = "Gaming";
+"UCEgdi0XIXXZ-qJOFPf4JSKw" = "Sports";
+"FEnotifications_inbox" = "Notifications";
 
 "TranslucentBar" = "شريط علامات التبويب الشفاف";
 "RemoveLabels" = "إزالة التسميات";
@@ -337,8 +375,10 @@
 "Interface" = "واجهة المستخدم";
 "OledTheme" = "ثيم OLED";
 "OledThemeDesc" = "يحول جميع الألوان الداكنة إلى الأسود.";
-"OledKeyboard" = "لوحة مفاتيح Oled";
-"OledKeyboardDesc" = "يطبق سمة oled السوداء على لوحة المفاتيح المظلمة";
+"OledKeyboard" = "لوحة مفاتيح OLED";
+"OledKeyboardDesc" = "يطبق سمة OLED السوداء على لوحة المفاتيح المظلمة";
+"FloatingKeyboard" = "Floating keyboard";
+"FloatingKeyboardDesc" = "Force-enables the floating keyboard. Useful for iPhones with iPad style spoofing. Note: Works ONLY when iPad style is selected.";
 "NoSearchHistory" = "إخفاء سجل البحث";
 "NoSearchHistoryDesc" = "يخفي سجل البحث والاقتراحات بصريًا. ملاحظة: سيظل سجل البحث الخاص بك متاحًا في عملاء YouTube الآخرين.";
 "StickSortComments" = "تثبيت رأس التعليقات";
@@ -362,6 +402,8 @@
 "Floating" = "عائم";
 
 "Other" = "Other";
+"NoLinkTracking" = "Disable link tracking";
+"NoLinkTrackingDesc" = "Prevents tracking information from being sent when tapping links. Opens links directly instead of going through Google redirects.";
 "NoShareChunk" = "إزالة معرّف المشاركة";
 "NoShareChunkDesc" = "يزيل معلمة \"si=identifier\" من الروابط المشتركة. خيار جيد بديل لـ \"واجهة المشاركة الأصلية\" حيث تواصل YouTube تحسين قائمة المشاركة الخاصة بها.";
 "AutoCheckLinks" = "Auto-check clipboard";
@@ -386,6 +428,8 @@
 "RemoveNotInterestedMenuDesc" = "يزيل خيار \"غير مهتم\" من القائمة.";
 "RemoveDontRecommendMenu" = "إزالة \"لا توصي بالقناة\"";
 "RemoveDontRecommendMenuDesc" = "يزيل خيار \"لا توصي بالقناة\" من القائمة.";
+"RemoveFeedbackMenu" = "Remove \"Feedback\"";
+"RemoveFeedbackMenuDesc" = "Removes \"Feedback\" option from menu.";
 "RemoveReportMenu" = "إزالة \"الإبلاغ\"";
 "RemoveReportMenuDesc" = "يزيل خيار \"الإبلاغ\" من القائمة.";
 "RemoveRemixMenu" = "Remove \"Remix\"";
@@ -408,7 +452,6 @@
 "SegmentSkipAudioDesc" = "يقوم بتشغيل إشعار صوتي عند تخطي الشرائح.";
 "DurationWithoutSegments" = "عرض مدة جديدة";
 "DurationWithoutSegmentsDesc" = "يعرض المدة الإجمالية بدون شرائح.";
-
 "SkipAlertDuration" = "تخطي مدة التنبيه";
 "UnskipAlertDuration" = "إلغاء تخطي مدة التنبيه";
 
@@ -461,15 +504,47 @@
 "sb_selfpromo" = "شريحة الترويج الذاتي";
 "sb_music_offtopic" = "جزء خارج الموضوع";
 "sb_preview" = "معاينة الجزء";
-"sb_poi_highlight" = "Highlight";
+"sb_poi_highlight" = "تسليط الضوء على الجزء";
 "sb_filler" = "شريحة المشاهد الجانبية";
 
-"SegmentDetected" = "%@ detected.\n%@";
-"SegmentSkipped" = "%@ has been skipped";
-"SkippedToSegment" = "Jumped to %@";
-"SkipSegment" = "Would you like to skip the segment?";
-"SkipToSegment" = "Would you like to jump to the highlight?";
+"SegmentDetected" = "%@ تم اكتشافه";
+"SegmentSkipped" = "%@ تم تخطيه";
+"SkippedToSegment" = "تم تخطيه إلى %@";
+"SkipSegment" = "تخطي";
+"SkipToSegment" = "لتسليط الضوء";
 "Unskip" = "إلغاء التخطي";
+
+/* Discord RPC */
+"DiscordRPC" = "Discord RPC Integration";
+"EnableDiscordRPC" = "Enable Discord RPC";
+"EnableDiscordRPCDesc" = "Show what you're watching in your Discord status.";
+"RPC.OverlayButton" = "Show button in player overlay";
+"RPC.OverlayButtonDesc" = "Adds a Discord RPC toggle button to the video player overlay.";
+"RPC.DisableServerAlerts" = "Disable server reminders";
+"RPC.DisableServerAlertsDesc" = "Suppresses alerts when the desktop server is unreachable.";
+"RPC.Address" = "Server Address";
+"RPC.AddressDesc" = "Enter the address shown in the YouTube Plus RPC app on your desktop.";
+
+"RPC.Information" = "Server Configuration";
+"RPC.HowTo" = "How to set up (tutorial)";
+
+"RPC.MissingServerAddress" = "Please enter the server address in Discord RPC settings.";
+"RPC.LocalPermissionRequired" = "Local Network access is required. Please enable it in Settings → YouTube.";
+"RPC.DesktopServerRequired" = "Desktop server is not reachable. Make sure YouTube Plus RPC is running on your computer and both devices are on the same Wi-Fi network.";
+"RPC.OpenSettings" = "Open Settings";
+
+/* Sleep Timer */
+"SleepTimer.Message" = "What would you like to do?";
+"SleepTimer.StopMessage" = "Sleep timer ended. Playback has been paused.";
+
+"SleepTimer.TurnOff" = "Turn off";
+"SleepTimer.SelectNewTime" = "Select new time";
+"SleepTimer.Dismiss" = "Dismiss";
+
+"SleepTimer.EndOfVideo" = "End of video";
+"SleepTimer.EndAt" = "End at...";
+"SleepTimer.SelectTime" = "Select time";
+"SleepTimer.Start" = "Start";
 
 /* Developer section */
 "Developer" = "المطور";
@@ -540,7 +615,7 @@
 "Disable" = "تعطيل";
 "Disabled" = "معطل";
 "PlaybackSpeed" = "سرعة التشغيل";
-"SpeedPreserved" = "Speed locked at %@";
+"SpeedPreserved" = "السرعة محفوظة";
 "ResetSpeed" = "إعادة تعيين";
 
 "Toast.Brightness" = "السطوع";
@@ -563,12 +638,14 @@
 "PlayInVLC" = "تشغيل في VLC";
 "PlayerNotFound" = "المشغل غير موجود";
 "OpenAsRegularVideo" = "فتح كفيديو عادي";
+"TranslatePost" = "Translate post";
 "CopyPostText" = "نسخ نص المنشور";
 "SaveCurrentImage" = "حفظ الصورة الحالية";
 "ShowCurrentImage" = "Show current image";
 "CopyCurrentImage" = "نسخ الصورة الحالية";
 "SavePostAsImage" = "حفظ المنشور كصورة";
 "CopyPostAsImage" = "نسخ المنشور كصورة";
+"TranslateComment" = "Translate comment";
 "CopyCommentText" = "نسخ نص التعليق";
 "SaveCommentAsImage" = "حفظ التعليق كصورة";
 "CopyCommentAsImage" = "نسخ التعليق كصورة";
@@ -601,6 +678,11 @@
 
 "OpenLink" = "Open link";
 "LinkDetected" = "A YouTube-related link was detected. Would you like to open it in YouTube?";
+
+"Translation" = "Translation";
+"Language" = "Language";
+"Translate" = "Translate";
+"Translating" = "Translating...";
 
 "SbWhitelist" = "Whitelist";
 "SbAddToWhitelist" = "Add to the whitelist";
@@ -635,17 +717,20 @@
 "DonationReminder" = "دعمك يساعد في تحسين YouTube Plus بشكل أفضل.\n\nيمكنك المساهمة أو اختيار تعطيل هذه الإشعار من إعدادات YouTube Plus. شكراً لك💜";
 
 /* Old localizations (commented out for reference)
+"ExtraSpeedOptions" = "خيارات السرعة الإضافية";
+"ExtraSpeedOptionsDesc" = "يضيف المزيد من خيارات سرعة تشغيل الفيديو إلى قائمة المشغل.";
+"CastingErrorTitle" = "Wait a minute...";
+"CastingErrorMessage" = "You're most likely seeing this because your certificate doesn't have Multicast permission.";
+"CastingAction" = "Settings";
+"OpenSettings" = "Open settings";
+"WhatIsMulticast?" = "What is Multicast?";
+"NoYTLogo" = "إزالة شعار YouTube";
+"NoYTLogoDesc" = "يزيل شعار YouTube من شريط التنقل.";
+"PremiumYTLogo" = "تعيين شعار YouTube Premium";
+"PremiumYTLogoDesc" = "يضيف شعار YouTube Premium في شريط التنقل.";
+"SpeedLocation" = "موقع التنشيط";
 "TabIsHidden" = "لا يمكن تحديد علامة التبويب المخفية كصفحة بدء";
 "TabIsStartupTab" = "لا يمكن إخفاء علامة التبويب المحددة كصفحة بدء التشغيل";
 "Show current image" = "عرض الصور الحالية";
 "Show profile picture" = "عرض صورة الملف الشخصي";
 "Show thumbnail" = "عرض الصورة المصغرة";
-"PreserveSpeed" = "الاحتفاظ بالسرعة";
-"PreserveSpeedDesc" = "يحافظ على السرعة المعدلة بعد اكتمال الإيماءة.";
-"sb_poi_highlight" = "تسليط الضوء على الجزء";
-"SegmentDetected" = "%@ تم اكتشافه";
-"SegmentSkipped" = "%@ تم تخطيه";
-"SkippedToSegment" = "تم تخطيه إلى %@";
-"SkipSegment" = "تخطي";
-"SkipToSegment" = "لتسليط الضوء";
-"SpeedPreserved" = "السرعة محفوظة";
