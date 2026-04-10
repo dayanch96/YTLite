@@ -62,9 +62,9 @@
 "StickyNavbarDesc" = "Przypina pasek nawigacji, aby pozostał widoczny podczas przewijania w dół.";
 "NoSubbar" = "Ukryj pasek podrzędny";
 "NoSubbarDesc" = "Ukrywa pasek podrzędny (Wszystkie, Nowe dla Ciebie, Na żywo itp.) pod paskiem nawigacji.";
-"LogoImage" = "Obraz logo";
-"LogoImageDesc" = "Zastępuje logo YouTube wybranym wariantem na pasku nawigacji.";
-"NoLogo" = "Usuń logo";
+"LogoImage" = "Logo";
+"LogoImageDesc" = "Zamienia na pasku nawigacji logo YouTube.";
+"NoLogo" = "Brak";
 
 /* Feed options */
 "Feed" = "Kanał";
@@ -252,7 +252,7 @@
 "TwoFingerPanToBrightness" = "Reguluj jasność";
 "TwoFingerPanToBrightnessDesc" = "Umożliwia regulację jasności ekranu poprzez przesuwanie w górę/dół dwoma palcami.";
 "CopyWithTimestamp" = "Kopiuj link z timestampem";
-"CopyWithTimestampDesc" = "Umożliwia kopiowanie linku z timestampem do schowka przez naciśnięcie przycisku pauzy.";
+"CopyWithTimestampDesc" = "Umożliwia skopiowanie do schowka adresu ze znacznikiem czasu startu przez naciśnięcie przycisku pauzy.";
 "PauseOnOverlay" = "Pauza na nakładce";
 "PauseOnOverlayDesc" = "Ustawia odtwarzanie na pauzę, jeśli pojawi się nakładka.";
 "DontSnap2Chapter" = "Wyłącz przyciąganie do rozdziału";
