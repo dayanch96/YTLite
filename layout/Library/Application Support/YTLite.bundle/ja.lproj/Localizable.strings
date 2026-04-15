@@ -2,6 +2,16 @@
 "Main" = "メイン";
 "Search" = "Search";
 
+/* Patreon section */
+"SkipLogInAlert" = "Suppress login reminder";
+"Log-inViaPatreon" = "Log-in via Patreon";
+"ManageAccount" = "Manage account";
+"AccessDenied" = "Access denied";
+"LogOut" = "Log out";
+"LogOutTitle" = "Log out";
+"LogOutMessage" = "Are you sure you want to continue?";
+"FeaturesNotActivated" = "You are not logged in. To access Tweach features, please log in with an active Patreon subscription.";
+
 /* Downloading options */
 "Downloading" = "ダウンロード";
 "DownloadManager" = "ダウンロードマネージャー";
@@ -452,6 +462,7 @@
 "SegmentSkipAudioDesc" = "セグメントをスキップした際にオーディオ通知を再生します。";
 "DurationWithoutSegments" = "新しい動画時間を表示";
 "DurationWithoutSegmentsDesc" = "セグメント除いた合計の動画時間を表示します。";
+"MinimumSkipDuration" = "Minimum duration to skip";
 "SkipAlertDuration" = "[スキップ] ボタンを表示する時間";
 "UnskipAlertDuration" = "[スキップしない] ボタンを表示する時間";
 

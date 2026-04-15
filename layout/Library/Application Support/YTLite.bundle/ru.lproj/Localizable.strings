@@ -2,6 +2,16 @@
 "Main" = "Основные";
 "Search" = "Поиск";
 
+/* Patreon section */
+"SkipLogInAlert" = "Suppress login reminder";
+"Log-inViaPatreon" = "Log-in via Patreon";
+"ManageAccount" = "Manage account";
+"AccessDenied" = "Access denied";
+"LogOut" = "Log out";
+"LogOutTitle" = "Log out";
+"LogOutMessage" = "Are you sure you want to continue?";
+"FeaturesNotActivated" = "You are not logged in. To access Tweach features, please log in with an active Patreon subscription.";
+
 /* Downloading options */
 "Downloading" = "Загрузка";
 "DownloadManager" = "Менеджер загрузок";
@@ -452,6 +462,7 @@
 "SegmentSkipAudioDesc" = "Воспроизводит аудио-уведомление при перемотке сегмента";
 "DurationWithoutSegments" = "Сокращенное время";
 "DurationWithoutSegmentsDesc" = "Отображает длительность видео без сегментов";
+"MinimumSkipDuration" = "Minimum duration to skip";
 "SkipAlertDuration" = "Длительность уведомления перемотки";
 "UnskipAlertDuration" = "Длительность уведомления отмены";
 

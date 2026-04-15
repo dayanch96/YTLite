@@ -2,6 +2,16 @@
 "Main" = "Główne";
 "Search" = "Szukaj";
 
+/* Patreon section */
+"SkipLogInAlert" = "Ukryj przypomnienie o logowaniu";
+"Log-inViaPatreon" = "Zaloguj przez Patreon";
+"ManageAccount" = "Zarządzaj kontem";
+"AccessDenied" = "Brak dostępu";
+"LogOut" = "Wyloguj";
+"LogOutTitle" = "Wylogowanie";
+"LogOutMessage" = "Czy na pewno chcesz kontynuować?";
+"FeaturesNotActivated" = "Nie jesteś zalogowany. Aby uzyskać dostęp do funkcji Tweach, zaloguj się z aktywną subskrypcją Patreon.";
+
 /* Downloading options */
 "Downloading" = "Pobieranie";
 "DownloadManager" = "Menedżer pobierania";
@@ -452,6 +462,7 @@
 "SegmentSkipAudioDesc" = "Odtwarza powiadomienie dźwiękowe podczas pomijania segmentu.";
 "DurationWithoutSegments" = "Wyświetl nowy czas trwania";
 "DurationWithoutSegmentsDesc" = "Wyświetla całkowity czas trwania bez segmentów.";
+"MinimumSkipDuration" = "Minimalny czas pomijania";
 "SkipAlertDuration" = "Czas trwania alertu pomijania";
 "UnskipAlertDuration" = "Czas trwania alertu anulowania pomijania";
 

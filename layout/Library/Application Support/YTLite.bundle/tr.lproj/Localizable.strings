@@ -2,6 +2,16 @@
 "Main" = "Ana";
 "Search" = "Search";
 
+/* Patreon section */
+"SkipLogInAlert" = "Suppress login reminder";
+"Log-inViaPatreon" = "Log-in via Patreon";
+"ManageAccount" = "Manage account";
+"AccessDenied" = "Access denied";
+"LogOut" = "Log out";
+"LogOutTitle" = "Log out";
+"LogOutMessage" = "Are you sure you want to continue?";
+"FeaturesNotActivated" = "You are not logged in. To access Tweach features, please log in with an active Patreon subscription.";
+
 /* Downloading options */
 "Downloading" = "İndirme";
 "DownloadManager" = "İndirme yöneticisi";
@@ -452,6 +462,7 @@
 "SegmentSkipAudioDesc" = "Bir kısım atlandığında sesli uyarı çalar.";
 "DurationWithoutSegments" = "Yeni süreyi göster";
 "DurationWithoutSegmentsDesc" = "Kısımsız toplam süreyi gösterir.";
+"MinimumSkipDuration" = "Minimum duration to skip";
 "SkipAlertDuration" = "Atlama Uyarı Süresi";
 "UnskipAlertDuration" = "Geri Atlama Uyarı Süresi";
 

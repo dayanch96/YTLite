@@ -2,6 +2,16 @@
 "Main" = "主要";
 "Search" = "Search";
 
+/* Patreon section */
+"SkipLogInAlert" = "Suppress login reminder";
+"Log-inViaPatreon" = "Log-in via Patreon";
+"ManageAccount" = "Manage account";
+"AccessDenied" = "Access denied";
+"LogOut" = "Log out";
+"LogOutTitle" = "Log out";
+"LogOutMessage" = "Are you sure you want to continue?";
+"FeaturesNotActivated" = "You are not logged in. To access Tweach features, please log in with an active Patreon subscription.";
+
 /* Downloading options */
 "Downloading" = "下載";
 "DownloadManager" = "下載管理器";
@@ -452,6 +462,7 @@
 "SegmentSkipAudioDesc" = "跳過片段時播放聲音提示";
 "DurationWithoutSegments" = "顯示新的影片時間";
 "DurationWithoutSegmentsDesc" = "去除片段後的總時間";
+"MinimumSkipDuration" = "Minimum duration to skip";
 "SkipAlertDuration" = "跳過通知持續時間";
 "UnskipAlertDuration" = "取消跳過通知持續時間";
 

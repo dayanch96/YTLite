@@ -2,6 +2,16 @@
 "Main" = "主功能";
 "Search" = "Search";
 
+/* Patreon section */
+"SkipLogInAlert" = "Suppress login reminder";
+"Log-inViaPatreon" = "Log-in via Patreon";
+"ManageAccount" = "Manage account";
+"AccessDenied" = "Access denied";
+"LogOut" = "Log out";
+"LogOutTitle" = "Log out";
+"LogOutMessage" = "Are you sure you want to continue?";
+"FeaturesNotActivated" = "You are not logged in. To access Tweach features, please log in with an active Patreon subscription.";
+
 /* Downloading options */
 "Downloading" = "下载器";
 "DownloadManager" = "下载管理器";
@@ -452,6 +462,7 @@
 "SegmentSkipAudioDesc" = "跳过某个片段时播放音频通知。";
 "DurationWithoutSegments" = "显示新的持续时间";
 "DurationWithoutSegmentsDesc" = "显示不包含片段的总时长。";
+"MinimumSkipDuration" = "Minimum duration to skip";
 "SkipAlertDuration" = "跳过警报持续时间";
 "UnskipAlertDuration" = "取消跳过警报持续时间";
 
