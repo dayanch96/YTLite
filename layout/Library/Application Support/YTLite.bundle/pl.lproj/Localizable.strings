@@ -1,7 +1,3 @@
-/* Main section */
-"Main" = "Główne";
-"Search" = "Szukaj";
-
 /* Patreon section */
 "SkipLogInAlert" = "Ukryj przypomnienie o logowaniu";
 "Log-inViaPatreon" = "Zaloguj przez Patreon";
@@ -10,7 +6,11 @@
 "LogOut" = "Wyloguj";
 "LogOutTitle" = "Wylogowanie";
 "LogOutMessage" = "Czy na pewno chcesz kontynuować?";
-"FeaturesNotActivated" = "Nie jesteś zalogowany. Aby uzyskać dostęp do funkcji Tweach, zaloguj się z aktywną subskrypcją Patreon.";
+"FeaturesNotActivated" = "Nie jesteś zalogowany. Aby uzyskać dostęp do funkcji YouTube Plus zaloguj się z aktywną subskrypcją Patreon.";
+
+/* Main section */
+"Main" = "Główne";
+"Search" = "Szukaj";
 
 /* Downloading options */
 "Downloading" = "Pobieranie";
