@@ -1,16 +1,16 @@
 /* Patreon section */
-"SkipLogInAlert" = "Suppress login reminder";
-"Log-inViaPatreon" = "Log-in via Patreon";
-"ManageAccount" = "Manage account";
-"AccessDenied" = "Access denied";
-"LogOut" = "Log out";
-"LogOutTitle" = "Log out";
-"LogOutMessage" = "Are you sure you want to continue?";
-"FeaturesNotActivated" = "You are not logged in. To access YouTube Plus features, please log in with an active Patreon subscription.";
+"SkipLogInAlert" = "隱藏登入提醒";
+"Log-inViaPatreon" = "透過 Patreon 登入";
+"ManageAccount" = "管理帳戶";
+"AccessDenied" = "存取被拒";
+"LogOut" = "登出";
+"LogOutTitle" = "登出";
+"LogOutMessage" = "您確定要繼續嗎？";
+"FeaturesNotActivated" = "您尚未登入。請使用具備有效訂閱的 Patreon 帳號登入，以使用 YouTube Plus 功能。";
 
 /* Main section */
 "Main" = "主要";
-"Search" = "Search";
+"Search" = "搜尋";
 
 /* Downloading options */
 "Downloading" = "下載";
@@ -32,7 +32,7 @@
 "PostDownloadDesc" = "影片成功下載完成後，執行選定的動作";
 "SaveToPhotos" = "儲存至照片App";
 "Share" = "分享";
-"Copy" = "Copy";
+"Copy" = "複製";
 "Ask" = "詢問";
 "DownloadCompleted" = "下載完成";
 
@@ -44,7 +44,7 @@
 
 "Audios" = "音訊";
 "AudioDRC" = "平衡音量";
-"AudioDRCDesc" = "若有平衡音量(動態範圍壓縮)的音訊可用，下載管理器將優先選取。";
+"AudioDRCDesc" = "若有平衡音量(動態範圍壓縮)的音訊可用，下載管理器將優先選取";
 
 "CaptionsAndThumbnails" = "字幕與縮圖";
 "EmbedThumbnailsToVideos" = "內嵌縮圖";
@@ -52,7 +52,7 @@
 "EmbedCapsToVideos" = "嵌入字幕";
 "EmbedCapsToVideosDesc" = "將選定的字幕嵌入影片";
 "EmbedAutoGenCaps" = "自動產生/翻譯字幕";
-"EmbedAutoGenCapsDesc" = "將自動產生、翻譯及自動翻譯的字幕加入到字幕清單中。";
+"EmbedAutoGenCapsDesc" = "將自動產生、翻譯及自動翻譯的字幕加入到字幕清單中";
 "DownloadCaptions" = "下載字幕";
 "SelectCaption" = "選擇字幕";
 "Translated" = "已翻譯";
@@ -72,9 +72,9 @@
 "StickyNavbarDesc" = "向下滑動時保持可見狀態";
 "NoSubbar" = "隱藏子導覽列";
 "NoSubbarDesc" = "隱藏導覽列下的子導覽列（全部、讓你耳目一新的影片、直播中...等）";
-"LogoImage" = "Logo image";
-"LogoImageDesc" = "Replaces the YouTube logo with the one selected in the navigation bar.";
-"NoLogo" = "Remove logo";
+"LogoImage" = "標誌圖片";
+"LogoImageDesc" = "將 YouTube 標誌替換為在導覽列中選擇的圖片";
+"NoLogo" = "移除標誌";
 
 /* Feed options */
 "Feed" = "首頁動態";
@@ -102,33 +102,33 @@
 /* Player options */
 "Player" = "播放器";
 "PlaybackQualityOnWiFi" = "使用Wi-Fi時的影片畫質";
-"PlaybackQualityOnWiFiDesc" = "Automatically applies the selected quality when streaming over Wi-Fi";
+"PlaybackQualityOnWiFiDesc" = "透過 Wi-Fi 連線時自動套用所選畫質";
 "PlaybackQualityOnCellular" = "使用行動網路時的影片畫質";
-"PlaybackQualityOnCellularDesc" = "Automatically applies the selected quality when streaming over mobile data";
+"PlaybackQualityOnCellularDesc" = "透過行動網路連線時自動套用所選畫質";
 
 "PreferredCaptions" = "偏好字幕";
 "Original" = "原始";
 "Custom" = "手動選擇";
 "CustomAudioTrack" = "選擇音軌";
-"CustomAudioTrackDesc" = "Specifies the preferred audio track language to use for playback, if available";
-"IgnoreAutoDub" = "Ignore auto-dubbed tracks";
-"IgnoreAutoDubDesc" = "Skips manual selection if the preferred language track is auto-dubbed.";
+"CustomAudioTrackDesc" = "指定播放時優先使用的音軌語言（如果可用）";
+"IgnoreAutoDub" = "忽略自動配音音軌";
+"IgnoreAutoDubDesc" = "如果偏好的語言音軌為自動配音，則略過手動選擇";
 "CustomCaptions" = "選擇字幕";
-"CustomCaptionsDesc" = "Specifies the preferred captions language to display, if available";
+"CustomCaptionsDesc" = "指定播放時優先顯示的字幕語言（如果可用）";
 "AutoGenCaps" = "自動產生字幕";
 "AutoGenCapsDesc" = "若找不到選定的字幕，YouTube Plus會嘗試選擇原始字幕的翻譯或自動產生字幕的翻譯版本";
 
 "Player.Interface" = "介面";
-"SleepTimer" = "Sleep timer";
-"SleepTimerDesc" = "Displays sleep timer button on the overlay and to the tab bar long-press menu.";
+"SleepTimer" = "睡眠定時器";
+"SleepTimerDesc" = "在播放器全螢幕介面及分頁列的長按選單中顯示睡眠定時器按鈕";
 "SpeedControls" = "播放速度控制";
 "SpeedControlsDesc" = "在播放介面顯示速度控制按鈕";
 "MuteButton" = "靜音按鈕";
 "MuteButtonDesc" = "顯示一個按鈕，可在影片上控制音量的開啟/關閉";
 "LockButton" = "鎖定按鈕";
 "LockButtonDesc" = "顯示一個按鈕，可快速鎖定覆蓋螢幕並切換至全螢幕模式";
-"HideOverlayTitle" = "Hide video title";
-"HideOverlayTitleDesc" = "Hides the video title in fullscreen overlay.";
+"HideOverlayTitle" = "隱藏影片標題";
+"HideOverlayTitleDesc" = "在全螢幕播放介面中隱藏影片標題";
 "HideAutoplay" = "隱藏自動播放開關";
 "HideAutoplayDesc" = "隱藏播放器中的自動播放開關";
 "HideSubs" = "隱藏字幕按鈕";
@@ -153,8 +153,8 @@
 "NoAutonavEndScreenCardsDesc" = "隱藏播放結束後顯示您可以接著播放什麼的畫面。停用此選項也會停用自動播放";
 "NoFullscreenActions" = "停用全螢幕操作";
 "NoFullscreenActionsDesc" = "在全螢幕模式下停用操作面板";
-"NoHudMsgs" = "Disable snackbars";
-"NoHudMsgsDesc" = "Prevents YouTube from showing on-screen HUD messages.";
+"NoHudMsgs" = "停用提示訊息";
+"NoHudMsgsDesc" = "防止 YouTube 顯示螢幕底部的 HUD 提示訊息";
 "PersistentProgressBar" = "固定進度列";
 "PersistentProgressBarDesc" = "總是在播放器中顯示進度列";
 "RedProgressBar" = "紅色進度列";
@@ -193,10 +193,10 @@
 "PlayerNoSaveDesc" = "移除播放器下方的「儲存」按鈕";
 "PlayerNoReport" = "移除「檢舉」按鈕";
 "PlayerNoReportDesc" = "移除播放器下方的「檢舉」按鈕";
-"PlayerNoHype" = "Remove \"Hype\" button";
-"PlayerNoHypeDesc" = "Removes \"Hype\" button under player.";
-"PlayerNoStopAds" = "Remove \"Stop ads\" button";
-"PlayerNoStopAdsDesc" = "Removes \"Stop ads\" button under player.";
+"PlayerNoHype" = "移除「粉絲熱推」按鈕";
+"PlayerNoHypeDesc" = "移除播放器下方的「粉絲熱推」按鈕";
+"PlayerNoStopAds" = "移除「停止放送廣告」按鈕";
+"PlayerNoStopAdsDesc" = "移除播放器下方的「停止放送廣告」按鈕";
 
 "ProgressBarStyle" = "進度列樣式";
 "SolidColor" = "純色";
@@ -207,7 +207,7 @@
 
 "Player.Actions" = "操作";
 "DefaultPlaybackRate" = "預設播放速度";
-"DefaultPlaybackRateDesc" = "Overrides the default playback speed";
+"DefaultPlaybackRateDesc" = "修改預設播放速度";
 "BackgroundPlayback" = "背景播放";
 "BackgroundPlaybackDesc" = "啟用背景播放";
 "Miniplayer" = "啟用迷你播放器";
@@ -225,25 +225,25 @@
 "ExitFullscreen" = "結束時退出全螢幕模式";
 "ExitFullscreenDesc" = "影片播放結束時退出全螢幕模式";
 
-"Player.ControlCenter" = "Control Center";
-"RcSkipBackward" = "Skip backward";
-"RcSkipBackwardDesc" = "Replaces the previous track button in Control Center with a skip backward button by a set number of seconds.";
-"RcSkipForward" = "Skip forward";
-"RcSkipForwardDesc" = "Replaces the next track button in Control Center with a skip forward button by a set number of seconds.";
+"Player.ControlCenter" = "控制中心";
+"RcSkipBackward" = "倒轉";
+"RcSkipBackwardDesc" = "將控制中心裡的「上一首」按鈕，替換為自訂秒數的倒轉按鈕";
+"RcSkipForward" = "快轉";
+"RcSkipForwardDesc" = "將控制中心裡的「下一首」按鈕，替換為自訂秒數的快轉按鈕";
 
 "Player.Gestures" = "手勢";
-"CompactToast" = "Compact toast";
-"CompactToastDesc" = "Displays a compact-style toast for player gestures";
+"CompactToast" = "簡潔提示";
+"CompactToastDesc" = "為播放器操作顯示簡潔風格的提示";
 "LeftSideGesture" = "左邊手勢";
-"LeftSideGestureDesc" = "Adjusts the selected setting by swiping vertically on the left side of the screen";
+"LeftSideGestureDesc" = "透過在螢幕左邊垂直滑動來調整選擇的設定";
 "RightSideGesture" = "右邊手勢";
-"RightSideGestureDesc" = "Adjusts the selected setting by swiping vertically on the right side of the screen";
+"RightSideGestureDesc" = "透過在螢幕右邊垂直滑動來調整選擇的設定";
 "ActivationAreaWidth" = "手勢啟動寬度";
 "ActivationAreaWidthDesc" = "此值決定螢幕左右兩側的手勢識別區域（單位:像素）\n\n最大值允許為螢幕寬度的三分之一\n\n調整此設定有助於防止在嘗試最小化或展開播放器時意外啟動";
 "HoldToSpeed" = "按住加速";
-"HoldToSpeedDesc" = "Sets the playback speed triggered by a long press on the player.\n\nStandard: 0.25×–5× with fixed steps\nExtended: 0.25×–10× with 0.05× steps";
-"Standard" = "Standard";
-"Extended" = "Extended";
+"HoldToSpeedDesc" = "設定長按播放器時觸發的播放速度。\n\n標準：0.25×–5×（固定間距）\n進階：0.25×–10×（0.05× 間距）";
+"Standard" = "標準";
+"Extended" = "進階";
 "AdjustWithFinger" = "調整速度";
 "AdjustWithFingerDesc" = "透過在播放器上長按並上下滑動手指來調整播放速度";
 "PreserveSpeed" = "保持速度";
@@ -255,8 +255,8 @@
 "Independent" = "獨立";
 "DurationBased" = "基於影片長度";
 "SeekSensitivity" = "快轉/倒轉靈敏度";
-"TapToSeek" = "Tap to seek";
-"TapToSeekDesc" = "Quickly jump to any point by tapping the progress bar.";
+"TapToSeek" = "點選跳轉";
+"TapToSeekDesc" = "點擊進度列即可快速跳轉至任意片段";
 "TwoFingerTapToPause" = "使用兩指暫停";
 "TwoFingerTapToPauseDesc" = "兩指點擊螢幕即可\"暫停/恢復\"播放";
 "TwoFingerPanToBrightness" = "調整亮度";
@@ -281,8 +281,8 @@
 "ScrollToNext" = "播放下一部";
 "Stop" = "停止";
 "AutoSkipShorts" = "連續播放Shorts";
-"ForceBestQuality" = "Force quality";
-"ForceBestQualityDesc" = "Disables Shorts quality selection, allowing the player to automatically pick the most suitable quality.";
+"ForceBestQuality" = "強制設定畫質";
+"ForceBestQualityDesc" = "停用 Shorts 畫質選擇功能，允許播放器自動選擇最適合的畫質";
 "ShortsOnlyMode" = "只看Shorts模式";
 "ShortsOnlyModeDesc" = "限制YouTube功能只能觀看Shorts影片";
 "RestrictShorts" = "限制Shorts數量";
@@ -291,21 +291,21 @@
 "ShortsProgressDesc" = "在Shorts底部顯示進度列";
 "SpeedByLongTap" = "加快Shorts播放速度";
 "SpeedByLongTapDesc" = "允許透過長按螢幕的某個部分位置來加快播放速度";
-"LeftSide" = "Left side";
-"RightSide" = "Right side";
-"BothSides" = "Both sides";
+"LeftSide" = "左側";
+"RightSide" = "右側";
+"BothSides" = "兩側";
 "PinchToFullscreenShorts" = "捏合切換全螢幕";
 "PinchToFullscreenShortsDesc" = "透過兩指縮放手勢，控制覆蓋層的顯示，讓Shorts以全螢幕模式播放";
 "ShortsToRegular" = "Shorts轉為一般影片";
 "ShortsToRegularDesc" = "將Shorts作為一般影片開啟";
-"RemoveShortsPosts" = "Remove posts";
-"RemoveShortsPostsDesc" = "Removes posts from the feed.";
+"RemoveShortsPosts" = "移除貼文";
+"RemoveShortsPostsDesc" = "從動態消息中移除社群貼文";
 "RemoveShortsLive" = "移除直播影片";
 "RemoveShortsLiveDesc" = "從首頁動態移除直播影片";
 
 "ShortsInterface" = "介面";
-"HideShortsProducts" = "Hide products";
-"HideShortsProductsDesc" = "Hides product stickers added by the author.";
+"HideShortsProducts" = "隱藏商品";
+"HideShortsProductsDesc" = "隱藏創作者加入的商品標籤";
 "HideShortsLogo" = "隱藏Shorts圖示";
 "HideShortsLogoDesc" = "左上角Shorts圖示";
 "HideShortsSearch" = "隱藏搜尋按鈕";
@@ -334,8 +334,8 @@
 "HideShortsShareDesc" = "移除動作列上的分享按鈕";
 "HideShortsRemix" = "隱藏Remix按鈕";
 "HideShortsRemixDesc" = "移除動作列上的Remix按鈕";
-"HideShortsAudioButton" = "No Audio button";
-"HideShortsAudioButtonDesc" = "Removes the Audio button from the action bar.";
+"HideShortsAudioButton" = "隱藏音訊按鈕";
+"HideShortsAudioButtonDesc" = "移除動作列上的音訊按鈕";
 "HideShortsSuggestion" = "隱藏建議";
 "HideShortsSuggestionDesc" = "移除建議按鈕，例如新增至播放清單、超級感謝...等";
 "HideShortsSubscribe" = "隱藏訂閱按鈕";
@@ -348,8 +348,8 @@
 "HideShortsSourceDesc" = "移除前往至完整影片或另一部Shorts的按鈕";
 "HideShortsAudio" = "隱藏音訊指示器";
 "HideShortsAudioDesc" = "移除Short中顯示所使用的音訊行";
-"HideShortsCommentBar" = "No comment bar";
-"HideShortsCommentBarDesc" = "Removes the comment bar in Shorts played from a user's profile.";
+"HideShortsCommentBar" = "隱藏留言列";
+"HideShortsCommentBarDesc" = "移除從使用者個人檔案播放 Shorts 時顯示的留言列";
 
 /* Tab bar options */
 "Tabbar" = "底部標籤欄";
@@ -363,12 +363,12 @@
 "FEhistory" = "觀看紀錄";
 "FEpost_home" = "貼文";
 "VLWL" = "稍後觀看";
-"FEhype_leaderboard" = "Hype";
-"UC-9-kyTW8ZkZNDHQJ6FgpwQ" = "Music";
-"UC4R8DWoMoI7CAwX8_LjQHig" = "Live";
-"UCOpNcN46UbXVtpKMrmU4Abg" = "Gaming";
-"UCEgdi0XIXXZ-qJOFPf4JSKw" = "Sports";
-"FEnotifications_inbox" = "Notifications";
+"FEhype_leaderboard" = "粉絲熱推";
+"UC-9-kyTW8ZkZNDHQJ6FgpwQ" = "音樂";
+"UC4R8DWoMoI7CAwX8_LjQHig" = "直播";
+"UCOpNcN46UbXVtpKMrmU4Abg" = "遊戲";
+"UCEgdi0XIXXZ-qJOFPf4JSKw" = "運動";
+"FEnotifications_inbox" = "通知";
 
 "TranslucentBar" = "半透明標籤欄";
 "RemoveLabels" = "移除文字";
@@ -378,7 +378,7 @@
 "InactiveTabs" = "隱藏標籤頁";
 "HideLibraryFooter" = "長按首頁標籤可以顯示或隱藏\"個人中心\"";
 "Warning" = "警告";
-"AtLeastOneTab" = "At least one tab must remain active";
+"AtLeastOneTab" = "必須至少保持一個標籤頁為啟用狀態";
 "TabsCountRestricted" = "最多只能設定顯示六個標籤頁";
 
 /* Interface options */
@@ -387,8 +387,8 @@
 "OledThemeDesc" = "將所有深色改為黑色";
 "OledKeyboard" = "OLED鍵盤";
 "OledKeyboardDesc" = "為深色鍵盤套用OLED黑色主題";
-"FloatingKeyboard" = "Floating keyboard";
-"FloatingKeyboardDesc" = "Force-enables the floating keyboard. Useful for iPhones with iPad style spoofing. Note: Works ONLY when iPad style is selected.";
+"FloatingKeyboard" = "浮動鍵盤";
+"FloatingKeyboardDesc" = "強制啟用浮動鍵盤。適用於偽裝成 iPad 樣式的 iPhone。注意：僅在選擇 iPad 樣式時有效。";
 "NoSearchHistory" = "隱藏搜尋記錄";
 "NoSearchHistoryDesc" = "視覺上隱藏搜尋歷史紀錄和建議。注意：您的搜尋紀錄仍然可在其它YouTube客戶端中存取";
 "StickSortComments" = "固定留言排序";
@@ -411,13 +411,13 @@
 "MiniplayerStyleDesc" = "切換到/離開浮動模式，需要重新啟動應用程式。";
 "Floating" = "浮動";
 
-"Other" = "Other";
-"NoLinkTracking" = "Disable link tracking";
-"NoLinkTrackingDesc" = "Prevents tracking information from being sent when tapping links. Opens links directly instead of going through Google redirects.";
+"Other" = "其他";
+"NoLinkTracking" = "停用連結追蹤";
+"NoLinkTrackingDesc" = "防止點擊連結時傳送追蹤資訊。直接開啟連結，而不經過 Google 重新導向。";
 "NoShareChunk" = "移除分享識別碼";
 "NoShareChunkDesc" = "從分享連結中移除\"si=identifier\"參數。這是一個替代「原生分享選單」的好選擇，因為YouTube不斷改善其分享選單。";
-"AutoCheckLinks" = "Auto-check clipboard";
-"AutoCheckLinksDesc" = "Check clipboard for YouTube-related links each time the app is opened.\nFor proper functionality, go to iOS Settings → YouTube → Paste from other apps and select \"Allow\"";
+"AutoCheckLinks" = "自動檢查剪貼簿";
+"AutoCheckLinksDesc" = "每次開啟應用程式時，檢查剪貼簿中的 YouTube 相關連結。\n為確保正常運作，請前往 iOS 設定 → YouTube → 從其他App貼上，並選擇「允許」";
 
 "ContextMenu" = "上下文選單";
 "NativeShare" = "原生分享選單";
@@ -438,20 +438,20 @@
 "RemoveNotInterestedMenuDesc" = "從選單移除「不感興趣」選項";
 "RemoveDontRecommendMenu" = "移除「不要推薦這個頻道」";
 "RemoveDontRecommendMenuDesc" = "從選單移除「不要推薦這個頻道」選項";
-"RemoveFeedbackMenu" = "Remove \"Feedback\"";
-"RemoveFeedbackMenuDesc" = "Removes \"Feedback\" option from menu.";
+"RemoveFeedbackMenu" = "移除\"提供意見\"";
+"RemoveFeedbackMenuDesc" = "從選單移除\"提供意見\"選項";
 "RemoveReportMenu" = "移除「檢舉」";
 "RemoveReportMenuDesc" = "從選單移除「檢舉」選項";
-"RemoveRemixMenu" = "Remove \"Remix\"";
-"RemoveRemixMenuDesc" = "Removes \"Remix\" option from menu.";
-"RemoveYTMMenu" = "Remove \"YouTube Music\"";
-"RemoveYTMMenuDesc" = "Removes \"Listen with YouTube Music\" option from menu.";
+"RemoveRemixMenu" = "移除\"Remix\"";
+"RemoveRemixMenuDesc" = "從選單移除\"Remix\"選項";
+"RemoveYTMMenu" = "移除\"YouTube Music\"";
+"RemoveYTMMenuDesc" = "從選單移除\"用 YouTube Music 聽音樂\"選項";
 
 /* SponsorBlock settings */
 "EnableSponsorBlock" = "啟用";
 "EnableSponsorBlockDesc" = "SponsorBlock擴充功能";
-"SbPlayerButton" = "Display button in overlay";
-"SbPlayerButtonDesc" = "Adds SponsorBlock button in players overlay.";
+"SbPlayerButton" = "顯示按鈕";
+"SbPlayerButtonDesc" = "在播放器中新增 SponsorBlock 按鈕";
 "ShowNotifications" = "顯示通知";
 "ShowNotificationsDesc" = "顯示自動跳過片段的通知。需要手動跳過的類別通知會始終顯示。";
 "SegmentsInFeedPlayer" = "播放器中顯示片段";
@@ -462,7 +462,7 @@
 "SegmentSkipAudioDesc" = "跳過片段時播放聲音提示";
 "DurationWithoutSegments" = "顯示新的影片時間";
 "DurationWithoutSegmentsDesc" = "去除片段後的總時間";
-"MinimumSkipDuration" = "Minimum duration to skip";
+"MinimumSkipDuration" = "略過片段的最短時長";
 "SkipAlertDuration" = "跳過通知持續時間";
 "UnskipAlertDuration" = "取消跳過通知持續時間";
 
@@ -501,12 +501,12 @@
 "Sb.Ask" = "詢問";
 "Sb.Display" = "在播放器中顯示";
 
-"PublicUserID" = "Public UserID";
-"PrivateUserID" = "Private UserID";
-"TapToReveal" = "Tap to reveal";
-"Save" = "Save";
-"Error.SbPublicID" = "The public user ID must contain exactly 64 characters";
-"Error.SbPrivateID" = "The private (local) user ID must contain at least 32 characters";
+"PublicUserID" = "公開使用者 ID";
+"PrivateUserID" = "私人使用者 ID";
+"TapToReveal" = "點擊顯示";
+"Save" = "儲存";
+"Error.SbPublicID" = "公開使用者 ID 必須正好包含 64 個字元";
+"Error.SbPrivateID" = "私人（本機）使用者 ID 必須至少包含 32 個字元";
 
 "sb_sponsor" = "贊助片段";
 "sb_intro" = "開場片段";
@@ -526,36 +526,36 @@
 "Unskip" = "取消跳過";
 
 /* Discord RPC */
-"DiscordRPC" = "Discord RPC Integration";
-"EnableDiscordRPC" = "Enable Discord RPC";
-"EnableDiscordRPCDesc" = "Show what you're watching in your Discord status.";
-"RPC.OverlayButton" = "Show button in player overlay";
-"RPC.OverlayButtonDesc" = "Adds a Discord RPC toggle button to the video player overlay.";
-"RPC.DisableServerAlerts" = "Disable server reminders";
-"RPC.DisableServerAlertsDesc" = "Suppresses alerts when the desktop server is unreachable.";
-"RPC.Address" = "Server Address";
-"RPC.AddressDesc" = "Enter the address shown in the YouTube Plus RPC app on your desktop.";
+"DiscordRPC" = "Discord RPC 整合";
+"EnableDiscordRPC" = "啟用 Discord RPC";
+"EnableDiscordRPCDesc" = "在你的 Discord 狀態中顯示您正在觀看的內容";
+"RPC.OverlayButton" = "在播放器介面中顯示按鈕";
+"RPC.OverlayButtonDesc" = "在影片播放器介面加入 Discord RPC 的開關按鈕";
+"RPC.DisableServerAlerts" = "停用伺服器提醒";
+"RPC.DisableServerAlertsDesc" = "當無法連線至桌面版伺服器時，不顯示警告提示";
+"RPC.Address" = "伺服器位址";
+"RPC.AddressDesc" = "請輸入在您電腦桌面版 YouTube Plus RPC 應用程式中顯示的位址";
 
-"RPC.Information" = "Server Configuration";
-"RPC.HowTo" = "How to set up (tutorial)";
+"RPC.Information" = "伺服器設定";
+"RPC.HowTo" = "如何設定（教學）";
 
-"RPC.MissingServerAddress" = "Please enter the server address in Discord RPC settings.";
-"RPC.LocalPermissionRequired" = "Local Network access is required. Please enable it in Settings → YouTube.";
-"RPC.DesktopServerRequired" = "Desktop server is not reachable. Make sure YouTube Plus RPC is running on your computer and both devices are on the same Wi-Fi network.";
-"RPC.OpenSettings" = "Open Settings";
+"RPC.MissingServerAddress" = "請在 Discord RPC 設定中輸入伺服器位址";
+"RPC.LocalPermissionRequired" = "需要區域網路存取權限。請前往 iOS「設定」→「YouTube」中啟用";
+"RPC.DesktopServerRequired" = "無法連線至桌面版伺服器。請確保您的電腦正在執行 YouTube Plus RPC，且兩部裝置連接至同一個 Wi-Fi 網路。";
+"RPC.OpenSettings" = "開啟設定";
 
 /* Sleep Timer */
-"SleepTimer.Message" = "What would you like to do?";
-"SleepTimer.StopMessage" = "Sleep timer ended. Playback has been paused.";
+"SleepTimer.Message" = "想要執行什麼操作？";
+"SleepTimer.StopMessage" = "睡眠定時器已結束。播放已暫停。";
 
-"SleepTimer.TurnOff" = "Turn off";
-"SleepTimer.SelectNewTime" = "Select new time";
-"SleepTimer.Dismiss" = "Dismiss";
+"SleepTimer.TurnOff" = "關閉";
+"SleepTimer.SelectNewTime" = "選擇新時間";
+"SleepTimer.Dismiss" = "略過";
 
-"SleepTimer.EndOfVideo" = "End of video";
-"SleepTimer.EndAt" = "End at...";
-"SleepTimer.SelectTime" = "Select time";
-"SleepTimer.Start" = "Start";
+"SleepTimer.EndOfVideo" = "影片結束時";
+"SleepTimer.EndAt" = "結束於...";
+"SleepTimer.SelectTime" = "選擇時間";
+"SleepTimer.Start" = "開始";
 
 /* Developer section */
 "Developer" = "開發者";
@@ -649,14 +649,14 @@
 "PlayInVLC" = "在VLC中播放";
 "PlayerNotFound" = "找不到播放器";
 "OpenAsRegularVideo" = "像一般影片一樣打開";
-"TranslatePost" = "Translate post";
+"TranslatePost" = "翻譯貼文";
 "CopyPostText" = "複製貼文內容";
 "SaveCurrentImage" = "儲存當前圖片";
 "ShowCurrentImage" = "顯示當前圖片";
 "CopyCurrentImage" = "複製當前圖片";
 "SavePostAsImage" = "儲存貼文為圖片";
 "CopyPostAsImage" = "複製貼文為圖片";
-"TranslateComment" = "Translate comment";
+"TranslateComment" = "翻譯留言";
 "CopyCommentText" = "複製留言內容";
 "SaveCommentAsImage" = "留言儲存為圖片";
 "CopyCommentAsImage" = "複製留言為圖片";
@@ -687,26 +687,26 @@
 "RetryLogin" = "已啟用登入權限修復\n\n請再次登入";
 "LoginInfo" = "成功登錄Google帳戶後需要重新啟動應用程式";
 
-"OpenLink" = "Open link";
-"LinkDetected" = "A YouTube-related link was detected. Would you like to open it in YouTube?";
+"OpenLink" = "開啟連結";
+"LinkDetected" = "偵測到 YouTube 相關連結。是否要在 YouTube 中開啟?";
 
-"Translation" = "Translation";
-"Language" = "Language";
-"Translate" = "Translate";
-"Translating" = "Translating...";
+"Translation" = "翻譯";
+"Language" = "語言";
+"Translate" = "翻譯";
+"Translating" = "翻譯中...";
 
-"SbWhitelist" = "Whitelist";
-"SbAddToWhitelist" = "Add to the whitelist";
-"Sb.Whitelisted" = "Added to the whitelist";
-"SbRemoveFromWhitelist" = "Remove from the whitelist";
-"Sb.Whitelist" = "Whitelisted channels";
-"Sb.Channels" = "Channels";
-"Sb.ChannelsHere" = "Whitelisted channels appear here";
-"SortType" = "Sort type";
-"Sb.Newest" = "Newest first";
-"Sb.Oldest" = "Oldest first";
-"Sb.Alphabetical" = "Alphabetical (A-Z)";
-"Sb.AlphabeticalRev" = "Reverse (Z-A)";
+"SbWhitelist" = "白名單";
+"SbAddToWhitelist" = "新增至白名單";
+"Sb.Whitelisted" = "已新增至白名單";
+"SbRemoveFromWhitelist" = "從白名單中移除";
+"Sb.Whitelist" = "白名單頻道";
+"Sb.Channels" = "頻道";
+"Sb.ChannelsHere" = "白名單頻道將在此顯示";
+"SortType" = "排序方式";
+"Sb.Newest" = "最新優先";
+"Sb.Oldest" = "最舊優先";
+"Sb.Alphabetical" = "依字母順序 (A-Z)";
+"Sb.AlphabeticalRev" = "依字母倒序 (Z-A)";
 
 "Welcome.Download" = "下載媒體";
 "Welcome.DownloadDesc" = "下載您喜愛的內容，不論是影片、Shorts、音訊或個人檔案照片。複製有趣的貼文和留言，或將它們儲存為圖片。";
@@ -730,11 +730,11 @@
 /* Old localizations (commented out for reference)
 "ExtraSpeedOptions" = "額外的播放速度選項";
 "ExtraSpeedOptionsDesc" = "在播放速度選單添加更多選項";
-"CastingErrorTitle" = "Wait a minute...";
-"CastingErrorMessage" = "You're most likely seeing this because your certificate doesn't have Multicast permission.";
-"CastingAction" = "Settings";
-"OpenSettings" = "Open settings";
-"WhatIsMulticast?" = "What is Multicast?";
+"CastingErrorTitle" = "稍等一下...";
+"CastingErrorMessage" = "您會看到此訊息，很可能是因為您的憑證沒有多點傳播 (Multicast) 權限";
+"CastingAction" = "設定";
+"OpenSettings" = "開啟設定";
+"WhatIsMulticast?" = "什麼是多點傳播 (Multicast)？";
 "NoYTLogo" = "移除YouTube圖示";
 "NoYTLogoDesc" = "移除在左上方導覽列的YouTube圖示";
 "PremiumYTLogo" = "YouTube Premium標誌";
