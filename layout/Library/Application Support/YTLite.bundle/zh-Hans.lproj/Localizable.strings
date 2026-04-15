@@ -1,7 +1,3 @@
-/* Main section */
-"Main" = "主功能";
-"Search" = "Search";
-
 /* Patreon section */
 "SkipLogInAlert" = "Suppress login reminder";
 "Log-inViaPatreon" = "Log-in via Patreon";
@@ -10,7 +6,11 @@
 "LogOut" = "Log out";
 "LogOutTitle" = "Log out";
 "LogOutMessage" = "Are you sure you want to continue?";
-"FeaturesNotActivated" = "You are not logged in. To access Tweach features, please log in with an active Patreon subscription.";
+"FeaturesNotActivated" = "You are not logged in. To access YouTube Plus features, please log in with an active Patreon subscription.";
+
+/* Main section */
+"Main" = "主功能";
+"Search" = "Search";
 
 /* Downloading options */
 "Downloading" = "下载器";
@@ -726,19 +726,3 @@
 "Conflicts.CloseYT" = "关闭 YouTube";
 
 "DonationReminder" = "您的支持能让 YouTube Plus 变得更好。\n\n您可以在 YouTube Plus 设置中选择捐赠或选择关闭这些通知。谢谢💜";
-
-/* Old localizations (commented out for reference)
-"ExtraSpeedOptions" = "扩展速度选项";
-"ExtraSpeedOptionsDesc" = "在播放器菜单中添加更多视频播放速度的选项。";
-"CastingErrorTitle" = "Wait a minute...";
-"CastingErrorMessage" = "You're most likely seeing this because your certificate doesn't have Multicast permission.";
-"CastingAction" = "Settings";
-"OpenSettings" = "Open settings";
-"WhatIsMulticast?" = "What is Multicast?";
-"NoYTLogo" = "移除“YouTube”Logo";
-"NoYTLogoDesc" = "移除导航栏中的“YouTube”Logo。";
-"PremiumYTLogo" = "设置“Premium”Logo";
-"PremiumYTLogoDesc" = "在导航栏中设置“Premium”Logo。";
-"SpeedLocation" = "激活位置";
-"TabIsHidden" = "无法选择隐藏标签页作为启动页。";
-"TabIsStartupTab" = "选定为“启动页”的标签页无法隐藏";

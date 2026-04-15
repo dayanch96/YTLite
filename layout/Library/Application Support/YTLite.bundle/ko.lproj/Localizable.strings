@@ -1,7 +1,3 @@
-/* Main section */
-"Main" = "메인";
-"Search" = "Search";
-
 /* Patreon section */
 "SkipLogInAlert" = "Suppress login reminder";
 "Log-inViaPatreon" = "Log-in via Patreon";
@@ -10,7 +6,11 @@
 "LogOut" = "Log out";
 "LogOutTitle" = "Log out";
 "LogOutMessage" = "Are you sure you want to continue?";
-"FeaturesNotActivated" = "You are not logged in. To access Tweach features, please log in with an active Patreon subscription.";
+"FeaturesNotActivated" = "You are not logged in. To access YouTube Plus features, please log in with an active Patreon subscription.";
+
+/* Main section */
+"Main" = "메인";
+"Search" = "Search";
 
 /* Downloading options */
 "Downloading" = "다운로드";

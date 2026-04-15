@@ -1,16 +1,16 @@
+/* Patreon section */
+"SkipLogInAlert" = "Скрыть напоминание о входе";
+"Log-inViaPatreon" = "Войти с помощью Patreon";
+"ManageAccount" = "Управление аккаунтом";
+"AccessDenied" = "Нет доступа";
+"LogOut" = "Выйти";
+"LogOutTitle" = "Выход";
+"LogOutMessage" = "Уверены, что хотите продолжить?";
+"FeaturesNotActivated" = "Вы не вошли в аккаунт. Для доступа к функциям YouTube Plus войдите с активной подпиской Patreon.";
+
 /* Main section */
 "Main" = "Основные";
 "Search" = "Поиск";
-
-/* Patreon section */
-"SkipLogInAlert" = "Suppress login reminder";
-"Log-inViaPatreon" = "Log-in via Patreon";
-"ManageAccount" = "Manage account";
-"AccessDenied" = "Access denied";
-"LogOut" = "Log out";
-"LogOutTitle" = "Log out";
-"LogOutMessage" = "Are you sure you want to continue?";
-"FeaturesNotActivated" = "You are not logged in. To access Tweach features, please log in with an active Patreon subscription.";
 
 /* Downloading options */
 "Downloading" = "Загрузка";
@@ -462,7 +462,7 @@
 "SegmentSkipAudioDesc" = "Воспроизводит аудио-уведомление при перемотке сегмента";
 "DurationWithoutSegments" = "Сокращенное время";
 "DurationWithoutSegmentsDesc" = "Отображает длительность видео без сегментов";
-"MinimumSkipDuration" = "Minimum duration to skip";
+"MinimumSkipDuration" = "Минимальная длина для перемотки";
 "SkipAlertDuration" = "Длительность уведомления перемотки";
 "UnskipAlertDuration" = "Длительность уведомления отмены";
 
@@ -724,3 +724,10 @@
 "Conflicts.CloseYT" = "Закрыть YouTube";
 
 "DonationReminder" = "Ваша поддержка помогает делать YouTube Plus лучше.\n\nВы можете внести свой вклад или отключить данное напоминание в настройках YouTube Plus. Спасибо💜";
+
+"Log-inViaPatreon" = "Войти с помощью Patreon";
+"ManageAccount" = "Управление аккаунтом";
+"AccessDenied" = "Нет доступа";
+"LogOut" = "Выйти";
+"LogOutTitle" = "Выход";
+"LogOutMessage" = "Уверены, что хотите продолжить?";
