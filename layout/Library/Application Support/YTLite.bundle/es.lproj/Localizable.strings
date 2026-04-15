@@ -2,6 +2,16 @@
 "Main" = "Principal";
 "Search" = "Buscar";
 
+/* Patreon section */
+"SkipLogInAlert" = "Suppress login reminder";
+"Log-inViaPatreon" = "Log-in via Patreon";
+"ManageAccount" = "Manage account";
+"AccessDenied" = "Access denied";
+"LogOut" = "Log out";
+"LogOutTitle" = "Log out";
+"LogOutMessage" = "Are you sure you want to continue?";
+"FeaturesNotActivated" = "You are not logged in. To access Tweach features, please log in with an active Patreon subscription.";
+
 /* Downloading options */
 "Downloading" = "Descargar";
 "DownloadManager" = "Gestor de descargas";
@@ -452,6 +462,7 @@
 "SegmentSkipAudioDesc" = "Reproduce una notificación de audio al omitir un segmento.";
 "DurationWithoutSegments" = "Mostrar nueva duración";
 "DurationWithoutSegmentsDesc" = "Muestra la duración total sin segmentos.";
+"MinimumSkipDuration" = "Minimum duration to skip";
 "SkipAlertDuration" = "Duración de la alerta de omisión";
 "UnskipAlertDuration" = "Duración de la alerta de deshacer omisión";
 

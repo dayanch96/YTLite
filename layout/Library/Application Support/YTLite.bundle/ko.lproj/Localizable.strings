@@ -2,6 +2,16 @@
 "Main" = "메인";
 "Search" = "Search";
 
+/* Patreon section */
+"SkipLogInAlert" = "Suppress login reminder";
+"Log-inViaPatreon" = "Log-in via Patreon";
+"ManageAccount" = "Manage account";
+"AccessDenied" = "Access denied";
+"LogOut" = "Log out";
+"LogOutTitle" = "Log out";
+"LogOutMessage" = "Are you sure you want to continue?";
+"FeaturesNotActivated" = "You are not logged in. To access Tweach features, please log in with an active Patreon subscription.";
+
 /* Downloading options */
 "Downloading" = "다운로드";
 "DownloadManager" = "다운로드 매니저";
@@ -452,6 +462,7 @@
 "SegmentSkipAudioDesc" = "세그먼트를 건너뛰면 오디오 알림을 재생합니다.";
 "DurationWithoutSegments" = "새로운 지속 시간 표시";
 "DurationWithoutSegmentsDesc" = "세그먼트가 없는 총 지속 시간을 표시합니다.";
+"MinimumSkipDuration" = "Minimum duration to skip";
 "SkipAlertDuration" = "건너뛰기 알림 지속 시간";
 "UnskipAlertDuration" = "건너뛰기 알림 지속 시간 해제";
 
