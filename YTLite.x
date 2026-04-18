@@ -653,8 +653,9 @@ static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *ide
             NSArray <ELMComponent *> *elmChildren = [(ELMNodeController *)child children];
             for (ELMComponent *elmChild in elmChildren) {
                 for (NSString *identifier in identifiers) {
-                    if ([[elmChild description] containsString:identifier])
+                    if ([[elmChild description] containsString:identifier]) {
                         return YES;
+                    }
                 }
             }
         }
@@ -663,14 +664,15 @@ static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *ide
             ASDisplayNode *childNode = ((ASNodeController *)child).node; // ELMContainerNode
             NSArray *yogaChildren = childNode.yogaChildren;
             for (ASDisplayNode *displayNode in yogaChildren) {
-                if ([identifiers containsObject:displayNode.accessibilityIdentifier])
+                if ([identifiers containsObject:displayNode.accessibilityIdentifier]) {
                     return YES;
+                }
             }
 
-            return findCell(child, identifiers);
+            if (findCell((ASNodeController *)child, identifiers)) {
+                return YES;
+            }
         }
-
-        return NO;
     }
     return NO;
 }
@@ -702,20 +704,29 @@ static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *ide
 %hook YTAsyncCollectionView
 - (id)cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = %orig;
+    BOOL shouldRemoveCell = NO;
 
     if ([cell isKindOfClass:objc_lookUpClass("_ASCollectionViewCell")]) {
-        _ASCollectionViewCell *cell = %orig;
-        if ([cell respondsToSelector:@selector(node)]) {
-            NSString *idToRemove = [[cell node] accessibilityIdentifier];
-            if ([idToRemove isEqualToString:@"statement_banner.view"] ||
-                (([idToRemove isEqualToString:@"eml.shorts-grid"] || [idToRemove isEqualToString:@"eml.shorts-shelf"]) && ytlBool(@"hideShorts"))) {
+        _ASCollectionViewCell *asCell = (_ASCollectionViewCell *)cell;
+        if ([asCell respondsToSelector:@selector(node)]) {
+            NSString *idToRemove = [[asCell node] accessibilityIdentifier];
+            shouldRemoveCell = [idToRemove isEqualToString:@"statement_banner.view"] ||
+                (([idToRemove isEqualToString:@"eml.shorts-grid"] || [idToRemove isEqualToString:@"eml.shorts-shelf"]) && ytlBool(@"hideShorts"));
+        }
+    } else {
+        shouldRemoveCell = ([cell isKindOfClass:objc_lookUpClass("YTReelShelfCell")] && ytlBool(@"hideShorts")) ||
+            ([cell isKindOfClass:objc_lookUpClass("YTHorizontalCardListCell")] && ytlBool(@"noContinueWatching"));
+    }
+
+    if (shouldRemoveCell) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (indexPath.section < [self numberOfSections] && indexPath.item < [self numberOfItemsInSection:indexPath.section]) {
                 [self removeCellsAtIndexPath:indexPath];
             }
-        }
-    } else if (([cell isKindOfClass:objc_lookUpClass("YTReelShelfCell")] && ytlBool(@"hideShorts")) ||
-        ([cell isKindOfClass:objc_lookUpClass("YTHorizontalCardListCell")] && ytlBool(@"noContinueWatching"))) {
-        [self removeCellsAtIndexPath:indexPath];
-    } return %orig;
+        });
+    }
+
+    return cell;
 }
 
 %new
