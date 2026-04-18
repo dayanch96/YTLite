@@ -341,9 +341,18 @@ static UIImage *YTImageNamed(NSString *imageName) {
 %hook YTVersionUtils
 + (NSString *)appVersion {
     NSString *originalVersion = %orig;
-    NSString *fakeVersion = @"18.18.2";
-
-    return (!ytlBool(@"classicQuality") && !ytlBool(@"extraSpeedOptions") && [originalVersion compare:fakeVersion options:NSNumericSearch] == NSOrderedDescending) ? originalVersion : fakeVersion;
+    // Only spoof if the feature is active AND YT version is not too new
+    if ((ytlBool(@"classicQuality") || ytlBool(@"extraSpeedOptions"))) {
+        NSString *fakeVersion = @"18.18.2";
+        NSOperatingSystemVersion ios17 = {17, 0, 0};
+        // Don't spoof on YouTube 21.x+ — it causes crashes
+        NSArray *parts = [originalVersion componentsSeparatedByString:@"."];
+        if (parts.count > 0 && [[parts firstObject] integerValue] >= 21) {
+            return originalVersion; // Bail out on 21.x+
+        }
+        return fakeVersion;
+    }
+    return originalVersion;
 }
 %end
 
@@ -461,20 +470,34 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
 
 %new
 - (void)setAutoSpeed {
-    if ([self.activeVideoPlayerOverlay isKindOfClass:NSClassFromString(@"YTMainAppVideoPlayerOverlayViewController")]
-        && [self.view.superview isKindOfClass:NSClassFromString(@"YTWatchView")]) {
-        YTMainAppVideoPlayerOverlayViewController *overlayVC = (YTMainAppVideoPlayerOverlayViewController *)self.activeVideoPlayerOverlay;
+    if (![self.activeVideoPlayerOverlay isKindOfClass:NSClassFromString(@"YTMainAppVideoPlayerOverlayViewController")])
+        return;
+    if (![self.view.superview isKindOfClass:NSClassFromString(@"YTWatchView")])
+        return;
 
-        NSArray *speedLabels = @[@0.25, @0.5, @0.75, @1.0, @1.25, @1.5, @1.75, @2.0, @3.0, @4.0, @5.0];
-        [overlayVC setPlaybackRate:[speedLabels[ytlInt(@"autoSpeedIndex")] floatValue]];
+    YTMainAppVideoPlayerOverlayViewController *overlayVC = 
+        (YTMainAppVideoPlayerOverlayViewController *)self.activeVideoPlayerOverlay;
+
+    NSArray *speedLabels = @[@0.25, @0.5, @0.75, @1.0, @1.25, @1.5, @1.75, @2.0, @3.0, @4.0, @5.0];
+    NSInteger idx = ytlInt(@"autoSpeedIndex");
+    if (idx < 0 || idx >= speedLabels.count) return; // bounds guard added
+
+    if ([overlayVC respondsToSelector:@selector(setPlaybackRate:)]) {
+        [overlayVC setPlaybackRate:[speedLabels[idx] floatValue]];
     }
 }
 
 %new
 - (void)autoQuality {
-    if (![self.view.superview isKindOfClass:NSClassFromString(@"YTWatchView")]) {
-        return;
+    ...
+    Class fcClass = %c(MLQuickMenuVideoQualitySettingFormatConstraint);
+    if (!fcClass) return; // class no longer exists in this YT version
+    MLQuickMenuVideoQualitySettingFormatConstraint *fc = [[fcClass alloc] init];
+    if (fc && [fc respondsToSelector:@selector(initWithVideoQualitySetting:formatSelectionReason:qualityLabel:)]) {
+        [self.activeVideo setVideoFormatConstraint:
+            [fc initWithVideoQualitySetting:3 formatSelectionReason:2 qualityLabel:qualityLabel]];
     }
+}
 
     NetworkStatus status = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
     NSInteger kQualityIndex = status == ReachableViaWiFi ? ytlInt(@"wiFiQualityIndex") : ytlInt(@"cellQualityIndex");

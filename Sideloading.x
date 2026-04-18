@@ -65,8 +65,10 @@ static NSString *accessGroupID() {
 %hook SSOConfiguration
 - (id)initWithClientID:(id)clientID supportedAccountServices:(id)supportedAccountServices {
     self = %orig;
-    [self setValue:YT_NAME forKey:@"_shortAppName"];
-    [self setValue:YT_BUNDLE_ID forKey:@"_applicationIdentifier"];
+    @try {
+        [self setValue:YT_NAME forKey:@"_shortAppName"];
+        [self setValue:YT_BUNDLE_ID forKey:@"_applicationIdentifier"];
+    } @catch (NSException *e) {}
     return self;
 }
 %end
