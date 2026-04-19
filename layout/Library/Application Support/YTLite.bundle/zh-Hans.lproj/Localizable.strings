@@ -250,6 +250,8 @@
 "PreserveSpeedDesc" = "手势完成后保持调整后的速度。";
 "SeekAnywhere" = "滑动控制进度";
 "SeekAnywhereDesc" = "允许通过左右滑动来控制播放进度。";
+"SeekAnywhereFeed" = "Seek in feed player";
+"SeekAnywhereFeedDesc" = "Swipe left or right on feed videos to seek.";
 "SeekMethod" = "进度方式";
 "SeekMethodDesc" = "独立：在整个视频时长内自由快速拖动进度，仅考虑进度灵敏度。\n\n基于视频时长：拖动进度取决于视频的长度和进度灵敏度。这对于长视频非常有用，可以防止滚动浏览视频的大部分内容。";
 "Independent" = "独立";
@@ -404,6 +406,9 @@
 
 "StartupAnimation" = "启动动画";
 "StartupAnimationDesc" = "显示 YouTube 启动加载动画。";
+"SelectCustomAnimation" = "Select custom animation";
+"VideoTooLong" = "Video must not exceed 10 seconds";
+"MediaNotFound" = "Media not found";
 
 "InterfaceStyle" = "界面样式";
 
@@ -590,7 +595,6 @@
 "Polish" = "波兰语本地化";
 
 "OpenSourceLibs" = "开源库";
-"SupporterWall" = "支持者";
 
 "Preferences" = "%@ 配置";
 "ManagePreferences" = "配置管理";

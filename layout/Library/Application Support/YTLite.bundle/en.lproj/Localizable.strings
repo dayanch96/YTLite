@@ -250,6 +250,8 @@
 "PreserveSpeedDesc" = "Locks at adjusted speed after gesture completion.";
 "SeekAnywhere" = "Swipe to seek";
 "SeekAnywhereDesc" = "Allows controlling playback seeking by swiping left and right.";
+"SeekAnywhereFeed" = "Seek in feed player";
+"SeekAnywhereFeedDesc" = "Swipe left or right on feed videos to seek.";
 "SeekMethod" = "Seek method";
 "SeekMethodDesc" = "Independent: Free fast scrolling across the entire video duration. Only the seek sensitivity is respected.\n\nDuration-based: The scrolling strength will depend on the length of the video and the seek sensitivity. This can be useful for long videos to prevent scrolling through large sections of the video.";
 "Independent" = "Independent";
@@ -404,6 +406,9 @@
 
 "StartupAnimation" = "Startup animation";
 "StartupAnimationDesc" = "Displays YouTube startup loading animation.";
+"SelectCustomAnimation" = "Select custom animation";
+"VideoTooLong" = "Video must not exceed 10 seconds";
+"MediaNotFound" = "Media not found";
 
 "InterfaceStyle" = "Interface style";
 
@@ -590,7 +595,6 @@
 "Polish" = "Polish localization";
 
 "OpenSourceLibs" = "Open source libraries";
-"SupporterWall" = "Supporters";
 
 "Preferences" = "%@ preferences";
 "ManagePreferences" = "Preferences management";

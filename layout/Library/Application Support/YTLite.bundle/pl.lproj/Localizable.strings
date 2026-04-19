@@ -1,7 +1,3 @@
-/* Main section */
-"Main" = "Główne";
-"Search" = "Szukaj";
-
 /* Patreon section */
 "SkipLogInAlert" = "Ukryj przypomnienie o logowaniu";
 "Log-inViaPatreon" = "Zaloguj przez Patreon";
@@ -10,7 +6,11 @@
 "LogOut" = "Wyloguj";
 "LogOutTitle" = "Wylogowanie";
 "LogOutMessage" = "Czy na pewno chcesz kontynuować?";
-"FeaturesNotActivated" = "Nie jesteś zalogowany. Aby uzyskać dostęp do funkcji Tweach, zaloguj się z aktywną subskrypcją Patreon.";
+"FeaturesNotActivated" = "Nie jesteś zalogowany. Aby uzyskać dostęp do funkcji YouTube Plus zaloguj się z aktywną subskrypcją Patreon.";
+
+/* Main section */
+"Main" = "Główne";
+"Search" = "Szukaj";
 
 /* Downloading options */
 "Downloading" = "Pobieranie";
@@ -250,6 +250,8 @@
 "PreserveSpeedDesc" = "Zachowuje dostosowaną prędkość po zakończeniu gestu.";
 "SeekAnywhere" = "Przesuń, aby przewinąć";
 "SeekAnywhereDesc" = "Umożliwia kontrolę przewijania odtwarzania poprzez przesuwanie w lewo i prawo.";
+"SeekAnywhereFeed" = "Seek in feed player";
+"SeekAnywhereFeedDesc" = "Swipe left or right on feed videos to seek.";
 "SeekMethod" = "Metoda przewijania";
 "SeekMethodDesc" = "Niezależna: Swobodne szybkie przewijanie po całym czasie trwania wideo. Respektowana jest tylko czułość przewijania.\n\nOparta na czasie: Siła przewijania będzie zależeć od długości wideo i czułości przewijania. Może to być przydatne dla długich filmów, aby zapobiec przewijaniu przez duże fragmenty wideo.";
 "Independent" = "Niezależna";
@@ -404,6 +406,9 @@
 
 "StartupAnimation" = "Animacja startowa";
 "StartupAnimationDesc" = "Wyświetla animację ładowania YouTube.";
+"SelectCustomAnimation" = "Select custom animation";
+"VideoTooLong" = "Video must not exceed 10 seconds";
+"MediaNotFound" = "Media not found";
 
 "InterfaceStyle" = "Styl interfejsu";
 
@@ -590,7 +595,6 @@
 "Polish" = "Język polski";
 
 "OpenSourceLibs" = "Biblioteki Open Source";
-"SupporterWall" = "Wspierający";
 
 "Preferences" = "Preferencje %@";
 "ManagePreferences" = "Zarządzanie preferencjami";
@@ -726,19 +730,3 @@
 "Conflicts.CloseYT" = "Zamknij YouTube";
 
 "DonationReminder" = "Twoje wsparcie pomaga uczynić YouTube Plus jeszcze lepszym.\n\nMożesz wesprzeć lub wybrać wyłączenie tych powiadomień w ustawieniach YouTube Plus. Dziękuję💜";
-
-/* Old localizations (commented out for reference)
-"ExtraSpeedOptions" = "Dodatkowe opcje prędkości";
-"ExtraSpeedOptionsDesc" = "Dodaje więcej opcji prędkości odtwarzania wideo do menu odtwarzacza.";
-"CastingErrorTitle" = "Poczekaj chwilę...";
-"CastingErrorMessage" = "Najprawdopodobniej widzisz to, ponieważ Twój certyfikat nie ma uprawnień Multicast.";
-"CastingAction" = "Ustawienia";
-"OpenSettings" = "Otwórz ustawienia";
-"WhatIsMulticast?" = "Czym jest Multicast?";
-"NoYTLogo" = "Usuń logo YouTube";
-"NoYTLogoDesc" = "Usuwa logo YouTube z paska nawigacji.";
-"PremiumYTLogo" = "Ustaw logo YouTube Premium";
-"PremiumYTLogoDesc" = "Ustawia logo YouTube Premium na pasku nawigacji.";
-"SpeedLocation" = "Miejsce aktywacji przyspieszenia";
-"TabIsHidden" = "Ukryta karta nie może być wybrana jako strona startowa";
-"TabIsStartupTab" = "Karta wybrana jako strona startowa nie może być ukryta";

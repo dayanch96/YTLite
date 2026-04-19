@@ -250,6 +250,8 @@
 "PreserveSpeedDesc" = "Preserva la velocità regolata dopo il completamento della gesture.";
 "SeekAnywhere" = "Scorri per cercare";
 "SeekAnywhereDesc" = "Consente di controllare la ricerca della riproduzione scorrendo a sinistra e a destra.";
+"SeekAnywhereFeed" = "Seek in feed player";
+"SeekAnywhereFeedDesc" = "Swipe left or right on feed videos to seek.";
 "SeekMethod" = "Metodo di ricerca";
 "SeekMethodDesc" = "Indipendente: Scorrimento veloce libero per tutta la durata del video. Solo la sensibilità di ricerca è rispettata.\n\nBasato sulla durata: La forza di scorrimento dipenderà dalla lunghezza del video e dalla sensibilità di ricerca. Questo può essere utile per video lunghi per prevenire lo scorrimento attraverso grandi sezioni del video.";
 "Independent" = "Indipendente";
@@ -404,6 +406,9 @@
 
 "StartupAnimation" = "Animazione di Avvio";
 "StartupAnimationDesc" = "Mostra l'animazione di caricamento di YouTube.";
+"SelectCustomAnimation" = "Select custom animation";
+"VideoTooLong" = "Video must not exceed 10 seconds";
+"MediaNotFound" = "Media not found";
 
 "InterfaceStyle" = "Stile dell'interfaccia";
 
@@ -590,7 +595,6 @@
 "Polish" = "Polish localization";
 
 "OpenSourceLibs" = "Librerie Open Source";
-"SupporterWall" = "Supporters";
 
 "Preferences" = "%@ impostazioni";
 "ManagePreferences" = "Gestione delle impostazioni";

@@ -250,6 +250,8 @@
 "PreserveSpeedDesc" = "يحافظ على السرعة المعدلة بعد اكتمال الإيماءة.";
 "SeekAnywhere" = "أسحب للبحث";
 "SeekAnywhereDesc" = "يسمح بالتحكم في التقديم والإرجاع أثناء التشغيل عن طريق السحب لليسار ولليمين.";
+"SeekAnywhereFeed" = "Seek in feed player";
+"SeekAnywhereFeedDesc" = "Swipe left or right on feed videos to seek.";
 "SeekMethod" = "طريقة البحث";
 "SeekMethodDesc" = "مستقل: تمرير سريع بحرية خلال الفيديو بالكامل، مع احترام حساسية البحث فقط.\n\nمعتمد على المدة: يعتمد التمرير على طول الفيديو وحساسية البحث، وهو مفيد لتجنب تخطي أجزاء كبيرة في الفيديوهات الطويلة.";
 "Independent" = "مستقل";
@@ -404,6 +406,9 @@
 
 "StartupAnimation" = "الرسوم المتحركة";
 "StartupAnimationDesc" = " الرسوم المتحركة الذي تظهر عند فتح الـYouTube.";
+"SelectCustomAnimation" = "Select custom animation";
+"VideoTooLong" = "Video must not exceed 10 seconds";
+"MediaNotFound" = "Media not found";
 
 "InterfaceStyle" = "نمط الواجهة";
 
@@ -590,7 +595,6 @@
 "Polish" = "ترجمها إلى اللغة البولندية";
 
 "OpenSourceLibs" = "مكتبات مفتوحة المصدر";
-"SupporterWall" = "الداعمين";
 
 "Preferences" = "إعدادات %@";
 "ManagePreferences" = "إدارة الإعدادات";

@@ -250,6 +250,8 @@
 "PreserveSpeedDesc" = "Duy trì tốc độ đã điều chỉnh sau khi thực hiện cử chỉ.";
 "SeekAnywhere" = "Vuốt để tua chính xác";
 "SeekAnywhereDesc" = "Tua chính xác bằng cách vuốt sang trái hoặc sang phải ở vị trí bất kỳ trên màn hình.";
+"SeekAnywhereFeed" = "Seek in feed player";
+"SeekAnywhereFeedDesc" = "Swipe left or right on feed videos to seek.";
 "SeekMethod" = "Phương thức tua chính xác";
 "SeekMethodDesc" = "Độc lập: Vuốt nhanh qua toàn bộ thanh thời lượng của video. Có thể điều chỉnh độ nhạy bằng thanh trượt bên dưới.\n\nDựa trên thời lượng: Độ nhạy khi vuốt sẽ dựa trên cả giá trị thanh trượt bên dưới và thời lượng của video. Từ đó, video dài sẽ cần vuốt một quãng dài hơn so với thông thường, giúp tránh việc tua quá phần video mong muốn.";
 "Independent" = "Độc lập";
@@ -404,6 +406,9 @@
 
 "StartupAnimation" = "Hoạt ảnh khởi động";
 "StartupAnimationDesc" = "Hiển thị hoạt ảnh khởi động YouTube";
+"SelectCustomAnimation" = "Select custom animation";
+"VideoTooLong" = "Video must not exceed 10 seconds";
+"MediaNotFound" = "Media not found";
 
 "InterfaceStyle" = "Kiểu giao diện";
 
@@ -590,7 +595,6 @@
 "Polish" = "Tiếng Ba Lan";
 
 "OpenSourceLibs" = "Thư viện nguồn mở";
-"SupporterWall" = "Người ủng hộ";
 
 "Preferences" = "Cài đặt %@";
 "ManagePreferences" = "Quản lý cài đặt";
