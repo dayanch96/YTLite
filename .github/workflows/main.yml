@@ -94,7 +94,7 @@ jobs:
 
     steps:
       - name: Download built debs
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: built-debs
           path: ${{ github.workspace }}
@@ -116,7 +116,6 @@ jobs:
       - name: Install cyan
         run: pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
 
-
       - name: Inject tweaks into IPA
         run: |
           tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
@@ -126,7 +125,7 @@ jobs:
           cyan -i youtube.ipa -o YouTubePlus_${{ github.event.inputs.tweak_version }}.ipa -uwef $tweaks -n "${{ github.event.inputs.display_name }}" -b ${{ github.event.inputs.bundle_id }}
 
       - name: Upload to GitHub Releases
-        uses: softprops/action-gh-release@v2.5.0
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ytp-${{ github.run_number }}
           name: YouTubePlus v${{ github.event.inputs.tweak_version }} (${{ github.run_number }})

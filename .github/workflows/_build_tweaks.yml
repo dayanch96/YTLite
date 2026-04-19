@@ -62,7 +62,7 @@ jobs:
         id: theos
         uses: actions/cache@v5
         env:
-          cache-name: theos_cache_13c2237
+          cache-name: theos_cache_9bc7340
         with:
           path: theos/
           key: ${{ env.cache-name }}
@@ -73,7 +73,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: theos/theos
-          ref: 13c22376b5d83ff759c1993de0a861e673aa522b
+          ref: 9bc73406cf80b711ef4d02c15ff1dedc4478a275
           path: theos
           submodules: recursive
 
@@ -149,7 +149,7 @@ jobs:
         run: git clone --quiet --depth=1 https://github.com/PoomSmart/YouQuality.git
 
       - name: Clone YTVideoOverlay
-        if: ${{ inputs.enable_yq || inputs.enable_youpip }}
+        if: ${{ inputs.enable_yq || inputs.enable_youpip || inputs.enable_ytuhd }}
         run: git clone --quiet --depth=1 https://github.com/PoomSmart/YTVideoOverlay.git
 
       - name: Clone DontEatMyContent
@@ -165,7 +165,7 @@ jobs:
       - name: Build YTUHD
         if: ${{ inputs.enable_ytuhd }}
         run: |
-          cd YTUHD && make clean package DEBUG=0 FINALPACKAGE=1 ARCHS=arm64
+          cd YTUHD && make clean package DEBUG=0 FINALPACKAGE=1
           mv packages/*.deb ../ytuhd.deb
 
       - name: Build Return-YouTube-Dislikes
@@ -193,7 +193,7 @@ jobs:
           mv packages/*.deb ../yq.deb
 
       - name: Build YTVideoOverlay
-        if: ${{ inputs.enable_yq || inputs.enable_youpip }}
+        if: ${{ inputs.enable_yq || inputs.enable_youpip || inputs.enable_ytuhd }}
         run: |
           cd YTVideoOverlay && make clean package DEBUG=0 FINALPACKAGE=1
           mv packages/*.deb ../ytvo.deb
@@ -213,7 +213,7 @@ jobs:
           mv *.appex ..
 
       - name: Upload built debs as artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: built-debs
           path: |

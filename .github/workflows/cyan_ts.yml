@@ -94,7 +94,7 @@ jobs:
 
     steps:
       - name: Download built debs
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: built-debs
           path: ${{ github.workspace }}
@@ -150,7 +150,7 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Upload to GitHub Releases
-        uses: softprops/action-gh-release@v2.5.0
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ytp-${{ github.run_number }}
           name: YouTubePlus v${{ github.event.inputs.tweak_version }}_cyan_trollfools (${{ github.run_number }})
