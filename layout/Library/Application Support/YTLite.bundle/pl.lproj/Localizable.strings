@@ -250,8 +250,8 @@
 "PreserveSpeedDesc" = "Zachowuje dostosowaną prędkość po zakończeniu gestu.";
 "SeekAnywhere" = "Przesuń, aby przewinąć";
 "SeekAnywhereDesc" = "Umożliwia kontrolę przewijania odtwarzania poprzez przesuwanie w lewo i prawo.";
-"SeekAnywhereFeed" = "Przewijanie w odtwarzaczu kanału";
-"SeekAnywhereFeedDesc" = "Przesuń w lewo lub w prawo na filmach w kanale, aby przewijać.";
+"SeekAnywhereFeed" = "Przewijanie w podglądzie wideo";
+"SeekAnywhereFeedDesc" = "Przesuń w lewo lub w prawo na podglądzie filmu aby przewijać.";
 "SeekMethod" = "Metoda przewijania";
 "SeekMethodDesc" = "Niezależna: Swobodne szybkie przewijanie po całym czasie trwania wideo. Respektowana jest tylko czułość przewijania.\n\nOparta na czasie: Siła przewijania będzie zależeć od długości wideo i czułości przewijania. Może to być przydatne dla długich filmów, aby zapobiec przewijaniu przez duże fragmenty wideo.";
 "Independent" = "Niezależna";
