@@ -4,6 +4,19 @@ static UIImage *YTImageNamed(NSString *imageName) {
     return [UIImage imageNamed:imageName inBundle:[NSBundle mainBundle] compatibleWithTraitCollection:nil];
 }
 
+static NSString *formattedSeekTimestamp(NSTimeInterval mediaTime) {
+    NSInteger totalSeconds = MAX(0, (NSInteger)lround(mediaTime));
+    NSInteger hours = totalSeconds / 3600;
+    NSInteger minutes = (totalSeconds % 3600) / 60;
+    NSInteger seconds = totalSeconds % 60;
+
+    if (hours > 0) {
+        return [NSString stringWithFormat:@"%ld:%02ld:%02ld", (long)hours, (long)minutes, (long)seconds];
+    }
+
+    return [NSString stringWithFormat:@"%02ld:%02ld", (long)minutes, (long)seconds];
+}
+
 // YouTube-X (https://github.com/PoomSmart/YouTube-X/)
 // Background Playback
 %hook YTIPlayabilityStatus
@@ -1321,7 +1334,13 @@ static void manageSpeedmasterYTLite(UILongPressGestureRecognizer *gesture, YTMai
 
 %hook YTMainAppVideoPlayerOverlayView
 - (void)setSeekAnywherePanGestureRecognizer:(id)arg1 {
-    if (ytlInt(@"speedIndex") == 0) return %orig;
+    %orig;
+
+    UIPanGestureRecognizer *panGesture = (UIPanGestureRecognizer *)arg1;
+    [panGesture removeTarget:self action:@selector(ytlite_updateSeekAnywhereTimestamp:)];
+    [panGesture addTarget:self action:@selector(ytlite_updateSeekAnywhereTimestamp:)];
+
+    if (ytlInt(@"speedIndex") == 0) return;
 
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(speedmasterYtLite:)];
     longPress.minimumPressDuration = 0.3;
@@ -1332,6 +1351,28 @@ static void manageSpeedmasterYTLite(UILongPressGestureRecognizer *gesture, YTMai
 - (void)speedmasterYtLite:(UILongPressGestureRecognizer *)gesture {
     YTInlinePlayerScrubUserEducationView *edu = self.scrubUserEducationView;
     manageSpeedmasterYTLite(gesture, self.delegate, edu);
+}
+
+%new
+- (void)ytlite_updateSeekAnywhereTimestamp:(UIPanGestureRecognizer *)gesture {
+    YTInlinePlayerScrubUserEducationView *edu = self.scrubUserEducationView;
+
+    if (gesture.state == UIGestureRecognizerStateEnded
+        || gesture.state == UIGestureRecognizerStateCancelled
+        || gesture.state == UIGestureRecognizerStateFailed) {
+        [edu setVisible:NO];
+        return;
+    }
+
+    if (gesture.state != UIGestureRecognizerStateBegan
+        && gesture.state != UIGestureRecognizerStateChanged) {
+        return;
+    }
+
+    YTLabel *label = [edu valueForKey:@"_userEducationLabel"];
+    edu.labelType = 1;
+    [label setValue:formattedSeekTimestamp(self.delegate.mediaTime) forKey:@"text"];
+    [edu setVisible:YES];
 }
 %end
 
