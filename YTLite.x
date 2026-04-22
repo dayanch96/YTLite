@@ -1,4 +1,5 @@
 #import "YTLite.h"
+#import <objc/runtime.h>
 
 static UIImage *YTImageNamed(NSString *imageName) {
     return [UIImage imageNamed:imageName inBundle:[NSBundle mainBundle] compatibleWithTraitCollection:nil];
@@ -1299,6 +1300,7 @@ BOOL isTabSelected = NO;
 %end
 
 CGFloat rateBeforeSpeedmaster = 1.0;
+static char kYTLSpeedmasterLongPressKey;
 
 static void manageSpeedmasterYTLite(UILongPressGestureRecognizer *gesture, YTMainAppVideoPlayerOverlayViewController *delegate, YTInlinePlayerScrubUserEducationView *edu) {
     NSArray *speedLabels = @[@0, @2.0, @0.25, @0.5, @0.75, @1.0, @1.25, @1.5, @1.75, @2.0, @3.0, @4.0, @5.0];
@@ -1321,11 +1323,23 @@ static void manageSpeedmasterYTLite(UILongPressGestureRecognizer *gesture, YTMai
 
 %hook YTMainAppVideoPlayerOverlayView
 - (void)setSeekAnywherePanGestureRecognizer:(id)arg1 {
-    if (ytlInt(@"speedIndex") == 0) return %orig;
+    %orig;
 
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(speedmasterYtLite:)];
-    longPress.minimumPressDuration = 0.3;
-    if (ytlInt(@"speedIndex") != 0) [self addGestureRecognizer:longPress];
+    UILongPressGestureRecognizer *longPress = objc_getAssociatedObject(self, &kYTLSpeedmasterLongPressKey);
+    if (ytlInt(@"speedIndex") == 0) {
+        if (longPress) {
+            [self removeGestureRecognizer:longPress];
+            objc_setAssociatedObject(self, &kYTLSpeedmasterLongPressKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        }
+        return;
+    }
+
+    if (!longPress) {
+        longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(speedmasterYtLite:)];
+        longPress.minimumPressDuration = 0.3;
+        [self addGestureRecognizer:longPress];
+        objc_setAssociatedObject(self, &kYTLSpeedmasterLongPressKey, longPress, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
 }
 
 %new
