@@ -6,6 +6,26 @@
 
 static const NSInteger YTLiteSection = 789;
 
+static NSArray<NSNumber *> *YTLControlCenterIntervals() {
+    return @[@5, @10, @15, @30, @45, @60];
+}
+
+static NSInteger YTLControlCenterInterval(NSString *key) {
+    NSInteger interval = [[YTLUserDefaults standardUserDefaults] integerForKey:key];
+    return interval > 0 ? interval : 10;
+}
+
+static NSUInteger YTLSelectedIntervalIndex(NSString *key) {
+    NSArray<NSNumber *> *intervals = YTLControlCenterIntervals();
+    NSNumber *selectedValue = @(YTLControlCenterInterval(key));
+    NSUInteger index = [intervals indexOfObject:selectedValue];
+    return index == NSNotFound ? 1 : index;
+}
+
+static NSString *YTLIntervalLabel(NSString *key) {
+    return [NSString stringWithFormat:@"%ld s", (long)YTLControlCenterInterval(key)];
+}
+
 static NSString *GetCacheSize() {
     NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
     NSArray *filesArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:cachePath error:nil];
@@ -106,6 +126,37 @@ static NSString *GetCacheSize() {
     detailTextBlock:nil
     selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
         return [%c(YTUIUtils) openURL:[NSURL URLWithString:link]];
+    }];
+}
+
+%new
+- (YTSettingsSectionItem *)intervalItemWithTitle:(NSString *)title key:(NSString *)key {
+    Class YTSettingsSectionItemClass = %c(YTSettingsSectionItem);
+    YTSettingsViewController *settingsViewController = [self valueForKey:@"_settingsViewControllerDelegate"];
+
+    return [YTSettingsSectionItemClass itemWithTitle:LOC(title)
+    accessibilityIdentifier:@"YTLiteSectionItem"
+    detailTextBlock:^NSString *() {
+        return YTLIntervalLabel(key);
+    }
+    selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+        NSMutableArray <YTSettingsSectionItem *> *rows = [NSMutableArray array];
+        NSArray<NSNumber *> *intervals = YTLControlCenterIntervals();
+
+        for (NSNumber *interval in intervals) {
+            NSString *label = [NSString stringWithFormat:@"%@ s", interval];
+            YTSettingsSectionItem *item = [YTSettingsSectionItemClass checkmarkItemWithTitle:label titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [settingsViewController reloadData];
+                ytlSetInt(interval.integerValue, key);
+                return YES;
+            }];
+
+            [rows addObject:item];
+        }
+
+        YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(title) pickerSectionTitle:nil rows:rows selectedItemIndex:YTLSelectedIntervalIndex(key) parentResponder:[self parentResponder]];
+        [settingsViewController pushViewController:picker];
+        return YES;
     }];
 }
 
@@ -231,6 +282,26 @@ static NSString *GetCacheSize() {
         }];
 
         [sectionItems addObject:player];
+
+        YTSettingsSectionItem *controlCenter = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Player.ControlCenter")
+        accessibilityIdentifier:@"YTLiteSectionItem"
+        detailTextBlock:^NSString *() {
+            return @"‣";
+        }
+        selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+            NSArray <YTSettingsSectionItem *> *rows = @[
+                [self switchWithTitle:@"RcSkipBackward" key:@"rcSkipBackward"],
+                [self intervalItemWithTitle:@"RcSkipBackward" key:@"rcSkipBackwardSec"],
+                [self switchWithTitle:@"RcSkipForward" key:@"rcSkipForward"],
+                [self intervalItemWithTitle:@"RcSkipForward" key:@"rcSkipForwardSec"]
+            ];
+
+            YTSettingsPickerViewController *picker = [[%c(YTSettingsPickerViewController) alloc] initWithNavTitle:LOC(@"Player.ControlCenter") pickerSectionTitle:nil rows:rows selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
+            [settingsViewController pushViewController:picker];
+            return YES;
+        }];
+
+        [sectionItems addObject:controlCenter];
 
         YTSettingsSectionItem *shorts = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Shorts")
         accessibilityIdentifier:@"YTLiteSectionItem"

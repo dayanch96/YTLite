@@ -29,6 +29,7 @@
 
 @interface YTSettingsSectionItemManager (Custom)
 - (YTSettingsSectionItem *)switchWithTitle:(NSString *)title key:(NSString *)key;
+- (YTSettingsSectionItem *)intervalItemWithTitle:(NSString *)title key:(NSString *)key;
 - (YTSettingsSectionItem *)linkWithTitle:(NSString *)title description:(NSString *)description link:(NSString *)link;
 - (UIImage *)resizedImageNamed:(NSString *)iconName;
 @end
