@@ -122,9 +122,10 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
 
 <details>
   <summary>YTUHD</summary>
-  <p>YTUHD is a tweak developed by <a href="https://github.com/PoomSmart">PoomSmart</a> that unlocks 1440p (2K) and 2160p (4K) resolutions in the iOS YouTube app.</p>
+  <p>YTUHD is a tweak make by <a href="https://github.com/PoomSmart">PoomSmart</a> and modify by <a href="https://github.com/Tonwalter888">Tonwalter888</a> that unlocks 1440p (2K) and 2160p (4K) resolutions in the iOS YouTube app.</p>
   <p><strong>YTUHD preferences</strong> are available in the <strong>Video quality preferences</strong> section under <strong>YouTube settings</strong>.</p>
   <p>Source code and additional information are available <a href="https://github.com/PoomSmart/YTUHD">in PoomSmart's GitHub repository</a>.</p>
+  <p>Forked code and additional information are available <a href="https://github.com/Tonwalter888/YTUHD">in Tonwalter888's GitHub repository</a>.</p>
 </details>
 
 <details>
@@ -146,4 +147,10 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
   <p>DontEatMyContent is a tweak developed by <a href="https://github.com/therealFoxster">therealFoxster</a> that prevents the Notch/Dynamic Island from munching on 2:1 video content in the iOS YouTube app.</p>
   <p><strong>DontEatMyContent preferences</strong> are available in the <strong>YouTube settings</strong>.</p>
   <p>Source code and additional information are available <a href="https://github.com/therealFoxster/DontEatMyContent">in therealFoxster's GitHub repository</a>.</p>
+</details>
+
+<details>
+  <summary>YTAnotherMiniplayer</summary>
+  <p>YTAnotherMiniplayer is a tweak developed by <a href="https://github.com/PoomSmart">PoomSmart</a> that change YouTube (20+) miniplayer to an alternative style.
+  <p>Source code and additional information are available <a href="https://github.com/PoomSmart/YTAnotherMiniplayer">in PoomSmart's GitHub repository</a>.</p>
 </details>
