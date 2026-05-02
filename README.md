@@ -147,3 +147,9 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
   <p><strong>DontEatMyContent preferences</strong> are available in the <strong>YouTube settings</strong>.</p>
   <p>Source code and additional information are available <a href="https://github.com/therealFoxster/DontEatMyContent">in therealFoxster's GitHub repository</a>.</p>
 </details>
+
+<details>
+  <summary>YTAnotherMiniplayer</summary>
+  <p>YTAnotherMiniplayer is a tweak developed by <a href="https://github.com/PoomSmart">PoomSmart</a> that change YouTube (20+) miniplayer to an alternative style.
+  <p>Source code and additional information are available <a href="https://github.com/PoomSmart/YTAnotherMiniplayer">in PoomSmart's GitHub repository</a>.</p>
+</details>

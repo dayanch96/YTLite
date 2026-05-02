@@ -33,6 +33,11 @@ on:
         required: true
         default: false
 
+      enable_ytam:
+        type: boolean
+        required: true
+        default: false
+
       tweak_version:
         type: string
         required: false
@@ -58,7 +63,7 @@ jobs:
           echo "THEOS=${{ github.workspace }}/theos" >> $GITHUB_ENV
 
       - name: Cache Theos
-        if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_ytabc || inputs.enable_demc }}
+        if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_ytabc || inputs.enable_demc || inputs.enable_ytam }}
         id: theos
         uses: actions/cache@v5
         env:
@@ -69,7 +74,7 @@ jobs:
           restore-keys: ${{ env.cache-name }}
 
       - name: Setup Theos
-        if: ${{ (inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_ytabc || inputs.enable_demc) && steps.theos.outputs.cache-hit != 'true' }}
+        if: ${{ (inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_ytabc || inputs.enable_demc || inputs.enable_ytam) && steps.theos.outputs.cache-hit != 'true' }}
         uses: actions/checkout@v6
         with:
           repository: theos/theos
@@ -103,7 +108,7 @@ jobs:
           fi
 
       - name: Clone YouTubeHeader
-        if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_ytabc || inputs.enable_demc }}
+        if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_ytabc || inputs.enable_demc || inputs.enable_ytam }}
         run: |
           if [ -d "$THEOS/include/YouTubeHeader" ]; then
             cd $THEOS/include/YouTubeHeader && git pull
@@ -116,7 +121,7 @@ jobs:
           fi
 
       - name: Clone PSHeader
-        if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_ytabc || inputs.enable_demc }}
+        if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_ytabc || inputs.enable_demc || inputs.enable_ytam }}
         run: |
           if [ -d "$THEOS/include/PSHeader" ]; then
             cd $THEOS/include/PSHeader && git pull
@@ -151,6 +156,10 @@ jobs:
       - name: Clone YTVideoOverlay
         if: ${{ inputs.enable_yq || inputs.enable_youpip || inputs.enable_ytuhd }}
         run: git clone --quiet --depth=1 https://github.com/PoomSmart/YTVideoOverlay.git
+
+      - name: Clone YTAnotherMiniplayer
+        if: ${{ inputs.enable_ytam }}
+        run: git clone --quiet --depth=1 https://github.com/PoomSmart/YTAnotherMiniplayer.git
 
       - name: Clone DontEatMyContent
         if: ${{ inputs.enable_demc }}
@@ -197,6 +206,12 @@ jobs:
         run: |
           cd YTVideoOverlay && make clean package DEBUG=0 FINALPACKAGE=1
           mv packages/*.deb ../ytvo.deb
+
+      - name: Build YTAnotherMiniplayer
+        if: ${{ inputs.enable_ytam }}
+        run: |
+          cd YTAnotherMiniplayer && make clean package DEBUG=0 FINALPACKAGE=1
+          mv packages/*.deb ../ytam.deb
 
       - name: Build DontEatMyContent
         if: ${{ inputs.enable_demc }}
