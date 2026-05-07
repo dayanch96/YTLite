@@ -1,0 +1,79 @@
+name: Build IPA
+
+on:
+  workflow_dispatch:
+    inputs:
+      ipa_url:
+        description: "Direct URL to a decrypted IPA file"
+        required: true
+        type: string
+      tweak_version:
+        description: "YouTube Plus tweak version"
+        required: true
+        default: "5.2.1"
+        type: string
+      display_name:
+        description: "Output app display name"
+        required: true
+        default: "YouTube"
+        type: string
+      bundle_id:
+        description: "Output app bundle identifier"
+        required: true
+        default: "com.google.ios.youtube"
+        type: string
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-tweaks:
+    uses: ./.github/workflows/_build_tweaks.yml
+    with:
+      enable_youpip: false
+      enable_ytuhd: false
+      enable_yq: false
+      enable_ryd: false
+      enable_ytabc: false
+      enable_demc: false
+      tweak_version: ${{ inputs.tweak_version }}
+
+  package:
+    name: Package IPA
+    runs-on: macos-latest
+    needs: build-tweaks
+
+    steps:
+      - name: Download built debs
+        uses: actions/download-artifact@v4
+        with:
+          name: built-debs
+          path: ${{ github.workspace }}
+
+      - name: Download and validate IPA
+        run: |
+          wget "${{ github.event.inputs.ipa_url }}" --no-verbose -O youtube.ipa
+          file_type=$(file --mime-type -b youtube.ipa)
+          if [[ "$file_type" != "application/x-ios-app" && "$file_type" != "application/zip" ]]; then
+            echo "::error::Validation failed: The downloaded file is not a valid IPA. Detected type: $file_type."
+            exit 1
+          fi
+
+      - name: Install cyan
+        run: pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
+
+      - name: Inject tweaks into IPA
+        run: |
+          tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
+          for f in *.deb; do
+            [ -f "$f" ] && tweaks="$tweaks $f"
+          done
+          cyan -i youtube.ipa -o YouTubePlus_${{ github.event.inputs.tweak_version }}.ipa -uwef $tweaks -n "${{ github.event.inputs.display_name }}" -b ${{ github.event.inputs.bundle_id }}
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: YouTubePlus_${{ github.event.inputs.tweak_version }}
+          path: YouTubePlus_${{ github.event.inputs.tweak_version }}.ipa
+          if-no-files-found: error
