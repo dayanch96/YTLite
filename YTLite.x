@@ -1,9 +1,5 @@
 #import "YTLite.h"
 
-static UIImage *YTImageNamed(NSString *imageName) {
-    return [UIImage imageNamed:imageName inBundle:[NSBundle mainBundle] compatibleWithTraitCollection:nil];
-}
-
 // YouTube-X (https://github.com/PoomSmart/YouTube-X/)
 // Background Playback
 %hook YTIPlayabilityStatus
