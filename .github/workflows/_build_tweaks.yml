@@ -92,6 +92,7 @@ jobs:
 
       - name: Build YTLite from source
         run: |
+          git clone --quiet --depth=1 https://github.com/PoomSmart/YouTubeHeader.git
           cd YTLiteSource && make clean package DEBUG=0 FINALPACKAGE=1
           mv packages/*.deb ../ytplus.deb
 
