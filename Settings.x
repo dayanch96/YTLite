@@ -1,4 +1,5 @@
 #import "YTLite.h"
+#import <objc/runtime.h>
 
 @interface YTSettingsSectionItemManager (YTLite)
 - (void)updateYTLiteSectionWithEntry:(id)entry;
@@ -32,7 +33,18 @@ static NSString *GetCacheSize() {
     if (insertIndex != NSNotFound) {
         [mutableOrder insertObject:@(YTLiteSection) atIndex:insertIndex + 1];
     } else {
-        // YouTube changed category numbering — insert after the first item
+        NSUInteger fallback = mutableOrder.count > 0 ? 1 : 0;
+        [mutableOrder insertObject:@(YTLiteSection) atIndex:fallback];
+    }
+    return mutableOrder;
+}
+- (NSArray *)settingsCategoryOrder {
+    NSArray *order = %orig;
+    NSMutableArray *mutableOrder = [order mutableCopy];
+    NSUInteger insertIndex = [order indexOfObject:@(1)];
+    if (insertIndex != NSNotFound) {
+        [mutableOrder insertObject:@(YTLiteSection) atIndex:insertIndex + 1];
+    } else {
         NSUInteger fallback = mutableOrder.count > 0 ? 1 : 0;
         [mutableOrder insertObject:@(YTLiteSection) atIndex:fallback];
     }
@@ -118,7 +130,22 @@ static NSString *GetCacheSize() {
 - (void)updateYTLiteSectionWithEntry:(id)entry {
     NSMutableArray *sectionItems = [NSMutableArray array];
     Class YTSettingsSectionItemClass = %c(YTSettingsSectionItem);
-    YTSettingsViewController *settingsViewController = [self valueForKey:@"_settingsViewControllerDelegate"];
+    YTSettingsViewController *settingsViewController =
+        [self valueForKey:@"_settingsViewControllerDelegate"]
+        ?: [self valueForKey:@"_settingsViewController"]
+        ?: [self valueForKey:@"_delegate"];
+    if (!settingsViewController) {
+        unsigned int ivarCount;
+        Ivar *ivars = class_copyIvarList([self class], &ivarCount);
+        for (unsigned int i = 0; i < ivarCount; i++) {
+            id val = object_getIvar(self, ivars[i]);
+            if ([val isKindOfClass:%c(YTSettingsViewController)]) {
+                settingsViewController = (YTSettingsViewController *)val;
+                break;
+            }
+        }
+        free(ivars);
+    }
 
     YTSettingsSectionItem *space = [%c(YTSettingsSectionItem) itemWithTitle:nil accessibilityIdentifier:@"YTLiteSectionItem" detailTextBlock:nil selectBlock:nil];
 
@@ -594,4 +621,23 @@ static NSString *GetCacheSize() {
     } %orig;
 }
 
+%end
+
+// Fallback: register YTLite section directly when settings view appears
+%hook YTSettingsViewController
+- (void)viewDidAppear:(BOOL)animated {
+    %orig;
+
+    id sectionItemManager = [self valueForKey:@"_sectionItemManager"]
+        ?: [self valueForKey:@"_itemManager"]
+        ?: [self valueForKey:@"_manager"];
+    if (!sectionItemManager) return;
+
+    @try { [sectionItemManager setValue:self forKey:@"_settingsViewControllerDelegate"]; }
+    @catch (NSException *e) {}
+
+    if ([sectionItemManager respondsToSelector:@selector(updateYTLiteSectionWithEntry:)]) {
+        [sectionItemManager performSelector:@selector(updateYTLiteSectionWithEntry:) withObject:nil];
+    }
+}
 %end

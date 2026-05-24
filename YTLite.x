@@ -694,32 +694,6 @@ static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *ide
 }
 %end
 
-// Remove Horizontal Video Carousel and Shorts (https://github.com/MiRO92/YTNoShorts)
-%hook YTAsyncCollectionView
-- (id)cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = %orig;
-
-    if ([cell isKindOfClass:objc_lookUpClass("_ASCollectionViewCell")]) {
-        _ASCollectionViewCell *asCell = (_ASCollectionViewCell *)cell;
-        if ([asCell respondsToSelector:@selector(node)] && ytlBool(@"hideShorts")) {
-            NSString *nodeID = [[asCell node] accessibilityIdentifier];
-            if ([nodeID isEqualToString:@"eml.shorts-grid"] || [nodeID isEqualToString:@"eml.shorts-shelf"]) {
-                [self removeCellsAtIndexPath:indexPath];
-            }
-        }
-    } else if (([cell isKindOfClass:objc_lookUpClass("YTReelShelfCell")] && ytlBool(@"hideShorts")) ||
-        ([cell isKindOfClass:objc_lookUpClass("YTHorizontalCardListCell")] && ytlBool(@"noContinueWatching"))) {
-        [self removeCellsAtIndexPath:indexPath];
-    }
-
-    return cell;
-}
-
-%new
-- (void)removeCellsAtIndexPath:(NSIndexPath *)indexPath {
-    [self deleteItemsAtIndexPaths:@[indexPath]];
-}
-%end
 
 // Shorts Progress Bar (https://github.com/PoomSmart/YTShortsProgress)
 %hook YTReelPlayerViewController
