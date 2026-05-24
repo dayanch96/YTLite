@@ -29,8 +29,13 @@ static NSString *GetCacheSize() {
     NSArray *order = %orig;
     NSMutableArray *mutableOrder = [order mutableCopy];
     NSUInteger insertIndex = [order indexOfObject:@(1)];
-    if (insertIndex != NSNotFound)
+    if (insertIndex != NSNotFound) {
         [mutableOrder insertObject:@(YTLiteSection) atIndex:insertIndex + 1];
+    } else {
+        // YouTube changed category numbering — insert after the first item
+        NSUInteger fallback = mutableOrder.count > 0 ? 1 : 0;
+        [mutableOrder insertObject:@(YTLiteSection) atIndex:fallback];
+    }
     return mutableOrder;
 }
 %end

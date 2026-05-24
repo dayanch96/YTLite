@@ -694,27 +694,22 @@ static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *ide
 }
 %end
 
-// Remove Premium Pop-up, Horizontal Video Carousel and Shorts (https://github.com/MiRO92/YTNoShorts)
+// Remove Horizontal Video Carousel and Shorts (https://github.com/MiRO92/YTNoShorts)
 %hook YTAsyncCollectionView
 - (id)cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = %orig;
 
     if ([cell isKindOfClass:objc_lookUpClass("_ASCollectionViewCell")]) {
         _ASCollectionViewCell *asCell = (_ASCollectionViewCell *)cell;
-        if ([asCell respondsToSelector:@selector(node)]) {
-            NSString *idToRemove = [[asCell node] accessibilityIdentifier];
-            if ([idToRemove isEqualToString:@"statement_banner.view"] ||
-                (([idToRemove isEqualToString:@"eml.shorts-grid"] || [idToRemove isEqualToString:@"eml.shorts-shelf"]) && ytlBool(@"hideShorts"))) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self removeCellsAtIndexPath:indexPath];
-                });
+        if ([asCell respondsToSelector:@selector(node)] && ytlBool(@"hideShorts")) {
+            NSString *nodeID = [[asCell node] accessibilityIdentifier];
+            if ([nodeID isEqualToString:@"eml.shorts-grid"] || [nodeID isEqualToString:@"eml.shorts-shelf"]) {
+                [self removeCellsAtIndexPath:indexPath];
             }
         }
     } else if (([cell isKindOfClass:objc_lookUpClass("YTReelShelfCell")] && ytlBool(@"hideShorts")) ||
         ([cell isKindOfClass:objc_lookUpClass("YTHorizontalCardListCell")] && ytlBool(@"noContinueWatching"))) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self removeCellsAtIndexPath:indexPath];
-        });
+        [self removeCellsAtIndexPath:indexPath];
     }
 
     return cell;
