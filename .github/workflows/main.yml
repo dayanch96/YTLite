@@ -41,7 +41,7 @@ on:
 
       ipa_url:
         description: "URL to the decrypted IPA file"
-        default: ""
+        default: "https://github.com/clarax98/Archivos-Sueltos/releases/download/com.google.ios.youtube_21.16.2_und3fined.ipa/com.google.ios.youtube_21.16.2_und3fined.ipa"
         required: true
         type: string
 

@@ -93,8 +93,8 @@ jobs:
       - name: Build YTLite from source
         run: |
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouTubeHeader.git
-          git clone --quiet --depth=1 --filter=blob:none --sparse https://github.com/protocolbuffers/protobuf.git protobuf
-          cd protobuf && git sparse-checkout set objectivec && cd ..
+          git clone --quiet -n --depth=1 --filter=blob:none --sparse https://github.com/protocolbuffers/protobuf.git protobuf
+          cd protobuf && git sparse-checkout set --no-cone objectivec && git checkout && cd ..
           cd YTLiteSource && make clean package DEBUG=0 FINALPACKAGE=1
           mv packages/*.deb ../ytplus.deb
 
