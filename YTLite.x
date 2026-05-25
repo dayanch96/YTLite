@@ -54,13 +54,8 @@
         NSMutableArray <YTISectionListSupportedRenderers *> *contentsArray = model.contentsArray;
         NSIndexSet *removeIndexes = [contentsArray indexesOfObjectsPassingTest:^BOOL(YTISectionListSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
             YTIItemSectionRenderer *sectionRenderer = renderers.itemSectionRenderer;
-            for (YTIItemSectionSupportedRenderers *item in sectionRenderer.contentsArray) {
-                if (item.hasPromotedVideoRenderer || item.hasCompactPromotedVideoRenderer ||
-                    item.hasPromotedVideoInlineMutedRenderer) {
-                    return YES;
-                }
-            }
-            return NO;
+            YTIItemSectionSupportedRenderers *firstObject = [sectionRenderer.contentsArray firstObject];
+            return firstObject.hasPromotedVideoRenderer || firstObject.hasCompactPromotedVideoRenderer || firstObject.hasPromotedVideoInlineMutedRenderer;
         }];
         [contentsArray removeObjectsAtIndexes:removeIndexes];
     } %orig;
