@@ -43,19 +43,6 @@
 }
 %end
 
-%hook YTSectionListViewController
-- (void)loadWithModel:(YTISectionListRenderer *)model {
-    if (ytlBool(@"noAds")) {
-        NSMutableArray <YTISectionListSupportedRenderers *> *contentsArray = model.contentsArray;
-        NSIndexSet *removeIndexes = [contentsArray indexesOfObjectsPassingTest:^BOOL(YTISectionListSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
-            YTIItemSectionRenderer *sectionRenderer = renderers.itemSectionRenderer;
-            YTIItemSectionSupportedRenderers *firstObject = [sectionRenderer.contentsArray firstObject];
-            return firstObject.hasPromotedVideoRenderer || firstObject.hasCompactPromotedVideoRenderer || firstObject.hasPromotedVideoInlineMutedRenderer;
-        }];
-        [contentsArray removeObjectsAtIndexes:removeIndexes];
-    } %orig;
-}
-%end
 
 // NOYTPremium (https://github.com/PoomSmart/NoYTPremium)
 // Alert
