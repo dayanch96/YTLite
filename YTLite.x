@@ -30,8 +30,6 @@
 
 %hook YTIElementRenderer
 - (NSData *)elementData {
-    if (self.hasCompatibilityOptions && self.compatibilityOptions.hasAdLoggingData && ytlBool(@"noAds")) return nil;
-
     NSString *description = [self description];
 
     NSArray *ads = @[@"brand_promo", @"product_carousel", @"product_engagement_panel", @"product_item", @"text_search_ad", @"text_image_button_layout", @"carousel_headered_layout", @"carousel_footered_layout", @"square_image_layout", @"landscape_image_wide_button_layout", @"feed_ad_metadata"];
@@ -42,7 +40,7 @@
     NSArray *shortsToRemove = @[@"shorts_shelf.eml", @"shorts_video_cell.eml", @"6Shorts"];
     for (NSString *shorts in shortsToRemove) {
         if (ytlBool(@"hideShorts") && [description containsString:shorts] && ![description containsString:@"history*"]) {
-            return nil;
+            return [NSData data];
         }
     }
 

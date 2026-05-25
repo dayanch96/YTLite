@@ -7,6 +7,22 @@
 
 static const NSInteger YTLiteSection = 789;
 
+// Safe ivar read: never triggers valueForUndefinedKey:
+static id ytlGetIvar(id obj, const char *name) {
+    if (!obj) return nil;
+    Class cls = [obj class];
+    while (cls) {
+        Ivar ivar = class_getInstanceVariable(cls, name);
+        if (ivar) {
+            const char *type = ivar_getTypeEncoding(ivar);
+            if (type && type[0] == '@') return object_getIvar(obj, ivar);
+            return nil;
+        }
+        cls = class_getSuperclass(cls);
+    }
+    return nil;
+}
+
 static NSString *GetCacheSize() {
     NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
     NSArray *filesArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:cachePath error:nil];
@@ -28,6 +44,7 @@ static NSString *GetCacheSize() {
 %hook YTAppSettingsPresentationData
 + (NSArray *)settingsCategoryOrder {
     NSArray *order = %orig;
+    if ([order containsObject:@(YTLiteSection)]) return order;
     NSMutableArray *mutableOrder = [order mutableCopy];
     NSUInteger insertIndex = [order indexOfObject:@(1)];
     if (insertIndex != NSNotFound) {
@@ -40,6 +57,7 @@ static NSString *GetCacheSize() {
 }
 - (NSArray *)settingsCategoryOrder {
     NSArray *order = %orig;
+    if ([order containsObject:@(YTLiteSection)]) return order;
     NSMutableArray *mutableOrder = [order mutableCopy];
     NSUInteger insertIndex = [order indexOfObject:@(1)];
     if (insertIndex != NSNotFound) {
@@ -63,13 +81,13 @@ static NSString *GetCacheSize() {
     %orig;
 
     BOOL isYTLite = [self.accessibilityIdentifier isEqualToString:@"YTLiteSectionItem"];
-    YTTouchFeedbackController *feedback = [self valueForKey:@"_touchFeedbackController"];
-    ABCSwitch *abcSwitch = [self valueForKey:@"_switch"];
+    if (!isYTLite) return;
 
-    if (isYTLite) {
-        feedback.feedbackColor = [UIColor colorWithRed:0.75 green:0.50 blue:0.90 alpha:1.0];
-        abcSwitch.onTintColor = [UIColor colorWithRed:0.75 green:0.50 blue:0.90 alpha:1.0];
-    }
+    YTTouchFeedbackController *feedback = ytlGetIvar(self, "_touchFeedbackController");
+    ABCSwitch *abcSwitch = ytlGetIvar(self, "_switch");
+
+    feedback.feedbackColor = [UIColor colorWithRed:0.75 green:0.50 blue:0.90 alpha:1.0];
+    abcSwitch.onTintColor = [UIColor colorWithRed:0.75 green:0.50 blue:0.90 alpha:1.0];
 }
 %end
 
@@ -131,13 +149,15 @@ static NSString *GetCacheSize() {
     NSMutableArray *sectionItems = [NSMutableArray array];
     Class YTSettingsSectionItemClass = %c(YTSettingsSectionItem);
     YTSettingsViewController *settingsViewController =
-        [self valueForKey:@"_settingsViewControllerDelegate"]
-        ?: [self valueForKey:@"_settingsViewController"]
-        ?: [self valueForKey:@"_delegate"];
+        ytlGetIvar(self, "_settingsViewControllerDelegate")
+        ?: ytlGetIvar(self, "_settingsViewController")
+        ?: ytlGetIvar(self, "_delegate");
     if (!settingsViewController) {
         unsigned int ivarCount;
         Ivar *ivars = class_copyIvarList([self class], &ivarCount);
         for (unsigned int i = 0; i < ivarCount; i++) {
+            const char *type = ivar_getTypeEncoding(ivars[i]);
+            if (!type || type[0] != '@') continue;
             id val = object_getIvar(self, ivars[i]);
             if ([val isKindOfClass:%c(YTSettingsViewController)]) {
                 settingsViewController = (YTSettingsViewController *)val;
@@ -623,21 +643,3 @@ static NSString *GetCacheSize() {
 
 %end
 
-// Fallback: register YTLite section directly when settings view appears
-%hook YTSettingsViewController
-- (void)viewDidAppear:(BOOL)animated {
-    %orig;
-
-    id sectionItemManager = [self valueForKey:@"_sectionItemManager"]
-        ?: [self valueForKey:@"_itemManager"]
-        ?: [self valueForKey:@"_manager"];
-    if (!sectionItemManager) return;
-
-    @try { [sectionItemManager setValue:self forKey:@"_settingsViewControllerDelegate"]; }
-    @catch (NSException *e) {}
-
-    if ([sectionItemManager respondsToSelector:@selector(updateYTLiteSectionWithEntry:)]) {
-        [sectionItemManager performSelector:@selector(updateYTLiteSectionWithEntry:) withObject:nil];
-    }
-}
-%end
