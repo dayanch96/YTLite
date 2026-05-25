@@ -58,8 +58,7 @@
             YTIItemSectionRenderer *sectionRenderer = renderers.itemSectionRenderer;
             for (YTIItemSectionSupportedRenderers *item in sectionRenderer.contentsArray) {
                 if (item.hasPromotedVideoRenderer || item.hasCompactPromotedVideoRenderer ||
-                    item.hasPromotedVideoInlineMutedRenderer || item.hasAdSlotRenderer ||
-                    item.hasPromotedSparklesVideoRenderer || item.hasPromotedSparklesTextSearchRenderer) {
+                    item.hasPromotedVideoInlineMutedRenderer) {
                     return YES;
                 }
             }
