@@ -730,3 +730,7 @@
 "Conflicts.CloseYT" = "關閉YouTube";
 
 "DonationReminder" = "您的支持有助於讓YouTube Plus變得更好。\n\n你可以在YouTube Plus的設定裡面，選擇捐款或關閉這些通知。謝謝你💜";
+
+"Version" = "版本";
+"Advanced" = "進階";
+"AdvancedModeReminder" = "%1$@ 擁有 %3$@ 模式。\n\n是否啟用以解鎖額外的自訂選項？";

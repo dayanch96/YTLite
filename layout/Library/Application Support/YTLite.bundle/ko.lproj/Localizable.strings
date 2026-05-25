@@ -746,3 +746,6 @@
 "SpeedLocation" = "활성화 위치 속도 향상";
 "TabIsHidden" = "숨겨진 탭은 시작 페이지로 선택할 수 없습니다";
 "TabIsStartupTab" = "시작 페이지로 선택된 탭은 숨길 수 없습니다";
+"Version" = "버전";
+"Advanced" = "고급";
+"AdvancedModeReminder" = "%1$@에는 %3$@ 모드가 있습니다.\n\n추가 사용자 정의 옵션을 사용하려면 활성화하시겠습니까?";

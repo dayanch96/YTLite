@@ -746,3 +746,6 @@
 "SpeedLocation" = "Vị trí khu vực thao tác";
 "TabIsHidden" = "Không thể chọn tab đã ẩn làm trang khởi động";
 "TabIsStartupTab" = "Không thể ẩn tab đã chọn làm trang khởi động";
+"Version" = "Phiên bản";
+"Advanced" = "Nâng cao";
+"AdvancedModeReminder" = "%1$@ có Chế độ %3$@.\n\nBạn có muốn bật nó để mở khóa các tùy chọn tùy chỉnh bổ sung không?";

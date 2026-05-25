@@ -744,3 +744,6 @@
 "PremiumYTLogo" = "Afficher le logo YouTube Premium";
 "PremiumYTLogoDesc" = "Affiche le logo YouTube Premium dans la barre de navigation.";
 "SpeedLocation" = "Emplacement d'activation";
+"Version" = "Version";
+"Advanced" = "Avancé";
+"AdvancedModeReminder" = "%1$@ dispose d'un Mode %3$@.\n\nVoulez-vous l'activer pour débloquer des options de personnalisation supplémentaires ?";

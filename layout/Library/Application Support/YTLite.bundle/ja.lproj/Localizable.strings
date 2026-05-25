@@ -744,3 +744,6 @@
 "PremiumYTLogo" = "YouTube Premium ロゴに置換";
 "PremiumYTLogoDesc" = "ナビゲーションバーのロゴを「YouTube Premium」に置き換えます。";
 "SpeedLocation" = "再生速度の高速化の起動位置";
+"Version" = "バージョン";
+"Advanced" = "アドバンスト";
+"AdvancedModeReminder" = "%1$@には%3$@モードがあります。\n\n追加のカスタマイズオプションを利用するために有効にしますか？";

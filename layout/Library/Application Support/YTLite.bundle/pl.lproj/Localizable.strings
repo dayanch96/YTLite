@@ -730,3 +730,7 @@
 "Conflicts.CloseYT" = "Zamknij YouTube";
 
 "DonationReminder" = "Twoje wsparcie pomaga uczynić YouTube Plus jeszcze lepszym.\n\nMożesz wesprzeć lub wybrać wyłączenie tych powiadomień w ustawieniach YouTube Plus. Dziękuję💜";
+
+"Version" = "Wersja";
+"Advanced" = "Zaawansowany";
+"AdvancedModeReminder" = "%1$@ posiada tryb %3$@.\n\nCzy chcesz go włączyć, aby uzyskać dostęp do dodatkowych opcji personalizacji?";

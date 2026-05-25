@@ -730,3 +730,7 @@
 "Conflicts.CloseYT" = "YouTube'u Kapat";
 
 "DonationReminder" = "Desteğiniz, YouTube Plus'ı daha da iyi hale getirmeme yardımcı oluyor.\n\nDoğrudan katkıda bulunabilir veya bu bildirimleri YouTube Plus ayarlarında devre dışı bırakabilirsiniz. Teşekkürler💜";
+
+"Version" = "Sürüm";
+"Advanced" = "Gelişmiş";
+"AdvancedModeReminder" = "%1$@'da %3$@ Modu bulunuyor.\n\nEk özelleştirme seçeneklerine erişmek için etkinleştirmek ister misiniz?";

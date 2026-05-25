@@ -746,3 +746,6 @@
 "SpeedLocation" = "Zona di attivazione della velocizzazione";
 "TabIsHidden" = "Le tab nascoste non possono essere scelte come Pagina di avvio";
 "TabIsStartupTab" = "La tab selezionata come pagina di avvio non può essere nascosta";
+"Version" = "Versione";
+"Advanced" = "Avanzato";
+"AdvancedModeReminder" = "%1$@ ha una Modalità %3$@.\n\nVuoi abilitarla per sbloccare opzioni di personalizzazione aggiuntive?";

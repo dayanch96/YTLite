@@ -749,3 +749,6 @@
 "Show current image" = "عرض الصور الحالية";
 "Show profile picture" = "عرض صورة الملف الشخصي";
 "Show thumbnail" = "عرض الصورة المصغرة";
+"Version" = "الإصدار";
+"Advanced" = "متقدم";
+"AdvancedModeReminder" = "%1$@ يحتوي على وضع %3$@.\n\nهل تريد تفعيله للوصول إلى خيارات التخصيص الإضافية؟";
