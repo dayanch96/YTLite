@@ -32,11 +32,9 @@
 - (NSData *)elementData {
     NSString *description = [self description];
 
-    if (ytlBool(@"noAds")) {
-        NSArray *ads = @[@"brand_promo", @"product_carousel", @"product_engagement_panel", @"product_item", @"text_search_ad", @"text_image_button_layout", @"carousel_headered_layout", @"carousel_footered_layout", @"square_image_layout", @"landscape_image_wide_button_layout", @"feed_ad_metadata", @"promoted_video", @"promoted_sparkles", @"ad_slot", @"ads_engagement_panel"];
-        for (NSString *ad in ads) {
-            if ([description containsString:ad]) return [NSData data];
-        }
+    NSArray *ads = @[@"brand_promo", @"product_carousel", @"product_engagement_panel", @"product_item", @"text_search_ad", @"text_image_button_layout", @"carousel_headered_layout", @"carousel_footered_layout", @"square_image_layout", @"landscape_image_wide_button_layout", @"feed_ad_metadata"];
+    if (ytlBool(@"noAds") && [ads containsObject:description]) {
+        return [NSData data];
     }
 
     NSArray *shortsToRemove = @[@"shorts_shelf.eml", @"shorts_video_cell.eml", @"6Shorts"];
