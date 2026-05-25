@@ -28,20 +28,6 @@
 - (void)decorateContext:(id)context { if (!ytlBool(@"noAds")) %orig; }
 %end
 
-%hook YTIElementRenderer
-- (NSData *)elementData {
-    NSString *description = [self description];
-
-    NSArray *shortsToRemove = @[@"shorts_shelf.eml", @"shorts_video_cell.eml", @"6Shorts"];
-    for (NSString *shorts in shortsToRemove) {
-        if (ytlBool(@"hideShorts") && [description containsString:shorts] && ![description containsString:@"history*"]) {
-            return nil;
-        }
-    }
-
-    return %orig;
-}
-%end
 
 
 // NOYTPremium (https://github.com/PoomSmart/NoYTPremium)
