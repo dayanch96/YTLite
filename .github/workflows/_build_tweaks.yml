@@ -33,6 +33,11 @@ on:
         required: true
         default: false
 
+      enable_localization:
+        type: boolean
+        required: true
+        default: false
+
       tweak_version:
         type: string
         required: false
@@ -49,6 +54,9 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      - uses: actions/checkout@v6
+        if: ${{ inputs.enable_localization }}
+
       - name: Install Dependencies
         run: brew install make ldid dpkg
 
@@ -211,6 +219,20 @@ jobs:
           git sparse-checkout set --no-cone OpenYoutubeSafariExtension.appex
           git checkout
           mv *.appex ..
+
+      - name: Update localization
+        if: ${{ inputs.enable_localization }}
+        run: |
+          mkdir debdir
+          dpkg-deb -R ytplus.deb debdir
+          rm ytplus.deb
+          find "layout/Library/Application Support/YTLite.bundle" \
+            -mindepth 1 -maxdepth 1 -type d -name "*.lproj" -not -name "en.lproj" \
+            -exec cp -R "{}" "debdir/Library/Application Support/YTLite.bundle/" \;
+          cd debdir/
+          find . -type f -not -path "./DEBIAN/*" -exec md5sum {} + | sort -k 2 | sed 's/\.\/\(.*\)/\1/' > DEBIAN/md5sums
+          cd ../
+          dpkg-deb --root-owner-group -b debdir ytplus.deb
 
       - name: Upload built debs as artifacts
         uses: actions/upload-artifact@v7
