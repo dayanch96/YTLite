@@ -490,6 +490,10 @@
 "Player.Skip.Tracks" = "Пред./След.";
 "Player.Skip.Seek" = "-10 сек./+10 сек.";
 "Player.Skip.Disabled" = "Откл.";
+"Player.Ambient" = "Фоновая подсветка";
+"Player.Ambient.Soft" = "Мягкая";
+"Player.Ambient.Medium" = "Средняя";
+"Player.Ambient.Maximum" = "Максимальная";
 "Player.FullscreenDirection" = "Сторона разворота";
 "Player.Direction.Default" = "Обычная";
 "Player.Direction.Inverted" = "Перевёрнутая";

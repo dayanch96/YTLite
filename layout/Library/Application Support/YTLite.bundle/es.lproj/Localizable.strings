@@ -490,6 +490,10 @@
 "Player.Skip.Tracks" = "Previous and Next";
 "Player.Skip.Seek" = "Fast forward and rewind";
 "Player.Skip.Disabled" = "Disable";
+"Player.Ambient" = "Ambient mode";
+"Player.Ambient.Soft" = "Soft";
+"Player.Ambient.Medium" = "Medium";
+"Player.Ambient.Maximum" = "Maximum";
 "Player.FullscreenDirection" = "Fullscreen direction";
 "Player.Direction.Default" = "Default";
 "Player.Direction.Inverted" = "Inverted";
