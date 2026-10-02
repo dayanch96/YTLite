@@ -113,6 +113,17 @@ jobs:
             exit 1
           fi
 
+      - name: Patch Info.plist
+        run: |
+          unzip -q youtube.ipa -d ipa_tmp
+          plist="$(find ipa_tmp/Payload -maxdepth 1 -name '*.app' | head -n 1)/Info.plist"
+          /usr/libexec/PlistBuddy -c "Delete :UIDesignRequiresCompatibility" "$plist" 2>/dev/null || true
+          /usr/libexec/PlistBuddy -c "Delete :NSFaceIDUsageDescription" "$plist" 2>/dev/null || true
+          /usr/libexec/PlistBuddy -c "Add :NSFaceIDUsageDescription string 'Face ID is required to authenticate.'" "$plist"
+          rm youtube.ipa
+          (cd ipa_tmp && zip -qry ../youtube.ipa .)
+          rm -rf ipa_tmp
+
       - name: Install cyan
         run: pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
 
