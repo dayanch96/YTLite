@@ -6,6 +6,11 @@
 
 static const NSInteger YTLiteSection = 789;
 
+static NSString *SafeLabel(NSArray <NSString *> *labels, NSString *key) {
+    NSInteger index = ytlInt(key);
+    return (index >= 0 && index < (NSInteger)labels.count) ? labels[index] : labels.firstObject;
+}
+
 static NSString *GetCacheSize() {
     NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
     NSArray *filesArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:cachePath error:nil];
@@ -14,7 +19,7 @@ static NSString *GetCacheSize() {
     for (NSString *fileName in filesArray) {
         NSString *filePath = [cachePath stringByAppendingPathComponent:fileName];
         NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
-        folderSize += [fileAttributes fileSize];
+        if ([fileAttributes.fileType isEqualToString:NSFileTypeRegular]) folderSize += [fileAttributes fileSize];
     }
 
     NSByteCountFormatter *formatter = [[NSByteCountFormatter alloc] init];
@@ -341,7 +346,7 @@ static NSString *GetCacheSize() {
         accessibilityIdentifier:@"YTLiteSectionItem"
         detailTextBlock:^NSString *() {
             NSArray *speedLabels = @[LOC(@"Disabled"), LOC(@"Default"), @"0.25×", @"0.5×", @"0.75×", @"1.0×", @"1.25×", @"1.5×", @"1.75×", @"2.0×", @"3.0×", @"4.0×", @"5.0×"];
-            return speedLabels[ytlInt(@"speedIndex")];
+            return SafeLabel(speedLabels, @"speedIndex");
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             NSMutableArray <YTSettingsSectionItem *> *rows = [NSMutableArray array];
@@ -350,8 +355,8 @@ static NSString *GetCacheSize() {
             for (NSUInteger i = 0; i < speedLabels.count; i++) {
                 NSString *title = speedLabels[i];
                 YTSettingsSectionItem *item = [YTSettingsSectionItemClass checkmarkItemWithTitle:title titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [settingsViewController reloadData];
                     ytlSetInt((int)arg1, @"speedIndex");
+                    [settingsViewController reloadData];
                     return YES;
                 }];
 
@@ -369,7 +374,7 @@ static NSString *GetCacheSize() {
         accessibilityIdentifier:@"YTLiteSectionItem"
         detailTextBlock:^NSString *() {
             NSArray *speedLabels = @[@"0.25×", @"0.5×", @"0.75×", @"1.0×", @"1.25×", @"1.5×", @"1.75×", @"2.0×", @"3.0×", @"4.0×", @"5.0×"];
-            return speedLabels[ytlInt(@"autoSpeedIndex")];
+            return SafeLabel(speedLabels, @"autoSpeedIndex");
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             NSMutableArray <YTSettingsSectionItem *> *rows = [NSMutableArray array];
@@ -378,8 +383,8 @@ static NSString *GetCacheSize() {
             for (NSUInteger i = 0; i < speedLabels.count; i++) {
                 NSString *title = speedLabels[i];
                 YTSettingsSectionItem *item = [YTSettingsSectionItemClass checkmarkItemWithTitle:title titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [settingsViewController reloadData];
                     ytlSetInt((int)arg1, @"autoSpeedIndex");
+                    [settingsViewController reloadData];
                     return YES;
                 }];
                 [rows addObject:item];
@@ -396,7 +401,7 @@ static NSString *GetCacheSize() {
         accessibilityIdentifier:@"YTLiteSectionItem"
         detailTextBlock:^NSString *() {
             NSArray *qualityLabels = @[LOC(@"Default"), LOC(@"Best"), @"2160p60", @"2160p", @"1440p60", @"1440p", @"1080p60", @"1080p", @"720p60", @"720p", @"480p", @"360p"];
-            return qualityLabels[ytlInt(@"wiFiQualityIndex")];
+            return SafeLabel(qualityLabels, @"wiFiQualityIndex");
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             NSMutableArray <YTSettingsSectionItem *> *rows = [NSMutableArray array];
@@ -405,8 +410,8 @@ static NSString *GetCacheSize() {
             for (NSUInteger i = 0; i < qualityLabels.count; i++) {
                 NSString *title = qualityLabels[i];
                 YTSettingsSectionItem *item = [YTSettingsSectionItemClass checkmarkItemWithTitle:title titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [settingsViewController reloadData];
                     ytlSetInt((int)arg1, @"wiFiQualityIndex");
+                    [settingsViewController reloadData];
                     return YES;
                 }];
 
@@ -424,7 +429,7 @@ static NSString *GetCacheSize() {
         accessibilityIdentifier:@"YTLiteSectionItem"
         detailTextBlock:^NSString *() {
             NSArray *qualityLabels = @[LOC(@"Default"), LOC(@"Best"), @"2160p60", @"2160p", @"1440p60", @"1440p", @"1080p60", @"1080p", @"720p60", @"720p", @"480p", @"360p"];
-            return qualityLabels[ytlInt(@"cellQualityIndex")];
+            return SafeLabel(qualityLabels, @"cellQualityIndex");
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             NSMutableArray <YTSettingsSectionItem *> *rows = [NSMutableArray array];
@@ -433,8 +438,8 @@ static NSString *GetCacheSize() {
             for (NSUInteger i = 0; i < qualityLabels.count; i++) {
                 NSString *title = qualityLabels[i];
                 YTSettingsSectionItem *item = [YTSettingsSectionItemClass checkmarkItemWithTitle:title titleDescription:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    [settingsViewController reloadData];
                     ytlSetInt((int)arg1, @"cellQualityIndex");
+                    [settingsViewController reloadData];
                     return YES;
                 }];
 
@@ -452,7 +457,7 @@ static NSString *GetCacheSize() {
         accessibilityIdentifier:@"YTLiteSectionItem"
         detailTextBlock:^NSString *() {
             NSArray *tabLabels = @[LOC(@"Home"), LOC(@"Explore"), LOC(@"ShortsTab"), LOC(@"Subscriptions"), LOC(@"Library")];
-            return tabLabels[ytlInt(@"pivotIndex")];
+            return SafeLabel(tabLabels, @"pivotIndex");
         }
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             NSMutableArray <YTSettingsSectionItem *> *rows = [NSMutableArray array];
@@ -471,8 +476,8 @@ static NSString *GetCacheSize() {
                             [alertView show];
                             return NO;
                     } else {
-                        [settingsViewController reloadData];
                         ytlSetInt((int)arg1, @"pivotIndex");
+                        [settingsViewController reloadData];
                         return YES;
                     }
                 }];
@@ -579,12 +584,18 @@ static NSString *GetCacheSize() {
                 [self switchWithTitle:@"Advanced" key:@"advancedMode"],
 
                 [%c(YTSettingsSectionItem) itemWithTitle:LOC(@"ClearCache") titleDescription:nil accessibilityIdentifier:@"YTLiteSectionItem" detailTextBlock:^NSString *() { return GetCacheSize(); } selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
-                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0), ^{
+                        NSFileManager *fileManager = [NSFileManager defaultManager];
                         NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
-                        [[NSFileManager defaultManager] removeItemAtPath:cachePath error:nil];
-                    });
+                        for (NSString *item in [fileManager contentsOfDirectoryAtPath:cachePath error:nil]) {
+                            [fileManager removeItemAtPath:[cachePath stringByAppendingPathComponent:item] error:nil];
+                        }
 
-                    [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Done") firstResponder:[self parentResponder]] send];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [settingsViewController reloadData];
+                            [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Done") firstResponder:[self parentResponder]] send];
+                        });
+                    });
 
                     return YES;
                 }],
@@ -592,10 +603,12 @@ static NSString *GetCacheSize() {
                 [%c(YTSettingsSectionItem) itemWithTitle:LOC(@"ResetSettings") titleDescription:nil accessibilityIdentifier:@"YTLiteSectionItem" detailTextBlock:nil selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     YTAlertView *alertView = [%c(YTAlertView) confirmationDialogWithAction:^{
                         [YTLUserDefaults resetUserDefaults];
+                        [[YTLUserDefaults standardUserDefaults] synchronize];
 
                         [[UIApplication sharedApplication] performSelector:@selector(suspend)];
-                        [NSThread sleepForTimeInterval:1.0];
-                        exit(0);
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            exit(0);
+                        });
                     }
                     actionTitle:LOC(@"Yes")
                     cancelTitle:LOC(@"No")];
