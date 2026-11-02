@@ -1,12 +1,13 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
+#import <objc/runtime.h>
 #import "Utils/NSBundle+YTLite.h"
 #import "Utils/YTLUserDefaults.h"
 #import "Utils/Reachability.h"
 #import "YouTubeHeaders.h"
 
-#define LOC(key) [NSBundle.ytl_defaultBundle localizedStringForKey:key value:nil table:nil]
+#define LOC(key) [NSBundle ytl_localizedStringForKey:key]
 
 #define ytlBool(key) [[YTLUserDefaults standardUserDefaults] boolForKey:key]
 #define ytlInt(key) [[YTLUserDefaults standardUserDefaults] integerForKey:key]
@@ -280,6 +281,7 @@
 
 @interface YTVarispeedSwitchControllerOption : NSObject
 - (id)initWithTitle:(NSString *)title rate:(float)rate;
+@property (nonatomic, assign, readonly) float rate;
 @end
 
 @interface YTVarispeedSwitchController : NSObject
