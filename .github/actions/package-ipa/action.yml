@@ -1,0 +1,84 @@
+name: Package IPA
+description: Waits for the IPA started by the workflow, patches it and injects the prepared tweaks with cyan
+
+inputs:
+  output:
+    required: true
+  display_name:
+    default: "YouTube"
+  bundle_id:
+    default: "com.google.ios.youtube"
+
+runs:
+  using: composite
+  steps:
+    - name: Wait for IPA and cyan
+      shell: bash
+      run: |
+        for i in $(seq 1 900); do
+          [ -f .ipa.done ] && [ -f .cyan.done ] && break
+          if [ -f .ipa.failed ]; then
+            echo "::error::IPA download failed"
+            cat .logs/ipa.log 2>/dev/null
+            exit 1
+          fi
+          if [ -f .cyan.failed ]; then
+            echo "::error::cyan install failed"
+            cat .logs/cyan.log 2>/dev/null
+            exit 1
+          fi
+          sleep 1
+        done
+        if [ ! -f .ipa.done ] || [ ! -f .cyan.done ]; then
+          echo "::error::Timed out waiting for the IPA download or cyan install"
+          exit 1
+        fi
+
+    - name: Validate and patch IPA
+      shell: bash
+      run: |
+        file_type=$(file --mime-type -b youtube.ipa)
+        if [[ "$file_type" != "application/x-ios-app" && "$file_type" != "application/zip" ]]; then
+          echo "::error::The downloaded file is not a valid IPA (detected: $file_type)."
+          exit 1
+        fi
+
+        rm -rf ipa_tmp
+        unzip -q youtube.ipa -d ipa_tmp
+        rm youtube.ipa
+
+        app_dir="$(find ipa_tmp/Payload -maxdepth 1 -name '*.app' | head -n 1)"
+        if [ -z "$app_dir" ]; then
+          echo "::error::No .app found in the IPA Payload folder."
+          exit 1
+        fi
+
+        plist="$app_dir/Info.plist"
+        executable="$app_dir/$(/usr/libexec/PlistBuddy -c 'Print :CFBundleExecutable' "$plist")"
+        if otool -l "$executable" | grep -A4 LC_ENCRYPTION_INFO | grep -q "cryptid 1"; then
+          echo "::error::The IPA is encrypted. Use a decrypted IPA."
+          exit 1
+        fi
+
+        /usr/libexec/PlistBuddy -c "Delete :UIDesignRequiresCompatibility" "$plist" 2>/dev/null || true
+        /usr/libexec/PlistBuddy -c "Delete :NSFaceIDUsageDescription" "$plist" 2>/dev/null || true
+        /usr/libexec/PlistBuddy -c "Add :NSFaceIDUsageDescription string 'Face ID is required to authenticate.'" "$plist"
+
+        echo "APP_DIR=$app_dir" >> "$GITHUB_ENV"
+        echo "YouTube $(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$plist")"
+
+    - name: Inject tweaks
+      shell: bash
+      env:
+        OUTPUT: ${{ inputs.output }}
+        DISPLAY_NAME: ${{ inputs.display_name }}
+        BUNDLE_ID: ${{ inputs.bundle_id }}
+      run: |
+        tweaks=(ytplus.deb OpenYouTubeSafariExtension.appex)
+        for f in *.deb; do
+          if [ -f "$f" ] && [ "$f" != "ytplus.deb" ]; then tweaks+=("$f"); fi
+        done
+        echo "Injecting: ${tweaks[*]}"
+        cyan -i "$APP_DIR" -o "$OUTPUT" -uwef "${tweaks[@]}" -n "$DISPLAY_NAME" -b "$BUNDLE_ID"
+        rm -rf ipa_tmp
+        ls -lh "$OUTPUT"

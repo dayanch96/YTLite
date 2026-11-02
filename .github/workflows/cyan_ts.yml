@@ -51,8 +51,14 @@ on:
         required: true
         default: false
 
+      source_build:
+        description: "Build YTLite from this fork's source instead of downloading the release deb"
+        type: boolean
+        required: true
+        default: false
+
       tweak_version:
-        description: "The version of the tweak to use. Enter the version manually from dayanch96/YTLite/releases or leave default"
+        description: "The version of the tweak to use (ignored with source build). Enter the version manually from dayanch96/YTLite/releases or leave default"
         default: "5.2.2"
         required: true
         type: string
@@ -83,11 +89,13 @@ jobs:
       enable_ryd: ${{ inputs.enable_ryd }}
       enable_ytabc: ${{ inputs.enable_ytabc }}
       enable_demc: ${{ inputs.enable_demc }}
+      enable_localization: false
+      source_build: ${{ inputs.source_build }}
       tweak_version: ${{ inputs.tweak_version }}
 
   package:
     name: Generate Cyan/TrollFools
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     needs: build-tweaks
     permissions:
       contents: write
@@ -107,11 +115,8 @@ jobs:
 
       - name: Restore Safari extension
         run: |
-          tar -xf OpenYoutubeSafariExtension.appex.tar
-          rm OpenYoutubeSafariExtension.appex.tar
-
-      - name: Install Dependencies
-        run: brew install dpkg
+          tar -xf OpenYouTubeSafariExtension.appex.tar
+          rm OpenYouTubeSafariExtension.appex.tar
 
       - name: Install cyan
         if: ${{ inputs.create_cyan }}
@@ -123,12 +128,12 @@ jobs:
           DISPLAY_NAME: ${{ inputs.display_name }}
           BUNDLE_ID: ${{ inputs.bundle_id }}
         run: |
-          tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
+          tweaks="ytplus.deb OpenYouTubeSafariExtension.appex"
           for f in *.deb; do
             if [ -f "$f" ] && [ "$f" != "ytplus.deb" ]; then tweaks="$tweaks $f"; fi
           done
           echo "Injecting: $tweaks"
-          cgen -uwef $tweaks -n "$DISPLAY_NAME" -b "$BUNDLE_ID" -o cyan_YouTubePlus_${{ github.event.inputs.tweak_version }}.cyan
+          cgen -uwef $tweaks -n "$DISPLAY_NAME" -b "$BUNDLE_ID" -o cyan_YouTubePlus_${{ needs.build-tweaks.outputs.tweak_label }}.cyan
 
       - name: Generate .zip file for TrollFools
         if: ${{ inputs.create_tf }}
@@ -144,7 +149,7 @@ jobs:
             fi
           done
           cd ytp_tf
-          zip -r "../TrollFools_YouTubePlus_${{ github.event.inputs.tweak_version }}.zip" .
+          zip -r "../TrollFools_YouTubePlus_${{ needs.build-tweaks.outputs.tweak_label }}.zip" .
           cd ..
           rm -rf ytp_tf
 
@@ -152,8 +157,8 @@ jobs:
         id: filelist
         run: |
           files=""
-          [ "${{ inputs.create_cyan }}" = "true" ] && files="${files}cyan_YouTubePlus_${{ github.event.inputs.tweak_version }}.cyan"$'\n'
-          [ "${{ inputs.create_tf }}" = "true" ]   && files="${files}TrollFools_YouTubePlus_${{ github.event.inputs.tweak_version }}.zip"$'\n'
+          [ "${{ inputs.create_cyan }}" = "true" ] && files="${files}cyan_YouTubePlus_${{ needs.build-tweaks.outputs.tweak_label }}.cyan"$'\n'
+          [ "${{ inputs.create_tf }}" = "true" ]   && files="${files}TrollFools_YouTubePlus_${{ needs.build-tweaks.outputs.tweak_label }}.zip"$'\n'
           echo -e "files<<EOF" >> $GITHUB_OUTPUT
           echo -e "$files" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
@@ -162,7 +167,7 @@ jobs:
         uses: softprops/action-gh-release@v3
         with:
           tag_name: ytp-cyan-tf-${{ github.run_number }}
-          name: YouTubePlus v${{ github.event.inputs.tweak_version }}_cyan_trollfools (${{ github.run_number }})
+          name: YouTubePlus v${{ needs.build-tweaks.outputs.tweak_label }}_cyan_trollfools (${{ github.run_number }})
           files: ${{ steps.filelist.outputs.files }}
           draft: true
 

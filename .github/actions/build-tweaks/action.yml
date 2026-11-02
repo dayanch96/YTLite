@@ -1,0 +1,327 @@
+name: Build tweaks
+description: Prepares YouTube Plus and the optional tweaks as debs in the workspace root
+
+inputs:
+  source_dir:
+    description: Path of this repository checkout, relative to the workspace
+    required: true
+  source_build:
+    default: "false"
+  enable_youpip:
+    default: "false"
+  enable_ytuhd:
+    default: "false"
+  enable_yq:
+    default: "false"
+  enable_ryd:
+    default: "false"
+  enable_ytabc:
+    default: "false"
+  enable_demc:
+    default: "false"
+  enable_localization:
+    default: "false"
+  tweak_version:
+    default: ""
+  tweak_url:
+    default: ""
+
+outputs:
+  tweak_label:
+    description: Version label of the YouTube Plus deb that was prepared
+    value: ${{ steps.plan.outputs.tweak_label }}
+
+runs:
+  using: composite
+  steps:
+    - name: Plan
+      id: plan
+      shell: bash
+      env:
+        SOURCE_BUILD: ${{ inputs.source_build }}
+        TWEAK_VERSION: ${{ inputs.tweak_version }}
+        TWEAK_URL: ${{ inputs.tweak_url }}
+        SOURCE_DIR: ${{ inputs.source_dir }}
+        YOUPIP: ${{ inputs.enable_youpip }}
+        YTUHD: ${{ inputs.enable_ytuhd }}
+        YQ: ${{ inputs.enable_yq }}
+        RYD: ${{ inputs.enable_ryd }}
+        YTABC: ${{ inputs.enable_ytabc }}
+        DEMC: ${{ inputs.enable_demc }}
+      run: |
+        repos=""
+        add() { case " $repos " in *" $1 "*) ;; *) repos="$repos $1" ;; esac; }
+        [ "$YOUPIP" = "true" ] && { add YouPiP; add YouGroupSettings; add YTVideoOverlay; }
+        [ "$YTUHD" = "true" ] && { add YTUHD; add YouGroupSettings; add YTVideoOverlay; }
+        [ "$YQ" = "true" ] && { add YouQuality; add YouGroupSettings; add YTVideoOverlay; }
+        [ "$RYD" = "true" ] && { add Return-YouTube-Dislikes; add YouGroupSettings; }
+        [ "$YTABC" = "true" ] && add YTABConfig
+        [ "$DEMC" = "true" ] && { add DontEatMyContent; add YouGroupSettings; }
+        repos="${repos# }"
+
+        need_theos=false
+        if [ -n "$repos" ] || [ "$SOURCE_BUILD" = "true" ]; then need_theos=true; fi
+
+        if [ "$SOURCE_BUILD" = "true" ]; then
+          version=$(grep -E '^PACKAGE_VERSION' "$SOURCE_DIR/Makefile" | sed 's/.*= *//')
+          label="${version}-$(git -C "$SOURCE_DIR" rev-parse --short HEAD)"
+        elif [ -n "$TWEAK_URL" ]; then
+          label="custom"
+        elif [ -n "$TWEAK_VERSION" ]; then
+          label="${TWEAK_VERSION#v}"
+        else
+          echo "::error::Set a tweak version, a tweak URL or enable the source build."
+          exit 1
+        fi
+
+        echo "repos=$repos" >> "$GITHUB_OUTPUT"
+        echo "need_theos=$need_theos" >> "$GITHUB_OUTPUT"
+        echo "tweak_label=$label" >> "$GITHUB_OUTPUT"
+        echo "Tweaks to build: ${repos:-none} | Theos: $need_theos | YouTube Plus: $label"
+
+    - name: Install build tools
+      if: ${{ steps.plan.outputs.need_theos == 'true' }}
+      shell: bash
+      env:
+        HOMEBREW_NO_AUTO_UPDATE: "1"
+        HOMEBREW_NO_INSTALL_CLEANUP: "1"
+        HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: "1"
+        HOMEBREW_NO_ENV_HINTS: "1"
+      run: |
+        missing=""
+        for pkg in make ldid dpkg; do
+          brew list --versions "$pkg" >/dev/null 2>&1 || missing="$missing $pkg"
+        done
+        [ -n "$missing" ] && brew install $missing
+        echo "$(brew --prefix make)/libexec/gnubin" >> "$GITHUB_PATH"
+
+    - name: Set THEOS
+      shell: bash
+      run: echo "THEOS=$GITHUB_WORKSPACE/theos" >> "$GITHUB_ENV"
+
+    - name: Cache Theos
+      if: ${{ steps.plan.outputs.need_theos == 'true' }}
+      id: theos
+      uses: actions/cache@v5
+      with:
+        path: theos/
+        key: theos_cache_9bc7340_sdk16.5_v2
+
+    - name: Setup Theos
+      if: ${{ steps.plan.outputs.need_theos == 'true' && steps.theos.outputs.cache-hit != 'true' }}
+      uses: actions/checkout@v6
+      with:
+        repository: theos/theos
+        ref: 9bc73406cf80b711ef4d02c15ff1dedc4478a275
+        path: theos
+        submodules: recursive
+
+    - name: Download iOS SDK
+      if: ${{ steps.plan.outputs.need_theos == 'true' && steps.theos.outputs.cache-hit != 'true' }}
+      shell: bash
+      run: |
+        git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/theos/sdks/ sdks
+        cd sdks
+        git sparse-checkout set --no-cone iPhoneOS16.5.sdk
+        git checkout --quiet
+        mv iPhoneOS16.5.sdk "$THEOS/sdks/"
+        cd .. && rm -rf sdks
+
+    - name: Fetch sources
+      shell: bash
+      env:
+        REPOS: ${{ steps.plan.outputs.repos }}
+        NEED_THEOS: ${{ steps.plan.outputs.need_theos }}
+        SOURCE_BUILD: ${{ inputs.source_build }}
+        TWEAK_VERSION: ${{ inputs.tweak_version }}
+        TWEAK_URL: ${{ inputs.tweak_url }}
+        DEMC: ${{ inputs.enable_demc }}
+      run: |
+        mkdir -p .logs
+        pids=()
+
+        url_for() {
+          case "$1" in
+            YTUHD) echo "https://github.com/Tonwalter888/YTUHD.git" ;;
+            DontEatMyContent) echo "https://github.com/therealFoxster/DontEatMyContent.git" ;;
+            *) echo "https://github.com/PoomSmart/$1.git" ;;
+          esac
+        }
+
+        run_bg() {
+          local name="$1"; shift
+          ( "$@" > ".logs/fetch-$name.log" 2>&1 ) &
+          pids+=("$!:$name")
+        }
+
+        for repo in $REPOS; do
+          run_bg "$repo" git clone --quiet --depth=1 "$(url_for "$repo")" "$repo"
+        done
+
+        if [ "$NEED_THEOS" = "true" ]; then
+          headers() {
+            for h in YouTubeHeader PSHeader; do
+              if [ -d "$THEOS/include/$h/.git" ]; then
+                git -C "$THEOS/include/$h" pull --quiet --depth=1 || { rm -rf "$THEOS/include/$h"; git clone --quiet --depth=1 "https://github.com/PoomSmart/$h.git" "$THEOS/include/$h"; }
+              else
+                rm -rf "$THEOS/include/$h"
+                git clone --quiet --depth=1 "https://github.com/PoomSmart/$h.git" "$THEOS/include/$h"
+              fi
+            done
+            if [ "$DEMC" = "true" ]; then
+              rm -rf "$THEOS/include/YTHeaders"
+              cp -R "$THEOS/include/YouTubeHeader" "$THEOS/include/YTHeaders"
+            fi
+          }
+          run_bg headers headers
+        fi
+
+        if [ "$SOURCE_BUILD" = "true" ]; then
+          source_headers() {
+            git init --quiet YouTubeHeader
+            git -C YouTubeHeader fetch --quiet --depth=1 https://github.com/PoomSmart/YouTubeHeader.git 4b9977e2b243fcb143395e0a20d975a32eaa93e0
+            git -C YouTubeHeader checkout --quiet FETCH_HEAD
+            git clone --quiet --depth=1 --branch v3.21.12 --filter=blob:none --sparse https://github.com/protocolbuffers/protobuf.git protobuf
+            git -C protobuf sparse-checkout set objectivec
+          }
+          run_bg source-headers source_headers
+        elif [ -n "$TWEAK_URL" ]; then
+          run_bg ytplus curl -fsSL --retry 3 -o ytplus.deb "$TWEAK_URL"
+        else
+          version="${TWEAK_VERSION#v}"
+          run_bg ytplus curl -fsSL --retry 3 -o ytplus.deb "https://github.com/dayanch96/YTLite/releases/download/v${version}/com.dvntm.ytlite_${version}_iphoneos-arm.deb"
+        fi
+
+        safari() {
+          git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/BillyCurtis/OpenYouTubeSafariExtension safari_src
+          git -C safari_src sparse-checkout set --no-cone OpenYouTubeSafariExtension.appex
+          git -C safari_src checkout --quiet
+          mv safari_src/OpenYouTubeSafariExtension.appex .
+          rm -rf safari_src
+          chmod +x OpenYouTubeSafariExtension.appex/OpenYouTubeSafariExtension
+        }
+        run_bg safari safari
+
+        failed=0
+        for entry in "${pids[@]}"; do
+          pid="${entry%%:*}"; name="${entry#*:}"
+          if ! wait "$pid"; then
+            echo "::error::Fetching $name failed"
+            cat ".logs/fetch-$name.log"
+            failed=1
+          fi
+        done
+        exit $failed
+
+    - name: Validate YouTube Plus deb
+      if: ${{ inputs.source_build != 'true' }}
+      shell: bash
+      run: |
+        file_type=$(file --mime-type -b ytplus.deb)
+        if [[ "$file_type" != "application/vnd.debian.binary-package" ]]; then
+          echo "::error::The YouTube Plus file is not a valid deb (detected: $file_type)."
+          exit 1
+        fi
+        data=$(ar t ytplus.deb | grep '^data\.tar' || true)
+        if [ -n "$data" ] && listing=$(ar p ytplus.deb "$data" | tar -tf - 2>/dev/null); then
+          if ! grep -q "YTLite.dylib" <<< "$listing"; then
+            echo "::error::YTLite.dylib not found in the deb."
+            exit 1
+          fi
+        fi
+
+    - name: Build tweaks
+      if: ${{ steps.plan.outputs.need_theos == 'true' }}
+      shell: bash
+      env:
+        REPOS: ${{ steps.plan.outputs.repos }}
+        SOURCE_BUILD: ${{ inputs.source_build }}
+        SOURCE_DIR: ${{ inputs.source_dir }}
+      run: |
+        jobs_count=$(sysctl -n hw.ncpu 2>/dev/null || nproc)
+        pids=()
+
+        deb_name() {
+          case "$1" in
+            YouPiP) echo youpip ;;
+            YTUHD) echo ytuhd ;;
+            Return-YouTube-Dislikes) echo ryd ;;
+            YTABConfig) echo ytabc ;;
+            YouGroupSettings) echo ygs ;;
+            YouQuality) echo yq ;;
+            YTVideoOverlay) echo ytvo ;;
+            DontEatMyContent) echo demc ;;
+            *) echo "$1" | tr '[:upper:]' '[:lower:]' ;;
+          esac
+        }
+
+        build() {
+          local dir="$1" out="$2"
+          (
+            cd "$dir"
+            make clean package DEBUG=0 FINALPACKAGE=1 -j"$jobs_count"
+            deb=$(ls -t packages/*.deb | head -n 1)
+            mv "$deb" "$GITHUB_WORKSPACE/$out"
+          ) > ".logs/build-$out.log" 2>&1
+        }
+
+        for repo in $REPOS; do
+          name="$(deb_name "$repo").deb"
+          build "$repo" "$name" &
+          pids+=("$!:$name")
+        done
+
+        if [ "$SOURCE_BUILD" = "true" ]; then
+          build "$SOURCE_DIR" ytplus.deb &
+          pids+=("$!:ytplus.deb")
+        fi
+
+        failed=0
+        for entry in "${pids[@]}"; do
+          pid="${entry%%:*}"; name="${entry#*:}"
+          if wait "$pid"; then
+            echo "Built $name"
+          else
+            echo "::error::Build failed: $name"
+            cat ".logs/build-$name.log"
+            failed=1
+          fi
+        done
+
+        if [ "$failed" = "0" ] && [ "$SOURCE_BUILD" = "true" ]; then
+          contents=$(dpkg-deb -c ytplus.deb)
+          for required in YTLite.dylib "YTLite.bundle/Info.plist" "YTLite.bundle/en.lproj/Localizable.strings"; do
+            if ! grep -q "$required" <<< "$contents"; then
+              echo "::error::Source build is missing $required"
+              failed=1
+            fi
+          done
+        fi
+        exit $failed
+
+    - name: Update localization
+      if: ${{ inputs.enable_localization == 'true' && inputs.source_build != 'true' }}
+      shell: bash
+      env:
+        SOURCE_DIR: ${{ inputs.source_dir }}
+      run: |
+        if ! command -v dpkg-deb >/dev/null; then
+          HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_NO_INSTALL_CLEANUP=1 brew install dpkg
+        fi
+        rm -rf debdir && mkdir debdir
+        dpkg-deb -R ytplus.deb debdir
+        find "$SOURCE_DIR/layout/Library/Application Support/YTLite.bundle" \
+          -mindepth 1 -maxdepth 1 -type d -name "*.lproj" -not -name "en.lproj" \
+          -exec cp -R "{}" "debdir/Library/Application Support/YTLite.bundle/" \;
+        (
+          cd debdir
+          if command -v md5sum >/dev/null; then hasher="md5sum"; else hasher="md5 -r"; fi
+          find . -type f -not -path "./DEBIAN/*" -exec $hasher {} + | sed -E 's|^([0-9a-f]+) +\./|\1  |' | sort -k 2 > DEBIAN/md5sums
+        )
+        rm ytplus.deb
+        dpkg-deb --root-owner-group -b debdir ytplus.deb >/dev/null
+        rm -rf debdir
+
+    - name: List outputs
+      shell: bash
+      run: ls -lh *.deb && ls -d *.appex
