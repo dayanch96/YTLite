@@ -11,7 +11,10 @@ static NSString *SafeLabel(NSArray <NSString *> *labels, NSString *key) {
     return (index >= 0 && index < (NSInteger)labels.count) ? labels[index] : labels.firstObject;
 }
 
-static NSString *GetCacheSize() {
+static NSString *cachedCacheSize = nil;
+static BOOL isComputingCacheSize = NO;
+
+static NSString *ComputeCacheSize() {
     NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
     NSArray *filesArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:cachePath error:nil];
 
@@ -26,6 +29,24 @@ static NSString *GetCacheSize() {
     formatter.countStyle = NSByteCountFormatterCountStyleFile;
 
     return [formatter stringFromByteCount:folderSize];
+}
+
+static NSString *GetCacheSize(YTSettingsViewController *settingsViewController) {
+    if (!isComputingCacheSize) {
+        isComputingCacheSize = YES;
+        __weak YTSettingsViewController *weakSettings = settingsViewController;
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0), ^{
+            NSString *size = ComputeCacheSize();
+            dispatch_async(dispatch_get_main_queue(), ^{
+                BOOL changed = ![size isEqualToString:cachedCacheSize];
+                cachedCacheSize = size;
+                isComputingCacheSize = NO;
+                if (changed) [weakSettings reloadData];
+            });
+        });
+    }
+
+    return cachedCacheSize ?: @"…";
 }
 
 // Settings
@@ -73,7 +94,7 @@ static NSString *GetCacheSize() {
     accessibilityIdentifier:@"YTLiteSectionItem"
     switchOn:ytlBool(key)
     switchBlock:^BOOL(YTSettingsCell *cell, BOOL enabled) {
-        if ([key isEqualToString:@"shortsOnlyMode"]) {
+        if ([key isEqualToString:@"shortsOnlyMode"] && enabled) {
             YTAlertView *alertView = [YTAlertViewClass confirmationDialogWithAction:^{
                 ytlSetBool(enabled, @"shortsOnlyMode");
             }
@@ -89,6 +110,11 @@ static NSString *GetCacheSize() {
 
         else {
             ytlSetBool(enabled, key);
+
+            if ([key isEqualToString:@"shortsOnlyMode"]) {
+                UIViewController *rootVC = [[[UIApplication sharedApplication] delegate] window].rootViewController;
+                if ([rootVC isKindOfClass:%c(YTAppViewController)]) [(YTAppViewController *)rootVC showPivotBar];
+            }
 
             NSArray *keys = @[@"removeLabels", @"removeIndicators", @"reExplore", @"addExplore", @"removeShorts", @"removeSubscriptions", @"removeUploads", @"removeLibrary"];
             if ([keys containsObject:key]) {
@@ -583,7 +609,7 @@ static NSString *GetCacheSize() {
             NSArray <YTSettingsSectionItem *> *rows = @[
                 [self switchWithTitle:@"Advanced" key:@"advancedMode"],
 
-                [%c(YTSettingsSectionItem) itemWithTitle:LOC(@"ClearCache") titleDescription:nil accessibilityIdentifier:@"YTLiteSectionItem" detailTextBlock:^NSString *() { return GetCacheSize(); } selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                [%c(YTSettingsSectionItem) itemWithTitle:LOC(@"ClearCache") titleDescription:nil accessibilityIdentifier:@"YTLiteSectionItem" detailTextBlock:^NSString *() { return GetCacheSize(settingsViewController); } selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
                     dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0), ^{
                         NSFileManager *fileManager = [NSFileManager defaultManager];
                         NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
@@ -592,6 +618,7 @@ static NSString *GetCacheSize() {
                         }
 
                         dispatch_async(dispatch_get_main_queue(), ^{
+                            cachedCacheSize = nil;
                             [settingsViewController reloadData];
                             [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Done") firstResponder:[self parentResponder]] send];
                         });

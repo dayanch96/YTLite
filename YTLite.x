@@ -1043,7 +1043,7 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 
             NSMutableArray *allObjects = self.supernodes.allObjects;
             for (ELMContainerNode *containerNode in allObjects) {
-                if ([containerNode.description containsString:@"id.ui.comment_cell"] && comment) {
+                if (comment && [containerNode isKindOfClass:%c(ELMContainerNode)] && [containerNode.description containsString:@"id.ui.comment_cell"]) {
                     containerNode.copiedComment = comment;
                     break;
                 }
@@ -1064,7 +1064,7 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 
             NSMutableArray *allObjects = self.supernodes.allObjects;
             for (ELMContainerNode *containerNode in allObjects) {
-                if ([containerNode.description containsString:@"id.ui.backstage.original_post"] && text) {
+                if (text && [containerNode isKindOfClass:%c(ELMContainerNode)] && [containerNode.description containsString:@"id.ui.backstage.original_post"]) {
                     containerNode.copiedComment = text;
                     break;
                 }
@@ -1087,7 +1087,7 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 
         NSMutableArray *allObjects = displayNode.supernodes.allObjects;
         for (ELMContainerNode *containerNode in allObjects) {
-            if ([containerNode.description containsString:@"id.ui.backstage.original_post"]) {
+            if (URL && [containerNode isKindOfClass:%c(ELMContainerNode)] && [containerNode.description containsString:@"id.ui.backstage.original_post"]) {
                 containerNode.copiedURL = URL;
                 break;
             }
@@ -1132,6 +1132,7 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 - (void)savePFP:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
 
+        if (![self.keepalive_node respondsToSelector:@selector(URL)]) return;
         ASNetworkImageNode *imageNode = (ASNetworkImageNode *)self.keepalive_node;
         NSString *URLString = imageNode.URL.absoluteString;
         if (URLString) {
@@ -1177,6 +1178,7 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
         NSArray *yogaChildren = self.keepalive_node.yogaChildren;
         if (yogaChildren.count == 0) return;
         ELMContainerNode *nodeForLayer = (ELMContainerNode *)yogaChildren.firstObject;
+        if (![self.keepalive_node isKindOfClass:%c(ELMContainerNode)]) return;
         ELMContainerNode *containerNode = (ELMContainerNode *)self.keepalive_node;
         NSString *text = containerNode.copiedComment;
         NSURL *URL = containerNode.copiedURL;
@@ -1222,6 +1224,7 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 %new
 - (void)commentManager:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
+        if (![self.keepalive_node isKindOfClass:%c(ELMContainerNode)]) return;
         ELMContainerNode *containerNode = (ELMContainerNode *)self.keepalive_node;
         NSString *comment = containerNode.copiedComment;
 
