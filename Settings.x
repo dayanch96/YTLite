@@ -242,6 +242,7 @@ static NSString *GetCacheSize(YTSettingsViewController *settingsViewController) 
                 [self switchWithTitle:@"NoContentWarning" key:@"noContentWarning"],
                 [self switchWithTitle:@"ClassicQuality" key:@"classicQuality"],
                 [self switchWithTitle:@"ExtraSpeedOptions" key:@"extraSpeedOptions"],
+                [self switchWithTitle:@"RememberPlaybackSpeed" key:@"rememberPlaybackSpeed"],
                 [self switchWithTitle:@"DontSnap2Chapter" key:@"dontSnapToChapter"],
                 [self switchWithTitle:@"NoTwoFingerSnapToChapter" key:@"noTwoFingerSnapToChapter"],
                 [self switchWithTitle:@"PauseOnOverlay" key:@"pauseOnOverlay"],

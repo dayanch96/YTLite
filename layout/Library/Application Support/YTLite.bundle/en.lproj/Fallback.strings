@@ -60,3 +60,5 @@
 "Subscriptions" = "Subscriptions";
 "TabIsHidden" = "This tab is hidden. Enable it first in the Tab bar settings.";
 "Version" = "Version";
+"RememberPlaybackSpeed" = "Remember playback speed";
+"RememberPlaybackSpeedDesc" = "Videos start at the last speed you picked in the speed menu. Overrides the default playback rate";

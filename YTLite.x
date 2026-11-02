@@ -479,7 +479,7 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
     if (ytlInt(@"wiFiQualityIndex") != 0 || ytlInt(@"cellQualityIndex") != 0) [self performSelector:@selector(autoQuality) withObject:nil afterDelay:1.0];
     if (ytlBool(@"autoFullscreen")) [self performSelector:@selector(autoFullscreen) withObject:nil afterDelay:0.75];
     if (ytlBool(@"shortsToRegular")) [self performSelector:@selector(shortsToRegular) withObject:nil afterDelay:0.75];
-    if (ytlInt(@"autoSpeedIndex") != 3) [self performSelector:@selector(setAutoSpeed) withObject:nil afterDelay:0.75];
+    if (ytlInt(@"autoSpeedIndex") != 3 || (ytlBool(@"rememberPlaybackSpeed") && [[YTLUserDefaults standardUserDefaults] floatForKey:@"lastPlaybackRate"] > 0)) [self performSelector:@selector(setAutoSpeed) withObject:nil afterDelay:0.75];
     if (ytlBool(@"disableAutoCaptions")) [self performSelector:@selector(turnOffCaptions) withObject:nil afterDelay:1.0];
 }
 
@@ -514,10 +514,17 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
         && [self.view.superview isKindOfClass:NSClassFromString(@"YTWatchView")]) {
         YTMainAppVideoPlayerOverlayViewController *overlayVC = (YTMainAppVideoPlayerOverlayViewController *)self.activeVideoPlayerOverlay;
 
-        NSArray *speedLabels = @[@0.25, @0.5, @0.75, @1.0, @1.25, @1.5, @1.75, @2.0, @3.0, @4.0, @5.0];
-        NSInteger index = ytlInt(@"autoSpeedIndex");
-        if (index < 0 || index >= (NSInteger)speedLabels.count) return;
-        [overlayVC setPlaybackRate:[speedLabels[index] floatValue]];
+        float rate = 0;
+        if (ytlBool(@"rememberPlaybackSpeed")) rate = [[YTLUserDefaults standardUserDefaults] floatForKey:@"lastPlaybackRate"];
+
+        if (rate <= 0) {
+            NSArray *speedLabels = @[@0.25, @0.5, @0.75, @1.0, @1.25, @1.5, @1.75, @2.0, @3.0, @4.0, @5.0];
+            NSInteger index = ytlInt(@"autoSpeedIndex");
+            if (index < 0 || index >= (NSInteger)speedLabels.count) return;
+            rate = [speedLabels[index] floatValue];
+        }
+
+        if (fabs([overlayVC currentPlaybackRate] - rate) > 0.01) [overlayVC setPlaybackRate:rate];
     }
 }
 
@@ -624,6 +631,15 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
 %end
 
 %hook YTMainAppVideoPlayerOverlayViewController
+// Remember Playback Speed
+- (void)varispeedSwitchController:(id)controller didSelectRate:(float)rate {
+    %orig;
+
+    if (ytlBool(@"rememberPlaybackSpeed") && rate > 0 && rate <= 16) {
+        [[YTLUserDefaults standardUserDefaults] setFloat:rate forKey:@"lastPlaybackRate"];
+    }
+}
+
 // Disable Double Tap To Seek
 - (BOOL)allowDoubleTapToSeekGestureRecognizer { return ytlBool(@"noDoubleTapToSeek") ? NO : %orig; }
 
