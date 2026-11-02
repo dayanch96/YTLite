@@ -1,0 +1,96 @@
+name: Build YTLite from source
+
+on:
+  workflow_dispatch:
+    inputs:
+      scheme:
+        description: "Package scheme"
+        type: choice
+        options:
+          - rootless
+          - rootful
+          - roothide
+        default: rootless
+  push:
+    paths:
+      - "*.x"
+      - "*.h"
+      - "Utils/**"
+      - "Makefile"
+      - "layout/**"
+      - ".github/workflows/build_source.yml"
+  pull_request:
+    paths:
+      - "*.x"
+      - "*.h"
+      - "Utils/**"
+      - "Makefile"
+      - "layout/**"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build deb
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout YTLite
+        uses: actions/checkout@v6
+        with:
+          path: YTLite
+
+      - name: Checkout YouTubeHeader
+        uses: actions/checkout@v6
+        with:
+          repository: PoomSmart/YouTubeHeader
+          path: YouTubeHeader
+
+      - name: Checkout protobuf
+        uses: actions/checkout@v6
+        with:
+          repository: protocolbuffers/protobuf
+          ref: v3.21.12
+          path: protobuf
+          sparse-checkout: objectivec
+
+      - name: Install dependencies
+        run: brew install make ldid dpkg
+
+      - name: Set environment
+        run: |
+          echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
+          echo "THEOS=${{ github.workspace }}/theos" >> $GITHUB_ENV
+
+      - name: Setup Theos
+        uses: actions/checkout@v6
+        with:
+          repository: theos/theos
+          path: theos
+          submodules: recursive
+
+      - name: Download iOS SDK
+        run: |
+          git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/theos/sdks/
+          cd sdks
+          git sparse-checkout set --no-cone iPhoneOS16.5.sdk
+          git checkout
+          mv *.sdk $THEOS/sdks
+
+      - name: Build
+        working-directory: YTLite
+        run: |
+          case "${{ inputs.scheme || 'rootless' }}" in
+            rootless) make clean package FINALPACKAGE=1 ROOTLESS=1 ;;
+            roothide) make clean package FINALPACKAGE=1 ROOTHIDE=1 ;;
+            *) make clean package FINALPACKAGE=1 ;;
+          esac
+
+      - name: Upload deb
+        uses: actions/upload-artifact@v4
+        with:
+          name: ytlite-${{ inputs.scheme || 'rootless' }}
+          path: YTLite/packages/*.deb
+          if-no-files-found: error
