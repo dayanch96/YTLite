@@ -1,5 +1,5 @@
 name: Package IPA
-description: Waits for the IPA started by the workflow, patches it and injects the prepared tweaks with cyan
+description: Waits for the IPA started by the workflow, checks and patches it, then injects the prepared tweaks with cyan
 
 inputs:
   output:
@@ -8,6 +8,11 @@ inputs:
     default: "YouTube"
   bundle_id:
     default: "com.google.ios.youtube"
+  source_dir:
+    default: "src"
+  hook_report:
+    description: Check YTLite hooks against this YouTube version (source builds)
+    default: "false"
 
 runs:
   using: composite
@@ -34,29 +39,67 @@ runs:
           exit 1
         fi
 
-    - name: Validate and patch IPA
+    - name: Check IPA download
       shell: bash
       run: |
-        file_type=$(file --mime-type -b youtube.ipa)
-        if [[ "$file_type" != "application/x-ios-app" && "$file_type" != "application/zip" ]]; then
-          echo "::error::The downloaded file is not a valid IPA (detected: $file_type)."
+        size=$(stat -f%z youtube.ipa 2>/dev/null || stat -c%s youtube.ipa)
+        if [ "$size" -lt 20000000 ]; then
+          echo "::error::The IPA is only $size bytes. The link probably points to a web page, not the file."
+          head -c 300 youtube.ipa | strings | head -5
           exit 1
         fi
+        if [ "$(head -c 2 youtube.ipa)" != "PK" ]; then
+          echo "::error::The downloaded file is not a zip/IPA."
+          exit 1
+        fi
+        if ! unzip -tqq youtube.ipa >/dev/null 2>.logs/unzip-test.log; then
+          echo "::error::The IPA is corrupted or truncated."
+          tail -5 .logs/unzip-test.log
+          exit 1
+        fi
+        if ! unzip -Z1 youtube.ipa | grep -qE '^Payload/[^/]+\.app/Info\.plist$'; then
+          echo "::error::No Payload/*.app/Info.plist in the IPA."
+          exit 1
+        fi
+        echo "IPA ok ($((size / 1048576)) MB)"
 
+    - name: Inspect and patch app
+      shell: bash
+      run: |
         rm -rf ipa_tmp
         unzip -q youtube.ipa -d ipa_tmp
         rm youtube.ipa
 
         app_dir="$(find ipa_tmp/Payload -maxdepth 1 -name '*.app' | head -n 1)"
-        if [ -z "$app_dir" ]; then
-          echo "::error::No .app found in the IPA Payload folder."
+        plist="$app_dir/Info.plist"
+        pb() { /usr/libexec/PlistBuddy -c "Print :$1" "$plist" 2>/dev/null; }
+
+        bundle_id=$(pb CFBundleIdentifier)
+        version=$(pb CFBundleShortVersionString)
+        executable="$app_dir/$(pb CFBundleExecutable)"
+
+        if [ "$bundle_id" != "com.google.ios.youtube" ]; then
+          echo "::warning::Bundle id is '$bundle_id', expected com.google.ios.youtube. Is this the YouTube app?"
+        fi
+        if [ ! -f "$executable" ]; then
+          echo "::error::Main executable not found."
+          exit 1
+        fi
+        if ! lipo -archs "$executable" 2>/dev/null | grep -qw arm64; then
+          echo "::error::The main executable has no arm64 slice."
           exit 1
         fi
 
-        plist="$app_dir/Info.plist"
-        executable="$app_dir/$(/usr/libexec/PlistBuddy -c 'Print :CFBundleExecutable' "$plist")"
-        if otool -l "$executable" | grep -A4 LC_ENCRYPTION_INFO | grep -q "cryptid 1"; then
-          echo "::error::The IPA is encrypted. Use a decrypted IPA."
+        encrypted=()
+        is_encrypted() { otool -l "$1" 2>/dev/null | grep -A4 -E "LC_ENCRYPTION_INFO(_64)?$" | grep -qE "cryptid +1"; }
+        is_encrypted "$executable" && encrypted+=("$(basename "$executable")")
+        while IFS= read -r -d '' bin; do
+          if file "$bin" | grep -q "Mach-O" && is_encrypted "$bin"; then
+            encrypted+=("${bin#"$app_dir"/}")
+          fi
+        done < <(find "$app_dir/Frameworks" -type f \( -name "*.dylib" -o -perm -u+x \) -print0 2>/dev/null)
+        if [ ${#encrypted[@]} -gt 0 ]; then
+          echo "::error::The IPA is still encrypted (${encrypted[*]}). Use a decrypted IPA."
           exit 1
         fi
 
@@ -65,7 +108,19 @@ runs:
         /usr/libexec/PlistBuddy -c "Add :NSFaceIDUsageDescription string 'Face ID is required to authenticate.'" "$plist"
 
         echo "APP_DIR=$app_dir" >> "$GITHUB_ENV"
-        echo "YouTube $(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$plist")"
+        echo "APP_EXECUTABLE=$executable" >> "$GITHUB_ENV"
+        echo "::notice::YouTube $version ($bundle_id), decrypted"
+
+    - name: Check hooks against this YouTube version
+      if: ${{ inputs.hook_report == 'true' }}
+      continue-on-error: true
+      shell: bash
+      env:
+        SOURCE_DIR: ${{ inputs.source_dir }}
+      run: |
+        curl -fsSL --retry 3 -o ipsw.tgz https://github.com/blacktop/ipsw/releases/download/v3.1.600/ipsw_3.1.600_macOS_universal.tar.gz
+        mkdir -p .ipsw && tar -xzf ipsw.tgz -C .ipsw && rm ipsw.tgz
+        python3 "$SOURCE_DIR/tools/check_hooks.py" "$APP_EXECUTABLE" --ipsw "$(find .ipsw -name ipsw -type f | head -n 1)" --github --source-dir "$SOURCE_DIR"
 
     - name: Inject tweaks
       shell: bash
@@ -81,4 +136,20 @@ runs:
         echo "Injecting: ${tweaks[*]}"
         cyan -i "$APP_DIR" -o "$OUTPUT" -uwef "${tweaks[@]}" -n "$DISPLAY_NAME" -b "$BUNDLE_ID"
         rm -rf ipa_tmp
+
+    - name: Verify output
+      shell: bash
+      env:
+        OUTPUT: ${{ inputs.output }}
+      run: |
+        listing=$(unzip -Z1 "$OUTPUT")
+        for required in "Frameworks/YTLite.dylib" "YTLite.bundle/Info.plist" "PlugIns/OpenYouTubeSafariExtension.appex/Info.plist"; do
+          if ! grep -q "$required" <<< "$listing"; then
+            echo "::error::$required missing from the final IPA."
+            exit 1
+          fi
+        done
+        if grep -qE "\.app/(Extensions|PlugIns)/(AppMigration|Intents|NotificationContent|NotificationService|Share|WidgetKit)Extension\.appex/" <<< "$listing"; then
+          echo "::warning::Some stock extensions are still in the IPA."
+        fi
         ls -lh "$OUTPUT"

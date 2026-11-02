@@ -40,7 +40,7 @@ on:
         default: false
 
       enable_localization:
-        description: "Update localization files from repo"
+        description: "Use the French translation from this repo (only en and fr are kept)"
         type: boolean
         required: true
         default: false
@@ -126,6 +126,7 @@ jobs:
           output: YouTubePlus_Beta.ipa
           display_name: ${{ inputs.display_name }}
           bundle_id: ${{ inputs.bundle_id }}
+          source_dir: src
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v3

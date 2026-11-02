@@ -46,7 +46,7 @@ on:
         default: false
 
       enable_localization:
-        description: "Update localization files from repo"
+        description: "Use the French translation from this repo (only en and fr are kept)"
         type: boolean
         required: true
         default: false
@@ -58,10 +58,13 @@ on:
         type: string
 
       tweak_version:
-        description: "The version of the tweak to use (ignored with source build). Enter the version manually from dayanch96/YTLite/releases or leave default"
+        description: "YouTube Plus version (ignored with source build). 5.2b4 = last free version, 5.2.2 = needs a subscription"
+        type: choice
+        options:
+          - "5.2.2"
+          - "5.2b4"
         default: "5.2.2"
         required: true
-        type: string
 
       display_name:
         description: "App Name (Optional)"
@@ -133,6 +136,8 @@ jobs:
           output: YouTubePlus_${{ steps.tweaks.outputs.tweak_label }}.ipa
           display_name: ${{ inputs.display_name }}
           bundle_id: ${{ inputs.bundle_id }}
+          source_dir: src
+          hook_report: ${{ inputs.source_build }}
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v3

@@ -49,14 +49,6 @@ jobs:
           ref: 4b9977e2b243fcb143395e0a20d975a32eaa93e0
           path: YouTubeHeader
 
-      - name: Checkout protobuf
-        uses: actions/checkout@v6
-        with:
-          repository: protocolbuffers/protobuf
-          ref: v3.21.12
-          path: protobuf
-          sparse-checkout: objectivec
-
       - name: Install dependencies
         env:
           HOMEBREW_NO_AUTO_UPDATE: "1"

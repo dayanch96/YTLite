@@ -25,6 +25,9 @@ inputs:
     default: ""
   tweak_url:
     default: ""
+  languages:
+    description: Localizations kept in YTLite.bundle
+    default: "en,fr"
 
 outputs:
   tweak_label:
@@ -51,18 +54,53 @@ runs:
       run: |
         repos=""
         add() { case " $repos " in *" $1 "*) ;; *) repos="$repos $1" ;; esac; }
-        [ "$YOUPIP" = "true" ] && { add YouPiP; add YouGroupSettings; add YTVideoOverlay; }
-        [ "$YTUHD" = "true" ] && { add YTUHD; add YouGroupSettings; add YTVideoOverlay; }
-        [ "$YQ" = "true" ] && { add YouQuality; add YouGroupSettings; add YTVideoOverlay; }
-        [ "$RYD" = "true" ] && { add Return-YouTube-Dislikes; add YouGroupSettings; }
-        [ "$YTABC" = "true" ] && add YTABConfig
-        [ "$DEMC" = "true" ] && { add DontEatMyContent; add YouGroupSettings; }
+        if [ "$YOUPIP" = "true" ]; then add YouPiP; add YouGroupSettings; add YTVideoOverlay; fi
+        if [ "$YTUHD" = "true" ]; then add YTUHD; add YouGroupSettings; add YTVideoOverlay; fi
+        if [ "$YQ" = "true" ]; then add YouQuality; add YouGroupSettings; add YTVideoOverlay; fi
+        if [ "$RYD" = "true" ]; then add Return-YouTube-Dislikes; add YouGroupSettings; fi
+        if [ "$YTABC" = "true" ]; then add YTABConfig; fi
+        if [ "$DEMC" = "true" ]; then add DontEatMyContent; add YouGroupSettings; fi
         repos="${repos# }"
 
-        need_theos=false
-        if [ -n "$repos" ] || [ "$SOURCE_BUILD" = "true" ]; then need_theos=true; fi
+        url_for() {
+          case "$1" in
+            YTUHD) echo "https://github.com/Tonwalter888/YTUHD.git" ;;
+            DontEatMyContent) echo "https://github.com/therealFoxster/DontEatMyContent.git" ;;
+            *) echo "https://github.com/PoomSmart/$1.git" ;;
+          esac
+        }
+
+        deb_name() {
+          case "$1" in
+            YouPiP) echo youpip ;;
+            YTUHD) echo ytuhd ;;
+            Return-YouTube-Dislikes) echo ryd ;;
+            YTABConfig) echo ytabc ;;
+            YouGroupSettings) echo ygs ;;
+            YouQuality) echo yq ;;
+            YTVideoOverlay) echo ytvo ;;
+            DontEatMyContent) echo demc ;;
+          esac
+        }
+
+        mkdir -p .logs
+        : > .plan
+        for repo in $repos; do
+          ( git ls-remote "$(url_for "$repo")" HEAD | cut -c1-12 > ".logs/sha-$repo" ) &
+        done
+        wait
+        for repo in $repos; do
+          sha=$(cat ".logs/sha-$repo")
+          if [ -z "$sha" ]; then
+            echo "::error::Could not reach $(url_for "$repo")"
+            exit 1
+          fi
+          echo "$(deb_name "$repo").deb $repo $sha" >> .plan
+        done
 
         if [ "$SOURCE_BUILD" = "true" ]; then
+          src_hash=$(cd "$SOURCE_DIR" && find Makefile control *.x *.h Utils layout tools -type f -print0 | sort -z | xargs -0 shasum -a 256 | shasum -a 256 | cut -c1-12)
+          echo "ytplus.deb YTLite $src_hash" >> .plan
           version=$(grep -E '^PACKAGE_VERSION' "$SOURCE_DIR/Makefile" | sed 's/.*= *//')
           label="${version}-$(git -C "$SOURCE_DIR" rev-parse --short HEAD)"
         elif [ -n "$TWEAK_URL" ]; then
@@ -74,13 +112,53 @@ runs:
           exit 1
         fi
 
-        echo "repos=$repos" >> "$GITHUB_OUTPUT"
+        theos_tag="theos9bc7340-sdk16.5"
+        plan_hash=$(sort .plan | shasum -a 256 | cut -c1-16)
+
+        {
+          echo "repos=$repos"
+          echo "tweak_label=$label"
+          echo "theos_tag=$theos_tag"
+          echo "cache_key=debs-v1-$theos_tag-$plan_hash"
+          echo "cache_prefix=debs-v1-$theos_tag-"
+        } >> "$GITHUB_OUTPUT"
+        echo "YouTube Plus: $label"
+        cat .plan
+
+    - name: Restore deb cache
+      id: debcache
+      uses: actions/cache/restore@v5
+      with:
+        path: .debcache
+        key: ${{ steps.plan.outputs.cache_key }}
+        restore-keys: ${{ steps.plan.outputs.cache_prefix }}
+
+    - name: Reuse cached debs
+      id: reuse
+      shell: bash
+      run: |
+        mkdir -p .debcache
+        to_build=""
+        while read -r name repo sha; do
+          [ -z "$name" ] && continue
+          cached=".debcache/$repo-$sha.deb"
+          if [ -f "$cached" ]; then
+            cp "$cached" "$name"
+            echo "Cached: $repo ($sha)"
+          else
+            to_build="$to_build $repo"
+          fi
+        done < .plan
+        to_build="${to_build# }"
+
+        need_theos=false
+        [ -n "$to_build" ] && need_theos=true
+        echo "to_build=$to_build" >> "$GITHUB_OUTPUT"
         echo "need_theos=$need_theos" >> "$GITHUB_OUTPUT"
-        echo "tweak_label=$label" >> "$GITHUB_OUTPUT"
-        echo "Tweaks to build: ${repos:-none} | Theos: $need_theos | YouTube Plus: $label"
+        echo "To build: ${to_build:-nothing}"
 
     - name: Install build tools
-      if: ${{ steps.plan.outputs.need_theos == 'true' }}
+      if: ${{ steps.reuse.outputs.need_theos == 'true' }}
       shell: bash
       env:
         HOMEBREW_NO_AUTO_UPDATE: "1"
@@ -92,7 +170,7 @@ runs:
         for pkg in make ldid dpkg; do
           brew list --versions "$pkg" >/dev/null 2>&1 || missing="$missing $pkg"
         done
-        [ -n "$missing" ] && brew install $missing
+        if [ -n "$missing" ]; then brew install $missing; fi
         echo "$(brew --prefix make)/libexec/gnubin" >> "$GITHUB_PATH"
 
     - name: Set THEOS
@@ -100,15 +178,15 @@ runs:
       run: echo "THEOS=$GITHUB_WORKSPACE/theos" >> "$GITHUB_ENV"
 
     - name: Cache Theos
-      if: ${{ steps.plan.outputs.need_theos == 'true' }}
+      if: ${{ steps.reuse.outputs.need_theos == 'true' }}
       id: theos
       uses: actions/cache@v5
       with:
         path: theos/
-        key: theos_cache_9bc7340_sdk16.5_v2
+        key: ${{ steps.plan.outputs.theos_tag }}-v2
 
     - name: Setup Theos
-      if: ${{ steps.plan.outputs.need_theos == 'true' && steps.theos.outputs.cache-hit != 'true' }}
+      if: ${{ steps.reuse.outputs.need_theos == 'true' && steps.theos.outputs.cache-hit != 'true' }}
       uses: actions/checkout@v6
       with:
         repository: theos/theos
@@ -117,7 +195,7 @@ runs:
         submodules: recursive
 
     - name: Download iOS SDK
-      if: ${{ steps.plan.outputs.need_theos == 'true' && steps.theos.outputs.cache-hit != 'true' }}
+      if: ${{ steps.reuse.outputs.need_theos == 'true' && steps.theos.outputs.cache-hit != 'true' }}
       shell: bash
       run: |
         git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/theos/sdks/ sdks
@@ -130,15 +208,20 @@ runs:
     - name: Fetch sources
       shell: bash
       env:
-        REPOS: ${{ steps.plan.outputs.repos }}
-        NEED_THEOS: ${{ steps.plan.outputs.need_theos }}
+        TO_BUILD: ${{ steps.reuse.outputs.to_build }}
         SOURCE_BUILD: ${{ inputs.source_build }}
         TWEAK_VERSION: ${{ inputs.tweak_version }}
         TWEAK_URL: ${{ inputs.tweak_url }}
         DEMC: ${{ inputs.enable_demc }}
       run: |
-        mkdir -p .logs
         pids=()
+
+        pinned_sha() {
+          case "$1" in
+            5.2b4) echo 56130dd4c7a1c9c80acc38c88d12002de3d099ca8de3698f87729331258ed9fa ;;
+            5.2.2) echo 132db2162a7a5163c36a9c6ce5637f45139c035279bacd36e8d3b97feba4ebc7 ;;
+          esac
+        }
 
         url_for() {
           case "$1" in
@@ -154,11 +237,14 @@ runs:
           pids+=("$!:$name")
         }
 
-        for repo in $REPOS; do
+        tweaks_to_build=""
+        for repo in $TO_BUILD; do
+          [ "$repo" = "YTLite" ] && continue
+          tweaks_to_build="$tweaks_to_build $repo"
           run_bg "$repo" git clone --quiet --depth=1 "$(url_for "$repo")" "$repo"
         done
 
-        if [ "$NEED_THEOS" = "true" ]; then
+        if [ -n "$tweaks_to_build" ]; then
           headers() {
             for h in YouTubeHeader PSHeader; do
               if [ -d "$THEOS/include/$h/.git" ]; then
@@ -176,26 +262,42 @@ runs:
           run_bg headers headers
         fi
 
-        if [ "$SOURCE_BUILD" = "true" ]; then
-          source_headers() {
-            git init --quiet YouTubeHeader
-            git -C YouTubeHeader fetch --quiet --depth=1 https://github.com/PoomSmart/YouTubeHeader.git 4b9977e2b243fcb143395e0a20d975a32eaa93e0
-            git -C YouTubeHeader checkout --quiet FETCH_HEAD
-            git clone --quiet --depth=1 --branch v3.21.12 --filter=blob:none --sparse https://github.com/protocolbuffers/protobuf.git protobuf
-            git -C protobuf sparse-checkout set objectivec
-          }
-          run_bg source-headers source_headers
-        elif [ -n "$TWEAK_URL" ]; then
-          run_bg ytplus curl -fsSL --retry 3 -o ytplus.deb "$TWEAK_URL"
-        else
-          version="${TWEAK_VERSION#v}"
-          run_bg ytplus curl -fsSL --retry 3 -o ytplus.deb "https://github.com/dayanch96/YTLite/releases/download/v${version}/com.dvntm.ytlite_${version}_iphoneos-arm.deb"
+        case " $TO_BUILD " in
+          *" YTLite "*)
+            source_headers() {
+              git init --quiet YouTubeHeader
+              git -C YouTubeHeader fetch --quiet --depth=1 https://github.com/PoomSmart/YouTubeHeader.git 4b9977e2b243fcb143395e0a20d975a32eaa93e0
+              git -C YouTubeHeader checkout --quiet FETCH_HEAD
+            }
+            run_bg source-headers source_headers
+            ;;
+        esac
+
+        if [ "$SOURCE_BUILD" != "true" ]; then
+          if [ -n "$TWEAK_URL" ]; then
+            run_bg ytplus curl -fsSL --retry 3 --retry-delay 2 -o ytplus.deb "$TWEAK_URL"
+          else
+            version="${TWEAK_VERSION#v}"
+            cached=".debcache/ytplus-release-$version.deb"
+            expected=$(pinned_sha "$version")
+            if [ -f "$cached" ] && [ -n "$expected" ] && [ "$(shasum -a 256 "$cached" | cut -d' ' -f1)" != "$expected" ]; then
+              rm -f "$cached"
+            fi
+            if [ -f "$cached" ]; then
+              cp "$cached" ytplus.deb
+              echo "Cached: YouTube Plus $version"
+            else
+              run_bg ytplus curl -fsSL --retry 3 --retry-delay 2 -o ytplus.deb "https://github.com/dayanch96/YTLite/releases/download/v${version}/com.dvntm.ytlite_${version}_iphoneos-arm.deb"
+            fi
+          fi
         fi
 
         safari() {
+          rm -rf safari_src
           git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/BillyCurtis/OpenYouTubeSafariExtension safari_src
           git -C safari_src sparse-checkout set --no-cone OpenYouTubeSafariExtension.appex
           git -C safari_src checkout --quiet
+          rm -rf OpenYouTubeSafariExtension.appex
           mv safari_src/OpenYouTubeSafariExtension.appex .
           rm -rf safari_src
           chmod +x OpenYouTubeSafariExtension.appex/OpenYouTubeSafariExtension
@@ -213,47 +315,15 @@ runs:
         done
         exit $failed
 
-    - name: Validate YouTube Plus deb
-      if: ${{ inputs.source_build != 'true' }}
-      shell: bash
-      run: |
-        file_type=$(file --mime-type -b ytplus.deb)
-        if [[ "$file_type" != "application/vnd.debian.binary-package" ]]; then
-          echo "::error::The YouTube Plus file is not a valid deb (detected: $file_type)."
-          exit 1
-        fi
-        data=$(ar t ytplus.deb | grep '^data\.tar' || true)
-        if [ -n "$data" ] && listing=$(ar p ytplus.deb "$data" | tar -tf - 2>/dev/null); then
-          if ! grep -q "YTLite.dylib" <<< "$listing"; then
-            echo "::error::YTLite.dylib not found in the deb."
-            exit 1
-          fi
-        fi
-
     - name: Build tweaks
-      if: ${{ steps.plan.outputs.need_theos == 'true' }}
+      if: ${{ steps.reuse.outputs.need_theos == 'true' }}
       shell: bash
       env:
-        REPOS: ${{ steps.plan.outputs.repos }}
-        SOURCE_BUILD: ${{ inputs.source_build }}
+        TO_BUILD: ${{ steps.reuse.outputs.to_build }}
         SOURCE_DIR: ${{ inputs.source_dir }}
       run: |
         jobs_count=$(sysctl -n hw.ncpu 2>/dev/null || nproc)
         pids=()
-
-        deb_name() {
-          case "$1" in
-            YouPiP) echo youpip ;;
-            YTUHD) echo ytuhd ;;
-            Return-YouTube-Dislikes) echo ryd ;;
-            YTABConfig) echo ytabc ;;
-            YouGroupSettings) echo ygs ;;
-            YouQuality) echo yq ;;
-            YTVideoOverlay) echo ytvo ;;
-            DontEatMyContent) echo demc ;;
-            *) echo "$1" | tr '[:upper:]' '[:lower:]' ;;
-          esac
-        }
 
         build() {
           local dir="$1" out="$2"
@@ -265,16 +335,13 @@ runs:
           ) > ".logs/build-$out.log" 2>&1
         }
 
-        for repo in $REPOS; do
-          name="$(deb_name "$repo").deb"
-          build "$repo" "$name" &
+        while read -r name repo sha; do
+          case " $TO_BUILD " in *" $repo "*) ;; *) continue ;; esac
+          dir="$repo"
+          [ "$repo" = "YTLite" ] && dir="$SOURCE_DIR"
+          build "$dir" "$name" &
           pids+=("$!:$name")
-        done
-
-        if [ "$SOURCE_BUILD" = "true" ]; then
-          build "$SOURCE_DIR" ytplus.deb &
-          pids+=("$!:ytplus.deb")
-        fi
+        done < .plan
 
         failed=0
         for entry in "${pids[@]}"; do
@@ -287,40 +354,93 @@ runs:
             failed=1
           fi
         done
-
-        if [ "$failed" = "0" ] && [ "$SOURCE_BUILD" = "true" ]; then
-          contents=$(dpkg-deb -c ytplus.deb)
-          for required in YTLite.dylib "YTLite.bundle/Info.plist" "YTLite.bundle/en.lproj/Localizable.strings"; do
-            if ! grep -q "$required" <<< "$contents"; then
-              echo "::error::Source build is missing $required"
-              failed=1
-            fi
-          done
-        fi
         exit $failed
 
-    - name: Update localization
-      if: ${{ inputs.enable_localization == 'true' && inputs.source_build != 'true' }}
+    - name: Validate debs
       shell: bash
       env:
         SOURCE_DIR: ${{ inputs.source_dir }}
+        SOURCE_BUILD: ${{ inputs.source_build }}
+        TWEAK_VERSION: ${{ inputs.tweak_version }}
+        TWEAK_URL: ${{ inputs.tweak_url }}
       run: |
-        if ! command -v dpkg-deb >/dev/null; then
-          HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_NO_INSTALL_CLEANUP=1 brew install dpkg
+        tool="$SOURCE_DIR/tools/deb_tool.py"
+
+        if [ "$SOURCE_BUILD" != "true" ] && [ -z "$TWEAK_URL" ]; then
+          version="${TWEAK_VERSION#v}"
+          case "$version" in
+            5.2b4) expected=56130dd4c7a1c9c80acc38c88d12002de3d099ca8de3698f87729331258ed9fa ;;
+            5.2.2) expected=132db2162a7a5163c36a9c6ce5637f45139c035279bacd36e8d3b97feba4ebc7 ;;
+            *) expected="" ;;
+          esac
+          actual=$(shasum -a 256 ytplus.deb | cut -d' ' -f1)
+          if [ -n "$expected" ] && [ "$actual" != "$expected" ]; then
+            echo "::error::YouTube Plus $version checksum mismatch (got $actual)."
+            exit 1
+          fi
+          [ -z "$expected" ] && echo "::warning::No pinned checksum for YouTube Plus $version ($actual)."
         fi
-        rm -rf debdir && mkdir debdir
-        dpkg-deb -R ytplus.deb debdir
-        find "$SOURCE_DIR/layout/Library/Application Support/YTLite.bundle" \
-          -mindepth 1 -maxdepth 1 -type d -name "*.lproj" -not -name "en.lproj" \
-          -exec cp -R "{}" "debdir/Library/Application Support/YTLite.bundle/" \;
-        (
-          cd debdir
-          if command -v md5sum >/dev/null; then hasher="md5sum"; else hasher="md5 -r"; fi
-          find . -type f -not -path "./DEBIAN/*" -exec $hasher {} + | sed -E 's|^([0-9a-f]+) +\./|\1  |' | sort -k 2 > DEBIAN/md5sums
-        )
-        rm ytplus.deb
-        dpkg-deb --root-owner-group -b debdir ytplus.deb >/dev/null
-        rm -rf debdir
+
+        python3 "$tool" validate ytplus.deb --package com.dvntm.ytlite --require YTLite.dylib --require YTLite.bundle/Info.plist
+        for deb in *.deb; do
+          [ "$deb" = "ytplus.deb" ] && continue
+          python3 "$tool" validate "$deb" --require .dylib
+        done
+
+        if [ ! -x OpenYouTubeSafariExtension.appex/OpenYouTubeSafariExtension ] || [ ! -f OpenYouTubeSafariExtension.appex/Info.plist ]; then
+          echo "::error::Safari extension is incomplete."
+          exit 1
+        fi
+
+    - name: Save deb cache
+      shell: bash
+      env:
+        SOURCE_BUILD: ${{ inputs.source_build }}
+        TWEAK_VERSION: ${{ inputs.tweak_version }}
+        TWEAK_URL: ${{ inputs.tweak_url }}
+      run: |
+        keep=()
+        while read -r name repo sha; do
+          [ -z "$name" ] && continue
+          cp "$name" ".debcache/$repo-$sha.deb"
+          keep+=("$repo-$sha.deb")
+        done < .plan
+
+        if [ "$SOURCE_BUILD" != "true" ] && [ -z "$TWEAK_URL" ]; then
+          release=".debcache/ytplus-release-${TWEAK_VERSION#v}.deb"
+          [ -f "$release" ] || cp ytplus.deb "$release"
+        fi
+
+        for f in .debcache/*.deb; do
+          base=$(basename "$f")
+          case "$base" in ytplus-release-*) continue ;; esac
+          repo="${base%-*}"
+          for k in "${keep[@]}"; do
+            if [ "${k%-*}" = "$repo" ] && [ "$k" != "$base" ]; then rm -f "$f"; fi
+          done
+        done
+        ls -lh .debcache
+
+    - name: Upload deb cache
+      if: ${{ steps.debcache.outputs.cache-hit != 'true' }}
+      uses: actions/cache/save@v5
+      with:
+        path: .debcache
+        key: ${{ steps.plan.outputs.cache_key }}
+
+    - name: Keep selected languages
+      shell: bash
+      env:
+        SOURCE_DIR: ${{ inputs.source_dir }}
+        LANGUAGES: ${{ inputs.languages }}
+        LOCALIZATION: ${{ inputs.enable_localization }}
+        SOURCE_BUILD: ${{ inputs.source_build }}
+      run: |
+        args=(strip-lproj ytplus.deb --keep "$LANGUAGES")
+        if [ "$LOCALIZATION" = "true" ] && [ "$SOURCE_BUILD" != "true" ]; then
+          args+=(--add-from "$SOURCE_DIR/layout/Library/Application Support/YTLite.bundle")
+        fi
+        python3 "$SOURCE_DIR/tools/deb_tool.py" "${args[@]}"
 
     - name: List outputs
       shell: bash

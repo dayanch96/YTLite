@@ -58,10 +58,13 @@ on:
         default: false
 
       tweak_version:
-        description: "The version of the tweak to use (ignored with source build). Enter the version manually from dayanch96/YTLite/releases or leave default"
+        description: "YouTube Plus version (ignored with source build). 5.2b4 = last free version, 5.2.2 = needs a subscription"
+        type: choice
+        options:
+          - "5.2.2"
+          - "5.2b4"
         default: "5.2.2"
         required: true
-        type: string
 
       display_name:
         description: "App Name (Optional)"
