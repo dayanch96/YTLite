@@ -11,19 +11,29 @@
 %group gSideloading
 // Keychain patching
 static NSString *accessGroupID() {
-    NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:
-                           (__bridge NSString *)kSecClassGenericPassword, (__bridge NSString *)kSecClass,
-                           @"bundleSeedID", kSecAttrAccount,
-                           @"", kSecAttrService,
-                           (id)kCFBooleanTrue, kSecReturnAttributes,
-                           nil];
-    CFDictionaryRef result = nil;
-    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
-    if (status == errSecItemNotFound)
-        status = SecItemAdd((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
-        if (status != errSecSuccess)
-            return nil;
-    NSString *accessGroup = [(__bridge NSDictionary *)result objectForKey:(__bridge NSString *)kSecAttrAccessGroup];
+    static NSString *accessGroup = nil;
+    static dispatch_once_t onceToken;
+
+    dispatch_once(&onceToken, ^{
+        NSDictionary *query = @{
+            (__bridge NSString *)kSecClass: (__bridge NSString *)kSecClassGenericPassword,
+            (__bridge NSString *)kSecAttrAccount: @"bundleSeedID",
+            (__bridge NSString *)kSecAttrService: @"",
+            (__bridge NSString *)kSecReturnAttributes: @YES
+        };
+
+        CFTypeRef result = NULL;
+        OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
+        if (status == errSecItemNotFound)
+            status = SecItemAdd((__bridge CFDictionaryRef)query, &result);
+
+        if (status == errSecSuccess && result) {
+            NSDictionary *attributes = (__bridge_transfer NSDictionary *)result;
+            accessGroup = attributes[(__bridge NSString *)kSecAttrAccessGroup];
+        } else if (result) {
+            CFRelease(result);
+        }
+    });
 
     return accessGroup;
 }
@@ -71,10 +81,11 @@ static NSString *accessGroupID() {
 }
 %end
 
-BOOL isSelf() {
+static BOOL isSelf() {
     NSArray *address = [NSThread callStackReturnAddresses];
+    if (address.count < 3) return NO;
     Dl_info info = {0};
-    if (dladdr((void *)[address[2] longLongValue], &info) == 0) return NO;
+    if (dladdr((void *)[address[2] longLongValue], &info) == 0 || !info.dli_fname) return NO;
     NSString *path = [NSString stringWithUTF8String:info.dli_fname];
     return [path hasPrefix:NSBundle.mainBundle.bundlePath];
 }
@@ -86,8 +97,8 @@ BOOL isSelf() {
 
 - (NSDictionary *)infoDictionary {
     NSDictionary *dict = %orig;
-    if (!isSelf())
-        return %orig;
+    if (!dict || !isSelf())
+        return dict;
     NSMutableDictionary *info = [dict mutableCopy];
     if (info[@"CFBundleIdentifier"]) info[@"CFBundleIdentifier"] = YT_BUNDLE_ID;
     if (info[@"CFBundleDisplayName"]) info[@"CFBundleDisplayName"] = YT_NAME;
@@ -132,8 +143,9 @@ BOOL isSelf() {
 - (NSURL *)containerURLForSecurityApplicationGroupIdentifier:(NSString *)groupIdentifier {
     if (groupIdentifier != nil) {
         NSArray *paths = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-        NSURL *documentsURL = [paths lastObject];
-        return [documentsURL URLByAppendingPathComponent:@"AppGroup"];
+        NSURL *appGroupURL = [[paths lastObject] URLByAppendingPathComponent:@"AppGroup"];
+        [[NSFileManager defaultManager] createDirectoryAtURL:appGroupURL withIntermediateDirectories:YES attributes:nil error:nil];
+        return appGroupURL;
     }
     return %orig(groupIdentifier);
 }

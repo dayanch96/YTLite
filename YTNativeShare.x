@@ -28,7 +28,9 @@
 #import "../protobuf/objectivec/GPBUnknownField.h"
 #import "../protobuf/objectivec/GPBUnknownFieldSet.h"
 
-#define ytlBool(key)  [[[NSUserDefaults alloc] initWithSuiteName:@"com.dvntm.ytlite"] boolForKey:key]
+#import "Utils/YTLUserDefaults.h"
+
+#define ytlBool(key) [[YTLUserDefaults standardUserDefaults] boolForKey:key]
 
 @interface CustomGPBMessage : GPBMessage
 + (instancetype)deserializeFromString:(NSString *)string;
@@ -68,8 +70,10 @@ static inline NSString* extractIdWithFormat(GPBUnknownFieldSet *fields, NSIntege
     GPBUnknownField *idField = [fields getField:fieldNumber];
     if ([idField.lengthDelimitedList count] != 1)
         return nil;
-    NSString *id = [[NSString alloc] initWithData:[idField.lengthDelimitedList firstObject] encoding:NSUTF8StringEncoding];
-    return [NSString stringWithFormat:format, id];
+    NSString *identifier = [[NSString alloc] initWithData:[idField.lengthDelimitedList firstObject] encoding:NSUTF8StringEncoding];
+    if (!identifier.length)
+        return nil;
+    return [NSString stringWithFormat:format, identifier];
 }
 
 %hook ELMPBShowActionSheetCommand
@@ -92,7 +96,9 @@ static inline NSString* extractIdWithFormat(GPBUnknownFieldSet *fields, NSIntege
 
     GPBMessage *shareEntity = [%c(GPBMessage) deserializeFromString:updateShareSheetCommand.serializedShareEntity];
     GPBUnknownFieldSet *fields = shareEntity.unknownFields;
-    NSString *shareUrl;
+    if (!fields)
+        return %orig;
+    NSString *shareUrl = nil;
 
     if ([fields hasField:ShareEntityFieldClip]) {
         GPBUnknownField *shareEntityClip = [fields getField:ShareEntityFieldClip];
@@ -120,7 +126,16 @@ static inline NSString* extractIdWithFormat(GPBUnknownFieldSet *fields, NSIntege
     if (!shareUrl)
         return %orig;
 
-    UIActivityViewController *activityViewController = [[UIActivityViewController alloc]initWithActivityItems:@[shareUrl] applicationActivities:nil];
-    [[%c(YTUIUtils) topViewControllerForPresenting] presentViewController:activityViewController animated:YES completion:^{}];
+    UIViewController *presentingVC = [%c(YTUIUtils) topViewControllerForPresenting];
+    if (!presentingVC)
+        return %orig;
+
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[[NSURL URLWithString:shareUrl] ?: shareUrl] applicationActivities:nil];
+    if (activityViewController.popoverPresentationController) {
+        activityViewController.popoverPresentationController.sourceView = presentingVC.view;
+        activityViewController.popoverPresentationController.sourceRect = CGRectMake(CGRectGetMidX(presentingVC.view.bounds), CGRectGetMidY(presentingVC.view.bounds), 0, 0);
+        activityViewController.popoverPresentationController.permittedArrowDirections = 0;
+    }
+    [presentingVC presentViewController:activityViewController animated:YES completion:nil];
 }
 %end
