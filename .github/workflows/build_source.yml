@@ -46,6 +46,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: PoomSmart/YouTubeHeader
+          ref: 4b9977e2b243fcb143395e0a20d975a32eaa93e0
           path: YouTubeHeader
 
       - name: Checkout protobuf

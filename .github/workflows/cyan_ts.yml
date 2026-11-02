@@ -102,35 +102,44 @@ jobs:
       - name: Check Inputs
         if: ${{ !inputs.create_cyan && !inputs.create_tf }}
         run: |
-          echo "No output format selected."
-          exit 0
+          echo "::error::No output format selected."
+          exit 1
+
+      - name: Restore Safari extension
+        run: |
+          tar -xf OpenYoutubeSafariExtension.appex.tar
+          rm OpenYoutubeSafariExtension.appex.tar
 
       - name: Install Dependencies
         run: brew install dpkg
 
       - name: Install cyan
-        if: ${{ github.event.inputs.create_cyan }}
+        if: ${{ inputs.create_cyan }}
         run: pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
 
       - name: Generate .cyan file
-        if: ${{ github.event.inputs.create_cyan }}
+        if: ${{ inputs.create_cyan }}
+        env:
+          DISPLAY_NAME: ${{ inputs.display_name }}
+          BUNDLE_ID: ${{ inputs.bundle_id }}
         run: |
           tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
           for f in *.deb; do
-            [ -f "$f" ] && tweaks="$tweaks $f"
+            if [ -f "$f" ] && [ "$f" != "ytplus.deb" ]; then tweaks="$tweaks $f"; fi
           done
-          cgen -uwef $tweaks -n "${{ github.event.inputs.display_name }}" -b ${{ github.event.inputs.bundle_id }} -o cyan_YouTubePlus_${{ github.event.inputs.tweak_version }}.cyan
+          echo "Injecting: $tweaks"
+          cgen -uwef $tweaks -n "$DISPLAY_NAME" -b "$BUNDLE_ID" -o cyan_YouTubePlus_${{ github.event.inputs.tweak_version }}.cyan
 
       - name: Generate .zip file for TrollFools
-        if: ${{ github.event.inputs.create_tf }}
+        if: ${{ inputs.create_tf }}
         run: |
           mkdir -p ytp_tf
           for f in *.deb; do
             if [ -f "$f" ]; then
               mkdir -p tmp_deb
               dpkg-deb -x "$f" tmp_deb
-              find tmp_deb -type f -name "*.dylib" -exec cp -R {} ytp_tf/ \;
-              find tmp_deb -type d -name "*.bundle" -exec cp -R {} ytp_tf/ \;
+              find tmp_deb -type f -name "*.dylib" -exec cp {} ytp_tf/ \;
+              find tmp_deb -type d -name "*.bundle" -prune -exec cp -R {} ytp_tf/ \;
               rm -rf tmp_deb
             fi
           done
@@ -143,8 +152,8 @@ jobs:
         id: filelist
         run: |
           files=""
-          [ "${{ github.event.inputs.create_cyan }}" = "true" ] && files="${files}cyan_YouTubePlus_${{ github.event.inputs.tweak_version }}.cyan"$'\n'
-          [ "${{ github.event.inputs.create_tf }}" = "true" ]   && files="${files}TrollFools_YouTubePlus_${{ github.event.inputs.tweak_version }}.zip"$'\n'
+          [ "${{ inputs.create_cyan }}" = "true" ] && files="${files}cyan_YouTubePlus_${{ github.event.inputs.tweak_version }}.cyan"$'\n'
+          [ "${{ inputs.create_tf }}" = "true" ]   && files="${files}TrollFools_YouTubePlus_${{ github.event.inputs.tweak_version }}.zip"$'\n'
           echo -e "files<<EOF" >> $GITHUB_OUTPUT
           echo -e "$files" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
@@ -152,7 +161,7 @@ jobs:
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: ytp-${{ github.run_number }}
+          tag_name: ytp-cyan-tf-${{ github.run_number }}
           name: YouTubePlus v${{ github.event.inputs.tweak_version }}_cyan_trollfools (${{ github.run_number }})
           files: ${{ steps.filelist.outputs.files }}
           draft: true

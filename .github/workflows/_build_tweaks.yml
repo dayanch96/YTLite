@@ -95,18 +95,34 @@ jobs:
           mv *.sdk $THEOS/sdks
 
       - name: Download YouTube Plus (by version)
-        if: ${{ inputs.tweak_version != '' }}
+        if: ${{ inputs.tweak_url == '' && inputs.tweak_version != '' }}
+        env:
+          TWEAK_VERSION: ${{ inputs.tweak_version }}
         run: |
-          deb_url="https://github.com/dayanch96/YTLite/releases/download/v${{ inputs.tweak_version }}/com.dvntm.ytlite_${{ inputs.tweak_version }}_iphoneos-arm.deb"
-          wget "$deb_url" --no-verbose -O ytplus.deb
+          version="${TWEAK_VERSION#v}"
+          deb_url="https://github.com/dayanch96/YTLite/releases/download/v${version}/com.dvntm.ytlite_${version}_iphoneos-arm.deb"
+          if ! wget "$deb_url" --no-verbose -O ytplus.deb; then
+            echo "::error::Could not download YouTube Plus v${version}. Check that this version exists on dayanch96/YTLite/releases."
+            exit 1
+          fi
 
       - name: Download YouTube Plus (by URL)
         if: ${{ inputs.tweak_url != '' }}
+        env:
+          TWEAK_URL: ${{ inputs.tweak_url }}
         run: |
-          wget "${{ inputs.tweak_url }}" --no-verbose -O ytplus.deb
+          wget "$TWEAK_URL" --no-verbose -O ytplus.deb
+
+      - name: Validate YouTube Plus deb
+        if: ${{ inputs.tweak_url != '' || inputs.tweak_version != '' }}
+        run: |
           file_type=$(file --mime-type -b ytplus.deb)
           if [[ "$file_type" != "application/vnd.debian.binary-package" ]]; then
             echo "::error::Validation failed: The file is not a valid DEB file. Detected type: $file_type."
+            exit 1
+          fi
+          if ! dpkg-deb -c ytplus.deb | grep -q "YTLite.dylib"; then
+            echo "::error::Validation failed: YTLite.dylib not found in the deb."
             exit 1
           fi
 
@@ -215,13 +231,16 @@ jobs:
       - name: Clone Open in YouTube (Safari extension)
         run: |
           git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/BillyCurtis/OpenYouTubeSafariExtension
-          cd OpenYoutubeSafariExtension
+          cd OpenYouTubeSafariExtension
           git sparse-checkout set --no-cone OpenYoutubeSafariExtension.appex
           git checkout
           mv *.appex ..
+          cd ..
+          tar -cf OpenYoutubeSafariExtension.appex.tar OpenYoutubeSafariExtension.appex
+          rm -rf OpenYoutubeSafariExtension.appex OpenYouTubeSafariExtension
 
       - name: Update localization
-        if: ${{ inputs.enable_localization }}
+        if: ${{ inputs.enable_localization && (inputs.tweak_url != '' || inputs.tweak_version != '') }}
         run: |
           mkdir debdir
           dpkg-deb -R ytplus.deb debdir
@@ -240,6 +259,6 @@ jobs:
           name: built-debs
           path: |
             *.deb
-            *.appex
-          if-no-files-found: ignore
+            *.appex.tar
+          if-no-files-found: error
           retention-days: 1
