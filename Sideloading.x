@@ -60,7 +60,11 @@ static NSString *accessGroupID() {
 + (NSString *)appName { return YT_NAME; }
 %end
 
-%hook OGLPhenotypeFlagServiceImpl
+%hook OGLPhenotypeFlagServiceImpl // legacy
+- (NSString *)bundleId { return YT_BUNDLE_ID; }
+%end
+
+%hook SSOBundleIdService
 - (NSString *)bundleId { return YT_BUNDLE_ID; }
 %end
 
@@ -154,5 +158,8 @@ static BOOL isSelf() {
 
 %ctor {
     BOOL isAppStoreApp = [[NSFileManager defaultManager] fileExistsAtPath:[[NSBundle mainBundle] appStoreReceiptURL].path];
-    if (!isAppStoreApp) %init(gSideloading);
+    if (!isAppStoreApp) {
+        Class bundleIdService = NSClassFromString(@"SSOBundleIdService") ?: NSClassFromString(@"SSOBundleIdServiceImpl");
+        %init(gSideloading, SSOBundleIdService = bundleIdService);
+    }
 }

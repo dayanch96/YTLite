@@ -18,3 +18,6 @@ $(TWEAK_NAME)_CFLAGS = -fobjc-arc -DTWEAK_VERSION=$(PACKAGE_VERSION)
 $(TWEAK_NAME)_FILES = $(wildcard *.x Utils/*.m)
 
 include $(THEOS_MAKE_PATH)/tweak.mk
+
+before-all::
+	@command -v python3 >/dev/null 2>&1 && python3 tools/gen_feature_map.py || true

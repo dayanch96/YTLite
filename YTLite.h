@@ -2,6 +2,7 @@
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
 #import <objc/runtime.h>
+#import <objc/message.h>
 #import "Utils/NSBundle+YTLite.h"
 #import "Utils/YTLUserDefaults.h"
 #import "Utils/Reachability.h"
@@ -14,6 +15,34 @@
 
 #define ytlSetBool(value, key) [[YTLUserDefaults standardUserDefaults] setBool:(value) forKey:(key)]
 #define ytlSetInt(value, key) [[YTLUserDefaults standardUserDefaults] setInteger:(value) forKey:(key)]
+
+static inline Class YTLClass(NSString *name) {
+    Class cls = NSClassFromString(name);
+    if (cls) return cls;
+    cls = NSClassFromString([name stringByAppendingString:@"Impl"]);
+    if (cls) return cls;
+    if ([name hasSuffix:@"Impl"]) return NSClassFromString([name substringToIndex:name.length - 4]);
+    return nil;
+}
+
+static inline id YTLValue(id object, NSString *key) {
+    if (!object || !key) return nil;
+    @try {
+        return [object valueForKey:key];
+    } @catch (NSException *exception) {
+        return nil;
+    }
+}
+
+static inline BOOL YTLSetValue(id object, id value, NSString *key) {
+    if (!object || !key) return NO;
+    @try {
+        [object setValue:value forKey:key];
+        return YES;
+    } @catch (NSException *exception) {
+        return NO;
+    }
+}
 
 @interface YTTouchFeedbackController : YTCollectionViewCell
 @property (nonatomic, strong, readwrite) UIColor *feedbackColor;
@@ -32,6 +61,7 @@
 - (YTSettingsSectionItem *)switchWithTitle:(NSString *)title key:(NSString *)key;
 - (YTSettingsSectionItem *)linkWithTitle:(NSString *)title description:(NSString *)description link:(NSString *)link;
 - (UIImage *)resizedImageNamed:(NSString *)iconName;
+- (NSArray *)availableRows:(NSArray *)rows;
 @end
 
 @interface YTLightweightQTMButton ()
