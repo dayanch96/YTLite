@@ -55,11 +55,16 @@ A flexible enhancer for YouTube on iOS, featuring over hundred customizable opti
 > Starting from version 5.2, YTPlus requires a subscription.  
 > The last free version is [5.2b4](https://github.com/dayanch96/YTLite/releases/tag/v5.2b4).
 
+## This fork
+
+- **Create YouTube Plus app** workflow: pick YouTube Plus `5.2.2` or `5.2b4`, or tick `source_build` to inject YTLite built from this repository.
+- Built tweaks are cached per commit, so later runs only rebuild what changed.
+- Before injection the IPA is checked (complete download, decrypted binaries, YouTube bundle id) and every deb is validated; release debs are checked against pinned SHA-256.
+- Only English and French are shipped in `YTLite.bundle`.
+- Source builds stay compatible across YouTube versions: renamed classes (`X` → `XImpl`) are resolved at runtime, settings whose hooks no longer exist are hidden, and `tools/check_hooks.py` reports which hooks a given YouTube binary still supports (also run by the workflow on source builds).
+
 ## FAQ
 - [🇺🇸 English FAQ](FAQs/FAQ_EN.md)
-- [🇷🇺 ЧаВо на Русском](FAQs/FAQ_RU.md)
-- [🇮🇹 FAQ in Italiano](FAQs/FAQ_IT.md)
-- [🇵🇱 FAQ po polsku](FAQs/FAQ_PL.md)
 
 ## Reviews
 Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbreak.com/blog/youtube-plus/
