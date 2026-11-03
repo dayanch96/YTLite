@@ -34,7 +34,7 @@ concurrency:
 jobs:
   build:
     name: Build deb
-    runs-on: macos-latest
+    runs-on: macos-15-intel
 
     steps:
       - name: Checkout YTLite
@@ -66,7 +66,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: theos/
-          key: theos_source_build_sdk16.5_v1
+          key: theos_source_build_sdk16.5_${{ runner.os }}_${{ runner.arch }}_v1
 
       - name: Setup Theos
         if: ${{ steps.theos.outputs.cache-hit != 'true' }}

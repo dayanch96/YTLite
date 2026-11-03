@@ -91,7 +91,7 @@ concurrency:
 jobs:
   build:
     name: Build YouTube Plus IPA
-    runs-on: macos-latest
+    runs-on: macos-15-intel
     permissions:
       contents: write
 

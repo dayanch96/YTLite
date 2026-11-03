@@ -60,7 +60,7 @@ on:
 jobs:
   build-tweaks:
     name: Build Tweaks
-    runs-on: macos-latest
+    runs-on: macos-15-intel
     outputs:
       tweak_label: ${{ steps.tweaks.outputs.tweak_label }}
 

@@ -130,7 +130,7 @@ runs:
       uses: actions/cache/restore@v5
       with:
         path: .debcache
-        key: ${{ steps.plan.outputs.cache_key }}
+        key: ${{ steps.plan.outputs.cache_key }}-${{ runner.arch }}
         restore-keys: ${{ steps.plan.outputs.cache_prefix }}
 
     - name: Reuse cached debs
@@ -183,7 +183,7 @@ runs:
       uses: actions/cache@v5
       with:
         path: theos/
-        key: ${{ steps.plan.outputs.theos_tag }}-v2
+        key: ${{ steps.plan.outputs.theos_tag }}-${{ runner.os }}-${{ runner.arch }}-v2
 
     - name: Setup Theos
       if: ${{ steps.reuse.outputs.need_theos == 'true' && steps.theos.outputs.cache-hit != 'true' }}
@@ -426,7 +426,7 @@ runs:
       uses: actions/cache/save@v5
       with:
         path: .debcache
-        key: ${{ steps.plan.outputs.cache_key }}
+        key: ${{ steps.plan.outputs.cache_key }}-${{ runner.arch }}
 
     - name: Keep selected languages
       shell: bash
