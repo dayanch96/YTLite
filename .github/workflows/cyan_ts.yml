@@ -51,21 +51,6 @@ on:
         required: true
         default: false
 
-      source_build:
-        description: "Build YTLite from this fork's source instead of downloading the release deb"
-        type: boolean
-        required: true
-        default: false
-
-      tweak_version:
-        description: "YouTube Plus version (ignored with source build). 5.2b4 = last free version, 5.2.2 = needs a subscription"
-        type: choice
-        options:
-          - "5.2.2"
-          - "5.2b4"
-        default: "5.2.2"
-        required: true
-
       display_name:
         description: "App Name (Optional)"
         default: "YouTube"
@@ -92,9 +77,6 @@ jobs:
       enable_ryd: ${{ inputs.enable_ryd }}
       enable_ytabc: ${{ inputs.enable_ytabc }}
       enable_demc: ${{ inputs.enable_demc }}
-      enable_localization: false
-      source_build: ${{ inputs.source_build }}
-      tweak_version: ${{ inputs.tweak_version }}
 
   package:
     name: Generate Cyan/TrollFools

@@ -51,17 +51,18 @@ A flexible enhancer for YouTube on iOS, featuring over hundred customizable opti
 **All contributors are listed in the Contributors section**
 **Used open-source libraries are listed in the Open Source Libraries section**
 
-> [!NOTE]
-> Starting from version 5.2, YTPlus requires a subscription.  
-> The last free version is [5.2b4](https://github.com/dayanch96/YTLite/releases/tag/v5.2b4).
-
 ## This fork
 
-- **Create YouTube Plus app** workflow: pick YouTube Plus `5.2.2` or `5.2b4`, or tick `source_build` to inject YTLite built from this repository.
-- Built tweaks are cached per commit, so later runs only rebuild what changed.
-- Before injection the IPA is checked (complete download, decrypted binaries, YouTube bundle id) and every deb is validated; release debs are checked against pinned SHA-256.
-- Only English and French are shipped in `YTLite.bundle`.
-- Source builds stay compatible across YouTube versions: renamed classes (`X` → `XImpl`) are resolved at runtime, settings whose hooks no longer exist are hidden, and `tools/check_hooks.py` reports which hooks a given YouTube binary still supports (also run by the workflow on source builds).
+The IPA workflows now inject YTLite built from this repository only (the closed YouTube Plus 5.x deb is no longer used).
+
+- No ads: player ads (pre/mid-roll, ad slots), feed, search and Shorts ads are stripped.
+- Built-in SponsorBlock: auto-skips sponsor, self-promo, interaction reminders, intro, outro, preview, non-music and filler segments, each category switchable.
+- Downloads: video (MP4 up to the best AVC quality, video + audio muxed), audio only (M4A) and thumbnail, from the description panel.
+- OLED mode, clear cache on launch, remember playback speed, settings backed up to the keychain.
+- Safe mode: after 3 crashes in a row at launch, the tweak turns itself off for that launch and offers to reset its settings.
+- Follows YouTube updates: renamed classes (`X` ↔ `XImpl`) are resolved at runtime, settings whose hooks no longer exist are hidden, and `tools/check_hooks.py` reports hook coverage for the IPA you build (shown in the workflow summary).
+- Built tweaks are cached per commit; the IPA is checked (complete, decrypted, YouTube bundle id) and every deb is validated before injection.
+- English and French only.
 
 ## FAQ
 - [🇺🇸 English FAQ](FAQs/FAQ_EN.md)

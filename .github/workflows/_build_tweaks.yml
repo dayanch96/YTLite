@@ -37,26 +37,6 @@ on:
         required: true
         default: false
 
-      enable_localization:
-        type: boolean
-        required: true
-        default: false
-
-      source_build:
-        type: boolean
-        required: false
-        default: false
-
-      tweak_version:
-        type: string
-        required: false
-        default: ""
-
-      tweak_url:
-        type: string
-        required: false
-        default: ""
-
 jobs:
   build-tweaks:
     name: Build Tweaks
@@ -76,16 +56,12 @@ jobs:
         uses: ./src/.github/actions/build-tweaks
         with:
           source_dir: src
-          source_build: ${{ inputs.source_build }}
           enable_youpip: ${{ inputs.enable_youpip }}
           enable_ytuhd: ${{ inputs.enable_ytuhd }}
           enable_yq: ${{ inputs.enable_yq }}
           enable_ryd: ${{ inputs.enable_ryd }}
           enable_ytabc: ${{ inputs.enable_ytabc }}
           enable_demc: ${{ inputs.enable_demc }}
-          enable_localization: ${{ inputs.enable_localization }}
-          tweak_version: ${{ inputs.tweak_version }}
-          tweak_url: ${{ inputs.tweak_url }}
 
       - name: Pack Safari extension
         run: tar -cf OpenYouTubeSafariExtension.appex.tar OpenYouTubeSafariExtension.appex

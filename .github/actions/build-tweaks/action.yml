@@ -5,8 +5,6 @@ inputs:
   source_dir:
     description: Path of this repository checkout, relative to the workspace
     required: true
-  source_build:
-    default: "false"
   enable_youpip:
     default: "false"
   enable_ytuhd:
@@ -19,15 +17,6 @@ inputs:
     default: "false"
   enable_demc:
     default: "false"
-  enable_localization:
-    default: "false"
-  tweak_version:
-    default: ""
-  tweak_url:
-    default: ""
-  languages:
-    description: Localizations kept in YTLite.bundle
-    default: "en,fr"
 
 outputs:
   tweak_label:
@@ -41,9 +30,6 @@ runs:
       id: plan
       shell: bash
       env:
-        SOURCE_BUILD: ${{ inputs.source_build }}
-        TWEAK_VERSION: ${{ inputs.tweak_version }}
-        TWEAK_URL: ${{ inputs.tweak_url }}
         SOURCE_DIR: ${{ inputs.source_dir }}
         YOUPIP: ${{ inputs.enable_youpip }}
         YTUHD: ${{ inputs.enable_ytuhd }}
@@ -98,19 +84,10 @@ runs:
           echo "$(deb_name "$repo").deb $repo $sha" >> .plan
         done
 
-        if [ "$SOURCE_BUILD" = "true" ]; then
-          src_hash=$(cd "$SOURCE_DIR" && find Makefile control *.x *.h Utils layout tools -type f -print0 | sort -z | xargs -0 shasum -a 256 | shasum -a 256 | cut -c1-12)
-          echo "ytplus.deb YTLite $src_hash" >> .plan
-          version=$(grep -E '^PACKAGE_VERSION' "$SOURCE_DIR/Makefile" | sed 's/.*= *//')
-          label="${version}-$(git -C "$SOURCE_DIR" rev-parse --short HEAD)"
-        elif [ -n "$TWEAK_URL" ]; then
-          label="custom"
-        elif [ -n "$TWEAK_VERSION" ]; then
-          label="${TWEAK_VERSION#v}"
-        else
-          echo "::error::Set a tweak version, a tweak URL or enable the source build."
-          exit 1
-        fi
+        src_hash=$(cd "$SOURCE_DIR" && find Makefile control *.x *.h Utils layout tools -type f -not -path '*/__pycache__/*' -print0 | sort -z | xargs -0 shasum -a 256 | shasum -a 256 | cut -c1-12)
+        echo "ytplus.deb YTLite $src_hash" >> .plan
+        version=$(grep -E '^PACKAGE_VERSION' "$SOURCE_DIR/Makefile" | sed 's/.*= *//')
+        label="${version}-$(git -C "$SOURCE_DIR" rev-parse --short HEAD)"
 
         theos_tag="theos9bc7340-sdk16.5"
         plan_hash=$(sort .plan | shasum -a 256 | cut -c1-16)
@@ -209,19 +186,9 @@ runs:
       shell: bash
       env:
         TO_BUILD: ${{ steps.reuse.outputs.to_build }}
-        SOURCE_BUILD: ${{ inputs.source_build }}
-        TWEAK_VERSION: ${{ inputs.tweak_version }}
-        TWEAK_URL: ${{ inputs.tweak_url }}
         DEMC: ${{ inputs.enable_demc }}
       run: |
         pids=()
-
-        pinned_sha() {
-          case "$1" in
-            5.2b4) echo 56130dd4c7a1c9c80acc38c88d12002de3d099ca8de3698f87729331258ed9fa ;;
-            5.2.2) echo 132db2162a7a5163c36a9c6ce5637f45139c035279bacd36e8d3b97feba4ebc7 ;;
-          esac
-        }
 
         url_for() {
           case "$1" in
@@ -272,25 +239,6 @@ runs:
             run_bg source-headers source_headers
             ;;
         esac
-
-        if [ "$SOURCE_BUILD" != "true" ]; then
-          if [ -n "$TWEAK_URL" ]; then
-            run_bg ytplus curl -fsSL --retry 3 --retry-delay 2 -o ytplus.deb "$TWEAK_URL"
-          else
-            version="${TWEAK_VERSION#v}"
-            cached=".debcache/ytplus-release-$version.deb"
-            expected=$(pinned_sha "$version")
-            if [ -f "$cached" ] && [ -n "$expected" ] && [ "$(shasum -a 256 "$cached" | cut -d' ' -f1)" != "$expected" ]; then
-              rm -f "$cached"
-            fi
-            if [ -f "$cached" ]; then
-              cp "$cached" ytplus.deb
-              echo "Cached: YouTube Plus $version"
-            else
-              run_bg ytplus curl -fsSL --retry 3 --retry-delay 2 -o ytplus.deb "https://github.com/dayanch96/YTLite/releases/download/v${version}/com.dvntm.ytlite_${version}_iphoneos-arm.deb"
-            fi
-          fi
-        fi
 
         safari() {
           rm -rf safari_src
@@ -360,28 +308,9 @@ runs:
       shell: bash
       env:
         SOURCE_DIR: ${{ inputs.source_dir }}
-        SOURCE_BUILD: ${{ inputs.source_build }}
-        TWEAK_VERSION: ${{ inputs.tweak_version }}
-        TWEAK_URL: ${{ inputs.tweak_url }}
       run: |
         tool="$SOURCE_DIR/tools/deb_tool.py"
-
-        if [ "$SOURCE_BUILD" != "true" ] && [ -z "$TWEAK_URL" ]; then
-          version="${TWEAK_VERSION#v}"
-          case "$version" in
-            5.2b4) expected=56130dd4c7a1c9c80acc38c88d12002de3d099ca8de3698f87729331258ed9fa ;;
-            5.2.2) expected=132db2162a7a5163c36a9c6ce5637f45139c035279bacd36e8d3b97feba4ebc7 ;;
-            *) expected="" ;;
-          esac
-          actual=$(shasum -a 256 ytplus.deb | cut -d' ' -f1)
-          if [ -n "$expected" ] && [ "$actual" != "$expected" ]; then
-            echo "::error::YouTube Plus $version checksum mismatch (got $actual)."
-            exit 1
-          fi
-          [ -z "$expected" ] && echo "::warning::No pinned checksum for YouTube Plus $version ($actual)."
-        fi
-
-        python3 "$tool" validate ytplus.deb --package com.dvntm.ytlite --require YTLite.dylib --require YTLite.bundle/Info.plist
+        python3 "$tool" validate ytplus.deb --package com.dvntm.ytlite --require YTLite.dylib --require YTLite.bundle/Info.plist --require YTLite.bundle/en.lproj --require YTLite.bundle/fr.lproj
         for deb in *.deb; do
           [ "$deb" = "ytplus.deb" ] && continue
           python3 "$tool" validate "$deb" --require .dylib
@@ -394,31 +323,12 @@ runs:
 
     - name: Save deb cache
       shell: bash
-      env:
-        SOURCE_BUILD: ${{ inputs.source_build }}
-        TWEAK_VERSION: ${{ inputs.tweak_version }}
-        TWEAK_URL: ${{ inputs.tweak_url }}
       run: |
-        keep=()
+        rm -f .debcache/*.deb
         while read -r name repo sha; do
           [ -z "$name" ] && continue
           cp "$name" ".debcache/$repo-$sha.deb"
-          keep+=("$repo-$sha.deb")
         done < .plan
-
-        if [ "$SOURCE_BUILD" != "true" ] && [ -z "$TWEAK_URL" ]; then
-          release=".debcache/ytplus-release-${TWEAK_VERSION#v}.deb"
-          [ -f "$release" ] || cp ytplus.deb "$release"
-        fi
-
-        for f in .debcache/*.deb; do
-          base=$(basename "$f")
-          case "$base" in ytplus-release-*) continue ;; esac
-          repo="${base%-*}"
-          for k in "${keep[@]}"; do
-            if [ "${k%-*}" = "$repo" ] && [ "$k" != "$base" ]; then rm -f "$f"; fi
-          done
-        done
         ls -lh .debcache
 
     - name: Upload deb cache
@@ -427,20 +337,6 @@ runs:
       with:
         path: .debcache
         key: ${{ steps.plan.outputs.cache_key }}-${{ runner.arch }}
-
-    - name: Keep selected languages
-      shell: bash
-      env:
-        SOURCE_DIR: ${{ inputs.source_dir }}
-        LANGUAGES: ${{ inputs.languages }}
-        LOCALIZATION: ${{ inputs.enable_localization }}
-        SOURCE_BUILD: ${{ inputs.source_build }}
-      run: |
-        args=(strip-lproj ytplus.deb --keep "$LANGUAGES")
-        if [ "$LOCALIZATION" = "true" ] && [ "$SOURCE_BUILD" != "true" ]; then
-          args+=(--add-from "$SOURCE_DIR/layout/Library/Application Support/YTLite.bundle")
-        fi
-        python3 "$SOURCE_DIR/tools/deb_tool.py" "${args[@]}"
 
     - name: List outputs
       shell: bash
