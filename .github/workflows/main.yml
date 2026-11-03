@@ -39,11 +39,27 @@ on:
         required: true
         default: false
 
+      enable_localization:
+        description: "Use the French translation from this repo (only en and fr are kept)"
+        type: boolean
+        required: true
+        default: false
+
       ipa_url:
         description: "URL to the decrypted IPA file"
         default: ""
         required: true
         type: string
+
+      tweak_version:
+        description: "YouTube Plus version by dayanch96 (5.2b4 = last free version)"
+        type: choice
+        options:
+          - "6.0"
+          - "5.2.2"
+          - "5.2b4"
+        default: "6.0"
+        required: true
 
       display_name:
         description: "App Name (Optional)"
@@ -59,7 +75,7 @@ on:
 
       info_note:
         description: "TIP: Learn more about integrations in the README via the link below"
-        default: "https://github.com/RK28A/YTLite#tweak-integration-details"
+        default: "https://github.com/dayanch96/YTLite#tweak-integration-details"
         type: string
         required: false
 
@@ -78,7 +94,7 @@ jobs:
       - name: Hide sensitive inputs
         uses: levibostian/action-hide-sensitive-inputs@v1
         with:
-          exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_ytabc,enable_youpip,enable_yq,enable_ytuhd,info_note
+          exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_ytabc,enable_youpip,enable_yq,enable_ytuhd,enable_localization,info_note,tweak_version
 
       - name: Start IPA download and cyan install
         env:
@@ -99,13 +115,14 @@ jobs:
         uses: ./src/.github/actions/build-tweaks
         with:
           source_dir: src
-          source_build: true
           enable_youpip: ${{ inputs.enable_youpip }}
           enable_ytuhd: ${{ inputs.enable_ytuhd }}
           enable_yq: ${{ inputs.enable_yq }}
           enable_ryd: ${{ inputs.enable_ryd }}
           enable_ytabc: ${{ inputs.enable_ytabc }}
           enable_demc: ${{ inputs.enable_demc }}
+          enable_localization: ${{ inputs.enable_localization }}
+          tweak_version: ${{ inputs.tweak_version }}
 
       - name: Package IPA
         uses: ./src/.github/actions/package-ipa
@@ -114,7 +131,6 @@ jobs:
           display_name: ${{ inputs.display_name }}
           bundle_id: ${{ inputs.bundle_id }}
           source_dir: src
-          hook_report: true
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v3

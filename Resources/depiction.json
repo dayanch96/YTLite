@@ -95,8 +95,8 @@
             "views": [
                 {
                     "class": "DepictionTableButtonView",
-                    "title": "My Patreon",
-                    "action": "https://patreon.com/dayanch96"
+                    "title": "Boosty",
+                    "action": "https://boosty.to/dayanch96"
                 },
                 {
                     "class": "DepictionTableButtonView",

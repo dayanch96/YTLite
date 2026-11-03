@@ -51,6 +51,16 @@ on:
         required: true
         default: false
 
+      tweak_version:
+        description: "YouTube Plus version by dayanch96 (5.2b4 = last free version)"
+        type: choice
+        options:
+          - "6.0"
+          - "5.2.2"
+          - "5.2b4"
+        default: "6.0"
+        required: true
+
       display_name:
         description: "App Name (Optional)"
         default: "YouTube"
@@ -77,6 +87,8 @@ jobs:
       enable_ryd: ${{ inputs.enable_ryd }}
       enable_ytabc: ${{ inputs.enable_ytabc }}
       enable_demc: ${{ inputs.enable_demc }}
+      enable_localization: false
+      tweak_version: ${{ inputs.tweak_version }}
 
   package:
     name: Generate Cyan/TrollFools

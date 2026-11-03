@@ -53,7 +53,11 @@ A flexible enhancer for YouTube on iOS, featuring over hundred customizable opti
 
 ## This fork
 
-The IPA workflows now inject YTLite built from this repository only (the closed YouTube Plus 5.x deb is no longer used).
+Two separate workflows so they can't be mixed up:
+- **Create YTMod app**: injects YTLite built from this repository (all the features below).
+- **Create YouTube Plus app**: injects dayanch96's YouTube Plus release deb (6.0, 5.2.2 or 5.2b4), with the same optimized pipeline and checks.
+
+YTMod features:
 
 - No ads: player ads (pre/mid-roll, ad slots), feed, search and Shorts ads are stripped.
 - Built-in SponsorBlock: auto-skips sponsor, self-promo, interaction reminders, intro, outro, preview, non-music and filler segments, each category switchable.
@@ -113,9 +117,9 @@ Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbrea
 
 ## Supported YouTube Version
 <ul>
-   <li><strong>Latest confirmed:</strong> <em>21.16.2</em></li>
-   <li><strong>Date tested:</strong> <em>Jul 17, 2026</em></li>
-   <li><strong>YouTube Plus:</strong> <em>5.2.2</em></li>
+   <li><strong>Latest confirmed:</strong> <em>21.43.5</em></li>
+   <li><strong>Date tested:</strong> <em>Nov 03, 2026</em></li>
+   <li><strong>YouTube Plus:</strong> <em>6.0</em></li>
 </ul>
 
 ## Tweak Integration Details
