@@ -40,7 +40,7 @@ on:
         default: false
 
       enable_localization:
-        description: "Update localization files from repo"
+        description: "Use the French translation from this repo (only en and fr are kept)"
         type: boolean
         required: true
         default: false
@@ -52,10 +52,14 @@ on:
         type: string
 
       tweak_version:
-        description: "The version of the tweak to use. Enter the version manually from dayanch96/YTLite/releases or leave default"
+        description: "YouTube Plus version by dayanch96 (5.2b4 = last free version)"
+        type: choice
+        options:
+          - "6.0"
+          - "5.2.2"
+          - "5.2b4"
         default: "6.0"
         required: true
-        type: string
 
       display_name:
         description: "App Name (Optional)"
@@ -80,74 +84,60 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-tweaks:
-    uses: ./.github/workflows/_build_tweaks.yml
-    with:
-      enable_youpip: ${{ inputs.enable_youpip }}
-      enable_ytuhd: ${{ inputs.enable_ytuhd }}
-      enable_yq: ${{ inputs.enable_yq }}
-      enable_ryd: ${{ inputs.enable_ryd }}
-      enable_ytabc: ${{ inputs.enable_ytabc }}
-      enable_demc: ${{ inputs.enable_demc }}
-      enable_localization: ${{ inputs.enable_localization }}
-      tweak_version: ${{ inputs.tweak_version }}
-
-  package:
-    name: Package IPA
-    runs-on: macos-latest
-    needs: build-tweaks
+  build:
+    name: Build YouTube Plus IPA
+    runs-on: macos-15-intel
     permissions:
       contents: write
 
     steps:
-      - name: Download built debs
-        uses: actions/download-artifact@v8
-        with:
-          name: built-debs
-          path: ${{ github.workspace }}
-
       - name: Hide sensitive inputs
         uses: levibostian/action-hide-sensitive-inputs@v1
         with:
           exclude_inputs: bundle_id,display_name,enable_demc,enable_ryd,enable_ytabc,enable_youpip,enable_yq,enable_ytuhd,enable_localization,info_note,tweak_version
 
-      - name: Download and validate IPA
+      - name: Start IPA download and cyan install
+        env:
+          IPA_URL: ${{ inputs.ipa_url }}
         run: |
-          wget "${{ github.event.inputs.ipa_url }}" --no-verbose -O youtube.ipa
-          file_type=$(file --mime-type -b youtube.ipa)
-          if [[ "$file_type" != "application/x-ios-app" && "$file_type" != "application/zip" ]]; then
-            echo "::error::Validation failed: The downloaded file is not a valid IPA. Detected type: $file_type."
-            exit 1
-          fi
+          mkdir -p .logs
+          nohup bash -c 'curl -fsSL --retry 3 --retry-delay 2 -o youtube.ipa "$IPA_URL" > .logs/ipa.log 2>&1 && touch .ipa.done || touch .ipa.failed' >/dev/null 2>&1 &
+          nohup bash -c 'pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip > .logs/cyan.log 2>&1 && touch .cyan.done || touch .cyan.failed' >/dev/null 2>&1 &
 
-      - name: Patch Info.plist
-        run: |
-          unzip -q youtube.ipa -d ipa_tmp
-          plist="$(find ipa_tmp/Payload -maxdepth 1 -name '*.app' | head -n 1)/Info.plist"
-          /usr/libexec/PlistBuddy -c "Delete :UIDesignRequiresCompatibility" "$plist" 2>/dev/null || true
-          /usr/libexec/PlistBuddy -c "Delete :NSFaceIDUsageDescription" "$plist" 2>/dev/null || true
-          /usr/libexec/PlistBuddy -c "Add :NSFaceIDUsageDescription string 'Face ID is required to authenticate.'" "$plist"
-          rm youtube.ipa
-          (cd ipa_tmp && zip -qry ../youtube.ipa .)
-          rm -rf ipa_tmp
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          path: src
+          fetch-depth: 1
 
-      - name: Install cyan
-        run: pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
+      - name: Build tweaks
+        id: tweaks
+        uses: ./src/.github/actions/build-tweaks
+        with:
+          source_dir: src
+          enable_youpip: ${{ inputs.enable_youpip }}
+          enable_ytuhd: ${{ inputs.enable_ytuhd }}
+          enable_yq: ${{ inputs.enable_yq }}
+          enable_ryd: ${{ inputs.enable_ryd }}
+          enable_ytabc: ${{ inputs.enable_ytabc }}
+          enable_demc: ${{ inputs.enable_demc }}
+          enable_localization: ${{ inputs.enable_localization }}
+          tweak_version: ${{ inputs.tweak_version }}
 
-      - name: Inject tweaks into IPA
-        run: |
-          tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
-          for f in *.deb; do
-            [ -f "$f" ] && tweaks="$tweaks $f"
-          done
-          cyan -i youtube.ipa -o YouTubePlus_${{ github.event.inputs.tweak_version }}.ipa -uwef $tweaks -n "${{ github.event.inputs.display_name }}" -b ${{ github.event.inputs.bundle_id }}
+      - name: Package IPA
+        uses: ./src/.github/actions/package-ipa
+        with:
+          output: YouTubePlus_${{ steps.tweaks.outputs.tweak_label }}.ipa
+          display_name: ${{ inputs.display_name }}
+          bundle_id: ${{ inputs.bundle_id }}
+          source_dir: src
 
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v3
         with:
           tag_name: ytp-${{ github.run_number }}
-          name: YouTubePlus v${{ github.event.inputs.tweak_version }} (${{ github.run_number }})
-          files: YouTubePlus_${{ github.event.inputs.tweak_version }}.ipa
+          name: YouTubePlus v${{ steps.tweaks.outputs.tweak_label }} (${{ github.run_number }})
+          files: YouTubePlus_${{ steps.tweaks.outputs.tweak_label }}.ipa
           draft: true
 
       - name: Output Release URL

@@ -51,15 +51,25 @@ A flexible enhancer for YouTube on iOS, featuring over hundred customizable opti
 **All contributors are listed in the Contributors section**
 **Used open-source libraries are listed in the Open Source Libraries section**
 
-> [!NOTE]
-> Starting from version 5.2, YTPlus requires a subscription.  
-> The last free version is [5.2b4](https://github.com/dayanch96/YTLite/releases/tag/v5.2b4).
+## This fork
+
+Two separate workflows so they can't be mixed up:
+- **Create YTMod app**: injects YTLite built from this repository (all the features below).
+- **Create YouTube Plus app**: injects dayanch96's YouTube Plus release deb (6.0, 5.2.2 or 5.2b4), with the same optimized pipeline and checks.
+
+YTMod features:
+
+- No ads: player ads (pre/mid-roll, ad slots), feed, search and Shorts ads are stripped.
+- Built-in SponsorBlock: auto-skips sponsor, self-promo, interaction reminders, intro, outro, preview, non-music and filler segments, each category switchable.
+- Downloads: video (MP4 up to the best AVC quality, video + audio muxed), audio only (M4A) and thumbnail, from the description panel.
+- OLED mode, clear cache on launch, remember playback speed, settings backed up to the keychain.
+- Safe mode: after 3 crashes in a row at launch, the tweak turns itself off for that launch and offers to reset its settings.
+- Follows YouTube updates: renamed classes (`X` ↔ `XImpl`) are resolved at runtime, settings whose hooks no longer exist are hidden, and `tools/check_hooks.py` reports hook coverage for the IPA you build (shown in the workflow summary).
+- Built tweaks are cached per commit; the IPA is checked (complete, decrypted, YouTube bundle id) and every deb is validated before injection.
+- English and French only.
 
 ## FAQ
 - [🇺🇸 English FAQ](FAQs/FAQ_EN.md)
-- [🇷🇺 ЧаВо на Русском](FAQs/FAQ_RU.md)
-- [🇮🇹 FAQ in Italiano](FAQs/FAQ_IT.md)
-- [🇵🇱 FAQ po polsku](FAQs/FAQ_PL.md)
 
 ## Reviews
 Review by [@qbap](https://github.com/qbap) on ONE Jailbreak: https://onejailbreak.com/blog/youtube-plus/

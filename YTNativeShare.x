@@ -17,43 +17,15 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-// Source code can be found here: https://github.com/jkhsjdhjs/youtube-native-share (Thanks to @jkhsjdhjs) 
+// Source code can be found here: https://github.com/jkhsjdhjs/youtube-native-share (Thanks to @jkhsjdhjs)
 
-#include <UIKit/UIActivityViewController.h>
+#import <UIKit/UIKit.h>
+#import <objc/runtime.h>
+#import <objc/message.h>
+#import "Utils/YTLUserDefaults.h"
+#import "Utils/YTLSafeMode.h"
 
-#import "../YouTubeHeader/YTUIUtils.h"
-
-#import "../protobuf/objectivec/GPBDescriptor.h"
-#import "../protobuf/objectivec/GPBMessage.h"
-#import "../protobuf/objectivec/GPBUnknownField.h"
-#import "../protobuf/objectivec/GPBUnknownFieldSet.h"
-
-#define ytlBool(key)  [[[NSUserDefaults alloc] initWithSuiteName:@"com.dvntm.ytlite"] boolForKey:key]
-
-@interface CustomGPBMessage : GPBMessage
-+ (instancetype)deserializeFromString:(NSString *)string;
-@end
-
-@interface YTICommand : GPBMessage
-@end
-
-@interface ELMPBCommand : GPBMessage
-@end
-
-@interface ELMPBShowActionSheetCommand : GPBMessage
-@property (nonatomic, strong, readwrite) ELMPBCommand *onAppear;
-@property (nonatomic, assign, readwrite) BOOL hasOnAppear;
-@end
-
-@interface YTIUpdateShareSheetCommand
-@property (nonatomic, assign, readwrite) BOOL hasSerializedShareEntity;
-@property (nonatomic, copy, readwrite) NSString *serializedShareEntity;
-+ (GPBExtensionDescriptor*)updateShareSheetCommand;
-@end
-
-@interface YTIInnertubeCommandExtensionRoot
-+ (GPBExtensionDescriptor*)innertubeCommand;
-@end
+#define ytlBool(key) [[YTLUserDefaults standardUserDefaults] boolForKey:key]
 
 typedef NS_ENUM(NSInteger, ShareEntityType) {
     ShareEntityFieldVideo = 1,
@@ -62,65 +34,183 @@ typedef NS_ENUM(NSInteger, ShareEntityType) {
     ShareEntityFieldClip = 8
 };
 
-static inline NSString* extractIdWithFormat(GPBUnknownFieldSet *fields, NSInteger fieldNumber, NSString *format) {
-    if (![fields hasField:fieldNumber])
+@interface ELMPBShowActionSheetCommand : NSObject
+@end
+
+static id YTLGPBExtensionOfClass(id message, NSString *className, NSUInteger depth) {
+    if (!message || depth > 4) return nil;
+    if ([NSStringFromClass([message class]) isEqualToString:className]) return message;
+    if (![message respondsToSelector:@selector(extensionsCurrentlySet)] || ![message respondsToSelector:@selector(getExtension:)]) return nil;
+
+    NSArray *extensions = nil;
+    @try {
+        extensions = [message performSelector:@selector(extensionsCurrentlySet)];
+    } @catch (NSException *exception) {
         return nil;
-    GPBUnknownField *idField = [fields getField:fieldNumber];
-    if ([idField.lengthDelimitedList count] != 1)
-        return nil;
-    NSString *id = [[NSString alloc] initWithData:[idField.lengthDelimitedList firstObject] encoding:NSUTF8StringEncoding];
-    return [NSString stringWithFormat:format, id];
-}
-
-%hook ELMPBShowActionSheetCommand
-- (void)executeWithCommandContext:(id)_context handler:(id)_handler {
-    if (!ytlBool(@"nativeShare"))
-        return %orig;
-
-    if (!self.hasOnAppear)
-        return %orig;
-    GPBExtensionDescriptor *innertubeCommandDescriptor = [%c(YTIInnertubeCommandExtensionRoot) innertubeCommand];
-    if (![self.onAppear hasExtension:innertubeCommandDescriptor])
-        return %orig;
-    YTICommand *innertubeCommand = [self.onAppear getExtension:innertubeCommandDescriptor];
-    GPBExtensionDescriptor *updateShareSheetCommandDescriptor = [%c(YTIUpdateShareSheetCommand) updateShareSheetCommand];
-    if(![innertubeCommand hasExtension:updateShareSheetCommandDescriptor])
-        return %orig;
-    YTIUpdateShareSheetCommand *updateShareSheetCommand = [innertubeCommand getExtension:updateShareSheetCommandDescriptor];
-    if (!updateShareSheetCommand.hasSerializedShareEntity)
-        return %orig;
-
-    GPBMessage *shareEntity = [%c(GPBMessage) deserializeFromString:updateShareSheetCommand.serializedShareEntity];
-    GPBUnknownFieldSet *fields = shareEntity.unknownFields;
-    NSString *shareUrl;
-
-    if ([fields hasField:ShareEntityFieldClip]) {
-        GPBUnknownField *shareEntityClip = [fields getField:ShareEntityFieldClip];
-        if ([shareEntityClip.lengthDelimitedList count] != 1)
-            return %orig;
-        GPBMessage *clipMessage = [%c(GPBMessage) parseFromData:[shareEntityClip.lengthDelimitedList firstObject] error:nil];
-        shareUrl = extractIdWithFormat(clipMessage.unknownFields, 1, @"https://youtube.com/clip/%@");
     }
 
-    if (!shareUrl)
-        shareUrl = extractIdWithFormat(fields, ShareEntityFieldChannel, @"https://youtube.com/channel/%@");
+    for (id descriptor in extensions) {
+        if (![descriptor respondsToSelector:@selector(msgClass)]) continue;
+        Class msgClass = ((Class (*)(id, SEL))objc_msgSend)(descriptor, @selector(msgClass));
+        if (!msgClass) continue;
 
-    if (!shareUrl) {
-        shareUrl = extractIdWithFormat(fields, ShareEntityFieldPlaylist, @"%@");
-        if (shareUrl) {
-            if (![shareUrl hasPrefix:@"PL"] && ![shareUrl hasPrefix:@"FL"])
-                shareUrl = [shareUrl stringByAppendingString:@"&playnext=1"];
-            shareUrl = [@"https://youtube.com/playlist?list=" stringByAppendingString:shareUrl];
+        id value = nil;
+        @try {
+            value = [message performSelector:@selector(getExtension:) withObject:descriptor];
+        } @catch (NSException *exception) {
+            continue;
+        }
+
+        id found = YTLGPBExtensionOfClass(value, className, depth + 1);
+        if (found) return found;
+    }
+
+    return nil;
+}
+
+static BOOL YTLReadVarint(const uint8_t *bytes, NSUInteger length, NSUInteger *offset, uint64_t *value) {
+    uint64_t result = 0;
+    for (int shift = 0; shift < 64 && *offset < length; shift += 7) {
+        uint8_t byte = bytes[(*offset)++];
+        result |= (uint64_t)(byte & 0x7F) << shift;
+        if (!(byte & 0x80)) {
+            *value = result;
+            return YES;
+        }
+    }
+    return NO;
+}
+
+static NSDictionary <NSNumber *, NSData *> *YTLProtobufStrings(NSData *data) {
+    NSMutableDictionary *fields = [NSMutableDictionary dictionary];
+    const uint8_t *bytes = data.bytes;
+    NSUInteger length = data.length, offset = 0;
+
+    while (offset < length) {
+        uint64_t key = 0;
+        if (!YTLReadVarint(bytes, length, &offset, &key)) break;
+
+        uint64_t number = key >> 3, value = 0;
+        switch (key & 0x7) {
+            case 0:
+                if (!YTLReadVarint(bytes, length, &offset, &value)) return fields;
+                break;
+            case 1:
+                offset += 8;
+                break;
+            case 2:
+                if (!YTLReadVarint(bytes, length, &offset, &value) || value > length - offset) return fields;
+                if (!fields[@(number)]) fields[@(number)] = [data subdataWithRange:NSMakeRange(offset, (NSUInteger)value)];
+                offset += (NSUInteger)value;
+                break;
+            case 5:
+                offset += 4;
+                break;
+            default:
+                return fields;
         }
     }
 
-    if (!shareUrl)
-        shareUrl = extractIdWithFormat(fields, ShareEntityFieldVideo, @"https://youtube.com/watch?v=%@");
+    return fields;
+}
 
-    if (!shareUrl)
+static NSData *YTLShareEntityData(NSString *serialized) {
+    Class GPBMessageClass = NSClassFromString(@"GPBMessage");
+    if ([GPBMessageClass respondsToSelector:@selector(deserializeFromString:)]) {
+        @try {
+            id message = [GPBMessageClass performSelector:@selector(deserializeFromString:) withObject:serialized];
+            if ([message respondsToSelector:@selector(data)]) {
+                NSData *data = [message performSelector:@selector(data)];
+                if (data.length) return data;
+            }
+        } @catch (NSException *exception) {}
+    }
+
+    NSString *base64 = [serialized stringByRemovingPercentEncoding] ?: serialized;
+    base64 = [base64 stringByReplacingOccurrencesOfString:@"-" withString:@"+"];
+    base64 = [base64 stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
+    while (base64.length % 4) base64 = [base64 stringByAppendingString:@"="];
+    return [[NSData alloc] initWithBase64EncodedString:base64 options:NSDataBase64DecodingIgnoreUnknownCharacters];
+}
+
+static NSString *YTLString(NSData *data) {
+    NSString *string = data.length ? [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] : nil;
+    return string.length ? string : nil;
+}
+
+static NSString *YTLShareURL(NSString *serialized) {
+    NSData *data = YTLShareEntityData(serialized);
+    if (!data.length) return nil;
+
+    NSDictionary <NSNumber *, NSData *> *fields = YTLProtobufStrings(data);
+
+    NSData *clip = fields[@(ShareEntityFieldClip)];
+    if (clip) {
+        NSString *clipID = YTLString(YTLProtobufStrings(clip)[@1]);
+        if (clipID) return [@"https://youtube.com/clip/" stringByAppendingString:clipID];
+    }
+
+    NSString *channelID = YTLString(fields[@(ShareEntityFieldChannel)]);
+    if (channelID) return [@"https://youtube.com/channel/" stringByAppendingString:channelID];
+
+    NSString *playlistID = YTLString(fields[@(ShareEntityFieldPlaylist)]);
+    if (playlistID) {
+        if (![playlistID hasPrefix:@"PL"] && ![playlistID hasPrefix:@"FL"])
+            playlistID = [playlistID stringByAppendingString:@"&playnext=1"];
+        return [@"https://youtube.com/playlist?list=" stringByAppendingString:playlistID];
+    }
+
+    NSString *videoID = YTLString(fields[@(ShareEntityFieldVideo)]);
+    if (videoID) return [@"https://youtube.com/watch?v=" stringByAppendingString:videoID];
+
+    return nil;
+}
+
+static UIViewController *YTLTopViewController(void) {
+    Class utils = NSClassFromString(@"YTUIUtils");
+    if ([utils respondsToSelector:@selector(topViewControllerForPresenting)]) {
+        UIViewController *vc = [utils performSelector:@selector(topViewControllerForPresenting)];
+        if (vc) return vc;
+    }
+
+    UIViewController *vc = nil;
+    for (UIScene *scene in [UIApplication sharedApplication].connectedScenes) {
+        if (![scene isKindOfClass:[UIWindowScene class]]) continue;
+        for (UIWindow *window in ((UIWindowScene *)scene).windows) {
+            if (window.isKeyWindow) vc = window.rootViewController;
+        }
+    }
+    while (vc.presentedViewController) vc = vc.presentedViewController;
+    return vc;
+}
+
+%hook ELMPBShowActionSheetCommand
+- (void)executeWithCommandContext:(id)context handler:(id)handler {
+    if (!ytlBool(@"nativeShare"))
         return %orig;
 
-    UIActivityViewController *activityViewController = [[UIActivityViewController alloc]initWithActivityItems:@[shareUrl] applicationActivities:nil];
-    [[%c(YTUIUtils) topViewControllerForPresenting] presentViewController:activityViewController animated:YES completion:^{}];
+    id onAppear = [self respondsToSelector:@selector(onAppear)] ? [self performSelector:@selector(onAppear)] : nil;
+    id shareCommand = YTLGPBExtensionOfClass(onAppear, @"YTIUpdateShareSheetCommand", 0);
+    if (![shareCommand respondsToSelector:@selector(serializedShareEntity)])
+        return %orig;
+
+    NSString *serialized = [shareCommand performSelector:@selector(serializedShareEntity)];
+    NSString *shareURL = serialized.length ? YTLShareURL(serialized) : nil;
+    UIViewController *presentingVC = YTLTopViewController();
+    if (!shareURL || !presentingVC)
+        return %orig;
+
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[[NSURL URLWithString:shareURL] ?: shareURL] applicationActivities:nil];
+    if (activityViewController.popoverPresentationController) {
+        activityViewController.popoverPresentationController.sourceView = presentingVC.view;
+        activityViewController.popoverPresentationController.sourceRect = CGRectMake(CGRectGetMidX(presentingVC.view.bounds), CGRectGetMidY(presentingVC.view.bounds), 0, 0);
+        activityViewController.popoverPresentationController.permittedArrowDirections = 0;
+    }
+    [presentingVC presentViewController:activityViewController animated:YES completion:nil];
 }
 %end
+
+%ctor {
+    if (YTLSafeModeActive()) return;
+    %init;
+}

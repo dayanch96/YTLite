@@ -1,4 +1,34 @@
 #import "YTLite.h"
+#import "Utils/YTLSafeMode.h"
+
+static const char kYTLAutoSkipKey;
+static const char kYTLGestureKey;
+static const char kYTLShortsModeGestureKey;
+static const char kYTLManageTabGestureKey;
+static const char kYTLSpeedmasterGestureKey;
+
+static float YTLVideoRate(id video) {
+    if ([video respondsToSelector:@selector(playbackRate)]) return [(YTSingleVideoController *)video playbackRate];
+    if ([video respondsToSelector:@selector(activePlaybackRateModel)]) {
+        id model = [video performSelector:@selector(activePlaybackRateModel)];
+        if ([model respondsToSelector:@selector(activeRate)]) return [[model valueForKey:@"activeRate"] floatValue];
+    }
+    return 1.0;
+}
+
+static id YTLPlayerData(YTPlayerViewController *playerVC) {
+    id response = nil;
+    if ([playerVC respondsToSelector:@selector(playerResponse)]) response = [playerVC playerResponse];
+    if (!response && [playerVC respondsToSelector:@selector(contentPlayerResponse)]) response = [playerVC performSelector:@selector(contentPlayerResponse)];
+    if ([response respondsToSelector:@selector(playerData)]) response = [response performSelector:@selector(playerData)];
+    return response;
+}
+
+static YTInlinePlayerScrubUserEducationView *YTLScrubEducationView(id overlayView) {
+    if ([overlayView respondsToSelector:@selector(scrubUserEducationView)]) return [overlayView scrubUserEducationView];
+    id view = YTLValue(overlayView, @"_scrubUserEducationView");
+    return [view isKindOfClass:YTLClass(@"YTInlinePlayerScrubUserEducationView")] ? view : nil;
+}
 
 static UIImage *YTImageNamed(NSString *imageName) {
     return [UIImage imageNamed:imageName inBundle:[NSBundle mainBundle] compatibleWithTraitCollection:nil];
@@ -16,7 +46,7 @@ static UIImage *YTImageNamed(NSString *imageName) {
 
 // Disable Ads
 %hook YTIPlayerResponse
-- (BOOL)isMonetized { return ytlBool(@"noAds") ? NO : YES; }
+- (BOOL)isMonetized { return ytlBool(@"noAds") ? NO : %orig; }
 %end
 
 %hook YTDataUtils
@@ -32,21 +62,92 @@ static UIImage *YTImageNamed(NSString *imageName) {
 - (void)decorateContext:(id)context { if (!ytlBool(@"noAds")) %orig; }
 %end
 
+static void YTLStripPlayerAds(id playerData) {
+    if (!playerData) return;
+    for (NSString *key in @[@"playerAdsArray", @"adPlacementsArray", @"adSlotsArray"]) {
+        id array = YTLValue(playerData, key);
+        if ([array isKindOfClass:[NSMutableArray class]] && [array count]) [array removeAllObjects];
+    }
+}
+
+%hook YTPlayerResponse
+- (id)playerData {
+    id data = %orig;
+    if (ytlBool(@"noAds")) YTLStripPlayerAds(data);
+    return data;
+}
+%end
+
+%hook YTReelDataSource
+- (void)setReels:(id)reels {
+    if (!ytlBool(@"noAds") || !reels) return %orig;
+
+    NSIndexSet *(^adIndexes)(id) = ^NSIndexSet *(id collection) {
+        NSMutableIndexSet *indexes = [NSMutableIndexSet indexSet];
+        NSUInteger i = 0;
+        for (id model in collection) {
+            if (YTLValue(model, @"isAdVideo") ? [YTLValue(model, @"isAdVideo") boolValue] : [YTLValue(model, @"adVideo") boolValue]) [indexes addIndex:i];
+            i++;
+        }
+        return indexes;
+    };
+
+    if ([reels isKindOfClass:[NSOrderedSet class]] || [reels isKindOfClass:[NSArray class]]) {
+        NSIndexSet *indexes = adIndexes(reels);
+        if (indexes.count) {
+            if ([reels isKindOfClass:[NSMutableOrderedSet class]] || [reels isKindOfClass:[NSMutableArray class]]) {
+                [reels removeObjectsAtIndexes:indexes];
+            } else if ([reels isKindOfClass:[NSOrderedSet class]]) {
+                NSMutableOrderedSet *copy = [reels mutableCopy];
+                [copy removeObjectsAtIndexes:indexes];
+                reels = [copy copy];
+            } else {
+                NSMutableArray *copy = [reels mutableCopy];
+                [copy removeObjectsAtIndexes:indexes];
+                reels = [copy copy];
+            }
+        }
+    }
+    %orig(reels);
+}
+
+- (void)insertContentModel:(id)model atIndex:(NSUInteger)index {
+    if (ytlBool(@"noAds") && [YTLValue(model, @"isAdVideo") ?: YTLValue(model, @"adVideo") boolValue]) return;
+    %orig;
+}
+%end
+
+// OLED Mode
+%hook YTCommonColorPalette
+- (UIColor *)baseBackground { return ytlBool(@"oledMode") && self.pageStyle == 1 ? [UIColor blackColor] : %orig; }
+- (UIColor *)background1 { return ytlBool(@"oledMode") && self.pageStyle == 1 ? [UIColor blackColor] : %orig; }
+- (UIColor *)background2 { return ytlBool(@"oledMode") && self.pageStyle == 1 ? [UIColor blackColor] : %orig; }
+- (UIColor *)background3 { return ytlBool(@"oledMode") && self.pageStyle == 1 ? [UIColor blackColor] : %orig; }
+- (UIColor *)generalBackgroundA { return ytlBool(@"oledMode") && self.pageStyle == 1 ? [UIColor blackColor] : %orig; }
+- (UIColor *)generalBackgroundB { return ytlBool(@"oledMode") && self.pageStyle == 1 ? [UIColor blackColor] : %orig; }
+- (UIColor *)generalBackgroundC { return ytlBool(@"oledMode") && self.pageStyle == 1 ? [UIColor blackColor] : %orig; }
+%end
+
 %hook YTIElementRenderer
 - (NSData *)elementData {
     if (self.hasCompatibilityOptions && self.compatibilityOptions.hasAdLoggingData && ytlBool(@"noAds")) return nil;
 
     NSString *description = [self description];
 
-    NSArray *ads = @[@"brand_promo", @"product_carousel", @"product_engagement_panel", @"product_item", @"text_search_ad", @"text_image_button_layout", @"carousel_headered_layout", @"carousel_footered_layout", @"square_image_layout", @"landscape_image_wide_button_layout", @"feed_ad_metadata"];
-    if (ytlBool(@"noAds") && [ads containsObject:description]) {
-        return [NSData data];
+    if (ytlBool(@"noAds")) {
+        static NSArray *ads;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            ads = @[@"brand_promo", @"product_carousel", @"product_engagement_panel", @"product_item", @"text_search_ad", @"text_image_button_layout", @"carousel_headered_layout", @"carousel_footered_layout", @"square_image_layout", @"landscape_image_wide_button_layout", @"feed_ad_metadata", @"full_width_square_image_layout", @"full_width_portrait_image_layout", @"video_display_full_layout", @"video_display_full_buttoned_layout", @"video_display_button_group_layout", @"compact_promoted_item", @"in_feed_ad", @"ad_slot_renderer", @"shopping_carousel", @"shopping_item_card_list", @"statement_banner", @"masthead_ad", @"promoted_sparkles", @"_ad_with_", @"shorts_ad", @"reels_ad", @"player_overlay_ad", @"ads_info"];
+        });
+        for (NSString *ad in ads) {
+            if ([description containsString:ad]) return [NSData data];
+        }
     }
 
-    NSArray *shortsToRemove = @[@"shorts_shelf.eml", @"shorts_video_cell.eml", @"6Shorts"];
-    for (NSString *shorts in shortsToRemove) {
-        if (ytlBool(@"hideShorts") && [description containsString:shorts] && ![description containsString:@"history*"]) {
-            return nil;
+    if (ytlBool(@"hideShorts") && ![description containsString:@"history*"]) {
+        for (NSString *shorts in @[@"shorts_shelf.eml", @"shorts_video_cell.eml", @"6Shorts"]) {
+            if ([description containsString:shorts]) return nil;
         }
     }
 
@@ -112,7 +213,7 @@ static UIImage *YTImageNamed(NSString *imageName) {
 %end
 
 %hook YTSettings
-- (void)setDisableMDXDeviceDiscovery:(BOOL)arg1 { %orig(ytlBool(@"noCast")); }
+- (void)setDisableMDXDeviceDiscovery:(BOOL)arg1 { ytlBool(@"noCast") ? %orig(YES) : %orig; }
 %end
 
 // Hide Navigation Bar Buttons
@@ -134,7 +235,7 @@ static UIImage *YTImageNamed(NSString *imageName) {
 - (void)viewDidLoad {
     %orig;
 
-    if (ytlBool(@"noVoiceSearchButton")) [self setValue:@(NO) forKey:@"_isVoiceSearchAllowed"];
+    if (ytlBool(@"noVoiceSearchButton")) YTLSetValue(self, @(NO), @"_isVoiceSearchAllowed");
 }
 
 - (void)setSuggestions:(id)arg1 { if (!ytlBool(@"noSearchHistory")) %orig; }
@@ -166,18 +267,25 @@ static UIImage *YTImageNamed(NSString *imageName) {
 - (void)setImage:(UIImage *)image {
     if (!ytlBool(@"premiumYTLogo")) return %orig;
 
-    NSString *resourcesPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Frameworks/Module_Framework.framework/Innertube_Resources.bundle"];
-    NSBundle *frameworkBundle = [NSBundle bundleWithPath:resourcesPath];
+    if (!image) return %orig;
 
-    if ([[image description] containsString:@"Resources: youtube_logo)"]) {
-        image = [UIImage imageNamed:@"youtube_premium_logo" inBundle:frameworkBundle compatibleWithTraitCollection:nil];
+    static NSBundle *frameworkBundle;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *resourcesPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Frameworks/Module_Framework.framework/Innertube_Resources.bundle"];
+        frameworkBundle = [NSBundle bundleWithPath:resourcesPath];
+    });
+
+    NSString *imageDescription = [image description];
+    UIImage *premiumImage = nil;
+
+    if ([imageDescription containsString:@"Resources: youtube_logo)"]) {
+        premiumImage = [UIImage imageNamed:@"youtube_premium_logo" inBundle:frameworkBundle compatibleWithTraitCollection:nil];
+    } else if ([imageDescription containsString:@"Resources: youtube_logo_dark)"]) {
+        premiumImage = [UIImage imageNamed:@"youtube_premium_logo_white" inBundle:frameworkBundle compatibleWithTraitCollection:nil];
     }
 
-    else if ([[image description] containsString:@"Resources: youtube_logo_dark)"]) {
-        image = [UIImage imageNamed:@"youtube_premium_logo_white" inBundle:frameworkBundle compatibleWithTraitCollection:nil];
-    }
-
-    %orig(image);
+    %orig(premiumImage ?: image);
 }
 %end
 
@@ -212,7 +320,9 @@ static UIImage *YTImageNamed(NSString *imageName) {
 
     if (!ytlBool(@"pauseOnOverlay")) return;
 
-    visible ? [self.playerViewController pause] : [self.playerViewController play];
+    YTPlayerViewController *playerVC = self.playerViewController;
+    if (!playerVC) return;
+    visible ? [playerVC pause] : [playerVC play];
 }
 %end
 
@@ -256,7 +366,7 @@ static UIImage *YTImageNamed(NSString *imageName) {
 
 // Disable Fullscreen Actions
 %hook YTFullscreenActionsView
-- (BOOL)enabled { return ytlBool(@"noFullscreenActions") ? NO : YES; }
+- (BOOL)enabled { return ytlBool(@"noFullscreenActions") ? NO : %orig; }
 - (void)setEnabled:(BOOL)arg1 { ytlBool(@"noFullscreenActions") ? %orig(NO) : %orig; }
 %end
 
@@ -292,7 +402,11 @@ static UIImage *YTImageNamed(NSString *imageName) {
 %end
 
 // Forcibly Enable Miniplayer
-%hook YTWatchMiniBarViewController
+%hook YTWatchMiniBarViewController // legacy
+- (void)updateMiniBarPlayerStateFromRenderer { if (!ytlBool(@"miniplayer")) %orig; }
+%end
+
+%hook YTWatchFloatingMiniplayerViewController
 - (void)updateMiniBarPlayerStateFromRenderer { if (!ytlBool(@"miniplayer")) %orig; }
 %end
 
@@ -314,7 +428,7 @@ static UIImage *YTImageNamed(NSString *imageName) {
 // Classic Video Quality (https://github.com/PoomSmart/YTClassicVideoQuality)
 %hook YTVideoQualitySwitchControllerFactory
 - (id)videoQualitySwitchControllerWithParentResponder:(id)responder {
-    Class originalClass = %c(YTVideoQualitySwitchOriginalController);
+    Class originalClass = YTLClass(@"YTVideoQualitySwitchOriginalController");
     return ytlBool(@"classicQuality") && originalClass ? [[originalClass alloc] initWithParentResponder:responder] : %orig;
 }
 %end
@@ -322,18 +436,27 @@ static UIImage *YTImageNamed(NSString *imageName) {
 // Extra Speed Options
 %hook YTVarispeedSwitchController
 - (void)setDelegate:(id)arg1 {
-    NSMutableArray *optionsCopy = [[self valueForKey:@"_options"] mutableCopy];
-    NSArray *speedOptions = @[@"2.5", @"3", @"3.5", @"4", @"5"];
+    if (ytlBool(@"extraSpeedOptions")) {
+        NSArray *currentOptions = YTLValue(self, @"_options");
+        if (currentOptions && ![currentOptions isKindOfClass:[NSArray class]]) return %orig;
+        NSMutableArray *optionsCopy = currentOptions ? [currentOptions mutableCopy] : [NSMutableArray array];
+        NSMutableSet *existingRates = [NSMutableSet set];
 
-    for (NSString *title in speedOptions) {
-        float rate = [title floatValue];
-        YTVarispeedSwitchControllerOption *option = [[%c(YTVarispeedSwitchControllerOption) alloc] initWithTitle:title rate:rate];
-        [optionsCopy addObject:option];
+        for (YTVarispeedSwitchControllerOption *option in optionsCopy) {
+            if ([option respondsToSelector:@selector(rate)]) [existingRates addObject:@(option.rate)];
+        }
+
+        for (NSString *title in @[@"2.5", @"3", @"3.5", @"4", @"5"]) {
+            float rate = [title floatValue];
+            if ([existingRates containsObject:@(rate)]) continue;
+            YTVarispeedSwitchControllerOption *option = [[YTLClass(@"YTVarispeedSwitchControllerOption") alloc] initWithTitle:title rate:rate];
+            if (option) [optionsCopy addObject:option];
+        }
+
+        YTLSetValue(self, [optionsCopy copy], @"_options");
     }
 
-    if (ytlBool(@"extraSpeedOptions")) [self setValue:[optionsCopy copy] forKey:@"_options"];
-
-    return %orig;
+    %orig;
 }
 %end
 
@@ -350,18 +473,21 @@ static UIImage *YTImageNamed(NSString *imageName) {
 // Show real version in YT Settings
 %hook YTSettingsCell
 - (void)setDetailText:(id)arg1 {
-    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    NSString *appVersion = infoDictionary[@"CFBundleShortVersionString"];
-
-    if ([arg1 isEqualToString:@"18.18.2"]) {
-        arg1 = appVersion;
-    } %orig(arg1);
+    if ([arg1 isKindOfClass:[NSString class]] && [arg1 isEqualToString:@"18.18.2"]) {
+        NSString *appVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+        if (appVersion) arg1 = appVersion;
+    }
+    %orig(arg1);
 }
 %end
 
 // Disable Snap To Chapter (https://github.com/qnblackcat/uYouPlus/blob/main/uYouPlus.xm#L457-464)
-%hook YTSegmentableInlinePlayerBarView
+%hook YTSegmentableInlinePlayerBarView // legacy
 - (void)didMoveToWindow { %orig; if (ytlBool(@"dontSnapToChapter")) self.enableSnapToChapter = NO; }
+%end
+
+%hook YTModularPlayerBarController
+- (void)setEnableSnapToChapter:(BOOL)enabled { ytlBool(@"dontSnapToChapter") ? %orig(NO) : %orig; }
 %end
 
 // Red Progress Bar and Gray Buffer Progress
@@ -369,59 +495,79 @@ static UIImage *YTImageNamed(NSString *imageName) {
 - (id)quietProgressBarColor { return ytlBool(@"redProgressBar") ? [UIColor redColor] : %orig; }
 %end
 
-%hook YTSegmentableInlinePlayerBarView
-- (void)setBufferedProgressBarColor:(id)arg1 { if (ytlBool(@"redProgressBar")) %orig([UIColor colorWithRed:0.65 green:0.65 blue:0.65 alpha:0.60]); }
+%hook YTSegmentableInlinePlayerBarView // legacy
+- (void)setBufferedProgressBarColor:(id)arg1 { ytlBool(@"redProgressBar") ? %orig([UIColor colorWithRed:0.65 green:0.65 blue:0.65 alpha:0.60]) : %orig; }
+%end
+
+%hook YTPlayerBarSegmentView
+- (void)setBufferedProgressBarColor:(id)arg1 { ytlBool(@"redProgressBar") ? %orig([UIColor colorWithRed:0.65 green:0.65 blue:0.65 alpha:0.60]) : %orig; }
 %end
 
 // Disable Hints
 %hook YTSettings
-- (BOOL)areHintsDisabled { return ytlBool(@"noHints") ? YES : NO; }
+- (BOOL)areHintsDisabled { return ytlBool(@"noHints") ? YES : %orig; }
 - (void)setHintsDisabled:(BOOL)arg1 { ytlBool(@"noHints") ? %orig(YES) : %orig; }
 %end
 
 %hook YTUserDefaults
-- (BOOL)areHintsDisabled { return ytlBool(@"noHints") ? YES : NO; }
+- (BOOL)areHintsDisabled { return ytlBool(@"noHints") ? YES : %orig; }
 - (void)setHintsDisabled:(BOOL)arg1 { ytlBool(@"noHints") ? %orig(YES) : %orig; }
 %end
 
 void addEndTime(YTPlayerViewController *self, YTSingleVideoController *video, YTSingleVideoTime *time) {
     if (!ytlBool(@"videoEndTime")) return;
 
-    CGFloat rate = video.playbackRate != 0 ? video.playbackRate : 1.0;
-    NSTimeInterval remainingTime = (lround(video.totalMediaTime) - lround(time.time)) / rate;
+    if (video.totalMediaTime <= 0) return;
+
+    YTPlayerView *playerView = (YTPlayerView *)self.view;
+    if (![playerView respondsToSelector:@selector(overlayView)] || ![playerView.overlayView isKindOfClass:YTLClass(@"YTMainAppVideoPlayerOverlayView")]) return;
+
+    CGFloat rate = YTLVideoRate(video);
+    if (rate <= 0) rate = 1.0;
+    NSTimeInterval remainingTime = MAX(0, (lround(video.totalMediaTime) - lround(time.time)) / rate);
 
     NSDate *estimatedEndTime = [NSDate dateWithTimeIntervalSinceNow:remainingTime];
 
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+    static NSDateFormatter *dateFormatter;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+    });
     [dateFormatter setDateFormat:ytlBool(@"24hrFormat") ? @"HH:mm" : @"h:mm a"];
 
     NSString *formattedEndTime = [dateFormatter stringFromDate:estimatedEndTime];
 
-    YTPlayerView *playerView = (YTPlayerView *)self.view;
-    if (![playerView.overlayView isKindOfClass:%c(YTMainAppVideoPlayerOverlayView)]) return;
-
-    YTMainAppVideoPlayerOverlayView *overlay = (YTMainAppVideoPlayerOverlayView*)playerView.overlayView;
+    YTMainAppVideoPlayerOverlayView *overlay = (YTMainAppVideoPlayerOverlayView *)playerView.overlayView;
     YTLabel *durationLabel = overlay.playerBar.durationLabel;
+    NSString *previousEndTime = overlay.playerBar.endTimeString;
     overlay.playerBar.endTimeString = formattedEndTime;
 
-    if (![durationLabel.text containsString:formattedEndTime]) {
-        durationLabel.text = [durationLabel.text stringByAppendingString:[NSString stringWithFormat:@" • %@", formattedEndTime]];
-        [durationLabel sizeToFit];
+    NSString *text = durationLabel.text;
+    if (!text || [text containsString:formattedEndTime]) return;
+
+    if (previousEndTime.length) {
+        NSRange range = [text rangeOfString:[NSString stringWithFormat:@" • %@", previousEndTime]];
+        if (range.location != NSNotFound) text = [text substringToIndex:range.location];
     }
+
+    durationLabel.text = [text stringByAppendingFormat:@" • %@", formattedEndTime];
+    [durationLabel sizeToFit];
 }
 
 void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video, YTSingleVideoTime *time) {
     if (!ytlBool(@"autoSkipShorts")) return;
 
-    if (floor(time.time) >= floor(video.totalMediaTime)) {
-        if ([self.parentViewController isKindOfClass:%c(YTShortsPlayerViewController)]) {
-            YTShortsPlayerViewController *shortsVC = (YTShortsPlayerViewController *)self.parentViewController;
+    if (video.totalMediaTime <= 0 || floor(time.time) < floor(video.totalMediaTime)) return;
+    if (![self.parentViewController isKindOfClass:YTLClass(@"YTShortsPlayerViewController")]) return;
 
-            if ([shortsVC respondsToSelector:@selector(reelContentViewRequestsAdvanceToNextVideo:)]) {
-                [shortsVC performSelector:@selector(reelContentViewRequestsAdvanceToNextVideo:)];
-            }
-        }
+    YTShortsPlayerViewController *shortsVC = (YTShortsPlayerViewController *)self.parentViewController;
+    NSString *videoID = self.contentVideoID;
+    if (!videoID || [objc_getAssociatedObject(self, &kYTLAutoSkipKey) isEqualToString:videoID]) return;
+
+    if ([shortsVC respondsToSelector:@selector(reelContentViewRequestsAdvanceToNextVideo:)]) {
+        objc_setAssociatedObject(self, &kYTLAutoSkipKey, videoID, OBJC_ASSOCIATION_COPY_NONATOMIC);
+        [shortsVC performSelector:@selector(reelContentViewRequestsAdvanceToNextVideo:) withObject:nil];
     }
 }
 
@@ -429,17 +575,24 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
 - (void)loadWithPlayerTransition:(id)arg1 playbackConfig:(id)arg2 {
     %orig;
 
+    NSArray *selectors = @[@"autoQuality", @"autoFullscreen", @"shortsToRegular", @"setAutoSpeed", @"turnOffCaptions"];
+    for (NSString *selector in selectors) {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:NSSelectorFromString(selector) object:nil];
+    }
+
     if (ytlInt(@"wiFiQualityIndex") != 0 || ytlInt(@"cellQualityIndex") != 0) [self performSelector:@selector(autoQuality) withObject:nil afterDelay:1.0];
     if (ytlBool(@"autoFullscreen")) [self performSelector:@selector(autoFullscreen) withObject:nil afterDelay:0.75];
     if (ytlBool(@"shortsToRegular")) [self performSelector:@selector(shortsToRegular) withObject:nil afterDelay:0.75];
-    if (ytlInt(@"autoSpeedIndex") != 3) [self performSelector:@selector(setAutoSpeed) withObject:nil afterDelay:0.75];
+    if (ytlInt(@"autoSpeedIndex") != 3 || (ytlBool(@"rememberPlaybackSpeed") && [[YTLUserDefaults standardUserDefaults] floatForKey:@"lastPlaybackRate"] > 0)) [self performSelector:@selector(setAutoSpeed) withObject:nil afterDelay:0.75];
     if (ytlBool(@"disableAutoCaptions")) [self performSelector:@selector(turnOffCaptions) withObject:nil afterDelay:1.0];
 }
 
 %new
 - (void)autoFullscreen {
-    YTWatchController *watchController = [self valueForKey:@"_UIDelegate"];
-    [watchController showFullScreen];
+    if (![self.view.superview isKindOfClass:NSClassFromString(@"YTWatchView")]) return;
+
+    YTWatchController *watchController = YTLValue(self, @"_UIDelegate");
+    if ([watchController respondsToSelector:@selector(showFullScreen)]) [watchController showFullScreen];
 }
 
 %new
@@ -455,7 +608,11 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
 %new
 - (void)turnOffCaptions {
     if ([self.view.superview isKindOfClass:NSClassFromString(@"YTWatchView")]) {
-        [self setActiveCaptionTrack:nil];
+        if ([self respondsToSelector:@selector(setActiveCaptionTrack:)]) {
+            [self setActiveCaptionTrack:nil];
+        } else if ([self respondsToSelector:@selector(setActiveCaptionTrack:source:)]) {
+            ((void (*)(id, SEL, id, NSInteger))objc_msgSend)(self, @selector(setActiveCaptionTrack:source:), nil, 0);
+        }
     }
 }
 
@@ -465,8 +622,17 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
         && [self.view.superview isKindOfClass:NSClassFromString(@"YTWatchView")]) {
         YTMainAppVideoPlayerOverlayViewController *overlayVC = (YTMainAppVideoPlayerOverlayViewController *)self.activeVideoPlayerOverlay;
 
-        NSArray *speedLabels = @[@0.25, @0.5, @0.75, @1.0, @1.25, @1.5, @1.75, @2.0, @3.0, @4.0, @5.0];
-        [overlayVC setPlaybackRate:[speedLabels[ytlInt(@"autoSpeedIndex")] floatValue]];
+        float rate = 0;
+        if (ytlBool(@"rememberPlaybackSpeed")) rate = [[YTLUserDefaults standardUserDefaults] floatForKey:@"lastPlaybackRate"];
+
+        if (rate <= 0) {
+            NSArray *speedLabels = @[@0.25, @0.5, @0.75, @1.0, @1.25, @1.5, @1.75, @2.0, @3.0, @4.0, @5.0];
+            NSInteger index = ytlInt(@"autoSpeedIndex");
+            if (index < 0 || index >= (NSInteger)speedLabels.count) return;
+            rate = [speedLabels[index] floatValue];
+        }
+
+        if (fabs([overlayVC currentPlaybackRate] - rate) > 0.01) [overlayVC setPlaybackRate:rate];
     }
 }
 
@@ -478,25 +644,31 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
 
     NetworkStatus status = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
     NSInteger kQualityIndex = status == ReachableViaWiFi ? ytlInt(@"wiFiQualityIndex") : ytlInt(@"cellQualityIndex");
+    if (kQualityIndex <= 0) return;
+
+    NSArray *formats = self.activeVideo.selectableVideoFormats;
+    if (formats.count == 0) return;
 
     NSString *bestQualityLabel;
     int highestResolution = 0;
-    for (MLFormat *format in self.activeVideo.selectableVideoFormats) {
+    for (MLFormat *format in formats) {
         int reso = format.singleDimensionResolution;
-        if (reso > highestResolution) {
+        if (reso > highestResolution && format.qualityLabel) {
             highestResolution = reso;
             bestQualityLabel = format.qualityLabel;
         }
     }
+    if (!bestQualityLabel) return;
 
     NSArray *qualityLabels = @[@"Default", bestQualityLabel, @"2160p60", @"2160p", @"1440p60", @"1440p", @"1080p60", @"1080p", @"720p60", @"720p", @"480p", @"360p"];
+    if (kQualityIndex >= (NSInteger)qualityLabels.count) return;
     NSString *qualityLabel = qualityLabels[kQualityIndex];
 
     if (![qualityLabel isEqualToString:bestQualityLabel]) {
         BOOL exactMatch = NO;
         NSString *closestQualityLabel = qualityLabel;
 
-        for (MLFormat *format in self.activeVideo.selectableVideoFormats) {
+        for (MLFormat *format in formats) {
             if ([format.qualityLabel isEqualToString:qualityLabel]) {
                 exactMatch = YES;
                 break;
@@ -506,14 +678,15 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
         if (!exactMatch) {
             NSInteger bestQualityDifference = NSIntegerMax;
 
-            for (MLFormat *format in self.activeVideo.selectableVideoFormats) {
-                NSArray *formatСomponents = [format.qualityLabel componentsSeparatedByString:@"p"];
+            for (MLFormat *format in formats) {
+                NSArray *formatComponents = [format.qualityLabel componentsSeparatedByString:@"p"];
                 NSArray *targetComponents = [qualityLabel componentsSeparatedByString:@"p"];
-                if (formatСomponents.count == 2) {
-                    NSInteger formatQuality = [formatСomponents.firstObject integerValue];
+                if (formatComponents.count == 2) {
+                    NSInteger formatQuality = [formatComponents.firstObject integerValue];
                     NSInteger targetQuality = [targetComponents.firstObject integerValue];
                     NSInteger difference = labs(formatQuality - targetQuality);
-                    if (difference < bestQualityDifference) {
+                    BOOL sameFps = [formatComponents.lastObject isEqualToString:targetComponents.lastObject ?: @""];
+                    if (difference < bestQualityDifference || (difference == bestQualityDifference && sameFps)) {
                         bestQualityDifference = difference;
                         closestQualityLabel = format.qualityLabel;
                     }
@@ -524,9 +697,10 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
         }
     }
 
-    MLQuickMenuVideoQualitySettingFormatConstraint *fc = [[%c(MLQuickMenuVideoQualitySettingFormatConstraint) alloc] init];
-    if ([fc respondsToSelector:@selector(initWithVideoQualitySetting:formatSelectionReason:qualityLabel:)]) {
-        [self.activeVideo setVideoFormatConstraint:[fc initWithVideoQualitySetting:3 formatSelectionReason:2 qualityLabel:qualityLabel]];
+    Class constraintClass = YTLClass(@"MLQuickMenuVideoQualitySettingFormatConstraint");
+    if ([constraintClass instancesRespondToSelector:@selector(initWithVideoQualitySetting:formatSelectionReason:qualityLabel:)]) {
+        MLQuickMenuVideoQualitySettingFormatConstraint *fc = [[constraintClass alloc] initWithVideoQualitySetting:3 formatSelectionReason:2 qualityLabel:qualityLabel];
+        if (fc) [self.activeVideo setVideoFormatConstraint:fc];
     }
 }
 
@@ -552,7 +726,7 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
 
     if (!ytlBool(@"videoEndTime")) return;
 
-    if (self.endTimeString && ![self.durationLabel.text containsString:self.endTimeString]) {
+    if (self.endTimeString && self.durationLabel.text && ![self.durationLabel.text containsString:self.endTimeString]) {
         self.durationLabel.text = [self.durationLabel.text stringByAppendingString:[NSString stringWithFormat:@" • %@", self.endTimeString]];
         [self.durationLabel sizeToFit];
     }
@@ -561,10 +735,19 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
 
 // Exit Fullscreen on Finish
 %hook YTWatchFlowController
-- (BOOL)shouldExitFullScreenOnFinish { return ytlBool(@"exitFullscreen") ? YES : NO; }
+- (BOOL)shouldExitFullScreenOnFinish { return ytlBool(@"exitFullscreen") ? YES : %orig; }
 %end
 
 %hook YTMainAppVideoPlayerOverlayViewController
+// Remember Playback Speed
+- (void)varispeedSwitchController:(id)controller didSelectRate:(float)rate {
+    %orig;
+
+    if (ytlBool(@"rememberPlaybackSpeed") && rate > 0 && rate <= 16) {
+        [[YTLUserDefaults standardUserDefaults] setFloat:rate forKey:@"lastPlaybackRate"];
+    }
+}
+
 // Disable Double Tap To Seek
 - (BOOL)allowDoubleTapToSeekGestureRecognizer { return ytlBool(@"noDoubleTapToSeek") ? NO : %orig; }
 
@@ -575,7 +758,7 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
 - (void)didPressPause:(id)arg1 {
     %orig;
 
-    if (ytlBool(@"copyWithTimestamp")) {
+    if (ytlBool(@"copyWithTimestamp") && self.videoID.length) {
         NSInteger mediaTimeInteger = (NSInteger)self.mediaTime;
         NSString *currentTimeLink = [NSString stringWithFormat:@"https://www.youtube.com/watch?v=%@&t=%lds", self.videoID, mediaTimeInteger];
 
@@ -599,7 +782,7 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
 %end
 
 // Fit Shorts Button Labels For Localizations
-%hook YTReelPlayerButton
+%hook YTReelPlayerButton // legacy
 - (UILabel *)titleLabel {
     UILabel *label = %orig;
     label.adjustsFontSizeToFitWidth = YES;
@@ -628,21 +811,29 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
 // Remove Download button from the menu
 %hook YTDefaultSheetController
 - (void)addAction:(YTActionSheetAction *)action {
-    NSString *identifier = [action valueForKey:@"_accessibilityIdentifier"];
+    static NSDictionary <NSString *, NSString *> *actionsToRemove;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        actionsToRemove = @{
+            @"7": @"removeDownloadMenu",
+            @"1": @"removeWatchLaterMenu",
+            @"3": @"removeSaveToPlaylistMenu",
+            @"5": @"removeShareMenu",
+            @"12": @"removeNotInterestedMenu",
+            @"31": @"removeDontRecommendMenu",
+            @"58": @"removeReportMenu"
+        };
+    });
 
-    NSDictionary *actionsToRemove = @{
-        @"7": @(ytlBool(@"removeDownloadMenu")),
-        @"1": @(ytlBool(@"removeWatchLaterMenu")),
-        @"3": @(ytlBool(@"removeSaveToPlaylistMenu")),
-        @"5": @(ytlBool(@"removeShareMenu")),
-        @"12": @(ytlBool(@"removeNotInterestedMenu")),
-        @"31": @(ytlBool(@"removeDontRecommendMenu")),
-        @"58": @(ytlBool(@"removeReportMenu"))
-    };
+    id identifier = nil;
+    @try {
+        identifier = [action valueForKey:@"_accessibilityIdentifier"];
+    } @catch (NSException *exception) {}
 
-    if (![actionsToRemove[identifier] boolValue]) {
-        %orig;
-    }
+    NSString *key = [identifier isKindOfClass:[NSString class]] ? actionsToRemove[identifier] : nil;
+    if (key && ytlBool(key)) return;
+
+    %orig;
 }
 %end
 
@@ -652,25 +843,24 @@ static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *ide
         if ([child isKindOfClass:%c(ELMNodeController)]) {
             NSArray <ELMComponent *> *elmChildren = [(ELMNodeController *)child children];
             for (ELMComponent *elmChild in elmChildren) {
+                NSString *description = [elmChild description];
                 for (NSString *identifier in identifiers) {
-                    if ([[elmChild description] containsString:identifier])
+                    if ([description containsString:identifier])
                         return YES;
                 }
             }
         }
 
         if ([child isKindOfClass:%c(ASNodeController)]) {
-            ASDisplayNode *childNode = ((ASNodeController *)child).node; // ELMContainerNode
-            NSArray *yogaChildren = childNode.yogaChildren;
-            for (ASDisplayNode *displayNode in yogaChildren) {
-                if ([identifiers containsObject:displayNode.accessibilityIdentifier])
+            ASDisplayNode *childNode = ((ASNodeController *)child).node;
+            for (ASDisplayNode *displayNode in childNode.yogaChildren) {
+                if (displayNode.accessibilityIdentifier && [identifiers containsObject:displayNode.accessibilityIdentifier])
                     return YES;
             }
 
-            return findCell(child, identifiers);
+            if (findCell(child, identifiers))
+                return YES;
         }
-
-        return NO;
     }
     return NO;
 }
@@ -702,54 +892,66 @@ static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *ide
 %hook YTAsyncCollectionView
 - (id)cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = %orig;
+    BOOL shouldRemove = NO;
 
     if ([cell isKindOfClass:objc_lookUpClass("_ASCollectionViewCell")]) {
-        _ASCollectionViewCell *cell = %orig;
-        if ([cell respondsToSelector:@selector(node)]) {
-            NSString *idToRemove = [[cell node] accessibilityIdentifier];
-            if ([idToRemove isEqualToString:@"statement_banner.view"] ||
-                (([idToRemove isEqualToString:@"eml.shorts-grid"] || [idToRemove isEqualToString:@"eml.shorts-shelf"]) && ytlBool(@"hideShorts"))) {
-                [self removeCellsAtIndexPath:indexPath];
-            }
+        _ASCollectionViewCell *asCell = (_ASCollectionViewCell *)cell;
+        if ([asCell respondsToSelector:@selector(node)]) {
+            NSString *idToRemove = [[asCell node] accessibilityIdentifier];
+            shouldRemove = [idToRemove isEqualToString:@"statement_banner.view"] ||
+                (([idToRemove isEqualToString:@"eml.shorts-grid"] || [idToRemove isEqualToString:@"eml.shorts-shelf"]) && ytlBool(@"hideShorts"));
         }
-    } else if (([cell isKindOfClass:objc_lookUpClass("YTReelShelfCell")] && ytlBool(@"hideShorts")) ||
-        ([cell isKindOfClass:objc_lookUpClass("YTHorizontalCardListCell")] && ytlBool(@"noContinueWatching"))) {
-        [self removeCellsAtIndexPath:indexPath];
-    } return %orig;
+    } else {
+        shouldRemove = ([cell isKindOfClass:objc_lookUpClass("YTReelShelfCell")] && ytlBool(@"hideShorts")) ||
+            ([cell isKindOfClass:objc_lookUpClass("YTHorizontalCardListCell")] && ytlBool(@"noContinueWatching"));
+    }
+
+    if (shouldRemove) [self removeCellsAtIndexPath:indexPath];
+
+    return cell;
 }
 
 %new
 - (void)removeCellsAtIndexPath:(NSIndexPath *)indexPath {
-    [self deleteItemsAtIndexPaths:@[indexPath]];
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (!strongSelf) return;
+        if (indexPath.section >= [strongSelf numberOfSections]) return;
+        if (indexPath.item >= [strongSelf numberOfItemsInSection:indexPath.section]) return;
+        @try {
+            [strongSelf deleteItemsAtIndexPaths:@[indexPath]];
+        } @catch (NSException *exception) {}
+    });
 }
 %end
 
 // Shorts Progress Bar (https://github.com/PoomSmart/YTShortsProgress)
 %hook YTReelPlayerViewController
-- (BOOL)shouldEnablePlayerBar { return ytlBool(@"shortsProgress") ? YES : NO; }
-- (BOOL)shouldAlwaysEnablePlayerBar { return ytlBool(@"shortsProgress") ? YES : NO; }
-- (BOOL)shouldEnablePlayerBarOnlyOnPause { return ytlBool(@"shortsProgress") ? NO : YES; }
+- (BOOL)shouldEnablePlayerBar { return ytlBool(@"shortsProgress") ? YES : %orig; }
+- (BOOL)shouldAlwaysEnablePlayerBar { return ytlBool(@"shortsProgress") ? YES : %orig; }
+- (BOOL)shouldEnablePlayerBarOnlyOnPause { return ytlBool(@"shortsProgress") ? NO : %orig; }
 %end
 
-%hook YTReelPlayerViewControllerSub
-- (BOOL)shouldEnablePlayerBar { return ytlBool(@"shortsProgress") ? YES : NO; }
-- (BOOL)shouldAlwaysEnablePlayerBar { return ytlBool(@"shortsProgress") ? YES : NO; }
-- (BOOL)shouldEnablePlayerBarOnlyOnPause { return ytlBool(@"shortsProgress") ? NO : YES; }
+%hook YTReelPlayerViewControllerSub // legacy
+- (BOOL)shouldEnablePlayerBar { return ytlBool(@"shortsProgress") ? YES : %orig; }
+- (BOOL)shouldAlwaysEnablePlayerBar { return ytlBool(@"shortsProgress") ? YES : %orig; }
+- (BOOL)shouldEnablePlayerBarOnlyOnPause { return ytlBool(@"shortsProgress") ? NO : %orig; }
 %end
 
 %hook YTShortsPlayerViewController
-- (BOOL)shouldAlwaysEnablePlayerBar { return ytlBool(@"shortsProgress") ? YES : NO; }
-- (BOOL)shouldEnablePlayerBarOnlyOnPause { return ytlBool(@"shortsProgress") ? NO : YES; }
+- (BOOL)shouldAlwaysEnablePlayerBar { return ytlBool(@"shortsProgress") ? YES : %orig; }
+- (BOOL)shouldEnablePlayerBarOnlyOnPause { return ytlBool(@"shortsProgress") ? NO : %orig; }
 %end
 
 %hook YTColdConfig
-- (BOOL)iosEnableVideoPlayerScrubber { return ytlBool(@"shortsProgress") ? YES : NO; }
-- (BOOL)mobileShortsTabInlined { return ytlBool(@"shortsProgress") ? YES : NO; }
-- (BOOL)iosUseSystemVolumeControlInFullscreen { return ytlBool(@"stockVolumeHUD") ? YES : NO; }
+- (BOOL)iosEnableVideoPlayerScrubber { return ytlBool(@"shortsProgress") ? YES : %orig; }
+- (BOOL)mobileShortsTabInlined { return ytlBool(@"shortsProgress") ? YES : %orig; }
+- (BOOL)iosUseSystemVolumeControlInFullscreen { return ytlBool(@"stockVolumeHUD") ? YES : %orig; }
 %end
 
 %hook YTHotConfig
-- (BOOL)enablePlayerBarForVerticalVideoWhenControlsHiddenInFullscreen { return ytlBool(@"shortsProgress") ? YES : NO; }
+- (BOOL)enablePlayerBarForVerticalVideoWhenControlsHiddenInFullscreen { return ytlBool(@"shortsProgress") ? YES : %orig; }
 %end
 
 // Dont Startup Shorts
@@ -759,7 +961,7 @@ static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *ide
 
 // Hide Shorts Elements
 %hook YTReelPausedStateCarouselView
-- (void)setPausedStateCarouselVisible:(BOOL)arg1 animated:(BOOL)arg2 { ytlBool(@"hideShortsSubscriptions") ? %orig(arg1 = NO, arg2) : %orig; }
+- (void)setPausedStateCarouselVisible:(BOOL)arg1 animated:(BOOL)arg2 { ytlBool(@"hideShortsSubscriptions") ? %orig(NO, arg2) : %orig; }
 %end
 
 %hook YTReelWatchPlaybackOverlayView
@@ -773,24 +975,28 @@ static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *ide
 %end
 
 %hook YTReelHeaderView
-- (void)setTitleLabelVisible:(BOOL)arg1 animated:(BOOL)arg2 { ytlBool(@"hideShortsLogo") ? %orig(arg1 = NO, arg2) : %orig; }
+- (void)setTitleLabelVisible:(BOOL)arg1 animated:(BOOL)arg2 { ytlBool(@"hideShortsLogo") ? %orig(NO, arg2) : %orig; }
 %end
 
 %hook YTReelTransparentStackView
 - (void)layoutSubviews {
     %orig;
 
-    for (YTQTMButton *button in self.subviews) {
-        if ([button respondsToSelector:@selector(buttonRenderer)]) {
-            if (ytlBool(@"hideShortsSearch") && button.buttonRenderer.icon.iconType == 1045) button.hidden = YES;
-            if (ytlBool(@"hideShortsCamera") && button.buttonRenderer.icon.iconType == 1046) button.hidden = YES;
-            if (ytlBool(@"hideShortsMore") && button.buttonRenderer.icon.iconType == 1047) button.hidden = YES;
-        }
+    BOOL hideSearch = ytlBool(@"hideShortsSearch");
+    BOOL hideCamera = ytlBool(@"hideShortsCamera");
+    BOOL hideMore = ytlBool(@"hideShortsMore");
+    if (!hideSearch && !hideCamera && !hideMore) return;
+
+    for (UIView *subview in self.subviews) {
+        if (![subview isKindOfClass:YTLClass(@"YTQTMButton")] || ![subview respondsToSelector:@selector(buttonRenderer)]) continue;
+        YTQTMButton *button = (YTQTMButton *)subview;
+        int iconType = button.buttonRenderer.icon.iconType;
+        if ((hideSearch && iconType == 1045) || (hideCamera && iconType == 1046) || (hideMore && iconType == 1047)) button.hidden = YES;
     }
 }
 %end
 
-%hook YTReelWatchHeaderView
+%hook YTReelWatchHeaderView // legacy
 - (void)setChannelBarElementRenderer:(id)renderer { if (!ytlBool(@"hideShortsChannelName")) %orig; }
 - (void)setHeaderRenderer:(id)renderer { if (!ytlBool(@"hideShortsDescription")) %orig; }
 - (void)setShortsVideoTitleElementRenderer:(id)renderer { if (!ytlBool(@"hideShortsDescription")) %orig; }
@@ -807,10 +1013,13 @@ static BOOL isOverlayShown = YES;
     %orig;
 
     if (ytlBool(@"pinchToFullscreenShorts") && [self.playerViewDelegate.parentViewController isKindOfClass:NSClassFromString(@"YTShortsPlayerViewController")]) {
+        if (gesture.state != UIGestureRecognizerStateEnded) return;
+
         YTShortsPlayerViewController *shortsPlayerVC = (YTShortsPlayerViewController *)self.playerViewDelegate.parentViewController;
+        if (![shortsPlayerVC.view isKindOfClass:YTLClass(@"YTReelContentView")]) return;
         YTReelContentView *contentView = (YTReelContentView *)shortsPlayerVC.view;
         UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
-        YTAppViewController *appVC = (YTAppViewController *)mainWindow.rootViewController;
+        YTAppViewController *appVC = [mainWindow.rootViewController isKindOfClass:YTLClass(@"YTAppViewController")] ? (YTAppViewController *)mainWindow.rootViewController : nil;
 
         if (gesture.scale > 1) {
             if (!ytlBool(@"shortsOnlyMode")) [appVC hidePivotBar];
@@ -837,12 +1046,13 @@ static BOOL isOverlayShown = YES;
 
     self.playbackOverlay.alpha = isOverlayShown;
 
-    if (ytlBool(@"shortsOnlyMode")) {
+    if (ytlBool(@"shortsOnlyMode") && !objc_getAssociatedObject(self, &kYTLShortsModeGestureKey)) {
         UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(turnShortsOnlyModeOff:)];
         longPressGesture.numberOfTouchesRequired = 2;
         longPressGesture.minimumPressDuration = 0.5;
 
         [self addGestureRecognizer:longPressGesture];
+        objc_setAssociatedObject(self, &kYTLShortsModeGestureKey, longPressGesture, OBJC_ASSOCIATION_ASSIGN);
     }
 }
 
@@ -851,7 +1061,7 @@ static BOOL isOverlayShown = YES;
     if (gesture.state == UIGestureRecognizerStateBegan) {
         ytlSetBool(NO, @"shortsOnlyMode");
 
-        [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"ShortsModeTurnedOff") firstResponder:[%c(YTUIUtils) topViewControllerForPresenting]] send];
+        [[YTLClass(@"YTToastResponderEvent") eventWithMessage:LOC(@"ShortsModeTurnedOff") firstResponder:[YTLClass(@"YTUIUtils") topViewControllerForPresenting]] send];
 
         UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
         YTAppViewController *appVC = (YTAppViewController *)mainWindow.rootViewController;
@@ -860,56 +1070,81 @@ static BOOL isOverlayShown = YES;
 }
 %end
 
+static void showToast(NSString *message, UIResponder *responder) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[YTLClass(@"YTToastResponderEvent") eventWithMessage:message firstResponder:responder ?: [YTLClass(@"YTUIUtils") topViewControllerForPresenting]] send];
+    });
+}
+
+static NSString *errorMessage(NSError *error) {
+    return [NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription ?: @"?"];
+}
+
+static void saveImageDataToPhotos(NSData *data, UIResponder *responder) {
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];
+        [request addResourceWithType:PHAssetResourceTypePhoto data:data options:nil];
+    } completionHandler:^(BOOL success, NSError *error) {
+        showToast(success ? LOC(@"Saved") : errorMessage(error), responder);
+    }];
+}
+
+static void saveImageToPhotos(UIImage *image, UIResponder *responder) {
+    if (!image) return;
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAssetFromImage:image];
+        request.creationDate = [NSDate date];
+    } completionHandler:^(BOOL success, NSError *error) {
+        showToast(success ? LOC(@"Saved") : errorMessage(error), responder);
+    }];
+}
+
 static void downloadImageFromURL(UIResponder *responder, NSURL *URL, BOOL download) {
     NSString *URLString = URL.absoluteString;
+    if (!URLString) return;
 
     if (ytlBool(@"fixAlbums") && [URLString hasPrefix:@"https://yt3."]) {
         URLString = [URLString stringByReplacingOccurrencesOfString:@"https://yt3." withString:@"https://yt4."];
     }
 
-    NSURL *downloadURL = nil;
-    if ([URLString containsString:@"c-fcrop"]) {
-        NSRange croppedURL = [URLString rangeOfString:@"c-fcrop"];
-        if (croppedURL.location != NSNotFound) {
-            NSString *newURL = [URLString stringByReplacingOccurrencesOfString:[URLString substringFromIndex:croppedURL.location] withString:@"nd-v1"];
-            downloadURL = [NSURL URLWithString:newURL];
-        }
-    } else {
-        downloadURL = URL;
+    NSRange croppedURL = [URLString rangeOfString:@"c-fcrop"];
+    if (croppedURL.location != NSNotFound) {
+        URLString = [[URLString substringToIndex:croppedURL.location] stringByAppendingString:@"nd-v1"];
     }
 
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:downloadURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (data) {
-            if (download) {
-                [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-                    PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];
-                    [request addResourceWithType:PHAssetResourceTypePhoto data:data options:nil];
-                } completionHandler:^(BOOL success, NSError *error) {
-                    [[%c(YTToastResponderEvent) eventWithMessage:success ? LOC(@"Saved") : [NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription] firstResponder:responder] send];
-                }];
-            } else {
-                [UIPasteboard generalPasteboard].image = [UIImage imageWithData:data];
-                [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:responder] send];
-            }
+    NSURL *downloadURL = [NSURL URLWithString:URLString] ?: URL;
+
+    [[[NSURLSession sharedSession] dataTaskWithURL:downloadURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        UIImage *image = data ? [UIImage imageWithData:data] : nil;
+        if (!image) {
+            showToast(errorMessage(error), responder);
+            return;
+        }
+
+        if (download) {
+            saveImageDataToPhotos(data, responder);
         } else {
-            [[%c(YTToastResponderEvent) eventWithMessage:[NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription] firstResponder:responder] send];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [UIPasteboard generalPasteboard].image = image;
+            });
+            showToast(LOC(@"Copied"), responder);
         }
     }] resume];
 }
 
 static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^completionHandler)(UIImage *)) {
-    UIGraphicsBeginImageContextWithOptions(layer.frame.size, NO, 0.0);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, backgroundColor.CGColor);
-    CGContextFillRect(context, CGRectMake(0, 0, layer.frame.size.width, layer.frame.size.height));
-    [layer renderInContext:context];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    CGSize size = layer.bounds.size;
+    if (!layer || size.width <= 0 || size.height <= 0) return;
 
-    if (completionHandler) {
-        completionHandler(image);
-    }
+    UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:size];
+    UIImage *image = [renderer imageWithActions:^(UIGraphicsImageRendererContext *rendererContext) {
+        CGContextRef context = rendererContext.CGContext;
+        CGContextSetFillColorWithColor(context, (backgroundColor ?: [UIColor systemBackgroundColor]).CGColor);
+        CGContextFillRect(context, CGRectMake(0, 0, size.width, size.height));
+        [layer renderInContext:context];
+    }];
+
+    if (completionHandler) completionHandler(image);
 }
 
 %hook ELMContainerNode
@@ -921,7 +1156,7 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 - (void)setFrame:(CGRect)frame {
     %orig;
 
-    if (ytlBool(@"commentManager") && [[self valueForKey:@"_accessibilityIdentifier"] isEqualToString:@"id.comment.content.label"]) {
+    if (ytlBool(@"commentManager") && [YTLValue(self, @"_accessibilityIdentifier") isEqual:@"id.comment.content.label"]) {
         if ([self isKindOfClass:NSClassFromString(@"ASTextNode")]) {
             ASTextNode *textNode = (ASTextNode *)self;
 
@@ -932,7 +1167,7 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 
             NSMutableArray *allObjects = self.supernodes.allObjects;
             for (ELMContainerNode *containerNode in allObjects) {
-                if ([containerNode.description containsString:@"id.ui.comment_cell"] && comment) {
+                if (comment && [containerNode isKindOfClass:%c(ELMContainerNode)] && [containerNode.description containsString:@"id.ui.comment_cell"]) {
                     containerNode.copiedComment = comment;
                     break;
                 }
@@ -953,7 +1188,7 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 
             NSMutableArray *allObjects = self.supernodes.allObjects;
             for (ELMContainerNode *containerNode in allObjects) {
-                if ([containerNode.description containsString:@"id.ui.backstage.original_post"] && text) {
+                if (text && [containerNode isKindOfClass:%c(ELMContainerNode)] && [containerNode.description containsString:@"id.ui.backstage.original_post"]) {
                     containerNode.copiedComment = text;
                     break;
                 }
@@ -965,7 +1200,10 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 
 %hook YTImageZoomNode
 - (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2 {
-    BOOL isImageLoaded = [self valueForKey:@"_didLoadImage"];
+    BOOL isImageLoaded = NO;
+    @try {
+        isImageLoaded = [[self valueForKey:@"_didLoadImage"] boolValue];
+    } @catch (NSException *exception) {}
     if (ytlBool(@"postManager") && isImageLoaded) {
         ASDisplayNode *displayNode = (ASDisplayNode *)self;
         ASNetworkImageNode *imageNode = (ASNetworkImageNode *)self;
@@ -973,7 +1211,7 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 
         NSMutableArray *allObjects = displayNode.supernodes.allObjects;
         for (ELMContainerNode *containerNode in allObjects) {
-            if ([containerNode.description containsString:@"id.ui.backstage.original_post"]) {
+            if (URL && [containerNode isKindOfClass:%c(ELMContainerNode)] && [containerNode.description containsString:@"id.ui.backstage.original_post"]) {
                 containerNode.copiedURL = URL;
                 break;
             }
@@ -994,12 +1232,20 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
         @{@"selector": @"commentManager:", @"text": @"id.ui.comment_cell", @"key": @(ytlBool(@"commentManager"))}
     ];
 
+    if (![gesturesInfo[0][@"key"] boolValue] && ![gesturesInfo[1][@"key"] boolValue] && ![gesturesInfo[2][@"key"] boolValue]) return;
+
+    NSString *description = [self description];
     for (NSDictionary *gestureInfo in gesturesInfo) {
         SEL selector = NSSelectorFromString(gestureInfo[@"selector"]);
 
-        if ([gestureInfo[@"key"] boolValue] && [[self description] containsString:gestureInfo[@"text"]]) {
+        if ([gestureInfo[@"key"] boolValue] && [description containsString:gestureInfo[@"text"]]) {
+            for (UIGestureRecognizer *recognizer in self.gestureRecognizers) {
+                if ([recognizer isKindOfClass:[UILongPressGestureRecognizer class]] && [objc_getAssociatedObject(recognizer, &kYTLGestureKey) isEqualToString:gestureInfo[@"selector"]]) return;
+            }
+
             UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:selector];
             longPress.minimumPressDuration = 0.3;
+            objc_setAssociatedObject(longPress, &kYTLGestureKey, gestureInfo[@"selector"], OBJC_ASSOCIATION_COPY_NONATOMIC);
             [self addGestureRecognizer:longPress];
             break;
         }
@@ -1010,6 +1256,7 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 - (void)savePFP:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
 
+        if (![self.keepalive_node respondsToSelector:@selector(URL)]) return;
         ASNetworkImageNode *imageNode = (ASNetworkImageNode *)self.keepalive_node;
         NSString *URLString = imageNode.URL.absoluteString;
         if (URLString) {
@@ -1018,25 +1265,31 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
                 NSRange dashRange = [URLString rangeOfString:@"-" options:0 range:NSMakeRange(sizeRange.location, URLString.length - sizeRange.location)];
                 if (dashRange.location != NSNotFound) {
                     NSString *newURLString = [URLString stringByReplacingCharactersInRange:NSMakeRange(sizeRange.location + 2, dashRange.location - sizeRange.location - 2) withString:@"1024"];
-                    NSURL *PFPURL = [NSURL URLWithString:newURLString];
+                    NSURL *PFPURL = [NSURL URLWithString:newURLString] ?: imageNode.URL;
+                    UIViewController *presentingVC = self.keepalive_node.closestViewController;
 
-                    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:PFPURL]];
-                    if (image) {
-                        YTDefaultSheetController *sheetController = [%c(YTDefaultSheetController) sheetControllerWithParentResponder:nil];
-    
-                        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"SaveProfilePicture") iconImage:YTImageNamed(@"yt_outline_image_24pt") style:0 handler:^ {
-                            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+                    [[[NSURLSession sharedSession] dataTaskWithURL:PFPURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                        UIImage *image = data ? [UIImage imageWithData:data] : nil;
+                        if (!image) {
+                            showToast(errorMessage(error), presentingVC);
+                            return;
+                        }
 
-                            [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Saved") firstResponder:self.keepalive_node.closestViewController] send];
-                        }]];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            YTDefaultSheetController *sheetController = [YTLClass(@"YTDefaultSheetController") sheetControllerWithParentResponder:nil];
 
-                        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyProfilePicture") iconImage:YTImageNamed(@"yt_outline_library_image_24pt") style:0 handler:^ {
-                            [UIPasteboard generalPasteboard].image = image;
-                            [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:self.keepalive_node.closestViewController] send];
-                        }]];
+                            [sheetController addAction:[YTLClass(@"YTActionSheetAction") actionWithTitle:LOC(@"SaveProfilePicture") iconImage:YTImageNamed(@"yt_outline_image_24pt") style:0 handler:^ {
+                                saveImageDataToPhotos(data, presentingVC);
+                            }]];
 
-                        [sheetController presentFromViewController:self.keepalive_node.closestViewController animated:YES completion:nil];
-                    }
+                            [sheetController addAction:[YTLClass(@"YTActionSheetAction") actionWithTitle:LOC(@"CopyProfilePicture") iconImage:YTImageNamed(@"yt_outline_library_image_24pt") style:0 handler:^ {
+                                [UIPasteboard generalPasteboard].image = image;
+                                showToast(LOC(@"Copied"), presentingVC);
+                            }]];
+
+                            [sheetController presentFromViewController:presentingVC animated:YES completion:nil];
+                        });
+                    }] resume];
                 }
             }
         }
@@ -1046,48 +1299,45 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 %new
 - (void)postManager:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
-        ELMContainerNode *nodeForLayer = (ELMContainerNode *)self.keepalive_node.yogaChildren[0];
+        NSArray *yogaChildren = self.keepalive_node.yogaChildren;
+        if (yogaChildren.count == 0) return;
+        ELMContainerNode *nodeForLayer = (ELMContainerNode *)yogaChildren.firstObject;
+        if (![self.keepalive_node isKindOfClass:%c(ELMContainerNode)]) return;
         ELMContainerNode *containerNode = (ELMContainerNode *)self.keepalive_node;
         NSString *text = containerNode.copiedComment;
         NSURL *URL = containerNode.copiedURL;
         CALayer *layer = nodeForLayer.layer;
         UIColor *backgroundColor = containerNode.closestViewController.view.backgroundColor;
 
-        YTDefaultSheetController *sheetController = [%c(YTDefaultSheetController) sheetControllerWithParentResponder:nil];
+        YTDefaultSheetController *sheetController = [YTLClass(@"YTDefaultSheetController") sheetControllerWithParentResponder:nil];
         
-        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyPostText") iconImage:YTImageNamed(@"yt_outline_message_bubble_right_24pt") style:0 handler:^ {
+        [sheetController addAction:[YTLClass(@"YTActionSheetAction") actionWithTitle:LOC(@"CopyPostText") iconImage:YTImageNamed(@"yt_outline_message_bubble_right_24pt") style:0 handler:^ {
             if (text) {
                 [UIPasteboard generalPasteboard].string = text;
-                [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
+                [[YTLClass(@"YTToastResponderEvent") eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
             }
         }]];
 
         if (URL) {
-            [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"SaveCurrentImage") iconImage:YTImageNamed(@"yt_outline_image_24pt") style:0 handler:^ {
+            [sheetController addAction:[YTLClass(@"YTActionSheetAction") actionWithTitle:LOC(@"SaveCurrentImage") iconImage:YTImageNamed(@"yt_outline_image_24pt") style:0 handler:^ {
                 downloadImageFromURL(containerNode.closestViewController, URL, YES);
             }]];
 
-            [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyCurrentImage") iconImage:YTImageNamed(@"yt_outline_library_image_24pt") style:0 handler:^ {
+            [sheetController addAction:[YTLClass(@"YTActionSheetAction") actionWithTitle:LOC(@"CopyCurrentImage") iconImage:YTImageNamed(@"yt_outline_library_image_24pt") style:0 handler:^ {
                 downloadImageFromURL(containerNode.closestViewController, URL, NO);
             }]];
         }
 
-        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"SavePostAsImage") titleColor:[UIColor colorWithRed:0.75 green:0.50 blue:0.90 alpha:1.0] iconImage:YTImageNamed(@"yt_outline_image_24pt") iconColor:[UIColor colorWithRed:0.75 green:0.50 blue:0.90 alpha:1.0] disableAutomaticButtonColor:YES accessibilityIdentifier:nil handler:^ {
+        [sheetController addAction:[YTLClass(@"YTActionSheetAction") actionWithTitle:LOC(@"SavePostAsImage") titleColor:[UIColor colorWithRed:0.75 green:0.50 blue:0.90 alpha:1.0] iconImage:YTImageNamed(@"yt_outline_image_24pt") iconColor:[UIColor colorWithRed:0.75 green:0.50 blue:0.90 alpha:1.0] disableAutomaticButtonColor:YES accessibilityIdentifier:nil handler:^ {
             genImageFromLayer(layer, backgroundColor, ^(UIImage *image) {
-                [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-                    PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAssetFromImage:image];
-                    request.creationDate = [NSDate date];
-                } completionHandler:^(BOOL success, NSError *error) {
-                    NSString *message = success ? LOC(@"Saved") : [NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription];
-                    [[%c(YTToastResponderEvent) eventWithMessage:message firstResponder:containerNode.closestViewController] send];
-                }];
+                saveImageToPhotos(image, containerNode.closestViewController);
             });
         }]];
 
-        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyPostAsImage") titleColor:[UIColor colorWithRed:0.75 green:0.50 blue:0.90 alpha:1.0] iconImage:YTImageNamed(@"yt_outline_library_image_24pt") iconColor:[UIColor colorWithRed:0.75 green:0.50 blue:0.90 alpha:1.0] disableAutomaticButtonColor:YES accessibilityIdentifier:nil handler:^ {
+        [sheetController addAction:[YTLClass(@"YTActionSheetAction") actionWithTitle:LOC(@"CopyPostAsImage") titleColor:[UIColor colorWithRed:0.75 green:0.50 blue:0.90 alpha:1.0] iconImage:YTImageNamed(@"yt_outline_library_image_24pt") iconColor:[UIColor colorWithRed:0.75 green:0.50 blue:0.90 alpha:1.0] disableAutomaticButtonColor:YES accessibilityIdentifier:nil handler:^ {
             genImageFromLayer(layer, backgroundColor, ^(UIImage *image) {
                 [UIPasteboard generalPasteboard].image = image;
-                [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
+                [[YTLClass(@"YTToastResponderEvent") eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
             });
         }]];
 
@@ -1098,37 +1348,32 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 %new
 - (void)commentManager:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
+        if (![self.keepalive_node isKindOfClass:%c(ELMContainerNode)]) return;
         ELMContainerNode *containerNode = (ELMContainerNode *)self.keepalive_node;
         NSString *comment = containerNode.copiedComment;
 
         CALayer *layer = self.layer;
         UIColor *backgroundColor = containerNode.closestViewController.view.backgroundColor;
 
-        YTDefaultSheetController *sheetController = [%c(YTDefaultSheetController) sheetControllerWithParentResponder:nil];
+        YTDefaultSheetController *sheetController = [YTLClass(@"YTDefaultSheetController") sheetControllerWithParentResponder:nil];
 
-        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyCommentText") iconImage:YTImageNamed(@"yt_outline_message_bubble_right_24pt") style:0 handler:^ {
+        [sheetController addAction:[YTLClass(@"YTActionSheetAction") actionWithTitle:LOC(@"CopyCommentText") iconImage:YTImageNamed(@"yt_outline_message_bubble_right_24pt") style:0 handler:^ {
             if (comment) {
                 [UIPasteboard generalPasteboard].string = comment;
-                [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
+                [[YTLClass(@"YTToastResponderEvent") eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
             }
         }]];
 
-        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"SaveCommentAsImage") iconImage:YTImageNamed(@"yt_outline_image_24pt") style:0 handler:^ {
+        [sheetController addAction:[YTLClass(@"YTActionSheetAction") actionWithTitle:LOC(@"SaveCommentAsImage") iconImage:YTImageNamed(@"yt_outline_image_24pt") style:0 handler:^ {
             genImageFromLayer(layer, backgroundColor, ^(UIImage *image) {
-                [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-                    PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAssetFromImage:image];
-                    request.creationDate = [NSDate date];
-                } completionHandler:^(BOOL success, NSError *error) {
-                    NSString *message = success ? LOC(@"Saved") : [NSString stringWithFormat:LOC(@"%@: %@"), LOC(@"Error"), error.localizedDescription];
-                    [[%c(YTToastResponderEvent) eventWithMessage:message firstResponder:containerNode.closestViewController] send];
-                }];
+                saveImageToPhotos(image, containerNode.closestViewController);
             });
         }]];
 
-        [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyCommentAsImage") iconImage:YTImageNamed(@"yt_outline_library_image_24pt") style:0 handler:^ {
+        [sheetController addAction:[YTLClass(@"YTActionSheetAction") actionWithTitle:LOC(@"CopyCommentAsImage") iconImage:YTImageNamed(@"yt_outline_library_image_24pt") style:0 handler:^ {
             genImageFromLayer(layer, backgroundColor, ^(UIImage *image) {
                 [UIPasteboard generalPasteboard].image = image;
-                [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
+                [[YTLClass(@"YTToastResponderEvent") eventWithMessage:LOC(@"Copied") firstResponder:containerNode.closestViewController] send];
             });
         }]];
 
@@ -1141,38 +1386,36 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 %hook YTPivotBarView
 - (void)setRenderer:(YTIPivotBarRenderer *)renderer {
     NSMutableArray <YTIPivotBarSupportedRenderers *> *items = [renderer itemsArray];
+    if (!items) return %orig;
 
-    NSDictionary *identifiersToRemove = @{
-        @"FEshorts": @[@(ytlBool(@"removeShorts")), @(ytlBool(@"reExplore"))],
-        @"FEsubscriptions": @[@(ytlBool(@"removeSubscriptions"))],
-        @"FEuploads": @[@(ytlBool(@"removeUploads"))],
-        @"FElibrary": @[@(ytlBool(@"removeLibrary"))]
+    NSDictionary <NSString *, NSNumber *> *identifiersToRemove = @{
+        @"FEshorts": @((ytlBool(@"removeShorts") || ytlBool(@"reExplore")) && !ytlBool(@"shortsOnlyMode")),
+        @"FEsubscriptions": @(ytlBool(@"removeSubscriptions")),
+        @"FEuploads": @(ytlBool(@"removeUploads")),
+        @"FElibrary": @(ytlBool(@"removeLibrary"))
     };
 
     for (NSString *identifier in identifiersToRemove) {
-        NSArray *removeValues = identifiersToRemove[identifier];
-        BOOL shouldRemoveItem = [removeValues containsObject:@(YES)];
+        if (![identifiersToRemove[identifier] boolValue]) continue;
 
-        NSUInteger index = [items indexOfObjectPassingTest:^BOOL(YTIPivotBarSupportedRenderers *renderer, NSUInteger idx, BOOL *stop) {
-            if ([identifier isEqualToString:@"FEuploads"]) {
-                return shouldRemoveItem && [[[renderer pivotBarIconOnlyItemRenderer] pivotIdentifier] isEqualToString:identifier];
-            } else {
-                return shouldRemoveItem && [[[renderer pivotBarItemRenderer] pivotIdentifier] isEqualToString:identifier];
-            }
+        NSIndexSet *indexes = [items indexesOfObjectsPassingTest:^BOOL(YTIPivotBarSupportedRenderers *item, NSUInteger idx, BOOL *stop) {
+            return [[[item pivotBarItemRenderer] pivotIdentifier] isEqualToString:identifier] ||
+                   [[[item pivotBarIconOnlyItemRenderer] pivotIdentifier] isEqualToString:identifier];
         }];
 
-        if (index != NSNotFound) {
-            [items removeObjectAtIndex:index];
-        }
+        if (indexes.count) [items removeObjectsAtIndexes:indexes];
     }
-    
-    NSUInteger exploreIndex = [items indexOfObjectPassingTest:^BOOL(YTIPivotBarSupportedRenderers *renderers, NSUInteger idx, BOOL *stop) {
-        return [[[renderers pivotBarItemRenderer] pivotIdentifier] isEqualToString:[%c(YTIBrowseRequest) browseIDForExploreTab]];
-    }];
 
-    if (exploreIndex == NSNotFound && (ytlBool(@"reExplore") || ytlBool(@"addExplore"))) {
-        YTIPivotBarSupportedRenderers *exploreTab = [%c(YTIPivotBarRenderer) pivotSupportedRenderersWithBrowseId:[%c(YTIBrowseRequest) browseIDForExploreTab] title:LOC(@"Explore") iconType:292];
-        [items insertObject:exploreTab atIndex:1];
+    NSString *exploreID = [YTLClass(@"YTIBrowseRequest") browseIDForExploreTab];
+    if (exploreID && (ytlBool(@"reExplore") || ytlBool(@"addExplore"))) {
+        NSUInteger exploreIndex = [items indexOfObjectPassingTest:^BOOL(YTIPivotBarSupportedRenderers *item, NSUInteger idx, BOOL *stop) {
+            return [[[item pivotBarItemRenderer] pivotIdentifier] isEqualToString:exploreID];
+        }];
+
+        if (exploreIndex == NSNotFound) {
+            YTIPivotBarSupportedRenderers *exploreTab = [YTLClass(@"YTIPivotBarRenderer") pivotSupportedRenderersWithBrowseId:exploreID title:LOC(@"Explore") iconType:292];
+            if (exploreTab) [items insertObject:exploreTab atIndex:MIN((NSUInteger)1, items.count)];
+        }
     }
 
     %orig;
@@ -1195,30 +1438,34 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
         [self.navigationButton setSizeWithPaddingAndInsets:NO];
     }
 
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(manageTab:)];
-    longPress.minimumPressDuration = 0.3;
-    if ([self.renderer.pivotIdentifier isEqualToString:@"FEwhat_to_watch"]) [self addGestureRecognizer:longPress];
+    if ([self.renderer.pivotIdentifier isEqualToString:@"FEwhat_to_watch"] && !objc_getAssociatedObject(self, &kYTLManageTabGestureKey)) {
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(manageTab:)];
+        longPress.minimumPressDuration = 0.3;
+        [self addGestureRecognizer:longPress];
+        objc_setAssociatedObject(self, &kYTLManageTabGestureKey, longPress, OBJC_ASSOCIATION_ASSIGN);
+    }
 }
 
 %new
 - (void)manageTab:(UILongPressGestureRecognizer *)gesture {
     if (gesture.state == UIGestureRecognizerStateBegan) {
-        ytlBool(@"removeLibrary") ? ytlSetBool(NO, @"removeLibrary") : ytlSetBool(YES, @"removeLibrary");
-        [[[%c(YTHeaderContentComboViewController) alloc] init] refreshPivotBar];
-        [[%c(YTToastResponderEvent) eventWithMessage:ytlBool(@"removeLibrary") ? LOC(@"LibraryRemoved") : LOC(@"LibraryAdded") firstResponder:self.delegate] send];
+        ytlSetBool(!ytlBool(@"removeLibrary"), @"removeLibrary");
+        [[[YTLClass(@"YTHeaderContentComboViewController") alloc] init] refreshPivotBar];
+        [[YTLClass(@"YTToastResponderEvent") eventWithMessage:ytlBool(@"removeLibrary") ? LOC(@"LibraryRemoved") : LOC(@"LibraryAdded") firstResponder:self.delegate] send];
     }
 }
 %end
 
 // Startup Tab
-BOOL isTabSelected = NO;
+static BOOL isTabSelected = NO;
 %hook YTPivotBarViewController
 - (void)viewDidAppear:(BOOL)animated {
     %orig;
 
     if (!isTabSelected && !ytlBool(@"shortsOnlyMode")) {
         NSArray *pivotIdentifiers = @[@"FEwhat_to_watch", @"FEexplore", @"FEshorts", @"FEsubscriptions", @"FElibrary"];
-        [self selectItemWithPivotIdentifier:pivotIdentifiers[ytlInt(@"pivotIndex")]];
+        NSInteger pivotIndex = ytlInt(@"pivotIndex");
+        if (pivotIndex > 0 && pivotIndex < (NSInteger)pivotIdentifiers.count) [self selectItemWithPivotIdentifier:pivotIdentifiers[pivotIndex]];
         isTabSelected = YES;
     }
 
@@ -1253,8 +1500,8 @@ BOOL isTabSelected = NO;
 - (void)layoutSubviews {
     %orig;
 
-    if (ytlBool(@"copyVideoInfo") && [self.panelIdentifier.identifierString isEqualToString:@"video-description-ep-identifier"]) {
-        YTQTMButton *copyInfoButton = [%c(YTQTMButton) iconButton];
+    if (ytlBool(@"copyVideoInfo") && self.headerView && ![self.headerView viewWithTag:999] && [self.panelIdentifier.identifierString isEqualToString:@"video-description-ep-identifier"]) {
+        YTQTMButton *copyInfoButton = [YTLClass(@"YTQTMButton") iconButton];
         copyInfoButton.accessibilityLabel = LOC(@"CopyVideoInfo");
         [copyInfoButton setTag:999];
         [copyInfoButton enableNewTouchFeedback];
@@ -1263,57 +1510,63 @@ BOOL isTabSelected = NO;
         [copyInfoButton setTranslatesAutoresizingMaskIntoConstraints:false];
         [copyInfoButton addTarget:self action:@selector(didTapCopyInfoButton:) forControlEvents:UIControlEventTouchUpInside];
 
-        if (self.headerView && ![self.headerView viewWithTag:999]) {
-            [self.headerView addSubview:copyInfoButton];
+        [self.headerView addSubview:copyInfoButton];
 
-            [NSLayoutConstraint activateConstraints:@[
-                [copyInfoButton.trailingAnchor constraintEqualToAnchor:self.headerView.trailingAnchor constant:-48],
-                [copyInfoButton.centerYAnchor constraintEqualToAnchor:self.headerView.centerYAnchor],
-                [copyInfoButton.widthAnchor constraintEqualToConstant:40.0],
-                [copyInfoButton.heightAnchor constraintEqualToConstant:40.0],
-            ]];
-        }
+        [NSLayoutConstraint activateConstraints:@[
+            [copyInfoButton.trailingAnchor constraintEqualToAnchor:self.headerView.trailingAnchor constant:-48],
+            [copyInfoButton.centerYAnchor constraintEqualToAnchor:self.headerView.centerYAnchor],
+            [copyInfoButton.widthAnchor constraintEqualToConstant:40.0],
+            [copyInfoButton.heightAnchor constraintEqualToConstant:40.0],
+        ]];
     }
 }
 
 %new
 - (void)didTapCopyInfoButton:(UIButton *)sender {
     YTPlayerViewController *playerVC = self.resizeDelegate.parentViewController.parentViewController.parentViewController.playerViewController;
-    NSString *title = playerVC.playerResponse.playerData.videoDetails.title;
-    NSString *shortDescription = playerVC.playerResponse.playerData.videoDetails.shortDescription;
+    YTIPlayerResponse *playerData = YTLPlayerData(playerVC);
+    YTIVideoDetails *details = [playerData respondsToSelector:@selector(videoDetails)] ? playerData.videoDetails : nil;
+    NSString *title = [details respondsToSelector:@selector(title)] ? details.title : nil;
+    NSString *shortDescription = [details respondsToSelector:@selector(shortDescription)] ? details.shortDescription : nil;
 
-    YTDefaultSheetController *sheetController = [%c(YTDefaultSheetController) sheetControllerWithParentResponder:nil];
+    if (!title.length && !shortDescription.length) return;
 
-    [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyTitle") iconImage:YTImageNamed(@"yt_outline_text_box_24pt") style:0 handler:^ {
-        [UIPasteboard generalPasteboard].string = title;
-        [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:self.resizeDelegate] send];
+    YTDefaultSheetController *sheetController = [YTLClass(@"YTDefaultSheetController") sheetControllerWithParentResponder:nil];
+
+    [sheetController addAction:[YTLClass(@"YTActionSheetAction") actionWithTitle:LOC(@"CopyTitle") iconImage:YTImageNamed(@"yt_outline_text_box_24pt") style:0 handler:^ {
+        [UIPasteboard generalPasteboard].string = title ?: @"";
+        [[YTLClass(@"YTToastResponderEvent") eventWithMessage:LOC(@"Copied") firstResponder:self.resizeDelegate] send];
     }]];
 
-    [sheetController addAction:[%c(YTActionSheetAction) actionWithTitle:LOC(@"CopyDescription") iconImage:YTImageNamed(@"yt_outline_message_bubble_right_24pt") style:0 handler:^ {
-        [UIPasteboard generalPasteboard].string = shortDescription;
-        [[%c(YTToastResponderEvent) eventWithMessage:LOC(@"Copied") firstResponder:self.resizeDelegate] send];
+    [sheetController addAction:[YTLClass(@"YTActionSheetAction") actionWithTitle:LOC(@"CopyDescription") iconImage:YTImageNamed(@"yt_outline_message_bubble_right_24pt") style:0 handler:^ {
+        [UIPasteboard generalPasteboard].string = shortDescription ?: @"";
+        [[YTLClass(@"YTToastResponderEvent") eventWithMessage:LOC(@"Copied") firstResponder:self.resizeDelegate] send];
     }]];
 
     [sheetController presentFromViewController:self.resizeDelegate animated:YES completion:nil];
 }
 %end
 
-CGFloat rateBeforeSpeedmaster = 1.0;
+static CGFloat rateBeforeSpeedmaster = 1.0;
 
 static void manageSpeedmasterYTLite(UILongPressGestureRecognizer *gesture, YTMainAppVideoPlayerOverlayViewController *delegate, YTInlinePlayerScrubUserEducationView *edu) {
     NSArray *speedLabels = @[@0, @2.0, @0.25, @0.5, @0.75, @1.0, @1.25, @1.5, @1.75, @2.0, @3.0, @4.0, @5.0];
-
-    YTLabel *label = [edu valueForKey:@"_userEducationLabel"];
-    edu.labelType = 1;
-    [label setValue:[NSString stringWithFormat:@"%@: %@×", LOC(@"PlaybackSpeed"), speedLabels[ytlInt(@"speedIndex")]] forKey:@"text"];
+    NSInteger speedIndex = ytlInt(@"speedIndex");
+    if (!delegate || speedIndex <= 0 || speedIndex >= (NSInteger)speedLabels.count) return;
 
     if (gesture.state == UIGestureRecognizerStateBegan) {
-        rateBeforeSpeedmaster = delegate.currentPlaybackRate;
-        [delegate setPlaybackRate:[speedLabels[ytlInt(@"speedIndex")] floatValue]];
+        @try {
+            YTLabel *label = [edu valueForKey:@"_userEducationLabel"];
+            edu.labelType = 1;
+            [label setValue:[NSString stringWithFormat:@"%@: %@×", LOC(@"PlaybackSpeed"), speedLabels[speedIndex]] forKey:@"text"];
+        } @catch (NSException *exception) {}
+
+        rateBeforeSpeedmaster = delegate.currentPlaybackRate > 0 ? delegate.currentPlaybackRate : 1.0;
+        [delegate setPlaybackRate:[speedLabels[speedIndex] floatValue]];
         [edu setVisible:YES];
     }
 
-    else if (gesture.state == UIGestureRecognizerStateEnded) {
+    else if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled || gesture.state == UIGestureRecognizerStateFailed) {
         [delegate setPlaybackRate:rateBeforeSpeedmaster];
         [edu setVisible:NO];
     }
@@ -1323,14 +1576,17 @@ static void manageSpeedmasterYTLite(UILongPressGestureRecognizer *gesture, YTMai
 - (void)setSeekAnywherePanGestureRecognizer:(id)arg1 {
     if (ytlInt(@"speedIndex") == 0) return %orig;
 
+    if (objc_getAssociatedObject(self, &kYTLSpeedmasterGestureKey)) return;
+
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(speedmasterYtLite:)];
     longPress.minimumPressDuration = 0.3;
-    if (ytlInt(@"speedIndex") != 0) [self addGestureRecognizer:longPress];
+    [self addGestureRecognizer:longPress];
+    objc_setAssociatedObject(self, &kYTLSpeedmasterGestureKey, longPress, OBJC_ASSOCIATION_ASSIGN);
 }
 
 %new
 - (void)speedmasterYtLite:(UILongPressGestureRecognizer *)gesture {
-    YTInlinePlayerScrubUserEducationView *edu = self.scrubUserEducationView;
+    YTInlinePlayerScrubUserEducationView *edu = YTLScrubEducationView(self);
     manageSpeedmasterYTLite(gesture, self.delegate, edu);
 }
 %end
@@ -1340,8 +1596,9 @@ static void manageSpeedmasterYTLite(UILongPressGestureRecognizer *gesture, YTMai
     if (ytlInt(@"speedIndex") == 0) return;
     if (ytlInt(@"speedIndex") == 1) return %orig;
 
-    YTMainAppVideoPlayerOverlayViewController *delegate = [self valueForKey:@"_delegate"];
-    YTInlinePlayerScrubUserEducationView *edu = (YTInlinePlayerScrubUserEducationView *)delegate.videoPlayerOverlayView.scrubUserEducationView;
+    YTMainAppVideoPlayerOverlayViewController *delegate = YTLValue(self, @"_delegate");
+    if (![delegate respondsToSelector:@selector(setPlaybackRate:)]) return %orig;
+    YTInlinePlayerScrubUserEducationView *edu = [delegate respondsToSelector:@selector(videoPlayerOverlayView)] ? YTLScrubEducationView(delegate.videoPlayerOverlayView) : nil;
     manageSpeedmasterYTLite(gesture, delegate, edu);
 }
 %end
@@ -1359,6 +1616,7 @@ static NSURL *newCoverURL(NSURL *originalURL) {
         @"yt3.googleusercontent.com": @"yt4.googleusercontent.com",
     };
 
+    if (!originalURL.host) return originalURL;
     NSString *const replacement = hostsToReplace[originalURL.host];
     if (ytlBool(@"fixAlbums") && replacement) {
         NSURLComponents *components = [NSURLComponents componentsWithURL:originalURL resolvingAgainstBaseURL:NO];
@@ -1380,7 +1638,104 @@ static NSURL *newCoverURL(NSURL *originalURL) {
 // }
 // %end
 
+static void YTLClearCaches(void) {
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0), ^{
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
+        for (NSString *item in [fileManager contentsOfDirectoryAtPath:cachePath error:nil]) {
+            [fileManager removeItemAtPath:[cachePath stringByAppendingPathComponent:item] error:nil];
+        }
+        NSString *downloads = [NSTemporaryDirectory() stringByAppendingPathComponent:@"YTLiteDownloads"];
+        [fileManager removeItemAtPath:downloads error:nil];
+    });
+}
+
+static void YTLShowSafeModeAlert(void) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        YTAlertView *alertView = [YTLClass(@"YTAlertView") confirmationDialogWithAction:^{
+            [YTLUserDefaults resetUserDefaults];
+            YTLSafeModeExit();
+        }
+        actionTitle:LOC(@"ResetSettings")
+        cancelTitle:LOC(@"No")];
+        alertView.title = LOC(@"SafeModeTitle");
+        alertView.subtitle = LOC(@"SafeModeMessage");
+        [alertView show];
+    });
+}
+
 %ctor {
+    if (YTLSafeModeActive()) {
+        YTLShowSafeModeAlert();
+        return;
+    }
+
+    if (ytlBool(@"autoClearCache")) YTLClearCaches();
+
+    %init(
+        MDXPlaybackRouteButtonController = YTLClass(@"MDXPlaybackRouteButtonController"),
+        MLVideo = YTLClass(@"MLVideo"),
+        YTAccountScopedAdsInnerTubeContextDecorator = YTLClass(@"YTAccountScopedAdsInnerTubeContextDecorator"),
+        YTAdsInnerTubeContextDecorator = YTLClass(@"YTAdsInnerTubeContextDecorator"),
+        YTAnnotationsViewController = YTLClass(@"YTAnnotationsViewController"),
+        YTAppViewController = YTLClass(@"YTAppViewController"),
+        YTColdConfig = YTLClass(@"YTColdConfig"),
+        YTCommerceEventGroupHandler = YTLClass(@"YTCommerceEventGroupHandler"),
+        YTCreatorEndscreenView = YTLClass(@"YTCreatorEndscreenView"),
+        YTDataUtils = YTLClass(@"YTDataUtils"),
+        YTDefaultSheetController = YTLClass(@"YTDefaultSheetController"),
+        YTFullscreenActionsView = YTLClass(@"YTFullscreenActionsView"),
+        YTFullscreenEngagementOverlayController = YTLClass(@"YTFullscreenEngagementOverlayController"),
+        YTHUDMessageView = YTLClass(@"YTHUDMessageView"),
+        YTHeaderContentComboView = YTLClass(@"YTHeaderContentComboView"),
+        YTHeaderView = YTLClass(@"YTHeaderView"),
+        YTHotConfig = YTLClass(@"YTHotConfig"),
+        YTIPlayabilityStatus = YTLClass(@"YTIPlayabilityStatus"),
+        YTIPlayerResponse = YTLClass(@"YTIPlayerResponse"),
+        YTIShowFullscreenInterstitialCommand = YTLClass(@"YTIShowFullscreenInterstitialCommand"),
+        YTImageSelectionStrategyImageURLs = YTLClass(@"YTImageSelectionStrategyImageURLs"),
+        YTImageZoomNode = YTLClass(@"YTImageZoomNode"),
+        YTInlineMutedPlaybackPlayerOverlayViewController = YTLClass(@"YTInlineMutedPlaybackPlayerOverlayViewController"),
+        YTInterstitialPromoEventGroupHandler = YTLClass(@"YTInterstitialPromoEventGroupHandler"),
+        YTMenuItemVisibilityHandler = YTLClass(@"YTMenuItemVisibilityHandler"),
+        YTModularPlayerBarController = YTLClass(@"YTModularPlayerBarController"),
+        YTMySubsFilterHeaderView = YTLClass(@"YTMySubsFilterHeaderView"),
+        YTPersonalizedSuggestionsCacheProvider = YTLClass(@"YTPersonalizedSuggestionsCacheProvider"),
+        YTPivotBarIndicatorView = YTLClass(@"YTPivotBarIndicatorView"),
+        YTPivotBarView = YTLClass(@"YTPivotBarView"),
+        YTPlayabilityResolutionUserActionUIController = YTLClass(@"YTPlayabilityResolutionUserActionUIController"),
+        YTPlaybackConfig = YTLClass(@"YTPlaybackConfig"),
+        YTPlayerBarSegmentView = YTLClass(@"YTPlayerBarSegmentView"),
+        YTPlaylistMiniBarView = YTLClass(@"YTPlaylistMiniBarView"),
+        YTPromoThrottleController = YTLClass(@"YTPromoThrottleController"),
+        YTPromosheetEventGroupHandler = YTLClass(@"YTPromosheetEventGroupHandler"),
+        YTReelHeaderView = YTLClass(@"YTReelHeaderView"),
+        YTReelPausedStateCarouselView = YTLClass(@"YTReelPausedStateCarouselView"),
+        YTReelPlayerButton = YTLClass(@"YTReelPlayerButton"),
+        YTReelPlayerViewController = YTLClass(@"YTReelPlayerViewController"),
+        YTReelPlayerViewControllerSub = YTLClass(@"YTReelPlayerViewControllerSub"),
+        YTReelWatchHeaderView = YTLClass(@"YTReelWatchHeaderView"),
+        YTReelWatchPlaybackOverlayView = YTLClass(@"YTReelWatchPlaybackOverlayView"),
+        YTSearchViewController = YTLClass(@"YTSearchViewController"),
+        YTSectionListViewController = YTLClass(@"YTSectionListViewController"),
+        YTSettings = YTLClass(@"YTSettings"),
+        YTSettingsCell = YTLClass(@"YTSettingsCell"),
+        YTSettingsSectionItemManager = YTLClass(@"YTSettingsSectionItemManager"),
+        YTShortsPlayerViewController = YTLClass(@"YTShortsPlayerViewController"),
+        YTShortsStartupCoordinator = YTLClass(@"YTShortsStartupCoordinator"),
+        YTSpeedmasterController = YTLClass(@"YTSpeedmasterController"),
+        YTSurveyController = YTLClass(@"YTSurveyController"),
+        YTUserDefaults = YTLClass(@"YTUserDefaults"),
+        YTVarispeedSwitchController = YTLClass(@"YTVarispeedSwitchController"),
+        YTVersionUtils = YTLClass(@"YTVersionUtils"),
+        YTVideoQualitySwitchControllerFactory = YTLClass(@"YTVideoQualitySwitchControllerFactory"),
+        YTWatchFloatingMiniplayerViewController = YTLClass(@"YTWatchFloatingMiniplayerViewController"),
+        YTWatchFlowController = YTLClass(@"YTWatchFlowController"),
+        YTWatchMiniBarViewController = YTLClass(@"YTWatchMiniBarViewController"),
+        YTWatchNextResultsViewController = YTLClass(@"YTWatchNextResultsViewController"),
+        YTWatchViewController = YTLClass(@"YTWatchViewController")
+    );
+
     if (ytlBool(@"shortsOnlyMode") && (ytlBool(@"removeShorts") || ytlBool(@"reExplore"))) {
         ytlSetBool(NO, @"removeShorts");
         ytlSetBool(NO, @"reExplore");
@@ -1390,7 +1745,7 @@ static NSURL *newCoverURL(NSURL *originalURL) {
         ytlSetBool(YES, @"advancedModeReminder");
 
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            YTAlertView *alertView = [%c(YTAlertView) confirmationDialogWithAction:^{
+            YTAlertView *alertView = [YTLClass(@"YTAlertView") confirmationDialogWithAction:^{
                 ytlSetBool(YES, @"advancedMode");
             }
             actionTitle:LOC(@"Yes")

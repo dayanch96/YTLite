@@ -1,0 +1,102 @@
+name: Build YTLite from source
+
+on:
+  workflow_dispatch:
+    inputs:
+      scheme:
+        description: "Package scheme"
+        type: choice
+        options:
+          - rootless
+          - rootful
+          - roothide
+        default: rootless
+  push:
+    paths:
+      - "*.x"
+      - "*.h"
+      - "Utils/**"
+      - "Makefile"
+      - "layout/**"
+      - ".github/workflows/build_source.yml"
+  pull_request:
+    paths:
+      - "*.x"
+      - "*.h"
+      - "Utils/**"
+      - "Makefile"
+      - "layout/**"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build deb
+    runs-on: macos-15-intel
+
+    steps:
+      - name: Checkout YTLite
+        uses: actions/checkout@v6
+        with:
+          path: YTLite
+
+      - name: Checkout YouTubeHeader
+        uses: actions/checkout@v6
+        with:
+          repository: PoomSmart/YouTubeHeader
+          ref: 4b9977e2b243fcb143395e0a20d975a32eaa93e0
+          path: YouTubeHeader
+
+      - name: Install dependencies
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: "1"
+          HOMEBREW_NO_INSTALL_CLEANUP: "1"
+          HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: "1"
+        run: brew install make ldid dpkg
+
+      - name: Set environment
+        run: |
+          echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
+          echo "THEOS=${{ github.workspace }}/theos" >> $GITHUB_ENV
+
+      - name: Cache Theos
+        id: theos
+        uses: actions/cache@v5
+        with:
+          path: theos/
+          key: theos_source_build_sdk16.5_${{ runner.os }}_${{ runner.arch }}_v1
+
+      - name: Setup Theos
+        if: ${{ steps.theos.outputs.cache-hit != 'true' }}
+        uses: actions/checkout@v6
+        with:
+          repository: theos/theos
+          path: theos
+          submodules: recursive
+
+      - name: Download iOS SDK
+        if: ${{ steps.theos.outputs.cache-hit != 'true' }}
+        run: |
+          git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/theos/sdks/
+          cd sdks
+          git sparse-checkout set --no-cone iPhoneOS16.5.sdk
+          git checkout
+          mv *.sdk $THEOS/sdks
+
+      - name: Build
+        working-directory: YTLite
+        run: |
+          case "${{ inputs.scheme || 'rootless' }}" in
+            rootless) make clean package FINALPACKAGE=1 ROOTLESS=1 -j"$(sysctl -n hw.ncpu)" ;;
+            roothide) make clean package FINALPACKAGE=1 ROOTHIDE=1 -j"$(sysctl -n hw.ncpu)" ;;
+            *) make clean package FINALPACKAGE=1 -j"$(sysctl -n hw.ncpu)" ;;
+          esac
+
+      - name: Upload deb
+        uses: actions/upload-artifact@v4
+        with:
+          name: ytlite-${{ inputs.scheme || 'rootless' }}
+          path: YTLite/packages/*.deb
+          if-no-files-found: error
