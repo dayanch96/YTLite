@@ -97,7 +97,7 @@
 "NoLogo" = "Убрать логотип";
 
 /* Feed options */
-"Feed" = "Настройки ленты";
+"Feed" = "Лента";
 "RemoveAds" = "Убрать рекламу";
 "RemoveAdsDesc" = "Убирает рекламу в приложении.";
 "HideShorts" = "Скрыть видеоролики Shorts";
@@ -128,7 +128,7 @@
 "FixAlbumsDesc" = "Исправляет отображение обложек в том случае, если вы из России.";
 
 /* Player options */
-"Player" = "Настройки плеера";
+"Player" = "Плеер";
 "PlaybackQualityOnWiFi" = "Качество по WiFi";
 "PlaybackQualityOnWiFiDesc" = "Автоматически применяет выбранное качество при воспроизведении по Wi-Fi";
 "PlaybackQualityOnCellular" = "Качество по мобильной сети";
@@ -167,6 +167,8 @@
 "OverlayButtonsOrder" = "Порядок кнопок оверлея";
 "OverlayButtonsOrderDesc" = "Задаёт порядок кнопок YTPlus в оверлее плеера.";
 "ResetOrder" = "Сбросить порядок";
+"Player.ButtonsFirstRow" = "Кнопки первого ряда";
+"Player.ButtonsSecondRow" = "Кнопки второго ряда";
 "LoopButton" = "Кнопка повтора";
 "LoopButtonDesc" = "Отображает кнопку повтора текущего ролика. YouTube сбрасывает повтор на каждом новом видео, поэтому режим устанавливается заново.";
 "FullscreenButton" = "Полноэкранный режим вправо";
@@ -329,7 +331,7 @@
 "NoDoubleTap2SeekDesc" = "Отключает перемотку двойным тапом в плеере.";
 
 /* Shorts options */
-"Shorts" = "Настройки Shorts";
+"Shorts" = "Shorts";
 "PlaybackMode" = "Действие по окончанию воспроизведения";
 "Loop" = "Повторить";
 "ScrollToNext" = "К следующему";
@@ -390,6 +392,8 @@
 "HideShortsRemixDesc" = "Скрывает кнопку «Ремикс» с панели элементов.";
 "HideShortsAudioButton" = "Скрыть «Аудио»";
 "HideShortsAudioButtonDesc" = "Скрывает кнопку «Аудио» с панели элементов.";
+"HideShortsDownload" = "Скрыть кнопку загрузки";
+"HideShortsDownloadDesc" = "Скрывает кнопку загрузки YouTube Plus с панели элементов.";
 "HideShortsSuggestion" = "Скрыть рекомендации";
 "HideShortsSuggestionDesc" = "Скрывает кнопку с рекомендациями по типа Сохранить в плейлист, Суперспасибо и т.д.";
 "HideShortsSubscribe" = "Скрыть «Подписаться»";
@@ -446,11 +450,18 @@
 "Downloads.Paused" = "Пауза";
 "Downloads.Queued" = "В очереди…";
 "Downloads.Interrupted" = "Прервано";
+"Downloads.WaitingForConversion" = "Ожидает конвертации…";
+"SlowerConversion" = "Конвертация дольше";
+"Downloads.Error.Offline" = "Нет сети";
+"Downloads.Error.Timeout" = "Таймаут";
 "Downloads.Empty" = "Пока ничего не загружено";
 "Downloads.Unlock" = "Разблокировать";
 "Downloads.UnlockReason" = "Открыть приватные загрузки";
 "Downloads.PrivateDownload" = "Приватная загрузка";
 "Downloads.Added" = "Добавлено в список загрузок";
+"DownloadLater" = "Скачать позже";
+"Downloads.SavedForLater" = "Сохранено, чтобы скачать позже";
+"Downloads.WaitingToStart" = "Ожидает запуска";
 "Downloads.Queue" = "Очередь";
 "Downloads.ParallelDownloads" = "Одновременных загрузок";
 "Downloads.ParallelDownloadsDesc" = "Сколько файлов качается разом. Остальные ждут своей очереди.";
@@ -478,6 +489,8 @@
 "Downloads.Menu.Reencode" = "Конвертировать";
 "Downloads.Menu.MoveToPrivate" = "Переместить в приватное";
 "Downloads.Menu.MoveToPublic" = "Вернуть в общие разделы";
+"Downloads.Menu.MoveTo" = "Переместить в…";
+"Downloads.Menu.AllDownloads" = "Все загрузки";
 "Player.Unplayable" = "Этот файл не воспроизводится";
 "Player.Unplayable.Message" = "Этот формат не поддерживается вашим устройством. Конвертировать в H.264?";
 "Player.Position" = "%ld / %ld • %@";
@@ -507,6 +520,7 @@
 "Downloads.Deleted" = "Удалено";
 "Downloads.MovedToPrivate" = "Перемещено в приватное";
 "Downloads.MovedToPublic" = "Возвращено в общие разделы";
+"Downloads.Moved" = "Перемещено";
 "Undo" = "Отменить";
 "Downloads.Swipe.Channel" = "Канал";
 "Downloads.Swipe.Video" = "Видео";
@@ -574,8 +588,8 @@
 "RemovePlayNextDesc" = "Убирает опцию «Добавить в начало очереди» из меню видео.";
 "RemovePlayLast" = "Убрать «Добавить в конец очереди";
 "RemovePlayLastDesc" = "Убирает пункт «Добавить в конец очереди» из меню.";
-"RemovePlayOnDifferent" = "Убрать «Воспроизвести на другом устройстве»";
-"RemovePlayOnDifferentDesc" = "Убирает пункт «Воспроизвести на другом устройстве» из меню.";
+"RemovePlayOnDifferent" = "Убрать «Открыть на другом устройстве»";
+"RemovePlayOnDifferentDesc" = "Убирает пункт «Открыть на другом устройстве» из меню.";
 "RemoveDownloadMenu" = "Убрать «Скачать»";
 "RemoveDownloadMenuDesc" = "Убирает опцию «Скачать» из меню видео.";
 "RemoveWatchLaterMenu" = "Убрать «Смотреть позже»";
@@ -695,6 +709,78 @@
 "RPC.LocalPermissionRequired" = "Требуется доступ к локальной сети. Включите его в Настройках → YouTube.";
 "RPC.DesktopServerRequired" = "Сервер недоступен. Убедитесь, что YouTube Plus RPC запущен на компьютере, и оба устройства подключены к одной Wi-Fi сети.";
 "RPC.OpenSettings" = "Открыть настройки";
+
+/* Parental control */
+"Parental.Title" = "Родительский контроль";
+"Parental.Footer" = "Настройки YouTube и YouTube Plus, смена аккаунта и меню таб-бара требуют код-пароль. Чтобы приложение нельзя было удалить или заменить, используйте Экранное время iOS.";
+"Parental.TurnOn" = "Включить родительский контроль";
+"Parental.TurnOff" = "Выключить родительский контроль";
+"Parental.ChangePin" = "Сменить код-пароль";
+"Parental.TurnedOff" = "Родительский контроль выключен";
+"Parental.SaveFailed" = "Не удалось сохранить код-пароль в связку ключей";
+"Parental.SetPin" = "Установка код-пароля";
+"Parental.SetPinDesc" = "Введите код из 4 или 6 цифр дважды.";
+"Parental.NewPin" = "Код-пароль";
+"Parental.RepeatPin" = "Повторите код-пароль";
+"Parental.RecoveryCode" = "Код восстановления";
+"Parental.RecoveryCodeDesc" = "Сохраните этот код в надёжном месте. Только с ним можно выключить родительский контроль, если вы забудете код-пароль. Больше он показан не будет.";
+"Parental.EnterRecoveryDesc" = "Введите код восстановления, чтобы выключить родительский контроль.";
+"Parental.EnterPin" = "Введите код-пароль";
+"Parental.WrongPin" = "Неверный код-пароль";
+"Parental.LockedOut" = "Слишком много попыток. Повторите через %@";
+"Parental.Forgot" = "Забыли?";
+"Parental.UnlockedFor" = "Доступ открыт · %@";
+"Parental.LockNow" = "Заблокировать";
+"Parental.LockNowDesc" = "Закрыть доступ к настройкам сейчас? Код-пароль снова понадобится.";
+"Parental.RestrictedMode" = "Безопасный режим";
+"Parental.RestrictedModeDesc" = "Включает Безопасный режим самого YouTube.";
+"Parental.Links" = "Блокировать внешние ссылки";
+"Parental.LinksDesc" = "Ссылки из описаний и комментариев не открываются в браузере и других приложениях без код-пароля.";
+"Parental.Links.Blocked" = "Ссылка заблокирована";
+"Parental.Links.Open" = "Открыть с код-паролем";
+"Parental.History" = "История просмотров";
+"Parental.HistoryDesc" = "Видео и Shorts, которые смотрели дольше 10 секунд при включённом родительском контроле.";
+"Parental.History.Empty" = "История пуста";
+"Parental.History.Clear" = "Очистить историю";
+"Parental.History.ClearDesc" = "Все записи будут удалены без возможности восстановления.";
+"Parental.TimeLimits" = "Ограничения по времени";
+"Parental.Limit" = "Дневной лимит";
+"Parental.LimitDesc" = "Сколько времени в день можно смотреть YouTube. Считается только время, когда приложение открыто на экране. Счётчик обнуляется в полночь.";
+"Parental.Limit.Off" = "Без лимита";
+"Parental.Limit.Today" = "Сегодня";
+"Parental.Limit.UsedOf" = "%@ из %@";
+"Parental.Limit.Warning" = "Осталось 5 минут";
+"Parental.Limit.Reached" = "Время на сегодня вышло";
+"Parental.Limit.ReachedDesc" = "Дневной лимит — %@.";
+"Parental.Limit.Extend" = "Добавить время";
+"Parental.Limit.NoLimitToday" = "Без ограничений до конца дня";
+"Parental.Limit.NoLimitShort" = "без ограничений";
+"Parental.Limit.Restore" = "Вернуть ограничения";
+"Parental.Limit.RestoreDesc" = "Добавленное на сегодня время и снятые ограничения будут отменены.";
+"Parental.Limit.RestoreAction" = "Вернуть";
+"Parental.Hours" = "Разрешённые часы";
+"Parental.HoursDesc" = "Вне этих часов YouTube блокируется.";
+"Parental.HoursFrom" = "С";
+"Parental.HoursTo" = "До";
+"Parental.Hours.Blocked" = "Сейчас смотреть нельзя";
+"Parental.Hours.BlockedDesc" = "YouTube доступен с %@ до %@.";
+"Parental.Hours.GrantUntil" = "доступ до %@";
+"Parental.Channels" = "Каналы";
+"Parental.Channels.Mode" = "Фильтр каналов";
+"Parental.Channels.ModeDesc" = "Чёрный список запрещает смотреть выбранные каналы, белый — разрешает смотреть только выбранные. Запрет срабатывает при открытии видео или страницы канала. Чтобы видео не проигрывались в ленте, отключите их в настройках YouTube: Настройки → Воспроизведение → Предпросмотр видео.";
+"Parental.Channels.Off" = "Выключен";
+"Parental.Channels.Blocklist" = "Чёрный список";
+"Parental.Channels.Allowlist" = "Белый список";
+"Parental.Channels.Blocked" = "Заблокированные каналы";
+"Parental.Channels.Allowed" = "Разрешённые каналы";
+"Parental.Channels.Add" = "Добавить канал";
+"Parental.Channels.AddDesc" = "Вставьте ссылку на канал или его @handle.";
+"Parental.Channels.Added" = "%@ добавлен в список";
+"Parental.Channels.NotFound" = "Канал не найден";
+"Parental.Channels.Empty" = "Список пуст. Каналы также можно добавить из истории просмотров.";
+"Parental.Channels.Block" = "Заблокировать канал";
+"Parental.Channels.Allow" = "Разрешить канал";
+"Parental.Channels.Unavailable" = "Канал недоступен";
 
 /* Sleep Timer */
 "SleepTimer.Message" = "Выберите действие";
@@ -878,15 +964,17 @@
 "Sb.Alphabetical" = "По возрастанию (A–Я)";
 "Sb.AlphabeticalRev" = "По убыванию (Я–А)";
 
-"Welcome.Download" = "Загрузка медиа";
-"Welcome.DownloadDesc" = "Скачивайте понравившийся контент, будь то Видео, Shorts, Аудио либо Фото профиля. Копируйте интересные посты и комментарии либо же сохраняйте их в качестве изображений";
-"Welcome.Content" = "Настраиваемый интерфейс";
-"Welcome.ContentDesc" = "Удаляйте ненужный контент и скройте ненужные элементы интерфейса. Также доступен OLED-совместимый темный режим";
-"Welcome.Player" = "Настройка плеера";
-"Welcome.PlayerDesc" = "Кастомизируйте поведение плеера, автовыбор качества и скорости. Управляйте жестами";
-"Welcome.More" = "И даже больше...";
-"Welcome.MoreDesc" = "YouTube Plus содержит в себе более 50 различных опций, включая такие, как сохранение настроек и очистка кеша. Настройки доступны в разделе YouTube Plus в настройках YouTube";
-"SupportMe" = "Задонатить";
+"Welcome.Subtitle" = "Привычный YouTube, только уютнее";
+"Welcome.Download" = "Загрузки";
+"Welcome.DownloadDesc" = "Видео, Shorts, музыка и целые плейлисты — в нужном качестве. Всё скачанное в своей вкладке.";
+"Welcome.Player" = "Собственный плеер";
+"Welcome.PlayerDesc" = "Полноценный плеер с жестами и гибким управлением — как для онлайн, так и для офлайн-просмотра.";
+"Welcome.SponsorBlock" = "SponsorBlock";
+"Welcome.SponsorBlockDesc" = "Пропускайте вставки, отправляйте свои и голосуйте за существующие.";
+"Welcome.Clean" = "Ничего лишнего";
+"Welcome.CleanDesc" = "Убирайте рекламу и ненужные элементы из ленты, плеера и Shorts.";
+"Welcome.Settings" = "Гибкие настройки";
+"Welcome.SettingsDesc" = "Панель вкладок, порядок кнопок, OLED-тема, жидкое стекло и не только — всё в разделе YouTube Plus в настройках.";
 "Continue" = "Продолжить";
 
 "Conflicts.Detected" = "Обнаружены несовместимые твики";
