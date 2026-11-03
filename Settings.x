@@ -5,6 +5,7 @@
 @end
 
 static const NSInteger YTLiteSection = 789;
+FOUNDATION_EXPORT NSArray <NSString *> *YTLSponsorBlockCategories(void);
 static const char kYTLSettingKey;
 
 #import "YTLFeatureMap.h"
@@ -203,7 +204,10 @@ static NSString *GetCacheSize(YTSettingsViewController *settingsViewController) 
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             NSArray <YTSettingsSectionItem *> *rows = @[
             [self switchWithTitle:@"RemoveAds" key:@"noAds"],
-            [self switchWithTitle:@"BackgroundPlayback" key:@"backgroundPlayback"]
+            [self switchWithTitle:@"BackgroundPlayback" key:@"backgroundPlayback"],
+            [self switchWithTitle:@"OLEDMode" key:@"oledMode"],
+            [self switchWithTitle:@"AutoClearCache" key:@"autoClearCache"],
+            [self switchWithTitle:@"DownloadButton" key:@"downloadButton"]
         ];
 
         YTSettingsPickerViewController *picker = [[YTLClass(@"YTSettingsPickerViewController") alloc] initWithNavTitle:LOC(@"General") pickerSectionTitle:nil rows:[self availableRows:rows] selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
@@ -212,6 +216,27 @@ static NSString *GetCacheSize(YTSettingsViewController *settingsViewController) 
     }];
 
     [sectionItems addObject:general];
+
+    YTSettingsSectionItem *sponsorBlock = [YTSettingsSectionItemClass itemWithTitle:@"SponsorBlock"
+        accessibilityIdentifier:@"YTLiteSectionItem"
+        detailTextBlock:^NSString *() {
+            return ytlBool(@"sponsorBlock") ? @"‣" : LOC(@"Disabled");
+        }
+        selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+            NSMutableArray <YTSettingsSectionItem *> *rows = [NSMutableArray arrayWithObjects:
+                [self switchWithTitle:@"SponsorBlock" key:@"sponsorBlock"],
+                [self switchWithTitle:@"SBNotify" key:@"sbNotify"],
+                nil];
+            for (NSString *category in YTLSponsorBlockCategories()) {
+                [rows addObject:[self switchWithTitle:[@"SB_" stringByAppendingString:category] key:[@"sb_" stringByAppendingString:category]]];
+            }
+
+            YTSettingsPickerViewController *picker = [[YTLClass(@"YTSettingsPickerViewController") alloc] initWithNavTitle:@"SponsorBlock" pickerSectionTitle:nil rows:[self availableRows:rows] selectedItemIndex:NSNotFound parentResponder:[self parentResponder]];
+            [settingsViewController pushViewController:picker];
+            return YES;
+        }];
+
+    [sectionItems addObject:sponsorBlock];
 
     YTSettingsSectionItem *navbar = [YTSettingsSectionItemClass itemWithTitle:LOC(@"Navbar")
     accessibilityIdentifier:@"YTLiteSectionItem"

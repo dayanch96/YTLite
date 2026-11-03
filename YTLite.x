@@ -1,4 +1,5 @@
 #import "YTLite.h"
+#import "Utils/YTLSafeMode.h"
 
 static const char kYTLAutoSkipKey;
 static const char kYTLGestureKey;
@@ -61,6 +62,72 @@ static UIImage *YTImageNamed(NSString *imageName) {
 - (void)decorateContext:(id)context { if (!ytlBool(@"noAds")) %orig; }
 %end
 
+static void YTLStripPlayerAds(id playerData) {
+    if (!playerData) return;
+    for (NSString *key in @[@"playerAdsArray", @"adPlacementsArray", @"adSlotsArray"]) {
+        id array = YTLValue(playerData, key);
+        if ([array isKindOfClass:[NSMutableArray class]] && [array count]) [array removeAllObjects];
+    }
+}
+
+%hook YTPlayerResponse
+- (id)playerData {
+    id data = %orig;
+    if (ytlBool(@"noAds")) YTLStripPlayerAds(data);
+    return data;
+}
+%end
+
+%hook YTReelDataSource
+- (void)setReels:(id)reels {
+    if (!ytlBool(@"noAds") || !reels) return %orig;
+
+    NSIndexSet *(^adIndexes)(id) = ^NSIndexSet *(id collection) {
+        NSMutableIndexSet *indexes = [NSMutableIndexSet indexSet];
+        NSUInteger i = 0;
+        for (id model in collection) {
+            if (YTLValue(model, @"isAdVideo") ? [YTLValue(model, @"isAdVideo") boolValue] : [YTLValue(model, @"adVideo") boolValue]) [indexes addIndex:i];
+            i++;
+        }
+        return indexes;
+    };
+
+    if ([reels isKindOfClass:[NSOrderedSet class]] || [reels isKindOfClass:[NSArray class]]) {
+        NSIndexSet *indexes = adIndexes(reels);
+        if (indexes.count) {
+            if ([reels isKindOfClass:[NSMutableOrderedSet class]] || [reels isKindOfClass:[NSMutableArray class]]) {
+                [reels removeObjectsAtIndexes:indexes];
+            } else if ([reels isKindOfClass:[NSOrderedSet class]]) {
+                NSMutableOrderedSet *copy = [reels mutableCopy];
+                [copy removeObjectsAtIndexes:indexes];
+                reels = [copy copy];
+            } else {
+                NSMutableArray *copy = [reels mutableCopy];
+                [copy removeObjectsAtIndexes:indexes];
+                reels = [copy copy];
+            }
+        }
+    }
+    %orig(reels);
+}
+
+- (void)insertContentModel:(id)model atIndex:(NSUInteger)index {
+    if (ytlBool(@"noAds") && [YTLValue(model, @"isAdVideo") ?: YTLValue(model, @"adVideo") boolValue]) return;
+    %orig;
+}
+%end
+
+// OLED Mode
+%hook YTCommonColorPalette
+- (UIColor *)baseBackground { return ytlBool(@"oledMode") && self.pageStyle == 1 ? [UIColor blackColor] : %orig; }
+- (UIColor *)background1 { return ytlBool(@"oledMode") && self.pageStyle == 1 ? [UIColor blackColor] : %orig; }
+- (UIColor *)background2 { return ytlBool(@"oledMode") && self.pageStyle == 1 ? [UIColor blackColor] : %orig; }
+- (UIColor *)background3 { return ytlBool(@"oledMode") && self.pageStyle == 1 ? [UIColor blackColor] : %orig; }
+- (UIColor *)generalBackgroundA { return ytlBool(@"oledMode") && self.pageStyle == 1 ? [UIColor blackColor] : %orig; }
+- (UIColor *)generalBackgroundB { return ytlBool(@"oledMode") && self.pageStyle == 1 ? [UIColor blackColor] : %orig; }
+- (UIColor *)generalBackgroundC { return ytlBool(@"oledMode") && self.pageStyle == 1 ? [UIColor blackColor] : %orig; }
+%end
+
 %hook YTIElementRenderer
 - (NSData *)elementData {
     if (self.hasCompatibilityOptions && self.compatibilityOptions.hasAdLoggingData && ytlBool(@"noAds")) return nil;
@@ -71,7 +138,7 @@ static UIImage *YTImageNamed(NSString *imageName) {
         static NSArray *ads;
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            ads = @[@"brand_promo", @"product_carousel", @"product_engagement_panel", @"product_item", @"text_search_ad", @"text_image_button_layout", @"carousel_headered_layout", @"carousel_footered_layout", @"square_image_layout", @"landscape_image_wide_button_layout", @"feed_ad_metadata"];
+            ads = @[@"brand_promo", @"product_carousel", @"product_engagement_panel", @"product_item", @"text_search_ad", @"text_image_button_layout", @"carousel_headered_layout", @"carousel_footered_layout", @"square_image_layout", @"landscape_image_wide_button_layout", @"feed_ad_metadata", @"full_width_square_image_layout", @"full_width_portrait_image_layout", @"video_display_full_layout", @"video_display_full_buttoned_layout", @"video_display_button_group_layout", @"compact_promoted_item", @"in_feed_ad", @"ad_slot_renderer", @"shopping_carousel", @"shopping_item_card_list", @"statement_banner", @"masthead_ad", @"promoted_sparkles", @"_ad_with_", @"shorts_ad", @"reels_ad", @"player_overlay_ad", @"ads_info"];
         });
         for (NSString *ad in ads) {
             if ([description containsString:ad]) return [NSData data];
@@ -1571,7 +1638,40 @@ static NSURL *newCoverURL(NSURL *originalURL) {
 // }
 // %end
 
+static void YTLClearCaches(void) {
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0), ^{
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
+        for (NSString *item in [fileManager contentsOfDirectoryAtPath:cachePath error:nil]) {
+            [fileManager removeItemAtPath:[cachePath stringByAppendingPathComponent:item] error:nil];
+        }
+        NSString *downloads = [NSTemporaryDirectory() stringByAppendingPathComponent:@"YTLiteDownloads"];
+        [fileManager removeItemAtPath:downloads error:nil];
+    });
+}
+
+static void YTLShowSafeModeAlert(void) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        YTAlertView *alertView = [YTLClass(@"YTAlertView") confirmationDialogWithAction:^{
+            [YTLUserDefaults resetUserDefaults];
+            YTLSafeModeExit();
+        }
+        actionTitle:LOC(@"ResetSettings")
+        cancelTitle:LOC(@"No")];
+        alertView.title = LOC(@"SafeModeTitle");
+        alertView.subtitle = LOC(@"SafeModeMessage");
+        [alertView show];
+    });
+}
+
 %ctor {
+    if (YTLSafeModeActive()) {
+        YTLShowSafeModeAlert();
+        return;
+    }
+
+    if (ytlBool(@"autoClearCache")) YTLClearCaches();
+
     %init(
         MDXPlaybackRouteButtonController = YTLClass(@"MDXPlaybackRouteButtonController"),
         MLVideo = YTLClass(@"MLVideo"),

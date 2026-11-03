@@ -23,6 +23,7 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 #import "Utils/YTLUserDefaults.h"
+#import "Utils/YTLSafeMode.h"
 
 #define ytlBool(key) [[YTLUserDefaults standardUserDefaults] boolForKey:key]
 
@@ -208,3 +209,8 @@ static UIViewController *YTLTopViewController(void) {
     [presentingVC presentViewController:activityViewController animated:YES completion:nil];
 }
 %end
+
+%ctor {
+    if (YTLSafeModeActive()) return;
+    %init;
+}

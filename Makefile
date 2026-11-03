@@ -7,13 +7,13 @@ endif
 DEBUG=0
 FINALPACKAGE=1
 ARCHS = arm64
-PACKAGE_VERSION = 3.0.1
+PACKAGE_VERSION = 3.1.0
 TARGET := iphone:clang:16.5:13.0
 
 include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = YTLite
-$(TWEAK_NAME)_FRAMEWORKS = UIKit Foundation SystemConfiguration Security Photos
+$(TWEAK_NAME)_FRAMEWORKS = UIKit Foundation SystemConfiguration Security Photos AVFoundation CoreMedia
 $(TWEAK_NAME)_CFLAGS = -fobjc-arc -DTWEAK_VERSION=$(PACKAGE_VERSION)
 $(TWEAK_NAME)_FILES = $(wildcard *.x Utils/*.m)
 

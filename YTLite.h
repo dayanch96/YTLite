@@ -136,6 +136,9 @@ static inline BOOL YTLSetValue(id object, id value, NSString *key) {
 @property (nonatomic, assign, readonly) YTIVideoDetails *videoDetails;
 @end
 
+@interface YTReelDataSource : NSObject
+@end
+
 @interface YTPlayerResponse : NSObject
 @property (nonatomic, assign, readonly) YTIPlayerResponse *playerData;
 @end

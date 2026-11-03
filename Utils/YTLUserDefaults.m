@@ -37,7 +37,18 @@ static BOOL backupPending = NO;
         @"autoSpeedIndex": @3,
         @"wiFiQualityIndex": @0,
         @"cellQualityIndex": @0,
-        @"pivotIndex": @0
+        @"pivotIndex": @0,
+        @"sponsorBlock": @YES,
+        @"sbNotify": @YES,
+        @"sb_sponsor": @YES,
+        @"sb_selfpromo": @YES,
+        @"sb_interaction": @YES,
+        @"sb_intro": @NO,
+        @"sb_outro": @NO,
+        @"sb_preview": @NO,
+        @"sb_music_offtopic": @YES,
+        @"sb_filler": @NO,
+        @"downloadButton": @YES
     }];
 }
 

@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 LEGACY = set()
-SOURCES = ["YTLite.x", "Settings.x", "YTNativeShare.x", "Sideloading.x"]
+SOURCES = ["YTLite.x", "Settings.x", "YTNativeShare.x", "Sideloading.x", "SponsorBlock.x", "Downloads.x"]
 SYSTEM_PREFIXES = ("NS", "UI", "CA", "CK", "AV", "MP", "PH", "_UI", "WK", "SK")
 
 INTERFACE_RE = re.compile(r"^@interface (\w+)(?: \((\w*)\))?(?: : (\w+))?")
