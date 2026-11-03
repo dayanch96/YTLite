@@ -476,27 +476,35 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
         return;
     }
 
+    YTSingleVideoController *activeVideo = self.activeVideo;
+    if (!activeVideo) return;
+
+    NSArray *formats = activeVideo.selectableVideoFormats;
+    if (formats.count == 0) return;
+
     NetworkStatus status = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
     NSInteger kQualityIndex = status == ReachableViaWiFi ? ytlInt(@"wiFiQualityIndex") : ytlInt(@"cellQualityIndex");
 
-    NSString *bestQualityLabel;
+    NSString *bestQualityLabel = nil;
     int highestResolution = 0;
-    for (MLFormat *format in self.activeVideo.selectableVideoFormats) {
+    for (MLFormat *format in formats) {
         int reso = format.singleDimensionResolution;
         if (reso > highestResolution) {
             highestResolution = reso;
             bestQualityLabel = format.qualityLabel;
         }
     }
+    if (!bestQualityLabel) return;
 
     NSArray *qualityLabels = @[@"Default", bestQualityLabel, @"2160p60", @"2160p", @"1440p60", @"1440p", @"1080p60", @"1080p", @"720p60", @"720p", @"480p", @"360p"];
+    if (kQualityIndex < 0 || kQualityIndex >= (NSInteger)qualityLabels.count) return;
     NSString *qualityLabel = qualityLabels[kQualityIndex];
 
     if (![qualityLabel isEqualToString:bestQualityLabel]) {
         BOOL exactMatch = NO;
         NSString *closestQualityLabel = qualityLabel;
 
-        for (MLFormat *format in self.activeVideo.selectableVideoFormats) {
+        for (MLFormat *format in formats) {
             if ([format.qualityLabel isEqualToString:qualityLabel]) {
                 exactMatch = YES;
                 break;
@@ -506,7 +514,7 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
         if (!exactMatch) {
             NSInteger bestQualityDifference = NSIntegerMax;
 
-            for (MLFormat *format in self.activeVideo.selectableVideoFormats) {
+            for (MLFormat *format in formats) {
                 NSArray *formatСomponents = [format.qualityLabel componentsSeparatedByString:@"p"];
                 NSArray *targetComponents = [qualityLabel componentsSeparatedByString:@"p"];
                 if (formatСomponents.count == 2) {
@@ -524,9 +532,11 @@ void autoSkipShorts(YTPlayerViewController *self, YTSingleVideoController *video
         }
     }
 
-    MLQuickMenuVideoQualitySettingFormatConstraint *fc = [[%c(MLQuickMenuVideoQualitySettingFormatConstraint) alloc] init];
-    if ([fc respondsToSelector:@selector(initWithVideoQualitySetting:formatSelectionReason:qualityLabel:)]) {
-        [self.activeVideo setVideoFormatConstraint:[fc initWithVideoQualitySetting:3 formatSelectionReason:2 qualityLabel:qualityLabel]];
+    Class constraintClass = %c(MLQuickMenuVideoQualitySettingFormatConstraint);
+    if (![constraintClass instancesRespondToSelector:@selector(initWithVideoQualitySetting:formatSelectionReason:qualityLabel:)]) return;
+    MLQuickMenuVideoQualitySettingFormatConstraint *fc = [[constraintClass alloc] initWithVideoQualitySetting:3 formatSelectionReason:2 qualityLabel:qualityLabel];
+    if (fc) {
+        [activeVideo setVideoFormatConstraint:fc];
     }
 }
 
@@ -704,9 +714,9 @@ static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *ide
     UICollectionViewCell *cell = %orig;
 
     if ([cell isKindOfClass:objc_lookUpClass("_ASCollectionViewCell")]) {
-        _ASCollectionViewCell *cell = %orig;
-        if ([cell respondsToSelector:@selector(node)]) {
-            NSString *idToRemove = [[cell node] accessibilityIdentifier];
+        _ASCollectionViewCell *asCell = (_ASCollectionViewCell *)cell;
+        if ([asCell respondsToSelector:@selector(node)]) {
+            NSString *idToRemove = [[asCell node] accessibilityIdentifier];
             if ([idToRemove isEqualToString:@"statement_banner.view"] ||
                 (([idToRemove isEqualToString:@"eml.shorts-grid"] || [idToRemove isEqualToString:@"eml.shorts-shelf"]) && ytlBool(@"hideShorts"))) {
                 [self removeCellsAtIndexPath:indexPath];
@@ -715,12 +725,21 @@ static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *ide
     } else if (([cell isKindOfClass:objc_lookUpClass("YTReelShelfCell")] && ytlBool(@"hideShorts")) ||
         ([cell isKindOfClass:objc_lookUpClass("YTHorizontalCardListCell")] && ytlBool(@"noContinueWatching"))) {
         [self removeCellsAtIndexPath:indexPath];
-    } return %orig;
+    }
+    return cell;
 }
 
 %new
 - (void)removeCellsAtIndexPath:(NSIndexPath *)indexPath {
-    [self deleteItemsAtIndexPaths:@[indexPath]];
+    // Defer mutation — deleting during cellForItemAtIndexPath: crashes UICollectionView
+    NSIndexPath *path = [indexPath copy];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (path.section >= [self numberOfSections]) return;
+        if (path.item >= [self numberOfItemsInSection:path.section]) return;
+        @try {
+            [self deleteItemsAtIndexPaths:@[path]];
+        } @catch (__unused NSException *exception) {}
+    });
 }
 %end
 
@@ -1046,8 +1065,13 @@ static void genImageFromLayer(CALayer *layer, UIColor *backgroundColor, void (^c
 %new
 - (void)postManager:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
-        ELMContainerNode *nodeForLayer = (ELMContainerNode *)self.keepalive_node.yogaChildren[0];
         ELMContainerNode *containerNode = (ELMContainerNode *)self.keepalive_node;
+        if (!containerNode) return;
+
+        NSArray *yogaChildren = containerNode.yogaChildren;
+        if (yogaChildren.count == 0) return;
+
+        ELMContainerNode *nodeForLayer = (ELMContainerNode *)yogaChildren[0];
         NSString *text = containerNode.copiedComment;
         NSURL *URL = containerNode.copiedURL;
         CALayer *layer = nodeForLayer.layer;
