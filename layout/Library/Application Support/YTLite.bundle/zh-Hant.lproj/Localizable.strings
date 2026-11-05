@@ -7,7 +7,7 @@
 "LogOut" = "登出";
 "LogOutTitle" = "登出";
 "LogOutMessage" = "您確定要繼續嗎？";
-"FeaturesNotActivated" = "您尚未登入。請使用具備有效訂閱的帳號登入，以使用 YouTube Plus 功能。";
+"FeaturesNotActivated" = "您尚未登入。請使用具備有效訂閱的帳戶登入，以使用 YouTube Plus 功能。";
 
 /* Account status */
 "Access.Status" = "狀態";
@@ -62,7 +62,7 @@
 
 "Audios" = "音訊";
 "AudioDRC" = "平衡音量";
-"AudioDRCDesc" = "若有平衡音量(動態範圍壓縮)的音訊可用，下載管理器將優先選取";
+"AudioDRCDesc" = "若有平衡音量（動態範圍壓縮）的音訊可用，下載管理器將優先選取";
 
 "CaptionsAndThumbnails" = "字幕與縮圖";
 "EmbedThumbnailsToVideos" = "內嵌縮圖";
@@ -91,7 +91,7 @@
 "StickyNavbar" = "固定導覽列";
 "StickyNavbarDesc" = "向下滑動時保持可見狀態";
 "NoSubbar" = "隱藏子導覽列";
-"NoSubbarDesc" = "隱藏導覽列下的子導覽列（全部、讓你耳目一新的影片、直播中...等）";
+"NoSubbarDesc" = "隱藏導覽列下的子導覽列（全部、讓您耳目一新的影片、直播中…等）";
 "LogoImage" = "標誌圖片";
 "LogoImageDesc" = "將 YouTube 標誌替換為在導覽列中選擇的圖片";
 "NoLogo" = "移除標誌";
@@ -100,8 +100,8 @@
 "Feed" = "首頁動態";
 "RemoveAds" = "移除廣告";
 "RemoveAdsDesc" = "刪除應用程式內的廣告";
-"HideShorts" = "隱藏Shorts影片";
-"HideShortsDesc" = "從首頁、推薦...等，隱藏 Shorts 影片（不適用於觀看紀錄）";
+"HideShorts" = "隱藏 Shorts 影片";
+"HideShortsDesc" = "從首頁、推薦…等，隱藏 Shorts 影片（不適用於觀看記錄）";
 "KeepSubsShorts" = "訂閱內容中保留 Shorts";
 "KeepSubsShortsDesc" = "防止從\"訂閱內容\"標籤中移除 Shorts 影片";
 "RemoveCommunityPosts" = "移除社群貼文";
@@ -117,11 +117,11 @@
 "RemoveUpcomingLives" = "移除即將播出的直播";
 "RemoveUpcomingLivesDesc" = "從動態消息中移除已排程的直播預告";
 "RemoveHorizontalFeeds" = "移除橫向動態";
-"RemoveHorizontalFeedsDesc" = "從首頁移除所有橫向動態 (新聞, 繼續觀看, 貼文合輯...等)";
+"RemoveHorizontalFeedsDesc" = "從首頁移除所有橫向動態（新聞、繼續觀看、貼文合輯…等）";
 "RemoveMoreTopics" = "移除\"更多主題\"";
 "RemoveMoreTopicsDesc" = "從首頁動態移除\"更多主題\"";
 "RemovePlayables" = "移除遊戲角落";
-"RemovePlayablesDesc" = "從動態消息移除遊戲角落 (小遊戲) ";
+"RemovePlayablesDesc" = "從動態消息移除遊戲角落（小遊戲）";
 "RemoveMembersOnly" = "移除會員專屬影片";
 "RemoveMembersOnlyDesc" = "從動態消息中移除僅限頻道會員觀看的影片";
 "FixAlbums" = "修復封面";
@@ -152,7 +152,7 @@
 "FixPlaybackDesc" = "解決舊裝置和側載應用程式上的播放問題。如果您可以正常播放影片，建議保持關閉。";
 "FixPlayback.Enabled" = "播放失敗，已開啟播放修復功能。您可以在播放器設定中將其關閉。";
 "FixPlayback.TurnOff" = "立即關閉";
-"NoSharePlayPrompt" = "不提示同播共享 (SharePlay)";
+"NoSharePlayPrompt" = "不提示同播共享（SharePlay）";
 "NoSharePlayPromptDesc" = "在 FaceTime 通話期間觀看時，YouTube 不會要求啟動同播共享。您仍然可以加入由其他人發起的同播共享。";
 
 "Player.Interface" = "介面";
@@ -167,13 +167,13 @@
 "OverlayButtonsOrder" = "覆蓋層按鈕順序";
 "OverlayButtonsOrderDesc" = "設定播放器覆蓋層中 YTPlus 按鈕的顯示順序";
 "ResetOrder" = "重設順序";
-"Player.ButtonsFirstRow" = "First row buttons";
-"Player.ButtonsSecondRow" = "Second row buttons";
+"Player.ButtonsFirstRow" = "第一排按鈕";
+"Player.ButtonsSecondRow" = "第二排按鈕";
 "LoopButton" = "循環播放按鈕";
 "LoopButtonDesc" = "顯示可循環播放目前影片的按鈕，由於 YouTube 會在切換新影片時取消循環，因此每次皆需重新設定此模式";
 "FullscreenButton" = "向右旋轉進入全螢幕";
 "FullscreenButtonDesc" = "提供一個與 YouTube 預設旋轉方向相反的全螢幕按鈕，即使鎖定了螢幕旋轉也能正常切換";
-"PiPButton" = "子母畫面 (PiP) 按鈕";
+"PiPButton" = "子母畫面（PiP）按鈕";
 "PiPButtonDesc" = "顯示可開啟和關閉子母畫面的按鈕，以便在背景播放";
 "HideOverlayTitle" = "隱藏影片標題";
 "HideOverlayTitleDesc" = "在全螢幕播放介面中隱藏影片標題";
@@ -219,8 +219,8 @@
 "DisableAmbientModeDesc" = "停用播放器和下方區域的微光效果";
 "VideoEndTime" = "顯示播放結束時間";
 "VideoEndTimeDesc" = "新增影片播放結束時間至播放器欄";
-"24hrFormat" = "24小時制";
-"24hrFormatDesc" = "播放結束時間將以24小時制顯示";
+"24hrFormat" = "24 小時制";
+"24hrFormatDesc" = "播放結束時間將以 24 小時制顯示";
 "NoRelatedWatchNexts" = "隱藏播放器下的所有影片";
 "NoRelatedWatchNextsDesc" = "只留下影片資訊和留言區域";
 "RemoveInlineComment" = "移除留言";
@@ -271,7 +271,7 @@
 "NoContentWarning" = "略過內容警告";
 "NoContentWarningDesc" = "略過敏感內容警告訊息";
 "NoHints" = "停用提示";
-"NoHintsDesc" = "在播放過程中出現在右上角的作者提示";
+"NoHintsDesc" = "隱藏播放過程中出現在右上角的創作者提示";
 "AutoFullscreen" = "全螢幕模式";
 "AutoFullscreenDesc" = "自動以全螢幕模式播放影片";
 "ExitFullscreen" = "結束時退出全螢幕模式";
@@ -288,12 +288,12 @@
 "Player.Gestures" = "手勢";
 "CompactToast" = "簡潔提示";
 "CompactToastDesc" = "為播放器操作顯示簡潔風格的提示";
-"LeftSideGesture" = "左邊手勢";
-"LeftSideGestureDesc" = "透過在螢幕左邊垂直滑動來調整選擇的設定";
-"RightSideGesture" = "右邊手勢";
-"RightSideGestureDesc" = "透過在螢幕右邊垂直滑動來調整選擇的設定";
+"LeftSideGesture" = "左側手勢";
+"LeftSideGestureDesc" = "透過在螢幕左側垂直滑動來調整選擇的設定";
+"RightSideGesture" = "右側手勢";
+"RightSideGestureDesc" = "透過在螢幕右側垂直滑動來調整選擇的設定";
 "ActivationAreaWidth" = "手勢啟動寬度";
-"ActivationAreaWidthDesc" = "此值決定螢幕左右兩側的手勢識別區域（單位:像素）\n\n最大值允許為螢幕寬度的三分之一\n\n調整此設定有助於防止在嘗試最小化或展開播放器時意外啟動";
+"ActivationAreaWidthDesc" = "此值決定螢幕左右兩側的手勢識別區域（單位：像素）\n\n最大值允許為螢幕寬度的三分之一\n\n調整此設定有助於防止在嘗試最小化或展開播放器時意外啟動";
 "HoldToSpeed" = "按住加速";
 "HoldToSpeedDesc" = "設定長按播放器時觸發的播放速度。\n\n標準：0.25×–5×（固定間距）\n進階：0.25×–10×（0.05× 間距）";
 "Standard" = "標準";
@@ -307,7 +307,7 @@
 "SeekAnywhereFeed" = "在動態消息播放器中快轉/倒轉";
 "SeekAnywhereFeedDesc" = "在動態消息的影片上左右滑動，即可快轉或倒轉";
 "SeekMethod" = "快轉/倒轉方式";
-"SeekMethodDesc" = "獨立:可以在整部影片內自由快速滑動(取決於快轉/倒轉靈敏度)\n\n基於影片長度:滑動進度取決於影片時間長度和快轉/倒轉靈敏度。這對於長時間影片很有幫助，可以防止滑動時跳過大部分的影片內容。";
+"SeekMethodDesc" = "獨立：可以在整部影片內自由快速滑動（取決於快轉/倒轉靈敏度）\n\n基於影片長度：滑動進度取決於影片時間長度和快轉/倒轉靈敏度。這對於長時間影片很有幫助，可以防止滑動時跳過大部分的影片內容。";
 "Independent" = "獨立";
 "DurationBased" = "基於影片長度";
 "SeekSensitivity" = "快轉/倒轉靈敏度";
@@ -322,11 +322,11 @@
 "PauseOnOverlay" = "覆蓋時暫停";
 "PauseOnOverlayDesc" = "當覆蓋畫面出現時，暫停播放";
 "DontSnap2Chapter" = "停用跳轉到章節";
-"DontSnap2ChapterDesc" = "停用點兩下手勢跳轉到下一集";
+"DontSnap2ChapterDesc" = "停用點兩下手勢跳轉到下一章節";
 "NoTwoFingerSnapToChapter" = "停用兩指點兩下";
 "NoTwoFingerSnapToChapterDesc" = "停用兩指點兩下跳轉到章節的手勢";
 "NoFreeZoom" = "停用自由縮放手勢";
-"NoFreeZoomDesc" = "停用新的自由缩放手势";
+"NoFreeZoomDesc" = "停用新的自由縮放手勢";
 "NoDoubleTap2Seek" = "停用點兩下快轉功能";
 "NoDoubleTap2SeekDesc" = "停用點兩下手勢進行快轉";
 
@@ -346,7 +346,7 @@
 "ShortsProgress" = "啟用時間進度列";
 "ShortsProgressDesc" = "在 Shorts 底部顯示進度列";
 "SpeedByLongTap" = "加快 Shorts 播放速度";
-"SpeedByLongTapDesc" = "允許透過長按螢幕的某個部分位置來加快播放速度";
+"SpeedByLongTapDesc" = "長按螢幕指定區域即可加快播放速度";
 "LeftSide" = "左側";
 "RightSide" = "右側";
 "BothSides" = "兩側";
@@ -369,14 +369,14 @@
 "HideShortsMute" = "隱藏靜音按鈕";
 "HideShortsMuteDesc" = "從 Shorts 頂部列隱藏聲音切換按鈕";
 "HideShortsMore" = "隱藏更多 (⋮) 按鈕";
-"HideShortsMoreDesc" = "從 Shorts 中隱藏更多 (⋮) 按鈕,也可以透過長按螢幕來完成";
+"HideShortsMoreDesc" = "從 Shorts 中隱藏更多 (⋮) 按鈕，也可以透過長按螢幕來完成";
 
 "HideCarouselSub" = "隱藏訂閱";
 "HideCarouselSubDesc" = "移除暫停狀態下出現的訂閱按鈕";
 "HideCarouselLive" = "隱藏直播";
 "HideCarouselLiveDesc" = "移除暫停狀態下出現的直播按鈕";
-"HideCarouselLens" = "隱藏智慧鏡頭 (Lens)";
-"HideCarouselLensDesc" = "移除暫停狀態下出現的智慧鏡頭 (Lens) 按鈕";
+"HideCarouselLens" = "隱藏智慧鏡頭（Lens）";
+"HideCarouselLensDesc" = "移除暫停狀態下出現的智慧鏡頭（Lens）按鈕";
 "HideCarouselTrends" = "隱藏熱門趨勢";
 "HideCarouselTrendsDesc" = "移除暫停狀態下出現的熱門趨勢按鈕";
 "HideCarouselShop" = "隱藏購物";
@@ -388,14 +388,14 @@
 "HideShortsCommentsDesc" = "移除動作列上的留言按鈕";
 "HideShortsShare" = "隱藏分享按鈕";
 "HideShortsShareDesc" = "移除動作列上的分享按鈕";
-"HideShortsRemix" = "隱藏Remix按鈕";
+"HideShortsRemix" = "隱藏 Remix 按鈕";
 "HideShortsRemixDesc" = "移除動作列上的 Remix 按鈕";
 "HideShortsAudioButton" = "隱藏音訊按鈕";
 "HideShortsAudioButtonDesc" = "移除動作列上的音訊按鈕";
-"HideShortsDownload" = "No Download button";
-"HideShortsDownloadDesc" = "Removes the YouTube Plus download button from the action bar.";
+"HideShortsDownload" = "隱藏下載按鈕";
+"HideShortsDownloadDesc" = "移除動作列上的 YouTube Plus 下載按鈕";
 "HideShortsSuggestion" = "隱藏建議";
-"HideShortsSuggestionDesc" = "移除建議按鈕，例如新增至播放清單、超級感謝...等";
+"HideShortsSuggestionDesc" = "移除建議按鈕，例如新增至播放清單、超級感謝…等";
 "HideShortsSubscribe" = "隱藏訂閱按鈕";
 "HideShortsSubscribeDesc" = "移除使用者名稱旁邊的訂閱按鈕";
 "HideShortsUsername" = "隱藏使用者名稱";
@@ -403,9 +403,9 @@
 "HideShortsDescription" = "隱藏描述";
 "HideShortsDescriptionDesc" = "移除 Shorts 描述";
 "HideShortsSource" = "隱藏來源連結按鈕";
-"HideShortsSourceDesc" = "移除前往至完整影片或另一部 Shorts 的按鈕";
+"HideShortsSourceDesc" = "移除前往完整影片或另一部 Shorts 的按鈕";
 "HideShortsAudio" = "隱藏音訊指示器";
-"HideShortsAudioDesc" = "移除 Short 中顯示所使用的音訊行";
+"HideShortsAudioDesc" = "移除 Shorts 中顯示的音訊名稱列";
 "HideShortsCommentBar" = "隱藏留言列";
 "HideShortsCommentBarDesc" = "移除從使用者個人檔案播放 Shorts 時顯示的留言列";
 
@@ -418,7 +418,7 @@
 "FEsubscriptions" = "訂閱內容";
 "FElibrary" = "個人中心/媒體庫";
 "FEuploads" = "建立";
-"FEhistory" = "觀看紀錄";
+"FEhistory" = "觀看記錄";
 "FEpost_home" = "貼文";
 "VLWL" = "稍後觀看";
 "FEhype_leaderboard" = "粉絲熱推";
@@ -448,20 +448,20 @@
 "Downloads.Largest" = "最大";
 "Downloads.Smallest" = "最小";
 "Downloads.Paused" = "已暫停";
-"Downloads.Queued" = "排隊中...";
+"Downloads.Queued" = "排隊中…";
 "Downloads.Interrupted" = "已中斷";
-"Downloads.WaitingForConversion" = "Waiting for conversion…";
-"SlowerConversion" = "Slower conversion";
-"Downloads.Error.Offline" = "No connection";
-"Downloads.Error.Timeout" = "Timed out";
+"Downloads.WaitingForConversion" = "等待轉檔中…";
+"SlowerConversion" = "轉檔速度較慢";
+"Downloads.Error.Offline" = "沒有網路連線";
+"Downloads.Error.Timeout" = "連線逾時";
 "Downloads.Empty" = "尚未下載任何內容";
 "Downloads.Unlock" = "解鎖";
 "Downloads.UnlockReason" = "解鎖私密下載內容";
 "Downloads.PrivateDownload" = "私密下載";
 "Downloads.Added" = "已加入下載清單";
-"DownloadLater" = "Download later";
-"Downloads.SavedForLater" = "Saved to download later";
-"Downloads.WaitingToStart" = "Waiting to start";
+"DownloadLater" = "稍後下載";
+"Downloads.SavedForLater" = "已加入稍後下載";
+"Downloads.WaitingToStart" = "等待開始";
 "Downloads.Queue" = "佇列";
 "Downloads.ParallelDownloads" = "同時下載數量";
 "Downloads.ParallelDownloadsDesc" = "設定同時下載的檔案數量，超過數量的檔案將會排隊等待。";
@@ -489,8 +489,8 @@
 "Downloads.Menu.Reencode" = "重新編碼";
 "Downloads.Menu.MoveToPrivate" = "移至私密專區";
 "Downloads.Menu.MoveToPublic" = "移回公開專區";
-"Downloads.Menu.MoveTo" = "Move to…";
-"Downloads.Menu.AllDownloads" = "All downloads";
+"Downloads.Menu.MoveTo" = "移至…";
+"Downloads.Menu.AllDownloads" = "所有下載內容";
 "Player.Unplayable" = "無法播放此檔案";
 "Player.Unplayable.Message" = "您的裝置不支援此格式。是否重新編碼為 H.264？";
 "Player.Position" = "%ld / %ld • %@";
@@ -520,7 +520,7 @@
 "Downloads.Deleted" = "已刪除";
 "Downloads.MovedToPrivate" = "已移至私密專區";
 "Downloads.MovedToPublic" = "已移回公開專區";
-"Downloads.Moved" = "Moved";
+"Downloads.Moved" = "已移動";
 "Undo" = "復原";
 "Downloads.Swipe.Channel" = "頻道";
 "Downloads.Swipe.Video" = "影片";
@@ -547,7 +547,7 @@
 "FloatingKeyboard" = "浮動鍵盤";
 "FloatingKeyboardDesc" = "強制啟用浮動鍵盤。適用於偽裝成 iPad 樣式的 iPhone。注意：僅在選擇 iPad 樣式時有效。";
 "NoSearchHistory" = "隱藏搜尋記錄";
-"NoSearchHistoryDesc" = "視覺上隱藏搜尋歷史紀錄和建議。注意：您的搜尋紀錄仍然可在其它 YouTube 客戶端中存取";
+"NoSearchHistoryDesc" = "視覺上隱藏搜尋歷史記錄和建議。注意：您的搜尋記錄仍然可在其他 YouTube 用戶端中存取";
 "StickSortComments" = "固定留言排序";
 "StickSortCommentsDesc" = "將留言排序（熱門、最新）功能固定，這樣在滾動時就不會消失";
 "HideSortComments" = "隱藏留言排序";
@@ -634,21 +634,21 @@
 
 "Segments" = "片段";
 "Sponsor" = "贊助廣告";
-"SponsorDesc" = "有收錢的工商廣告和直接廣告。不是為了自我推銷或為了其它創作的免費推銷";
+"SponsorDesc" = "有收錢的工商廣告和直接廣告。不是為了自我推銷或為了其他創作的免費推銷";
 "SponsorColor" = "贊助片段顏色";
 "Intro" = "開頭動畫/中場休息";
-"IntroDesc" = "通常出現在影片開頭的片段，包括動畫、靜態畫面或剪輯，這些片段也會出現在同一創作者的其它影片中";
+"IntroDesc" = "通常出現在影片開頭的片段，包括動畫、靜態畫面或剪輯，這些片段也會出現在同一創作者的其他影片中";
 "IntroColor" = "開頭動畫/中場休息片段顏色";
 "Endcards" = "結束畫面/鳴謝";
 "EndcardsDesc" = "通常出現在結束畫面或接近結尾的片段，會顯示 YouTube 結尾資訊卡或鳴謝名單";
 "EndcardsColor" = "結束畫面/鳴謝片段顏色";
 "Interaction" = "互動提醒";
-"InteractionDesc" = "要求觀眾按讚、訂閱或在任何付費&免費平台上與創作者互動(例:點擊影片)";
+"InteractionDesc" = "要求觀眾按讚、訂閱或在任何付費&免費平台上與創作者互動（例：點擊影片）";
 "InteractionColor" = "互動提醒片段顏色";
 "SelfPromo" = "自我推廣/無償推廣";
-"SelfPromoDesc" = "自我推廣:創作者推廣自己的產品或服務\n無償推廣:創作者不會因為這個宣傳而得到金錢報酬";
+"SelfPromoDesc" = "自我推廣：創作者推廣自己的產品或服務\n無償推廣：創作者不會因為這個宣傳而得到金錢報酬";
 "SelfPromoColor" = "自我推廣/無償推廣片段顏色";
-"MusicOfftopic" = "音樂:非音樂片段";
+"MusicOfftopic" = "音樂：非音樂片段";
 "MusicOfftopicDesc" = "僅適用於以音樂為主要內容的影片";
 "MusicOfftopicColor" = "非音樂片段顏色";
 "Preview" = "預告";
@@ -658,7 +658,7 @@
 "HighlightDesc" = "用於快速跳轉到影片重點或精華部分";
 "HighlightColor" = "重點片段顏色";
 "Jokes" = "離題閒聊/玩笑";
-"JokesDesc" = "離題閒聊/玩笑僅用於為影片增添趣味或幽默的附加場景，對理解影片的主要內容並非必要。.";
+"JokesDesc" = "離題閒聊/玩笑僅用於為影片增添趣味或幽默的附加場景，對理解影片的主要內容並非必要。";
 "JokesColor" = "離題閒聊/玩笑片段顏色";
 
 "Sb.Disable" = "停用";
@@ -694,7 +694,7 @@
 /* Discord RPC */
 "DiscordRPC" = "Discord RPC 整合";
 "EnableDiscordRPC" = "啟用 Discord RPC";
-"EnableDiscordRPCDesc" = "在你的 Discord 狀態中顯示您正在觀看的內容";
+"EnableDiscordRPCDesc" = "在您的 Discord 狀態中顯示正在觀看的內容";
 "RPC.OverlayButton" = "在播放器介面中顯示按鈕";
 "RPC.OverlayButtonDesc" = "在影片播放器介面加入 Discord RPC 的開關按鈕";
 "RPC.DisableServerAlerts" = "停用伺服器提醒";
@@ -711,76 +711,76 @@
 "RPC.OpenSettings" = "開啟設定";
 
 /* Parental control */
-"Parental.Title" = "Parental control";
-"Parental.Footer" = "YouTube and YouTube Plus settings, account switching and the tab bar menu require a passcode. To prevent the app from being deleted or replaced, use iOS Screen Time.";
-"Parental.TurnOn" = "Turn on parental control";
-"Parental.TurnOff" = "Turn off parental control";
-"Parental.ChangePin" = "Change passcode";
-"Parental.TurnedOff" = "Parental control turned off";
-"Parental.SaveFailed" = "Couldn't save the passcode to the keychain";
-"Parental.SetPin" = "Set passcode";
-"Parental.SetPinDesc" = "Enter a 4- or 6-digit passcode twice.";
-"Parental.NewPin" = "Passcode";
-"Parental.RepeatPin" = "Repeat passcode";
-"Parental.RecoveryCode" = "Recovery code";
-"Parental.RecoveryCodeDesc" = "Save this code somewhere safe. It's the only way to turn off parental control if you forget the passcode, and it won't be shown again.";
-"Parental.EnterRecoveryDesc" = "Enter the recovery code to turn off parental control.";
-"Parental.EnterPin" = "Enter passcode";
-"Parental.WrongPin" = "Wrong passcode";
-"Parental.LockedOut" = "Too many attempts. Try again in %@";
-"Parental.Forgot" = "Forgot?";
-"Parental.UnlockedFor" = "Access open · %@";
-"Parental.LockNow" = "Lock now";
-"Parental.LockNowDesc" = "Close access to settings now? The passcode will be required again.";
-"Parental.RestrictedMode" = "Restricted mode";
-"Parental.RestrictedModeDesc" = "Turns on YouTube's own restricted mode.";
-"Parental.Links" = "Block external links";
-"Parental.LinksDesc" = "Links from descriptions and comments won't open in the browser or other apps without the passcode.";
-"Parental.Links.Blocked" = "Link blocked";
-"Parental.Links.Open" = "Open with passcode";
-"Parental.History" = "Watch history";
-"Parental.HistoryDesc" = "Videos and Shorts watched for more than 10 seconds while parental control is on.";
-"Parental.History.Empty" = "Watch history is empty";
-"Parental.History.Clear" = "Clear watch history";
-"Parental.History.ClearDesc" = "All entries will be deleted. This can't be undone.";
-"Parental.TimeLimits" = "Time limits";
-"Parental.Limit" = "Daily limit";
-"Parental.LimitDesc" = "How much time per day YouTube can be used. Only time with the app open on screen is counted. The counter resets at midnight.";
-"Parental.Limit.Off" = "No limit";
-"Parental.Limit.Today" = "Today";
-"Parental.Limit.UsedOf" = "%@ of %@";
-"Parental.Limit.Warning" = "5 minutes left";
-"Parental.Limit.Reached" = "Time's up for today";
-"Parental.Limit.ReachedDesc" = "The daily limit is %@.";
-"Parental.Limit.Extend" = "Add time";
-"Parental.Limit.NoLimitToday" = "No limits for the rest of the day";
-"Parental.Limit.NoLimitShort" = "no limits";
-"Parental.Limit.Restore" = "Restore limits";
-"Parental.Limit.RestoreDesc" = "Time added today and lifted limits will be cancelled.";
-"Parental.Limit.RestoreAction" = "Restore";
-"Parental.Hours" = "Allowed hours";
-"Parental.HoursDesc" = "YouTube is blocked outside these hours.";
-"Parental.HoursFrom" = "From";
-"Parental.HoursTo" = "To";
-"Parental.Hours.Blocked" = "Not allowed right now";
-"Parental.Hours.BlockedDesc" = "YouTube is available from %@ to %@.";
-"Parental.Hours.GrantUntil" = "allowed until %@";
-"Parental.Channels" = "Channels";
-"Parental.Channels.Mode" = "Channel filter";
-"Parental.Channels.ModeDesc" = "The blocklist prevents watching the selected channels, the allowlist allows watching only the selected ones. The restriction applies when a video or channel page is opened. To stop videos from playing in the feed, turn this off in YouTube: Settings → Playback → Playback in feeds.";
-"Parental.Channels.Off" = "Off";
-"Parental.Channels.Blocklist" = "Blocklist";
-"Parental.Channels.Allowlist" = "Allowlist";
-"Parental.Channels.Blocked" = "Blocked channels";
-"Parental.Channels.Allowed" = "Allowed channels";
-"Parental.Channels.Add" = "Add channel";
-"Parental.Channels.AddDesc" = "Paste a channel link or its @handle.";
-"Parental.Channels.Added" = "%@ added to the list";
-"Parental.Channels.NotFound" = "Channel not found";
-"Parental.Channels.Empty" = "The list is empty. Channels can also be added from the watch history.";
-"Parental.Channels.Block" = "Block channel";
-"Parental.Channels.Allow" = "Allow channel";
-"Parental.Channels.Unavailable" = "This channel is unavailable";
+"Parental.Title" = "家長監護";
+"Parental.Footer" = "進入 YouTube 與 YouTube Plus 設定、切換帳戶及開啟底部標籤欄選單時，皆須輸入密碼。若要防止 App 被刪除或替換，請搭配 iOS「螢幕使用時間」使用。";
+"Parental.TurnOn" = "開啟家長監護";
+"Parental.TurnOff" = "關閉家長監護";
+"Parental.ChangePin" = "變更密碼";
+"Parental.TurnedOff" = "已關閉家長監護";
+"Parental.SaveFailed" = "無法將密碼儲存至鑰匙圈";
+"Parental.SetPin" = "設定密碼";
+"Parental.SetPinDesc" = "請輸入兩次 4 位或 6 位數密碼。";
+"Parental.NewPin" = "密碼";
+"Parental.RepeatPin" = "再次輸入密碼";
+"Parental.RecoveryCode" = "復原碼";
+"Parental.RecoveryCodeDesc" = "請妥善保存這組復原碼，此後將不再顯示。若忘記密碼，這是關閉家長監護的唯一方式。";
+"Parental.EnterRecoveryDesc" = "請輸入復原碼以關閉家長監護。";
+"Parental.EnterPin" = "輸入密碼";
+"Parental.WrongPin" = "密碼錯誤";
+"Parental.LockedOut" = "嘗試次數過多，請於 %@ 後再試";
+"Parental.Forgot" = "忘記密碼？";
+"Parental.UnlockedFor" = "已暫時解鎖 · %@";
+"Parental.LockNow" = "立即鎖定";
+"Parental.LockNowDesc" = "要立即鎖定設定嗎？下次進入時須重新輸入密碼。";
+"Parental.RestrictedMode" = "嚴格篩選模式";
+"Parental.RestrictedModeDesc" = "開啟 YouTube 內建的嚴格篩選模式。";
+"Parental.Links" = "封鎖外部連結";
+"Parental.LinksDesc" = "點擊影片說明或留言中的連結時，須輸入密碼才能在瀏覽器或其他 App 中開啟。";
+"Parental.Links.Blocked" = "已封鎖連結";
+"Parental.Links.Open" = "輸入密碼以開啟";
+"Parental.History" = "觀看記錄";
+"Parental.HistoryDesc" = "開啟家長監護期間，觀看超過 10 秒的影片與 Shorts。";
+"Parental.History.Empty" = "尚無觀看記錄";
+"Parental.History.Clear" = "清除觀看記錄";
+"Parental.History.ClearDesc" = "這會清除所有觀看記錄，且無法復原。";
+"Parental.TimeLimits" = "時間限制";
+"Parental.Limit" = "每日時間上限";
+"Parental.LimitDesc" = "設定每天可使用 YouTube 的時間上限。系統僅計算停留在 App 畫面的時間，並於午夜重置。";
+"Parental.Limit.Off" = "無限制";
+"Parental.Limit.Today" = "今天";
+"Parental.Limit.UsedOf" = "%@ / %@";
+"Parental.Limit.Warning" = "還剩 5 分鐘";
+"Parental.Limit.Reached" = "今日使用時間已達上限";
+"Parental.Limit.ReachedDesc" = "每日時間上限為 %@。";
+"Parental.Limit.Extend" = "延長時間";
+"Parental.Limit.NoLimitToday" = "今日剩餘時間無限制";
+"Parental.Limit.NoLimitShort" = "無限制";
+"Parental.Limit.Restore" = "恢復時間限制";
+"Parental.Limit.RestoreDesc" = "將取消今天額外延長的時間，並重新啟用時間限制。";
+"Parental.Limit.RestoreAction" = "恢復";
+"Parental.Hours" = "允許使用時段";
+"Parental.HoursDesc" = "非允許時段內將無法使用 YouTube。";
+"Parental.HoursFrom" = "開始";
+"Parental.HoursTo" = "結束";
+"Parental.Hours.Blocked" = "目前時段無法使用";
+"Parental.Hours.BlockedDesc" = "YouTube 開放使用時段為 %@ 至 %@。";
+"Parental.Hours.GrantUntil" = "開放使用至 %@";
+"Parental.Channels" = "頻道管理";
+"Parental.Channels.Mode" = "頻道過濾模式";
+"Parental.Channels.ModeDesc" = "「封鎖名單」會禁止觀看所選頻道，「允許名單」僅開放觀看所選頻道。此限制會在點開影片或進入頻道頁面時生效。若要一併停止動態消息中的影片預覽，請至 YouTube「設定」→「播放」→ 關閉「在動態消息中播放影片」。";
+"Parental.Channels.Off" = "關閉";
+"Parental.Channels.Blocklist" = "封鎖名單";
+"Parental.Channels.Allowlist" = "允許名單";
+"Parental.Channels.Blocked" = "已封鎖的頻道";
+"Parental.Channels.Allowed" = "允許的頻道";
+"Parental.Channels.Add" = "新增頻道";
+"Parental.Channels.AddDesc" = "貼上頻道連結或輸入 @使用者代碼。";
+"Parental.Channels.Added" = "已將 %@ 加入名單";
+"Parental.Channels.NotFound" = "找不到該頻道";
+"Parental.Channels.Empty" = "目前尚無頻道。您也可以直接從「觀看記錄」中加入頻道。";
+"Parental.Channels.Block" = "封鎖頻道";
+"Parental.Channels.Allow" = "允許頻道";
+"Parental.Channels.Unavailable" = "無法觀看此頻道";
 
 /* Sleep Timer */
 "SleepTimer.Message" = "想要執行什麼操作？";
@@ -792,7 +792,7 @@
 "SleepTimer.Dismiss" = "略過";
 
 "SleepTimer.EndOfVideo" = "影片結束時";
-"SleepTimer.EndAt" = "結束於...";
+"SleepTimer.EndAt" = "結束於…";
 "SleepTimer.SelectTime" = "選擇時間";
 "SleepTimer.SelectChapter" = "選擇章節";
 "SleepTimer.ChapterPassed" = "已經播放過";
@@ -800,12 +800,12 @@
 
 /* Developer section */
 "Developer" = "開發者";
-"FollowMe" = "在X上跟隨我";
+"FollowMe" = "在 X 上跟隨我";
 "SupportDevelopment" = "支持開發";
 "DonateDesc" = "您的支持對我來說意義非凡";
 "SupportDevelopmentDesc" = "如果您喜歡 YTPlus 並且願意支持開發，可以使用以下任何方便的方式支持。\n感謝❤";
-"VisitGithub" = "Github 儲存庫";
-"VisitGithubDesc" = "為儲存庫標記星號，提出功能請求或回報問題。";
+"VisitGithub" = "GitHub 儲存庫";
+"VisitGithubDesc" = "為儲存庫標記星號、提出功能請求或回報問題。";
 "VisitTelegram" = "我的 Telegram 頻道";
 "VisitTelegramDesc" = "隨時掌握 App 的最新更新資訊";
 
@@ -835,10 +835,10 @@
 "Preferences" = "%@ 偏好設定";
 "ManagePreferences" = "偏好設定管理";
 "ImportPreferences" = "匯入偏好設定";
-"PreImportMessage" = "此項操作會將目前的偏好設定，替換為所選檔案中的偏好設定。\n\n確定要繼續嗎?";
+"PreImportMessage" = "此項操作會將目前的偏好設定，替換為所選檔案中的偏好設定。\n\n確定要繼續嗎？";
 "ExportPreferences" = "匯出偏好設定";
 "ResetSettings" = "重置 YTPlus 設定";
-"ResetMessage" = "這個選項會將 YTPlus 重置為預設值，並關閉 Youtube\n\n您確定要繼續嗎?";
+"ResetMessage" = "這個選項會將 YTPlus 重置為預設值，並關閉 YouTube\n\n您確定要繼續嗎？";
 
 "UpdatePreferences" = "更新";
 "NotifyUpdates" = "更新通知";
@@ -846,13 +846,13 @@
 
 "ManageCache" = "快取管理";
 "ClearCacheAtStart" = "啟動時清除快取";
-"ClearCacheAtStartDesc" = "開啟 Youtube 時，自動清除快取";
+"ClearCacheAtStartDesc" = "開啟 YouTube 時，自動清除快取";
 "ClearCache" = "清除快取";
 
 "NoDonationReminder" = "停用捐款提醒";
 "NoDonationReminderDesc" = "關閉偶爾顯示的捐款提醒";
 
-"ShortsOnlyWarning" = "您確定要開啟此模式嗎?\n\n在此模式下，您只能觀看 Shorts 影片，無法進行其它操作。\n\n您可以在 Shorts 播放器中使用兩指長按來停用只看 Shorts 模式。";
+"ShortsOnlyWarning" = "您確定要開啟此模式嗎？\n\n在此模式下，您只能觀看 Shorts 影片，無法進行其他操作。\n\n您可以在 Shorts 播放器中使用兩指長按來停用只看 Shorts 模式。";
 "ShortsModeTurnedOff" = "已關閉「只看 Shorts 模式」";
 
 "AddLibraryTab" = "恢復\"個人中心\"標籤";
@@ -886,7 +886,7 @@
 "CopyTitle" = "複製標題";
 "CopyDescription" = "複製說明";
 "CopyTimestampedLink" = "複製含有時間標記的連結";
-"CopyTranscript" = "複製字幕";
+"CopyTranscript" = "複製逐字稿";
 "PlayInExternalPlayer" = "在外部播放器中播放";
 "DownloadPlaylist" = "下載播放清單";
 "SelectedMedia" = "選取的媒體";
@@ -900,15 +900,15 @@
 "TabIcon" = "標籤圖示";
 "Delete" = "刪除";
 "PlayInSystemPlayer" = "在系統播放器中播放";
-"PlayInInfuse" = "在Infuse中播放";
-"PlayInVLC" = "在VLC中播放";
+"PlayInInfuse" = "在 Infuse 中播放";
+"PlayInVLC" = "在 VLC 中播放";
 "PlayerNotFound" = "找不到播放器";
-"OpenAsRegularVideo" = "像一般影片一樣打開";
+"OpenAsRegularVideo" = "作為一般影片開啟";
 "TranslatePost" = "翻譯貼文";
 "CopyPostText" = "複製貼文內容";
-"SaveCurrentImage" = "儲存當前圖片";
-"ShowCurrentImage" = "顯示當前圖片";
-"CopyCurrentImage" = "複製當前圖片";
+"SaveCurrentImage" = "儲存目前圖片";
+"ShowCurrentImage" = "顯示目前圖片";
+"CopyCurrentImage" = "複製目前圖片";
 "SavePostAsImage" = "儲存貼文為圖片";
 "CopyPostAsImage" = "複製貼文為圖片";
 "TranslateComment" = "翻譯留言";
@@ -928,28 +928,28 @@
 "Done" = "完成";
 "NothingToShowInMenu" = "這個上下文選單中沒有可顯示的內容";
 "Error" = "發生錯誤";
-"Error.Clipboard" = "錯誤!!檢查剪貼簿獲取更多資訊";
-"Error.PathIssue" = "錯誤!!產生最終路徑時出現問題。媒體標題有問題?";
+"Error.Clipboard" = "錯誤：檢查剪貼簿取得更多資訊";
+"Error.PathIssue" = "錯誤：產生最終路徑時出現問題。媒體標題有問題？";
 "Download.Failed" = "下載失敗。錯誤代碼：%@";
 "Error.TryLater" = "媒體正在直播或正在 Google 伺服器上處理中。\n\n請稍後再試";
-"Error.NoSpace" = "裝置儲存空間不足。\n\n至少需要 %@ 的額外可用空間。目前可用空間: %@";
+"Error.NoSpace" = "裝置儲存空間不足。\n\n至少需要 %@ 的額外可用空間。目前可用空間：%@";
 "Error.Multidownloading" = "暫時不支援批次下載";
 "Error.FailedToImport" = "偏好設定匯入失敗";
-"DownloadingVideo" = "影片下載中...";
-"DownloadingAudio" = "音訊下載中...";
-"ParsingCaptions" = "解析字幕中...";
-"ParsingTranscript" = "解析逐字稿中...";
-"Converting" = "轉檔中...";
+"DownloadingVideo" = "影片下載中…";
+"DownloadingAudio" = "音訊下載中…";
+"ParsingCaptions" = "解析字幕中…";
+"ParsingTranscript" = "解析逐字稿中…";
+"Converting" = "轉檔中…";
 "RetryLogin" = "已啟用登入權限修復\n\n請再次登入";
-"LoginInfo" = "成功登錄 Google 帳戶後需要重新啟動應用程式";
+"LoginInfo" = "成功登入 Google 帳戶後需要重新啟動應用程式";
 
 "OpenLink" = "開啟連結";
-"LinkDetected" = "偵測到 YouTube 相關連結。是否要在 YouTube 中開啟?";
+"LinkDetected" = "偵測到 YouTube 相關連結。是否要在 YouTube 中開啟？";
 
 "Translation" = "翻譯";
 "Language" = "語言";
 "Translate" = "翻譯";
-"Translating" = "翻譯中...";
+"Translating" = "翻譯中…";
 
 "SbWhitelist" = "白名單";
 "SbAddToWhitelist" = "新增至白名單";
@@ -961,20 +961,20 @@
 "SortType" = "排序方式";
 "Sb.Newest" = "最新優先";
 "Sb.Oldest" = "最舊優先";
-"Sb.Alphabetical" = "依字母順序 (A-Z)";
-"Sb.AlphabeticalRev" = "依字母倒序 (Z-A)";
+"Sb.Alphabetical" = "依字母順序（A-Z）";
+"Sb.AlphabeticalRev" = "依字母倒序（Z-A）";
 
-"Welcome.Subtitle" = "The YouTube you know, just cozier";
-"Welcome.Download" = "Downloads";
-"Welcome.DownloadDesc" = "Videos, Shorts, music and entire playlists — in the quality you want. Everything saved lives in its own tab.";
-"Welcome.Player" = "Dedicated Player";
-"Welcome.PlayerDesc" = "A full-featured player with gestures and flexible controls — for both online and offline viewing.";
+"Welcome.Subtitle" = "熟悉的 YouTube，更純粹的體驗";
+"Welcome.Download" = "下載";
+"Welcome.DownloadDesc" = "以偏好畫質下載各類影音與播放清單，並集中於專屬標籤頁管理。";
+"Welcome.Player" = "專屬播放器";
+"Welcome.PlayerDesc" = "具備手勢與彈性控制的全功能播放器，完美支援線上與離線播放。";
 "Welcome.SponsorBlock" = "SponsorBlock";
-"Welcome.SponsorBlockDesc" = "Skip segments, submit your own and vote on existing ones.";
-"Welcome.Clean" = "Clean Interface";
-"Welcome.CleanDesc" = "Remove ads and unwanted elements from the feed, player and Shorts.";
-"Welcome.Settings" = "Flexible Settings";
-"Welcome.SettingsDesc" = "Tab bar, button order, OLED theme, Liquid Glass and more — all in the YouTube Plus section of Settings.";
+"Welcome.SponsorBlockDesc" = "自動跳過片段、提交自訂標記，或為現有片段評分。";
+"Welcome.Clean" = "簡潔介面";
+"Welcome.CleanDesc" = "去除首頁動態、播放器與 Shorts 的廣告及雜亂元素。";
+"Welcome.Settings" = "彈性設定";
+"Welcome.SettingsDesc" = "底部標籤欄、按鈕順序、OLED 主題與 Liquid Glass 等設定，盡在 YouTube Plus 專區。";
 "Continue" = "繼續";
 
 "Conflicts.Detected" = "偵測到不相容的插件";
@@ -983,7 +983,7 @@
 "Conflicts.AcceptRisks" = "我接受所有風險";
 "Conflicts.CloseYT" = "關閉 YouTube";
 
-"DonationReminder" = "您的支持有助於讓 YouTube Plus 變得更好。\n\n你可以在 YouTube Plus 的設定裡面，選擇捐款或關閉這些通知。謝謝你💜";
+"DonationReminder" = "您的支持有助於讓 YouTube Plus 變得更好。\n\n您可以在 YouTube Plus 的設定裡面，選擇捐款或關閉這些通知。謝謝您💜";
 
 "Quality" = "畫質";
 "PreferredQuality" = "偏好畫質";
@@ -994,7 +994,7 @@
 "PlaylistDownloadFooter" = "媒體可以在稍後從「下載」標籤頁中進行轉檔，以及編輯媒體檔案和其詮釋資料。";
 "AudioTrack" = "音軌";
 "Captions" = "字幕";
-"AfterDownload" = "儲存至...";
+"AfterDownload" = "儲存至…";
 "AudioOnly" = "僅音訊";
 "StableVolume" = "穩定音量";
 "RequiresReencoding" = "需要重新編碼";
@@ -1002,11 +1002,11 @@
 "Download" = "下載";
 "SaveCaptions" = "儲存字幕";
 "Format" = "格式";
-"Preset" = "編碼預設設定";
+"Preset" = "編碼速度設定";
 "PresetUltraFast" = "極快";
 "PresetVeryFast" = "非常快";
 "PresetMedium" = "中等";
-"FetchingData" = "正在擷取影片資料...";
+"FetchingData" = "正在擷取影片資料…";
 "PresetSkip" = "略過轉檔";
 "PresetSkipDesc" = "最快 • 無法儲存至照片 App";
 "PresetUltraFastDesc" = "快 • 檔案較大";
@@ -1015,7 +1015,7 @@
 "AlreadyDownloading" = "這部影片已經在下載中";
 "RemoveSegments" = "移除片段";
 "NoSegments" = "無";
-"RemovingSegments" = "正在移除片段...";
+"RemovingSegments" = "正在移除片段…";
 "AutoDubbed" = "自動配音";
 "SkipToHighlight" = "跳至精彩片段";
 "EditMetadata" = "編輯詮釋資料";
@@ -1048,7 +1048,7 @@
 "Sb.HighlightNoEnd" = "精彩片段不需要結束時間";
 "Sb.AddSegment" = "新增片段";
 "Sb.Submit" = "提交";
-"Sb.Submitting" = "提交中...";
+"Sb.Submitting" = "提交中…";
 "Sb.Submitted" = "片段已提交";
 "Sb.ConfirmTitle" = "確認提交這些片段？";
 "Sb.Upvote" = "按讚";
@@ -1061,7 +1061,7 @@
 
 /* Update alert */
 "Update.Message" = "有新版本可用";
-"Update.Repo" = "網頁倉庫";
+"Update.Repo" = "GitHub 儲存庫";
 "Update.Skip" = "略過此版本";
 "Update.Dismiss" = "略過";
 
