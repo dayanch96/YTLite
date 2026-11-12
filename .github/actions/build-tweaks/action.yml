@@ -1,0 +1,269 @@
+name: Build Tweaks
+description: Downloads YouTube Plus and builds the optional tweaks into the workspace
+
+inputs:
+  enable_youpip:
+    required: false
+    default: "false"
+
+  enable_ytuhd:
+    required: false
+    default: "false"
+
+  enable_yq:
+    required: false
+    default: "false"
+
+  enable_ryd:
+    required: false
+    default: "false"
+
+  enable_ytabc:
+    required: false
+    default: "false"
+
+  enable_demc:
+    required: false
+    default: "false"
+
+  enable_localization:
+    required: false
+    default: "false"
+
+  tweak_version:
+    required: false
+    default: ""
+
+  tweak_url:
+    required: false
+    default: ""
+
+runs:
+  using: composite
+  steps:
+    - name: Check integrations
+      id: flags
+      shell: bash
+      run: |
+        if [[ "${{ inputs.enable_youpip }}${{ inputs.enable_ytuhd }}${{ inputs.enable_yq }}${{ inputs.enable_ryd }}${{ inputs.enable_ytabc }}${{ inputs.enable_demc }}" == *true* ]]; then
+          echo "any=true" >> $GITHUB_OUTPUT
+        else
+          echo "any=false" >> $GITHUB_OUTPUT
+        fi
+        echo "THEOS=${{ github.workspace }}/theos" >> $GITHUB_ENV
+
+    - name: Install Dependencies
+      if: ${{ steps.flags.outputs.any == 'true' }}
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential fakeroot rsync curl perl zip git libxml2 libtinfo6 libplist-utils
+
+    - name: Restore Theos
+      if: ${{ steps.flags.outputs.any == 'true' }}
+      id: theos
+      uses: actions/cache/restore@v5
+      with:
+        path: theos/
+        key: theos_linux_9bc7340_test-210562a
+
+    - name: Setup Theos
+      if: ${{ steps.flags.outputs.any == 'true' && steps.theos.outputs.cache-hit != 'true' }}
+      uses: actions/checkout@v6
+      with:
+        repository: theos/theos
+        ref: 9bc73406cf80b711ef4d02c15ff1dedc4478a275
+        path: theos
+        submodules: recursive
+
+    - name: Install iOS toolchain
+      if: ${{ steps.flags.outputs.any == 'true' && steps.theos.outputs.cache-hit != 'true' }}
+      shell: bash
+      run: |
+        curl -sL https://github.com/L1ghtmann/llvm-project/releases/download/test-210562a/iOSToolchain-$(uname -m).tar.xz | tar -xJf - -C $THEOS/toolchain/
+        test -x $THEOS/toolchain/linux/iphone/bin/clang
+
+    - name: Download iOS SDK
+      if: ${{ steps.flags.outputs.any == 'true' && steps.theos.outputs.cache-hit != 'true' }}
+      shell: bash
+      run: |
+        git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/theos/sdks/
+        cd sdks
+        git sparse-checkout set --no-cone iPhoneOS16.5.sdk
+        git checkout
+        mv *.sdk $THEOS/sdks
+        cd ..
+        rm -rf sdks
+
+    - name: Save Theos
+      if: ${{ steps.flags.outputs.any == 'true' && steps.theos.outputs.cache-hit != 'true' }}
+      uses: actions/cache/save@v5
+      with:
+        path: theos/
+        key: theos_linux_9bc7340_test-210562a
+
+    - name: Download YouTube Plus (by version)
+      if: ${{ inputs.tweak_url == '' && inputs.tweak_version != '' }}
+      shell: bash
+      run: |
+        deb_url="https://github.com/dayanch96/YTLite/releases/download/v${{ inputs.tweak_version }}/com.dvntm.ytlite_${{ inputs.tweak_version }}_iphoneos-arm.deb"
+        wget "$deb_url" --no-verbose --tries=3 --retry-connrefused -O ytplus.deb
+
+    - name: Download YouTube Plus (by URL)
+      if: ${{ inputs.tweak_url != '' }}
+      shell: bash
+      run: |
+        wget "${{ inputs.tweak_url }}" --no-verbose --tries=3 --retry-connrefused -O ytplus.deb
+        file_type=$(file --mime-type -b ytplus.deb)
+        if [[ "$file_type" != "application/vnd.debian.binary-package" ]]; then
+          echo "::error::Validation failed: The file is not a valid DEB file. Detected type: $file_type."
+          exit 1
+        fi
+
+    - name: Clone YouTubeHeader
+      if: ${{ steps.flags.outputs.any == 'true' }}
+      shell: bash
+      run: |
+        if [ -d "$THEOS/include/YouTubeHeader" ]; then
+          cd $THEOS/include/YouTubeHeader && git pull
+        else
+          cd $THEOS/include && git clone --quiet --depth=1 https://github.com/PoomSmart/YouTubeHeader.git
+        fi
+        if [ "${{ inputs.enable_demc }}" = "true" ]; then
+          rm -rf "$THEOS/include/YTHeaders"
+          cp -r "$THEOS/include/YouTubeHeader" "$THEOS/include/YTHeaders"
+        fi
+
+    - name: Clone PSHeader
+      if: ${{ steps.flags.outputs.any == 'true' }}
+      shell: bash
+      run: |
+        if [ -d "$THEOS/include/PSHeader" ]; then
+          cd $THEOS/include/PSHeader && git pull
+        else
+          cd $THEOS/include && git clone --quiet --depth=1 https://github.com/PoomSmart/PSHeader.git
+        fi
+
+    - name: Clone YouPiP
+      if: ${{ inputs.enable_youpip == 'true' }}
+      shell: bash
+      run: git clone --quiet --depth=1 https://github.com/PoomSmart/YouPiP.git
+
+    - name: Clone YTUHD
+      if: ${{ inputs.enable_ytuhd == 'true' }}
+      shell: bash
+      run: git clone --quiet --depth=1 https://github.com/Tonwalter888/YTUHD.git
+
+    - name: Clone Return-YouTube-Dislikes
+      if: ${{ inputs.enable_ryd == 'true' }}
+      shell: bash
+      run: git clone --quiet --depth=1 https://github.com/PoomSmart/Return-YouTube-Dislikes.git
+
+    - name: Clone YTABConfig
+      if: ${{ inputs.enable_ytabc == 'true' }}
+      shell: bash
+      run: git clone --quiet --depth=1 https://github.com/PoomSmart/YTABConfig.git
+
+    - name: Clone YouGroupSettings
+      if: ${{ inputs.enable_youpip == 'true' || inputs.enable_ytuhd == 'true' || inputs.enable_yq == 'true' || inputs.enable_ryd == 'true' || inputs.enable_demc == 'true' }}
+      shell: bash
+      run: git clone --quiet --depth=1 https://github.com/PoomSmart/YouGroupSettings.git
+
+    - name: Clone YouQuality
+      if: ${{ inputs.enable_yq == 'true' }}
+      shell: bash
+      run: git clone --quiet --depth=1 https://github.com/PoomSmart/YouQuality.git
+
+    - name: Clone YTVideoOverlay
+      if: ${{ inputs.enable_yq == 'true' || inputs.enable_youpip == 'true' || inputs.enable_ytuhd == 'true' }}
+      shell: bash
+      run: git clone --quiet --depth=1 https://github.com/PoomSmart/YTVideoOverlay.git
+
+    - name: Clone DontEatMyContent
+      if: ${{ inputs.enable_demc == 'true' }}
+      shell: bash
+      run: git clone --quiet --depth=1 https://github.com/therealFoxster/DontEatMyContent.git
+
+    - name: Build YouPiP
+      if: ${{ inputs.enable_youpip == 'true' }}
+      shell: bash
+      run: |
+        cd YouPiP && make clean package DEBUG=0 FINALPACKAGE=1
+        mv packages/*.deb ../youpip.deb
+
+    - name: Build YTUHD
+      if: ${{ inputs.enable_ytuhd == 'true' }}
+      shell: bash
+      run: |
+        cd YTUHD && make clean package DEBUG=0 FINALPACKAGE=1
+        mv packages/*.deb ../ytuhd.deb
+
+    - name: Build Return-YouTube-Dislikes
+      if: ${{ inputs.enable_ryd == 'true' }}
+      shell: bash
+      run: |
+        cd Return-YouTube-Dislikes && make clean package DEBUG=0 FINALPACKAGE=1
+        mv packages/*.deb ../ryd.deb
+
+    - name: Build YTABConfig
+      if: ${{ inputs.enable_ytabc == 'true' }}
+      shell: bash
+      run: |
+        cd YTABConfig && make clean package DEBUG=0 FINALPACKAGE=1
+        mv packages/*.deb ../ytabc.deb
+
+    - name: Build YouGroupSettings
+      if: ${{ inputs.enable_youpip == 'true' || inputs.enable_ytuhd == 'true' || inputs.enable_yq == 'true' || inputs.enable_ryd == 'true' || inputs.enable_demc == 'true' }}
+      shell: bash
+      run: |
+        cd YouGroupSettings && make clean package DEBUG=0 FINALPACKAGE=1
+        mv packages/*.deb ../ygs.deb
+
+    - name: Build YouQuality
+      if: ${{ inputs.enable_yq == 'true' }}
+      shell: bash
+      run: |
+        cd YouQuality && make clean package DEBUG=0 FINALPACKAGE=1
+        mv packages/*.deb ../yq.deb
+
+    - name: Build YTVideoOverlay
+      if: ${{ inputs.enable_yq == 'true' || inputs.enable_youpip == 'true' || inputs.enable_ytuhd == 'true' }}
+      shell: bash
+      run: |
+        cd YTVideoOverlay && make clean package DEBUG=0 FINALPACKAGE=1
+        mv packages/*.deb ../ytvo.deb
+
+    - name: Build DontEatMyContent
+      if: ${{ inputs.enable_demc == 'true' }}
+      shell: bash
+      run: |
+        cd DontEatMyContent && make clean package DEBUG=0 FINALPACKAGE=1 ADDITIONAL_CFLAGS=-fcommon
+        mv packages/*.deb ../demc.deb
+
+    - name: Clone Open in YouTube (Safari extension)
+      shell: bash
+      run: |
+        git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/BillyCurtis/OpenYouTubeSafariExtension
+        cd OpenYouTubeSafariExtension
+        git sparse-checkout set --no-cone OpenYouTubeSafariExtension.appex
+        git checkout
+        mv *.appex ..
+
+    - name: Update localization
+      if: ${{ inputs.enable_localization == 'true' }}
+      shell: bash
+      run: |
+        git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/dayanch96/YTLite ytlite-src
+        git -C ytlite-src sparse-checkout set --no-cone "layout/Library/Application Support/YTLite.bundle"
+        git -C ytlite-src checkout
+        mkdir debdir
+        dpkg-deb -R ytplus.deb debdir
+        rm ytplus.deb
+        find "ytlite-src/layout/Library/Application Support/YTLite.bundle" \
+          -mindepth 1 -maxdepth 1 -type d -name "*.lproj" -not -name "en.lproj" \
+          -exec cp -R "{}" "debdir/Library/Application Support/YTLite.bundle/" \;
+        cd debdir/
+        find . -type f -not -path "./DEBIAN/*" -exec md5sum {} + | sort -k 2 | sed 's/\.\/\(.*\)/\1/' > DEBIAN/md5sums
+        cd ../
+        dpkg-deb --root-owner-group -b debdir ytplus.deb
+        rm -rf debdir ytlite-src

@@ -74,55 +74,44 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-tweaks:
-    uses: ./.github/workflows/_build_tweaks.yml
-    with:
-      enable_youpip: ${{ inputs.enable_youpip }}
-      enable_ytuhd: ${{ inputs.enable_ytuhd }}
-      enable_yq: ${{ inputs.enable_yq }}
-      enable_ryd: ${{ inputs.enable_ryd }}
-      enable_ytabc: ${{ inputs.enable_ytabc }}
-      enable_demc: ${{ inputs.enable_demc }}
-      tweak_version: ${{ inputs.tweak_version }}
-
-  package:
+  build:
     name: Generate Cyan/TrollFools
-    runs-on: macos-latest
-    needs: build-tweaks
+    if: ${{ inputs.create_cyan || inputs.create_tf }}
+    runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-      - name: Download built debs
-        uses: actions/download-artifact@v8
+      - uses: actions/checkout@v6
         with:
-          name: built-debs
-          path: ${{ github.workspace }}
+          sparse-checkout: .github
 
-      - name: Check Inputs
-        if: ${{ !inputs.create_cyan && !inputs.create_tf }}
-        run: |
-          echo "No output format selected."
-          exit 0
-
-      - name: Install Dependencies
-        run: brew install dpkg
+      - name: Build tweaks
+        uses: ./.github/actions/build-tweaks
+        with:
+          enable_youpip: ${{ inputs.enable_youpip }}
+          enable_ytuhd: ${{ inputs.enable_ytuhd }}
+          enable_yq: ${{ inputs.enable_yq }}
+          enable_ryd: ${{ inputs.enable_ryd }}
+          enable_ytabc: ${{ inputs.enable_ytabc }}
+          enable_demc: ${{ inputs.enable_demc }}
+          tweak_version: ${{ inputs.tweak_version }}
 
       - name: Install cyan
-        if: ${{ github.event.inputs.create_cyan }}
-        run: pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
+        if: ${{ inputs.create_cyan }}
+        run: pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/740d3716dcd98c20c000f12cdb88f1f0b2a533a4.zip
 
       - name: Generate .cyan file
-        if: ${{ github.event.inputs.create_cyan }}
+        if: ${{ inputs.create_cyan }}
         run: |
-          tweaks="ytplus.deb OpenYoutubeSafariExtension.appex"
+          tweaks="ytplus.deb OpenYouTubeSafariExtension.appex"
           for f in *.deb; do
             [ -f "$f" ] && tweaks="$tweaks $f"
           done
-          cgen -uwef $tweaks -n "${{ github.event.inputs.display_name }}" -b ${{ github.event.inputs.bundle_id }} -o cyan_YouTubePlus_${{ github.event.inputs.tweak_version }}.cyan
+          cgen -uwef $tweaks -n "${{ inputs.display_name }}" -b ${{ inputs.bundle_id }} -o cyan_YouTubePlus_${{ inputs.tweak_version }}.cyan
 
       - name: Generate .zip file for TrollFools
-        if: ${{ github.event.inputs.create_tf }}
+        if: ${{ inputs.create_tf }}
         run: |
           mkdir -p ytp_tf
           for f in *.deb; do
@@ -135,7 +124,7 @@ jobs:
             fi
           done
           cd ytp_tf
-          zip -r "../TrollFools_YouTubePlus_${{ github.event.inputs.tweak_version }}.zip" .
+          zip -r "../TrollFools_YouTubePlus_${{ inputs.tweak_version }}.zip" .
           cd ..
           rm -rf ytp_tf
 
@@ -143,17 +132,17 @@ jobs:
         id: filelist
         run: |
           files=""
-          [ "${{ github.event.inputs.create_cyan }}" = "true" ] && files="${files}cyan_YouTubePlus_${{ github.event.inputs.tweak_version }}.cyan"$'\n'
-          [ "${{ github.event.inputs.create_tf }}" = "true" ]   && files="${files}TrollFools_YouTubePlus_${{ github.event.inputs.tweak_version }}.zip"$'\n'
+          [ "${{ inputs.create_cyan }}" = "true" ] && files="${files}cyan_YouTubePlus_${{ inputs.tweak_version }}.cyan"$'\n'
+          [ "${{ inputs.create_tf }}" = "true" ]   && files="${files}TrollFools_YouTubePlus_${{ inputs.tweak_version }}.zip"$'\n'
           echo -e "files<<EOF" >> $GITHUB_OUTPUT
           echo -e "$files" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Upload to GitHub Releases
-        uses: softprops/action-gh-release@v3
+        uses: softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3 # v3.0.4
         with:
-          tag_name: ytp-${{ github.run_number }}
-          name: YouTubePlus v${{ github.event.inputs.tweak_version }}_cyan_trollfools (${{ github.run_number }})
+          tag_name: ytp-cyan-${{ github.run_number }}
+          name: YouTubePlus v${{ inputs.tweak_version }}_cyan_trollfools (${{ github.run_number }})
           files: ${{ steps.filelist.outputs.files }}
           draft: true
 
