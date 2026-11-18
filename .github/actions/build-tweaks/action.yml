@@ -57,7 +57,7 @@ runs:
       shell: bash
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential fakeroot rsync curl perl zip git libxml2 libtinfo6 libplist-utils
+        sudo apt-get install -y build-essential fakeroot rsync curl perl zip git libtinfo6 libplist-utils
 
     - name: Restore Theos
       if: ${{ steps.flags.outputs.any == 'true' }}
